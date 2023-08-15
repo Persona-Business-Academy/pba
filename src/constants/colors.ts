@@ -5,8 +5,8 @@ export const blueColors = {
   'blue.400': '#3CB3E5',
   'blue.500': '#36A1CE',
   'blue.600': '#308FB7',
-  'blue.200': '#F6FCFF',
-  'blue.200': '#F6FCFF',
-  'blue.200': '#F6FCFF',
-  'blue.200': '#F6FCFF',
+  'blue.700': '#F6FCFF',
+  'blue.800': '#F6FCFF',
+  'blue.900': '#F6FCFF',
+  'blue.1000': '#F6FCFF',
 };
