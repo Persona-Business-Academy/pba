@@ -8,9 +8,9 @@
       "error",
       {
         "vars": "all",
-        "varsIgnorePattern": "^",
+        "varsIgnorePattern": "^_",
         "args": "after-used",
-        "argsIgnorePattern": "^"
+        "argsIgnorePattern": "^_"
       }
     ],
     "sort-imports": ["error", { "ignoreCase": true, "ignoreDeclarationSort": true }],
@@ -39,6 +39,3 @@
     ]
   }
 }
-
-
-
