@@ -21,7 +21,7 @@ const Leadership: FC<Props> = () => {
           sm: 'flex-start',
         }}
         alignItems="center">
-        <h1 className={classes.header}> Heading </h1>
+        <h1 className={classes.header}> Asya  </h1>
         <h1 className={classes.middle}> Heading </h1>
       </Flex>
 
