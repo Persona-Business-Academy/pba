@@ -1,16 +1,17 @@
 'use client';
 import { CacheProvider } from '@chakra-ui/next-js';
-import { ChakraProvider, extendTheme, LightMode } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme, LightMode, ThemeConfig } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SessionProvider } from 'next-auth/react';
-import { breakpoints, colors, space } from '@/constants/chakra';
+import { breakpoints, colors, components, space } from '@/constants/chakra';
 
-const theme = extendTheme({
+const theme: ThemeConfig = extendTheme({
   config: {
     initialColorMode: 'light',
     useSystemColorMode: false,
   },
   colors,
+  components,
   breakpoints,
   space,
 });

@@ -1,10 +1,6 @@
-import { Input } from '@/components/atom';
+'use client';
+import { Button } from '@chakra-ui/react';
 
 export default function Home() {
-  return (
-    <>
-      <Input />
-      Asya Lyov
-    </>
-  );
+  return <Button>Hey</Button>;
 }

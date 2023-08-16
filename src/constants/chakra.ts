@@ -1,3 +1,27 @@
+import { ComponentStyleConfig } from '@chakra-ui/react';
+
+const Button: ComponentStyleConfig = {
+  baseStyle: {
+    width: '118px',
+    height: '37px',
+    bg: 'orange.900',
+    _hover: {
+      bg: 'blue.400',
+      color: 'white',
+    },
+    _focus: {
+      bg: 'blue.900',
+      color: 'white', // You need to specify the text color for focus state
+    },
+  },
+  variants: {},
+  sizes: {},
+};
+
+export const components = {
+  Button,
+};
+
 export const breakpoints = {
   sm: '30em',
   md: '48em',
