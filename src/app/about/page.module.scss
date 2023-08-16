@@ -1,0 +1,82 @@
+.about {
+  margin-bottom: 96px;
+  padding: 179px 0 124px 366px;
+
+  background-image: url(../../../public/about_bg_img.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__content {
+    max-width: 662px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 53.64px;
+    color: #fff;
+
+    span {
+      font-size: 44px;
+      line-height: 42.56px;
+    }
+  }
+}
+
+.missions {
+  &__content {
+    margin: 0 auto;
+    max-width: 784px;
+  }
+
+  &__title {
+    margin: 0 0 8px 0;
+    font-weight: 700;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  &__text {
+    line-height: 21.28px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.courses {
+    margin: 40px 0 148px;
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    & + & {
+        margin-top: 148px;
+    }
+  }
+
+  &__heading {
+    text-align: center;
+    max-width: 562px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 31.92px;
+  }
+  &__text {
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 21.28px;
+    }
+  }
+
+  &__ {
+  }
+}
