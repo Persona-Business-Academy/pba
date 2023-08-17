@@ -1,10 +1,5 @@
-import { Input } from '@/components/atom';
+import { Fragment } from 'react';
 
 export default function Home() {
-  return (
-    <>
-      <Input />
-      Asya Lyov
-    </>
-  );
+  return <Fragment></Fragment>;
 }

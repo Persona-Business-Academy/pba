@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google';
+import Header from '@/components/organism/Header';
 import { Providers } from './providers';
 import './globals.css';
 
@@ -12,7 +13,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );
