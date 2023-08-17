@@ -4,6 +4,12 @@ const Button: ComponentStyleConfig = {
   baseStyle: {
     width: '118px',
     height: '37px',
+    fontFamily: 'Segoe UI',
+    fontSize: '16px',
+    borderRadius: '6px',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    lineHeight: 'normal',
     bg: 'orange.900',
     _hover: {
       bg: 'blue.400',
@@ -15,9 +21,21 @@ const Button: ComponentStyleConfig = {
     },
   },
   variants: {},
-  sizes: {},
+  sizes: {
+    sm: {
+      width: '118px',
+      height: '37px',
+    },
+    md: {
+      width: '122px',
+      height: '45px',
+    },
+    lg: {
+      width: '154px',
+      height: '53px',
+    },
+  },
 };
-
 export const components = {
   Button,
 };
