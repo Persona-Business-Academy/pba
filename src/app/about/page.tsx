@@ -29,6 +29,7 @@ const About: FC<Props> = () => {
         </div>
 
         <div className={classes.missions__container}>
+          {/* Courses */}
           <div className={classes.courses}>
             {/* //1 */}
             <div className={classes.courses__content}>
@@ -107,14 +108,185 @@ const About: FC<Props> = () => {
             </div>
           </div>
 
+          {/* {Value} */}
+          <div className={classes.value}>
+            {/* Heading Value */}
+            <div className={classes.value__heading}>
+              <h4 className={classes.value__title}>Our Values</h4>
+              <div className={classes.value__subtitle}>
+                <p className={classes.value__text}>
+                  Our five key values guide everything we do, from the way we build relationships
+                  with schools and families to the way we work together behind the scenes to make
+                  things happen.
+                </p>
+              </div>
+            </div>
 
-        //*Value
+            {/* card content */}
 
+            <div className={classes.cards}>
+              {/* column 1 */}
+              <div className={classes.cards__column}>
+                {/* content 1 */}
+                <div className={classes.cards__content}>
+                  <div className={classes['cards__img-wrapper']}>
+                    <Image
+                      src="/about_value_1.svg"
+                      alt="About value icon"
+                      width={141.58322}
+                      height={137.7551}
+                      className={classes.cards__img}
+                    />
+                  </div>
+                  <div className={classes.cards__info}>
+                    <h6 className={classes.cards__title}>
+                      Always Follow <span>Up Process</span>
+                    </h6>
+                    <p className={classes.cards__text}>
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                  </div>
+                </div>
+                {/* content 2 */}
+                <div className={classes.cards__content}>
+                  <div className={classes['cards__img-wrapper']}>
+                    <Image
+                      src="/about_value_2.svg"
+                      alt="About value icon"
+                      width={141.58322}
+                      height={137.7551}
+                      className={classes.cards__img}
+                    />
+                  </div>
+                  <div className={classes.cards__info}>
+                    <h6 className={classes.cards__title}>
+                      Stop Complaining and Fixing
+                      <span> Start Fixing</span>
+                    </h6>
+                    <p className={classes.cards__text}>
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* column 2*/}
+              <div className={classes.cards__column}>
+                {/* content 1 */}
+                <div className={classes.cards__content}>
+                  <div className={classes['cards__img-wrapper']}>
+                    <Image
+                      src="/about_value_3.svg"
+                      alt="About value icon"
+                      width={141.58322}
+                      height={137.7551}
+                      className={classes.cards__img}
+                    />
+                  </div>
+                  <div className={classes.cards__info}>
+                    <h6 className={classes.cards__title}>
+                      Never Compromise <span>with Quality</span>
+                    </h6>
+                    <p className={classes.cards__text}>
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                  </div>
+                </div>
+                {/* content 2 */}
+                <div className={classes.cards__content}>
+                  <div className={classes['cards__img-wrapper']}>
+                    <Image
+                      src="/about_value_4.svg"
+                      alt="About value icon"
+                      width={141.58322}
+                      height={137.7551}
+                      className={classes.cards__img}
+                    />
+                  </div>
+                  <div className={classes.cards__info}>
+                    <h6 className={classes.cards__title}>
+                      Show Ownership &<span> Accountability</span>
+                    </h6>
+                    <p className={classes.cards__text}>
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* column 3 */}
+              <div className={classes.cards__column}>
+                {/* content 1 */}
+                <div className={classes.cards__content}>
+                  <div className={classes['cards__img-wrapper']}>
+                    <Image
+                      src="/about_value_5.svg"
+                      alt="About value icon"
+                      width={141.58322}
+                      height={137.7551}
+                      className={classes.cards__img}
+                    />
+                  </div>
+                  <div className={classes.cards__info}>
+                    <h6 className={classes.cards__title}>
+                      Speed & <span>Scale</span>
+                    </h6>
+                    <p className={classes.cards__text}>
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                  </div>
+                </div>
+                {/* content 2 */}
+                <div className={classes.cards__content}>
+                  <div className={classes['cards__img-wrapper']}>
+                    <Image
+                      src="/about_value_6.svg"
+                      alt="About value icon"
+                      width={141.58322}
+                      height={137.7551}
+                      className={classes.cards__img}
+                    />
+                  </div>
+                  <div className={classes.cards__info}>
+                    <h6 className={classes.cards__title}>
+                      Be Persistence &<span> Effective Learner</span>
+                    </h6>
+                    <p className={classes.cards__text}>
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-
+          {/* Our History */}
         </div>
 
+        <div className={classes['history-section']}>
+          <div className={classes['history-section__heading']}>
+            <h4 className={classes['histpory-section__title']}>Our History</h4>
+            <p className={classes['history-section__subtitle']}>
+              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+              print, graphic or web designs. The passage is attributed to an unknown typesetter in
+              the `
+            </p>
+          </div>
 
+          {/* history-content */}
+
+          <div className={classes['history-section__container']}>
+            <div className={classes['history-section__row']}>
+              <span className={classes['history-section__year']}>2012</span>
+              <h5 className={classes['history-section__title']}>Our first experiment</h5>
+              <div className={classes['history-section__intro-text']}>
+                <p>
+                  Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                  print, graphic or web designs. The passage is attributed to an unknown typesetter
+                  in the 15th century who is thought to have scrambled parts of Cicero's De Finibus.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

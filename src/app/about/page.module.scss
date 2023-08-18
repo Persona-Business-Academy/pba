@@ -22,6 +22,7 @@
 }
 
 .missions {
+  // background-color: #f6fcff;
   &__content {
     margin: 0 auto;
     max-width: 784px;
@@ -47,7 +48,7 @@
 }
 
 .courses {
-    margin: 40px 0 148px;
+  margin: 40px 0 148px;
   &__content {
     display: flex;
     justify-content: center;
@@ -55,7 +56,7 @@
     gap: 24px;
 
     & + & {
-        margin-top: 148px;
+      margin-top: 148px;
     }
   }
 
@@ -76,7 +77,135 @@
       line-height: 21.28px;
     }
   }
+}
 
-  &__ {
+.value {
+  &__heading {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 804px;
+    // padding-bottom: 40px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42.56px;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.28px;
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 148px;
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 22px;
+
+    &:nth-child(odd) {
+      margin-top: 80px;
+    }
+    &:nth-child(even) {
+      margin-top: 40px;
+    }
+  }
+
+  &__content {
+    padding: 82px 39px 102px;
+    background-color: #fff;
+    width: 387px;
+    height: 480px;
+  }
+
+  &__img-wrapper {
+    margin: 0 auto 36px;
+    width: 140px;
+    height: 137px;
+  }
+
+  &__title {
+    padding-bottom: 16px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 31.92px;
+    color: #1f1646;
+
+    span {
+      color: #ff6131;
+    }
+  }
+
+  &__text {
+    color: #5b5b5b;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21.28px;
+  }
+}
+
+.history-section {
+  color: #fff;
+
+  &__heading {
+    text-align: center;
+    padding: 98px 0;
+    max-width: 100%;
+    background-color: #3cb4e7;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 42.56px;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 804px;
+    line-height: 21.28px;
+  }
+
+  &__container {
+    max-width: 751px;
+    margin: 0 auto;
+  }
+
+  &__row {
+    margin-top: 37px;
+    max-width: 348px;
+    color: #3cb4e7;
+  }
+
+  &__year {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 21.28px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 31.92px;
+  }
+
+  &__intro-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.28px;
+    color: #222222;
   }
 }
