@@ -158,6 +158,7 @@
   color: #fff;
 
   &__heading {
+    position: relative;
     text-align: center;
     padding: 98px 0;
     max-width: 100%;
@@ -178,15 +179,39 @@
     line-height: 21.28px;
   }
 
+  &__big-circle {
+    position: absolute;
+    background-color: inherit;
+    height: 50px;
+    width: 50px;
+    bottom: -25px;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%);
+  }
+
   &__container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
     max-width: 751px;
     margin: 0 auto;
   }
 
-  &__row {
+  &__content {
     margin-top: 37px;
+  }
+
+  &__top {
+    margin-top: 106px;
+  }
+  &__row {
     max-width: 348px;
     color: #3cb4e7;
+    & + & {
+      margin-top: 96px;
+    }
   }
 
   &__year {
@@ -207,5 +232,31 @@
     font-weight: 400;
     line-height: 21.28px;
     color: #222222;
+  }
+
+  &__line {
+    height: 100%;
+    width: 1px;
+    background-color: #000;
+  }
+
+  &__circle {
+    height: 58px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+
+    & + & {
+      margin-top: 220px;
+    }
+  }
+
+  &__circle-item {
+    width: 14px;
+    height: 14px;
+    background-color: #3cb4e7;
+    border-radius: 50%;
   }
 }

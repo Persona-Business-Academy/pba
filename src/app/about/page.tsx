@@ -269,20 +269,137 @@ const About: FC<Props> = () => {
               print, graphic or web designs. The passage is attributed to an unknown typesetter in
               the `
             </p>
+
+            <div className={classes['history-section__big-circle']}>
+              
+            </div>
           </div>
 
           {/* history-content */}
 
           <div className={classes['history-section__container']}>
-            <div className={classes['history-section__row']}>
-              <span className={classes['history-section__year']}>2012</span>
-              <h5 className={classes['history-section__title']}>Our first experiment</h5>
-              <div className={classes['history-section__intro-text']}>
-                <p>
-                  Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-                  print, graphic or web designs. The passage is attributed to an unknown typesetter
-                  in the 15th century who is thought to have scrambled parts of Cicero's De Finibus.
-                </p>
+            {/* / */}
+            <div className={classes['history-section__content']}>
+              {/* 1 */}
+              <div className={classes['history-section__row']}>
+                <span className={classes['history-section__year']}>2012</span>
+                <h5 className={classes['history-section__title']}>Our first experiment</h5>
+                <div className={classes['history-section__intro-text']}>
+                  <p>
+                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
+                    out print, graphic or web designs. The passage is attributed to an unknown
+                    typesetter in the 15th century who is thought to have scrambled parts of
+                    Cicero's De Finibus.
+                  </p>
+                </div>
+              </div>
+              {/* 2*/}
+              <div className={classes['history-section__row']}>
+                <span className={classes['history-section__year']}>2012</span>
+                <h5 className={classes['history-section__title']}>Our first experiment</h5>
+                <div className={classes['history-section__intro-text']}>
+                  <p>
+                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
+                    out print, graphic or web designs. The passage is attributed to an unknown
+                    typesetter in the 15th century who is thought to have scrambled parts of
+                    Cicero's De Finibus.
+                  </p>
+                </div>
+              </div>
+              {/* 3*/}
+              <div className={classes['history-section__row']}>
+                <span className={classes['history-section__year']}>2012</span>
+                <h5 className={classes['history-section__title']}>Our first experiment</h5>
+                <div className={classes['history-section__intro-text']}>
+                  <p>
+                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
+                    out print, graphic or web designs. The passage is attributed to an unknown
+                    typesetter in the 15th century who is thought to have scrambled parts of
+                    Cicero's De Finibus.
+                  </p>
+                </div>
+              </div>
+              {/* 4*/}
+              <div className={classes['history-section__row']}>
+                <span className={classes['history-section__year']}>2012</span>
+                <h5 className={classes['history-section__title']}>Our first experiment</h5>
+                <div className={classes['history-section__intro-text']}>
+                  <p>
+                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
+                    out print, graphic or web designs. The passage is attributed to an unknown
+                    typesetter in the 15th century who is thought to have scrambled parts of
+                    Cicero's De Finibus.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* --- */}
+            <div className={classes['history-section__content']}>
+              <div className={classes['history-section__line']}>
+                {/* circle box */}
+                <div className={classes['history-section__circle']}>
+                  <div className={classes['history-section__circle-item']}></div>
+                  <div className={classes['history-section__circle-item']}></div>
+                </div>
+                {/* circle box */}
+                <div className={classes['history-section__circle']}>
+                  <div className={classes['history-section__circle-item']}></div>
+                  <div className={classes['history-section__circle-item']}></div>
+                </div>
+                {/* circle box */}
+                <div className={classes['history-section__circle']}>
+                  <div className={classes['history-section__circle-item']}></div>
+                  <div className={classes['history-section__circle-item']}></div>
+                </div>
+                {/* circle box */}
+                <div className={classes['history-section__circle']}>
+                  <div className={classes['history-section__circle-item']}></div>
+                  <div className={classes['history-section__circle-item']}></div>
+                </div>
+              </div>
+            </div>
+            {/* / */}
+            <div
+              className={`${classes['history-section__content']} ${classes['history-section__top']}`}>
+              {/* 1 */}
+              <div className={classes['history-section__row']}>
+                <span className={classes['history-section__year']}>2012</span>
+                <h5 className={classes['history-section__title']}>Our first experiment</h5>
+                <div className={classes['history-section__intro-text']}>
+                  <p>
+                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
+                    out print, graphic or web designs. The passage is attributed to an unknown
+                    typesetter in the 15th century who is thought to have scrambled parts of
+                    Cicero's De Finibus.
+                  </p>
+                </div>
+              </div>
+              {/* 2*/}
+              <div className={classes['history-section__row']}>
+                <span className={classes['history-section__year']}>2012</span>
+                <h5 className={classes['history-section__title']}>Our first experiment</h5>
+                <div className={classes['history-section__intro-text']}>
+                  <p>
+                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
+                    out print, graphic or web designs. The passage is attributed to an unknown
+                    typesetter in the 15th century who is thought to have scrambled parts of
+                    Cicero's De Finibus.
+                  </p>
+                </div>
+              </div>
+              {/* 3*/}
+              <div className={classes['history-section__row']}>
+                <span className={classes['history-section__year']}>2012</span>
+                <h5 className={classes['history-section__title']}>Our first experiment</h5>
+                <div className={classes['history-section__intro-text']}>
+                  <p>
+                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
+                    out print, graphic or web designs. The passage is attributed to an unknown
+                    typesetter in the 15th century who is thought to have scrambled parts of
+                    Cicero's De Finibus.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
