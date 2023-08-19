@@ -9,6 +9,4 @@ body {
   max-width: 100vw;
   height: 100vh;
   overflow-x: hidden;
-  background: linear-gradient(210.86deg, #c3e4ee 1.28%, #eff1ff 57.16%, #c9fcff 91.96%),
-    linear-gradient(0deg, rgba(155, 193, 251, 0.1), rgba(155, 193, 251, 0.1));
 }

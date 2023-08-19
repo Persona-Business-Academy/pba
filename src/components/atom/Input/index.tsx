@@ -8,9 +8,6 @@ const Button: FC<Props> = () => {
   return (
     <>
       <Input />
-      <Input />
-      <Input />
-      <Input />
     </>
   );
 };
