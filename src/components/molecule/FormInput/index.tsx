@@ -40,7 +40,7 @@ const FormInput: FC<Props> = ({
 
   return (
     <FormControl isInvalid={isInvalid}>
-      <FormLabel className={classes.formLabel}>
+      <FormLabel className={classes.formLabel} fontWeight={600} marginBottom={4}>
         {formLabelName} {isRequired && <span>*</span>}
       </FormLabel>
       <InputGroup>
@@ -51,6 +51,10 @@ const FormInput: FC<Props> = ({
           placeholder={placeholder}
           isReadOnly={isReadOnly}
           isRequired={isRequired}
+          borderRadius={6}
+          height="40px"
+          width={336}
+          boxShadow="0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
           _focus={{
             border: '1px solid #3cb4e7',
           }}
@@ -67,6 +71,9 @@ const FormInput: FC<Props> = ({
             fontSize: 16,
             fontWeight: 400,
             fontStyle: 'normal',
+          }}
+          _invalid={{
+            border: '1px solid #DF1414',
           }}
         />
         {type === 'password' && (
@@ -92,9 +99,21 @@ const FormInput: FC<Props> = ({
         )}
       </InputGroup>
       {!isInvalid ? (
-        <FormHelperText>{formHelperText}</FormHelperText>
+        <FormHelperText
+          className={classes.formLabel}
+          fontWeight={400}
+          color="#5b5b5b"
+          marginTop={4}>
+          {formHelperText}
+        </FormHelperText>
       ) : (
-        <FormErrorMessage>{formErrorMessage}</FormErrorMessage>
+        <FormErrorMessage
+          className={classes.formLabel}
+          color="#DF1414"
+          fontWeight={400}
+          marginTop={4}>
+          {formErrorMessage}
+        </FormErrorMessage>
       )}
     </FormControl>
   );
