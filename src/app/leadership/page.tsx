@@ -184,14 +184,14 @@ const Leadership: FC<Props> = () => {
         </Flex>
       </div>
       <div className={classes.section_apply_now_container}>
-        <Flex
-          alignItems="center"
-          flexDirection="column"
-          className={classes.section_apply_now}>
-            <h3>Join Our Team</h3>
-            <p>We're always on the lookout for great talent. Want to join us on our mission to help great teams grow? Check out our openings to see where you fit in.</p>
-            <button>Apply now</button>
-          </Flex>
+        <Flex alignItems="center" flexDirection="column" className={classes.section_apply_now}>
+          <h3>Join Our Team</h3>
+          <p>
+            We're always on the lookout for great talent. Want to join us on our mission to help
+            great teams grow? Check out our openings to see where you fit in.
+          </p>
+          <button>Apply now</button>
+        </Flex>
       </div>
     </>
   );

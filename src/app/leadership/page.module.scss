@@ -18,19 +18,22 @@
 }
 .main_text {
   margin-bottom: 40px;
-  font-family:  Segoe UI;
+  font-family: Segoe UI;
 }
 .our_team_titles {
   margin-top: 148px;
-  margin-bottom: 40px;
+  margin-bottom: 148px;
 }
 .our_team_heading {
   margin-bottom: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
-.heading_persona{
+.heading_persona {
   font-family: Segoe UI;
 }
-.heading_2_persona{
+.heading_2_persona {
   font-family: Montserrat;
 }
 
@@ -61,6 +64,9 @@
 }
 .section_grid_item {
   padding: 30px;
+}
+.section_grid_item:hover {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.08);
 }
 .team_name {
   font-weight: 700;
