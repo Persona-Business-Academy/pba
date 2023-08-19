@@ -22,6 +22,10 @@ const Button: FC<Props> = ({ children, size = ButtonSizeEnum.md, isDisabled }) =
         bg: 'blue.500',
         color: '#FFFFFF',
       }}
+      _focusVisible={{
+        bg: 'blue.500',
+        color: '#FFFFFF',
+      }}
       _disabled={{
         bg: 'grey.50',
         color: 'grey.200',
