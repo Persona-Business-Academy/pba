@@ -1,17 +1,13 @@
-import React, { FC, ReactNode } from 'react';
-import { Button as ChakraButton } from '@chakra-ui/react';
-import { ButtonSizeEnum } from '@/enums/components';
+import React, { FC, memo, ReactNode } from 'react';
+import { ButtonProps, Button as ChakraButton } from '@chakra-ui/react';
 
-type Props = {
+interface SharedButtonProps extends ButtonProps {
   children: ReactNode;
-  size?: ButtonSizeEnum;
-  isDisabled?: boolean;
-};
+}
 
-const Button: FC<Props> = ({ children, size = ButtonSizeEnum.md, isDisabled }) => {
+const Button: FC<SharedButtonProps> = ({ children, ...props }) => {
   return (
     <ChakraButton
-      size={size}
       bg="#3CB4E7"
       color="#FFFFFF"
       _hover={{
@@ -31,10 +27,10 @@ const Button: FC<Props> = ({ children, size = ButtonSizeEnum.md, isDisabled }) =
         color: 'grey.200',
         cursor: 'not-allowed',
       }}
-      isDisabled={isDisabled}>
+      {...props}>
       {children}
     </ChakraButton>
   );
 };
 
-export default Button;
+export default memo(Button);

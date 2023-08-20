@@ -1,2 +1,5 @@
-export { default as Input } from './Input';
-export { default as Button } from './Button';
+'use client';
+import Button from './Button';
+import FormInput from './FormInput';
+
+export { Button, FormInput };

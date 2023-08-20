@@ -18,14 +18,16 @@ type Props = {
   handleInputChange?: (_event: React.ChangeEvent<HTMLInputElement>) => void;
   formHelperText?: string;
   formErrorMessage?: string;
-  type?: string;
+  type?: React.HTMLInputTypeAttribute;
   placeholder?: string;
   isRequired?: boolean;
   isReadOnly?: boolean;
+  name: string;
 };
 
 const FormInput: FC<Props> = ({
   isInvalid,
+  name,
   value,
   handleInputChange,
   formHelperText,
@@ -39,7 +41,7 @@ const FormInput: FC<Props> = ({
   const [isPasswordType, setIsPasswordType] = useState(false);
 
   return (
-    <FormControl isInvalid={isInvalid}>
+    <FormControl isInvalid={isInvalid} id={name}>
       <FormLabel className={classes.formLabel}>
         {formLabelName} {isRequired && <span>*</span>}
       </FormLabel>

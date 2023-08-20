@@ -1,44 +1,236 @@
-import React, { FC } from 'react';
+'use client';
+
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import {
+  Box,
+  Collapse,
+  Flex,
+  IconButton,
+  Stack,
+  useColorModeValue,
+  useDisclosure,
+} from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import classes from './index.module.scss';
+import Button from '@/components/atom/Button';
+import DesktopNav from './DesktopNavigation';
+import MobileNav from './MobileNav';
 
-type Props = {};
+export interface SubLabel {
+  subLabelName: string;
+}
 
-const Header: FC<Props> = () => {
+export interface FeaturedItem {
+  categoryName: string;
+  imgPath: string;
+}
+export interface SubLabels {
+  label: string;
+  subLabels: SubLabel[];
+}
+
+export interface NavItem {
+  label: string;
+  children?: SubLabels[];
+  featuredItems?: FeaturedItem[];
+}
+
+const NAV_ITEMS: NavItem[] = [
+  {
+    label: 'For Individuals',
+    children: [
+      {
+        label: 'Design',
+        subLabels: [
+          { subLabelName: 'HTML' },
+          { subLabelName: 'CSS' },
+          { subLabelName: 'SCSS' },
+          { subLabelName: 'JS' },
+          { subLabelName: 'React.js' },
+        ],
+      },
+      {
+        label: 'Design',
+        subLabels: [
+          { subLabelName: 'HTML' },
+          { subLabelName: 'CSS' },
+          { subLabelName: 'SCSS' },
+          { subLabelName: 'JS' },
+          { subLabelName: 'React.js' },
+        ],
+      },
+      {
+        label: 'Design',
+        subLabels: [
+          { subLabelName: 'HTML' },
+          { subLabelName: 'CSS' },
+          { subLabelName: 'SCSS' },
+          { subLabelName: 'JS' },
+          { subLabelName: 'React.js' },
+        ],
+      },
+      {
+        label: 'Design',
+        subLabels: [
+          { subLabelName: 'HTML' },
+          { subLabelName: 'CSS' },
+          { subLabelName: 'SCSS' },
+          { subLabelName: 'JS' },
+          { subLabelName: 'React.js' },
+        ],
+      },
+      {
+        label: 'Design',
+        subLabels: [
+          { subLabelName: 'HTML' },
+          { subLabelName: 'CSS' },
+          { subLabelName: 'SCSS' },
+          { subLabelName: 'JS' },
+          { subLabelName: 'React.js' },
+        ],
+      },
+    ],
+    featuredItems: [
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/others/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/others/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/others/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/others/featured_example.jpg',
+      },
+    ],
+  },
+  {
+    label: 'For Kids',
+    children: [],
+    featuredItems: [
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/others/featured_example.jpg',
+      },
+    ],
+  },
+  {
+    label: 'Video Courses',
+    children: [],
+    featuredItems: [
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/others/featured_example.jpg',
+      },
+    ],
+  },
+  {
+    label: 'Pricing',
+    children: [],
+    featuredItems: [
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/others/featured_example.jpg',
+      },
+    ],
+  },
+  {
+    label: 'Blog',
+    children: [],
+    featuredItems: [
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/others/featured_example.jpg',
+      },
+    ],
+  },
+];
+
+export const Header = () => {
+  const { isOpen, onToggle } = useDisclosure();
+
   return (
-    <header className={classes.header}>
-      <div className={classes.headerCentered}>
-        <div className={classes.header_logo_content}>
-          <Image src="/images/others/persona_logo.png" width={135} height={27} alt="persona_logo" />
-        </div>
-        <menu>
-          <nav>
-            <ul>
-              <li>
-                <Link href="/">For Individuals</Link>
-              </li>
-              <li>
-                <Link href="/">For Kids</Link>
-              </li>
-              <li>
-                <Link href="/">Video Courses</Link>
-              </li>
-              <li>
-                <Link href="/">Pricing</Link>
-              </li>
-              <li>
-                <Link href="/">Blog</Link>
-              </li>
-            </ul>
-          </nav>
-        </menu>
-        <div className={classes.buttonContainer}>
-          {/* Need to set Buttons for Signin and Get Started */}
-        </div>
-      </div>
-    </header>
+    <Box
+      borderBottom={1}
+      borderStyle={'solid'}
+      borderColor={useColorModeValue('gray.200', 'gray.900')}>
+      <Flex
+        bg={useColorModeValue('white', 'gray.800')}
+        color={useColorModeValue('gray.600', 'white')}
+        minH={'60px'}
+        py={{ base: 2 }}
+        maxWidth={1200}
+        margin="0 auto"
+        px={{ base: 4 }}
+        align={'center'}>
+        <Flex
+          flex={{ base: 1, md: 'auto' }}
+          ml={{ base: -2 }}
+          display={{ base: 'flex', md: 'none' }}>
+          <IconButton
+            onClick={onToggle}
+            icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+            variant={'ghost'}
+            aria-label={'Toggle Navigation'}
+          />
+        </Flex>
+        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} gap={165}>
+          <Image
+            src="/icons/persona_logo.png"
+            width={135}
+            height={27}
+            alt="persona_logo"
+            style={{
+              objectFit: 'contain',
+            }}
+          />
+
+          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+            <DesktopNav navItems={NAV_ITEMS} />
+          </Flex>
+          <Stack spacing={16} flexDirection="row" alignItems="center">
+            <Link href="/">
+              <Button
+                borderRadius={20}
+                fontSize={14}
+                width={90}
+                height={38}
+                fontWeight={600}
+                bg="#fff"
+                color="#3CB4E7"
+                border="1px solid #3CB4E7">
+                Log In
+              </Button>
+            </Link>
+
+            <Link href="/">
+              <Button
+                borderRadius={20}
+                fontSize={14}
+                fontWeight={600}
+                height={38}
+                width={127}
+                _hover={{
+                  bg: '#fff',
+                  color: '#3CB4E7',
+                  border: '1px solid #3CB4E7',
+                }}>
+                Get Started
+              </Button>
+            </Link>
+          </Stack>
+        </Flex>
+      </Flex>
+
+      <Collapse in={isOpen} animateOpacity>
+        <MobileNav navItems={NAV_ITEMS} />
+      </Collapse>
+    </Box>
   );
 };
-
 export default Header;
