@@ -22,7 +22,6 @@
 }
 
 .missions {
-  // background-color: #f6fcff;
   &__content {
     margin: 0 auto;
     max-width: 784px;
@@ -49,10 +48,12 @@
 
 .courses {
   margin: 40px 0 148px;
+
   &__content {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 24px;
 
     & + & {
@@ -155,6 +156,7 @@
 }
 
 .history-section {
+  margin-bottom: 148px;
   color: #fff;
 
   &__heading {
@@ -258,5 +260,78 @@
     height: 14px;
     background-color: #3cb4e7;
     border-radius: 50%;
+  }
+}
+
+.our-prey {
+  padding: 86px 0;
+  background-color: #1f1646;
+  color: #fff;
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  &__items {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+    font-weight: 700;
+  }
+
+  &__list {
+    width: 305px;
+    font-size: 44px;
+    line-height: 56.64px;
+  }
+
+  &__list-name {
+    width: 305px;
+    font-size: 32px;
+    line-height: 42.56px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .about {
+    padding-left: 0;
+    &__content {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+  }
+
+  .courses {
+    &__content {
+      &:nth-child(2) {
+        flex-wrap: wrap-reverse;
+      }
+    }
+  }
+
+  .history-section {
+    &__container {
+      flex-wrap: wrap;
+    }
+
+    &__top {
+      margin-top: 0;
+    }
+    &__row {
+      max-width: 100%;
+      text-align: center;
+
+      & + & {
+        margin-top: 50px;
+      }
+    }
+
+    &__line {
+      display: none;
+    }
   }
 }

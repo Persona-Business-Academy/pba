@@ -270,9 +270,7 @@ const About: FC<Props> = () => {
               the `
             </p>
 
-            <div className={classes['history-section__big-circle']}>
-              
-            </div>
+            <div className={classes['history-section__big-circle']}></div>
           </div>
 
           {/* history-content */}
@@ -403,6 +401,25 @@ const About: FC<Props> = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* our prey */}
+
+      <div className={classes['our-prey']}>
+        <div className={classes['our-prey__container']}>
+          <ul className={classes['our-prey__items']}>
+            <li className={classes['our-prey__list']}>1M+</li>
+            <li className={classes['our-prey__list']}>150+</li>
+            <li className={classes['our-prey__list']}>1M+</li>
+            <li className={classes['our-prey__list']}>1M+</li>
+          </ul>
+          <ul className={classes['our-prey__items']}>
+            <li className={classes['our-prey__list-name']}>Users on our platform</li>
+            <li className={classes['our-prey__list-name']}>Total course</li>
+            <li className={classes['our-prey__list-name']}>Users on our platform</li>
+            <li className={classes['our-prey__list-name']}>Nanodegree certificates earned</li>
+          </ul>
         </div>
       </div>
     </>
