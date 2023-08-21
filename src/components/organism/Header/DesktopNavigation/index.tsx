@@ -10,13 +10,12 @@ type Props = {
 
 const DesktopNav: FC<Props> = ({ navItems }) => {
   return (
-    <Stack direction={'row'} spacing={4} gap={40}>
-      {navItems.map(navItem => (
-        <Box key={navItem.label}>
-          <Popover trigger={'hover'} placement={'bottom-start'}>
+    <Stack direction={'row'} justifyContent="center" alignItems="center" gap={40}>
+      {navItems.map((navItem, index) => (
+        <Box key={index}>
+          <Popover trigger="hover" id={`popover-trigger-menu`}>
             <PopoverTrigger>
               <Box
-                p={2}
                 cursor="pointer"
                 fontSize={16}
                 fontWeight={400}
@@ -31,6 +30,7 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
 
             {navItem.children && (
               <PopoverContent
+                id={Date.now().toString()}
                 border={0}
                 boxShadow="0px 15px 20px 0px rgba(0, 0, 0, 0.05)"
                 bg="#fff"
@@ -45,8 +45,8 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
                   gridTemplateColumns="repeat(auto-fit,minmax(140px,1fr))"
                   columnGap={96}
                   margin="0 auto">
-                  {navItem.children.map((child: SubLabels) => (
-                    <DesktopSubNav key={child.label} {...child} />
+                  {navItem.children.map((child: SubLabels, index: number) => (
+                    <DesktopSubNav key={index} {...child} />
                   ))}
                 </Stack>
                 <Stack width={1144} margin="0 auto">

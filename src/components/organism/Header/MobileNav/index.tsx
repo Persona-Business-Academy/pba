@@ -9,8 +9,8 @@ interface MobileNavProps {
 const MobileNav: FC<MobileNavProps> = ({ navItems }) => {
   return (
     <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-      {navItems.map((navItem: any) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+      {navItems.map((navItem: NavItem, i: number) => (
+        <MobileNavItem key={i} {...navItem} />
       ))}
     </Stack>
   );

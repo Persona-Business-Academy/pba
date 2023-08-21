@@ -185,15 +185,16 @@ export const Header = () => {
             width={135}
             height={27}
             alt="persona_logo"
+            priority
             style={{
               objectFit: 'contain',
             }}
           />
 
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+          <Flex display={{ base: 'none', md: 'flex' }}>
             <DesktopNav navItems={NAV_ITEMS} />
           </Flex>
-          <Stack spacing={16} flexDirection="row" alignItems="center">
+          <Stack flexDirection="row" alignItems="center">
             <Link href="/">
               <Button
                 borderRadius={20}

@@ -13,7 +13,7 @@ import { SubLabels } from '..';
 
 interface MobileNavItemProp {
   label: string;
-  children: SubLabels[];
+  children?: SubLabels[];
 }
 
 const MobileNavItem: FC<MobileNavItemProp> = ({ label, children }) => {
@@ -50,10 +50,8 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children }) => {
           borderStyle={'solid'}
           borderColor={useColorModeValue('gray.200', 'gray.700')}
           align={'start'}>
-          {children.map((child: any) => (
-            <Box key={child.label} py={2}>
-              {child.label}
-            </Box>
+          {(children || []).map((child: SubLabels, i) => (
+            <Box key={i}>{child.label}</Box>
           ))}
         </Stack>
       </Collapse>
