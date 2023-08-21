@@ -1,5 +1,5 @@
 import { AuthBox } from '@/components/molecule';
-import { AuthPages } from '@/enums/components';
+import { AuthPages } from '@/constants/routes';
 import SignIn from './SignIn';
 
 export default function SignInPage() {
