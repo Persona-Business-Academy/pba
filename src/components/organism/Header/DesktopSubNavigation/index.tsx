@@ -9,7 +9,7 @@ interface DesktopSubNav {
 }
 const DesktopSubNav: FC<DesktopSubNav> = ({ label, subLabels }) => {
   return (
-    <Box role={'group'} width="100%" display={'block'} p={2} rounded={'md'}>
+    <Box role={'group'} width="100%" display={'block'} rounded={'md'}>
       <Stack direction={'row'} align={'center'}>
         <Box display="flex" gap={11} flexDirection="column">
           <Text fontWeight={700} fontSize={16} marginBottom="5px">
