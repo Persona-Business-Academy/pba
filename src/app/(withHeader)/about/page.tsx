@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import classes from './page.module.scss';
 import Image from 'next/image';
+import classes from './page.module.scss';
 
 type Props = {};
 
@@ -21,9 +21,9 @@ const About: FC<Props> = () => {
           <div className={classes.missions__subtitle}>
             <p className={classes.missions__text}>
               To create value – each day, every day – as we build an equal and accessible learning
-              environment for all. The BYJU'S mission is to redefine how the world learns through
-              relentless effort and innovation, breaking the barriers to quality education, and
-              helping to build a learning ecosystem that will create leaders of tomorrow.
+              environment for all. The BYJU&apos;S mission is to redefine how the world learns
+              through relentless effort and innovation, breaking the barriers to quality education,
+              and helping to build a learning ecosystem that will create leaders of tomorrow.
             </p>
           </div>
         </div>
@@ -40,10 +40,10 @@ const About: FC<Props> = () => {
                 <div className={classes.courses__text}>
                   <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen
-                    book. It has survived not only five centuries, but also the leap into electronic
-                    typesetting, remaining essentially unchanged.
+                    Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book. It has survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially unchanged.
                   </p>
                 </div>
               </div>
@@ -73,10 +73,10 @@ const About: FC<Props> = () => {
                 <div className={classes.courses__text}>
                   <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen
-                    book. It has survived not only five centuries, but also the leap into electronic
-                    typesetting, remaining essentially unchanged.
+                    Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book. It has survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially unchanged.
                   </p>
                 </div>
               </div>
@@ -90,10 +90,10 @@ const About: FC<Props> = () => {
                 <div className={classes.courses__text}>
                   <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen
-                    book. It has survived not only five centuries, but also the leap into electronic
-                    typesetting, remaining essentially unchanged.
+                    Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book. It has survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially unchanged.
                   </p>
                 </div>
               </div>
@@ -287,7 +287,7 @@ const About: FC<Props> = () => {
                     Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
                     out print, graphic or web designs. The passage is attributed to an unknown
                     typesetter in the 15th century who is thought to have scrambled parts of
-                    Cicero's De Finibus.
+                    Cicero&apos;s De Finibus.
                   </p>
                 </div>
               </div>
@@ -300,7 +300,7 @@ const About: FC<Props> = () => {
                     Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
                     out print, graphic or web designs. The passage is attributed to an unknown
                     typesetter in the 15th century who is thought to have scrambled parts of
-                    Cicero's De Finibus.
+                    Cicero&apos;s De Finibus.
                   </p>
                 </div>
               </div>
@@ -313,7 +313,7 @@ const About: FC<Props> = () => {
                     Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
                     out print, graphic or web designs. The passage is attributed to an unknown
                     typesetter in the 15th century who is thought to have scrambled parts of
-                    Cicero's De Finibus.
+                    Cicero&apos;s De Finibus.
                   </p>
                 </div>
               </div>
@@ -326,7 +326,7 @@ const About: FC<Props> = () => {
                     Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
                     out print, graphic or web designs. The passage is attributed to an unknown
                     typesetter in the 15th century who is thought to have scrambled parts of
-                    Cicero's De Finibus.
+                    Cicero&apos;s De Finibus.
                   </p>
                 </div>
               </div>
@@ -369,7 +369,7 @@ const About: FC<Props> = () => {
                     Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
                     out print, graphic or web designs. The passage is attributed to an unknown
                     typesetter in the 15th century who is thought to have scrambled parts of
-                    Cicero's De Finibus.
+                    Cicero&apos;s De Finibus.
                   </p>
                 </div>
               </div>
@@ -382,7 +382,7 @@ const About: FC<Props> = () => {
                     Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
                     out print, graphic or web designs. The passage is attributed to an unknown
                     typesetter in the 15th century who is thought to have scrambled parts of
-                    Cicero's De Finibus.
+                    Cicero&apos;s De Finibus.
                   </p>
                 </div>
               </div>
@@ -395,7 +395,7 @@ const About: FC<Props> = () => {
                     Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
                     out print, graphic or web designs. The passage is attributed to an unknown
                     typesetter in the 15th century who is thought to have scrambled parts of
-                    Cicero's De Finibus.
+                    Cicero&apos;s De Finibus.
                   </p>
                 </div>
               </div>
