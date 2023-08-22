@@ -18,10 +18,11 @@ type Props = {
   handleInputChange?: (_event: React.ChangeEvent<HTMLInputElement>) => void;
   formHelperText?: string;
   formErrorMessage?: string;
-  type?: string;
+  type?: React.HTMLInputTypeAttribute;
   placeholder?: string;
   isRequired?: boolean;
   isReadOnly?: boolean;
+  name: string;
 };
 
 const FormInput: FC<Props> = ({
