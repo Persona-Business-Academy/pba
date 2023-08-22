@@ -171,12 +171,7 @@ export const Header = () => {
           flex={{ base: 1, md: 'auto' }}
           ml={{ base: -2 }}
           display={{ base: 'flex', md: 'none' }}>
-          <IconButton
-            onClick={onToggle}
-            // icon={isOpen ? 'CloseIcon' : 'HamburgerIcon'}
-            variant={'ghost'}
-            aria-label={'Toggle Navigation'}
-          />
+          <IconButton onClick={onToggle} variant={'ghost'} aria-label={'Toggle Navigation'} />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} gap={165}>
           <Image
