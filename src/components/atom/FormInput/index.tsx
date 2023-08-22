@@ -36,11 +36,12 @@ const FormInput: FC<Props> = ({
   placeholder,
   isRequired,
   isReadOnly,
+  name,
 }) => {
   const [isPasswordType, setIsPasswordType] = useState(false);
 
   return (
-    <FormControl isInvalid={isInvalid}>
+    <FormControl isInvalid={isInvalid} id={name}>
       <FormLabel className={classes.formLabel} fontWeight={600} marginBottom={4}>
         {formLabelName} {isRequired && <span>*</span>}
       </FormLabel>
@@ -54,7 +55,6 @@ const FormInput: FC<Props> = ({
           isRequired={isRequired}
           borderRadius={6}
           height="40px"
-          width={336}
           boxShadow="0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
           _focus={{
             border: '1px solid #3cb4e7',
@@ -84,6 +84,9 @@ const FormInput: FC<Props> = ({
                 width={20}
                 height={20}
                 alt="eye"
+                style={{
+                  cursor: 'pointer',
+                }}
                 src={'/icons/eye_open.svg'}
                 onClick={() => setIsPasswordType(false)}
               />
@@ -92,6 +95,9 @@ const FormInput: FC<Props> = ({
                 width={20}
                 height={20}
                 alt="eye"
+                style={{
+                  cursor: 'pointer',
+                }}
                 src={'/icons/eye_closed.svg'}
                 onClick={() => setIsPasswordType(true)}
               />

@@ -1,6 +1,5 @@
 'use client';
 
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {
   Box,
   Collapse,
@@ -174,7 +173,7 @@ export const Header = () => {
           display={{ base: 'flex', md: 'none' }}>
           <IconButton
             onClick={onToggle}
-            icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+            // icon={isOpen ? 'CloseIcon' : 'HamburgerIcon'}
             variant={'ghost'}
             aria-label={'Toggle Navigation'}
           />
