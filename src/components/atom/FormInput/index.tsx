@@ -11,7 +11,6 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import classes from './index.module.scss';
 
 type Props = {
   isInvalid?: boolean;
@@ -116,19 +115,11 @@ const FormInput: FC<Props> = ({
         )}
       </InputGroup>
       {!isInvalid ? (
-        <FormHelperText
-          className={classes.formLabel}
-          fontWeight={400}
-          color="#5b5b5b"
-          marginTop={4}>
+        <FormHelperText fontWeight={400} color="#5b5b5b" marginTop={4}>
           {formHelperText}
         </FormHelperText>
       ) : (
-        <FormErrorMessage
-          className={classes.formLabel}
-          color="#DF1414"
-          fontWeight={400}
-          marginTop={4}>
+        <FormErrorMessage color="#DF1414" fontWeight={400} marginTop={4}>
           {formErrorMessage}
         </FormErrorMessage>
       )}

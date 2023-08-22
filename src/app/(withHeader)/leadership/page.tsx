@@ -2,7 +2,6 @@
 import React, { FC } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
-import classes from './page.module.scss';
 
 type Props = {};
 
@@ -21,8 +20,8 @@ const Leadership: FC<Props> = () => {
           sm: 'flex-start',
         }}
         alignItems="center">
-        <h1 className={classes.header}> Heading </h1>
-        <h1 className={classes.middle}> Heading </h1>
+        <h1> Heading </h1>
+        <h1> Heading </h1>
       </Flex>
 
       <Text>

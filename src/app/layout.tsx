@@ -1,4 +1,3 @@
-import Header from '@/components/organism/Header';
 import { Providers } from './providers';
 import './globals.css';
 
@@ -10,10 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <Providers>
-          <Header />
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
