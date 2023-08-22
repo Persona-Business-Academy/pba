@@ -6,7 +6,9 @@ import {
   FormLabel,
   Input,
   InputGroup,
+  InputProps,
   InputRightElement,
+  Text,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import classes from './index.module.scss';
@@ -23,11 +25,11 @@ type Props = {
   isRequired?: boolean;
   isReadOnly?: boolean;
   name: string;
+  inputProps?: InputProps;
 };
 
 const FormInput: FC<Props> = ({
   isInvalid,
-  name,
   value,
   handleInputChange,
   formHelperText,
@@ -37,13 +39,20 @@ const FormInput: FC<Props> = ({
   placeholder,
   isRequired,
   isReadOnly,
+  name,
+  inputProps,
 }) => {
   const [isPasswordType, setIsPasswordType] = useState(false);
 
   return (
     <FormControl isInvalid={isInvalid} id={name}>
-      <FormLabel className={classes.formLabel}>
-        {formLabelName} {isRequired && <span>*</span>}
+      <FormLabel fontWeight={600} marginBottom={4} lineHeight="20px" fontSize={14} color="#222">
+        {formLabelName}
+        {isRequired && (
+          <Text as="span" color="#222">
+            *
+          </Text>
+        )}
       </FormLabel>
       <InputGroup>
         <Input
@@ -53,6 +62,9 @@ const FormInput: FC<Props> = ({
           placeholder={placeholder}
           isReadOnly={isReadOnly}
           isRequired={isRequired}
+          borderRadius={6}
+          height="40px"
+          boxShadow="0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
           _focus={{
             border: '1px solid #3cb4e7',
           }}
@@ -70,6 +82,10 @@ const FormInput: FC<Props> = ({
             fontWeight: 400,
             fontStyle: 'normal',
           }}
+          _invalid={{
+            border: '1px solid #DF1414',
+          }}
+          {...inputProps}
         />
         {type === 'password' && (
           <InputRightElement>
@@ -78,6 +94,9 @@ const FormInput: FC<Props> = ({
                 width={20}
                 height={20}
                 alt="eye"
+                style={{
+                  cursor: 'pointer',
+                }}
                 src={'/icons/eye_open.svg'}
                 onClick={() => setIsPasswordType(false)}
               />
@@ -86,6 +105,9 @@ const FormInput: FC<Props> = ({
                 width={20}
                 height={20}
                 alt="eye"
+                style={{
+                  cursor: 'pointer',
+                }}
                 src={'/icons/eye_closed.svg'}
                 onClick={() => setIsPasswordType(true)}
               />
@@ -94,9 +116,21 @@ const FormInput: FC<Props> = ({
         )}
       </InputGroup>
       {!isInvalid ? (
-        <FormHelperText>{formHelperText}</FormHelperText>
+        <FormHelperText
+          className={classes.formLabel}
+          fontWeight={400}
+          color="#5b5b5b"
+          marginTop={4}>
+          {formHelperText}
+        </FormHelperText>
       ) : (
-        <FormErrorMessage>{formErrorMessage}</FormErrorMessage>
+        <FormErrorMessage
+          className={classes.formLabel}
+          color="#DF1414"
+          fontWeight={400}
+          marginTop={4}>
+          {formErrorMessage}
+        </FormErrorMessage>
       )}
     </FormControl>
   );
