@@ -24,7 +24,7 @@ const SignUp = () => {
     defaultValues: { firstName: '', lastName: '', email: '', password: '' },
   });
 
-  const { mutate, isLoading } = useMutation<any, { message: string }, SignUpFormData>(
+  const { mutate, isLoading } = useMutation<boolean, { message: string }, SignUpFormData>(
     AuthService.signUp,
     {
       onSuccess: () => push('/'),

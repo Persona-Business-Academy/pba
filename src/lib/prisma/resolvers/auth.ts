@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
 import { BadRequestException } from 'next-api-decorators';
 import { ERROR_MESSAGES } from '@/utils/constants';
+import { SignUpValidation } from '@/validation';
 import prisma from '..';
-import { SignUpValidation } from '../../../validation';
 
 export const signUp = async ({ firstName, lastName, email, password }: SignUpValidation) => {
   const existingUser = await prisma.user.findUnique({
@@ -17,7 +17,7 @@ export const signUp = async ({ firstName, lastName, email, password }: SignUpVal
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  const user = prisma.user.create({
+  const user = await prisma.user.create({
     data: {
       firstName,
       lastName,
@@ -26,5 +26,5 @@ export const signUp = async ({ firstName, lastName, email, password }: SignUpVal
     },
   });
 
-  return user;
+  return !!user;
 };
