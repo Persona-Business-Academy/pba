@@ -1,9 +1,11 @@
-import { FormInput } from '@/components/atom';
+'use client';
+
+import Footer from '@/components/organism/Footer';
 
 export default function Home() {
   return (
-    <>
-      <FormInput name="rtest" type="password" isRequired formLabelName="aaaaa" />
-    </>
+    <div>
+      <Footer />
+    </div>
   );
 }
