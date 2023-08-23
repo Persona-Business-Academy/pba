@@ -1,14 +1,14 @@
-import { Box, Container, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/react';
 import React, { FC } from 'react';
+import { Box, Container, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/react';
+import Image from 'next/image';
 import Link from 'next/link';
-import classes from './page.module.scss';
 
 type Props = {};
 
 const Footer: FC<Props> = () => {
   return (
     <Stack bg="#FFF9F8" height={778}>
-      <Container maxWidth={1200} margin="0 auto" padding={0} className={classes.gridContainer}>
+      <Container maxWidth={1200} margin="0 auto" padding={0}>
         <Grid
           templateColumns="repeat(auto-fit,minmax(127.3px, 1fr))"
           columnGap={70}
@@ -84,13 +84,13 @@ const Footer: FC<Props> = () => {
               <Text color="#222">Social Channels</Text>
               <Flex gap={16}>
                 <a href="#" target="blank">
-                  <img src="./icons/facebook_icon.svg" />
+                  <Image src="/icons/facebook_icon.svg" width={32} height={32} alt="facebook" />
                 </a>
                 <a href="#" target="blank">
-                  <img src="./icons/instagram_icon.svg" />
+                  <Image src="/icons/instagram_icon.svg" width={32} height={32} alt="instagram" />
                 </a>
                 <a href="#" target="blank">
-                  <img src="./icons/linkedin_icon.svg" />
+                  <Image src="/icons/linkedin_icon.svg" width={32} height={32} alt="instagram" />
                 </a>
               </Flex>
             </Flex>
@@ -186,7 +186,12 @@ const Footer: FC<Props> = () => {
           </Box>
           <Box>
             <Text>
-              <img src="./icons/persona_logo.svg" />
+              <Image
+                src="/icons/persona_logo.svg"
+                width={135}
+                height={27}
+                alt="persona_grey_logo"
+              />
             </Text>
           </Box>
           <Box>
