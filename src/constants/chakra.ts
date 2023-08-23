@@ -20,7 +20,6 @@ const Button: ComponentStyleConfig = {
       color: 'white', // You need to specify the text color for focus state
     },
   },
-  variants: {},
   sizes: {
     sm: {
       width: '118px',

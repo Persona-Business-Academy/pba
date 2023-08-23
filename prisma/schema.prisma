@@ -18,3 +18,10 @@ model User {
 
     @@map(name: "users")
 }
+
+// PageContent
+// type:"HomePage"
+// id:1                            Translation                             
+//                                 language : en                             
+//                                 pageContentId:1   
+// key  : welcome                         text:"dasdasdas"
