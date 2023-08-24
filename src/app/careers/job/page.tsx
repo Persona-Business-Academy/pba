@@ -65,7 +65,6 @@ const CareersJob = (props: Props) => {
         paddingBottom="24px">
         <UnorderedList
           margin="0"
-          // paddingRight="40px"
           listStyleType="none"
           fontSize="16px"
           lineHeight="21.28px">
@@ -75,7 +74,6 @@ const CareersJob = (props: Props) => {
 
         <UnorderedList
           margin="0"
-          // paddingRight="40px"
           listStyleType="none"
           fontSize="16px"
           lineHeight="21.28px">
@@ -102,7 +100,6 @@ const CareersJob = (props: Props) => {
       </Box>
 
       <Box maxW="895px" marginTop="116px" marginBottom="148px">
-        {/* 1 */}
         <Box paddingBottom="64px">
           <Heading
             margin="0"
@@ -128,7 +125,6 @@ const CareersJob = (props: Props) => {
             by H. Rackham.
           </Text>
         </Box>
-        {/* 2 */}
         <Box paddingBottom="64px">
           <Heading
             margin="0"
@@ -154,7 +150,6 @@ const CareersJob = (props: Props) => {
             by H. Rackham.
           </Text>
         </Box>
-        {/* 3 */}
         <Box>
           <Heading
             margin="0"
