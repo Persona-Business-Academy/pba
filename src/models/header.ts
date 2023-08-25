@@ -1,6 +1,9 @@
+export interface SubLabelNavItem {
+  subLabelNavItem: string;
+}
 export interface SubLabel {
   subLabelName: string;
-  children: any[];
+  children: SubLabelNavItem[];
 }
 
 export interface FeaturedItem {

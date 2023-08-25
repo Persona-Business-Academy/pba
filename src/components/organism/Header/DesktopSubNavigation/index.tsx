@@ -2,7 +2,7 @@ import { FC, memo, useState } from 'react';
 import { Box, Popover, PopoverContent, PopoverTrigger, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SubLabel } from '@/models/header';
+import { SubLabel, SubLabelNavItem } from '@/models/header';
 
 interface DesktopSubNav {
   label: string;
@@ -50,7 +50,7 @@ const DesktopSubNav: FC<DesktopSubNav> = ({ label, subLabels }) => {
 
       <PopoverContent marginTop="25%">
         {subLabels.length
-          ? subLabels.map(({ subLabelName }, index) => (
+          ? subLabels.map(({ subLabelName }, index: number) => (
               <Box
                 display="flex"
                 gap={11}
