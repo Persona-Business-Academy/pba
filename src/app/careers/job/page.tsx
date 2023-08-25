@@ -1,11 +1,11 @@
 'use client';
+import React, { FC } from 'react';
 import {
   Box,
   Button,
   Container,
   Flex,
   FormControl,
-  FormHelperText,
   FormLabel,
   Grid,
   GridItem,
@@ -16,19 +16,14 @@ import {
   InputLeftAddon,
   ListItem,
   Spacer,
-  Stack,
-  Tag,
-  TagLabel,
-  TagLeftIcon,
   Text,
   Textarea,
   UnorderedList,
 } from '@chakra-ui/react';
-import React from 'react';
 
 type Props = {};
 
-const CareersJob = (props: Props) => {
+const CareersJob: FC<Props> = () => {
   return (
     <Container maxW="1201px">
       <Flex marginBottom="41px">
@@ -63,20 +58,12 @@ const CareersJob = (props: Props) => {
         width="470px"
         borderBottom="1px solid #BDBDBD"
         paddingBottom="24px">
-        <UnorderedList
-          margin="0"
-          listStyleType="none"
-          fontSize="16px"
-          lineHeight="21.28px">
+        <UnorderedList margin="0" listStyleType="none" fontSize="16px" lineHeight="21.28px">
           <ListItem fontWeight="700">Salary:</ListItem>
           <ListItem fontWeight="400">£24,000 - £26,000</ListItem>
         </UnorderedList>
 
-        <UnorderedList
-          margin="0"
-          listStyleType="none"
-          fontSize="16px"
-          lineHeight="21.28px">
+        <UnorderedList margin="0" listStyleType="none" fontSize="16px" lineHeight="21.28px">
           <ListItem fontWeight="700">Working hours:</ListItem>
           <ListItem fontWeight="400">10:00-18:00</ListItem>
         </UnorderedList>
@@ -110,7 +97,7 @@ const CareersJob = (props: Props) => {
             Job Description
           </Heading>
           <Text lineHeight="21.28px" fontSize="16px" fontWeight="400" maxW="876px" margin="0">
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+            {`Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
             piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
             McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
             the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
@@ -122,7 +109,7 @@ const CareersJob = (props: Props) => {
             of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
             1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced
             in their exact original form, accompanied by English versions from the 1914 translation
-            by H. Rackham.
+            by H. Rackham.`}
           </Text>
         </Box>
         <Box paddingBottom="64px">
@@ -135,7 +122,7 @@ const CareersJob = (props: Props) => {
             Job Responsibilities
           </Heading>
           <Text lineHeight="21.28px" fontSize="16px" fontWeight="400" maxW="876px" margin="0">
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+            {`Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
             piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
             McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
             the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
@@ -147,7 +134,7 @@ const CareersJob = (props: Props) => {
             of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
             1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced
             in their exact original form, accompanied by English versions from the 1914 translation
-            by H. Rackham.
+            by H. Rackham.`}
           </Text>
         </Box>
         <Box>
@@ -160,7 +147,7 @@ const CareersJob = (props: Props) => {
             Requirement & Skills
           </Heading>
           <Text lineHeight="21.28px" fontSize="16px" fontWeight="400" maxW="876px" margin="0">
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+            {`Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
             piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
             McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
             the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
@@ -172,7 +159,7 @@ const CareersJob = (props: Props) => {
             of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
             1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced
             in their exact original form, accompanied by English versions from the 1914 translation
-            by H. Rackham.
+            by H. Rackham.`}
           </Text>
         </Box>
       </Box>
@@ -243,7 +230,7 @@ const CareersJob = (props: Props) => {
                   Phone Number*
                 </FormLabel>
                 <InputGroup>
-                  <InputLeftAddon children="ICON" />
+                  <InputLeftAddon>ICON</InputLeftAddon>
                   <Input
                     type="tel"
                     height="37px"

@@ -1,5 +1,5 @@
 import { AuthBox } from '@/components/molecule';
-import { AuthPages } from '@/constants/routes';
+import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/constants/routes';
 import SignIn from './SignIn';
 
 export default function SignInPage() {
@@ -7,11 +7,11 @@ export default function SignInPage() {
     <AuthBox
       data={[
         {
-          href: AuthPages.SIGN_UP,
+          href: SIGN_UP_ROUTE,
           title: 'Sign up',
         },
         {
-          href: AuthPages.SIGN_IN,
+          href: SIGN_IN_ROUTE,
           title: 'Sign In',
         },
       ]}>

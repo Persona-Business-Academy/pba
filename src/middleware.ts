@@ -1,11 +1,11 @@
+import { NextApiRequest } from 'next';
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-import { getToken } from 'next-auth/jwt';
+import { validateJwt } from './lib/prisma/utils/auth';
 
-export async function middleware(req: NextRequest) {
+export async function middleware(req: NextApiRequest) {
   try {
-    const token = await getToken({ req, secret: process.env.JWT_SECRET });
-    if (!token || !token.email) {
+    const isInvalidToken = await validateJwt(req);
+    if (isInvalidToken) {
       return NextResponse.redirect(`${process.env.BASE_URL}/signin`);
     }
     return NextResponse.next();

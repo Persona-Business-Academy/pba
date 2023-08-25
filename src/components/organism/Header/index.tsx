@@ -1,5 +1,4 @@
-'use client';
-
+import { memo } from 'react';
 import {
   Box,
   Collapse,
@@ -11,10 +10,12 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from '@/components/atom/Button';
+import { Button } from '@/components/atom';
+import { NavItem } from '@/models/header';
 import DesktopNav from './DesktopNavigation';
 import MobileNav from './MobileNav';
 
+<<<<<<< HEAD
 export interface SubLabel {
   subLabelName: string;
   children: any[];
@@ -35,6 +36,8 @@ export interface NavItem {
   featuredItems?: FeaturedItem[];
 }
 
+=======
+>>>>>>> 04edf775ba6561a00c4a3174738ff1485ed466b5
 const NAV_ITEMS: NavItem[] = [
   {
     label: 'For Individuals',
@@ -319,4 +322,4 @@ export const Header = () => {
     </Box>
   );
 };
-export default Header;
+export default memo(Header);

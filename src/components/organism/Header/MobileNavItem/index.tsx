@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import {
   Box,
   Collapse,
@@ -8,7 +8,7 @@ import {
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
-import { SubLabels } from '..';
+import { SubLabels } from '@/models/header';
 
 interface MobileNavItemProp {
   label: string;
@@ -57,4 +57,4 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children }) => {
   );
 };
 
-export default MobileNavItem;
+export default memo(MobileNavItem);
