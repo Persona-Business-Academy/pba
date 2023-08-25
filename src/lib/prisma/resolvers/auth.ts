@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import { BadRequestException } from 'next-api-decorators';
-import { ERROR_MESSAGES } from '@/utils/constants';
+import { ERROR_MESSAGES } from '@/constants/common';
 import { SignUpValidation } from '@/validation';
 import prisma from '..';
 

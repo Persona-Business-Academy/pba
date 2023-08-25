@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Button, FormInput } from '@/components/atom';
+import { ERROR_MESSAGES } from '@/constants/common';
 import { SignInFormData } from '@/models/auth';
-import { ERROR_MESSAGES } from '@/utils/constants';
 
 // todo
 const SignIn = () => {
