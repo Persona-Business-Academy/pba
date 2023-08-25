@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-/* eslint-disable unused-imports/no-unused-vars */
-import { FC, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import { Box, Popover, PopoverContent, PopoverTrigger, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
-=======
-import { FC, memo } from 'react';
-import { Box, Stack, Text } from '@chakra-ui/react';
->>>>>>> 04edf775ba6561a00c4a3174738ff1485ed466b5
 import Link from 'next/link';
 import { SubLabel } from '@/models/header';
 

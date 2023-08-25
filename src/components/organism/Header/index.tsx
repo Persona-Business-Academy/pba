@@ -15,29 +15,6 @@ import { NavItem } from '@/models/header';
 import DesktopNav from './DesktopNavigation';
 import MobileNav from './MobileNav';
 
-<<<<<<< HEAD
-export interface SubLabel {
-  subLabelName: string;
-  children: any[];
-}
-
-export interface FeaturedItem {
-  categoryName: string;
-  imgPath: string;
-}
-export interface SubLabels {
-  label: string;
-  subLabels: SubLabel[];
-}
-
-export interface NavItem {
-  label: string;
-  children?: SubLabels[];
-  featuredItems?: FeaturedItem[];
-}
-
-=======
->>>>>>> 04edf775ba6561a00c4a3174738ff1485ed466b5
 const NAV_ITEMS: NavItem[] = [
   {
     label: 'For Individuals',
