@@ -1,9 +1,5 @@
-import { Footer } from '@/components/organism';
+'use client';
 
 export default function Home() {
-  return (
-    <div>
-      <Footer />
-    </div>
-  );
+  return <div></div>;
 }

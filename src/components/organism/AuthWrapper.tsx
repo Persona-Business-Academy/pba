@@ -13,7 +13,7 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
       <GridItem>
         <Flex justifyContent={'center'} alignItems={'center'} h={'100%'} w={'100%'}>
           <Box position={'absolute'} top={{ base: '60px', '2xl': '126px' }}>
-            <Image src="/persona_logo_auth.svg" alt="" width={183} height={37.2} />
+            <Image src="/icons/persona_logo_auth.svg" alt="" width={183} height={37.2} />
           </Box>
           {children}
         </Flex>

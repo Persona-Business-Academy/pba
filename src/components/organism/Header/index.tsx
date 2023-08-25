@@ -20,72 +20,162 @@ const NAV_ITEMS: NavItem[] = [
     label: 'For Individuals',
     children: [
       {
-        label: 'Design',
+        label: 'Programming',
         subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
+          {
+            subLabelName: 'HTML',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'CSS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'SCSS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'JS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'React.js',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Programming',
+        subLabels: [
+          {
+            subLabelName: 'HTML',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'CSS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'SCSS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'JS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'React.js',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Programming',
+        subLabels: [
+          {
+            subLabelName: 'PM',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
         ],
       },
       {
         label: 'Design',
         subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
-        ],
-      },
-      {
-        label: 'Design',
-        subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
-        ],
-      },
-      {
-        label: 'Design',
-        subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
-        ],
-      },
-      {
-        label: 'Design',
-        subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
+          {
+            subLabelName: 'React.js',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
         ],
       },
     ],
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },
@@ -95,7 +185,7 @@ const NAV_ITEMS: NavItem[] = [
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },
@@ -105,7 +195,7 @@ const NAV_ITEMS: NavItem[] = [
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },
@@ -115,7 +205,7 @@ const NAV_ITEMS: NavItem[] = [
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },
@@ -125,7 +215,7 @@ const NAV_ITEMS: NavItem[] = [
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },

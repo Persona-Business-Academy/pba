@@ -80,25 +80,19 @@ const NotFound: FC<Props> = () => {
               display="flex"
               alignItems="center">
               <Link href="!#">Contact support</Link>
-              <Box width="1px" height="20px" marginLeft="16px" bg="black"></Box>
+              <Box width="1px" height="20px" marginLeft="16px" bg="black" />
             </ListItem>
             <ListItem lineHeight="20px" color="#6B7280">
               <Link href="!#">Contact support</Link>
             </ListItem>
           </UnorderedList>
         </GridItem>
-        {/* 2 */}
-        <GridItem>
-          <Box width="100%" height="100vh">
-            <Image
-              width="100%"
-              height="100%"
-              objectFit="cover"
-              src="/not_found_img.jpg"
-              alt="Dan Abramov"
-            />
-          </Box>
-        </GridItem>
+        <GridItem
+          backgroundImage="/images/public_available/not_found_img.jpg"
+          backgroundRepeat="no-repeat"
+          backgroundPosition="center"
+          objectFit="cover"
+          height="100vh"></GridItem>
       </Grid>
     </Container>
   );
