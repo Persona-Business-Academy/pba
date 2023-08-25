@@ -1,4 +1,5 @@
 'use client';
+import React, { FC } from 'react';
 import { Link } from '@chakra-ui/next-js';
 import {
   Box,
@@ -7,18 +8,14 @@ import {
   GridItem,
   Heading,
   Image,
-  LinkBox,
   ListItem,
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
 
-import React from 'react';
-import { Extension } from 'typescript';
-
 type Props = {};
 
-const NotFound = (props: Props) => {
+const NotFound: FC<Props> = () => {
   return (
     <Container height="100vh" maxWidth="100%">
       <Grid templateColumns="1fr 1fr" height="100%" width="100%">

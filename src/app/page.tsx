@@ -1,6 +1,4 @@
-'use client';
-
-import Footer from '@/components/organism/Footer';
+import { Footer } from '@/components/organism';
 
 export default function Home() {
   return (

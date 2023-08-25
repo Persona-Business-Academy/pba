@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Stack, useColorModeValue } from '@chakra-ui/react';
-import { NavItem } from '..';
+import { NavItem } from '@/models/header';
 import MobileNavItem from '../MobileNavItem';
 
 interface MobileNavProps {
@@ -15,4 +15,4 @@ const MobileNav: FC<MobileNavProps> = ({ navItems }) => {
     </Stack>
   );
 };
-export default MobileNav;
+export default memo(MobileNav);

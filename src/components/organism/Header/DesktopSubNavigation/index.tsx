@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Box, Stack, Text } from '@chakra-ui/react';
 import Link from 'next/link';
-import { SubLabel } from '..';
+import { SubLabel } from '@/models/header';
 
 interface DesktopSubNav {
   label: string;
@@ -34,4 +34,4 @@ const DesktopSubNav: FC<DesktopSubNav> = ({ label, subLabels }) => {
   );
 };
 
-export default DesktopSubNav;
+export default memo(DesktopSubNav);

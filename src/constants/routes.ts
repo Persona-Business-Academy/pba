@@ -1,6 +1,3 @@
 export const HOMEPAGE_ROUTE = '/homepage';
-
-export enum AuthPages {
-  'SIGN_IN' = '/signin',
-  'SIGN_UP' = '/signup',
-}
+export const SIGN_IN_ROUTE = '/signin';
+export const SIGN_UP_ROUTE = '/signup';

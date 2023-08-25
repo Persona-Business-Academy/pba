@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { Box, Container, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -207,4 +207,4 @@ const Footer: FC<Props> = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

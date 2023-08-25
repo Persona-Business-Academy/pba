@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { Box, Flex, Popover, PopoverContent, PopoverTrigger, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
-import { NavItem, SubLabels } from '..';
+import { NavItem, SubLabels } from '@/models/header';
 import DesktopSubNav from '../DesktopSubNavigation';
 
 type Props = {
@@ -81,4 +81,4 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
   );
 };
 
-export default DesktopNav;
+export default memo(DesktopNav);
