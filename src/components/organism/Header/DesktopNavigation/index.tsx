@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Box, Flex, Popover, PopoverContent, PopoverTrigger, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { NavItem, SubLabels } from '..';
 import DesktopSubNav from '../DesktopSubNavigation';
 
@@ -13,7 +14,7 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
     <Stack direction={'row'} justifyContent="center" alignItems="center" gap={40}>
       {navItems.map((navItem, index) => (
         <Box key={index}>
-          <Popover trigger="hover" id={`popover-trigger-menu`}>
+          <Popover trigger="hover" id="popover-trigger-menu">
             <PopoverTrigger>
               <Box
                 cursor="pointer"
@@ -36,41 +37,39 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
                 bg="#fff"
                 borderRadius="0px 0px 12px 12px"
                 width="100vw"
-                height={600}>
+                height={490}>
                 <Stack
-                  width={1144}
+                  width={1200}
                   paddingTop={48}
                   paddingBottom={40}
-                  display="grid"
-                  gridTemplateColumns="repeat(auto-fit,minmax(140px,1fr))"
-                  columnGap={96}
-                  margin="0 auto">
-                  {navItem.children.map((child: SubLabels, index: number) => (
-                    <DesktopSubNav key={index} {...child} />
-                  ))}
-                </Stack>
-                <Stack width={1144} margin="0 auto">
-                  <Text fontSize={16} fontWeight={700} color="#000" marginBottom={16}>
-                    Featured
-                  </Text>
-                </Stack>
-
-                <Stack
-                  width={1144}
                   margin="0 auto"
-                  display="grid"
-                  gap={40}
-                  gridTemplateColumns="repeat(4,256px)">
-                  {navItem.featuredItems?.map(
-                    ({ imgPath, categoryName }: { imgPath: any; categoryName: any }, i: number) => (
-                      <Flex key={i} flexDirection="column" gap={16}>
-                        <Image src={imgPath} alt={categoryName} width={256} height={172} />
-                        <Text fontSize={16} fontWeight={400}>
-                          {categoryName}
-                        </Text>
-                      </Flex>
-                    ),
-                  )}
+                  gap={69}
+                  flexDirection="row"
+                  display="flex">
+                  <Stack width="183px" gap="14px">
+                    {navItem.children.map((child: SubLabels, index: number) => (
+                      <DesktopSubNav key={index} {...child} />
+                    ))}
+                  </Stack>
+                  <Stack
+                    margin="0 auto"
+                    display="grid"
+                    gap={42}
+                    gridTemplateColumns="repeat(5,156px)">
+                    {navItem.featuredItems?.map(
+                      (
+                        { imgPath, categoryName }: { imgPath: any; categoryName: any },
+                        i: number,
+                      ) => (
+                        <Flex as={Link} href="" key={i} flexDirection="column" gap={16}>
+                          <Image src={imgPath} alt={categoryName} width={156} height={104} />
+                          <Text fontSize={16} fontWeight={400} textAlign="center">
+                            {categoryName}
+                          </Text>
+                        </Flex>
+                      ),
+                    )}
+                  </Stack>
                 </Stack>
               </PopoverContent>
             )}

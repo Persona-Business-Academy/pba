@@ -17,6 +17,7 @@ import MobileNav from './MobileNav';
 
 export interface SubLabel {
   subLabelName: string;
+  children: any[];
 }
 
 export interface FeaturedItem {
@@ -39,72 +40,162 @@ const NAV_ITEMS: NavItem[] = [
     label: 'For Individuals',
     children: [
       {
-        label: 'Design',
+        label: 'Programming',
         subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
+          {
+            subLabelName: 'HTML',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'CSS',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'SCSS',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'JS',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'React.js',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Programming',
+        subLabels: [
+          {
+            subLabelName: 'HTML',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'CSS',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'SCSS',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'JS',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'React.js',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Programming',
+        subLabels: [
+          {
+            subLabelName: 'PM',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
         ],
       },
       {
         label: 'Design',
         subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
-        ],
-      },
-      {
-        label: 'Design',
-        subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
-        ],
-      },
-      {
-        label: 'Design',
-        subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
-        ],
-      },
-      {
-        label: 'Design',
-        subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
+          {
+            subLabelName: 'React.js',
+            children: [
+              {
+                subLabelChildItem: 'Get Started',
+              },
+            ],
+          },
         ],
       },
     ],
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },
@@ -114,7 +205,7 @@ const NAV_ITEMS: NavItem[] = [
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },
@@ -124,7 +215,7 @@ const NAV_ITEMS: NavItem[] = [
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },
@@ -134,7 +225,7 @@ const NAV_ITEMS: NavItem[] = [
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },
@@ -144,7 +235,7 @@ const NAV_ITEMS: NavItem[] = [
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },

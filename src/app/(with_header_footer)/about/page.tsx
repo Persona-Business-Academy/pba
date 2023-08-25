@@ -49,7 +49,7 @@ const About: FC<Props> = () => {
               </div>
               <div className={classes.courses__images}>
                 <Image
-                  src="/courses_img.jpg"
+                  src="/images/others/courses_img.jpg"
                   alt="Description of the image"
                   width={509}
                   height={402}
@@ -60,7 +60,7 @@ const About: FC<Props> = () => {
             <div className={classes.courses__content}>
               <div className={classes.courses__images}>
                 <Image
-                  src="/courses_img.jpg"
+                  src="/images/others/courses_img.jpg"
                   alt="Description of the image"
                   width={509}
                   height={402}
@@ -99,7 +99,7 @@ const About: FC<Props> = () => {
               </div>
               <div className={classes.courses__images}>
                 <Image
-                  src="/courses_img.jpg"
+                  src="/images/others/courses_img.jpg"
                   alt="Description of the image"
                   width={509}
                   height={402}
