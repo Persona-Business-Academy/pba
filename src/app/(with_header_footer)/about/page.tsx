@@ -14,7 +14,6 @@ const About: FC<Props> = () => {
           And we’re changing the way people think and feel about training.
         </div>
       </div>
-      {/* Our Mission */}
       <div className={classes.missions}>
         <div className={classes.missions__content}>
           <h2 className={classes.missions__title}>Our Mission</h2>
@@ -29,9 +28,7 @@ const About: FC<Props> = () => {
         </div>
 
         <div className={classes.missions__container}>
-          {/* Courses */}
           <div className={classes.courses}>
-            {/* //1 */}
             <div className={classes.courses__content}>
               <div className={classes.courses__heading}>
                 <h4 className={classes.courses__title}>
@@ -49,7 +46,7 @@ const About: FC<Props> = () => {
               </div>
               <div className={classes.courses__images}>
                 <Image
-                  src="/images/others/courses_img.jpg"
+                  src="/images/public_available/courses_img.jpg"
                   alt="Description of the image"
                   width={509}
                   height={402}
@@ -60,7 +57,7 @@ const About: FC<Props> = () => {
             <div className={classes.courses__content}>
               <div className={classes.courses__images}>
                 <Image
-                  src="/images/others/courses_img.jpg"
+                  src="/images/public_available/courses_img.jpg"
                   alt="Description of the image"
                   width={509}
                   height={402}
@@ -99,7 +96,7 @@ const About: FC<Props> = () => {
               </div>
               <div className={classes.courses__images}>
                 <Image
-                  src="/images/others/courses_img.jpg"
+                  src="/images/public_available/courses_img.jpg"
                   alt="Description of the image"
                   width={509}
                   height={402}
@@ -122,16 +119,12 @@ const About: FC<Props> = () => {
               </div>
             </div>
 
-            {/* card content */}
-
             <div className={classes.cards}>
-              {/* column 1 */}
               <div className={classes.cards__column}>
-                {/* content 1 */}
                 <div className={classes.cards__content}>
                   <div className={classes['cards__img-wrapper']}>
                     <Image
-                      src="/about_value_1.svg"
+                      src="/icons/about_value_1.svg"
                       alt="About value icon"
                       width={141.58322}
                       height={137.7551}
@@ -151,7 +144,7 @@ const About: FC<Props> = () => {
                 <div className={classes.cards__content}>
                   <div className={classes['cards__img-wrapper']}>
                     <Image
-                      src="/about_value_2.svg"
+                      src="/icons/about_value_2.svg"
                       alt="About value icon"
                       width={141.58322}
                       height={137.7551}
@@ -175,7 +168,7 @@ const About: FC<Props> = () => {
                 <div className={classes.cards__content}>
                   <div className={classes['cards__img-wrapper']}>
                     <Image
-                      src="/about_value_3.svg"
+                      src="/icons/about_value_3.svg"
                       alt="About value icon"
                       width={141.58322}
                       height={137.7551}
@@ -195,7 +188,7 @@ const About: FC<Props> = () => {
                 <div className={classes.cards__content}>
                   <div className={classes['cards__img-wrapper']}>
                     <Image
-                      src="/about_value_4.svg"
+                      src="/icons/about_value_4.svg"
                       alt="About value icon"
                       width={141.58322}
                       height={137.7551}
@@ -218,7 +211,7 @@ const About: FC<Props> = () => {
                 <div className={classes.cards__content}>
                   <div className={classes['cards__img-wrapper']}>
                     <Image
-                      src="/about_value_5.svg"
+                      src="/icons/about_value_5.svg"
                       alt="About value icon"
                       width={141.58322}
                       height={137.7551}
@@ -238,7 +231,7 @@ const About: FC<Props> = () => {
                 <div className={classes.cards__content}>
                   <div className={classes['cards__img-wrapper']}>
                     <Image
-                      src="/about_value_6.svg"
+                      src="/icons/about_value_6.svg"
                       alt="About value icon"
                       width={141.58322}
                       height={137.7551}
@@ -272,8 +265,6 @@ const About: FC<Props> = () => {
 
             <div className={classes['history-section__big-circle']}></div>
           </div>
-
-          {/* history-content */}
 
           <div className={classes['history-section__container']}>
             {/* / */}
