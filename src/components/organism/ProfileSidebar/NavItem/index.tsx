@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { Box, Flex, FlexProps } from '@chakra-ui/react';
 import Link from 'next/link';
 
@@ -7,10 +8,11 @@ interface NavItemProps extends FlexProps {
   href: string;
 }
 const NavItem = ({ href, icon: Icon, children, ...rest }: NavItemProps) => {
+  const logoutHandler = useCallback(() => {}, []);
   return (
     <Box
       as={Link}
-      href={href}
+      href={href || ''}
       style={{ textDecoration: 'none' }}
       _focus={{ boxShadow: 'none' }}
       paddingLeft={24}
@@ -20,7 +22,8 @@ const NavItem = ({ href, icon: Icon, children, ...rest }: NavItemProps) => {
         bg: '#F3F4F6',
         color: '#222',
       }}
-      height="52px">
+      height="52px"
+      {...(href ? {} : { onClick: logoutHandler })}>
       <Flex
         align="center"
         p="4"

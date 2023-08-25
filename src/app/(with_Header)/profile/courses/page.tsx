@@ -1,11 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react';
 
-type Props = {}
+type Props = {};
 
-const Courses = (props: Props) => {
-  return (
-    <div> Courses</div>
-  )
-}
+const Courses: FC<Props> = () => {
+  return <div> Courses</div>;
+};
 
-export default Courses
+export default Courses;
