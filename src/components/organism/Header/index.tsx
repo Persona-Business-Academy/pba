@@ -26,7 +26,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'HTML',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
@@ -34,7 +34,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'CSS',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
@@ -42,7 +42,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'SCSS',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
@@ -50,7 +50,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'JS',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
@@ -58,7 +58,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'React.js',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
@@ -71,7 +71,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'HTML',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
@@ -79,7 +79,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'CSS',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
@@ -87,7 +87,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'SCSS',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
@@ -95,7 +95,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'JS',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
@@ -103,7 +103,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'React.js',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
@@ -116,7 +116,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'PM',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
@@ -129,7 +129,7 @@ const NAV_ITEMS: NavItem[] = [
             subLabelName: 'React.js',
             children: [
               {
-                subLabelChildItem: 'Get Started',
+                subLabelNavItem: 'Get Started',
               },
             ],
           },
