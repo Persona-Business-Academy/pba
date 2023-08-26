@@ -1,21 +1,10 @@
 'use client';
-import React from 'react';
-import {
-  Box,
-  Container,
-  Grid,
-  GridItem,
-  Heading,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
-} from '@chakra-ui/react';
+import React, { FC } from 'react';
+import { Box, Container, Heading, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 
 type Props = {};
 
-const TermsAndConditions = (props: Props) => {
+const TermsAndConditions: FC<Props> = () => {
   return (
     <Container maxW="1200px">
       <Heading
@@ -30,17 +19,20 @@ const TermsAndConditions = (props: Props) => {
       </Heading>
 
       <Box>
-        <Tabs display="flex" gap="20px">
-          <TabList flexDirection="column" width="387px" fontWeight="700">
+        <Tabs display="flex" gap="20px" id="terms_and_conditions_tabs">
+          <TabList flexDirection="column" width="387px" fontWeight="700" gap={4}>
             <Tab
               width="100%"
               justifyContent="flex-start"
               padding="16px"
+              _selected={{
+                bg: '#F3F4F6',
+              }}
               fontSize="16px"
               lineHeight="21.28px"
               color="#5B5B5B"
               borderBottom="none"
-              _focus={{ bg: '#EEEEEE' }}>
+              bg="#F9FAFB">
               Lorem ispum
             </Tab>
             <Tab
@@ -51,7 +43,10 @@ const TermsAndConditions = (props: Props) => {
               color="#5B5B5B"
               lineHeight="21.28px"
               borderBottom="none"
-              _focus={{ bg: '#EEEEEE' }}>
+              bg="#F9FAFB"
+              _selected={{
+                bg: '#F3F4F6',
+              }}>
               Lorem ispum
             </Tab>
             <Tab
@@ -61,8 +56,11 @@ const TermsAndConditions = (props: Props) => {
               color="#5B5B5B"
               fontSize="16px"
               lineHeight="21.28px"
+              bg="#F9FAFB"
               borderBottom="none"
-              _focus={{ bg: '#EEEEEE' }}>
+              _selected={{
+                bg: '#F3F4F6',
+              }}>
               Lorem ispum
             </Tab>
             <Tab
@@ -73,29 +71,10 @@ const TermsAndConditions = (props: Props) => {
               lineHeight="21.28px"
               color="#5B5B5B"
               borderBottom="none"
-              _focus={{ bg: '#EEEEEE' }}>
-              Lorem ispum
-            </Tab>
-            <Tab
-              width="100%"
-              justifyContent="flex-start"
-              padding="16px"
-              fontSize="16px"
-              lineHeight="21.28px"
-              borderBottom="none"
-              color="#5B5B5B"
-              _focus={{ bg: '#EEEEEE' }}>
-              Lorem ispum
-            </Tab>
-            <Tab
-              width="100%"
-              justifyContent="flex-start"
-              padding="16px"
-              fontSize="16px"
-              lineHeight="21.28px"
-              borderBottom="none"
-              color="#5B5B5B"
-              _focus={{ bg: '#EEEEEE' }}>
+              bg="#F9FAFB"
+              _selected={{
+                bg: '#F3F4F6',
+              }}>
               Lorem ispum
             </Tab>
             <Tab
@@ -106,13 +85,44 @@ const TermsAndConditions = (props: Props) => {
               lineHeight="21.28px"
               borderBottom="none"
               color="#5B5B5B"
-              _focus={{ bg: '#EEEEEE' }}>
+              bg="#F9FAFB"
+              _selected={{
+                bg: '#F3F4F6',
+              }}>
+              Lorem ispum
+            </Tab>
+            <Tab
+              width="100%"
+              justifyContent="flex-start"
+              padding="16px"
+              fontSize="16px"
+              lineHeight="21.28px"
+              borderBottom="none"
+              color="#5B5B5B"
+              _selected={{
+                bg: '#F3F4F6',
+              }}
+              bg="#F9FAFB">
+              Lorem ispum
+            </Tab>
+            <Tab
+              width="100%"
+              justifyContent="flex-start"
+              padding="16px"
+              fontSize="16px"
+              lineHeight="21.28px"
+              borderBottom="none"
+              color="#5B5B5B"
+              _selected={{
+                bg: '#F3F4F6',
+              }}
+              bg="#F9FAFB">
               Lorem ispum
             </Tab>
           </TabList>
 
           <TabPanels>
-            <TabPanel bg='#88fcaa'>
+            <TabPanel bg="#88fcaa">
               <p>
                 These terms and conditions outline the rules and regulations for the use of
                 Wriggle’s Website, located at www.wriggle.ie. By accessing this website we assume

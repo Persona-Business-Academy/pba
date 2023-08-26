@@ -1,5 +1,9 @@
+export interface SubLabelNavItem {
+  subLabelNavItem: string;
+}
 export interface SubLabel {
   subLabelName: string;
+  children: SubLabelNavItem[];
 }
 
 export interface FeaturedItem {
@@ -14,5 +18,6 @@ export interface SubLabels {
 export interface NavItem {
   label: string;
   children?: SubLabels[];
+  href?: string;
   featuredItems?: FeaturedItem[];
 }

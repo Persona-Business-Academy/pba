@@ -11,6 +11,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/atom';
+import { BLOG_ROUTE, HOMEPAGE_ROUTE, PRICING_ROUTE } from '@/constants/routes';
 import { NavItem } from '@/models/header';
 import DesktopNav from './DesktopNavigation';
 import MobileNav from './MobileNav';
@@ -20,72 +21,162 @@ const NAV_ITEMS: NavItem[] = [
     label: 'For Individuals',
     children: [
       {
-        label: 'Design',
+        label: 'Programming',
         subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
+          {
+            subLabelName: 'HTML',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'CSS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'SCSS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'JS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'React.js',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Programming',
+        subLabels: [
+          {
+            subLabelName: 'HTML',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'CSS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'SCSS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'JS',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+          {
+            subLabelName: 'React.js',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Programming',
+        subLabels: [
+          {
+            subLabelName: 'PM',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
         ],
       },
       {
         label: 'Design',
         subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
-        ],
-      },
-      {
-        label: 'Design',
-        subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
-        ],
-      },
-      {
-        label: 'Design',
-        subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
-        ],
-      },
-      {
-        label: 'Design',
-        subLabels: [
-          { subLabelName: 'HTML' },
-          { subLabelName: 'CSS' },
-          { subLabelName: 'SCSS' },
-          { subLabelName: 'JS' },
-          { subLabelName: 'React.js' },
+          {
+            subLabelName: 'React.js',
+            children: [
+              {
+                subLabelNavItem: 'Get Started',
+              },
+            ],
+          },
         ],
       },
     ],
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },
@@ -95,7 +186,7 @@ const NAV_ITEMS: NavItem[] = [
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },
@@ -105,29 +196,19 @@ const NAV_ITEMS: NavItem[] = [
     featuredItems: [
       {
         categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
+        imgPath: '/images/public_available/featured_example.jpg',
       },
     ],
   },
   {
     label: 'Pricing',
+    href: PRICING_ROUTE,
     children: [],
-    featuredItems: [
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
-      },
-    ],
   },
   {
     label: 'Blog',
+    href: BLOG_ROUTE,
     children: [],
-    featuredItems: [
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/others/featured_example.jpg',
-      },
-    ],
   },
 ];
 
@@ -155,16 +236,18 @@ export const Header = () => {
           <IconButton onClick={onToggle} variant={'ghost'} aria-label={'Toggle Navigation'} />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} gap={165}>
-          <Image
-            src="/icons/persona_logo.png"
-            width={135}
-            height={27}
-            alt="persona_logo"
-            priority
-            style={{
-              objectFit: 'contain',
-            }}
-          />
+          <Link href={HOMEPAGE_ROUTE}>
+            <Image
+              src="/icons/persona_logo.png"
+              width={135}
+              height={27}
+              alt="persona_logo"
+              priority
+              style={{
+                objectFit: 'contain',
+              }}
+            />
+          </Link>
 
           <Flex display={{ base: 'none', md: 'flex' }}>
             <DesktopNav navItems={NAV_ITEMS} />
@@ -185,17 +268,7 @@ export const Header = () => {
             </Link>
 
             <Link href="/">
-              <Button
-                borderRadius={20}
-                fontSize={14}
-                fontWeight={600}
-                height={38}
-                width={127}
-                _hover={{
-                  bg: '#fff',
-                  color: '#3CB4E7',
-                  border: '1px solid #3CB4E7',
-                }}>
+              <Button borderRadius={20} fontSize={14} fontWeight={600} height={38} width={127}>
                 Get Started
               </Button>
             </Link>

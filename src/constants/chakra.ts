@@ -35,8 +35,40 @@ const Button: ComponentStyleConfig = {
     },
   },
 };
+
+const Checkbox: ComponentStyleConfig = {
+  baseStyle: {
+    control: {
+      borderRadius: '5px',
+      bg: '#fff',
+      borderColor: '#36A1CE',
+
+      _checked: {
+        borderRadius: '5px',
+        bg: '#36A1CE',
+        borderColor: '#36A1CE',
+
+        _hover: {
+          bg: '#3CB3E5',
+          borderColor: '#3CB3E5',
+        },
+      },
+      _hover: {
+        borderColor: '#3CB3E5',
+        color: '#fff',
+      },
+
+      _disabled: {
+        bg: '#3CB3E5',
+        borderColor: '#3CB3E5',
+      },
+    },
+  },
+};
+
 export const components = {
   Button,
+  Checkbox,
 };
 
 export const breakpoints = {

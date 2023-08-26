@@ -1,17 +1,19 @@
 'use client';
 import React, { FC } from 'react';
 import { Link } from '@chakra-ui/next-js';
+import Image from 'next/image';
 import {
   Box,
   Container,
   Grid,
   GridItem,
   Heading,
-  Image,
   ListItem,
   Text,
   UnorderedList,
-} from '@chakra-ui/react';
+} 
+
+from '@chakra-ui/react';
 
 type Props = {};
 
@@ -19,7 +21,7 @@ const NotFound: FC<Props> = () => {
   return (
     <Container height="100vh" maxWidth="100%">
       <Grid templateColumns="1fr 1fr" height="100%" width="100%">
-        <GridItem
+      <GridItem
           display="flex"
           flexDirection="column"
           position="relative"
@@ -36,23 +38,20 @@ const NotFound: FC<Props> = () => {
               color="#22222"
               fontWeight="700"
               lineHeight="53.64px">
-              {' '}
+            
               Page not found
             </Heading>
             <Text fontSize="16px" margin="0" paddingBottom="8px" color="#C0C0C0">
               Sorry, we couldn’t find the page you’re looking for.
             </Text>
 
-            <Link href="!#" display="flex" color="#ff6131" alignItems="center">
-              Go back home
-              <Image
-                marginLeft="8px"
-                width="24px"
-                height="24px"
-                objectFit="cover"
-                src="/icons/not_found_icon.svg"
-                alt="Arrow Icon"
-              />
+            <Link href="!#" display="flex" gap={8} color="#ff6131" alignItems="center" textDecorationLine="none">
+              Go back home 
+                <Image
+                  src="/icons/not_found_icon.svg"
+                  alt="Icon"
+                  width="24"
+                  height="24"></Image>
             </Link>
           </Box>
 
@@ -80,28 +79,23 @@ const NotFound: FC<Props> = () => {
               display="flex"
               alignItems="center">
               <Link href="!#">Contact support</Link>
-              <Box width="1px" height="20px" marginLeft="16px" bg="black"></Box>
+              <Box width="1px" height="20px" marginLeft="16px" bg="black" />
             </ListItem>
             <ListItem lineHeight="20px" color="#6B7280">
               <Link href="!#">Contact support</Link>
             </ListItem>
+
           </UnorderedList>
         </GridItem>
-        {/* 2 */}
-        <GridItem>
-          <Box width="100%" height="100vh">
-            <Image
-              width="100%"
-              height="100%"
-              objectFit="cover"
-              src="/not_found_img.jpg"
-              alt="Dan Abramov"
-            />
-          </Box>
-        </GridItem>
+
+
+
+            <GridItem height='100%' width='100%' backgroundImage="/images/public_available/not_found_img.jpg" backgroundRepeat="no-repeat"  backgroundPosition="center" backgroundSize="cover">
+                    </GridItem>
       </Grid>
     </Container>
   );
 };
 
 export default NotFound;
+ 
