@@ -1,11 +1,12 @@
 'use client';
+import React, { FC } from 'react';
+import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
+import Image from 'next/image';
 import { Button } from '@/components/atom';
-import { Box, Container, Flex, Heading, Image, Text } from '@chakra-ui/react';
-import React from 'react';
 
 type Props = {};
 
-const Careers = (props: Props) => {
+const Careers: FC<Props> = () => {
   return (
     <Container
       maxWidth={1200}
@@ -37,7 +38,12 @@ const Careers = (props: Props) => {
             </Text>
           </Box>
           <Box width={590} height={402} borderRadius="0px 16px 16px 0px">
-            <Image src="/courses_img.jpg"></Image>
+            <Image
+              src="/images/public_available/courses_img.jpg"
+              width={590}
+              height={402}
+              alt="courses_image"
+            />
           </Box>
         </Flex>
       </Flex>
@@ -121,7 +127,12 @@ const Careers = (props: Props) => {
         </Heading>
         <Flex gap={24} alignItems="center">
           <Box width="590px" height="402px" borderRadius="16px">
-            <Image src="/courses_img.jpg"></Image>
+            <Image
+              src="/images/public_available/courses_img.jpg"
+              width={590}
+              height={402}
+              alt="courses_image"
+            />
           </Box>
           <Box maxWidth={586} paddingRight={24}>
             <Heading
@@ -135,7 +146,7 @@ const Careers = (props: Props) => {
             <Text fontSize="16px" fontWeight={400} textAlign="center">
               We create learning experiences that enhance human potential. Our diverse teams work
               across technology, design, content, marketing and more to bring intuitive and
-              impactful programs to learners across the world.Explore your passion at BYJU'S. Learn,
+              impactful programs to learners across the world.Explore your passion at BYJU S. Learn,
               lead and revolutionize education with us.
             </Text>
           </Box>

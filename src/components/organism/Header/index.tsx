@@ -268,17 +268,7 @@ export const Header = () => {
             </Link>
 
             <Link href="/">
-              <Button
-                borderRadius={20}
-                fontSize={14}
-                fontWeight={600}
-                height={38}
-                width={127}
-                _hover={{
-                  bg: '#fff',
-                  color: '#3CB4E7',
-                  border: '1px solid #3CB4E7',
-                }}>
+              <Button borderRadius={20} fontSize={14} fontWeight={600} height={38} width={127}>
                 Get Started
               </Button>
             </Link>
