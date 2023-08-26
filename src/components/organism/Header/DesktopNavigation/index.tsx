@@ -2,8 +2,8 @@ import React, { FC, memo } from 'react';
 import { Box, Flex, Popover, PopoverContent, PopoverTrigger, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import DesktopSubNav from '../DesktopSubNavigation';
 import { NavItem, SubLabels } from '@/models/header';
+import DesktopSubNav from '../DesktopSubNavigation';
 
 type Props = {
   navItems: NavItem[];
@@ -17,6 +17,7 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
           <Popover trigger="hover" id="popover-trigger-menu">
             <PopoverTrigger>
               <Box
+                {...(navItem.href ? { as: Link, href: navItem.href } : {})}
                 cursor="pointer"
                 fontSize={16}
                 fontWeight={400}
@@ -29,7 +30,7 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
               </Box>
             </PopoverTrigger>
 
-            {navItem.children && (
+            {navItem.children && !navItem.href && (
               <PopoverContent
                 id={Date.now().toString()}
                 border={0}

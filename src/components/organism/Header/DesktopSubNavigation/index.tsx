@@ -2,7 +2,7 @@ import { FC, memo, useState } from 'react';
 import { Box, Popover, PopoverContent, PopoverTrigger, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SubLabel, SubLabelNavItem } from '@/models/header';
+import { SubLabel } from '@/models/header';
 
 interface DesktopSubNav {
   label: string;
