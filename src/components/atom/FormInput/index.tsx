@@ -55,7 +55,7 @@ const FormInput: FC<Props> = ({
       </FormLabel>
       <InputGroup>
         <Input
-          type={type}
+          type={isPasswordType ? type : 'text'}
           value={value}
           onChange={handleInputChange}
           placeholder={placeholder}

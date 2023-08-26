@@ -11,6 +11,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/atom';
+import { BLOG_ROUTE, HOMEPAGE_ROUTE, PRICING_ROUTE } from '@/constants/routes';
 import { NavItem } from '@/models/header';
 import DesktopNav from './DesktopNavigation';
 import MobileNav from './MobileNav';
@@ -201,23 +202,13 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Pricing',
+    href: PRICING_ROUTE,
     children: [],
-    featuredItems: [
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-    ],
   },
   {
     label: 'Blog',
+    href: BLOG_ROUTE,
     children: [],
-    featuredItems: [
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-    ],
   },
 ];
 
@@ -245,16 +236,18 @@ export const Header = () => {
           <IconButton onClick={onToggle} variant={'ghost'} aria-label={'Toggle Navigation'} />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} gap={165}>
-          <Image
-            src="/icons/persona_logo.png"
-            width={135}
-            height={27}
-            alt="persona_logo"
-            priority
-            style={{
-              objectFit: 'contain',
-            }}
-          />
+          <Link href={HOMEPAGE_ROUTE}>
+            <Image
+              src="/icons/persona_logo.png"
+              width={135}
+              height={27}
+              alt="persona_logo"
+              priority
+              style={{
+                objectFit: 'contain',
+              }}
+            />
+          </Link>
 
           <Flex display={{ base: 'none', md: 'flex' }}>
             <DesktopNav navItems={NAV_ITEMS} />
