@@ -7,11 +7,11 @@ import {
   Grid,
   GridItem,
   Heading,
-  Image,
   ListItem,
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
+import Image from 'next/image';
 
 type Props = {};
 
@@ -36,7 +36,7 @@ const NotFound: FC<Props> = () => {
               color="#22222"
               fontWeight="700"
               lineHeight="53.64px">
-              {' '}
+            
               Page not found
             </Heading>
             <Text fontSize="16px" margin="0" paddingBottom="8px" color="#C0C0C0">
@@ -44,15 +44,7 @@ const NotFound: FC<Props> = () => {
             </Text>
 
             <Link href="!#" display="flex" color="#ff6131" alignItems="center">
-              Go back home
-              <Image
-                marginLeft="8px"
-                width="24px"
-                height="24px"
-                objectFit="cover"
-                src="/icons/not_found_icon.svg"
-                alt="Arrow Icon"
-              />
+              Go back home 
             </Link>
           </Box>
 
@@ -87,15 +79,14 @@ const NotFound: FC<Props> = () => {
             </ListItem>
           </UnorderedList>
         </GridItem>
-        <GridItem
-          backgroundImage="/images/public_available/not_found_img.jpg"
-          backgroundRepeat="no-repeat"
-          backgroundPosition="center"
-          objectFit="cover"
-          height="100vh"></GridItem>
+
+        <GridItem height='100%' width='100%' backgroundImage="/images/public_available/not_found_img.jpg" backgroundRepeat="no-repeat"  backgroundPosition="center" backgroundSize="cover">
+
+        </GridItem>
       </Grid>
     </Container>
   );
 };
 
 export default NotFound;
+ 
