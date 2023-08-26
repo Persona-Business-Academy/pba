@@ -1,6 +1,7 @@
 'use client';
 import React, { FC } from 'react';
 import { Link } from '@chakra-ui/next-js';
+import Image from 'next/image';
 import {
   Box,
   Container,
@@ -10,8 +11,9 @@ import {
   ListItem,
   Text,
   UnorderedList,
-} from '@chakra-ui/react';
-import Image from 'next/image';
+} 
+
+from '@chakra-ui/react';
 
 type Props = {};
 
@@ -19,7 +21,7 @@ const NotFound: FC<Props> = () => {
   return (
     <Container height="100vh" maxWidth="100%">
       <Grid templateColumns="1fr 1fr" height="100%" width="100%">
-        <GridItem
+      <GridItem
           display="flex"
           flexDirection="column"
           position="relative"
@@ -43,8 +45,13 @@ const NotFound: FC<Props> = () => {
               Sorry, we couldn’t find the page you’re looking for.
             </Text>
 
-            <Link href="!#" display="flex" color="#ff6131" alignItems="center">
+            <Link href="!#" display="flex" gap={8} color="#ff6131" alignItems="center" textDecorationLine="none">
               Go back home 
+                <Image
+                  src="/icons/not_found_icon.svg"
+                  alt="Icon"
+                  width="24"
+                  height="24"></Image>
             </Link>
           </Box>
 
@@ -77,12 +84,14 @@ const NotFound: FC<Props> = () => {
             <ListItem lineHeight="20px" color="#6B7280">
               <Link href="!#">Contact support</Link>
             </ListItem>
+
           </UnorderedList>
         </GridItem>
 
-        <GridItem height='100%' width='100%' backgroundImage="/images/public_available/not_found_img.jpg" backgroundRepeat="no-repeat"  backgroundPosition="center" backgroundSize="cover">
 
-        </GridItem>
+
+            <GridItem height='100%' width='100%' backgroundImage="/images/public_available/not_found_img.jpg" backgroundRepeat="no-repeat"  backgroundPosition="center" backgroundSize="cover">
+                    </GridItem>
       </Grid>
     </Container>
   );
