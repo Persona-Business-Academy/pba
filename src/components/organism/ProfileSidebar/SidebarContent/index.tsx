@@ -8,7 +8,7 @@ interface SidebarProps extends BoxProps {
 
 const SidebarContent = ({ linkItems, ...rest }: SidebarProps) => {
   return (
-    <Box borderRight="1px" pos="fixed" h="full" {...rest}>
+    <Box borderRight="1px" borderColor="#F9FAFB" pos="fixed" h="full" {...rest}>
       <Flex padding="64px 46px" flexDirection="column">
         {linkItems &&
           linkItems.map(link => (
