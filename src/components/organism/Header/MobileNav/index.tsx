@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { Stack, useColorModeValue } from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
 import { NavItem } from '@/models/header';
 import MobileNavItem from '../MobileNavItem';
 
@@ -8,7 +8,7 @@ interface MobileNavProps {
 }
 const MobileNav: FC<MobileNavProps> = ({ navItems }) => {
   return (
-    <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
+    <Stack p={4} display={{ md: 'none' }}>
       {navItems.map((navItem: NavItem, i: number) => (
         <MobileNavItem key={i} {...navItem} />
       ))}

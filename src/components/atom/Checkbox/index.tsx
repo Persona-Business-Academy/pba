@@ -1,4 +1,3 @@
-'use client';
 import React, { FC } from 'react';
 import { Checkbox as ChakraCheckbox, CheckboxProps as ChakraCheckboxProps } from '@chakra-ui/react';
 
