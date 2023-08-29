@@ -25,17 +25,10 @@ const SignIn = () => {
         if (res?.ok) {
           push('/');
         } else {
-          toast({
-            title: 'Invalid credentials',
-            description: ERROR_MESSAGES.invalidCredentials,
-            status: 'error',
-          });
+          toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
         }
       } catch {
-        toast({
-          title: ERROR_MESSAGES.somethingWentWrong,
-          status: 'error',
-        });
+        toast({ title: ERROR_MESSAGES.somethingWentWrong, status: 'error' });
       }
     },
     [push, toast],
