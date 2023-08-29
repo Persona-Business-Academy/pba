@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Box, BoxProps, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Box, BoxProps, Flex } from '@chakra-ui/react';
 import NavItem from '../NavItem';
 
 interface SidebarProps extends BoxProps {
@@ -8,12 +8,7 @@ interface SidebarProps extends BoxProps {
 
 const SidebarContent = ({ linkItems, ...rest }: SidebarProps) => {
   return (
-    <Box
-      borderRight="1px"
-      borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-      pos="fixed"
-      h="full"
-      {...rest}>
+    <Box borderRight="1px" pos="fixed" h="full" {...rest}>
       <Flex padding="64px 46px" flexDirection="column">
         {linkItems &&
           linkItems.map(link => (

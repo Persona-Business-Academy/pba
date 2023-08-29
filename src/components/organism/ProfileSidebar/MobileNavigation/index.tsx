@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Flex, FlexProps, IconButton, Text, useColorModeValue } from '@chakra-ui/react';
+import { Flex, FlexProps, IconButton, Text } from '@chakra-ui/react';
 
 interface MobileProps extends FlexProps {
   onOpen: () => void;
@@ -12,7 +12,6 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       height="20"
       alignItems="center"
       borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
       justifyContent="flex-start"
       {...rest}>
       <IconButton variant="outline" onClick={onOpen} aria-label="open menu" />

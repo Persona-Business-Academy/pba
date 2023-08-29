@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Box, Drawer, DrawerContent, useColorModeValue, useDisclosure } from '@chakra-ui/react';
+import { Box, Drawer, DrawerContent, useDisclosure } from '@chakra-ui/react';
 import AchievementsIcon from 'public/icons/achievements_icon.svg';
 import CoursesIcon from 'public/icons/courses_icon.svg';
 import HelpIcon from 'public/icons/help_icon.svg';
@@ -42,7 +42,7 @@ export const LinkItems: Array<LinkItemProps> = [
 const SimpleSidebar = () => {
   const { isOpen, onOpen } = useDisclosure();
   return (
-    <Box minH="100%" bg={useColorModeValue('gray.100', 'gray.900')}>
+    <Box minH="100%">
       <SidebarContent display={{ base: 'none', md: 'block' }} width="360px" linkItems={LinkItems} />
       <Drawer
         isOpen={isOpen}
