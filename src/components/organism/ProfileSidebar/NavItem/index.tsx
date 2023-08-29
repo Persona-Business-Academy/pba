@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { Box, Flex, FlexProps } from '@chakra-ui/react';
 import Link from 'next/link';
 
@@ -42,4 +42,4 @@ const NavItem = ({ href, icon: Icon, children, ...rest }: NavItemProps) => {
   );
 };
 
-export default NavItem;
+export default memo(NavItem);

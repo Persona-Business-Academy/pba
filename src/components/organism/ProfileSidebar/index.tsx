@@ -1,18 +1,14 @@
-'use client';
-
 import React from 'react';
-import { Box, useColorModeValue, Drawer, DrawerContent, useDisclosure } from '@chakra-ui/react';
-import MobileNavigation from './MobileNavigation';
-import SidebarContent from './SidebarContent';
-import ProfileIcon from 'public/icons/profile_icon.svg';
-import CoursesIcon from 'public/icons/courses_icon.svg';
+import { Box, Drawer, DrawerContent, useColorModeValue, useDisclosure } from '@chakra-ui/react';
 import AchievementsIcon from 'public/icons/achievements_icon.svg';
-import SubscriptionIcon from 'public/icons/subscription_icon.svg';
-import WishlistIcon from 'public/icons/wishlist_icon.svg';
-import PbaCreditIcon from 'public/icons/pba_credit_icon.svg';
-import PaymentsIcon from 'public/icons/payments_icon.svg';
+import CoursesIcon from 'public/icons/courses_icon.svg';
 import HelpIcon from 'public/icons/help_icon.svg';
 import LogoutIcon from 'public/icons/logout_icon.svg';
+import PaymentsIcon from 'public/icons/payments_icon.svg';
+import PbaCreditIcon from 'public/icons/pba_credit_icon.svg';
+import ProfileIcon from 'public/icons/profile_icon.svg';
+import SubscriptionIcon from 'public/icons/subscription_icon.svg';
+import WishlistIcon from 'public/icons/wishlist_icon.svg';
 import {
   ACHIEVEMENTS_ROUTE,
   COURSES_ROUTE,
@@ -23,6 +19,8 @@ import {
   SUBSCRIPTION_ROUTE,
   WISHLIST_ROUTE,
 } from '@/constants/routes';
+import MobileNavigation from './MobileNavigation';
+import SidebarContent from './SidebarContent';
 
 interface LinkItemProps {
   name: string;
@@ -42,24 +40,18 @@ export const LinkItems: Array<LinkItemProps> = [
 ];
 
 export default function SimpleSidebar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen } = useDisclosure();
   return (
     <Box minH="100%" bg={useColorModeValue('gray.100', 'gray.900')}>
-      <SidebarContent
-        onClose={() => onClose}
-        display={{ base: 'none', md: 'block' }}
-        width="360px"
-        linkItems={LinkItems}
-      />
+      <SidebarContent display={{ base: 'none', md: 'block' }} width="360px" linkItems={LinkItems} />
       <Drawer
         isOpen={isOpen}
         placement="left"
-        onClose={onClose}
         size="lg"
         returnFocusOnClose={false}
-        onOverlayClick={onClose}>
+        onClose={() => {}}>
         <DrawerContent>
-          <SidebarContent onClose={onClose} />
+          <SidebarContent />
         </DrawerContent>
       </Drawer>
       <MobileNavigation display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />

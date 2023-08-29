@@ -1,15 +1,14 @@
-import { Box, BoxProps, CloseButton, Flex, Text, useColorModeValue } from '@chakra-ui/react';
+import { memo } from 'react';
+import { Box, BoxProps, Flex, useColorModeValue } from '@chakra-ui/react';
 import NavItem from '../NavItem';
 
 interface SidebarProps extends BoxProps {
-  onClose: () => void;
   linkItems?: any[];
 }
 
-const SidebarContent = ({ onClose, linkItems, ...rest }: SidebarProps) => {
+const SidebarContent = ({ linkItems, ...rest }: SidebarProps) => {
   return (
     <Box
-      bg={useColorModeValue('white', 'gray.900')}
       borderRight="1px"
       borderRightColor={useColorModeValue('gray.200', 'gray.700')}
       pos="fixed"
@@ -27,4 +26,4 @@ const SidebarContent = ({ onClose, linkItems, ...rest }: SidebarProps) => {
   );
 };
 
-export default SidebarContent;
+export default memo(SidebarContent);

@@ -1,7 +1,6 @@
-'use client';
 import { Fragment } from 'react';
-import SimpleSidebar from '@/components/organism/ProfileSidebar';
-import { Container, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
+import { SimpleSidebar } from '@/components/organism';
 
 export default function ProfileLayout({ children }: { children: React.ReactNode }) {
   return (
