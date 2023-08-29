@@ -104,12 +104,9 @@ const SignUp = () => {
         <Button width={'100%'} onClick={handleSubmit(onSubmit)} isLoading={isLoading}>
           Sign up
         </Button>
-        <Text
-          fontSize={12}
-          fontStyle="normal"
-          fontWeight={400}
-          lineHeight="20px"
-          marginTop="-8px">{`By clicking "Sign up," you agree to our Terms of Use and our Privacy Policy.`}</Text>
+        <Text fontSize={12} fontStyle="normal" fontWeight={400} lineHeight="20px" marginTop="-8px">
+          By clicking &quot;Sign up,&quot; you agree to our Terms of Use and our Privacy Policy.
+        </Text>
       </VStack>
     </>
   );

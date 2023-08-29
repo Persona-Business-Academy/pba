@@ -1,13 +1,5 @@
 import { FC, memo } from 'react';
-import {
-  Box,
-  Collapse,
-  Icon,
-  Stack,
-  Text,
-  useColorModeValue,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Collapse, Icon, Stack, Text, useDisclosure } from '@chakra-ui/react';
 import { SubLabels } from '@/models/header';
 
 interface MobileNavItemProp {
@@ -27,9 +19,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children }) => {
         _hover={{
           textDecoration: 'none',
         }}>
-        <Text fontWeight={600} color={useColorModeValue('gray.600', 'gray.200')}>
-          {label}
-        </Text>
+        <Text fontWeight={600}>{label}</Text>
         {children && (
           <Icon
             transition={'all .25s ease-in-out'}
@@ -41,13 +31,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children }) => {
       </Box>
 
       <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
-        <Stack
-          mt={2}
-          pl={4}
-          borderLeft={1}
-          borderStyle={'solid'}
-          borderColor={useColorModeValue('gray.200', 'gray.700')}
-          align={'start'}>
+        <Stack mt={2} pl={4} borderLeft={1} borderStyle={'solid'} align={'start'}>
           {(children || []).map((child: SubLabels, i) => (
             <Box key={i}>{child.label}</Box>
           ))}
