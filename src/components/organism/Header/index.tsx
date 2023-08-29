@@ -208,7 +208,7 @@ export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box borderBottom={1} borderStyle={'solid'}>
+    <Box borderBottom={1} borderStyle={'solid'} borderColor="#F9FAFB">
       <Flex
         minH={'60px'}
         py={{ base: 2 }}

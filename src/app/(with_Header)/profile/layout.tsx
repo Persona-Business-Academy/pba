@@ -1,3 +1,4 @@
+'use client';
 import { Fragment } from 'react';
 import { Flex } from '@chakra-ui/react';
 import { SimpleSidebar } from '@/components/organism';
