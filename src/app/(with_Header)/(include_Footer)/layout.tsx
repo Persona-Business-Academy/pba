@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Footer, Header } from '@/components/organism';
+import { Footer } from '@/components/organism';
 
 export default function HeaderLayout({ children }: { children: React.ReactNode }) {
   return (
