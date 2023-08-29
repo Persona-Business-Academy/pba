@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Box, Drawer, DrawerContent, useColorModeValue, useDisclosure } from '@chakra-ui/react';
 import AchievementsIcon from 'public/icons/achievements_icon.svg';
 import CoursesIcon from 'public/icons/courses_icon.svg';
@@ -39,7 +39,7 @@ export const LinkItems: Array<LinkItemProps> = [
   { name: 'Log out', icon: LogoutIcon },
 ];
 
-export default function SimpleSidebar() {
+const SimpleSidebar = () => {
   const { isOpen, onOpen } = useDisclosure();
   return (
     <Box minH="100%" bg={useColorModeValue('gray.100', 'gray.900')}>
@@ -57,4 +57,6 @@ export default function SimpleSidebar() {
       <MobileNavigation display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
     </Box>
   );
-}
+};
+
+export default memo(SimpleSidebar);
