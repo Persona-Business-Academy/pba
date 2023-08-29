@@ -1,13 +1,5 @@
 import { memo } from 'react';
-import {
-  Box,
-  Collapse,
-  Flex,
-  IconButton,
-  Stack,
-  useColorModeValue,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Collapse, Flex, IconButton, Stack, useDisclosure } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/atom';
@@ -216,13 +208,8 @@ export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box
-      borderBottom={1}
-      borderStyle={'solid'}
-      borderColor={useColorModeValue('gray.200', 'gray.900')}>
+    <Box borderBottom={1} borderStyle={'solid'}>
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
-        color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
         maxWidth={1200}

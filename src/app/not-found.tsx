@@ -36,15 +36,21 @@ const NotFound: FC<Props> = () => {
               color="#22222"
               fontWeight="700"
               lineHeight="53.64px">
-            
               Page not found
             </Heading>
             <Text fontSize="16px" margin="0" paddingBottom="8px" color="#C0C0C0">
               Sorry, we couldn’t find the page you’re looking for.
             </Text>
 
-            <Link href="!#" display="flex" color="#ff6131" alignItems="center">
-              Go back home 
+            <Link
+              href="!#"
+              display="flex"
+              gap={8}
+              color="#ff6131"
+              alignItems="center"
+              textDecorationLine="none">
+              Go back home
+              <Image src="/icons/not_found_icon.svg" alt="Icon" width="24" height="24"></Image>
             </Link>
           </Box>
 
@@ -80,13 +86,16 @@ const NotFound: FC<Props> = () => {
           </UnorderedList>
         </GridItem>
 
-        <GridItem height='100%' width='100%' backgroundImage="/images/public_available/not_found_img.jpg" backgroundRepeat="no-repeat"  backgroundPosition="center" backgroundSize="cover">
-
-        </GridItem>
+        <GridItem
+          height="100%"
+          width="100%"
+          backgroundImage="/images/public_available/not_found_img.jpg"
+          backgroundRepeat="no-repeat"
+          backgroundPosition="center"
+          backgroundSize="cover"></GridItem>
       </Grid>
     </Container>
   );
 };
 
 export default NotFound;
- 
