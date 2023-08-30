@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
 import { Button, FormInput } from '@/components/atom';
+import { SIGN_IN_ROUTE } from '@/constants/routes';
 import { SignUpFormData } from '@/models/auth';
 import { SignUpValidation } from '@/validation';
 
@@ -26,7 +27,7 @@ const SignUp = () => {
 
   const { mutate, isLoading } = useMutation<boolean, { message: string }, SignUpFormData>(
     AuthService.signUp,
-    { onSuccess: () => push('/') },
+    { onSuccess: () => push(SIGN_IN_ROUTE) },
   );
 
   const onSubmit: SubmitHandler<SignUpFormData> = useCallback(data => mutate(data), [mutate]);

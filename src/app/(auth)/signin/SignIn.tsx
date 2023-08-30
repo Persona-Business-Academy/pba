@@ -1,11 +1,13 @@
 'use client';
 import { memo, useCallback } from 'react';
-import { Text, useToast, VStack } from '@chakra-ui/react';
+import { AbsoluteCenter, Box, Divider, Link, useToast, VStack } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Button, FormInput } from '@/components/atom';
 import { ERROR_MESSAGES } from '@/constants/common';
+import { FORGOT_PASSWORD_ROUTE, HOMEPAGE_ROUTE } from '@/constants/routes';
 import { SignInFormData } from '@/models/auth';
 
 // todo
@@ -23,7 +25,7 @@ const SignIn = () => {
       try {
         const res = await signIn('credentials', { email, password, redirect: false });
         if (res?.ok) {
-          push('/');
+          push(HOMEPAGE_ROUTE);
         } else {
           toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
         }
@@ -81,15 +83,21 @@ const SignIn = () => {
         <Button width={'100%'} onClick={handleSubmit(onSubmit)} isDisabled={isSubmitting}>
           Sign in
         </Button>
-        <Text fontSize="16px" fontWeight="400" textDecorationLine="underline" textAlign="center">
+        <Link
+          href={FORGOT_PASSWORD_ROUTE}
+          as={NextLink}
+          fontSize="16px"
+          fontWeight="400"
+          textDecorationLine="underline"
+          textAlign="center">
           Forgot password?
-        </Text>
-        {/* <Box position="relative" w={'100%'}>
+        </Link>
+        <Box position="relative" w={'100%'} marginTop={'10px'}>
           <Divider borderColor={'#DDDADA'} />
-          <AbsoluteCenter bg="white" px="5" color="grey.300">
+          <AbsoluteCenter bg="white" px="5" color="grey.300" fontSize={'16px'} fontWeight={'400'}>
             Or
           </AbsoluteCenter>
-        </Box> */}
+        </Box>
       </VStack>
     </>
   );
