@@ -1,6 +1,7 @@
 export const HOMEPAGE_ROUTE = '/';
 export const SIGN_IN_ROUTE = '/signin';
 export const SIGN_UP_ROUTE = '/signup';
+export const FORGOT_PASSWORD_ROUTE = '/forgot-password';
 export const PROFILE_ROUTE = '/profile';
 export const COURSES_ROUTE = `${PROFILE_ROUTE}/courses`;
 export const ACHIEVEMENTS_ROUTE = `${PROFILE_ROUTE}/achievements`;

@@ -14,7 +14,8 @@ export default function SignUpPage() {
           href: SIGN_IN_ROUTE,
           title: 'Sign In',
         },
-      ]}>
+      ]}
+      boxProps={{ marginTop: 37 }}>
       <SignUp />
     </AuthBox>
   );
