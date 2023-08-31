@@ -1,8 +1,8 @@
 'use client';
+import React, { FC, useState } from 'react';
 import {
   Accordion,
   AccordionButton,
-  AccordionIcon,
   AccordionItem,
   AccordionPanel,
   Box,
@@ -10,15 +10,13 @@ import {
   Grid,
   GridItem,
   Heading,
-  Image,
   ListItem,
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
-
+import Image from 'next/image';
 import PlusIcon from 'public/icons/plus_pricing_icon.svg';
 import AddIcon from 'public/icons/xmark_pricing_icon.svg';
-import React, { FC, useState } from 'react';
 import { ButtonProps, Button as ChakraButton } from '@chakra-ui/react';
 
 type Props = {};
@@ -26,12 +24,12 @@ type Props = {};
 const Pricing: FC<Props> = () => {
   const [activeButton, setActiveButton] = useState(null);
 
-  // const handleButtonClick = buttonNumber => {
-  //   setActiveButton(buttonNumber === activeButton ? null : buttonNumber);
-  // };
+  const handleButtonClick = buttonNumber => {
+    setActiveButton(buttonNumber === activeButton ? null : buttonNumber);
+  };
 
   return (
-    <Box>
+    <Box mt="64px">
       <Box maxW="688px" margin="0 auto" textAlign="center">
         <Heading
           margin="0 0 16px 0"
@@ -64,16 +62,19 @@ const Pricing: FC<Props> = () => {
         <Box bg="#ECF7fC" width="252px" margin="32px auto 0 " borderRadius="33px" padding="3px">
           <Button
             borderRadius="33px"
+            _hover={{ backgroundColor: 'none' }}
             lineHeight="21.28px"
             fontWeight="400"
             fontSize="16px"
             color="#000000"
-            bg={activeButton === 1 ? '#ffffff' : '#ECF7FC'}
+            bg={activeButton === 2 ? '#ECF7FC' : '#fff'}
             onClick={() => handleButtonClick(1)}
             disabled={activeButton === 2}>
             Pay monthly
           </Button>
+
           <Button
+            _hover={{ backgroundColor: 'none' }}
             borderRadius="33px"
             lineHeight="21.28px"
             fontWeight="400"
@@ -133,7 +134,16 @@ const Pricing: FC<Props> = () => {
               gap={7}
               alignItems="flex-end">
               <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
-                <span style={{ verticalAlign: 'super', fontSize: 'smaller' }}>&#36;</span> 150
+                <span
+                  style={{
+                    verticalAlign: 'super',
+                    fontSize: '16px',
+                    lineHeight: '21.28px',
+                    fontWeight: '400',
+                  }}>
+                  $
+                </span>{' '}
+                150
               </ListItem>
               <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="400" color="#081E4A80">
                 /per month
@@ -173,35 +183,35 @@ const Pricing: FC<Props> = () => {
             <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Up to 50 blog
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 3 topics
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Website with Unlimited Pages
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Lorem Ispum
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Lorem Ispum
               </ListItem>
@@ -241,7 +251,16 @@ const Pricing: FC<Props> = () => {
               gap={7}
               alignItems="flex-end">
               <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
-                <span style={{ verticalAlign: 'super', fontSize: 'smaller' }}>&#36;</span> 150
+                <span
+                  style={{
+                    verticalAlign: 'super',
+                    fontSize: '16px',
+                    lineHeight: '21.28px',
+                    fontWeight: '400',
+                  }}>
+                  &#36;
+                </span>
+                150
               </ListItem>
               <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="400" color="#081E4A80">
                 /per month
@@ -281,35 +300,35 @@ const Pricing: FC<Props> = () => {
             <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Up to 50 blog
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 3 topics
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Website with Unlimited Pages
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Lorem Ispum
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Lorem Ispum
               </ListItem>
@@ -349,7 +368,16 @@ const Pricing: FC<Props> = () => {
               gap={7}
               alignItems="flex-end">
               <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
-                <span style={{ verticalAlign: 'super', fontSize: 'smaller' }}>&#36;</span> 150
+                <span
+                  style={{
+                    verticalAlign: 'super',
+                    fontSize: '16px',
+                    lineHeight: '21.28px',
+                    fontWeight: '400',
+                  }}>
+                  &#36;
+                </span>{' '}
+                150
               </ListItem>
               <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="400" color="#081E4A80">
                 /per month
@@ -389,35 +417,35 @@ const Pricing: FC<Props> = () => {
             <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Up to 50 blog
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 3 topics
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Website with Unlimited Pages
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Lorem Ispum
               </ListItem>
 
               <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
                 <span>
-                  <Image src="/icons/pricing_icon.svg" />
+                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
                 </span>
                 Lorem Ispum
               </ListItem>
@@ -434,16 +462,31 @@ const Pricing: FC<Props> = () => {
             alignItems="center"
             margin=" 0 36px 0 0">
             <ListItem marginRight="8px" width="42.5px" height="30px">
-              <Image width="100%" height="100%" src="/images/pricing/Visa_pricing.png" />
+              <Image width={42.5} height={30} src="/images/pricing/Visa_pricing.png" alt="Visa" />
             </ListItem>
             <ListItem marginRight="8px" width="42.5px" height="30px">
-              <Image width="100%" height="100%" src="/images/pricing/Discover_pricing.png" />
+              <Image
+                src="/images/pricing/Discover_pricing.png"
+                width={42.5}
+                height={30}
+                alt="Discover"
+              />
             </ListItem>
             <ListItem marginRight="8px" width="42.5px" height="30px">
-              <Image width="100%" height="100%" src="/images/pricing/MasterCard_pricing.png" />
+              <Image
+                src="/images/pricing/MasterCard_pricing.png"
+                width={42.5}
+                height={30}
+                alt="MasterCard"
+              />
             </ListItem>
             <ListItem marginRight="8px" width="42.5px" height="30px">
-              <Image width="100%" height="100%" src="/images/pricing/PayPal_pricing.png" />
+              <Image
+                src="/images/pricing/PayPal_pricing.png"
+                width={42.5}
+                height={30}
+                alt="PayPal"
+              />
             </ListItem>
             <ListItem fontSize="16" fontWeight="400" lineHeight="21.28px">
               PayPal or any credit card
@@ -452,7 +495,7 @@ const Pricing: FC<Props> = () => {
 
           <UnorderedList listStyleType="none" display="flex" alignItems="center" margin="0">
             <ListItem marginRight="8px" width="24px" height="24px">
-              <Image src="/icons/lock_pricing.svg" />
+              <Image src="/icons/lock_pricing.svg" width={24} height={24} alt="lock" />
             </ListItem>
             <ListItem fontSize="16" fontWeight="400" lineHeight="21.28px">
               Transactions are encrypted and secured
