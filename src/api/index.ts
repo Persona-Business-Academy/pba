@@ -12,8 +12,10 @@ $apiClient.interceptors.response.use(
     return response.data;
   },
   function (error) {
-    const { toast } = createStandaloneToast();
-    toast({ title: error.response.data.message, status: 'error', ...toastDefaultOptions });
+    if (!!error.response.data.message) {
+      const { toast } = createStandaloneToast();
+      toast({ title: error.response.data.message, status: 'error', ...toastDefaultOptions });
+    }
     return Promise.reject(error.response.data);
   },
 );

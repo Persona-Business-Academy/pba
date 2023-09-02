@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import { Box, BoxProps, HStack } from '@chakra-ui/react';
+import { Box, BoxProps, HStack, StackProps } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -8,6 +8,7 @@ interface Props {
   data: Array<{ href: string; title: string }>;
   children: React.ReactNode;
   boxProps: BoxProps;
+  linkProps?: StackProps;
 }
 
 const AuthBox: FC<Props> = ({ data, children, boxProps = {} }) => {
@@ -31,7 +32,7 @@ const AuthBox: FC<Props> = ({ data, children, boxProps = {} }) => {
             fontSize={20}
             lineHeight="normal"
             _hover={{ textDecoration: 'none' }}
-            fontWeight={pathname === href ? 600 : 400}
+            fontWeight={pathname === href || pathname === '#' ? 600 : 400}
             fontStyle="normal">
             {title}
           </Link>
