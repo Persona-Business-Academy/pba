@@ -10,10 +10,6 @@ interface AuthState {
 }
 
 interface Props {
-  step: ForgotPasswordStep;
-  setStep: React.Dispatch<React.SetStateAction<ForgotPasswordStep>>;
-  forgotPasswordUserId?: string;
-  setForgotPasswordUserId: React.Dispatch<React.SetStateAction<string | undefined>>;
   children?: React.ReactNode;
 }
 
