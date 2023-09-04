@@ -37,7 +37,7 @@ const Pricing: FC<Props> = () => {
           lineHeight="53.64px"
           fontSize="44px"
           fontWeight="700">
-          Let's find the right <span style={{ color: '#3CB3E5' }}> plan </span>for you
+          Lets find the right <span style={{ color: '#3CB3E5' }}> plan </span>for you
         </Heading>
         <Text
           color="#222222"
@@ -54,8 +54,8 @@ const Pricing: FC<Props> = () => {
           lineHeight="21.28px"
           fontSize="16px"
           fontWeight="400">
-          Whether you're just starting a community or ready to scale your course or membership
-          business, there's a Mighty Network for you.
+          Whether youre just starting a community or ready to scale your course or membership
+          business, theres a Mighty Network for you.
         </Text>
       </Box>
 
@@ -1060,7 +1060,7 @@ const Pricing: FC<Props> = () => {
           color="#BABABA">
           Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,
           graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
-          century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum
+          century who is thought to have scrambled parts of Ciceros De Finibus Bonorum et Malorum
           for use in a type specimen book. It usually begins with:
         </Text>
       </Box>
@@ -1103,7 +1103,7 @@ const Pricing: FC<Props> = () => {
                   fontWeight="400"
                   color="#5B5B5B">
                   All our mentors are experienced and accomplished professionals with a passion for
-                  teaching. They've been working in their respective fields for a minimum of 5+
+                  teaching. Theyve been working in their respective fields for a minimum of 5+
                   years.
                 </AccordionPanel>
               </>
@@ -1136,7 +1136,7 @@ const Pricing: FC<Props> = () => {
                   fontWeight="400"
                   color="#5B5B5B">
                   All our mentors are experienced and accomplished professionals with a passion for
-                  teaching. They've been working in their respective fields for a minimum of 5+
+                  teaching. Theyve been working in their respective fields for a minimum of 5+
                   years.
                 </AccordionPanel>
               </>
@@ -1169,7 +1169,7 @@ const Pricing: FC<Props> = () => {
                   fontWeight="400"
                   color="#5B5B5B">
                   All our mentors are experienced and accomplished professionals with a passion for
-                  teaching. They've been working in their respective fields for a minimum of 5+
+                  teaching. Theyve been working in their respective fields for a minimum of 5+
                   years.
                 </AccordionPanel>
               </>
@@ -1202,7 +1202,7 @@ const Pricing: FC<Props> = () => {
                   fontWeight="400"
                   color="#5B5B5B">
                   All our mentors are experienced and accomplished professionals with a passion for
-                  teaching. They've been working in their respective fields for a minimum of 5+
+                  teaching. Theyve been working in their respective fields for a minimum of 5+
                   years.
                 </AccordionPanel>
               </>
@@ -1234,7 +1234,7 @@ const Pricing: FC<Props> = () => {
                   fontWeight="400"
                   color="#5B5B5B">
                   All our mentors are experienced and accomplished professionals with a passion for
-                  teaching. They've been working in their respective fields for a minimum of 5+
+                  teaching. Theyve been working in their respective fields for a minimum of 5+
                   years.
                 </AccordionPanel>
               </>
