@@ -6,6 +6,7 @@ import { FORGOT_PASSWORD_ROUTE } from '@/constants/routes';
 import { useAuth } from '@/contexts/AuthContext';
 import Step1 from './steps/Step1';
 import Step2 from './steps/Step2';
+import Step3 from './steps/Step3';
 
 export default function ForgotPasswrodPage() {
   const { step } = useAuth();
@@ -16,6 +17,8 @@ export default function ForgotPasswrodPage() {
         return <Step1 />;
       case 'OTPStep':
         return <Step2 />;
+      case 'passwordStep':
+        return <Step3 />;
       default:
         return null;
     }
