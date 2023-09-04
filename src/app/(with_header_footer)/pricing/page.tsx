@@ -1,5 +1,5 @@
 'use client';
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import {
   Accordion,
   AccordionButton,
@@ -19,20 +19,14 @@ import {
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
+import { Button as ChakraButton } from '@chakra-ui/react';
 import Image from 'next/image';
 import PlusIcon from 'public/icons/plus_pricing_icon.svg';
 import AddIcon from 'public/icons/xmark_pricing_icon.svg';
-import { ButtonProps, Button as ChakraButton } from '@chakra-ui/react';
 
 type Props = {};
 
 const Pricing: FC<Props> = () => {
-  const [activeButton, setActiveButton] = useState(null);
-
-  // const handleButtonClick = (buttonNumber: number) => {
-  //   setActiveButton(buttonNumber === activeButton ? null : buttonNumber);
-  // };
-
   return (
     <Box mt="64px">
       <Box maxW="688px" margin="0 auto" textAlign="center">
