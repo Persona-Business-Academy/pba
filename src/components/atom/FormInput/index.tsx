@@ -41,7 +41,7 @@ const FormInput: FC<Props> = ({
   name,
   inputProps,
 }) => {
-  const [isPasswordType, setIsPasswordType] = useState(false);
+  const [isPasswordType, setIsPasswordType] = useState(true);
 
   return (
     <FormControl isInvalid={isInvalid} id={name}>

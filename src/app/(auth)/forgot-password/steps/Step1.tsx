@@ -49,6 +49,7 @@ const Step1 = () => {
             type="email"
             formLabelName="Email"
             value={value}
+            placeholder="you@example.com"
             handleInputChange={onChange}
             formErrorMessage={errors.email?.message}
           />
