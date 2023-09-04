@@ -11,6 +11,11 @@ import {
   GridItem,
   Heading,
   ListItem,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
@@ -24,9 +29,9 @@ type Props = {};
 const Pricing: FC<Props> = () => {
   const [activeButton, setActiveButton] = useState(null);
 
-  const handleButtonClick = buttonNumber => {
-    setActiveButton(buttonNumber === activeButton ? null : buttonNumber);
-  };
+  // const handleButtonClick = (buttonNumber: number) => {
+  //   setActiveButton(buttonNumber === activeButton ? null : buttonNumber);
+  // };
 
   return (
     <Box mt="64px">
@@ -58,400 +63,950 @@ const Pricing: FC<Props> = () => {
           Whether you're just starting a community or ready to scale your course or membership
           business, there's a Mighty Network for you.
         </Text>
-
-        <Box bg="#ECF7fC" width="252px" margin="32px auto 0 " borderRadius="33px" padding="3px">
-          <Button
-            borderRadius="33px"
-            _hover={{ backgroundColor: 'none' }}
-            lineHeight="21.28px"
-            fontWeight="400"
-            fontSize="16px"
-            color="#000000"
-            bg={activeButton === 2 ? '#ECF7FC' : '#fff'}
-            onClick={() => handleButtonClick(1)}
-            disabled={activeButton === 2}>
-            Pay monthly
-          </Button>
-
-          <Button
-            _hover={{ backgroundColor: 'none' }}
-            borderRadius="33px"
-            lineHeight="21.28px"
-            fontWeight="400"
-            fontSize="16px"
-            color="#000000"
-            bg={activeButton === 2 ? '#ffffff' : '#ECF7FC'}
-            onClick={() => handleButtonClick(2)}
-            disabled={activeButton === 1}>
-            Pay yearly
-          </Button>
-        </Box>
       </Box>
 
-      <Box mb="40px">
-        <Grid
-          templateColumns="repeat(3, 1fr)"
-          gap={20}
-          maxW="964px"
-          margin="40px auto 0"
-          css={{
-            '@media (max-width: 1120px)': {
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-            },
-          }}>
-          <GridItem
-            padding="32px"
-            width="308px"
-            bg="#FFFFFF"
-            color="#222222"
-            borderRadius="12px 12px 80px 12px"
-            boxShadow="0px 15px 20px 0px rgba(0, 0, 0, 0.05)">
-            <Heading
-              textAlign="center"
-              margin="0 0 8px 0"
-              fontSize="32px"
-              fontWeight="700"
-              lineHeight="42.56px"
-              as="h2">
-              Standart
-            </Heading>
-            <Text
-              textAlign="center"
-              margin="0 0 8px 0"
-              fontSize="16px"
+      <Box maxW="964px" margin="0 auto">
+        <Tabs width="100%" mt="32px" variant="soft-rounded">
+          <TabList
+            display="flex"
+            padding="3px"
+            justifyContent="space-between"
+            width="252px"
+            margin="0 auto"
+            bg="#ECF7FC"
+            borderRadius="33px">
+            <Tab
+              padding="9px 16px"
+              _selected={{ color: '#0000000', bg: '#fff' }}
               fontWeight="400"
-              lineHeight="21.28px">
-              7 days free trial
-            </Text>
-
-            <UnorderedList
-              listStyleType="none"
-              margin="0 0 16px 0"
-              display="flex"
-              justifyContent="center"
-              gap={7}
-              alignItems="flex-end">
-              <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
-                <span
-                  style={{
-                    verticalAlign: 'super',
-                    fontSize: '16px',
-                    lineHeight: '21.28px',
-                    fontWeight: '400',
-                  }}>
-                  $
-                </span>{' '}
-                150
-              </ListItem>
-              <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="400" color="#081E4A80">
-                /per month
-              </ListItem>
-            </UnorderedList>
-
-            <ChakraButton
-              bg="#3CB4E7"
-              color="#FFFFFF"
-              _hover={{
-                bg: 'blue.400',
-                color: '#FFFFFF',
-              }}
-              _focus={{
-                bg: 'blue.500',
-                color: '#FFFFFF',
-              }}
-              _focusVisible={{
-                bg: 'blue.500',
-                color: '#FFFFFF',
-              }}
-              _disabled={{
-                bg: 'grey.50',
-                color: 'grey.200',
-                cursor: 'not-allowed',
-              }}
-              height="37px"
-              width="100%"
-              padding="8px 14px"
-              fontWeight="400"
-              fontSize="16px"
+              borderRadius="33px"
               lineHeight="21.28px"
-              borderRadius="6px">
-              Get Started
-            </ChakraButton>
-
-            <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Up to 50 blog
-              </ListItem>
-
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                3 topics
-              </ListItem>
-
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Website with Unlimited Pages
-              </ListItem>
-
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Lorem Ispum
-              </ListItem>
-
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Lorem Ispum
-              </ListItem>
-            </UnorderedList>
-          </GridItem>
-
-          <GridItem
-            padding="32px"
-            width="308px"
-            bg="#FFFFFF"
-            color="#222222"
-            borderRadius="12px 12px 80px 12px"
-            boxShadow="0px 15px 20px 0px rgba(0, 0, 0, 0.05)">
-            <Heading
-              textAlign="center"
-              margin="0 0 8px 0"
-              fontSize="32px"
-              fontWeight="700"
-              lineHeight="42.56px"
-              as="h2">
-              Standart
-            </Heading>
-            <Text
-              textAlign="center"
-              margin="0 0 8px 0"
               fontSize="16px"
+              color="#0000000">
+              Pay monthly
+            </Tab>
+            <Tab
+              padding="9px 16px"
+              _selected={{ color: '#0000000', bg: '#fff' }}
               fontWeight="400"
-              lineHeight="21.28px">
-              7 days free trial
-            </Text>
-
-            <UnorderedList
-              listStyleType="none"
-              margin="0 0 16px 0"
-              display="flex"
-              justifyContent="center"
-              gap={7}
-              alignItems="flex-end">
-              <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
-                <span
-                  style={{
-                    verticalAlign: 'super',
-                    fontSize: '16px',
-                    lineHeight: '21.28px',
-                    fontWeight: '400',
-                  }}>
-                  &#36;
-                </span>
-                150
-              </ListItem>
-              <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="400" color="#081E4A80">
-                /per month
-              </ListItem>
-            </UnorderedList>
-
-            <ChakraButton
-              bg="#3CB4E7"
-              color="#FFFFFF"
-              _hover={{
-                bg: 'blue.400',
-                color: '#FFFFFF',
-              }}
-              _focus={{
-                bg: 'blue.500',
-                color: '#FFFFFF',
-              }}
-              _focusVisible={{
-                bg: 'blue.500',
-                color: '#FFFFFF',
-              }}
-              _disabled={{
-                bg: 'grey.50',
-                color: 'grey.200',
-                cursor: 'not-allowed',
-              }}
-              height="37px"
-              width="100%"
-              padding="8px 14px"
-              fontWeight="400"
-              fontSize="16px"
+              borderRadius="33px"
               lineHeight="21.28px"
-              borderRadius="6px">
-              Get Started
-            </ChakraButton>
-
-            <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Up to 50 blog
-              </ListItem>
-
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                3 topics
-              </ListItem>
-
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Website with Unlimited Pages
-              </ListItem>
-
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Lorem Ispum
-              </ListItem>
-
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Lorem Ispum
-              </ListItem>
-            </UnorderedList>
-          </GridItem>
-
-          <GridItem
-            padding="32px"
-            width="308px"
-            bg="#FFFFFF"
-            color="#222222"
-            borderRadius="12px 12px 80px 12px"
-            boxShadow="0px 15px 20px 0px rgba(0, 0, 0, 0.05)">
-            <Heading
-              textAlign="center"
-              margin="0 0 8px 0"
-              fontSize="32px"
-              fontWeight="700"
-              lineHeight="42.56px"
-              as="h2">
-              Standart
-            </Heading>
-            <Text
-              textAlign="center"
-              margin="0 0 8px 0"
               fontSize="16px"
-              fontWeight="400"
-              lineHeight="21.28px">
-              7 days free trial
-            </Text>
+              color="#000000">
+              Pay yearly
+            </Tab>
+          </TabList>
 
-            <UnorderedList
-              listStyleType="none"
-              margin="0 0 16px 0"
-              display="flex"
-              justifyContent="center"
-              gap={7}
-              alignItems="flex-end">
-              <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
-                <span
-                  style={{
-                    verticalAlign: 'super',
-                    fontSize: '16px',
-                    lineHeight: '21.28px',
-                    fontWeight: '400',
+          <TabPanels width="100%">
+            <TabPanel>
+              <Box mb="40px">
+                <Grid
+                  templateColumns="repeat(3, 1fr)"
+                  gap="20px"
+                  margin="40px auto 0"
+                  css={{
+                    '@media (max-width: 1120px)': {
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      justifyContent: 'center',
+                    },
                   }}>
-                  &#36;
-                </span>{' '}
-                150
-              </ListItem>
-              <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="400" color="#081E4A80">
-                /per month
-              </ListItem>
-            </UnorderedList>
+                  <GridItem
+                    padding="32px"
+                    width="308px"
+                    bg="#FFFFFF"
+                    color="#222222"
+                    borderRadius="12px 12px 80px 12px"
+                    boxShadow="0px 15px 20px 0px rgba(0, 0, 0, 0.05)">
+                    <Heading
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="32px"
+                      fontWeight="700"
+                      lineHeight="42.56px"
+                      as="h2">
+                      Standart
+                    </Heading>
+                    <Text
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="16px"
+                      fontWeight="400"
+                      lineHeight="21.28px">
+                      7 days free trial
+                    </Text>
 
-            <ChakraButton
-              bg="#3CB4E7"
-              color="#FFFFFF"
-              _hover={{
-                bg: 'blue.400',
-                color: '#FFFFFF',
-              }}
-              _focus={{
-                bg: 'blue.500',
-                color: '#FFFFFF',
-              }}
-              _focusVisible={{
-                bg: 'blue.500',
-                color: '#FFFFFF',
-              }}
-              _disabled={{
-                bg: 'grey.50',
-                color: 'grey.200',
-                cursor: 'not-allowed',
-              }}
-              height="37px"
-              width="100%"
-              padding="8px 14px"
-              fontWeight="400"
-              fontSize="16px"
-              lineHeight="21.28px"
-              borderRadius="6px">
-              Get Started
-            </ChakraButton>
+                    <UnorderedList
+                      listStyleType="none"
+                      margin="0 0 16px 0"
+                      display="flex"
+                      justifyContent="center"
+                      gap={7}
+                      alignItems="flex-end">
+                      <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
+                        <span
+                          style={{
+                            verticalAlign: 'super',
+                            fontSize: '16px',
+                            lineHeight: '21.28px',
+                            fontWeight: '400',
+                          }}>
+                          $
+                        </span>{' '}
+                        150
+                      </ListItem>
+                      <ListItem
+                        lineHeight="21.28px"
+                        fontSize="16px"
+                        fontWeight="400"
+                        color="#081E4A80">
+                        /per month
+                      </ListItem>
+                    </UnorderedList>
 
-            <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Up to 50 blog
-              </ListItem>
+                    <ChakraButton
+                      bg="#3CB4E7"
+                      color="#FFFFFF"
+                      _hover={{
+                        bg: 'blue.400',
+                        color: '#FFFFFF',
+                      }}
+                      _focus={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _focusVisible={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _disabled={{
+                        bg: 'grey.50',
+                        color: 'grey.200',
+                        cursor: 'not-allowed',
+                      }}
+                      height="37px"
+                      width="100%"
+                      padding="8px 14px"
+                      fontWeight="400"
+                      fontSize="16px"
+                      lineHeight="21.28px"
+                      borderRadius="6px">
+                      Get Started
+                    </ChakraButton>
 
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                3 topics
-              </ListItem>
+                    <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Up to 50 blog
+                      </ListItem>
 
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Website with Unlimited Pages
-              </ListItem>
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        3 topics
+                      </ListItem>
 
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Lorem Ispum
-              </ListItem>
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Website with Unlimited Pages
+                      </ListItem>
 
-              <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                <span>
-                  <Image width={18} height={18} src="/icons/pricing_icon.svg" alt="Select" />
-                </span>
-                Lorem Ispum
-              </ListItem>
-            </UnorderedList>
-          </GridItem>
-        </Grid>
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+                    </UnorderedList>
+                  </GridItem>
+
+                  <GridItem
+                    padding="32px"
+                    width="308px"
+                    bg="#FFFFFF"
+                    color="#222222"
+                    borderRadius="12px 12px 80px 12px"
+                    boxShadow="0px 15px 20px 0px rgba(0, 0, 0, 0.05)">
+                    <Heading
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="32px"
+                      fontWeight="700"
+                      lineHeight="42.56px"
+                      as="h2">
+                      Standart
+                    </Heading>
+                    <Text
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="16px"
+                      fontWeight="400"
+                      lineHeight="21.28px">
+                      7 days free trial
+                    </Text>
+
+                    <UnorderedList
+                      listStyleType="none"
+                      margin="0 0 16px 0"
+                      display="flex"
+                      justifyContent="center"
+                      gap="7px"
+                      alignItems="flex-end">
+                      <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
+                        <span
+                          style={{
+                            verticalAlign: 'super',
+                            fontSize: '16px',
+                            lineHeight: '21.28px',
+                            fontWeight: '400',
+                          }}>
+                          &#36;
+                        </span>
+                        150
+                      </ListItem>
+                      <ListItem
+                        lineHeight="21.28px"
+                        fontSize="16px"
+                        fontWeight="400"
+                        color="#081E4A80">
+                        /per month
+                      </ListItem>
+                    </UnorderedList>
+
+                    <ChakraButton
+                      bg="#3CB4E7"
+                      color="#FFFFFF"
+                      _hover={{
+                        bg: 'blue.400',
+                        color: '#FFFFFF',
+                      }}
+                      _focus={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _focusVisible={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _disabled={{
+                        bg: 'grey.50',
+                        color: 'grey.200',
+                        cursor: 'not-allowed',
+                      }}
+                      height="37px"
+                      width="100%"
+                      padding="8px 14px"
+                      fontWeight="400"
+                      fontSize="16px"
+                      lineHeight="21.28px"
+                      borderRadius="6px">
+                      Get Started
+                    </ChakraButton>
+
+                    <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Up to 50 blog
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        3 topics
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Website with Unlimited Pages
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+                    </UnorderedList>
+                  </GridItem>
+
+                  <GridItem
+                    padding="32px"
+                    width="308px"
+                    bg="#FFFFFF"
+                    color="#222222"
+                    borderRadius="12px 12px 80px 12px"
+                    boxShadow="0px 15px 20px 0px rgba(0, 0, 0, 0.05)">
+                    <Heading
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="32px"
+                      fontWeight="700"
+                      lineHeight="42.56px"
+                      as="h2">
+                      Standart
+                    </Heading>
+                    <Text
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="16px"
+                      fontWeight="400"
+                      lineHeight="21.28px">
+                      7 days free trial
+                    </Text>
+
+                    <UnorderedList
+                      listStyleType="none"
+                      margin="0 0 16px 0"
+                      display="flex"
+                      justifyContent="center"
+                      gap="7px"
+                      alignItems="flex-end">
+                      <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
+                        <span
+                          style={{
+                            verticalAlign: 'super',
+                            fontSize: '16px',
+                            lineHeight: '21.28px',
+                            fontWeight: '400',
+                          }}>
+                          &#36;
+                        </span>{' '}
+                        150
+                      </ListItem>
+                      <ListItem
+                        lineHeight="21.28px"
+                        fontSize="16px"
+                        fontWeight="400"
+                        color="#081E4A80">
+                        /per month
+                      </ListItem>
+                    </UnorderedList>
+
+                    <ChakraButton
+                      bg="#3CB4E7"
+                      color="#FFFFFF"
+                      _hover={{
+                        bg: 'blue.400',
+                        color: '#FFFFFF',
+                      }}
+                      _focus={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _focusVisible={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _disabled={{
+                        bg: 'grey.50',
+                        color: 'grey.200',
+                        cursor: 'not-allowed',
+                      }}
+                      height="37px"
+                      width="100%"
+                      padding="8px 14px"
+                      fontWeight="400"
+                      fontSize="16px"
+                      lineHeight="21.28px"
+                      borderRadius="6px">
+                      Get Started
+                    </ChakraButton>
+
+                    <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Up to 50 blog
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        3 topics
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Website with Unlimited Pages
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+                    </UnorderedList>
+                  </GridItem>
+                </Grid>
+              </Box>
+            </TabPanel>
+
+            <TabPanel>
+              <Box mb="40px">
+                <Grid
+                  templateColumns="repeat(3, 1fr)"
+                  gap="20px"
+                  margin="40px auto 0"
+                  css={{
+                    '@media (max-width: 1120px)': {
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      justifyContent: 'center',
+                    },
+                  }}>
+                  <GridItem
+                    padding="32px"
+                    width="308px"
+                    bg="#FFFFFF"
+                    color="#222222"
+                    borderRadius="12px 12px 80px 12px"
+                    boxShadow="0px 15px 20px 0px rgba(0, 0, 0, 0.05)">
+                    <Heading
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="32px"
+                      fontWeight="700"
+                      lineHeight="42.56px"
+                      as="h2">
+                      Standart
+                    </Heading>
+                    <Text
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="16px"
+                      fontWeight="400"
+                      lineHeight="21.28px">
+                      7 days free trial
+                    </Text>
+
+                    <UnorderedList
+                      listStyleType="none"
+                      margin="0 0 16px 0"
+                      display="flex"
+                      justifyContent="center"
+                      gap="7px"
+                      alignItems="flex-end">
+                      <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
+                        <span
+                          style={{
+                            verticalAlign: 'super',
+                            fontSize: '16px',
+                            lineHeight: '21.28px',
+                            fontWeight: '400',
+                          }}>
+                          $
+                        </span>{' '}
+                        150
+                      </ListItem>
+                      <ListItem
+                        lineHeight="21.28px"
+                        fontSize="16px"
+                        fontWeight="400"
+                        color="#081E4A80">
+                        /per month
+                      </ListItem>
+                    </UnorderedList>
+
+                    <ChakraButton
+                      bg="#3CB4E7"
+                      color="#FFFFFF"
+                      _hover={{
+                        bg: 'blue.400',
+                        color: '#FFFFFF',
+                      }}
+                      _focus={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _focusVisible={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _disabled={{
+                        bg: 'grey.50',
+                        color: 'grey.200',
+                        cursor: 'not-allowed',
+                      }}
+                      height="37px"
+                      width="100%"
+                      padding="8px 14px"
+                      fontWeight="400"
+                      fontSize="16px"
+                      lineHeight="21.28px"
+                      borderRadius="6px">
+                      Get Started
+                    </ChakraButton>
+
+                    <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Up to 50 blog
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        3 topics
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Website with Unlimited Pages
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+                    </UnorderedList>
+                  </GridItem>
+
+                  <GridItem
+                    padding="32px"
+                    width="308px"
+                    bg="#FFFFFF"
+                    color="#222222"
+                    borderRadius="12px 12px 80px 12px"
+                    boxShadow="0px 15px 20px 0px rgba(0, 0, 0, 0.05)">
+                    <Heading
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="32px"
+                      fontWeight="700"
+                      lineHeight="42.56px"
+                      as="h2">
+                      Premium
+                    </Heading>
+                    <Text
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="16px"
+                      fontWeight="400"
+                      lineHeight="21.28px">
+                      7 days free trial
+                    </Text>
+
+                    <UnorderedList
+                      listStyleType="none"
+                      margin="0 0 16px 0"
+                      display="flex"
+                      justifyContent="center"
+                      gap={7}
+                      alignItems="flex-end">
+                      <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
+                        <span
+                          style={{
+                            verticalAlign: 'super',
+                            fontSize: '16px',
+                            lineHeight: '21.28px',
+                            fontWeight: '400',
+                          }}>
+                          &#36;
+                        </span>
+                        150
+                      </ListItem>
+                      <ListItem
+                        lineHeight="21.28px"
+                        fontSize="16px"
+                        fontWeight="400"
+                        color="#081E4A80">
+                        /per month
+                      </ListItem>
+                    </UnorderedList>
+
+                    <ChakraButton
+                      bg="#3CB4E7"
+                      color="#FFFFFF"
+                      _hover={{
+                        bg: 'blue.400',
+                        color: '#FFFFFF',
+                      }}
+                      _focus={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _focusVisible={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _disabled={{
+                        bg: 'grey.50',
+                        color: 'grey.200',
+                        cursor: 'not-allowed',
+                      }}
+                      height="37px"
+                      width="100%"
+                      padding="8px 14px"
+                      fontWeight="400"
+                      fontSize="16px"
+                      lineHeight="21.28px"
+                      borderRadius="6px">
+                      Get Started
+                    </ChakraButton>
+
+                    <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Up to 50 blog
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        3 topics
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Website with Unlimited Pages
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+                    </UnorderedList>
+                  </GridItem>
+
+                  <GridItem
+                    padding="32px"
+                    width="308px"
+                    bg="#FFFFFF"
+                    color="#222222"
+                    borderRadius="12px 12px 80px 12px"
+                    boxShadow="0px 15px 20px 0px rgba(0, 0, 0, 0.05)">
+                    <Heading
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="32px"
+                      fontWeight="700"
+                      lineHeight="42.56px"
+                      as="h2">
+                      Premium Plus
+                    </Heading>
+                    <Text
+                      textAlign="center"
+                      margin="0 0 8px 0"
+                      fontSize="16px"
+                      fontWeight="400"
+                      lineHeight="21.28px">
+                      7 days free trial
+                    </Text>
+
+                    <UnorderedList
+                      listStyleType="none"
+                      margin="0 0 16px 0"
+                      display="flex"
+                      justifyContent="center"
+                      gap={7}
+                      alignItems="flex-end">
+                      <ListItem fontSize="32px" fontWeight="700" lineHeight="42.56px">
+                        <span
+                          style={{
+                            verticalAlign: 'super',
+                            fontSize: '16px',
+                            lineHeight: '21.28px',
+                            fontWeight: '400',
+                          }}>
+                          &#36;
+                        </span>{' '}
+                        150
+                      </ListItem>
+                      <ListItem
+                        lineHeight="21.28px"
+                        fontSize="16px"
+                        fontWeight="400"
+                        color="#081E4A80">
+                        /per month
+                      </ListItem>
+                    </UnorderedList>
+
+                    <ChakraButton
+                      bg="#3CB4E7"
+                      color="#FFFFFF"
+                      _hover={{
+                        bg: 'blue.400',
+                        color: '#FFFFFF',
+                      }}
+                      _focus={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _focusVisible={{
+                        bg: 'blue.500',
+                        color: '#FFFFFF',
+                      }}
+                      _disabled={{
+                        bg: 'grey.50',
+                        color: 'grey.200',
+                        cursor: 'not-allowed',
+                      }}
+                      height="37px"
+                      width="100%"
+                      padding="8px 14px"
+                      fontWeight="400"
+                      fontSize="16px"
+                      lineHeight="21.28px"
+                      borderRadius="6px">
+                      Get Started
+                    </ChakraButton>
+
+                    <UnorderedList margin=" 16px 0 0 0" listStyleType="none">
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Up to 50 blog
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        3 topics
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Website with Unlimited Pages
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+
+                      <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
+                        <span>
+                          <Image
+                            width={18}
+                            height={18}
+                            src="/icons/pricing_icon.svg"
+                            alt="Select"
+                          />
+                        </span>
+                        Lorem Ispum
+                      </ListItem>
+                    </UnorderedList>
+                  </GridItem>
+                </Grid>
+              </Box>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </Box>
 
       <Box maxW="722px" margin="0 auto 148px">
