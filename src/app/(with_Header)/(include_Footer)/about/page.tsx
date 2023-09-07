@@ -1,4 +1,5 @@
 'use client';
+import React, { FC } from 'react';
 import {
   Box,
   Container,
@@ -9,11 +10,10 @@ import {
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
-import React from 'react';
 
 type Props = {};
 
-const About = (props: Props) => {
+const About: FC<Props> = () => {
   return (
     <>
       <Stack
@@ -298,7 +298,12 @@ const About = (props: Props) => {
                 mb="22px"
                 padding="82.24px 39px 134px">
                 <Box mb="36px" width="139px" height="145px">
-                  <Image width="100%" height="100%" src="/icons/about_value_5.svg" />
+                  <Image
+                    width="139px"
+                    height="145px"
+                    src="/icons/about_value_5.svg"
+                    alt="about_value"
+                  />
                 </Box>
                 <UnorderedList listStyleType="none" textAlign="center" margin="0">
                   <ListItem

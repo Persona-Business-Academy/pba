@@ -60,7 +60,7 @@ const Pricing: FC<Props> = () => {
       </Box>
 
       <Box maxW="964px" margin="0 auto">
-        <Tabs width="100%" mt="32px" variant="soft-rounded">
+        <Tabs width="100%" mt="32px" variant="soft-rounded" id="pay_monthly_yearly">
           <TabList
             display="flex"
             padding="3px"
@@ -1077,169 +1077,39 @@ const Pricing: FC<Props> = () => {
         </Heading>
 
         <Accordion allowMultiple>
-          <AccordionItem border="none">
-            {({ isExpanded }) => (
-              <>
-                <h2>
-                  <AccordionButton _hover={{ backgroundColor: 'transparent' }}>
-                    <Box
-                      as="span"
-                      flex="1"
-                      textAlign="left"
-                      fontWeight="700"
-                      lineHeight="21.6px"
-                      fontSize="18px"
-                      color="#222222">
-                      How many children will be there in one batch?
-                    </Box>
-                    {isExpanded ? <AddIcon fontSize="12px" /> : <PlusIcon fontSize="12px" />}
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel
-                  pb={4}
-                  maxW="1020px"
-                  fontSize="16px"
-                  lineHeight="22.4px"
-                  fontWeight="400"
-                  color="#5B5B5B">
-                  All our mentors are experienced and accomplished professionals with a passion for
-                  teaching. Theyve been working in their respective fields for a minimum of 5+
-                  years.
-                </AccordionPanel>
-              </>
-            )}
-          </AccordionItem>
-
-          <AccordionItem border="none">
-            {({ isExpanded }) => (
-              <>
-                <h2>
-                  <AccordionButton _hover={{ backgroundColor: 'transparent' }}>
-                    <Box
-                      as="span"
-                      flex="1"
-                      textAlign="left"
-                      fontWeight="700"
-                      lineHeight="21.6px"
-                      fontSize="18px"
-                      color="#222222">
-                      How many children will be there in one batch?
-                    </Box>
-                    {isExpanded ? <AddIcon fontSize="12px" /> : <PlusIcon fontSize="12px" />}
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel
-                  pb={4}
-                  maxW="1020px"
-                  fontSize="16px"
-                  lineHeight="22.4px"
-                  fontWeight="400"
-                  color="#5B5B5B">
-                  All our mentors are experienced and accomplished professionals with a passion for
-                  teaching. Theyve been working in their respective fields for a minimum of 5+
-                  years.
-                </AccordionPanel>
-              </>
-            )}
-          </AccordionItem>
-
-          <AccordionItem border="none">
-            {({ isExpanded }) => (
-              <>
-                <h2>
-                  <AccordionButton _hover={{ backgroundColor: 'transparent' }}>
-                    <Box
-                      as="span"
-                      flex="1"
-                      textAlign="left"
-                      fontWeight="700"
-                      lineHeight="21.6px"
-                      fontSize="18px"
-                      color="#222222">
-                      How many children will be there in one batch?
-                    </Box>
-                    {isExpanded ? <AddIcon fontSize="12px" /> : <PlusIcon fontSize="12px" />}
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel
-                  pb={4}
-                  maxW="1020px"
-                  fontSize="16px"
-                  lineHeight="22.4px"
-                  fontWeight="400"
-                  color="#5B5B5B">
-                  All our mentors are experienced and accomplished professionals with a passion for
-                  teaching. Theyve been working in their respective fields for a minimum of 5+
-                  years.
-                </AccordionPanel>
-              </>
-            )}
-          </AccordionItem>
-
-          <AccordionItem border="none">
-            {({ isExpanded }) => (
-              <>
-                <h2>
-                  <AccordionButton _hover={{ backgroundColor: 'transparent' }}>
-                    <Box
-                      as="span"
-                      flex="1"
-                      textAlign="left"
-                      fontWeight="700"
-                      lineHeight="21.6px"
-                      fontSize="18px"
-                      color="#222222">
-                      Who are the mentors?
-                    </Box>
-                    {isExpanded ? <AddIcon fontSize="12px" /> : <PlusIcon fontSize="12px" />}
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel
-                  pb={4}
-                  maxW="1020px"
-                  fontSize="16px"
-                  lineHeight="22.4px"
-                  fontWeight="400"
-                  color="#5B5B5B">
-                  All our mentors are experienced and accomplished professionals with a passion for
-                  teaching. Theyve been working in their respective fields for a minimum of 5+
-                  years.
-                </AccordionPanel>
-              </>
-            )}
-          </AccordionItem>
-
-          <AccordionItem border="none">
-            {({ isExpanded }) => (
-              <>
-                <h2>
-                  <AccordionButton _hover={{ backgroundColor: 'transparent' }}>
-                    <Box
-                      as="span"
-                      flex="1"
-                      textAlign="left"
-                      fontWeight="700"
-                      lineHeight="21.6px"
-                      fontSize="18px"
-                      color="#222222">
-                      How many children will be there in one batch?
-                    </Box>
-                    {isExpanded ? <AddIcon fontSize="12px" /> : <PlusIcon fontSize="12px" />}
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel
-                  maxW="1020px"
-                  fontSize="16px"
-                  lineHeight="22.4px"
-                  fontWeight="400"
-                  color="#5B5B5B">
-                  All our mentors are experienced and accomplished professionals with a passion for
-                  teaching. Theyve been working in their respective fields for a minimum of 5+
-                  years.
-                </AccordionPanel>
-              </>
-            )}
-          </AccordionItem>
+          {Array.from({ length: 4 }, (_, index) => index).map((_, i) => (
+            <AccordionItem border="none" key={i} id={i.toString()}>
+              {({ isExpanded }) => (
+                <>
+                  <h2>
+                    <AccordionButton _hover={{ backgroundColor: 'transparent' }}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        fontWeight="700"
+                        lineHeight="21.6px"
+                        fontSize="18px"
+                        color="#222222">
+                        How many children will be there in one batch?
+                      </Box>
+                      {isExpanded ? <AddIcon fontSize="12px" /> : <PlusIcon fontSize="12px" />}
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel
+                    maxW="1020px"
+                    fontSize="16px"
+                    lineHeight="22.4px"
+                    fontWeight="400"
+                    color="#5B5B5B">
+                    All our mentors are experienced and accomplished professionals with a passion
+                    for teaching. Theyve been working in their respective fields for a minimum of 5+
+                    years.
+                  </AccordionPanel>
+                </>
+              )}
+            </AccordionItem>
+          ))}
         </Accordion>
       </Box>
 
