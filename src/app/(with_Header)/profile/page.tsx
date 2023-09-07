@@ -1,12 +1,10 @@
-"use client";
-import React from 'react'
+'use client';
+import React, { FC } from 'react';
 
-type Props = {}
+type Props = {};
 
-const Profile = (props: Props) => {
-  return (
-    <div>Profile</div>
-  )
-}
+const Profile: FC<Props> = () => {
+  return <div>Profile</div>;
+};
 
-export default Profile
+export default Profile;
