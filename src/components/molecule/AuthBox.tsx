@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import { Box, HStack } from '@chakra-ui/react';
+import { Box, BoxProps, HStack, StackProps } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -7,9 +7,11 @@ import { usePathname } from 'next/navigation';
 interface Props {
   data: Array<{ href: string; title: string }>;
   children: React.ReactNode;
+  boxProps: BoxProps;
+  linkProps?: StackProps;
 }
 
-const AuthBox: FC<Props> = ({ data, children }) => {
+const AuthBox: FC<Props> = ({ data, children, boxProps = {} }) => {
   const pathname = usePathname();
 
   return (
@@ -18,7 +20,8 @@ const AuthBox: FC<Props> = ({ data, children }) => {
       background={'white'}
       borderRadius={12}
       padding={32}
-      width={400}>
+      width={400}
+      {...boxProps}>
       <HStack spacing="20px" paddingBottom={32}>
         {data.map(({ href, title }) => (
           <Link
@@ -29,7 +32,7 @@ const AuthBox: FC<Props> = ({ data, children }) => {
             fontSize={20}
             lineHeight="normal"
             _hover={{ textDecoration: 'none' }}
-            fontWeight={pathname === href ? 600 : 400}
+            fontWeight={pathname === href || pathname === '#' ? 600 : 400}
             fontStyle="normal">
             {title}
           </Link>

@@ -1,11 +1,11 @@
 import bcrypt from 'bcrypt';
 import { BadRequestException } from 'next-api-decorators';
 import { ERROR_MESSAGES } from '@/constants/common';
-import { findUser } from '../resolvers';
+import { findUserWithEmail } from '../resolvers';
 
 export const validateUserPassword = async (email: string, password: string) => {
   try {
-    const user = await findUser(email);
+    const user = await findUserWithEmail(email);
 
     if (!user) {
       throw new BadRequestException(ERROR_MESSAGES.invalidCredentials);

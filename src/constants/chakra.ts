@@ -1,4 +1,4 @@
-import { ComponentStyleConfig } from '@chakra-ui/react';
+import { ComponentStyleConfig, UseToastOptions } from '@chakra-ui/react';
 
 const Button: ComponentStyleConfig = {
   baseStyle: {
@@ -153,3 +153,5 @@ export const colors = {
     600: '#035C40',
   },
 };
+
+export const toastDefaultOptions: UseToastOptions = { position: 'bottom-right', isClosable: true };

@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { Box, Flex, Grid, GridItem } from '@chakra-ui/react';
-import Image from 'next/image';
+import { Flex, Grid, GridItem } from '@chakra-ui/react';
 import Link from 'next/link';
+import Logo from 'public/icons/persona_logo_auth.svg';
 import { HOMEPAGE_ROUTE } from '@/constants/routes';
 
 const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
@@ -12,17 +12,13 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
         backgroundRepeat={'no-repeat'}
         backgroundSize={'cover'}
       />
-      <GridItem>
-        <Flex justifyContent={'center'} alignItems={'center'} h={'100%'} w={'100%'}>
-          <Box
-            position={'absolute'}
-            top={{ base: '60px', '2xl': '126px' }}
-            href={HOMEPAGE_ROUTE}
-            as={Link}>
-            <Image src="/icons/persona_logo_auth.svg" alt="" width={183} height={37.2} />
-          </Box>
-          {children}
+      <GridItem paddingY={{ base: '60px', '2xl': '126px' }} maxH={'100%'} overflow={'auto'}>
+        <Flex justifyContent="center">
+          <Link href={HOMEPAGE_ROUTE}>
+            <Logo />
+          </Link>
         </Flex>
+        <Flex justifyContent="center">{children}</Flex>
       </GridItem>
     </Grid>
   );
