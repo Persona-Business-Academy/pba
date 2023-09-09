@@ -1,27 +1,20 @@
 'use client';
 
-import { Box, Card, Container, Flex, Grid, GridItem, Heading, Link, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
-import ArrowDownBlue from 'public/icons/arrow_down_blue.svg';
-import ArrowDownPink from 'public/icons/arrow_down_pink.svg';
-import PartnersArrowLeft from 'public/icons/arrow_left_partners.svg';
-import ArrowRightIcon from 'public/icons/arrow_right.svg';
-import PartnersArrowRight from 'public/icons/arrow_right_partners.svg';
 import DigitalMarketingIcon from 'public/icons/digital_marketing.svg';
-import DoneIcon from 'public/icons/done_icon.svg';
-import EyeIcon from 'public/icons/eye_icon.svg';
-import ForIndividualsIcon from 'public/icons/for_individuals_icon.svg';
-import ForKidsIcon from 'public/icons/for_kids_icon.svg';
 import GraphicDesignIcon from 'public/icons/graphic_design_icon.svg';
 import HRMIcon from 'public/icons/hrm_icon.svg';
-import PartnersLogo from 'public/icons/partners_logo.svg';
-import QuoteIcon from 'public/icons/quote.svg';
 import ReactIcon from 'public/icons/react_icon.svg';
 import SMMIcon from 'public/icons/smm_icon.svg';
-import StarIcon from 'public/icons/star_icon.svg';
-import StudentHat from 'public/icons/student_hat.svg';
 import UiUxDesignIcon from 'public/icons/ui_design_icon.svg';
 import { Button } from '@/components/atom';
+
+const commonFontStyle = {
+  fontStyle: 'normal',
+  lineHeight: 'normal',
+  fontWeight: 700,
+};
 
 const Home = () => {
   return (
@@ -34,7 +27,7 @@ const Home = () => {
         <Container as="section" padding={0} maxWidth="1200px" margin="0 auto">
           <Flex gap="286px">
             <Flex flexDirection="column" gap="16px" maxWidth="490px" marginTop="189px">
-              <Heading fontSize="44px" color="#1F1646" {...commonFontStyle} fontFamily="Montserrat">
+              <Heading fontSize="44px" color="#1F1646" {...commonFontStyle}>
                 Welcome to{' '}
                 <Text as="span" color="#3CB3E5">
                   PBA
@@ -147,7 +140,7 @@ const Home = () => {
           </Flex>
         </Container>
       </Flex>
-      <Flex flexDirection="column" padding={0} maxWidth="1200px" margin="0 auto" gap="148px">
+      {/* <Flex flexDirection="column" padding={0} maxWidth="1200px" margin="0 auto" gap="148px">
         <Flex as="section" flexDirection="column" marginTop="148px">
           <Heading
             color="#222222"
@@ -1380,15 +1373,9 @@ const Home = () => {
           height={53}>
           Explore courses
         </Button>
-      </Flex>
+      </Flex> */}
     </div>
   );
-};
-
-export const commonFontStyle = {
-  fontStyle: 'normal',
-  lineHeight: 'normal',
-  fontWeight: 700,
 };
 
 export default Home;
