@@ -14,6 +14,7 @@ const NAV_ITEMS: NavItem[] = [
     label: 'For Individuals',
     children: [
       {
+        id: 1,
         label: 'Programming',
         subLabels: [
           {
@@ -59,10 +60,11 @@ const NAV_ITEMS: NavItem[] = [
         ],
       },
       {
+        id: 2,
         label: 'Programming',
         subLabels: [
           {
-            subLabelName: 'HTML',
+            subLabelName: 'H1',
             children: [
               {
                 subLabelNavItem: 'Get Started',
@@ -70,7 +72,7 @@ const NAV_ITEMS: NavItem[] = [
             ],
           },
           {
-            subLabelName: 'CSS',
+            subLabelName: 'H2',
             children: [
               {
                 subLabelNavItem: 'Get Started',
@@ -78,7 +80,7 @@ const NAV_ITEMS: NavItem[] = [
             ],
           },
           {
-            subLabelName: 'SCSS',
+            subLabelName: 'H3',
             children: [
               {
                 subLabelNavItem: 'Get Started',
@@ -86,7 +88,7 @@ const NAV_ITEMS: NavItem[] = [
             ],
           },
           {
-            subLabelName: 'JS',
+            subLabelName: 'H4',
             children: [
               {
                 subLabelNavItem: 'Get Started',
@@ -94,7 +96,7 @@ const NAV_ITEMS: NavItem[] = [
             ],
           },
           {
-            subLabelName: 'React.js',
+            subLabelName: 'H5',
             children: [
               {
                 subLabelNavItem: 'Get Started',
@@ -104,6 +106,7 @@ const NAV_ITEMS: NavItem[] = [
         ],
       },
       {
+        id: 3,
         label: 'Programming',
         subLabels: [
           {
@@ -117,6 +120,7 @@ const NAV_ITEMS: NavItem[] = [
         ],
       },
       {
+        id: 4,
         label: 'Design',
         subLabels: [
           {
@@ -131,14 +135,6 @@ const NAV_ITEMS: NavItem[] = [
       },
     ],
     featuredItems: [
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
       {
         categoryName: 'Graphic Design',
         imgPath: '/images/public_available/featured_example.jpg',

@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useState } from 'react';
 import { Box, Flex, Popover, PopoverContent, PopoverTrigger, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,6 +10,8 @@ type Props = {
 };
 
 const DesktopNav: FC<Props> = ({ navItems }) => {
+  const [isChevronIconVisible, setIsChevronIconVisible] = useState<null | number>(null);
+
   return (
     <Stack direction={'row'} justifyContent="center" alignItems="center" gap={40}>
       {navItems.map((navItem, index) => (
@@ -46,17 +48,30 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
                   margin="0 auto"
                   gap={69}
                   flexDirection="row"
+                  onMouseLeave={() => setIsChevronIconVisible(null)}
                   display="flex">
-                  <Stack width="183px" gap="14px">
+                  <Flex
+                    flexBasis="470px"
+                    display="flex"
+                    gap="14px"
+                    flexDirection="column"
+                    position="relative">
                     {navItem.children.map((child: SubLabels, index: number) => (
-                      <DesktopSubNav key={index} {...child} />
+                      <DesktopSubNav
+                        key={index}
+                        {...child}
+                        isChevronIconVisible={isChevronIconVisible}
+                        setIsChevronIconVisible={setIsChevronIconVisible}
+                      />
                     ))}
-                  </Stack>
+                  </Flex>
                   <Stack
-                    margin="0 auto"
+                    marginLeft="auto"
+                    flexGrow={1}
                     display="grid"
+                    justifyItems="flex-end"
                     gap={42}
-                    gridTemplateColumns="repeat(5,156px)">
+                    gridTemplateColumns="repeat(4,156px)">
                     {navItem.featuredItems?.map(
                       (
                         { imgPath, categoryName }: { imgPath: any; categoryName: any },
