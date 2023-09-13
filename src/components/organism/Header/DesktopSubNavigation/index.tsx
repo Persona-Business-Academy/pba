@@ -9,15 +9,8 @@ interface DesktopSubNav {
   subLabels: SubLabel[];
   isChevronIconVisible: number | null;
   id: number;
-  setIsChevronIconVisible: Dispatch<SetStateAction<null | number>>;
 }
-const DesktopSubNav: FC<DesktopSubNav> = ({
-  label,
-  subLabels,
-  isChevronIconVisible,
-  setIsChevronIconVisible,
-  id,
-}) => {
+const DesktopSubNav: FC<DesktopSubNav> = ({ label, subLabels, isChevronIconVisible, id }) => {
   return (
     <Flex width="183px">
       <Box flexBasis="183px" role={'group'} width="100%" display={'block'} rounded={'md'}>
