@@ -1,20 +1,21 @@
 'use client';
 import { memo, useCallback } from 'react';
-import { Text, useToast, VStack } from '@chakra-ui/react';
+import { Text, VStack } from '@chakra-ui/react';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
 import { Button, FormInput } from '@/components/atom';
+import { SIGN_IN_ROUTE } from '@/constants/routes';
 import { SignUpFormData } from '@/models/auth';
 import { SignUpValidation } from '@/validation';
 
 const resolver = classValidatorResolver(SignUpValidation);
 
+// todo
 const SignUp = () => {
   const { push } = useRouter();
-  const toast = useToast();
   const {
     control,
     handleSubmit,
@@ -26,19 +27,10 @@ const SignUp = () => {
 
   const { mutate, isLoading } = useMutation<boolean, { message: string }, SignUpFormData>(
     AuthService.signUp,
-    {
-      onSuccess: () => push('/'),
-      onError: e => toast({ title: e.message, status: 'error' }),
-    },
+    { onSuccess: () => push(SIGN_IN_ROUTE) },
   );
 
-  const onSubmit: SubmitHandler<SignUpFormData> = useCallback(
-    data => {
-      console.log(data);
-      mutate(data);
-    },
-    [mutate],
-  );
+  const onSubmit: SubmitHandler<SignUpFormData> = useCallback(data => mutate(data), [mutate]);
 
   return (
     <>
@@ -113,12 +105,9 @@ const SignUp = () => {
         <Button width={'100%'} onClick={handleSubmit(onSubmit)} isLoading={isLoading}>
           Sign up
         </Button>
-        <Text
-          fontSize={12}
-          fontStyle="normal"
-          fontWeight={400}
-          lineHeight="20px"
-          marginTop="-8px">{`By clicking "Sign up," you agree to our Terms of Use and our Privacy Policy.`}</Text>
+        <Text fontSize={12} fontStyle="normal" fontWeight={400} lineHeight="20px" marginTop="-8px">
+          By clicking &quot;Sign up,&quot; you agree to our Terms of Use and our Privacy Policy.
+        </Text>
       </VStack>
     </>
   );

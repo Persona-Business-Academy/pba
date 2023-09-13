@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from 'react';
 import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider, extendTheme, LightMode, ThemeConfig } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -19,6 +20,12 @@ const theme: ThemeConfig = extendTheme({
 const queryClient = new QueryClient();
 
 export function Providers({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    if (localStorage.getItem('chakra-ui-color-mode')) {
+      localStorage.removeItem('chakra-ui-color-mode');
+    }
+  }, []);
+
   return (
     <SessionProvider>
       <QueryClientProvider client={queryClient}>
