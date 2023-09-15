@@ -1,6 +1,6 @@
 'use client';
 import React, { FC } from 'react';
-import { Box, Flex, Image, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
+import { Box, Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
 import TimeIcon from '/public/icons/time_icon.svg';
 import LevelIcon from '/public/icons/level_icon.svg';
 import LessonsIcon from '/public/icons/book_icon.svg';
@@ -8,6 +8,7 @@ import HeartIcon from '/public/icons/heart_icon.svg';
 import ArrowLeft from '/public/icons/left_arrow.svg';
 import ArrowRight from '/public/icons/right_arrow.svg';
 import InputSearchIcon from '/public/icons/search_icon.svg';
+import Image from 'next/image';
 
 type Props = {};
 
@@ -72,12 +73,12 @@ const OfflineCourses: FC<Props> = () => {
                 borderRadius="12px"
                 border="1px solid #F3F4F6"
                 backgroundColor="#FFFFFF">
-                <Box maxWidth="240px" height={154}>
+                <Box>
                   <Image
-                    width="100%"
-                    height={154}
                     src="/images/public_available/offline_courses.jpg"
                     alt=""
+                    width={240}
+                    height={154}
                   />
                 </Box>
                 <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
@@ -122,12 +123,12 @@ const OfflineCourses: FC<Props> = () => {
                 borderRadius="12px"
                 border="1px solid #F3F4F6"
                 backgroundColor="#FFFFFF">
-                <Box maxWidth="240px" height={154}>
+                <Box>
                   <Image
-                    width="100%"
-                    height={154}
                     src="/images/public_available/offline_courses.jpg"
                     alt=""
+                    width={240}
+                    height={154}
                   />
                 </Box>
                 <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
@@ -172,12 +173,12 @@ const OfflineCourses: FC<Props> = () => {
                 borderRadius="12px"
                 border="1px solid #F3F4F6"
                 backgroundColor="#FFFFFF">
-                <Box maxWidth="240px" height={154}>
+                <Box>
                   <Image
-                    width="100%"
-                    height={154}
                     src="/images/public_available/offline_courses.jpg"
                     alt=""
+                    width={240}
+                    height={154}
                   />
                 </Box>
                 <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
@@ -222,12 +223,12 @@ const OfflineCourses: FC<Props> = () => {
                 borderRadius="12px"
                 border="1px solid #F3F4F6"
                 backgroundColor="#FFFFFF">
-                <Box maxWidth="240px" height={154}>
+                <Box>
                   <Image
-                    width="100%"
-                    height={154}
                     src="/images/public_available/offline_courses.jpg"
                     alt=""
+                    width={240}
+                    height={154}
                   />
                 </Box>
                 <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
@@ -272,12 +273,12 @@ const OfflineCourses: FC<Props> = () => {
                 borderRadius="12px"
                 border="1px solid #F3F4F6"
                 backgroundColor="#FFFFFF">
-                <Box maxWidth="240px" height={154}>
+                <Box>
                   <Image
-                    width="100%"
-                    height={154}
                     src="/images/public_available/offline_courses.jpg"
                     alt=""
+                    width={240}
+                    height={154}
                   />
                 </Box>
                 <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
@@ -322,12 +323,12 @@ const OfflineCourses: FC<Props> = () => {
                 borderRadius="12px"
                 border="1px solid #F3F4F6"
                 backgroundColor="#FFFFFF">
-                <Box maxWidth="240px" height={154}>
+                <Box>
                   <Image
-                    width="100%"
-                    height={154}
                     src="/images/public_available/offline_courses.jpg"
                     alt=""
+                    width={240}
+                    height={154}
                   />
                 </Box>
                 <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
@@ -372,12 +373,12 @@ const OfflineCourses: FC<Props> = () => {
                 borderRadius="12px"
                 border="1px solid #F3F4F6"
                 backgroundColor="#FFFFFF">
-                <Box maxWidth="240px" height={154}>
+                <Box>
                   <Image
-                    width="100%"
-                    height={154}
                     src="/images/public_available/offline_courses.jpg"
                     alt=""
+                    width={240}
+                    height={154}
                   />
                 </Box>
                 <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
