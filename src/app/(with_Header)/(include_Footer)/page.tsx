@@ -14,6 +14,7 @@ const commonFontStyle = {
   fontStyle: 'normal',
   lineHeight: 'normal',
   fontWeight: 700,
+  fontFamily: 'Montserrat',
 };
 
 const Home = () => {
@@ -27,7 +28,12 @@ const Home = () => {
         <Container as="section" padding={0} maxWidth="1200px" margin="0 auto">
           <Flex gap="286px">
             <Flex flexDirection="column" gap="16px" maxWidth="490px" marginTop="189px">
-              <Heading fontSize="44px" color="#1F1646" {...commonFontStyle}>
+              <Heading
+                fontSize="44px"
+                color="#1F1646"
+                style={{
+                  fontFamily: `'Montserrat', sans-serif`,
+                }}>
                 Welcome to{' '}
                 <Text as="span" color="#3CB3E5">
                   PBA
