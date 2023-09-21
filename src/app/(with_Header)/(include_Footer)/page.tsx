@@ -8,7 +8,7 @@ import HRMIcon from 'public/icons/hrm_icon.svg';
 import ReactIcon from 'public/icons/react_icon.svg';
 import SMMIcon from 'public/icons/smm_icon.svg';
 import UiUxDesignIcon from 'public/icons/ui_design_icon.svg';
-import { Button } from '@/components/atom';
+import { Button, IconButton } from '@/components/atom';
 
 const commonFontStyle = {
   fontStyle: 'normal',
@@ -19,6 +19,7 @@ const commonFontStyle = {
 const Home = () => {
   return (
     <div>
+      <IconButton>Explore courses</IconButton>
       <Flex
         backgroundColor="#F6FCFF"
         borderRadius="0px 0px 74px  74px"

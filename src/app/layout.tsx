@@ -1,4 +1,3 @@
-import { Montserrat } from 'next/font/google';
 import localFont from 'next/font/local';
 import { Providers } from './providers';
 
@@ -12,11 +11,11 @@ const myFont = localFont({
   variable: '--font-segoe',
 });
 
-const montserrat = Montserrat({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  subsets: ['latin'],
-  display: 'swap',
-});
+// const montserrat = Montserrat({
+//   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+//   subsets: ['latin'],
+//   display: 'swap',
+// });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
