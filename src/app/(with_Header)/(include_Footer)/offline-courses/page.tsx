@@ -1,6 +1,7 @@
 'use client';
 import React, { FC } from 'react';
 import { Box, Flex, Image, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
+import TimeIcon from 'public/icons/time_icon.svg';
 
 type Props = {};
 
@@ -89,7 +90,7 @@ const OfflineCourses: FC<Props> = () => {
                   <Flex justifyContent="space-between">
                     <Flex width="332px" justifyContent="space-between" alignItems="center">
                       <Flex gap="8px">
-                        {/* <TimeIcon /> */}
+                        <TimeIcon />
                         <Text>3 month</Text>
                       </Flex>
                       <Flex gap="8px">

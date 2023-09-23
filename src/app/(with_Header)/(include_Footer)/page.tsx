@@ -11,158 +11,173 @@ import {
   UnorderedList,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import { Button, IconButton } from '@/components/atom';
+import { Button } from '@/components/atom';
 
 const commonFontStyle = {
   lineHeight: '21.28px',
   fontWeight: 700,
-  fontFamily: 'Montserrat',
 };
 
 const Home = () => {
   return (
-    <div>
-      <IconButton>Explore courses</IconButton>
-      <Flex
-        backgroundColor="#F6FCFF"
-        borderRadius="0px 0px 74px  74px"
-        padding={0}
-        paddingBottom="96px">
-        <Container as="section" padding={0} maxWidth="1200px" margin="0 auto">
-          <Flex gap="286px">
-            <Flex flexDirection="column" gap="16px" maxWidth="490px" marginTop="189px">
-              <Heading
-                fontSize="44px"
-                color="#1F1646"
-                style={{
-                  fontFamily: `'Montserrat', sans-serif`,
-                }}
-              />
-              Welcome to{' '}
-              <Text as="span" color="#3CB3E5">
-                PBA
-              </Text>
-              <Flex gap="24px" alignItems="center">
-                <Button
-                  width="177px"
-                  height="53px"
+    <Box>
+      <Box>
+        <Box
+          mb="148px"
+          borderRadius="0px 0px 74px  74px"
+          backgroundColor="#F6FCFF"
+          paddingBottom="96px">
+          <Container as="section" padding={0} maxWidth="1200px" margin="0 auto">
+            <Flex alignItems="center" justifyContent="space-between">
+              <Flex maxW="490px" flexDirection="column">
+                <Heading
+                  as="h1"
+                  margin="0 0 16px 0"
+                  fontSize="44p"
+                  color="#1F1646"
+                  {...commonFontStyle}>
+                  Welcome to
+                  <Text as="span" textTransform="uppercase" color="#3CB3E5">
+                    &nbsp;PBA
+                  </Text>
+                </Heading>
+                <Text
                   fontSize="16px"
-                  fontWeight="400"
-                  lineHeight="21.28px">
-                  Explore Courses
-                </Button>
+                  color="#171717"
+                  margin="0 0 32px 0"
+                  {...commonFontStyle}
+                  fontWeight={400}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. At et posuere est non
+                  vitae enim, sed consectetur. Nullam interdum feugiat nibh lectus viverra
+                  sollicitudin.
+                </Text>
+                <Flex gap="24px" alignItems="center">
+                  <Button
+                    width="177px"
+                    height="53px"
+                    fontSize="16px"
+                    fontWeight="400"
+                    lineHeight="21.28px">
+                    Explore Courses
+                  </Button>
 
-                <Button
-                  variant="link"
-                  fontSize="16px"
-                  fontWeight="400"
-                  lineHeight="21.28px"
-                  bg="#F6FCFF"
-                  color="#222222">
-                  Play Our video
-                </Button>
+                  <Button
+                    variant="link"
+                    fontSize="16px"
+                    fontWeight="400"
+                    lineHeight="21.28px"
+                    bg="#F6FCFF"
+                    color="#222222">
+                    Play Our video
+                  </Button>
+                </Flex>
+              </Flex>
+
+              <Flex marginTop="76px">
+                <Box>
+                  <Image
+                    src="/images/public_available/home_page_img.png"
+                    alt="Homepage image"
+                    width={415}
+                    height={542}
+                  />
+                </Box>
               </Flex>
             </Flex>
 
-            <Flex marginTop="76px">
-              <Box>
-                <Image
-                  src="/images/public_available/home_page_img.png"
-                  alt="Homepage image"
-                  width={415}
-                  height={542}
-                />
+            <Box>
+              <Box mb="40px">
+                <Heading as="h2">Popular topics to learn now</Heading>
               </Box>
-            </Flex>
-          </Flex>
 
-          <Box>
-            <Box mb="40px">
-              <Heading as="h2">Popular topics to learn now</Heading>
+              <Flex>
+                <Box width="100%" display="flex" justifyContent="space-between" alignItems="center">
+                  <Box display="flex" flexDirection="column" gap="16px" alignItems="center">
+                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
+                      <Image
+                        src="/icons/design_home_icon.svg"
+                        width={30}
+                        height={30}
+                        alt="UI UX Icon"
+                      />
+                    </Box>
+
+                    <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
+                      UI/UX Design
+                    </Text>
+                  </Box>
+
+                  <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
+                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
+                      <Image
+                        src="/icons/marketing_home_icon.svg"
+                        width={30}
+                        height={30}
+                        alt="UI UX Icon"
+                      />
+                    </Box>
+
+                    <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
+                      Digital Marketing
+                    </Text>
+                  </Box>
+
+                  <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
+                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
+                      <Image src="/icons/react_home_icon.svg" width={30} height={30} alt="React" />
+                    </Box>
+                    <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
+                      React JS
+                    </Text>
+                  </Box>
+
+                  <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
+                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
+                      <Image
+                        src="/icons/management_home_icon.svg"
+                        width={30}
+                        height={30}
+                        alt="Management"
+                      />
+                    </Box>
+                    <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
+                      HRM
+                    </Text>
+                  </Box>
+
+                  <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
+                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
+                      <Image
+                        src="/icons/design_graphic_home_icon.svg"
+                        width={30}
+                        height={30}
+                        alt="Management"
+                      />
+                    </Box>
+
+                    <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
+                      Graphic Design
+                    </Text>
+                  </Box>
+
+                  <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
+                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
+                      <Image
+                        src="/icons/target_home_icon.svg"
+                        width={30}
+                        height={30}
+                        alt="Target"
+                      />
+                    </Box>
+                    <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
+                      Social Media Marketing
+                    </Text>
+                  </Box>
+                </Box>
+              </Flex>
             </Box>
-
-            <Flex>
-              <Box width="100%" display="flex" justifyContent="space-between" alignItems="center">
-                <Box display="flex" flexDirection="column" gap="16px" alignItems="center">
-                  <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
-                    <Image
-                      src="/icons/design_home_icon.svg"
-                      width={30}
-                      height={30}
-                      alt="UI UX Icon"
-                    />
-                  </Box>
-
-                  <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                    UI/UX Design
-                  </Text>
-                </Box>
-
-                <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
-                  <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
-                    <Image
-                      src="/icons/marketing_home_icon.svg"
-                      width={30}
-                      height={30}
-                      alt="UI UX Icon"
-                    />
-                  </Box>
-
-                  <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                    Digital Marketing
-                  </Text>
-                </Box>
-
-                <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
-                  <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
-                    <Image src="/icons/react_home_icon.svg" width={30} height={30} alt="React" />
-                  </Box>
-                  <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                    React JS
-                  </Text>
-                </Box>
-
-                <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
-                  <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
-                    <Image
-                      src="/icons/management_home_icon.svg"
-                      width={30}
-                      height={30}
-                      alt="Management"
-                    />
-                  </Box>
-                  <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                    HRM
-                  </Text>
-                </Box>
-
-                <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
-                  <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
-                    <Image
-                      src="/icons/design_graphic_home_icon.svg"
-                      width={30}
-                      height={30}
-                      alt="Management"
-                    />
-                  </Box>
-
-                  <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                    Graphic Design
-                  </Text>
-                </Box>
-
-                <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
-                  <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
-                    <Image src="/icons/target_home_icon.svg" width={30} height={30} alt="Target" />
-                  </Box>
-                  <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                    Social Media Marketing
-                  </Text>
-                </Box>
-              </Box>
-            </Flex>
-          </Box>
-        </Container>
+          </Container>
+        </Box>
 
         <Container maxW="1200px" margin="0 auto">
           <Box mb="148px">
@@ -1373,8 +1388,8 @@ const Home = () => {
             </Link>
           </Box>
         </Container>
-      </Flex>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
