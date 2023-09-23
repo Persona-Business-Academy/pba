@@ -18,7 +18,7 @@
 }
 .main_text {
   margin-bottom: 40px;
-  font-family: Segoe UI;
+  font-family: var(--chakra-fonts-body);
 }
 .our_team_titles {
   margin-top: 148px;
@@ -31,10 +31,7 @@
   line-height: normal;
 }
 .heading_persona {
-  font-family: Segoe UI;
-}
-.heading_2_persona {
-  font-family: Montserrat;
+  font-family: var(--chakra-fonts-body);
 }
 
 .team_buttons {

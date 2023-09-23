@@ -30,12 +30,7 @@ const OfflineCourses: FC<Props> = () => {
               marginBottom="16px">
               Courses
             </Text>
-            <Text
-              fontFamily="Segoe"
-              fontSize="16px"
-              fontWeight={400}
-              color="#222222"
-              marginBottom="32px">
+            <Text fontSize="16px" fontWeight={400} color="#222222" marginBottom="32px">
               Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying.
             </Text>
             <InputGroup>
@@ -45,7 +40,6 @@ const OfflineCourses: FC<Props> = () => {
                 border="1px solid #F9FAFB"
                 background="#FFF"
                 color="#C0C0C0"
-                fontFamily="Segoe"
                 fontSize="16px"
                 fontWeight={400}
                 padding="12px 16px"
@@ -72,7 +66,7 @@ const OfflineCourses: FC<Props> = () => {
                     alt=""
                   />
                 </Box>
-                <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
+                <Box maxWidth="608px" color="#222222">
                   <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -120,7 +114,7 @@ const OfflineCourses: FC<Props> = () => {
                     alt=""
                   />
                 </Box>
-                <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
+                <Box maxWidth="608px" color="#222222">
                   <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -168,7 +162,7 @@ const OfflineCourses: FC<Props> = () => {
                     alt=""
                   />
                 </Box>
-                <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
+                <Box maxWidth="608px" color="#222222">
                   <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -216,7 +210,7 @@ const OfflineCourses: FC<Props> = () => {
                     alt=""
                   />
                 </Box>
-                <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
+                <Box maxWidth="608px" color="#222222">
                   <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -264,7 +258,7 @@ const OfflineCourses: FC<Props> = () => {
                     alt=""
                   />
                 </Box>
-                <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
+                <Box maxWidth="608px" color="#222222">
                   <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -312,7 +306,7 @@ const OfflineCourses: FC<Props> = () => {
                     alt=""
                   />
                 </Box>
-                <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
+                <Box maxWidth="608px" color="#222222">
                   <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -360,7 +354,7 @@ const OfflineCourses: FC<Props> = () => {
                     alt=""
                   />
                 </Box>
-                <Box maxWidth="608px" fontFamily="Segoe" color="#222222">
+                <Box maxWidth="608px" color="#222222">
                   <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -431,7 +425,6 @@ const OfflineCourses: FC<Props> = () => {
           gap="24px"
           alignItems="center"
           justifyContent="center"
-          fontFamily="Segoe"
           color="#FFFFFF"
           textAlign="center"
           lineHeight="normal"

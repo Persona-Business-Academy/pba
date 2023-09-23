@@ -24,7 +24,6 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
                 fontSize={16}
                 fontWeight={400}
                 color="#222"
-                fontFamily="Segoe UI"
                 _hover={{
                   textDecoration: 'none',
                   color: '#3CB4E7',
