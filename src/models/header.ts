@@ -11,6 +11,7 @@ export interface FeaturedItem {
   imgPath: string;
 }
 export interface SubLabels {
+  id: number;
   label: string;
   subLabels: SubLabel[];
 }
