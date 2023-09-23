@@ -7,5 +7,9 @@ declare module 'next-auth' {
     token: { email: string; iat: number; jti: string; exp: number };
     user: any;
   }
+  export interface User {
+    id: number;
+    email: string;
+  }
 }
 // todo

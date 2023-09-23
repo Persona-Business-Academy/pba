@@ -26,7 +26,7 @@ const Step3 = () => {
     resolver,
   });
 
-  const { mutate, isLoading } = useMutation<string, { message: string }, ForgotPasswordStep3Data>(
+  const { mutate, isLoading } = useMutation<boolean, { message: string }, ForgotPasswordStep3Data>(
     AuthService.forgotPasswordStep3,
     { onSuccess: () => push(SIGN_IN_ROUTE) },
   );

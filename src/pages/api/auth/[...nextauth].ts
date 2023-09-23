@@ -12,13 +12,11 @@ export const authOptions: AuthOptions = {
         email: { type: 'text' },
         password: { type: 'password' },
       },
-      async authorize(credentials): Promise<{ id: string; email: string } | null> {
-        const user = await validateUserPassword(
-          credentials?.email || '',
-          credentials?.password || '',
+      async authorize(credentials) {
+        return (
+          (await validateUserPassword(credentials?.email || '', credentials?.password || '')) ||
+          null
         );
-
-        return user || null;
       },
     }),
   ],
