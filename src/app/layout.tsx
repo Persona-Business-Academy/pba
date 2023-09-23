@@ -20,8 +20,10 @@ const myFont = localFont({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={myFont.className}>
-        <Providers>{children}</Providers>
+      <body className={`${montserrat.className} ${myFont.className}`}>
+        <div>
+          <Providers>{children}</Providers>
+        </div>
       </body>
     </html>
   );
