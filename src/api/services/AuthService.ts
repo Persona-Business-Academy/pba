@@ -18,6 +18,18 @@ export class AuthService {
     return await $apiClient.post('/custom-auth/forgot-password-second-step', data);
   }
   static async forgotPasswordStep3(data: ForgotPasswordStep3Data) {
-    return await $apiClient.post('/custom-auth/forgot-password-third-step', data);
+    // this is only example for serverside calls
+    // _______________________________________________________________
+    // const session = await getServerSession(authOptions);
+    return await $apiClient.post(
+      '/custom-auth/forgot-password-third-step',
+      data,
+      // {
+      //   headers: {
+      //     Authorization: `Bearer ${session?.user.token}`,
+      //     'Content-Type': 'application/json',
+      //   },
+      // },
+    );
   }
 }

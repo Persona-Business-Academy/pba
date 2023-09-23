@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { HStack, PinInput, PinInputField } from '@chakra-ui/react';
+import { HStack, PinInput, PinInputField, theme } from '@chakra-ui/react';
 
 interface Props {
   onChange: () => void;
@@ -8,7 +8,12 @@ interface Props {
 const OTPPassword: FC<Props> = ({ onChange }) => {
   return (
     <HStack>
-      <PinInput otp mask={false} placeholder="" onChange={onChange}>
+      <PinInput
+        otp
+        mask={false}
+        placeholder=""
+        onChange={onChange}
+        focusBorderColor={theme.colors.blue[500]}>
         <PinInputField />
         <PinInputField />
         <PinInputField />

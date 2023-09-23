@@ -1,12 +1,6 @@
 'use client';
 import React, { FC } from 'react';
 import { Box, Flex, Image, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
-import LessonsIcon from 'public/icons/book_icon.svg';
-import HeartIcon from 'public/icons/heart_icon.svg';
-import ArrowLeft from 'public/icons/left_arrow.svg';
-import LevelIcon from 'public/icons/level_icon.svg';
-import ArrowRight from 'public/icons/right_arrow.svg';
-import InputSearchIcon from 'public/icons/search_icon.svg';
 import TimeIcon from 'public/icons/time_icon.svg';
 
 type Props = {};
@@ -56,9 +50,7 @@ const OfflineCourses: FC<Props> = () => {
                 fontWeight={400}
                 padding="12px 16px"
               />
-              <InputRightElement width="45px">
-                <InputSearchIcon />
-              </InputRightElement>
+              <InputRightElement width="45px">{/* <InputSearchIcon /> */}</InputRightElement>
             </InputGroup>
           </Flex>
         </Flex>
@@ -102,17 +94,15 @@ const OfflineCourses: FC<Props> = () => {
                         <Text>3 month</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LevelIcon />
+                        {/* <LevelIcon /> */}
                         <Text>Open level</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LessonsIcon />
+                        {/* <LessonsIcon /> */}
                         <Text>50 lessons</Text>
                       </Flex>
                     </Flex>
-                    <Flex>
-                      <HeartIcon />
-                    </Flex>
+                    <Flex>{/* <HeartIcon /> */}</Flex>
                   </Flex>
                 </Box>
               </Flex>
@@ -148,21 +138,19 @@ const OfflineCourses: FC<Props> = () => {
                   <Flex justifyContent="space-between">
                     <Flex width="332px" justifyContent="space-between" alignItems="center">
                       <Flex gap="8px">
-                        <TimeIcon />
+                        {/* <TimeIcon /> */}
                         <Text>3 month</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LevelIcon />
+                        {/* <LevelIcon /> */}
                         <Text>Open level</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LessonsIcon />
+                        {/* <LessonsIcon /> */}
                         <Text>50 lessons</Text>
                       </Flex>
                     </Flex>
-                    <Flex>
-                      <HeartIcon />
-                    </Flex>
+                    <Flex>{/* <HeartIcon /> */}</Flex>
                   </Flex>
                 </Box>
               </Flex>
@@ -198,21 +186,19 @@ const OfflineCourses: FC<Props> = () => {
                   <Flex justifyContent="space-between">
                     <Flex width="332px" justifyContent="space-between" alignItems="center">
                       <Flex gap="8px">
-                        <TimeIcon />
+                        {/* <TimeIcon /> */}
                         <Text>3 month</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LevelIcon />
+                        {/* <LevelIcon /> */}
                         <Text>Open level</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LessonsIcon />
+                        {/* <LessonsIcon /> */}
                         <Text>50 lessons</Text>
                       </Flex>
                     </Flex>
-                    <Flex>
-                      <HeartIcon />
-                    </Flex>
+                    <Flex>{/* <HeartIcon /> */}</Flex>
                   </Flex>
                 </Box>
               </Flex>
@@ -248,21 +234,19 @@ const OfflineCourses: FC<Props> = () => {
                   <Flex justifyContent="space-between">
                     <Flex width="332px" justifyContent="space-between" alignItems="center">
                       <Flex gap="8px">
-                        <TimeIcon />
+                        {/* <TimeIcon /> */}
                         <Text>3 month</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LevelIcon />
+                        {/* <LevelIcon /> */}
                         <Text>Open level</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LessonsIcon />
+                        {/* <LessonsIcon /> */}
                         <Text>50 lessons</Text>
                       </Flex>
                     </Flex>
-                    <Flex>
-                      <HeartIcon />
-                    </Flex>
+                    <Flex>{/* <HeartIcon /> */}</Flex>
                   </Flex>
                 </Box>
               </Flex>
@@ -298,21 +282,19 @@ const OfflineCourses: FC<Props> = () => {
                   <Flex justifyContent="space-between">
                     <Flex width="332px" justifyContent="space-between" alignItems="center">
                       <Flex gap="8px">
-                        <TimeIcon />
+                        {/* <TimeIcon /> */}
                         <Text>3 month</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LevelIcon />
+                        {/* <LevelIcon /> */}
                         <Text>Open level</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LessonsIcon />
+                        {/* <LessonsIcon /> */}
                         <Text>50 lessons</Text>
                       </Flex>
                     </Flex>
-                    <Flex>
-                      <HeartIcon />
-                    </Flex>
+                    <Flex>{/* <HeartIcon /> */}</Flex>
                   </Flex>
                 </Box>
               </Flex>
@@ -348,21 +330,19 @@ const OfflineCourses: FC<Props> = () => {
                   <Flex justifyContent="space-between">
                     <Flex width="332px" justifyContent="space-between" alignItems="center">
                       <Flex gap="8px">
-                        <TimeIcon />
+                        {/* <TimeIcon /> */}
                         <Text>3 month</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LevelIcon />
+                        {/* <LevelIcon /> */}
                         <Text>Open level</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LessonsIcon />
+                        {/* <LessonsIcon /> */}
                         <Text>50 lessons</Text>
                       </Flex>
                     </Flex>
-                    <Flex>
-                      <HeartIcon />
-                    </Flex>
+                    <Flex>{/* <HeartIcon /> */}</Flex>
                   </Flex>
                 </Box>
               </Flex>
@@ -398,21 +378,19 @@ const OfflineCourses: FC<Props> = () => {
                   <Flex justifyContent="space-between">
                     <Flex width="332px" justifyContent="space-between" alignItems="center">
                       <Flex gap="8px">
-                        <TimeIcon />
+                        {/* <TimeIcon /> */}
                         <Text>3 month</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LevelIcon />
+                        {/* <LevelIcon /> */}
                         <Text>Open level</Text>
                       </Flex>
                       <Flex gap="8px">
-                        <LessonsIcon />
+                        {/* <LessonsIcon /> */}
                         <Text>50 lessons</Text>
                       </Flex>
                     </Flex>
-                    <Flex>
-                      <HeartIcon />
-                    </Flex>
+                    <Flex>{/* <HeartIcon /> */}</Flex>
                   </Flex>
                 </Box>
               </Flex>
@@ -425,9 +403,7 @@ const OfflineCourses: FC<Props> = () => {
               fontWeight={600}
               fontSize="14px"
               lineHeight="20px">
-              <Text>
-                <ArrowLeft />
-              </Text>
+              <Text>{/* <ArrowLeft /> */}</Text>
               <Text>1</Text>
               <Text>2</Text>
               <Text>3</Text>
@@ -437,9 +413,7 @@ const OfflineCourses: FC<Props> = () => {
               <Text>7</Text>
               <Text>...</Text>
               <Text>52</Text>
-              <Text>
-                <ArrowRight />
-              </Text>
+              <Text>{/* <ArrowRight /> */}</Text>
             </Flex>
           </Flex>
         </Flex>
