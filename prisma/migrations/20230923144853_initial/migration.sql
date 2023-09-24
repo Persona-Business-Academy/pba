@@ -10,6 +10,7 @@ CREATE TABLE "users" (
     "password" VARCHAR(60) NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
+    "confirmationCode" INTEGER,
 
     CONSTRAINT "users_pkey" PRIMARY KEY ("id")
 );
@@ -30,6 +31,9 @@ CREATE TABLE "admin" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "users_confirmationCode_key" ON "users"("confirmationCode");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "admin_email_key" ON "admin"("email");

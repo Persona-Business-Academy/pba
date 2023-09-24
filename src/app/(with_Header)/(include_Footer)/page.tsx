@@ -1,5 +1,4 @@
 'use client';
-
 import {
   Box,
   Container,
@@ -30,12 +29,7 @@ const Home = () => {
           <Container as="section" padding={0} maxWidth="1200px" margin="0 auto">
             <Flex alignItems="center" justifyContent="space-between">
               <Flex maxW="490px" flexDirection="column">
-                <Heading
-                  as="h1"
-                  margin="0 0 16px 0"
-                  fontSize="44p"
-                  color="#1F1646"
-                  {...commonFontStyle}>
+                <Heading as="h1" margin="0 0 16px 0" fontSize="44px" color="#1F1646">
                   Welcome to
                   <Text as="span" textTransform="uppercase" color="#3CB3E5">
                     &nbsp;PBA

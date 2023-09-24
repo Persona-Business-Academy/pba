@@ -26,9 +26,7 @@ const Leadership: FC<Props> = () => {
             <Heading fontSize="32px" className={classes.heading_persona}>
               WE ARE PERSONA
             </Heading>
-            <Heading fontSize="44px" className={classes.heading_2_persona}>
-              We power better training experiences
-            </Heading>
+            <Heading fontSize="44px">We power better training experiences</Heading>
           </div>
           <div className={classes.main_text}>
             <Text>

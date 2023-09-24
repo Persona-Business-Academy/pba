@@ -23,7 +23,7 @@ const Step2 = () => {
     defaultValues: { otpPassword: '', userId: forgotPasswordUserId },
   });
 
-  const { mutate, isLoading } = useMutation<string, { message: string }, ForgotPasswordStep2Data>(
+  const { mutate, isLoading } = useMutation<number, { message: string }, ForgotPasswordStep2Data>(
     AuthService.forgotPasswordStep2,
     {
       onSuccess: userId => {

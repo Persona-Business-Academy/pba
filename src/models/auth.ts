@@ -16,12 +16,12 @@ export interface ForgotPasswordStep1Data {
 }
 
 export interface ForgotPasswordStep2Data {
-  userId: string;
+  userId: number;
   otpPassword: string;
 }
 
 export interface ForgotPasswordStep3Data {
-  userId: string;
+  userId: number;
   newPassword: string;
   confirmPassword: string;
 }

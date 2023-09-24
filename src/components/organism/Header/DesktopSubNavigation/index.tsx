@@ -62,7 +62,6 @@ const DesktopSubNav: FC<DesktopSubNav> = ({
               rounded="md">
               <Text
                 lineHeight="normal"
-                fontFamily="Segoe UI"
                 marginBottom="5px"
                 padding="8px 16px"
                 _hover={{ color: '#3CB3E5' }}
