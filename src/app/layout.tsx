@@ -1,6 +1,7 @@
 import { Montserrat } from 'next/font/google';
 import localFont from 'next/font/local';
 import { Providers } from './providers';
+import './globals.scss';
 
 export const metadata = {
   title: 'PBA Website',
