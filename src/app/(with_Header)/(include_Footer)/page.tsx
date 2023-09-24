@@ -10,7 +10,7 @@ import {
   UnorderedList,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import { Button } from '@/components/atom';
+import { Button, OutlinedButton } from '@/components/atom';
 
 const commonFontStyle = {
   lineHeight: '21.28px',
@@ -451,171 +451,18 @@ const Home = () => {
               </Text>
             </Box>
 
-            <Box>
+            <Flex flexDirection="column" gap={16}>
               <UnorderedList listStyleType="none" display="flex" gap="16px">
-                <ListItem
-                  padding="16px 32px"
-                  display="flex"
-                  width="157px"
-                  borderColor="#E5EEFF"
-                  border="1px solid"
-                  borderRadius="6px"
-                  gap="8px"
-                  fontSize="16px"
-                  fontWeight="700"
-                  lineHeight="21.28px">
-                  Design
-                  <Image src="/icons/arrow_right.svg" height={24} width={24} alt="Arrow " />
-                </ListItem>
-
-                <ListItem
-                  padding="16px 32px"
-                  display="flex"
-                  width="157px"
-                  borderColor="#E5EEFF"
-                  border="1px solid"
-                  borderRadius="6px"
-                  gap="8px"
-                  fontSize="16px"
-                  fontWeight="700"
-                  lineHeight="21.28px">
-                  Design
-                  <Image src="/icons/arrow_right.svg" height={24} width={24} alt="Arrow " />
-                </ListItem>
-
-                <ListItem
-                  padding="16px 32px"
-                  display="flex"
-                  width="157px"
-                  borderColor="#E5EEFF"
-                  border="1px solid"
-                  borderRadius="6px"
-                  gap="8px"
-                  fontSize="16px"
-                  fontWeight="700"
-                  lineHeight="21.28px">
-                  Design
-                  <Image src="/icons/arrow_right.svg" height={24} width={24} alt="Arrow " />
-                </ListItem>
-
-                <ListItem
-                  padding="16px 32px"
-                  display="flex"
-                  width="157px"
-                  borderColor="#E5EEFF"
-                  border="1px solid"
-                  borderRadius="6px"
-                  gap="8px"
-                  fontSize="16px"
-                  fontWeight="700"
-                  lineHeight="21.28px">
-                  Design
-                  <Image src="/icons/arrow_right.svg" height={24} width={24} alt="Arrow " />
-                </ListItem>
-                <ListItem
-                  padding="16px 32px"
-                  display="flex"
-                  width="157px"
-                  borderColor="#E5EEFF"
-                  border="1px solid"
-                  borderRadius="6px"
-                  gap="8px"
-                  fontSize="16px"
-                  fontWeight="700"
-                  lineHeight="21.28px">
-                  Design
-                  <Image src="/icons/arrow_right.svg" height={24} width={24} alt="Arrow " />
-                </ListItem>
-                <ListItem
-                  padding="16px 32px"
-                  display="flex"
-                  width="157px"
-                  borderColor="#E5EEFF"
-                  border="1px solid"
-                  borderRadius="6px"
-                  gap="8px"
-                  fontSize="16px"
-                  fontWeight="700"
-                  lineHeight="21.28px">
-                  Design
-                  <Image src="/icons/arrow_right.svg" height={24} width={24} alt="Arrow " />
-                </ListItem>
-                <ListItem
-                  padding="16px 32px"
-                  display="flex"
-                  width="157px"
-                  borderColor="#E5EEFF"
-                  border="1px solid"
-                  borderRadius="6px"
-                  gap="8px"
-                  fontSize="16px"
-                  fontWeight="700"
-                  lineHeight="21.28px">
-                  Design
-                  <Image src="/icons/arrow_right.svg" height={24} width={24} alt="Arrow " />
-                </ListItem>
+                {Array.from({ length: 7 }, (_, index: number) => index).map((index: number) => (
+                  <OutlinedButton key={index}>Design </OutlinedButton>
+                ))}
               </UnorderedList>
               <UnorderedList listStyleType="none" display="flex" gap="16px" justifyContent="center">
-                <ListItem
-                  padding="16px 32px"
-                  display="flex"
-                  width="157px"
-                  borderColor="#E5EEFF"
-                  border="1px solid"
-                  borderRadius="6px"
-                  gap="8px"
-                  fontSize="16px"
-                  fontWeight="700"
-                  lineHeight="21.28px">
-                  Design
-                  <Image src="/icons/arrow_right.svg" height={24} width={24} alt="Arrow " />
-                </ListItem>
-
-                <ListItem
-                  padding="16px 32px"
-                  display="flex"
-                  width="157px"
-                  borderColor="#E5EEFF"
-                  border="1px solid"
-                  borderRadius="6px"
-                  gap="8px"
-                  fontSize="16px"
-                  fontWeight="700"
-                  lineHeight="21.28px">
-                  Design
-                  <Image src="/icons/arrow_right.svg" height={24} width={24} alt="Arrow " />
-                </ListItem>
-
-                <ListItem
-                  padding="16px 32px"
-                  display="flex"
-                  width="157px"
-                  borderColor="#E5EEFF"
-                  border="1px solid"
-                  borderRadius="6px"
-                  gap="8px"
-                  fontSize="16px"
-                  fontWeight="700"
-                  lineHeight="21.28px">
-                  Design
-                  <Image src="/icons/arrow_right.svg" height={24} width={24} alt="Arrow " />
-                </ListItem>
-                <ListItem
-                  padding="16px 32px"
-                  display="flex"
-                  width="157px"
-                  borderColor="#E5EEFF"
-                  border="1px solid"
-                  borderRadius="6px"
-                  gap="8px"
-                  fontSize="16px"
-                  fontWeight="700"
-                  lineHeight="21.28px">
-                  Design
-                  <Image src="/icons/arrow_right.svg" height={24} width={24} alt="Arrow " />
-                </ListItem>
+                {Array.from({ length: 4 }, (_, index: number) => index).map((index: number) => (
+                  <OutlinedButton key={index}>Design </OutlinedButton>
+                ))}
               </UnorderedList>
-            </Box>
+            </Flex>
           </Box>
         </Container>
 
