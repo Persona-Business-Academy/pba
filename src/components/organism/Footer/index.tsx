@@ -7,26 +7,31 @@ type Props = {};
 
 const Footer: FC<Props> = () => {
   return (
-    <Stack bg="#FFF9F8" height={714}>
+    <Stack bg="#F9FAFB" minHeight={714} width="100%">
       <Container
         maxWidth={1200}
         margin="0 auto"
-        padding={0}
-        marginTop={66}
+        marginTop={{ base: '10px', md: '66px' }}
         marginBottom={66.14}
-        fontSize="16px"
+        fontSize={{ base: '12px', sm: '16px' }}
         fontWeight={400}
+        px={{ base: '16px', xl: '0px' }}
         fontStyle="normal"
         lineHeight="normal">
         <Grid
           templateColumns="repeat(auto-fit,minmax(109.7px, 1fr))"
           columnGap="72px"
-          rowGap="72px"
-          paddingBottom={40}
-          borderBottom="1px solid #F3F4F6">
+          rowGap={{ base: '20px', md: '72px' }}
+          paddingBottom={{ base: '20px', md: '40px' }}
+          borderBottom={{ base: '1px solid #C0C0C0', md: '1px solid #DDDCE3' }}>
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222"> Our Expertise </Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Our Expertise
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 For kids
               </Text>
@@ -36,8 +41,13 @@ const Footer: FC<Props> = () => {
             </Flex>
           </GridItem>
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222"> Information </Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Information
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 FAQ
               </Text>
@@ -50,8 +60,13 @@ const Footer: FC<Props> = () => {
             </Flex>
           </GridItem>
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222">Company</Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Company
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 About us
               </Text>
@@ -67,8 +82,13 @@ const Footer: FC<Props> = () => {
             </Flex>
           </GridItem>
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222">Company</Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Company
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 About us
               </Text>
@@ -84,8 +104,13 @@ const Footer: FC<Props> = () => {
             </Flex>
           </GridItem>
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222">Need some help?</Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Need some help?
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 Help Centre
               </Text>
@@ -95,8 +120,13 @@ const Footer: FC<Props> = () => {
             </Flex>
           </GridItem>
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222">Need some help?</Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Need some help?
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 Help Centre
               </Text>
@@ -106,8 +136,13 @@ const Footer: FC<Props> = () => {
             </Flex>
           </GridItem>
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222"> Information </Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Information
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 FAQ
               </Text>
@@ -120,8 +155,13 @@ const Footer: FC<Props> = () => {
             </Flex>
           </GridItem>
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222">Company</Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Company
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 About us
               </Text>
@@ -138,8 +178,13 @@ const Footer: FC<Props> = () => {
           </GridItem>
 
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222"> Our Expertise </Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Our Expertise
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 For kids
               </Text>
@@ -149,8 +194,13 @@ const Footer: FC<Props> = () => {
             </Flex>
           </GridItem>
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222"> Information </Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Information
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 FAQ
               </Text>
@@ -163,8 +213,13 @@ const Footer: FC<Props> = () => {
             </Flex>
           </GridItem>
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222">Information</Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Information
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 Terms
               </Text>
@@ -177,8 +232,13 @@ const Footer: FC<Props> = () => {
             </Flex>
           </GridItem>
           <GridItem>
-            <Flex flexDirection="column" gap="15px">
-              <Text color="#222">Information</Text>
+            <Flex
+              flexDirection="column"
+              alignItems={{ base: 'center', sm: 'flex-start' }}
+              gap={{ base: '0px', md: '15px' }}>
+              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                Information
+              </Text>
               <Text as={Link} href="" color="#5B5B5B">
                 Terms
               </Text>
@@ -191,8 +251,13 @@ const Footer: FC<Props> = () => {
             </Flex>
           </GridItem>
         </Grid>
-        <Flex justifyContent="space-between" pt={40}>
-          <Flex flexDirection="column" gap="24px">
+        <Flex
+          justifyContent={{ md: 'space-between' }}
+          alignItems={{ base: 'center', md: 'flex-start' }}
+          paddingTop={{ base: '20px', md: '40px' }}
+          flexDirection={{ base: 'column-reverse', md: 'row' }}
+          gap={{ base: '24px', md: '0px' }}>
+          <Flex flexDirection="column" gap="24px" alignItems={{ base: 'center', md: 'flex-start' }}>
             <Box>
               <Text>
                 <Image
@@ -207,7 +272,7 @@ const Footer: FC<Props> = () => {
               <Text>© Persona, Inc. 2022. All rights reserved.</Text>
             </Box>
           </Flex>
-          <Flex flexDirection="column" gap="24px" alignItems="flex-end">
+          <Flex flexDirection="column" gap="24px" alignItems={{ base: 'center', md: 'flex-end' }}>
             <Box>
               <Flex gap={24}>
                 <a href="#" target="blank">

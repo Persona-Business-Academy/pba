@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString, Length } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsNumber, IsString, Length } from 'class-validator';
 
 export class SignUpValidation {
   @IsString()
@@ -29,15 +29,13 @@ export class ForgotPasswordStep2Validation {
   @Length(4)
   otpPassword: string;
 
-  @IsString()
-  @IsNotEmpty()
-  userId: string;
+  @IsNumber()
+  userId: number;
 }
 
 export class ForgotPasswordStep3Validation {
-  @IsString()
-  @IsNotEmpty()
-  userId: string;
+  @IsNumber()
+  userId: number;
 
   @IsString()
   @IsNotEmpty()

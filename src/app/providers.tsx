@@ -4,7 +4,8 @@ import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider, extendTheme, LightMode, ThemeConfig } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SessionProvider } from 'next-auth/react';
-import { breakpoints, colors, components, space } from '@/constants/chakra';
+import { colors, components, space } from '@/constants/chakra';
+import { montserrat } from '@/constants/fonts';
 
 const theme: ThemeConfig = extendTheme({
   config: {
@@ -13,8 +14,8 @@ const theme: ThemeConfig = extendTheme({
   },
   colors,
   components,
-  breakpoints,
   space,
+  fonts: { heading: montserrat.style.fontFamily },
 });
 
 const queryClient = new QueryClient();

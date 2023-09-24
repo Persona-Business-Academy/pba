@@ -5,8 +5,8 @@ import { ForgotPasswordStep } from '@/models/auth';
 interface AuthState {
   step: ForgotPasswordStep;
   setStep: React.Dispatch<React.SetStateAction<ForgotPasswordStep>>;
-  forgotPasswordUserId?: string;
-  setForgotPasswordUserId: React.Dispatch<React.SetStateAction<string | undefined>>;
+  forgotPasswordUserId?: number;
+  setForgotPasswordUserId: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
 interface Props {
@@ -17,7 +17,7 @@ const AuthContext = createContext<AuthState>({} as AuthState);
 
 export const AuthProvider: FC<Props> = ({ children }) => {
   const [step, setStep] = useState<ForgotPasswordStep>('emailStep');
-  const [forgotPasswordUserId, setForgotPasswordUserId] = useState<string>();
+  const [forgotPasswordUserId, setForgotPasswordUserId] = useState<number>();
 
   return (
     <AuthContext.Provider
