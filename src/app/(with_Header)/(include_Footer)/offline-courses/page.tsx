@@ -9,6 +9,7 @@ import ArrowLeft from '/public/icons/left_arrow.svg';
 import ArrowRight from '/public/icons/right_arrow.svg';
 import InputSearchIcon from '/public/icons/search_icon.svg';
 import Image from 'next/image';
+import { montserrat } from '@/constants/fonts';
 
 type Props = {};
 
@@ -30,7 +31,7 @@ const OfflineCourses: FC<Props> = () => {
           marginBottom="96px">
           <Flex width="794px" margin="0 auto" flexDirection="column" alignItems="center">
             <Text
-              fontFamily="Montserrat"
+              className={montserrat.className}
               fontSize="44px"
               fontWeight={700}
               color="#222222"
