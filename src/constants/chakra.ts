@@ -1,10 +1,9 @@
-import { ComponentStyleConfig } from '@chakra-ui/react';
+import { ComponentStyleConfig, UseToastOptions } from '@chakra-ui/react';
 
 const Button: ComponentStyleConfig = {
   baseStyle: {
     width: '118px',
     height: '37px',
-    fontFamily: 'Segoe UI',
     fontSize: '16px',
     borderRadius: '6px',
     fontStyle: 'normal',
@@ -20,7 +19,6 @@ const Button: ComponentStyleConfig = {
       color: 'white', // You need to specify the text color for focus state
     },
   },
-  variants: {},
   sizes: {
     sm: {
       width: '118px',
@@ -36,8 +34,40 @@ const Button: ComponentStyleConfig = {
     },
   },
 };
+
+const Checkbox: ComponentStyleConfig = {
+  baseStyle: {
+    control: {
+      borderRadius: '5px',
+      bg: '#fff',
+      borderColor: '#36A1CE',
+
+      _checked: {
+        borderRadius: '5px',
+        bg: '#36A1CE',
+        borderColor: '#36A1CE',
+
+        _hover: {
+          bg: '#3CB3E5',
+          borderColor: '#3CB3E5',
+        },
+      },
+      _hover: {
+        borderColor: '#3CB3E5',
+        color: '#fff',
+      },
+
+      _disabled: {
+        bg: '#3CB3E5',
+        borderColor: '#3CB3E5',
+      },
+    },
+  },
+};
+
 export const components = {
   Button,
+  Checkbox,
 };
 
 export const breakpoints = {
@@ -122,3 +152,5 @@ export const colors = {
     600: '#035C40',
   },
 };
+
+export const toastDefaultOptions: UseToastOptions = { position: 'bottom-right', isClosable: true };

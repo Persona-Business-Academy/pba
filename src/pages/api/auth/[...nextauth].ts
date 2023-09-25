@@ -1,11 +1,9 @@
-import NextAuth, { Session, SessionStrategy, User } from 'next-auth';
-import { AdapterUser } from 'next-auth/adapters';
-import { JWT } from 'next-auth/jwt';
+import NextAuth, { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { findUser } from '@/lib/prisma/resolvers';
+import { findUserWithEmail } from '@/lib/prisma/resolvers';
 import { validateUserPassword } from '@/lib/prisma/utils/auth';
 
-export default NextAuth({
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       id: 'credentials',
@@ -14,20 +12,18 @@ export default NextAuth({
         email: { type: 'text' },
         password: { type: 'password' },
       },
-      async authorize(credentials): Promise<{ id: string; email: string } | null> {
-        const user = await validateUserPassword(
-          credentials?.email || '',
-          credentials?.password || '',
+      async authorize(credentials) {
+        return (
+          (await validateUserPassword(credentials?.email || '', credentials?.password || '')) ||
+          null
         );
-
-        return user || null;
       },
     }),
   ],
   secret: process.env.JWT_SECRET,
   callbacks: {
-    async session({ session }: { session: Session }) {
-      const user = await findUser(session.user?.email || '');
+    async session({ session }) {
+      const user = await findUserWithEmail(session.user?.email || '');
 
       return user
         ? {
@@ -40,7 +36,7 @@ export default NextAuth({
         : session;
     },
 
-    async jwt({ token, user }: { token: JWT; user: User | AdapterUser }) {
+    async jwt({ token, user }) {
       if (user) {
         return { ...token, id: user.id };
       }
@@ -50,5 +46,7 @@ export default NextAuth({
   pages: {
     signIn: '/signin',
   },
-  session: { strategy: 'jwt' as SessionStrategy },
-});
+  session: { strategy: 'jwt' },
+};
+
+export default NextAuth(authOptions);

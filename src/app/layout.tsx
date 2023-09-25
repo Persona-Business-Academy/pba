@@ -1,8 +1,6 @@
-import { Inter } from 'next/font/google';
+import { segoe } from '@/constants/fonts';
 import { Providers } from './providers';
-import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
+import './globals.scss';
 
 export const metadata = {
   title: 'PBA Website',
@@ -11,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={segoe.className}>
         <Providers>{children}</Providers>
       </body>
     </html>
