@@ -56,7 +56,7 @@ export default function ForgotPasswrodPage() {
   return (
     <AuthBox
       data={[authBoxData]}
-      boxProps={{ marginTop: { '2xl': 210, xl: 160 } }}
+      boxProps={{ marginTop: { base: 64, md: 160, '2xl': 210 } }}
       linkProps={linkProps}>
       {Step}
     </AuthBox>

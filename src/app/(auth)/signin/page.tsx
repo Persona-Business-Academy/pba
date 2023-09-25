@@ -15,7 +15,7 @@ export default function SignInPage() {
           title: 'Sign In',
         },
       ]}
-      boxProps={{ marginTop: 42 }}>
+      boxProps={{ marginTop: { base: 64, md: 42 } }}>
       <SignIn />
     </AuthBox>
   );

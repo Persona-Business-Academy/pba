@@ -11,18 +11,19 @@ interface Props {
   linkProps?: StackProps;
 }
 
-const AuthBox: FC<Props> = ({ data, children, boxProps = {} }) => {
+const AuthBox: FC<Props> = ({ data, children, boxProps = {}, linkProps = {} }) => {
   const pathname = usePathname();
 
   return (
     <Box
-      boxShadow={'0px 4px 8px 0px rgba(0, 0, 0, 0.10)'}
+      boxShadow={{ base: 'unset', md: '0px 4px 8px 0px rgba(0, 0, 0, 0.10)' }}
       background={'white'}
-      borderRadius={12}
-      padding={32}
-      width={400}
+      borderRadius={{ base: 'unset', md: 12 }}
+      paddingY={{ base: 'unset', md: 32 }}
+      paddingX={{ base: 16, md: 32 }}
+      width={{ base: 375, md: 400 }}
       {...boxProps}>
-      <HStack spacing="20px" paddingBottom={32}>
+      <HStack spacing="20px" paddingBottom={32} {...linkProps}>
         {data.map(({ href, title }) => (
           <Link
             key={href}

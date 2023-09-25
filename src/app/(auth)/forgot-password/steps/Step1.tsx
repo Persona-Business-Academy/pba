@@ -20,7 +20,7 @@ const Step1 = () => {
     formState: { errors },
   } = useForm<ForgotPasswordStep1Data>({ defaultValues: { email: '' }, resolver });
 
-  const { mutate, isLoading } = useMutation<string, { message: string }, ForgotPasswordStep1Data>(
+  const { mutate, isLoading } = useMutation<number, { message: string }, ForgotPasswordStep1Data>(
     AuthService.forgotPasswordStep1,
     {
       onSuccess: userId => {
@@ -49,6 +49,7 @@ const Step1 = () => {
             type="email"
             formLabelName="Email"
             value={value}
+            placeholder="you@example.com"
             handleInputChange={onChange}
             formErrorMessage={errors.email?.message}
           />

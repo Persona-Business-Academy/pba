@@ -1,3 +1,4 @@
+import { segoe } from '@/constants/fonts';
 import { Providers } from './providers';
 import './globals.scss';
 
@@ -8,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className={segoe.className}>
         <Providers>{children}</Providers>
       </body>
     </html>

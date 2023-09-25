@@ -1,15 +1,7 @@
 'use client';
 import React, { FC } from 'react';
-import {
-  Box,
-  Container,
-  Heading,
-  Image,
-  ListItem,
-  Stack,
-  Text,
-  UnorderedList,
-} from '@chakra-ui/react';
+import { Box, Container, Heading, ListItem, Stack, Text, UnorderedList } from '@chakra-ui/react';
+import Image from 'next/image';
 
 type Props = {};
 
@@ -36,7 +28,7 @@ const About: FC<Props> = () => {
               textAlign: 'center',
             },
           }}>
-          Hi, we’re <br /> <span style={{ fontSize: '44px', lineHeight: '56.64px' }}>Persona</span>{' '}
+          Hi, were <br /> <span style={{ fontSize: '44px', lineHeight: '56.64px' }}>Persona</span>{' '}
           <br />
           And we’re changing the way people think and feel about training.
         </Heading>
@@ -54,7 +46,7 @@ const About: FC<Props> = () => {
               Our Mission
             </Heading>
             <Text fontSize="16px" fontWeight="400" lineHeight="21.28px" margin="0">
-              To create value – each day, every day – as we build an equal and accessible learning
+              To create value - each day, every day - as we build an equal and accessible learning
               environment for all. The BYJU'S mission is to redefine how the world learns through
               relentless effort and innovation, breaking the barriers to quality education, and
               helping to build a learning ecosystem that will create leaders of tomorrow.
@@ -91,7 +83,12 @@ const About: FC<Props> = () => {
               </Box>
 
               <Box flexGrow="1">
-                <Image width="100%" src="/images/public_available/courses_img.jpg"></Image>
+                <Image
+                  src="/images/public_available/courses_img.jpg"
+                  width={576}
+                  height={402}
+                  alt="Courses"
+                />
               </Box>
             </Box>
 
@@ -106,7 +103,12 @@ const About: FC<Props> = () => {
                 },
               }}>
               <Box flexGrow="1">
-                <Image width="100%" src="/images/public_available/courses_img.jpg"></Image>
+                <Image
+                  src="/images/public_available/courses_img.jpg"
+                  width={576}
+                  height={402}
+                  alt="Courses"
+                />
               </Box>
 
               <Box
@@ -156,7 +158,12 @@ const About: FC<Props> = () => {
               </Box>
 
               <Box flexGrow="1">
-                <Image width="100%" src="/images/public_available/courses_img.jpg"></Image>
+                <Image
+                  src="/images/public_available/courses_img.jpg"
+                  width={576}
+                  height={402}
+                  alt="Courses"
+                />
               </Box>
             </Box>
           </Box>
@@ -186,7 +193,7 @@ const About: FC<Props> = () => {
                 mb="22px"
                 padding="82.24px 39px 134px">
                 <Box mb="36px" width="139px" height="145px">
-                  <Image width="100%" height="100%" src="/icons/about_value_1.svg" />
+                  <Image src="/icons/about_value_1.svg" width={138} height={138} alt="Icon" />
                 </Box>
                 <UnorderedList listStyleType="none" textAlign="center" margin="0">
                   <ListItem
@@ -212,7 +219,7 @@ const About: FC<Props> = () => {
                 alignItems="center"
                 padding="82.24px 39px 134px">
                 <Box mb="36px" width="139px" height="145px">
-                  <Image width="100%" height="100%" src="/icons/about_value_2.svg" />
+                  <Image src="/icons/about_value_2.svg" width={138} height={138} alt="Icon" />
                 </Box>
                 <UnorderedList listStyleType="none" textAlign="center" margin="0">
                   <ListItem
@@ -242,7 +249,7 @@ const About: FC<Props> = () => {
                 mb="22px"
                 padding="82.24px 39px 134px">
                 <Box mb="36px" width="139px" height="145px">
-                  <Image width="100%" height="100%" src="/icons/about_value_3.svg" />
+                  <Image src="/icons/about_value_3.svg" width={138} height={138} alt="Icon" />
                 </Box>
                 <UnorderedList listStyleType="none" textAlign="center" margin="0">
                   <ListItem
@@ -268,7 +275,7 @@ const About: FC<Props> = () => {
                 alignItems="center"
                 padding="82.24px 39px 134px">
                 <Box mb="36px" width="139px" height="145px">
-                  <Image width="100%" height="100%" src="/icons/about_value_4.svg" />
+                  <Image src="/icons/about_value_4.svg" width={138} height={138} alt="Icon" />
                 </Box>
                 <UnorderedList listStyleType="none" textAlign="center" margin="0">
                   <ListItem
@@ -298,12 +305,7 @@ const About: FC<Props> = () => {
                 mb="22px"
                 padding="82.24px 39px 134px">
                 <Box mb="36px" width="139px" height="145px">
-                  <Image
-                    width="139px"
-                    height="145px"
-                    src="/icons/about_value_5.svg"
-                    alt="about_value"
-                  />
+                  <Image src="/icons/about_value_5.svg" width={138} height={138} alt="Icon" />
                 </Box>
                 <UnorderedList listStyleType="none" textAlign="center" margin="0">
                   <ListItem
@@ -329,7 +331,7 @@ const About: FC<Props> = () => {
                 alignItems="center"
                 padding="82.24px 39px 134px">
                 <Box mb="36px" width="139px" height="145px">
-                  <Image width="100%" height="100%" src="/icons/about_value_6.svg" />
+                  <Image src="/icons/about_value_6.svg" width={138} height={138} alt="Icon" />
                 </Box>
                 <UnorderedList listStyleType="none" textAlign="center" margin="0">
                   <ListItem
