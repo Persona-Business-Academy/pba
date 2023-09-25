@@ -1,5 +1,7 @@
+import { PrismaAdapter } from '@auth/prisma-adapter';
 import NextAuth, { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import prisma from '@/lib/prisma';
 import { findUserWithEmail } from '@/lib/prisma/resolvers';
 import { validateUserPassword } from '@/lib/prisma/utils/auth';
 
@@ -21,6 +23,7 @@ export const authOptions: AuthOptions = {
     }),
   ],
   secret: process.env.JWT_SECRET,
+  adapter: PrismaAdapter(prisma),
   callbacks: {
     async session({ session }) {
       const user = await findUserWithEmail(session.user?.email || '');
@@ -40,6 +43,7 @@ export const authOptions: AuthOptions = {
       if (user) {
         return { ...token, id: user.id };
       }
+
       return token;
     },
   },
