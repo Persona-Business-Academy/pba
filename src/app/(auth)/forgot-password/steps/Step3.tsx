@@ -9,7 +9,6 @@ import { AuthService } from '@/api/services/AuthService';
 import { Button, FormInput } from '@/components/atom';
 import { SIGN_IN_ROUTE } from '@/constants/routes';
 import { useAuth } from '@/contexts/AuthContext';
-import { ForgotPasswordStep3Data } from '@/models/auth';
 import { ForgotPasswordStep3Validation } from '@/validation';
 
 const resolver = classValidatorResolver(ForgotPasswordStep3Validation);
@@ -21,17 +20,18 @@ const Step3 = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<ForgotPasswordStep3Data>({
+  } = useForm<ForgotPasswordStep3Validation>({
     defaultValues: { newPassword: '', confirmPassword: '', userId: forgotPasswordUserId },
     resolver,
   });
 
-  const { mutate, isLoading } = useMutation<boolean, { message: string }, ForgotPasswordStep3Data>(
-    AuthService.forgotPasswordStep3,
-    { onSuccess: () => push(SIGN_IN_ROUTE) },
-  );
+  const { mutate, isLoading } = useMutation<
+    boolean,
+    { message: string },
+    ForgotPasswordStep3Validation
+  >(AuthService.forgotPasswordStep3, { onSuccess: () => push(SIGN_IN_ROUTE) });
 
-  const onSubmit: SubmitHandler<ForgotPasswordStep3Data> = useCallback(
+  const onSubmit: SubmitHandler<ForgotPasswordStep3Validation> = useCallback(
     data => mutate(data),
     [mutate],
   );
