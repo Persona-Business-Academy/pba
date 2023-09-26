@@ -62,7 +62,7 @@ export const forgotPasswordStep2 = async ({
   }
 
   const user = await prisma.user.findUnique({
-    where: { id: userId, confirmationCode: +otpPassword },
+    where: { id: userId.toString(), confirmationCode: +otpPassword },
   });
 
   if (!user) {

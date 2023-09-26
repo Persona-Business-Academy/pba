@@ -1,5 +1,6 @@
 import { createStandaloneToast } from '@chakra-ui/react';
 import axios from 'axios';
+import { Session } from 'next-auth';
 import { getSession } from 'next-auth/react';
 import { toastDefaultOptions } from '@/constants/chakra';
 
@@ -21,9 +22,9 @@ const handleError = (message: string) => {
 $apiClient.interceptors.request.use(
   async function (config) {
     if (config.headers) {
-      const session = await getSession();
-      if (session?.user.token) {
-        config.headers.Authorization = `Bearer ${session.user.token}`; // todo when get token
+      const session: Session | null = await getSession();
+      if (session?.token) {
+        config.headers.Authorization = `Bearer ${session.token}`; // todo when get token
       }
       config.headers['Content-Type'] = 'application/json';
     }
