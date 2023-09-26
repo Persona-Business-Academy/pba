@@ -9,7 +9,7 @@ declare module 'next-auth' {
   interface Session {
     expires: ISODateString;
     token: { email: string; iat: number; jti: string; exp: number };
-    user: User;
+    user: any;
   }
 }
 // todo
