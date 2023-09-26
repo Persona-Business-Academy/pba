@@ -9,32 +9,33 @@ const About: FC<Props> = () => {
   return (
     <>
       <Stack
-        backgroundImage="/images/public_available/about_bg_img.png"
-        padding="179px 0 124px 0"
-        backgroundPosition="center"
+        backgroundImage={{
+          xl: '/images/public_available/about_bg_img.png',
+          sm: '/images/public_available/about_bg_mobile.png',
+          base: '/images/public_available/about_bg_mobile.png',
+        }}
+        padding={{ xl: '179px 0 124px 0', sm: ' 151px 16px 66px', base: '151px 16px 66px' }}
+        margin={{ xl: '0px', sm: ' 0 16px', base: '0 16px' }}
+        backgroundPosition={{ xl: 'center', sm: 'right' }}
+        borderBottomLeftRadius={{ xl: 'none', sm: '50px' }}
+        borderBottomRightRadius={{ xl: 'none', base: '50px' }}
         backgroundSize="cover">
         <Heading
+          padding={{ xl: 'none', sm: '0 16px' }}
           boxSizing="border-box"
           color="#fff"
-          margin="0"
-          marginLeft="366px"
+          margin={{ xl: '0 0 0 366px', sm: '0', base: '0' }}
           maxWidth="668px"
           fontWeight="700"
           lineHeight="42.56px"
-          fontSize="32px"
-          css={{
-            '@media (max-width: 1000px)': {
-              margin: '0 auto',
-              textAlign: 'center',
-            },
-          }}>
-          Hi, were <br /> <span style={{ fontSize: '44px', lineHeight: '56.64px' }}>Persona</span>{' '}
+          fontSize={{ base: '32px', md: '32px' }}>
+          Hi, were <br /> <span style={{ fontSize: '44px', lineHeight: '56.64px' }}>Persona</span>
           <br />
-          And we’re changing the way people think and feel about training.
+          And were changing the way people think and feel about training.
         </Heading>
       </Stack>
 
-      <Box pt="96px" bg="#F6FCFF">
+      <Box padding={{ xl: '96px 0 0 0', sm: '96px 16px 0', base: '96px  16px 0' }} bg="#F6FCFF">
         <Container maxW="1200px" margin="0 auto">
           <Box maxW="784px" margin="0 auto 40px" color="#222222">
             <Heading
@@ -82,7 +83,7 @@ const About: FC<Props> = () => {
                 </Text>
               </Box>
 
-              <Box flexGrow="1">
+              <Box flexGrow="1" height={{ xl: '402px', sm: '402px', base: '91px' }}>
                 <Image
                   src="/images/public_available/courses_img.jpg"
                   width={576}
@@ -169,7 +170,7 @@ const About: FC<Props> = () => {
           </Box>
         </Container>
 
-        <Box>
+        <Box display="none">
           <Box maxW="804px" margin="0 auto 40px" textAlign="center" color="#000000">
             <Heading margin="0 0 8px 0" fontSize="32px" lineHeight="42.56px" fontWeight="700">
               Our Values
@@ -613,7 +614,7 @@ const About: FC<Props> = () => {
           </Box>
         </Box>
 
-        <Box bg="#1F1646">
+        <Box bg="#1F1646" display="none">
           <div
             style={{
               padding: '96px 0',
