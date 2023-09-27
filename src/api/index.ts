@@ -27,8 +27,8 @@ const handleError = (error: Error | AxiosError) => {
 $apiClient.interceptors.request.use(async config => {
   if (config.headers) {
     const session = await getSession();
-    if (session?.user.token) {
-      config.headers.Authorization = `Bearer ${session.user.token}`; // todo when get token
+    if (session?.token) {
+      config.headers.Authorization = `Bearer ${session.token}`; // todo when get token
     }
     config.headers['Content-Type'] = 'application/json';
   }
