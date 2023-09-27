@@ -11,7 +11,7 @@ export const validateUserPassword = async (email: string, password: string) => {
       throw new BadRequestException(ERROR_MESSAGES.invalidCredentials);
     }
 
-    const isValid = await bcrypt.compare(password, user.password || '');
+    const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
       throw new BadRequestException(ERROR_MESSAGES.invalidCredentials);
     }

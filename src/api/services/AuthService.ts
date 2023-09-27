@@ -7,21 +7,21 @@ import {
 import $apiClient from '..';
 
 export class AuthService {
-  static async signUp(data: SignUpValidation) {
-    return await $apiClient.post('/custom-auth/signup', data);
+  static signUp(data: SignUpValidation) {
+    return $apiClient.post('/custom-auth/signup', data);
   }
   // forgot password
-  static async forgotPasswordStep1(data: ForgotPasswordStep1Validation) {
-    return await $apiClient.post('/custom-auth/forgot-password-first-step', data);
+  static forgotPasswordStep1(data: ForgotPasswordStep1Validation) {
+    return $apiClient.post('/custom-auth/forgot-password-first-step', data);
   }
-  static async forgotPasswordStep2(data: ForgotPasswordStep2Validation) {
-    return await $apiClient.post('/custom-auth/forgot-password-second-step', data);
+  static forgotPasswordStep2(data: ForgotPasswordStep2Validation) {
+    return $apiClient.post('/custom-auth/forgot-password-second-step', data);
   }
-  static async forgotPasswordStep3(data: ForgotPasswordStep3Validation) {
+  static forgotPasswordStep3(data: ForgotPasswordStep3Validation) {
     // this is only example for serverside calls
     // _______________________________________________________________
     // const session = await getServerSession(authOptions);
-    return await $apiClient.post(
+    return $apiClient.post(
       '/custom-auth/forgot-password-third-step',
       data,
       // {
