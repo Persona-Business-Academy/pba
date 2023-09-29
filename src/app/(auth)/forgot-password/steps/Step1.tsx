@@ -7,7 +7,6 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
 import { Button, FormInput } from '@/components/atom';
 import { useAuth } from '@/contexts/AuthContext';
-import { ForgotPasswordStep1Data } from '@/models/auth';
 import { ForgotPasswordStep1Validation } from '@/validation';
 
 const resolver = classValidatorResolver(ForgotPasswordStep1Validation);
@@ -18,19 +17,20 @@ const Step1 = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<ForgotPasswordStep1Data>({ defaultValues: { email: '' }, resolver });
+  } = useForm<ForgotPasswordStep1Validation>({ defaultValues: { email: '' }, resolver });
 
-  const { mutate, isLoading } = useMutation<number, { message: string }, ForgotPasswordStep1Data>(
-    AuthService.forgotPasswordStep1,
-    {
-      onSuccess: userId => {
-        setStep('OTPStep');
-        setForgotPasswordUserId(userId);
-      },
+  const { mutate, isLoading } = useMutation<
+    number,
+    { message: string },
+    ForgotPasswordStep1Validation
+  >(AuthService.forgotPasswordStep1, {
+    onSuccess: userId => {
+      setStep('OTPStep');
+      setForgotPasswordUserId(userId);
     },
-  );
+  });
 
-  const onSubmit: SubmitHandler<ForgotPasswordStep1Data> = useCallback(
+  const onSubmit: SubmitHandler<ForgotPasswordStep1Validation> = useCallback(
     data => mutate(data),
     [mutate],
   );
