@@ -6,50 +6,27 @@ import { findUserWithEmail } from '@/lib/prisma/resolvers';
 import { validateUserPassword } from '@/lib/prisma/utils/auth';
 
 export const authOptions: AuthOptions = {
+  adapter: PrismaAdapter(prisma),
+  secret: process.env.JWT_SECRET,
   providers: [
     CredentialsProvider({
       id: 'credentials',
       name: 'Credentials',
-      credentials: {
-        email: { type: 'text' },
-        password: { type: 'password' },
-      },
-      async authorize(credentials) {
-        return (
-          (await validateUserPassword(credentials?.email || '', credentials?.password || '')) ||
-          null
-        );
-      },
+      credentials: { email: { type: 'text' }, password: { type: 'password' } },
+      authorize: async credentials =>
+        (await validateUserPassword(credentials?.email || '', credentials?.password || '')) || null,
     }),
   ],
-  secret: process.env.JWT_SECRET,
-  adapter: PrismaAdapter(prisma),
   callbacks: {
-    async session({ session }) {
+    session: async ({ session }) => {
       const user = await findUserWithEmail(session.user?.email || '');
-
       return user
-        ? {
-            ...session,
-            user: {
-              name: `${user.firstName} ${user.lastName}`,
-              email: user.email,
-            },
-          }
+        ? { ...session, user: { name: `${user.firstName} ${user.lastName}`, email: user.email } }
         : session;
     },
-
-    async jwt({ token, user }) {
-      if (user) {
-        return { ...token, id: user.id };
-      }
-
-      return token;
-    },
+    jwt: async ({ user, token }) => (!!user ? { ...token, id: user.id } : token),
   },
-  pages: {
-    signIn: '/signin',
-  },
+  pages: { signIn: '/signin' },
   session: { strategy: 'jwt' },
 };
 
