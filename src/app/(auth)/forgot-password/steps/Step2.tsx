@@ -7,7 +7,6 @@ import { AuthService } from '@/api/services/AuthService';
 import { Button } from '@/components/atom';
 import OTPPassword from '@/components/atom/OTPPassword';
 import { useAuth } from '@/contexts/AuthContext';
-import { ForgotPasswordStep2Data } from '@/models/auth';
 import { ForgotPasswordStep2Validation } from '@/validation';
 
 const resolver = classValidatorResolver(ForgotPasswordStep2Validation);
@@ -18,21 +17,22 @@ const Step2 = () => {
     control,
     handleSubmit,
     formState: { isValid },
-  } = useForm<ForgotPasswordStep2Data>({
+  } = useForm<ForgotPasswordStep2Validation>({
     resolver,
     defaultValues: { otpPassword: '', userId: forgotPasswordUserId },
   });
 
-  const { mutate, isLoading } = useMutation<string, { message: string }, ForgotPasswordStep2Data>(
-    AuthService.forgotPasswordStep2,
-    {
-      onSuccess: userId => {
-        if (userId === forgotPasswordUserId) setStep('passwordStep');
-      },
+  const { mutate, isLoading } = useMutation<
+    number,
+    { message: string },
+    ForgotPasswordStep2Validation
+  >(AuthService.forgotPasswordStep2, {
+    onSuccess: userId => {
+      if (userId === forgotPasswordUserId) setStep('passwordStep');
     },
-  );
+  });
 
-  const onSubmit: SubmitHandler<ForgotPasswordStep2Data> = useCallback(
+  const onSubmit: SubmitHandler<ForgotPasswordStep2Validation> = useCallback(
     data => mutate(data),
     [mutate],
   );

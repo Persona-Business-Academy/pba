@@ -5,6 +5,7 @@ import { ChakraProvider, extendTheme, LightMode, ThemeConfig } from '@chakra-ui/
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SessionProvider } from 'next-auth/react';
 import { colors, components, space } from '@/constants/chakra';
+import { montserrat } from '@/constants/fonts';
 
 const theme: ThemeConfig = extendTheme({
   config: {
@@ -14,6 +15,7 @@ const theme: ThemeConfig = extendTheme({
   colors,
   components,
   space,
+  fonts: { heading: montserrat.style.fontFamily },
 });
 
 const queryClient = new QueryClient();

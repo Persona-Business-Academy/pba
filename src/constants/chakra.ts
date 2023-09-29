@@ -4,7 +4,6 @@ const Button: ComponentStyleConfig = {
   baseStyle: {
     width: '118px',
     height: '37px',
-    fontFamily: 'Segoe UI',
     fontSize: '16px',
     borderRadius: '6px',
     fontStyle: 'normal',
