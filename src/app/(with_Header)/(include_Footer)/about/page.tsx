@@ -165,7 +165,7 @@ const About: FC<Props> = () => {
           </Box>
         </Container>
 
-        <Box>
+        <Box display="none">
           <Box maxW="804px" margin="0 auto 40px" textAlign="center" color="#000000">
             <Heading margin="0 0 8px 0" fontSize="32px" lineHeight="42.56px" fontWeight="700">
               Our Values

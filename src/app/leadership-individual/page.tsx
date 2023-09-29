@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Center, Container, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { Box, Center, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import classes from './page.module.scss';
 
 export default function LeadershipIndividual() {
