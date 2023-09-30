@@ -41,9 +41,9 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href }) => {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                {child.subLabels.map((subLabel: SubLabel) => (
+                {child.subLabels.map((subLabel: SubLabel, i) => (
                   <Box
-                    key={Date.now()}
+                    key={i}
                     py={4}
                     my={2}
                     _hover={{
