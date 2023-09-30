@@ -3,6 +3,7 @@ import { Box, Collapse, Flex, IconButton, Stack, useDisclosure } from '@chakra-u
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import BurgerMenuIcon from 'public/icons/menu.svg';
 import { Button } from '@/components/atom';
 import { BLOG_ROUTE, HOMEPAGE_ROUTE, PRICING_ROUTE, SIGN_IN_ROUTE } from '@/constants/routes';
 import { NavItem } from '@/models/header';
@@ -214,13 +215,7 @@ export const Header = () => {
         margin="0 auto"
         px={{ base: 4 }}
         align={'center'}>
-        <Flex
-          flex={{ base: 1, md: 'auto' }}
-          ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}>
-          <IconButton onClick={onToggle} variant={'ghost'} aria-label={'Toggle Navigation'} />
-        </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} gap={165}>
+        <Flex flex={{ base: 1 }} justifyContent="space-between" px={{ base: '10px' }}>
           <Link href={HOMEPAGE_ROUTE}>
             <Flex alignItems="center" height="100%">
               <Image
@@ -236,10 +231,22 @@ export const Header = () => {
             </Flex>
           </Link>
 
-          <Flex display={{ base: 'none', md: 'flex' }}>
+          <Flex display={{ base: 'none', lg: 'flex' }}>
             <DesktopNav navItems={NAV_ITEMS} />
           </Flex>
-          <Stack flexDirection="row" alignItems="center">
+          <Flex display={{ base: 'flex', md: 'none' }}>
+            <IconButton
+              width="25px"
+              _focus={{
+                bg: '#E2E8F0',
+              }}
+              onClick={onToggle}
+              bg="transparent"
+              aria-label={'Toggle Navigation'}
+              icon={<BurgerMenuIcon />}
+            />
+          </Flex>
+          <Stack flexDirection="row" alignItems="center" display={{ base: 'none', lg: 'flex' }}>
             <Button
               borderRadius={20}
               fontSize={14}
