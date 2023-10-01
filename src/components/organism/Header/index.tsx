@@ -2,10 +2,15 @@ import { memo } from 'react';
 import { Box, Collapse, Flex, IconButton, Stack, useDisclosure } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import BurgerMenuIcon from 'public/icons/menu.svg';
 import { Button } from '@/components/atom';
-import { BLOG_ROUTE, HOMEPAGE_ROUTE, PRICING_ROUTE, SIGN_IN_ROUTE } from '@/constants/routes';
+import {
+  BLOG_ROUTE,
+  HOMEPAGE_ROUTE,
+  PRICING_ROUTE,
+  SIGN_IN_ROUTE,
+  SIGN_UP_ROUTE,
+} from '@/constants/routes';
 import { NavItem } from '@/models/header';
 import DesktopNav from './DesktopNavigation';
 import MobileNav from './MobileNav';
@@ -203,7 +208,6 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 export const Header = () => {
-  const router = useRouter();
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -224,9 +228,7 @@ export const Header = () => {
                 height={27}
                 alt="persona_logo"
                 priority
-                style={{
-                  objectFit: 'contain',
-                }}
+                style={{ objectFit: 'contain' }}
               />
             </Flex>
           </Link>
@@ -247,22 +249,20 @@ export const Header = () => {
             />
           </Flex>
           <Stack flexDirection="row" alignItems="center" display={{ base: 'none', lg: 'flex' }}>
-            <Button
-              borderRadius={20}
-              fontSize={14}
-              width={90}
-              height={38}
-              fontWeight={600}
-              bg="#fff"
-              onClick={() => {
-                router.push(SIGN_IN_ROUTE);
-              }}
-              color="#3CB4E7"
-              border="1px solid #3CB4E7">
-              Log In
-            </Button>
-
-            <Link href="/">
+            <Link href={SIGN_IN_ROUTE}>
+              <Button
+                borderRadius={20}
+                fontSize={14}
+                width={90}
+                height={38}
+                fontWeight={600}
+                bg="#fff"
+                color="#3CB4E7"
+                border="1px solid #3CB4E7">
+                Log In
+              </Button>
+            </Link>
+            <Link href={SIGN_UP_ROUTE}>
               <Button borderRadius={20} fontSize={14} fontWeight={600} height={38} width={127}>
                 Get Started
               </Button>
