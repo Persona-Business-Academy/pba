@@ -8,7 +8,6 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
 import { Button, FormInput } from '@/components/atom';
 import { SIGN_IN_ROUTE } from '@/constants/routes';
-import { SignUpFormData } from '@/models/auth';
 import { SignUpValidation } from '@/validation';
 
 const resolver = classValidatorResolver(SignUpValidation);
@@ -20,17 +19,17 @@ const SignUp = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpFormData>({
+  } = useForm<SignUpValidation>({
     resolver,
     defaultValues: { firstName: '', lastName: '', email: '', password: '' },
   });
 
-  const { mutate, isLoading } = useMutation<boolean, { message: string }, SignUpFormData>(
+  const { mutate, isLoading } = useMutation<boolean, { message: string }, SignUpValidation>(
     AuthService.signUp,
     { onSuccess: () => push(SIGN_IN_ROUTE) },
   );
 
-  const onSubmit: SubmitHandler<SignUpFormData> = useCallback(data => mutate(data), [mutate]);
+  const onSubmit: SubmitHandler<SignUpValidation> = useCallback(data => mutate(data), [mutate]);
 
   return (
     <>
