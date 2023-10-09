@@ -23,28 +23,66 @@ const Home = () => {
       <Box>
         <Box
           mb="148px"
-          borderRadius="0px 0px 74px  74px"
+          borderRadius={{
+            base: '0 0 16px 16px',
+            sm: '0 0 16px 16px',
+            md: '0 0 16px 16px',
+            lg: '0 0 74px  74px',
+            xl: '0 0 74px  74px',
+          }}
           backgroundColor="#F6FCFF"
-          paddingBottom="96px">
+          padding={{
+            base: '36px 16px ',
+            sm: '36px 16px ',
+            md: '36px 16px ',
+            lg: '50px 20px',
+            xl: '78px 0 86px',
+          }}>
           <Container as="section" padding={0} maxWidth="1200px" margin="0 auto">
-            <Flex alignItems="center" justifyContent="space-between">
+            <Flex
+              gap="30px"
+              marginBottom="54px"
+              alignItems="center"
+              justifyContent={{
+                base: 'center',
+                sm: 'center',
+                md: 'center',
+                lg: 'center',
+                xl: 'space-between',
+              }}
+              flexWrap={{ base: 'wrap', sm: 'wrap', md: 'wrap', lg: 'wrap', xl: 'nowrap' }}>
               <Flex maxW="490px" flexDirection="column">
-                <Heading as="h1" margin="0 0 16px 0" fontSize="44px" color="#1F1646">
+                <Heading
+                  as="h1"
+                  margin="0 0 16px 0"
+                  fontSize={{ base: '28px', sm: '28px', md: '32px', xl: '44px' }}
+                  color="#1F1646"
+                  textAlign={{ base: 'center', sm: 'center', md: 'center', lg: 'left', xl: 'left' }}
+                  lineHeight={{ base: '37.24px', sm: '37.24px', md: '37.24px', xl: '53.64px' }}>
                   Welcome to
                   <Text as="span" textTransform="uppercase" color="#3CB3E5">
                     &nbsp;PBA
                   </Text>
                 </Heading>
+
                 <Text
                   fontSize="16px"
                   color="#171717"
-                  margin="0 0 32px 0"
+                  marginBottom={{ base: '10px', sm: '10px', md: '10px', lg: '32px', xl: '32px' }}
                   {...commonFontStyle}
-                  fontWeight={400}>
+                  fontWeight={400}
+                  textAlign={{
+                    base: 'center',
+                    sm: 'center',
+                    md: 'center',
+                    lg: 'left',
+                    xl: 'left',
+                  }}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. At et posuere est non
                   vitae enim, sed consectetur. Nullam interdum feugiat nibh lectus viverra
                   sollicitudin.
                 </Text>
+
                 <Flex gap="24px" alignItems="center">
                   <Button
                     width="177px"
@@ -52,7 +90,7 @@ const Home = () => {
                     fontSize="16px"
                     fontWeight="400"
                     lineHeight="21.28px">
-                    Explore Courses
+                    Try it free
                   </Button>
 
                   <Button
@@ -62,7 +100,7 @@ const Home = () => {
                     lineHeight="21.28px"
                     bg="#F6FCFF"
                     color="#222222">
-                    Play Our video
+                    Explore courses
                   </Button>
                 </Flex>
               </Flex>
@@ -81,17 +119,52 @@ const Home = () => {
 
             <Box>
               <Box mb="40px">
-                <Heading as="h2">Popular topics to learn now</Heading>
+                <Heading
+                  as="h2"
+                  margin="0 0 16px 0"
+                  lineHeight="31.92px"
+                  fontWeight="700"
+                  fontSize={{ base: '24px ', sm: '24px', md: '24px', lg: '32px', xl: '32px' }}
+                  textAlign={{
+                    base: 'center',
+                    sm: 'center',
+                    md: 'center',
+                    lg: 'center',
+                    xl: 'left',
+                  }}>
+                  Popular topics to learn now
+                </Heading>
               </Box>
 
               <Flex>
-                <Box width="100%" display="flex" justifyContent="space-between" alignItems="center">
-                  <Box display="flex" flexDirection="column" gap="16px" alignItems="center">
-                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
+                <Box
+                  width="100%"
+                  display="flex"
+                  gap={{ base: '17px', sm: '17px', md: '17px', lg: '20px', xl: '20px' }}
+                  alignItems="center"
+                  justifyContent="center"
+                  flexWrap="wrap">
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    gap="8px"
+                    alignItems="center"
+                    background="#fff"
+                    width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    padding="16px 0"
+                    borderRadius="8px">
+                    <Box
+                      bg="#C3E7F7"
+                      margin="4px"
+                      width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      display="flex"
+                      justifyContent="center"
+                      borderRadius="7px">
                       <Image
                         src="/icons/design_home_icon.svg"
-                        width={30}
-                        height={30}
+                        width={24}
+                        height={24}
                         alt="UI UX Icon"
                       />
                     </Box>
@@ -101,12 +174,27 @@ const Home = () => {
                     </Text>
                   </Box>
 
-                  <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
-                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
+                  <Box
+                    display="flex"
+                    gap="16px"
+                    flexDirection="column"
+                    alignItems="center"
+                    background="#FFF"
+                    width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    padding="16px 0"
+                    borderRadius="8px">
+                    <Box
+                      bg="#C3E7F7"
+                      margin="4px"
+                      width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      display="flex"
+                      justifyContent="center"
+                      borderRadius="7px">
                       <Image
                         src="/icons/marketing_home_icon.svg"
-                        width={30}
-                        height={30}
+                        width={24}
+                        height={24}
                         alt="UI UX Icon"
                       />
                     </Box>
@@ -116,21 +204,51 @@ const Home = () => {
                     </Text>
                   </Box>
 
-                  <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
-                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
-                      <Image src="/icons/react_home_icon.svg" width={30} height={30} alt="React" />
+                  <Box
+                    display="flex"
+                    gap="16px"
+                    flexDirection="column"
+                    alignItems="center"
+                    background="#FFF"
+                    width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    padding="16px 0"
+                    borderRadius="8px">
+                    <Box
+                      bg="#C3E7F7"
+                      margin="4px"
+                      width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      display="flex"
+                      justifyContent="center"
+                      borderRadius="7px">
+                      <Image src="/icons/react_home_icon.svg" width={24} height={24} alt="React" />
                     </Box>
                     <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
                       React JS
                     </Text>
                   </Box>
 
-                  <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
-                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
+                  <Box
+                    display="flex"
+                    gap="16px"
+                    flexDirection="column"
+                    alignItems="center"
+                    background="#FFF"
+                    width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    padding="16px 0"
+                    borderRadius="8px">
+                    <Box
+                      bg="#C3E7F7"
+                      margin="4px"
+                      width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      display="flex"
+                      justifyContent="center"
+                      borderRadius="7px">
                       <Image
                         src="/icons/management_home_icon.svg"
-                        width={30}
-                        height={30}
+                        width={24}
+                        height={24}
                         alt="Management"
                       />
                     </Box>
@@ -139,12 +257,27 @@ const Home = () => {
                     </Text>
                   </Box>
 
-                  <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
-                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
+                  <Box
+                    display="flex"
+                    gap="16px"
+                    flexDirection="column"
+                    alignItems="center"
+                    background="#FFF"
+                    width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    padding="16px 0"
+                    borderRadius="8px">
+                    <Box
+                      bg="#C3E7F7"
+                      margin="4px"
+                      width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      display="flex"
+                      justifyContent="center"
+                      borderRadius="7px">
                       <Image
                         src="/icons/design_graphic_home_icon.svg"
-                        width={30}
-                        height={30}
+                        width={24}
+                        height={24}
                         alt="Management"
                       />
                     </Box>
@@ -154,17 +287,32 @@ const Home = () => {
                     </Text>
                   </Box>
 
-                  <Box display="flex" gap="16px" flexDirection="column" alignItems="center">
-                    <Box bg="#C3E7F7" padding="16px" borderRadius="7px">
+                  <Box
+                    display="flex"
+                    gap="16px"
+                    flexDirection="column"
+                    alignItems="center"
+                    background="#FFF"
+                    width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    padding="16px 0"
+                    borderRadius="8px">
+                    <Box
+                      bg="#C3E7F7"
+                      margin="4px"
+                      width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      display="flex"
+                      justifyContent="center"
+                      borderRadius="7px">
                       <Image
                         src="/icons/target_home_icon.svg"
-                        width={30}
-                        height={30}
+                        width={24}
+                        height={24}
                         alt="Target"
                       />
                     </Box>
                     <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                      Social Media Marketing
+                      SMM
                     </Text>
                   </Box>
                 </Box>
@@ -173,12 +321,38 @@ const Home = () => {
           </Container>
         </Box>
 
-        <Container maxW="1200px" margin="0 auto">
-          <Box mb="148px">
-            <Box color="#222222" maxW="667px" margin="0 auto 40px" textAlign="center">
+        <Container
+          maxW="1200px"
+          margin="0 auto"
+          padding={{ base: '0 16px', sm: '0 16px', md: '0 16px', lg: '0 16px', xl: '0' }}>
+          <Box
+            mb={{
+              base: '36px ',
+              sm: '36px ',
+              md: '148px ',
+              lg: '148px ',
+              xl: '148px ',
+            }}>
+            <Box
+              color="#222222"
+              maxW="667px"
+              margin={{
+                base: '0 auto 20px ',
+                sm: '0 auto 20px ',
+                md: '0 auto 40px ',
+                lg: '0 auto 40px ',
+                xl: '0 auto 40px ',
+              }}
+              textAlign="center">
               <Heading
-                lineHeight="42.56px"
-                fontSize="32px"
+                lineHeight={{
+                  base: '31.92px',
+                  sm: '31.92px',
+                  md: '31.92px',
+                  lg: '42.56px',
+                  xl: '42.56px',
+                }}
+                fontSize={{ base: '24px', sm: '24px', md: '24px', lg: '32px', xl: '32px' }}
                 fontWeight="700"
                 margin="0 0 16px 0"
                 as="h2">
@@ -191,7 +365,12 @@ const Home = () => {
                 place.
               </Text>
             </Box>
-            <Box display="flex" justifyContent="center" gap="20px">
+
+            <Box
+              display="flex"
+              justifyContent="center"
+              flexWrap={{ base: 'wrap', sm: 'wrap', md: 'wrap', lg: 'nowrap', xl: 'nowrap' }}
+              gap="20px">
               <Box
                 width="590px"
                 borderRadius="20px"
@@ -229,6 +408,7 @@ const Home = () => {
                   <Image src="/icons/not_found_icon.svg" alt="Arrow icon" width={24} height={24} />
                 </Text>
               </Box>
+
               <Box
                 width="590px"
                 bg="#F6FCFF"
@@ -279,11 +459,11 @@ const Home = () => {
             </Box>
           </Box>
 
-          <Box mb="148px">
+          <Box mb={{ base: '36px', sm: '36px', md: '36px', lg: '148px', xl: '148px' }}>
             <Box color="#222222" maxW="846px" margin="0 auto 40px" textAlign="center">
               <Heading
-                lineHeight="42.56px"
-                fontSize="32px"
+                lineHeight={{ base: '31.92px', sm: '31.92px', xl: '42.56px' }}
+                fontSize={{ base: '24px', sm: '24px', xl: '32px' }}
                 fontWeight="700"
                 margin="0 0 16px 0"
                 as="h2">
@@ -296,7 +476,17 @@ const Home = () => {
             </Box>
 
             <Box>
-              <Flex justifyContent="space-between" color="#222222">
+              <Flex
+                justifyContent={{
+                  base: 'center',
+                  sm: 'center',
+                  md: 'center',
+                  lg: 'space-between',
+                  xl: 'space-between',
+                }}
+                color="#222222"
+                flexWrap={{ base: 'wrap', sm: 'wrap', md: 'wrap', lg: 'nowrap', xl: 'nowrap' }}
+                gap={{ base: '26px', sm: '26px', md: '26px', lg: '60px', xl: '60px' }}>
                 <Box
                   width="424px"
                   display="flex"
@@ -305,6 +495,7 @@ const Home = () => {
                   alignItems="center">
                   <Image src="/icons/student_hat.svg" alt="Should icon" width={128} height={128} />
                   <Text
+                    display={{ base: 'none', sm: 'none', md: 'none', lg: 'block', xl: 'block' }}
                     textAlign="center"
                     fontSize="32px"
                     fontWeight="700"
@@ -315,7 +506,15 @@ const Home = () => {
                 </Box>
 
                 <Box width="654px">
-                  <Box gap="60px" display="flex">
+                  <Box
+                    gap={{
+                      base: '24px',
+                      sm: '24px',
+                      md: '24px',
+                      lg: '60px',
+                      xl: '60px',
+                    }}
+                    display="flex">
                     <Box display="flex" flexDirection="column" alignItems="center">
                       <Box width="24px" height="24px">
                         <Image
@@ -333,8 +532,20 @@ const Home = () => {
                       <Heading
                         margin="0 0 16px 0"
                         as="h3"
-                        lineHeight="31.92px"
-                        fontSize="24px"
+                        lineHeight={{
+                          base: '26.6px',
+                          sm: '26.6px',
+                          md: '26.6px',
+                          lg: '31.92px',
+                          xl: '31.92px',
+                        }}
+                        fontSize={{
+                          base: '20px',
+                          sm: '20px',
+                          md: '20px',
+                          lg: '24px',
+                          xl: '24px',
+                        }}
                         fontWeight="700"
                         color="#222222">
                         Free access to the maintenance
@@ -355,7 +566,15 @@ const Home = () => {
                     </Box>
                   </Box>
 
-                  <Box gap="60px" display="flex">
+                  <Box
+                    gap={{
+                      base: '24px',
+                      sm: '24px',
+                      md: '24px',
+                      lg: '60px',
+                      xl: '60px',
+                    }}
+                    display="flex">
                     <Box display="flex" flexDirection="column" alignItems="center">
                       <Box width="24px" height="24px">
                         <Image
@@ -373,8 +592,20 @@ const Home = () => {
                       <Heading
                         margin="0 0 16px 0"
                         as="h3"
-                        lineHeight="31.92px"
-                        fontSize="24px"
+                        lineHeight={{
+                          base: '26.6px',
+                          sm: '26.6px',
+                          md: '26.6px',
+                          lg: '31.92px',
+                          xl: '31.92px',
+                        }}
+                        fontSize={{
+                          base: '20px',
+                          sm: '20px',
+                          md: '20px',
+                          lg: '24px',
+                          xl: '24px',
+                        }}
                         fontWeight="700"
                         color="#222222">
                         Providing an authentic report on web performance
@@ -394,7 +625,15 @@ const Home = () => {
                     </Box>
                   </Box>
 
-                  <Box gap="60px" display="flex">
+                  <Box
+                    gap={{
+                      base: '24px',
+                      sm: '24px',
+                      md: '24px',
+                      lg: '60px',
+                      xl: '60px',
+                    }}
+                    display="flex">
                     <Box display="flex" flexDirection="column" alignItems="center">
                       <Box width="24px" height="24px">
                         <Image
@@ -412,8 +651,20 @@ const Home = () => {
                       <Heading
                         margin="0 0 16px 0"
                         as="h3"
-                        lineHeight="31.92px"
-                        fontSize="24px"
+                        lineHeight={{
+                          base: '26.6px',
+                          sm: '26.6px',
+                          md: '26.6px',
+                          lg: '31.92px',
+                          xl: '31.92px',
+                        }}
+                        fontSize={{
+                          base: '20px',
+                          sm: '20px',
+                          md: '20px',
+                          lg: '24px',
+                          xl: '24px',
+                        }}
                         fontWeight="700"
                         color="#222222">
                         Achieving your loyalty and feedback
@@ -436,28 +687,60 @@ const Home = () => {
             </Box>
           </Box>
 
-          <Box mb="148px">
-            <Box color="#222222" maxW="846px" margin="0 auto 40px" textAlign="center">
+          <Box mb={{ base: '36px', sm: '36px', md: '36px', lg: '148px', xl: '148px' }}>
+            <Box
+              color="#222222"
+              maxW="846px"
+              margin={{
+                base: '0 auto 20px',
+                sm: '0 auto 20px',
+                md: '0 auto 20px',
+                lg: '0 auto 40px',
+                xl: '0 auto 40px',
+              }}
+              textAlign="center">
               <Heading
-                lineHeight="42.56px"
-                fontSize="32px"
+                lineHeight={{
+                  base: '31.92px',
+                  sm: '31.92px',
+                  md: '31.92px',
+                  lg: '42.56px',
+                  xl: '42.56px',
+                }}
+                fontSize={{ base: '24px', sm: '24px', md: '24px', lg: '32px', xl: '32px' }}
                 fontWeight="700"
                 margin="0 0 16px 0"
                 as="h2">
                 Explore Inspiring Courses
               </Heading>
-              <Text fontSize="16px" fontWeight="400" color="#696984" lineHeight="21.28px">
+              <Text
+                fontSize="16px"
+                fontWeight="400"
+                color="#696984"
+                margin="0"
+                lineHeight="21.28px">
                 We drive our clients growth through innovation and hard work
               </Text>
             </Box>
 
             <Flex flexDirection="column" gap={16}>
-              <UnorderedList listStyleType="none" display="flex" gap="16px">
+              <UnorderedList
+                margin="0"
+                listStyleType="none"
+                display="flex"
+                justifyContent="center"
+                gap="16px"
+                flexWrap="wrap">
                 {Array.from({ length: 7 }, (_, index: number) => index).map((index: number) => (
-                  <OutlinedButton key={index}>Design </OutlinedButton>
+                  <OutlinedButton key={index}>Design</OutlinedButton>
                 ))}
               </UnorderedList>
-              <UnorderedList listStyleType="none" display="flex" gap="16px" justifyContent="center">
+              <UnorderedList
+                margin="0"
+                listStyleType="none"
+                display={{ base: 'none', sm: 'none', md: 'flex', lg: '"flex"', xl: '"flex"' }}
+                gap="16px"
+                justifyContent="center">
                 {Array.from({ length: 4 }, (_, index: number) => index).map((index: number) => (
                   <OutlinedButton key={index}>Design </OutlinedButton>
                 ))}
@@ -466,14 +749,65 @@ const Home = () => {
           </Box>
         </Container>
 
-        <Box maxWidth="1681px" bg="#ECF7FC" mb="148px" borderRadius=" 0 74px 74px 0">
-          <Flex p="42px 64px 0 0 " gap="9px" alignItems="center" justifyContent="flex-end">
+        <Box
+          maxWidth="1920px"
+          padding={{ base: '0 16px', sm: '0 16px', md: '0 16px', lg: '0 ', xl: '0 ' }}
+          margin={{
+            base: '0 auto 36px',
+            sm: '0 auto 36px',
+            md: '0 auto 36px',
+            lg: '0 auto 148px',
+            xl: '0 auto 148px',
+          }}>
+          <Flex
+            padding={{ base: '0', sm: '0', md: '0', lg: '46px 59px  0 0', xl: '46px 59px 0 0 ' }}
+            borderRadius={{
+              base: 'none',
+              sm: 'none',
+              md: 'none',
+              lg: ' 0 74px 74px 0',
+              xl: ' 0 74px 74px 0',
+            }}
+            bg={{
+              base: 'transparent',
+              sm: 'transparent',
+              md: 'transparent',
+              lg: '#ECF7FC',
+              xl: '#ECF7FC',
+            }}
+            gap="24px"
+            maxW="1560px"
+            alignItems="center"
+            flexWrap={{
+              base: 'wrap',
+              sm: 'wrap',
+              md: 'wrap',
+              lg: 'nowrap',
+              xl: 'nowrap',
+            }}
+            justifyContent={{
+              base: 'center',
+              sm: 'center',
+              md: 'center',
+              lg: 'flex-end',
+              xl: 'flex-end',
+            }}>
             <Box>
               <Image src="/icons/middle_school_kids.png" alt="Kids" width={774} height={403} />
             </Box>
 
             <Box width="424px" textAlign="center">
-              <Heading lineHeight="42.56px" fontWeight="700" fontSize="30" margin="0 0 16px 0">
+              <Heading
+                lineHeight="42.56px"
+                fontWeight="700"
+                fontSize={{
+                  base: '30px',
+                  sm: '30px',
+                  md: '32px',
+                  lg: '32px',
+                  xl: '32px',
+                }}
+                margin="0 0 16px 0">
                 Every child deserves the chance to learn
               </Heading>
               <Text fontWeight="400" fontSize="16px" lineHeight="21.28px" margin="0 0 24px 0">
@@ -497,7 +831,7 @@ const Home = () => {
           </Flex>
         </Box>
 
-        <Container maxW="1208px" margin="0 auto">
+        <Container display="none" maxW="1208px" margin="0 auto">
           <Box mb="148px">
             <Box textAlign="center" maxW="564px" m="0 auto">
               <Heading lineHeight="42.56px" fontWeight="700" fontSize="30" margin="0 0 16px 0">
