@@ -4,13 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import BurgerMenuIcon from 'public/icons/menu.svg';
 import { Button } from '@/components/atom';
-import {
-  BLOG_ROUTE,
-  HOMEPAGE_ROUTE,
-  PRICING_ROUTE,
-  SIGN_IN_ROUTE,
-  SIGN_UP_ROUTE,
-} from '@/constants/routes';
+import { HOMEPAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/constants/routes';
 import { NavItem } from '@/models/header';
 import DesktopNav from './DesktopNavigation';
 import MobileNav from './MobileNav';
@@ -21,121 +15,99 @@ const NAV_ITEMS: NavItem[] = [
     children: [
       {
         id: 1,
-        label: 'Programming',
+        label: 'Development',
         subLabels: [
           {
             subLabelName: 'HTML',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
+            children: [],
           },
           {
             subLabelName: 'CSS',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
+            children: [],
           },
           {
             subLabelName: 'SCSS',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
+            children: [],
           },
           {
             subLabelName: 'JS',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
+            children: [],
           },
           {
             subLabelName: 'React.js',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
+            children: [],
+          },
+          {
+            subLabelName: 'Node.js',
+            children: [],
           },
         ],
       },
       {
         id: 2,
-        label: 'Programming',
+        label: 'Design',
         subLabels: [
           {
-            subLabelName: 'H1',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
+            subLabelName: 'UI/UX Design',
+            children: [],
           },
           {
-            subLabelName: 'H2',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
+            subLabelName: 'Graphic Design',
+            children: [],
           },
           {
-            subLabelName: 'H3',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
-          },
-          {
-            subLabelName: 'H4',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
-          },
-          {
-            subLabelName: 'H5',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
+            subLabelName: 'Motion Design',
+            children: [],
           },
         ],
       },
       {
         id: 3,
-        label: 'Programming',
+        label: 'Marketing',
         subLabels: [
           {
-            subLabelName: 'PM',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
+            subLabelName: 'Social Media Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Digital Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Email Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Google Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Web Masters',
+            children: [],
           },
         ],
       },
       {
         id: 4,
-        label: 'Design',
+        label: 'Management',
         subLabels: [
           {
-            subLabelName: 'React.js',
-            children: [
-              {
-                subLabelNavItem: 'Get Started',
-              },
-            ],
+            subLabelName: 'HRM',
+            children: [],
+          },
+          {
+            subLabelName: 'Project Management',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 5,
+        label: 'Other',
+        subLabels: [
+          {
+            subLabelName: 'Quality Assurance',
+            children: [],
           },
         ],
       },
@@ -177,33 +149,46 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'For Kids',
-    children: [],
-    featuredItems: [
+    children: [
       {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
+        id: 1,
+        label: 'Development',
+        subLabels: [
+          {
+            subLabelName: 'HTML',
+            children: [],
+          },
+          {
+            subLabelName: 'CSS',
+            children: [],
+          },
+          {
+            subLabelName: 'JS',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 2,
+        label: 'Design',
+        subLabels: [
+          {
+            subLabelName: 'UI/UX Design',
+            children: [],
+          },
+          {
+            subLabelName: 'Graphic Design',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 3,
+        label: 'Robotics',
+        subLabels: [],
       },
     ],
-  },
-  {
-    label: 'Video Courses',
-    children: [],
-    featuredItems: [
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-    ],
-  },
-  {
-    label: 'Pricing',
-    href: PRICING_ROUTE,
-    children: [],
-  },
-  {
-    label: 'Blog',
-    href: BLOG_ROUTE,
-    children: [],
+    featuredItems: [],
   },
 ];
 

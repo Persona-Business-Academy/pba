@@ -2,8 +2,89 @@ import React, { FC, memo } from 'react';
 import { Box, Container, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import {
+  ABOUT_ROUTE,
+  CAREERS_ROUTE,
+  CONTACT_US_ROUTE,
+  LEADERSHIP_ROUTE,
+  TERMS_AND_CONDITIONS_ROUTE,
+} from '@/constants/routes';
 
 type Props = {};
+
+const footerData = [
+  {
+    rowTitle: 'Company',
+    subNavigation: [
+      {
+        name: 'About Us',
+        href: ABOUT_ROUTE,
+      },
+      {
+        name: 'Contact Us',
+        href: CONTACT_US_ROUTE,
+      },
+      {
+        name: 'Terms & Condition',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Privacy Policy',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Leadership',
+        href: LEADERSHIP_ROUTE,
+      },
+      {
+        name: 'Careers',
+        href: CAREERS_ROUTE,
+      },
+    ],
+  },
+  {
+    rowTitle: 'Categories',
+    subNavigation: [
+      {
+        name: 'For Individuals',
+        href: ABOUT_ROUTE,
+      },
+      {
+        name: 'For Kids',
+        href: CONTACT_US_ROUTE,
+      },
+      {
+        name: 'Video Courses',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Articles',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+    ],
+  },
+  {
+    rowTitle: 'Offline Courses',
+    subNavigation: [
+      {
+        name: 'Digital Marketing',
+        href: ABOUT_ROUTE,
+      },
+      {
+        name: 'For Kids',
+        href: CONTACT_US_ROUTE,
+      },
+      {
+        name: 'Video Courses',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Articles',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+    ],
+  },
+];
 
 const Footer: FC<Props> = () => {
   return (
@@ -30,13 +111,25 @@ const Footer: FC<Props> = () => {
               alignItems={{ base: 'center', sm: 'flex-start' }}
               gap={{ base: '0px', md: '15px' }}>
               <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Our Expertise
+                Company
               </Text>
               <Text as={Link} href="" color="#5B5B5B">
-                For kids
+                About Us
               </Text>
               <Text as={Link} href="" color="#5B5B5B">
-                For individuals
+                Contact us
+              </Text>
+              <Text as={Link} href="" color="#5B5B5B">
+                Terms & Condition
+              </Text>
+              <Text as={Link} href="" color="#5B5B5B">
+                Privacy Policy
+              </Text>
+              <Text as={Link} href="" color="#5B5B5B">
+                Leadership
+              </Text>
+              <Text as={Link} href="" color="#5B5B5B">
+                Career
               </Text>
             </Flex>
           </GridItem>
