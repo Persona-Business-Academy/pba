@@ -12,21 +12,14 @@ import MobileNav from './MobileNav';
 const NAV_ITEMS: NavItem[] = [
   {
     label: 'For Individuals',
+    href: '',
     children: [
       {
         id: 1,
         label: 'Development',
         subLabels: [
           {
-            subLabelName: 'HTML',
-            children: [],
-          },
-          {
-            subLabelName: 'CSS',
-            children: [],
-          },
-          {
-            subLabelName: 'SCSS',
+            subLabelName: 'HTML & CSS',
             children: [],
           },
           {
@@ -149,6 +142,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'For Kids',
+    href: '',
     children: [
       {
         id: 1,
@@ -188,7 +182,40 @@ const NAV_ITEMS: NavItem[] = [
         subLabels: [],
       },
     ],
-    featuredItems: [],
+    featuredItems: [
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+    ],
   },
 ];
 

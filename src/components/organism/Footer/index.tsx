@@ -29,10 +29,6 @@ const footerData = [
         href: TERMS_AND_CONDITIONS_ROUTE,
       },
       {
-        name: 'Privacy Policy',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
         name: 'Leadership',
         href: LEADERSHIP_ROUTE,
       },
@@ -64,6 +60,23 @@ const footerData = [
     ],
   },
   {
+    rowTitle: 'Community',
+    subNavigation: [
+      {
+        name: 'Partners',
+        href: ABOUT_ROUTE,
+      },
+      {
+        name: 'Become a Teacher',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Job Position',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+    ],
+  },
+  {
     rowTitle: 'Offline Courses',
     subNavigation: [
       {
@@ -71,15 +84,68 @@ const footerData = [
         href: ABOUT_ROUTE,
       },
       {
-        name: 'For Kids',
+        name: 'Social Media Marketing ',
         href: CONTACT_US_ROUTE,
       },
       {
-        name: 'Video Courses',
+        name: ' Front End Development',
         href: TERMS_AND_CONDITIONS_ROUTE,
       },
       {
-        name: 'Articles',
+        name: 'Back End Development',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'HRM',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Project Management',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Business Law',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+    ],
+  },
+  {
+    rowTitle: 'Online Courses',
+    subNavigation: [
+      {
+        name: 'Email Marketing',
+        href: ABOUT_ROUTE,
+      },
+      {
+        name: 'Google Ads',
+        href: CONTACT_US_ROUTE,
+      },
+      {
+        name: 'Google Analytics',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Search Engine Optimization',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Search Engine Mattering',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Html & CSS',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'JavaScript',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'React Js',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Node Js',
         href: TERMS_AND_CONDITIONS_ROUTE,
       },
     ],
@@ -100,249 +166,28 @@ const Footer: FC<Props> = () => {
         fontStyle="normal"
         lineHeight="normal">
         <Grid
-          templateColumns="repeat(auto-fit,minmax(109.7px, 1fr))"
+          templateColumns="repeat(auto-fit,minmax(150px, 1fr))"
           columnGap="72px"
           rowGap={{ base: '20px', md: '72px' }}
           paddingBottom={{ base: '20px', md: '40px' }}
           borderBottom={{ base: '1px solid #C0C0C0', md: '1px solid #DDDCE3' }}>
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Company
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                About Us
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Contact us
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Terms & Condition
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Privacy Policy
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Leadership
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Career
-              </Text>
-            </Flex>
-          </GridItem>
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Information
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                FAQ
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Blog
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Support
-              </Text>
-            </Flex>
-          </GridItem>
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Company
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                About us
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Careers
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Contact us
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                PBA leadership
-              </Text>
-            </Flex>
-          </GridItem>
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Company
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                About us
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Careers
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Contact us
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                PBA leadership
-              </Text>
-            </Flex>
-          </GridItem>
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Need some help?
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Help Centre
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Contact
-              </Text>
-            </Flex>
-          </GridItem>
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Need some help?
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Help Centre
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Contact
-              </Text>
-            </Flex>
-          </GridItem>
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Information
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                FAQ
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Blog
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Support
-              </Text>
-            </Flex>
-          </GridItem>
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Company
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                About us
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Careers
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Contact us
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                PBA leadership
-              </Text>
-            </Flex>
-          </GridItem>
-
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Our Expertise
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                For kids
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                For individuals
-              </Text>
-            </Flex>
-          </GridItem>
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Information
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                FAQ
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Blog
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Support
-              </Text>
-            </Flex>
-          </GridItem>
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Information
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Terms
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Privacy
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Cookies
-              </Text>
-            </Flex>
-          </GridItem>
-          <GridItem>
-            <Flex
-              flexDirection="column"
-              alignItems={{ base: 'center', sm: 'flex-start' }}
-              gap={{ base: '0px', md: '15px' }}>
-              <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
-                Information
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Terms
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Privacy
-              </Text>
-              <Text as={Link} href="" color="#5B5B5B">
-                Cookies
-              </Text>
-            </Flex>
-          </GridItem>
+          {footerData.map((footerItem, i: number) => (
+            <GridItem key={i}>
+              <Flex
+                flexDirection="column"
+                alignItems={{ base: 'center', sm: 'flex-start' }}
+                gap={{ base: '0px', md: '15px' }}>
+                <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                  {footerItem.rowTitle}
+                </Text>
+                {footerItem.subNavigation.map((subNav, i: number) => (
+                  <Text as={Link} href={subNav.href} color="#5B5B5B" key={i}>
+                    {subNav.name}
+                  </Text>
+                ))}
+              </Flex>
+            </GridItem>
+          ))}
         </Grid>
         <Flex
           justifyContent={{ md: 'space-between' }}
