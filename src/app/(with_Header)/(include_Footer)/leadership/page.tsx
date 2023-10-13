@@ -1,6 +1,9 @@
 'use client';
 import React, { FC } from 'react';
 import {
+  Box,
+  Button,
+  Container,
   Flex,
   Grid,
   GridItem,
@@ -13,44 +16,102 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import classes from './page.module.scss';
+import { segoe } from '@/constants/fonts';
 
 type Props = {};
 
 const Leadership: FC<Props> = () => {
   return (
     <>
-      <div className={classes.main_container}>
-        <div className={classes.main_titles}>
-          <div className={classes.main_headings}>
-            <Heading fontSize="32px" className={classes.heading_persona}>
-              WE ARE PERSONA
-            </Heading>
-            <Heading fontSize="44px">We power better training experiences</Heading>
-          </div>
-          <div className={classes.main_text}>
-            <Text>
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-              print, graphic or web designs. The passage is attributed to an unknown typesetter in
-              the 15th century who is thought to have scrambled parts of Ciceros De Finibus
-            </Text>
-          </div>
-        </div>
-        <Image
-          src="/images/landing/leadership_main.png"
-          width={1200}
-          height={591}
-          alt="Leadership_image"
-        />
-        <Flex alignItems="center" flexDirection="column" className={classes.our_team_titles}>
-          <Heading className={classes.our_team_heading} size="lg" fontSize="32px">
+      <Container maxWidth={1201} margin="0 auto" px={{ base: '16px', xl: '0px' }}>
+        <Box
+          maxWidth={996}
+          margin="0 auto"
+          textAlign="center"
+          fontStyle="normal"
+          lineHeight="normal"
+          marginTop={{ base: '36px', md: '50px', lg: '96px' }}>
+          <Heading
+            className={segoe.className}
+            fontSize={{ base: '24px', sm: '32px' }}
+            color={{ base: '#222222', sm: '#000' }}
+            fontWeight={700}>
+            WE ARE PERSONA
+          </Heading>
+          <Heading
+            fontSize={{ base: '32px', sm: '44px' }}
+            color={{ base: '#222222', sm: '#000' }}
+            fontWeight={700}
+            marginBottom={{ base: '16px', sm: '20px' }}>
+            We power better training experiences
+          </Heading>
+          <Text
+            fontSize="16px"
+            color="#222222"
+            fontWeight={400}
+            marginBottom={{ base: '20px', sm: '40px' }}>
+            Lorem ipsum, or ipsum as it is sometimes known, is dummy text used in laying out print,
+            graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
+            century who is thought to have scrambled parts of Ciceros De bus
+          </Text>
+        </Box>
+        <Box>
+          <Image
+            src="/images/public_available/leadership_main.jpg"
+            width={1201}
+            height={591}
+            alt="Leadership_image"
+          />
+        </Box>
+        <Flex
+          alignItems="center"
+          flexDirection="column"
+          fontStyle="normal"
+          lineHeight="normal"
+          marginY={{ base: '36px', md: '80px', xl: '148px' }}>
+          <Heading
+            className={segoe.className}
+            color="#000"
+            fontWeight={700}
+            fontSize="32px"
+            marginBottom="20px">
             Meet our Team
           </Heading>
-          <Tabs>
-            <TabList display="flex" justifyContent="center">
-              <Tab>Ex leadership</Tab>
-              <Tab>Teachers</Tab>
-              <Tab>Team</Tab>
+          <Tabs variant="unstyled">
+            <TabList display="flex" justifyContent="center" gap="32px" marginBottom="40px">
+              <Tab
+                padding="8px 12px"
+                borderRadius="6px"
+                color="#5B5B5B"
+                fontSize="14px"
+                fontStyle="normal"
+                lineHeight="20px"
+                fontWeight={600}
+                _selected={{ color: '#4338CA', bg: '#E0E7FF' }}>
+                Ex leadership
+              </Tab>
+              <Tab
+                padding="8px 12px"
+                borderRadius="6px"
+                color="#5B5B5B"
+                fontSize="14px"
+                fontStyle="normal"
+                lineHeight="20px"
+                fontWeight={600}
+                _selected={{ color: '#4338CA', bg: '#E0E7FF' }}>
+                Teachers
+              </Tab>
+              <Tab
+                padding="8px 12px"
+                borderRadius="6px"
+                color="#5B5B5B"
+                fontSize="14px"
+                fontStyle="normal"
+                lineHeight="20px"
+                fontWeight={600}
+                _selected={{ color: '#4338CA', bg: '#E0E7FF' }}>
+                Team
+              </Tab>
             </TabList>
 
             <TabPanels>
@@ -60,132 +121,235 @@ const Leadership: FC<Props> = () => {
               <TabPanel>
                 <p>two!</p>
               </TabPanel>
-              <TabPanel padding="0">
-                <Grid className={classes.section_team}>
-                  <GridItem className={classes.section_grid_item}>
-                    <div className={classes.team_image_container}>
+              <TabPanel padding={0}>
+                <Grid
+                  display="grid"
+                  gridTemplateColumns="repeat(auto-fit, minmax(387px, 1fr))"
+                  gridGap="20px">
+                  <GridItem padding="30px">
+                    <Box
+                      overflow="hidden"
+                      marginBottom="16px"
+                      borderRadius="10.556px 10.556px 70.374px 10.556px"
+                      height="331px">
                       <Image
-                        src="/images/landing/nature.jpg"
+                        src="/images/public_available/nature.jpg"
                         width={327}
-                        height={331.64}
+                        height={331}
                         alt="Leadership members"
                       />
-                    </div>
-                    <div className={classes.team_info_container}>
-                      <h3 className={classes.team_name}>
+                    </Box>
+                    <Flex
+                      flexDirection="column"
+                      gap="8px"
+                      textAlign="center"
+                      fontStyle="normal"
+                      lineHeight="normal"
+                      fontSize="16px">
+                      <Text color="#000" fontWeight={700}>
                         Name Surname
-                        <span></span>
-                      </h3>
-                      <p className={classes.team_position}>Co-founder of Persona</p>
-                      <p className={classes.team_info}>Beach lover, keeping life simple</p>
-                    </div>
+                      </Text>
+                      <Text color="#5B5B5B" fontWeight={400}>
+                        Co-founder of Persona
+                      </Text>
+                      <Text color="#000" fontWeight={400}>
+                        Beach lover, keeping life simple
+                      </Text>
+                    </Flex>
                   </GridItem>
-                  <GridItem className={classes.section_grid_item}>
-                    <div className={classes.team_image_container}>
+                  <GridItem padding="30px">
+                    <Box
+                      overflow="hidden"
+                      marginBottom="16px"
+                      borderRadius="10.556px 10.556px 70.374px 10.556px"
+                      height="331px">
                       <Image
-                        src="/images/landing/nature.jpg"
+                        src="/images/public_available/nature.jpg"
                         width={327}
-                        height={331.64}
+                        height={331}
                         alt="Leadership members"
                       />
-                    </div>
-                    <div className={classes.team_info_container}>
-                      <h3 className={classes.team_name}>
+                    </Box>
+                    <Flex
+                      flexDirection="column"
+                      gap="8px"
+                      textAlign="center"
+                      fontStyle="normal"
+                      lineHeight="normal"
+                      fontSize="16px">
+                      <Text color="#000" fontWeight={700}>
                         Name Surname
-                        <span></span>
-                      </h3>
-                      <p className={classes.team_position}>Co-founder of Persona</p>
-                      <p className={classes.team_info}>Beach lover, keeping life simple</p>
-                    </div>
+                      </Text>
+                      <Text color="#5B5B5B" fontWeight={400}>
+                        Co-founder of Persona
+                      </Text>
+                      <Text color="#000" fontWeight={400}>
+                        Beach lover, keeping life simple
+                      </Text>
+                    </Flex>
                   </GridItem>
-                  <GridItem className={classes.section_grid_item}>
-                    <div className={classes.team_image_container}>
+                  <GridItem padding="30px">
+                    <Box
+                      overflow="hidden"
+                      marginBottom="16px"
+                      borderRadius="10.556px 10.556px 70.374px 10.556px"
+                      height="331px">
                       <Image
-                        src="/images/landing/nature.jpg"
+                        src="/images/public_available/nature.jpg"
                         width={327}
-                        height={331.64}
+                        height={331}
                         alt="Leadership members"
                       />
-                    </div>
-                    <div className={classes.team_info_container}>
-                      <h3 className={classes.team_name}>
+                    </Box>
+                    <Flex
+                      flexDirection="column"
+                      gap="8px"
+                      textAlign="center"
+                      fontStyle="normal"
+                      lineHeight="normal"
+                      fontSize="16px">
+                      <Text color="#000" fontWeight={700}>
                         Name Surname
-                        <span></span>
-                      </h3>
-                      <p className={classes.team_position}>Co-founder of Persona</p>
-                      <p className={classes.team_info}>Beach lover, keeping life simple</p>
-                    </div>
+                      </Text>
+                      <Text color="#5B5B5B" fontWeight={400}>
+                        Co-founder of Persona
+                      </Text>
+                      <Text color="#000" fontWeight={400}>
+                        Beach lover, keeping life simple
+                      </Text>
+                    </Flex>
                   </GridItem>
-                  <GridItem className={classes.section_grid_item}>
-                    <div className={classes.team_image_container}>
+                  <GridItem padding="30px">
+                    <Box
+                      overflow="hidden"
+                      marginBottom="16px"
+                      borderRadius="10.556px 10.556px 70.374px 10.556px"
+                      height="331px">
                       <Image
-                        src="/images/landing/nature.jpg"
+                        src="/images/public_available/nature.jpg"
                         width={327}
-                        height={331.64}
+                        height={331}
                         alt="Leadership members"
                       />
-                    </div>
-                    <div className={classes.team_info_container}>
-                      <h3 className={classes.team_name}>
+                    </Box>
+                    <Flex
+                      flexDirection="column"
+                      gap="8px"
+                      textAlign="center"
+                      fontStyle="normal"
+                      lineHeight="normal"
+                      fontSize="16px">
+                      <Text color="#000" fontWeight={700}>
                         Name Surname
-                        <span></span>
-                      </h3>
-                      <p className={classes.team_position}>Co-founder of Persona</p>
-                      <p className={classes.team_info}>Beach lover, keeping life simple</p>
-                    </div>
+                      </Text>
+                      <Text color="#5B5B5B" fontWeight={400}>
+                        Co-founder of Persona
+                      </Text>
+                      <Text color="#000" fontWeight={400}>
+                        Beach lover, keeping life simple
+                      </Text>
+                    </Flex>
                   </GridItem>
-                  <GridItem className={classes.section_grid_item}>
-                    <div className={classes.team_image_container}>
+                  <GridItem padding="30px">
+                    <Box
+                      overflow="hidden"
+                      marginBottom="16px"
+                      borderRadius="10.556px 10.556px 70.374px 10.556px"
+                      height="331px">
                       <Image
-                        src="/images/landing/nature.jpg"
+                        src="/images/public_available/nature.jpg"
                         width={327}
-                        height={331.64}
+                        height={331}
                         alt="Leadership members"
                       />
-                    </div>
-                    <div className={classes.team_info_container}>
-                      <h3 className={classes.team_name}>
+                    </Box>
+                    <Flex
+                      flexDirection="column"
+                      gap="8px"
+                      textAlign="center"
+                      fontStyle="normal"
+                      lineHeight="normal"
+                      fontSize="16px">
+                      <Text color="#000" fontWeight={700}>
                         Name Surname
-                        <span></span>
-                      </h3>
-                      <p className={classes.team_position}>Co-founder of Persona</p>
-                      <p className={classes.team_info}>Beach lover, keeping life simple</p>
-                    </div>
+                      </Text>
+                      <Text color="#5B5B5B" fontWeight={400}>
+                        Co-founder of Persona
+                      </Text>
+                      <Text color="#000" fontWeight={400}>
+                        Beach lover, keeping life simple
+                      </Text>
+                    </Flex>
                   </GridItem>
-                  <GridItem className={classes.section_grid_item}>
-                    <div className={classes.team_image_container}>
+                  <GridItem padding="30px">
+                    <Box
+                      overflow="hidden"
+                      marginBottom="16px"
+                      borderRadius="10.556px 10.556px 70.374px 10.556px"
+                      height="331px">
                       <Image
-                        src="/images/landing/nature.jpg"
+                        src="/images/public_available/nature.jpg"
                         width={327}
-                        height={331.64}
+                        height={331}
                         alt="Leadership members"
                       />
-                    </div>
-                    <div className={classes.team_info_container}>
-                      <h3 className={classes.team_name}>
+                    </Box>
+                    <Flex
+                      flexDirection="column"
+                      gap="8px"
+                      textAlign="center"
+                      fontStyle="normal"
+                      lineHeight="normal"
+                      fontSize="16px">
+                      <Text color="#000" fontWeight={700}>
                         Name Surname
-                        <span></span>
-                      </h3>
-                      <p className={classes.team_position}>Co-founder of Persona</p>
-                      <p className={classes.team_info}>Beach lover, keeping life simple</p>
-                    </div>
+                      </Text>
+                      <Text color="#5B5B5B" fontWeight={400}>
+                        Co-founder of Persona
+                      </Text>
+                      <Text color="#000" fontWeight={400}>
+                        Beach lover, keeping life simple
+                      </Text>
+                    </Flex>
                   </GridItem>
                 </Grid>
               </TabPanel>
             </TabPanels>
           </Tabs>
         </Flex>
-      </div>
-      <div className={classes.section_apply_now_container}>
-        <Flex alignItems="center" flexDirection="column" className={classes.section_apply_now}>
-          <h3>Join Our Team</h3>
-          <p>
-            Wea re always on the lookout for great talent. Want to join us on our mission to help
+      </Container>
+      <Flex
+        px={{ base: '10px', xl: '0px' }}
+        backgroundColor="#1f1646"
+        borderRadius="73px 73px 0px 0px"
+        height="299px"
+        flexShrink={0}>
+        <Flex
+          alignItems="center"
+          flexDirection="column"
+          width="732px"
+          margin="0 auto"
+          color="#ffffff"
+          lineHeight="normal"
+          fontStyle="normal"
+          paddingTop={{ base: '46px', md: '59.19px' }}>
+          <Text fontSize={{ base: '32px', sm: '44px' }} fontWeight={700}>
+            Join Our Team
+          </Text>
+          <Text fontSize="16px" fontWeight={400} textAlign="center" marginTop="16px">
+            We are always on the lookout for great talent. Want to join us on our mission to help
             great teams grow? Check out our openings to see where you fit in.
-          </p>
-          <button>Apply now</button>
+          </Text>
+          <Button
+            backgroundColor="#fff"
+            color="#1f1646"
+            padding="16px 32px"
+            borderRadius="6px"
+            marginTop="24px">
+            Apply now
+          </Button>
         </Flex>
-      </div>
+      </Flex>
     </>
   );
 };
