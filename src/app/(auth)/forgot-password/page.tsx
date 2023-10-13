@@ -4,9 +4,7 @@ import { StackProps } from '@chakra-ui/react';
 import { AuthBox } from '@/components/molecule';
 import { FORGOT_PASSWORD_ROUTE } from '@/constants/routes';
 import { useAuth } from '@/contexts/AuthContext';
-import Step1 from './steps/Step1';
-import Step2 from './steps/Step2';
-import Step3 from './steps/Step3';
+import { Step1, Step2, Step3 } from './steps';
 
 export default function ForgotPasswrodPage() {
   const { step } = useAuth();
@@ -44,6 +42,14 @@ export default function ForgotPasswrodPage() {
     }
   }, [step]);
 
+  const authBoxProps = useMemo(
+    () => ({
+      data: [authBoxData],
+      boxProps: { marginTop: { base: 64, md: 160, '2xl': 210 } },
+    }),
+    [authBoxData],
+  );
+
   const linkProps: StackProps = useMemo(() => {
     switch (step) {
       case 'OTPStep':
@@ -54,10 +60,7 @@ export default function ForgotPasswrodPage() {
   }, [step]);
 
   return (
-    <AuthBox
-      data={[authBoxData]}
-      boxProps={{ marginTop: { base: 64, md: 160, '2xl': 210 } }}
-      linkProps={linkProps}>
+    <AuthBox data={authBoxProps.data} boxProps={authBoxProps.boxProps} linkProps={linkProps}>
       {Step}
     </AuthBox>
   );
