@@ -59,23 +59,7 @@ const footerData = [
       },
     ],
   },
-  {
-    rowTitle: 'Community',
-    subNavigation: [
-      {
-        name: 'Partners',
-        href: ABOUT_ROUTE,
-      },
-      {
-        name: 'Become a Teacher',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'Job Position',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-    ],
-  },
+
   {
     rowTitle: 'Offline Courses',
     subNavigation: [
@@ -150,6 +134,23 @@ const footerData = [
       },
     ],
   },
+  {
+    rowTitle: 'Community',
+    subNavigation: [
+      {
+        name: 'Partners',
+        href: ABOUT_ROUTE,
+      },
+      {
+        name: 'Become a Teacher',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Job Position',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+    ],
+  },
 ];
 
 const Footer: FC<Props> = () => {
@@ -177,11 +178,11 @@ const Footer: FC<Props> = () => {
                 flexDirection="column"
                 alignItems={{ base: 'center', sm: 'flex-start' }}
                 gap={{ base: '0px', md: '15px' }}>
-                <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                <Text color="#222" marginBottom={{ base: '4px', md: '0px' }} fontWeight={600}>
                   {footerItem.rowTitle}
                 </Text>
                 {footerItem.subNavigation.map((subNav, i: number) => (
-                  <Text as={Link} href={subNav.href} color="#5B5B5B" key={i}>
+                  <Text as={Link} href={subNav.href} color="#5B5B5B" key={i} lineHeight="20px">
                     {subNav.name}
                   </Text>
                 ))}
