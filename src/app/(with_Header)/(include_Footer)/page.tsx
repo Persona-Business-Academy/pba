@@ -1369,7 +1369,7 @@ const Home = () => {
           </Box>
 
           <Box mb={{ base: '36px', sm: '36px', md: '36px', lg: '148px', xl: '148px' }}>
-            <Box textAlign="center" maxW="419px" m="0 auto">
+            <Box textAlign="center" maxW="419px" m="0 auto" mb="20px">
               <Heading lineHeight="42.56px" fontWeight="700" fontSize="30" margin="0 0 16px 0">
                 Top Trainers
               </Heading>
