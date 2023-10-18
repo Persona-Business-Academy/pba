@@ -99,7 +99,9 @@ const Home = () => {
                     fontWeight="400"
                     lineHeight="21.28px"
                     bg="#F6FCFF"
-                    color="#222222">
+                    color="#222222"
+                    _hover={{ bg: 'transparent' }}
+                    _focusWithin={{ bg: 'transparent', color: '#222' }}>
                     Explore courses
                   </Button>
                 </Flex>
