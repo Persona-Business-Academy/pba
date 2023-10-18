@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ABOUT_ROUTE,
+  ARTICLES_ROUTE,
   CAREERS_ROUTE,
   CONTACT_US_ROUTE,
   LEADERSHIP_ROUTE,
@@ -55,7 +56,7 @@ const footerData = [
       },
       {
         name: 'Articles',
-        href: TERMS_AND_CONDITIONS_ROUTE,
+        href: ARTICLES_ROUTE,
       },
     ],
   },
@@ -160,13 +161,13 @@ const Footer: FC<Props> = () => {
         margin="0 auto"
         marginTop={{ base: '10px', md: '66px' }}
         marginBottom={66.14}
-        fontSize={{ base: '12px', sm: '16px' }}
+        fontSize={{ base: '14px', sm: '16px' }}
         fontWeight={400}
         px={{ base: '16px', xl: '0px' }}
         fontStyle="normal"
-        lineHeight="normal">
+        lineHeight="20px">
         <Grid
-          templateColumns="repeat(auto-fit,minmax(150px, 1fr))"
+          templateColumns="repeat(auto-fit,minmax(130px, 1fr))"
           columnGap="72px"
           rowGap={{ base: '20px', md: '72px' }}
           paddingBottom={{ base: '20px', md: '40px' }}
@@ -177,7 +178,7 @@ const Footer: FC<Props> = () => {
                 flexDirection="column"
                 alignItems={{ base: 'center', sm: 'flex-start' }}
                 gap={{ base: '0px', md: '15px' }}>
-                <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                <Text color="#222" marginBottom={{ base: '4px', md: '0px' }} fontWeight={600}>
                   {footerItem.rowTitle}
                 </Text>
                 {footerItem.subNavigation.map((subNav, i: number) => (
