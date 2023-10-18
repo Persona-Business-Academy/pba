@@ -32,7 +32,7 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
               </Box>
             </PopoverTrigger>
 
-            {navItem.children && !navItem.href && (
+            {navItem.children?.length ? (
               <PopoverContent
                 id={Date.now().toString()}
                 border={0}
@@ -88,7 +88,7 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
                   </Stack>
                 </Stack>
               </PopoverContent>
-            )}
+            ) : null}
           </Popover>
         </Box>
       ))}

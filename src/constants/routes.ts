@@ -16,4 +16,7 @@ export const CONTACT_US_ROUTE = '/contact-us';
 export const TERMS_AND_CONDITIONS_ROUTE = '/terms-and-conditions';
 export const LEADERSHIP_ROUTE = '/leadership';
 export const CAREERS_ROUTE = '/careers';
+export const INDIVIDUALS_ROUTE = '/individuals';
+export const FOR_KIDS_ROUTE = '/for-kids';
+export const VIDEO_COURSES_ROUTE = '/video-courses';
 export const ARTICLES_ROUTE = '/articles';

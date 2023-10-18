@@ -7,8 +7,11 @@ import {
   ARTICLES_ROUTE,
   CAREERS_ROUTE,
   CONTACT_US_ROUTE,
+  FOR_KIDS_ROUTE,
+  INDIVIDUALS_ROUTE,
   LEADERSHIP_ROUTE,
   TERMS_AND_CONDITIONS_ROUTE,
+  VIDEO_COURSES_ROUTE,
 } from '@/constants/routes';
 
 type Props = {};
@@ -44,15 +47,15 @@ const footerData = [
     subNavigation: [
       {
         name: 'For Individuals',
-        href: ABOUT_ROUTE,
+        href: INDIVIDUALS_ROUTE,
       },
       {
         name: 'For Kids',
-        href: CONTACT_US_ROUTE,
+        href: FOR_KIDS_ROUTE,
       },
       {
         name: 'Video Courses',
-        href: TERMS_AND_CONDITIONS_ROUTE,
+        href: VIDEO_COURSES_ROUTE,
       },
       {
         name: 'Articles',
@@ -60,23 +63,7 @@ const footerData = [
       },
     ],
   },
-  {
-    rowTitle: 'Community',
-    subNavigation: [
-      {
-        name: 'Partners',
-        href: ABOUT_ROUTE,
-      },
-      {
-        name: 'Become a Teacher',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'Job Position',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-    ],
-  },
+
   {
     rowTitle: 'Offline Courses',
     subNavigation: [
@@ -151,6 +138,23 @@ const footerData = [
       },
     ],
   },
+  {
+    rowTitle: 'Community',
+    subNavigation: [
+      {
+        name: 'Partners',
+        href: ABOUT_ROUTE,
+      },
+      {
+        name: 'Become a Teacher',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Job Position',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+    ],
+  },
 ];
 
 const Footer: FC<Props> = () => {
@@ -182,7 +186,7 @@ const Footer: FC<Props> = () => {
                   {footerItem.rowTitle}
                 </Text>
                 {footerItem.subNavigation.map((subNav, i: number) => (
-                  <Text as={Link} href={subNav.href} color="#5B5B5B" key={i}>
+                  <Text as={Link} href={subNav.href} color="#5B5B5B" key={i} lineHeight="20px">
                     {subNav.name}
                   </Text>
                 ))}
