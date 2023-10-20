@@ -25,7 +25,6 @@ const GraphicDesignCourse = () => {
   return (
     <>
       <Box
-        // marginBottom={{ base: '335px ', sm: '36px ', md: '148px ', lg: ' 148px', xl: ' 148px' }}
         borderRadius="0 0 72px 72px"
         bg="#F6FCFF"
         padding={{
@@ -135,7 +134,6 @@ const GraphicDesignCourse = () => {
                   Apply now
                 </Button>
                 <Button
-                  // height="53px"
                   padding="16px 0"
                   fontWeight="400"
                   lineHeight="21.28px"
@@ -356,7 +354,7 @@ const GraphicDesignCourse = () => {
         </Flex>
       </Box>
 
-      <Box marginBottom={{ base: '36px ', sm: '36px ', md: '148px ', lg: ' 148px', xl: ' 148px' }}>
+      <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
         <Box
           padding={{ base: '0 16px', sm: '0 16px', md: '0 16px', lg: '0', xl: '0' }}
           margin="0 auto"
@@ -399,7 +397,7 @@ const GraphicDesignCourse = () => {
           xl: ' 0',
         }}
         maxWidth="100%"
-        mb={{ base: '36px ', sm: '36px ', md: '148px ', lg: ' 148px', xl: ' 148px' }}>
+        marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
         <Box marginLeft="auto" maxWidth="1560px">
           <Flex alignItems="center" gap="20px" flexWrap="wrap" justifyContent="center">
             <Box width="803px">
@@ -519,9 +517,7 @@ const GraphicDesignCourse = () => {
               }}
               padding="16px 0 16px 16px"
               bg="#F6FCFF"
-              flexGrow="2"
-              // flexShrink="5"
-            >
+              flexGrow="2">
               <Image
                 src="/images/public_available/courses_img_design.png"
                 alt="Learn Img"
@@ -534,39 +530,50 @@ const GraphicDesignCourse = () => {
         </Box>
       </Box>
 
-      <Box
-        display="none"
-        marginBottom={{ base: '36px ', sm: '36px ', md: '148px ', lg: ' 148px', xl: ' 148px' }}>
+      <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
         <Container maxWidth="895px" margin="0 auto" padding="0" color="#222222">
           <Heading
             as="h2"
-            margin="0 0 40px 0"
+            margin={{ base: '0 0 16px 0', lg: ' 0 0 40px 0', xl: ' 0 0 40px 0' }}
             textAlign="center"
-            fontSize="32px"
-            lineHeight="42.56px">
+            fontSize={{ base: '28px', lg: '32px', xl: '32px' }}
+            lineHeight={{ base: '37.24px', lg: '42.56px ', xl: '42.56px ' }}>
             Course Timeline
           </Heading>
 
           <Box
             display="flex"
-            flexDirection="column"
-            maxWidth="849px"
-            gap="13px"
+            flexDirection={{ base: 'row', lg: 'column', xl: 'column' }}
+            maxWidth={{ base: '285px', lg: '849px', xl: '849px' }}
+            gap={{ base: '0', lg: '13px', xl: '13px' }}
             margin="0 auto 40px">
-            <Box width="796px" margin="0 auto">
-              <Flex justifyContent="space-around">
+            <Box
+              flex={{ base: '1', lg: '0', xl: '0' }}
+              width={{ base: '100%', lg: '796px', xl: '796px' }}
+              margin={{ base: '0', lg: '0 auto', xl: '0 auto' }}
+              height={{ base: '299px', lg: '0', xl: '0' }}
+              justifyContent="center"
+              flexDirection={{ base: 'row', lg: 'column', xl: 'column' }}
+              display="flex">
+              <Flex
+                justifyContent="space-around"
+                flexDirection={{ base: 'column', lg: 'row', xl: 'row' }}>
                 <UnorderedList
+                  flexDirection={{ base: 'row', lg: 'column', xl: 'column' }}
                   gap="13px"
                   margin="0"
                   display="flex"
-                  flexDirection="column"
                   alignItems="center"
                   listStyleType="none">
                   <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700">
-                    Lorem ipsum
+                    Beginner
                   </ListItem>
                   <ListItem
-                    transform="translateY(7px)"
+                    transform={{
+                      base: 'translate(8px , 0px)',
+                      lg: 'translate(0, 7px)',
+                      xl: 'translate(0,7px)',
+                    }}
                     width="12px"
                     height="12px"
                     bg="#000"
@@ -577,14 +584,18 @@ const GraphicDesignCourse = () => {
                   gap="13px"
                   margin="0"
                   display="flex"
-                  flexDirection="column"
+                  flexDirection={{ base: 'row', lg: 'column', xl: 'column' }}
                   alignItems="center"
                   listStyleType="none">
                   <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700">
-                    Lorem ipsum
+                    Mid level
                   </ListItem>
                   <ListItem
-                    transform="translateY(7px)"
+                    transform={{
+                      base: 'translate(6px , 0px)',
+                      lg: 'translate(0, 7px)',
+                      xl: 'translate(0,7px)',
+                    }}
                     width="12px"
                     height="12px"
                     bg="#000"
@@ -595,23 +606,37 @@ const GraphicDesignCourse = () => {
                   gap="13px"
                   margin="0"
                   display="flex"
-                  flexDirection="column"
+                  flexDirection={{ base: 'row', lg: 'column', xl: 'column' }}
                   alignItems="center"
                   listStyleType="none">
                   <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700">
-                    Lorem ipsum
+                    Advance
                   </ListItem>
                   <ListItem
-                    transform="translateY(7px)"
+                    transform={{
+                      base: 'translate(9px , 2px)',
+                      lg: 'translate(0, 7px)',
+                      xl: 'translate(0,7px)',
+                    }}
                     width="12px"
                     height="12px"
                     bg="#000"
                     borderRadius="10px"></ListItem>
                 </UnorderedList>
               </Flex>
-              <Text as="span" display="block" width="100%" height="2px" bg="#000"></Text>
+              <Text
+                as="span"
+                margin="0"
+                display="block"
+                width={{ base: '1px', lg: '100%', xl: '100%' }}
+                height={{ base: '100%', lg: '2px', xl: '2px' }}
+                bg="#000"></Text>
             </Box>
-            <Flex justifyContent="space-between">
+
+            <Flex
+              flex={{ base: '1', lg: '0', xl: '0' }}
+              justifyContent="space-between"
+              flexDirection={{ base: 'column', lg: 'row', xl: 'row' }}>
               <Text as="p" margin="0" lineHeight="18.75px" fontSize="16px" fontWeight="400">
                 Lorem Ipsum
               </Text>
@@ -627,10 +652,11 @@ const GraphicDesignCourse = () => {
             </Flex>
           </Box>
 
-          <Flex justifyContent="center" gap="20px">
+          <Flex justifyContent="center" gap="20px" flexWrap="wrap">
             <Box
+              borderRadius="15px"
               width="285px"
-              box-shadow="0px 4px 6px 0px #0000000F"
+              boxShadow="0px 4px 6px 0px #0000000F"
               display="flex"
               flexDirection="column"
               alignItems="center"
@@ -662,8 +688,9 @@ const GraphicDesignCourse = () => {
             </Box>
 
             <Box
+              borderRadius="15px"
               width="285px"
-              box-shadow="0px 4px 6px 0px #0000000F"
+              boxShadow="0px 4px 6px 0px #0000000F"
               display="flex"
               flexDirection="column"
               alignItems="center"
@@ -695,8 +722,9 @@ const GraphicDesignCourse = () => {
             </Box>
 
             <Box
+              borderRadius="15px"
               width="285px"
-              box-shadow="0px 4px 6px 0px #0000000F"
+              boxShadow="0px 4px 6px 0px #0000000F"
               display="flex"
               flexDirection="column"
               alignItems="center"
@@ -748,16 +776,24 @@ const GraphicDesignCourse = () => {
           xl: ' 0',
         }}>
         <Container maxWidth="1246px" padding="0">
-          <Box
-            color="#222222"
-            marginBottom={{ base: '36px ', sm: '36px ', md: '148px ', lg: ' 148px', xl: ' 148px' }}>
+          <Box color="#222222" marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
             <Heading
               textAlign="center"
               as="h2"
-              margin="0 0 40px 0"
-              fontSize="32px"
-              fontWeight="700"
-              lineHeight="42.56px">
+              lineHeight={{
+                base: '31.92px',
+                sm: '31.92px',
+                md: '37.24px ',
+                lg: '37.24px',
+                xl: '37.24px',
+              }}
+              margin={{
+                base: '0 0 16px 0',
+                lg: '0 0 40px 0',
+                xl: '0 0 40px 0',
+              }}
+              fontSize={{ base: '24px', lg: '32px', xl: '32px' }}
+              fontWeight="700">
               Course instructors
             </Heading>
 
@@ -998,8 +1034,7 @@ const GraphicDesignCourse = () => {
             </Flex>
           </Box>
 
-          <Box
-            marginBottom={{ base: '36px ', sm: '36px ', md: '148px ', lg: ' 148px', xl: ' 148px' }}>
+          <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
             <Box
               textAlign="center"
               maxW="673px"
@@ -1028,7 +1063,7 @@ const GraphicDesignCourse = () => {
                   lg: '37.24px',
                   xl: '37.24px',
                 }}
-                fontSize={{ base: '24px', sm: '24px', md: '32px ', lg: '32px', xl: '32px' }}>
+                fontSize={{ base: '24px', lg: '32px', xl: '32px' }}>
                 how we pass PBA DESIGN COURSE
               </Heading>
               <Text
@@ -1113,8 +1148,7 @@ const GraphicDesignCourse = () => {
             </Box>
           </Box>
 
-          <Box
-            marginBottom={{ base: '36px ', sm: '36px ', md: '148px ', lg: ' 148px', xl: ' 148px' }}>
+          <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
             <Box
               textAlign="center"
               maxW="673px"
@@ -1320,7 +1354,7 @@ const GraphicDesignCourse = () => {
             </Flex>
           </Box>
 
-          <Box mb={{ base: '36px ', sm: '36px ', md: '148px ', lg: ' 148px', xl: ' 148px' }}>
+          <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
             <Heading
               textAlign="center"
               color="#222222"
@@ -1440,7 +1474,7 @@ const GraphicDesignCourse = () => {
             </Flex>
           </Box>
 
-          <Box mb={{ base: '36px ', sm: '36px ', md: '150px ', lg: ' 150px', xl: ' 150px' }}>
+          <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
             <Heading
               textAlign="center"
               color="#222222"
@@ -1484,7 +1518,7 @@ const GraphicDesignCourse = () => {
                     <FormLabel
                       margin="0 0 4px 0"
                       color="#222222"
-                      fontSize="10px"
+                      fontSize="14px"
                       fontWeight="600"
                       lineHeight="20px">
                       Name
@@ -1512,7 +1546,7 @@ const GraphicDesignCourse = () => {
                     <FormLabel
                       margin="0 0 4px 0"
                       color="#222222"
-                      fontSize="10px"
+                      fontSize="14px"
                       fontWeight="600"
                       lineHeight="20px">
                       Email
@@ -1539,7 +1573,7 @@ const GraphicDesignCourse = () => {
                     }}>
                     <FormLabel
                       margin="0 0 4px 0"
-                      fontSize="10px"
+                      fontSize="14px"
                       color="#222222"
                       fontWeight="600"
                       lineHeight="20px">
@@ -1560,7 +1594,7 @@ const GraphicDesignCourse = () => {
                     lineHeight="21.28px"
                     fontSize="16px"
                     padding="16px 32px"
-                    width="235px"
+                    width={{ base: '100%', lg: '235px', xl: '235px' }}
                     height="42px">
                     Apply
                   </Button>
