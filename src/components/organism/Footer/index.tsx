@@ -113,7 +113,7 @@ const footerData = [
         href: TERMS_AND_CONDITIONS_ROUTE,
       },
       {
-        name: 'Search Engine Optimization',
+        name: 'SEO',
         href: TERMS_AND_CONDITIONS_ROUTE,
       },
       {
