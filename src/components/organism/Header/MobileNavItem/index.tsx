@@ -25,10 +25,10 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href }) => {
           <Box flex="1" textAlign="left" as={href ? Link : 'span'} {...(href ? { href } : {})}>
             {label}
           </Box>
-          {!href && <AccordionIcon />}
+          <AccordionIcon />
         </AccordionButton>
       </h2>
-      <AccordionPanel pb={4} bg="#F9FAFB">
+      <AccordionPanel pb={0} bg="#F9FAFB" pt={0}>
         <Accordion allowToggle>
           {children?.map((child: SubLabels) => (
             <AccordionItem key={Math.random()}>
@@ -40,7 +40,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href }) => {
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={0} pt={0}>
                 {child.subLabels.map((subLabel: SubLabel, i) => (
                   <Box
                     key={i}
