@@ -1,3 +1,13 @@
+import AchievementsIcon from 'public/icons/achievements_icon.svg';
+import CoursesIcon from 'public/icons/courses_icon.svg';
+import HelpIcon from 'public/icons/help_icon.svg';
+import LogoutIcon from 'public/icons/logout_icon.svg';
+import PaymentsIcon from 'public/icons/payments_icon.svg';
+import PbaCreditIcon from 'public/icons/pba_credit_icon.svg';
+import ProfileIcon from 'public/icons/profile_icon.svg';
+import SubscriptionIcon from 'public/icons/subscription_icon.svg';
+import WishlistIcon from 'public/icons/wishlist_icon.svg';
+
 export const HOMEPAGE_ROUTE = '/';
 export const SIGN_IN_ROUTE = '/signin';
 export const SIGN_UP_ROUTE = '/signup';
@@ -20,3 +30,20 @@ export const INDIVIDUALS_ROUTE = '/individuals';
 export const FOR_KIDS_ROUTE = '/for-kids';
 export const VIDEO_COURSES_ROUTE = '/video-courses';
 export const ARTICLES_ROUTE = '/articles';
+
+interface LinkItemProps {
+  name: string;
+  icon: string;
+  href?: string;
+}
+export const LinkItems: Array<LinkItemProps> = [
+  { name: 'Profile', icon: ProfileIcon, href: PROFILE_ROUTE },
+  { name: 'Courses', icon: CoursesIcon, href: COURSES_ROUTE },
+  { name: 'Achievements', icon: AchievementsIcon, href: ACHIEVEMENTS_ROUTE },
+  { name: 'Subscription', icon: SubscriptionIcon, href: SUBSCRIPTION_ROUTE },
+  { name: 'Wishlist', icon: WishlistIcon, href: WISHLIST_ROUTE },
+  { name: 'PBA credit', icon: PbaCreditIcon, href: PBA_CREDIT_ROUTE },
+  { name: 'Payments', icon: PaymentsIcon, href: PAYMENTS_ROUTE },
+  { name: 'Help', icon: HelpIcon, href: HELP_ROUTE },
+  { name: 'Log out', icon: LogoutIcon, href: SIGN_IN_ROUTE },
+];

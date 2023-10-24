@@ -1,7 +1,8 @@
-import { memo } from 'react';
+import { FC, memo } from 'react';
 import { Box, Collapse, Flex, IconButton, Stack, useDisclosure } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { User } from 'next-auth';
 import CloseIcon from 'public/icons/close_icon.svg';
 import BurgerMenuIcon from 'public/icons/menu.svg';
 import { Button } from '@/components/atom';
@@ -18,6 +19,7 @@ import {
 import { NavItem } from '@/models/header';
 import DesktopNav from './DesktopNavigation';
 import MobileNav from './MobileNav';
+import ProfileMenu from './ProfileMenu';
 
 const NAV_ITEMS: NavItem[] = [
   {
@@ -363,7 +365,11 @@ const NAV_ITEMS: NavItem[] = [
   },
 ];
 
-export const Header = () => {
+type HeaderProps = {
+  user: User | null;
+};
+
+const Header: FC<HeaderProps> = ({ user }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -392,7 +398,7 @@ export const Header = () => {
           <Flex display={{ base: 'none', lg: 'flex' }}>
             <DesktopNav navItems={NAV_ITEMS} />
           </Flex>
-          <Flex display={{ base: 'flex', md: 'none' }}>
+          <Flex display={{ base: 'flex', lg: 'none' }}>
             <IconButton
               width="25px"
               _focus={{
@@ -407,26 +413,30 @@ export const Header = () => {
               icon={isOpen ? <CloseIcon /> : <BurgerMenuIcon />}
             />
           </Flex>
-          <Stack flexDirection="row" alignItems="center" display={{ base: 'none', lg: 'flex' }}>
-            <Link href={SIGN_IN_ROUTE}>
-              <Button
-                borderRadius={6}
-                fontSize={14}
-                width={90}
-                height={38}
-                fontWeight={600}
-                bg="#fff"
-                color="#3CB4E7"
-                border="1px solid #3CB4E7">
-                Log In
-              </Button>
-            </Link>
-            <Link href={SIGN_UP_ROUTE}>
-              <Button borderRadius={6} fontSize={14} fontWeight={600} height={38} width={127}>
-                Get Started
-              </Button>
-            </Link>
-          </Stack>
+          {user ? (
+            <ProfileMenu user={user} />
+          ) : (
+            <Stack flexDirection="row" alignItems="center" display={{ base: 'none', lg: 'flex' }}>
+              <Link href={SIGN_IN_ROUTE}>
+                <Button
+                  borderRadius={6}
+                  fontSize={14}
+                  width={90}
+                  height={38}
+                  fontWeight={600}
+                  bg="#fff"
+                  color="#3CB4E7"
+                  border="1px solid #3CB4E7">
+                  Log In
+                </Button>
+              </Link>
+              <Link href={SIGN_UP_ROUTE}>
+                <Button borderRadius={6} fontSize={14} fontWeight={600} height={38} width={127}>
+                  Get Started
+                </Button>
+              </Link>
+            </Stack>
+          )}
         </Flex>
       </Flex>
 

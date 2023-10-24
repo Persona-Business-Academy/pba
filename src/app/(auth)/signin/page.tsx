@@ -2,23 +2,17 @@
 import { useCallback, useMemo } from 'react';
 import { AbsoluteCenter, Box, Divider, Link, useToast, VStack } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Button, FormInput } from '@/components/atom';
 import { AuthBox } from '@/components/molecule';
 import { ERROR_MESSAGES } from '@/constants/common';
-import {
-  FORGOT_PASSWORD_ROUTE,
-  HOMEPAGE_ROUTE,
-  SIGN_IN_ROUTE,
-  SIGN_UP_ROUTE,
-} from '@/constants/routes';
+import { FORGOT_PASSWORD_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/constants/routes';
 import { SignInFormData } from '@/models/auth';
 
 export default function SignInPage() {
   const toast = useToast();
-  const { push } = useRouter();
+  // const { push } = useRouter();
   const {
     control,
     handleSubmit,
@@ -41,7 +35,7 @@ export default function SignInPage() {
       try {
         const res = await signIn('credentials', { email, password, redirect: false });
         if (res?.ok) {
-          push(HOMEPAGE_ROUTE);
+          // push(HOMEPAGE_ROUTE);
         } else {
           toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
         }
@@ -49,7 +43,7 @@ export default function SignInPage() {
         toast({ title: ERROR_MESSAGES.somethingWentWrong, status: 'error' });
       }
     },
-    [push, toast],
+    [toast],
   );
 
   return (
