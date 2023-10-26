@@ -275,6 +275,7 @@ const Careers: FC<Props> = () => {
           View more
         </Button>
       </Flex>
+
       <Flex as="section" flexDirection="column" mt={{ base: '36px', md: '80px', xl: '148px' }}>
         <Heading
           className={segoe.className}
