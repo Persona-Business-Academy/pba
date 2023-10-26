@@ -10,23 +10,18 @@ import {
   PopoverTrigger,
 } from '@chakra-ui/react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
-import { LinkItems, SIGN_IN_ROUTE } from '@/constants/routes';
+import { linkItems, LOGOUT_ID, SIGN_IN_ROUTE } from '@/constants/routes';
 
 type Props = {
   user: User;
 };
 
 const ProfileMenu: FC<Props> = ({ user }) => {
-  const router = useRouter();
-
   const signOutHandler = useCallback(() => {
-    signOut({ callbackUrl: SIGN_IN_ROUTE, redirect: false }).then(
-      res => res && router.push(SIGN_IN_ROUTE),
-    );
-  }, [router]);
+    signOut({ callbackUrl: SIGN_IN_ROUTE, redirect: false });
+  }, []);
 
   return (
     <Popover>
@@ -43,16 +38,14 @@ const ProfileMenu: FC<Props> = ({ user }) => {
         <PopoverArrow />
         <PopoverBody padding="16px 21px">
           <Flex flexDirection="column">
-            {LinkItems.map(({ href, name, icon: Icon }) => (
+            {linkItems.map(({ id, href, name, icon: Icon }) => (
               <Box
-                key={href}
-                as={Link}
+                key={id}
+                {...(id === LOGOUT_ID ? { onClick: signOutHandler } : { as: Link, href })}
                 style={{ textDecoration: 'none' }}
                 _focus={{ boxShadow: 'none' }}
                 borderRadius="9px"
-                href={href}
                 margin={0}
-                {...(href === SIGN_IN_ROUTE ? { onClick: signOutHandler } : {})}
                 padding="16px 0 16px 24px"
                 _hover={{
                   bg: '#F3F4F6',

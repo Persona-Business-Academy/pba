@@ -5,6 +5,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]';
 
 export default async function HeaderLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions);
+  console.log(session, 'SESSION');
   return (
     <Fragment>
       <Header user={session?.user || null} />

@@ -2,7 +2,9 @@ import { FC, memo } from 'react';
 import { Box, Collapse, Flex, IconButton, Stack, useDisclosure } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { User } from 'next-auth';
+import { useSession } from 'next-auth/react';
 import CloseIcon from 'public/icons/close_icon.svg';
 import BurgerMenuIcon from 'public/icons/menu.svg';
 import { Button } from '@/components/atom';
@@ -371,6 +373,10 @@ type HeaderProps = {
 
 const Header: FC<HeaderProps> = ({ user }) => {
   const { isOpen, onToggle } = useDisclosure();
+  const pathname = usePathname();
+  // TODO find a way to refetch getServerSession when signin in and signing out
+  const { data } = useSession();
+  console.log(pathname, 'pathname');
 
   return (
     <Box borderBottom={1} borderStyle={'solid'} borderColor="#F9FAFB">
@@ -413,11 +419,11 @@ const Header: FC<HeaderProps> = ({ user }) => {
               icon={isOpen ? <CloseIcon /> : <BurgerMenuIcon />}
             />
           </Flex>
-          {user ? (
+          {user || data?.user ? (
             <ProfileMenu user={user} />
           ) : (
             <Stack flexDirection="row" alignItems="center" display={{ base: 'none', lg: 'flex' }}>
-              <Link href={SIGN_IN_ROUTE}>
+              <Link href={`${SIGN_IN_ROUTE}?callback_url=${pathname}`}>
                 <Button
                   borderRadius={6}
                   fontSize={14}
