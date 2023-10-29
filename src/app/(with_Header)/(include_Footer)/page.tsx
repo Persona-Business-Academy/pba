@@ -22,7 +22,13 @@ const Home = () => {
     <Box>
       <Box>
         <Box
-          mb="148px"
+          mb={{
+            base: '0',
+            sm: '0',
+            md: '148px',
+            lg: '148px',
+            xl: '148px',
+          }}
           borderRadius={{
             base: '0 0 16px 16px',
             sm: '0 0 16px 16px',
@@ -32,15 +38,14 @@ const Home = () => {
           }}
           backgroundColor="#F6FCFF"
           padding={{
-            base: '36px 16px ',
-            sm: '36px 16px ',
+            base: '36px 10px ',
+            sm: '36px 10px ',
             md: '36px 16px ',
             lg: '50px 20px',
             xl: '78px 0 86px',
           }}>
           <Container as="section" padding={0} maxWidth="1200px" margin="0 auto">
             <Flex
-              gap="30px"
               marginBottom="54px"
               alignItems="center"
               justifyContent={{
@@ -68,7 +73,7 @@ const Home = () => {
                 <Text
                   fontSize="16px"
                   color="#171717"
-                  marginBottom={{ base: '10px', sm: '10px', md: '10px', lg: '32px', xl: '32px' }}
+                  marginBottom={{ base: '10px', sm: '10px', md: '10px', xl: '32px' }}
                   {...commonFontStyle}
                   fontWeight={400}
                   textAlign={{
@@ -99,26 +104,169 @@ const Home = () => {
                     fontWeight="400"
                     lineHeight="21.28px"
                     bg="#F6FCFF"
-                    color="#222222">
+                    color="#222222"
+                    _hover={{ background: 'none' }}
+                    _focus={{ bg: 'transparent' }}>
                     Explore courses
                   </Button>
                 </Flex>
               </Flex>
 
-              <Flex marginTop="76px">
-                <Box>
-                  <Image
-                    src="/images/public_available/home_page_img.png"
-                    alt="Homepage image"
-                    width={415}
-                    height={542}
-                  />
+              <Flex
+                marginTop="76px"
+                position="relative"
+                justifyContent="center"
+                width={{
+                  base: '211px',
+                  sm: '450px',
+                  md: '636px',
+                  lg: '636px',
+                  xl: ' 636px',
+                }}>
+                <Box display="flex" justifyContent="center">
+                  <Box
+                    bg="#FFFFFFCC"
+                    left={{ base: '-60px', sm: '-20px', md: '-45px', lg: '-45px', xl: '-45px' }}
+                    bottom={{ base: '40px', sm: '90px', md: '70px', lg: '70px', xl: '70px' }}
+                    position="absolute"
+                    width={{ base: ' 119px', sm: '119px', md: '181px', lg: '181px', xl: '181px' }}
+                    padding={{
+                      base: '8px',
+                      sm: '8px',
+                      md: '16px 32px',
+                      lg: ' 16px 32px',
+                      xl: ' 16px 32px',
+                    }}
+                    borderRadius="20px">
+                    <Text
+                      margin="0"
+                      fontWeight="700"
+                      lineHeight={{
+                        base: ' 21.28px',
+                        sm: '21.28px',
+                        md: '31.92px',
+                        lg: '31.92px',
+                        xl: '31.92px',
+                      }}
+                      fontSize={{ base: ' 16px', sm: '16px', md: '24px', lg: '24px', xl: '24px' }}>
+                      250k
+                    </Text>
+                    <Text
+                      margin="0"
+                      fontWeight="400"
+                      lineHeight="21.28px"
+                      fontSize={{ base: ' 14px', sm: '14px', md: '16px', lg: '16px', xl: '16px' }}>
+                      Assisted Student
+                    </Text>
+                  </Box>
+
+                  <Box
+                    bg="#FFFFFFCC"
+                    top={{ base: '20px', sm: '90px', md: '75px', lg: ' 75px', xl: ' 75px' }}
+                    left={{ base: '-30px', sm: '-10px', md: '20px', lg: ' 20px', xl: ' 20px' }}
+                    position="absolute"
+                    padding={{
+                      base: '8px',
+                      sm: '8px',
+                      md: '16px 32px',
+                      lg: ' 16px 32px',
+                      xl: ' 16px 32px',
+                    }}
+                    borderRadius="20px">
+                    <Text
+                      margin="0"
+                      fontWeight="700"
+                      lineHeight={{
+                        base: ' 21.28px',
+                        sm: '21.28px',
+                        md: '31.92px',
+                        lg: '31.92px',
+                        xl: '31.92px',
+                      }}
+                      fontSize={{
+                        base: ' 16px',
+                        sm: '16px',
+                        md: '24px',
+                        lg: '24px',
+                        xl: '24px',
+                      }}>
+                      250k
+                    </Text>
+                    <Text
+                      margin="0"
+                      fontWeight="400"
+                      lineHeight={{
+                        base: '18.62px',
+                        sm: '18.62px',
+                        md: '21.28px',
+                        lg: '21.28px',
+                        xl: '21.28px',
+                      }}
+                      fontSize={{ base: ' 14px', sm: '14px', md: '16px', lg: '16px', xl: '16px' }}>
+                      Experts
+                    </Text>
+                  </Box>
+
+                  <Box
+                    bg="#FFFFFFCC"
+                    top={{ base: '80px', sm: '140px', md: '140px', lg: ' 140px', xl: ' 140px' }}
+                    right={{ base: '0', sm: '30px', md: '45px', lg: ' 45px', xl: ' 45px' }}
+                    position="absolute"
+                    padding={{
+                      base: '8px',
+                      sm: '8px',
+                      md: '16px 32px',
+                      lg: ' 16px 32px',
+                      xl: ' 16px 32px',
+                    }}
+                    borderRadius="20px">
+                    <Text
+                      margin="0"
+                      fontWeight="700"
+                      lineHeight={{
+                        base: ' 21.28px',
+                        sm: '21.28px',
+                        md: '31.92px',
+                        lg: '31.92px',
+                        xl: '31.92px',
+                      }}
+                      fontSize={{
+                        base: ' 16px',
+                        sm: '16px',
+                        md: '24px',
+                        lg: '24px',
+                        xl: '24px',
+                      }}>
+                      250k
+                    </Text>
+                    <Text
+                      margin="0"
+                      fontWeight="400"
+                      lineHeight={{
+                        base: '18.62px',
+                        sm: '18.62px',
+                        md: '21.28px',
+                        lg: '21.28px',
+                        xl: '21.28px',
+                      }}
+                      fontSize={{ base: ' 14px', sm: '14px', md: '16px', lg: '16px', xl: '16px' }}>
+                      Courses
+                    </Text>
+                  </Box>
+                  <Box>
+                    <Image
+                      src="/images/public_available/home_page_img.png"
+                      alt="Homepage image"
+                      width={415}
+                      height={542}
+                    />
+                  </Box>
                 </Box>
               </Flex>
             </Flex>
 
             <Box>
-              <Box mb="40px">
+              <Box mb={{ base: '0 ', sm: '0', md: '0', lg: '40px', xl: '40px' }}>
                 <Heading
                   as="h2"
                   margin="0 0 16px 0"
@@ -855,11 +1003,27 @@ const Home = () => {
                   display="flex"
                   justifyContent="center"
                   gap="8px"
+                  fontWeight={{
+                    base: '400',
+                    sm: '400',
+                    md: '700',
+                    lg: '700',
+                    xl: '700',
+                  }}
                   fontSize="16px"
-                  {...commonFontStyle}
-                  color="#FF6131">
+                  lineHeight="21.28px"
+                  color={{
+                    base: '#222222',
+                    sm: '#222222',
+                    md: '#FF6131',
+                    lg: '#FF6131',
+                    xl: '#FF6131',
+                  }}>
                   Get your subscribtion
-                  <Image src="/icons/not_found_icon.svg" alt="Arrow" width={24} height={24} />
+                  <Box
+                    display={{ base: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' }}>
+                    <Image src="/icons/not_found_icon.svg" alt="Arrow" width={24} height={24} />
+                  </Box>
                 </Link>
               </Box>
               <Text fontWeight="400" fontSize="16px" lineHeight="21.28px" margin="0 0 24px 0">
@@ -1205,7 +1369,7 @@ const Home = () => {
           </Box>
 
           <Box mb={{ base: '36px', sm: '36px', md: '36px', lg: '148px', xl: '148px' }}>
-            <Box textAlign="center" maxW="419px" m="0 auto">
+            <Box textAlign="center" maxW="419px" m="0 auto" mb="20px">
               <Heading lineHeight="42.56px" fontWeight="700" fontSize="30" margin="0 0 16px 0">
                 Top Trainers
               </Heading>
@@ -1364,8 +1528,14 @@ const Home = () => {
               textAlign="center"
               margin="0"
               as="h3"
-              lineHeight="42.56px"
-              fontSize="32px"
+              lineHeight={{
+                base: '31.92px',
+                sm: '31.92px',
+                md: '42.56px',
+                lg: '42.56px',
+                xl: '42.56px',
+              }}
+              fontSize={{ base: '24px', sm: '24px', md: '32px', lg: '32px', xl: '32px' }}
               fontWeight="700">
               Our Partners
             </Heading>
@@ -1373,7 +1543,13 @@ const Home = () => {
             <Box
               display="flex"
               maxWidth="820px"
-              margin="40px auto 0"
+              margin={{
+                base: '16px auto 0',
+                sm: '16px auto 0',
+                md: '40px auto 0',
+                lg: '40px auto 0',
+                xl: '40px auto 0',
+              }}
               gap="34px"
               alignItems="center"
               flexWrap="wrap"
@@ -1447,8 +1623,14 @@ const Home = () => {
               textAlign="center"
               m="0"
               as="h3"
-              lineHeight="42.56px"
-              fontSize="32px"
+              lineHeight={{
+                base: '31.92px',
+                sm: '31.92px',
+                md: '42.56px',
+                lg: '42.56px',
+                xl: '42.56px',
+              }}
+              fontSize={{ base: '24px', sm: '24px', md: '32px', lg: '32px', xl: '32px' }}
               fontWeight="700">
               Why Students Love Persona
             </Heading>
@@ -1458,8 +1640,8 @@ const Home = () => {
               gap="20px"
               justifyContent="center"
               margin={{
-                base: '36px 0 0 0',
-                sm: '36px 0 0 0',
+                base: '16px 0 0 0',
+                sm: '16px 0 0 0',
                 md: '36px 0 0 0',
                 lg: '40px 0 0 0',
                 xl: '40px 0 0 0',

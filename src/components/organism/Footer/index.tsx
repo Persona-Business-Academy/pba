@@ -4,10 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ABOUT_ROUTE,
+  ARTICLES_ROUTE,
   CAREERS_ROUTE,
   CONTACT_US_ROUTE,
+  FOR_KIDS_ROUTE,
+  INDIVIDUALS_ROUTE,
   LEADERSHIP_ROUTE,
   TERMS_AND_CONDITIONS_ROUTE,
+  VIDEO_COURSES_ROUTE,
 } from '@/constants/routes';
 
 type Props = {};
@@ -43,39 +47,23 @@ const footerData = [
     subNavigation: [
       {
         name: 'For Individuals',
-        href: ABOUT_ROUTE,
+        href: INDIVIDUALS_ROUTE,
       },
       {
         name: 'For Kids',
-        href: CONTACT_US_ROUTE,
+        href: FOR_KIDS_ROUTE,
       },
       {
         name: 'Video Courses',
-        href: TERMS_AND_CONDITIONS_ROUTE,
+        href: VIDEO_COURSES_ROUTE,
       },
       {
         name: 'Articles',
-        href: TERMS_AND_CONDITIONS_ROUTE,
+        href: ARTICLES_ROUTE,
       },
     ],
   },
-  {
-    rowTitle: 'Community',
-    subNavigation: [
-      {
-        name: 'Partners',
-        href: ABOUT_ROUTE,
-      },
-      {
-        name: 'Become a Teacher',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'Job Position',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-    ],
-  },
+
   {
     rowTitle: 'Offline Courses',
     subNavigation: [
@@ -125,7 +113,7 @@ const footerData = [
         href: TERMS_AND_CONDITIONS_ROUTE,
       },
       {
-        name: 'Search Engine Optimization',
+        name: 'SEO',
         href: TERMS_AND_CONDITIONS_ROUTE,
       },
       {
@@ -150,6 +138,23 @@ const footerData = [
       },
     ],
   },
+  {
+    rowTitle: 'Community',
+    subNavigation: [
+      {
+        name: 'Partners',
+        href: ABOUT_ROUTE,
+      },
+      {
+        name: 'Become a Teacher',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+      {
+        name: 'Job Position',
+        href: TERMS_AND_CONDITIONS_ROUTE,
+      },
+    ],
+  },
 ];
 
 const Footer: FC<Props> = () => {
@@ -160,13 +165,13 @@ const Footer: FC<Props> = () => {
         margin="0 auto"
         marginTop={{ base: '10px', md: '66px' }}
         marginBottom={66.14}
-        fontSize={{ base: '12px', sm: '16px' }}
+        fontSize={{ base: '14px', sm: '16px' }}
         fontWeight={400}
         px={{ base: '16px', xl: '0px' }}
         fontStyle="normal"
-        lineHeight="normal">
+        lineHeight="20px">
         <Grid
-          templateColumns="repeat(auto-fit,minmax(150px, 1fr))"
+          templateColumns="repeat(auto-fit,minmax(130px, 1fr))"
           columnGap="72px"
           rowGap={{ base: '20px', md: '72px' }}
           paddingBottom={{ base: '20px', md: '40px' }}
@@ -177,11 +182,11 @@ const Footer: FC<Props> = () => {
                 flexDirection="column"
                 alignItems={{ base: 'center', sm: 'flex-start' }}
                 gap={{ base: '0px', md: '15px' }}>
-                <Text color="#222" marginBottom={{ base: '4px', md: '0px' }}>
+                <Text color="#222" marginBottom={{ base: '4px', md: '0px' }} fontWeight={600}>
                   {footerItem.rowTitle}
                 </Text>
                 {footerItem.subNavigation.map((subNav, i: number) => (
-                  <Text as={Link} href={subNav.href} color="#5B5B5B" key={i}>
+                  <Text as={Link} href={subNav.href} color="#5B5B5B" key={i} lineHeight="20px">
                     {subNav.name}
                   </Text>
                 ))}
