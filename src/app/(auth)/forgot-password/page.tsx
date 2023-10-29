@@ -1,7 +1,7 @@
 'use client';
 import { useMemo } from 'react';
 import { StackProps } from '@chakra-ui/react';
-import { AuthBox } from '@/components/molecule';
+import { AuthBox } from '@/components/molecules';
 import { FORGOT_PASSWORD_ROUTE } from '@/constants/routes';
 import { useAuth } from '@/contexts/AuthContext';
 import { Step1, Step2, Step3 } from './steps';

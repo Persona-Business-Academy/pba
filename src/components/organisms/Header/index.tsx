@@ -7,7 +7,7 @@ import { User } from 'next-auth';
 import { useSession } from 'next-auth/react';
 import CloseIcon from 'public/icons/close_icon.svg';
 import BurgerMenuIcon from 'public/icons/menu.svg';
-import { Button } from '@/components/atom';
+import { Button } from '@/components/atoms';
 import {
   ARTICLES_ROUTE,
   FOR_KIDS_ROUTE,
@@ -373,7 +373,7 @@ type HeaderProps = {
 
 const Header: FC<HeaderProps> = ({ user }) => {
   const { isOpen, onToggle } = useDisclosure();
-  const {data} = useSession()
+  const { data } = useSession();
   const pathname = usePathname();
 
   return (
@@ -418,7 +418,7 @@ const Header: FC<HeaderProps> = ({ user }) => {
             />
           </Flex>
           {user || data?.user ? (
-            <Box display={{ base: 'none', lg: 'flex' }}> 
+            <Box display={{ base: 'none', lg: 'flex' }}>
               <ProfileMenu user={user} />
             </Box>
           ) : (

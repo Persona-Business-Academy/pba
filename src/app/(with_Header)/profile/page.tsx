@@ -1,10 +1,13 @@
 'use client';
 import React, { FC } from 'react';
 import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { Country } from 'country-state-city';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
-import { FormInput } from '@/components/atom';
-import PhoneNumberInput from '@/components/atom/PhoneNumberInput';
+import { FormInput } from '@/components/atoms';
+import Loading from '@/components/atoms/Loading';
+import PhoneNumberInput from '@/components/atoms/PhoneNumberInput';
+import SelectLabel from '@/components/atoms/SelectLabel';
 import { montserrat, segoe } from '@/constants/fonts';
 
 type Props = {};
@@ -13,6 +16,7 @@ const Profile: FC<Props> = () => {
   const { data } = useSession();
   return (
     <Box width="700px" margin="0 auto" paddingTop="90px">
+      <Loading />
       <Text
         textAlign="center"
         as="h3"
@@ -86,6 +90,64 @@ const Profile: FC<Props> = () => {
             formErrorMessage=""
           />
         </Flex>
+        <Flex gap="24px">
+          <SelectLabel
+            options={Country.getAllCountries()}
+            labelName="Country"
+            valueLabel="name"
+            nameLabel="name"
+          />
+          <SelectLabel
+            options={Country.getAllCountries()}
+            labelName="State"
+            valueLabel="name"
+            nameLabel="name"
+          />
+          <SelectLabel
+            options={Country.getAllCountries()}
+            labelName="City"
+            valueLabel="name"
+            nameLabel="name"
+          />
+        </Flex>
+        <Flex></Flex>
+      </Flex>
+      <Flex flexDirection="column">
+        <form>
+          <FormInput
+            isRequired
+            isInvalid={false}
+            name="first name"
+            type="text"
+            formLabelName="Current Password"
+            placeholder="First Name"
+            value=""
+            handleInputChange={() => {}}
+            formErrorMessage=""
+          />
+          <FormInput
+            isRequired
+            isInvalid={false}
+            name="first name"
+            type="text"
+            formLabelName="New Password"
+            placeholder="First Name"
+            value=""
+            handleInputChange={() => {}}
+            formErrorMessage=""
+          />
+          <FormInput
+            isRequired
+            isInvalid={false}
+            name="first name"
+            type="text"
+            formLabelName="Confirm Password"
+            placeholder="First Name"
+            value=""
+            handleInputChange={() => {}}
+            formErrorMessage=""
+          />
+        </form>
       </Flex>
     </Box>
   );

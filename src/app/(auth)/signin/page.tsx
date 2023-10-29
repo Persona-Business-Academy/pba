@@ -5,8 +5,8 @@ import NextLink from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { Button, FormInput } from '@/components/atom';
-import { AuthBox } from '@/components/molecule';
+import { Button, FormInput } from '@/components/atoms';
+import { AuthBox } from '@/components/molecules';
 import { ERROR_MESSAGES } from '@/constants/common';
 import {
   FORGOT_PASSWORD_ROUTE,
@@ -42,7 +42,7 @@ export default function SignInPage() {
 
   const onSubmit: SubmitHandler<SignInFormData> = useCallback(
     ({ email, password }) => {
-      signIn('credentials', { email, password, redirect:false  })
+      signIn('credentials', { email, password, redirect: false })
         .then(res => {
           if (res?.ok) {
             push(route || HOMEPAGE_ROUTE);

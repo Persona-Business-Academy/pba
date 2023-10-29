@@ -5,7 +5,7 @@ import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { useMutation } from '@tanstack/react-query';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
-import { Button, FormInput } from '@/components/atom';
+import { Button, FormInput } from '@/components/atoms';
 import { useAuth } from '@/contexts/AuthContext';
 import { ForgotPasswordStep1Validation } from '@/validation';
 

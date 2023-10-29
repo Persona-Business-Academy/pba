@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
-import { AuthWrapper } from '@/components/organism';
+import { AuthWrapper } from '@/components/organisms';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 

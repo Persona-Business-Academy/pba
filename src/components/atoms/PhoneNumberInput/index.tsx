@@ -1,3 +1,4 @@
+/* eslint-disable unused-imports/no-unused-vars */
 import React, { FC, Fragment, memo, useEffect, useState } from 'react';
 import {
   Box,
@@ -10,7 +11,6 @@ import {
   Select,
 } from '@chakra-ui/react';
 import { Country } from 'country-state-city';
-console.log(Country.getAllCountries());
 
 type PhoneNumberInputProps = {
   value: string;
@@ -21,11 +21,8 @@ type PhoneNumberInputProps = {
 };
 
 const PhoneNumberInput: FC<PhoneNumberInputProps> = ({
-  // eslint-disable-next-line unused-imports/no-unused-vars
   value,
-  // eslint-disable-next-line unused-imports/no-unused-vars
   country,
-  // eslint-disable-next-line unused-imports/no-unused-vars
   onChange,
   placeholder,
   rest,
@@ -42,8 +39,6 @@ const PhoneNumberInput: FC<PhoneNumberInputProps> = ({
   const onPhoneNumberChange = (e: any) => {
     setNumber(e.target.value);
   };
-
-  console.log(selectedCountry, 'selectedCountry');
 
   return (
     <FormControl>
@@ -72,7 +67,7 @@ const PhoneNumberInput: FC<PhoneNumberInputProps> = ({
         </InputLeftElement>
         <Input
           pl="4rem"
-          type="tel"
+          type="number"
           border="1px solid #C0C0C0"
           value={number}
           pattern="[0-9]"
