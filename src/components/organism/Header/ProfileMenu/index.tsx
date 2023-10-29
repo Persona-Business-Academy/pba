@@ -22,6 +22,8 @@ const ProfileMenu: FC<Props> = ({ user }) => {
   const signOutHandler = useCallback(() => {
     signOut();
   }, []);
+  
+
 
   return (
     <Popover>

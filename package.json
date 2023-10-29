@@ -26,19 +26,15 @@
     "bcrypt": "^5.1.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
-    "country-list": "^2.3.0",
     "country-state-city": "^3.2.1",
     "framer-motion": "^10.15.2",
     "next": "^13.5.6",
     "next-api-decorators": "^2.0.2",
     "next-auth": "^4.23.0",
-    "path-to-regexp": "^6.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",
-    "react-world-flags": "^1.6.0",
-    "sharp": "^0.32.5",
-    "states-cities-db": "^1.4.1"
+    "sharp": "^0.32.5"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
