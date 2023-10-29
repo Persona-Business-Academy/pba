@@ -15,16 +15,17 @@ console.log(Country.getAllCountries());
 type PhoneNumberInputProps = {
   value: string;
   country: string;
-  options: any[];
   onChange: () => void;
   placeholder: string;
   rest: any;
 };
 
 const PhoneNumberInput: FC<PhoneNumberInputProps> = ({
+  // eslint-disable-next-line unused-imports/no-unused-vars
   value,
+  // eslint-disable-next-line unused-imports/no-unused-vars
   country,
-  options,
+  // eslint-disable-next-line unused-imports/no-unused-vars
   onChange,
   placeholder,
   rest,

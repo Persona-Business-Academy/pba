@@ -71,14 +71,7 @@ const Profile: FC<Props> = () => {
             handleInputChange={() => {}}
             formErrorMessage=""
           />
-          <PhoneNumberInput
-            value=""
-            options={[]}
-            placeholder=""
-            onChange={() => {}}
-            country=""
-            rest
-          />
+          <PhoneNumberInput value="" placeholder="" onChange={() => {}} country="" rest />
         </Flex>
         <Flex gap="24px">
           <FormInput
