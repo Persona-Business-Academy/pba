@@ -12,7 +12,7 @@ import {
 import Link from 'next/link';
 import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
-import { linkItems, LOGOUT_ID, SIGN_IN_ROUTE } from '@/constants/routes';
+import { linkItems, LOGOUT_ID } from '@/constants/routes';
 
 type Props = {
   user: User;
@@ -20,7 +20,7 @@ type Props = {
 
 const ProfileMenu: FC<Props> = ({ user }) => {
   const signOutHandler = useCallback(() => {
-    signOut({ callbackUrl: SIGN_IN_ROUTE, redirect: false });
+    signOut();
   }, []);
 
   return (

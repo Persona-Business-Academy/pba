@@ -14,7 +14,6 @@ console.log(Country.getAllCountries());
 
 type PhoneNumberInputProps = {
   value: string;
-  size: number;
   country: string;
   options: any[];
   onChange: () => void;
@@ -72,7 +71,7 @@ const PhoneNumberInput: FC<PhoneNumberInputProps> = ({
         </InputLeftElement>
         <Input
           pl="4rem"
-          type="number"
+          type="tel"
           border="1px solid #C0C0C0"
           value={number}
           pattern="[0-9]"

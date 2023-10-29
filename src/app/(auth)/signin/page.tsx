@@ -2,8 +2,8 @@
 import { useCallback, useMemo } from 'react';
 import { AbsoluteCenter, Box, Divider, Link, useToast, VStack } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { signIn, useSession } from 'next-auth/react';
+import { useSearchParams } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Button, FormInput } from '@/components/atom';
 import { AuthBox } from '@/components/molecule';
@@ -18,9 +18,7 @@ import { SignInFormData } from '@/models/auth';
 
 export default function SignInPage() {
   const toast = useToast();
-  const { update } = useSession();
   const searchParams = useSearchParams();
-  const { push } = useRouter();
 
   const route = searchParams?.get('callback_url');
 
@@ -43,13 +41,9 @@ export default function SignInPage() {
 
   const onSubmit: SubmitHandler<SignInFormData> = useCallback(
     ({ email, password }) => {
-      signIn('credentials', { email, password, redirect: false })
+      signIn('credentials', { email, password, callbackUrl: route || HOMEPAGE_ROUTE })
         .then(res => {
-          if (res?.ok) {
-            console.log(res);
-            update({ user: {} });
-            push(route || HOMEPAGE_ROUTE);
-          } else {
+          if (!res?.ok) {
             toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
           }
         })
@@ -57,7 +51,7 @@ export default function SignInPage() {
           toast({ title: ERROR_MESSAGES.somethingWentWrong, status: 'error' });
         });
     },
-    [push, route, toast, update],
+    [route, toast],
   );
 
   return (
