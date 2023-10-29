@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { User } from 'next-auth';
+import { useSession } from 'next-auth/react';
 import CloseIcon from 'public/icons/close_icon.svg';
 import BurgerMenuIcon from 'public/icons/menu.svg';
 import { Button } from '@/components/atom';
@@ -372,6 +373,7 @@ type HeaderProps = {
 
 const Header: FC<HeaderProps> = ({ user }) => {
   const { isOpen, onToggle } = useDisclosure();
+  const {data} = useSession()
   const pathname = usePathname();
 
   return (
@@ -415,8 +417,10 @@ const Header: FC<HeaderProps> = ({ user }) => {
               icon={isOpen ? <CloseIcon /> : <BurgerMenuIcon />}
             />
           </Flex>
-          {user ? (
-            <ProfileMenu user={user} />
+          {user || data?.user ? (
+            <Box display={{ base: 'none', lg: 'flex' }}> 
+              <ProfileMenu user={user} />
+            </Box>
           ) : (
             <Stack flexDirection="row" alignItems="center" display={{ base: 'none', lg: 'flex' }}>
               <Link href={`${SIGN_IN_ROUTE}?callback_url=${pathname}`}>
