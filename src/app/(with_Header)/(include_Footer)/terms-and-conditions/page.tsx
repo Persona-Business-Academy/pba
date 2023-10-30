@@ -171,6 +171,7 @@ const TermsAndConditions: FC<Props> = () => {
                 he/she or they, are taken as interchangeable and therefore as referring to same.
               </p>
             </TabPanel>
+
             <TabPanel bg="#4c5faa">
               <p>
                 These terms and conditions outline the rules and regulations for the use of
@@ -220,6 +221,7 @@ const TermsAndConditions: FC<Props> = () => {
                 he/she or they, are taken as interchangeable and therefore as referring to same.
               </p>
             </TabPanel>
+
             <TabPanel bg="#4c5cca">
               <p>
                 These terms and conditions outline the rules and regulations for the use of
@@ -269,6 +271,7 @@ const TermsAndConditions: FC<Props> = () => {
                 he/she or they, are taken as interchangeable and therefore as referring to same.
               </p>
             </TabPanel>
+
             <TabPanel bg="#4c5c4c">
               <p>
                 These terms and conditions outline the rules and regulations for the use of
@@ -318,6 +321,7 @@ const TermsAndConditions: FC<Props> = () => {
                 he/she or they, are taken as interchangeable and therefore as referring to same.
               </p>
             </TabPanel>
+
             <TabPanel>
               <p>
                 These terms and conditions outline the rules and regulations for the use of
@@ -367,6 +371,7 @@ const TermsAndConditions: FC<Props> = () => {
                 he/she or they, are taken as interchangeable and therefore as referring to same.
               </p>
             </TabPanel>
+
             <TabPanel>
               <p>
                 These terms and conditions outline the rules and regulations for the use of
@@ -416,6 +421,7 @@ const TermsAndConditions: FC<Props> = () => {
                 he/she or they, are taken as interchangeable and therefore as referring to same.
               </p>
             </TabPanel>
+            
             <TabPanel>
               <p>
                 These terms and conditions outline the rules and regulations for the use of
