@@ -3,7 +3,7 @@
 import React, { FC } from 'react';
 import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
-import { Button } from '@/components/atom';
+import { Button } from '@/components/atoms';
 
 type Props = {};
 

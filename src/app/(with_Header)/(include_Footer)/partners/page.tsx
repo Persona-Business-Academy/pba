@@ -15,7 +15,7 @@ import {
   Textarea,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import { Button } from '@/components/atom';
+import { Button } from '@/components/atoms';
 import { segoe } from '@/constants/fonts';
 
 type Props = {};

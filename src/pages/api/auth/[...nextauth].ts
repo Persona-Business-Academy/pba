@@ -21,7 +21,10 @@ export const authOptions: AuthOptions = {
     session: async ({ session }) => {
       const user = await findUserWithEmail(session.user?.email || '');
       return user
-        ? { ...session, user: { name: `${user.firstName} ${user.lastName}`, email: user.email } }
+        ? {
+            ...session,
+            user: { firstName: user.firstName, lastName: user.lastName, email: user.email },
+          }
         : session;
     },
     jwt: async ({ user, token }) => (!!user ? { ...token, id: user.id } : token),
