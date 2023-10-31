@@ -1,11 +1,10 @@
 'use client';
 import React, { FC } from 'react';
-import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { Box, Button as ChakraButton, Flex, Text } from '@chakra-ui/react';
 import { Country } from 'country-state-city';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
-import { FormInput } from '@/components/atoms';
-import Loading from '@/components/atoms/Loading';
+import { Button, FormInput } from '@/components/atoms';
 import PhoneNumberInput from '@/components/atoms/PhoneNumberInput';
 import SelectLabel from '@/components/atoms/SelectLabel';
 import { montserrat, segoe } from '@/constants/fonts';
@@ -15,8 +14,7 @@ type Props = {};
 const Profile: FC<Props> = () => {
   const { data } = useSession();
   return (
-    <Box width="700px" margin="0 auto" paddingTop="90px">
-      <Loading />
+    <Box width="700px" margin="0 auto" py="96px">
       <Text
         textAlign="center"
         as="h3"
@@ -35,7 +33,7 @@ const Profile: FC<Props> = () => {
           <Text className={segoe.className} fontSize={24} fontWeight={700} lineHeight="normal">
             {data?.user?.firstName} {data?.user?.lastName}
           </Text>
-          <Button>Change Avatar</Button>
+          <ChakraButton>Change Avatar</ChakraButton>
         </Box>
       </Flex>
       <Flex paddingTop="20px" flexDirection="column" gap={24}>
@@ -97,56 +95,75 @@ const Profile: FC<Props> = () => {
             valueLabel="name"
             nameLabel="name"
           />
-          <SelectLabel
-            options={Country.getAllCountries()}
-            labelName="State"
-            valueLabel="name"
-            nameLabel="name"
+          <FormInput
+            name="state"
+            type="text"
+            formLabelName="State"
+            placeholder="Enter your state"
+            value=""
+            handleInputChange={() => {}}
           />
-          <SelectLabel
-            options={Country.getAllCountries()}
-            labelName="City"
-            valueLabel="name"
-            nameLabel="name"
+          <FormInput
+            name="city"
+            type="text"
+            formLabelName="City"
+            placeholder="Enter your City"
+            value=""
+            handleInputChange={() => {}}
           />
+        </Flex>
+        <Flex alignItems="flex-end" justifyContent="flex-end">
+          <Button width="162px" height="53px" fontSize="16px">
+            Save Changes
+          </Button>
         </Flex>
         <Flex></Flex>
       </Flex>
-      <Flex flexDirection="column">
+      <Flex flexDirection="column" gap={24}>
+        <Text color="#000" fontSize={28} fontWeight={700} className={segoe.className}>
+          Private Settings
+        </Text>
         <form>
-          <FormInput
-            isRequired
-            isInvalid={false}
-            name="first name"
-            type="text"
-            formLabelName="Current Password"
-            placeholder="First Name"
-            value=""
-            handleInputChange={() => {}}
-            formErrorMessage=""
-          />
-          <FormInput
-            isRequired
-            isInvalid={false}
-            name="first name"
-            type="text"
-            formLabelName="New Password"
-            placeholder="First Name"
-            value=""
-            handleInputChange={() => {}}
-            formErrorMessage=""
-          />
-          <FormInput
-            isRequired
-            isInvalid={false}
-            name="first name"
-            type="text"
-            formLabelName="Confirm Password"
-            placeholder="First Name"
-            value=""
-            handleInputChange={() => {}}
-            formErrorMessage=""
-          />
+          <Flex gap={24} flexDirection="column">
+            <FormInput
+              isRequired
+              isInvalid={false}
+              name="first name"
+              type="text"
+              formLabelName="Current Password"
+              placeholder="First Name"
+              value=""
+              handleInputChange={() => {}}
+              formHelperText="Your password must be less than 6 characters."
+            />
+            <FormInput
+              isRequired
+              isInvalid={false}
+              name="first name"
+              type="text"
+              formLabelName="New Password"
+              placeholder="First Name"
+              value=""
+              handleInputChange={() => {}}
+              formHelperText="Your password must be less than 6 characters."
+            />
+            <FormInput
+              isRequired
+              isInvalid={false}
+              name="first name"
+              type="text"
+              formLabelName="Confirm Password"
+              placeholder="First Name"
+              value=""
+              handleInputChange={() => {}}
+              formHelperText="Your password must be less than 6 characters."
+            />
+          </Flex>
+          <Flex alignItems="flex-end" justifyContent="flex-end">
+            <Button width="162px" height="53px" fontSize="16px">
+              Change Password
+            </Button>
+          </Flex>
         </form>
       </Flex>
     </Box>

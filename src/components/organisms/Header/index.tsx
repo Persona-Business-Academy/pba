@@ -377,7 +377,16 @@ const Header: FC<HeaderProps> = ({ user }) => {
   const pathname = usePathname();
 
   return (
-    <Box borderBottom={1} borderStyle={'solid'} borderColor="#F9FAFB">
+    <Box
+      borderBottom={1}
+      borderStyle={'solid'}
+      borderColor="#F9FAFB"
+      position="fixed"
+      top={0}
+      left={0}
+      right={0}
+      bg="#FFF"
+      zIndex={1000}>
       <Flex
         minH={'60px'}
         py={{ base: 2 }}

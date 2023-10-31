@@ -160,7 +160,7 @@ const footerData = [
 const Footer: FC<Props> = () => {
   const year = useMemo(() => new Date().getFullYear(), []);
   return (
-    <Stack bg="#F9FAFB" minHeight={714} width="100%">
+    <Stack bg="#F9FAFB" width="100%" minHeight="auto">
       <Container
         maxWidth={1200}
         margin="0 auto"
