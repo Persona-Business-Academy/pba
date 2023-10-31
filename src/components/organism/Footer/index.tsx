@@ -159,7 +159,7 @@ const footerData = [
 
 const Footer: FC<Props> = () => {
   return (
-    <Stack bg="#F9FAFB" minHeight={714} width="100%">
+    <Stack bg="#F9FAFB" minHeight="auto" width="100%">
       <Container
         maxWidth={1200}
         margin="0 auto"

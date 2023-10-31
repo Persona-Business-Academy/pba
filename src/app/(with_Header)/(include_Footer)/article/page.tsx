@@ -1,30 +1,48 @@
 'use client';
 
-import React from 'react';
-import { Box, Container, Heading, ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import React, { FC } from 'react';
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Input,
+  InputGroup,
+  ListItem,
+  Text,
+  UnorderedList,
+} from '@chakra-ui/react';
 import Image from 'next/image';
 import { Button } from '@/components/atom';
+import { segoe } from '@/constants/fonts';
 
-const page = () => {
+type Props = {};
+
+const Article: FC<Props> = () => {
   return (
-    <Box>
-      <Box bg="#F6FCFF" padding="70px 0 76px ">
-        <Container maxWidth="1200px" margin="0 auto">
-          <Box maxW="742px" textAlign="center" margin="0 auto" pb="148px">
+    <>
+      <Box
+        as="section"
+        bg="#F6FCFF"
+        py={{ base: '36px', md: '64px' }}
+        borderRadius={{ base: '0px 0px 16px 16px', md: '0px 0px 72px 72px' }}>
+        <Container maxWidth={1200} margin="0 auto" px={{ base: '16px', xl: '0' }}>
+          <Box maxW="794px" textAlign="center" margin="0 auto" pb={{ base: '16px', md: '32px' }}>
             <Text
-              fontWeight="400"
+              fontWeight={400}
               fontSize="16px"
-              lineHeight="21.28px"
-              color="#5B5B5B"
-              margin="0 0 20px 0">
+              lineHeight="normal"
+              fontStyle="normal"
+              color="#222222"
+              mb={{ base: '8px', md: '16px' }}>
               By Name Surname
             </Text>
             <Heading
               color="#222222"
-              margin="0"
-              fontSize="44px"
-              fontWeight="700"
-              lineHeight="53.64px">
+              fontSize={{ base: '28px', sm: '44px' }}
+              fontWeight={700}
+              lineHeight="normal"
+              fontStyle="normal">
               How to teach with technology in every subject
             </Heading>
           </Box>
@@ -32,10 +50,14 @@ const page = () => {
           <Box
             display="flex"
             justifyContent="space-between"
+            flexDirection={{ base: 'column', sm: 'row' }}
             alignItems=" center"
-            fontWeight="400"
+            fontWeight={400}
             fontSize="16px"
-            color="#222222">
+            lineHeight="normal"
+            fontStyle="normal"
+            color="#222222"
+            gap={{ base: '16px', sm: '0' }}>
             <UnorderedList
               margin="0"
               listStyleType="none"
@@ -68,43 +90,64 @@ const page = () => {
           </Box>
         </Container>
       </Box>
-
-      <Box>
-        <Box maxWidth="793px" margin="64px auto 148px">
+      <Container
+        display="flex"
+        flexDirection="column"
+        maxWidth={1320}
+        px={{ base: '16px', xl: '0' }}
+        gap={{ base: '36px', md: '80px', xl: '148px' }}>
+        <Box as="section" maxWidth="793px" margin={{ base: '36px auto 36px', md: '64px auto 0' }}>
           <Text
-            margin="0"
-            padding="0"
             _firstLetter={{ fontSize: '44px', fontWeight: '700', color: '#222222' }}
-            fontWeight="400"
-            lineHeight="21.28px">
+            fontSize="16px"
+            fontWeight={400}
+            lineHeight="normal"
+            fontStyle="normal">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
             has been the industry's standard dummy text ever since the 1500s, when an unknown
             printer took a galley of type and scrambled it to make a type specimen book. It has
             survived not only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-            publishing software like release of Letraset sheets containing Lorem Ipsum passages, and
-            more recently with desktop publishing software like Aldus PageMaker including versions
-            of Lorem Ipsum.
+            remaining essentially unchanged. It was in the 1960s with the release of sheets
+            containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            release of sheets containing Lorem Ipsum passages, and more recently with desktop
+            publishing software like PageMaker including versions of Lorem Ipsum.
           </Text>
 
-          <Box
-            margin="40px 0 64px"
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            margin={{ base: '20px auto 36px', md: '40px 0 64px' }}
             textAlign="center"
             color="#222222"
-            fontWeight="400"
-            lineHeight="21.28px">
-            <Text>
-              Already have an account? <span style={{ color: '#3CB4E7' }}>Log in</span>
-            </Text>
-          </Box>
+            fontWeight={400}
+            lineHeight="normal"
+            fontStyle="normal"
+            fontSize="16px"
+            gap="8px">
+            <Text>Already have an account?</Text>
+            <Button
+              width="auto"
+              color="#3CB4E7"
+              bg="white"
+              variant="link"
+              _hover={{ bg: '#white' }}
+              _active={{
+                bg: '#white',
+              }}
+              _focus={{
+                bg: '#white',
+              }}>
+              Log in
+            </Button>
+          </Flex>
 
           <Heading
-            as="h2"
-            fontWeight="700"
+            className={segoe.className}
+            fontWeight={700}
             margin="0 auto"
-            fontSize="32px"
+            fontSize={{ base: '24px', md: '32px' }}
             lineHeight="42.56px"
+            fontStyle="normal"
             textAlign="center">
             Get to the end of the story Understand the worlds biggest issues—free for a month.
           </Heading>
@@ -118,56 +161,307 @@ const page = () => {
               height="53px"
               color="#fff"
               padding="16px 32px">
-              View subscrption options
+              View subscription options
             </Button>
           </Box>
         </Box>
-      </Box>
 
-      <Box maxWidth="1200px" margin="0 auto">
-        <Heading
-          margin="0 0 40px 0"
-          as="h5"
-          textAlign="center"
-          lineHeight="37.24px"
-          fontWeight="700"
-          fontSize="28px">
-          About the author(s)
-        </Heading>
-        <Box display="flex" justifyContent="center" gap="21px" alignItems="center">
-          <Box>
-            <Image
-              src="/images/public_available/articles_user_img.jpg"
-              alt="Img"
-              width={487}
-              height={406}
-            />
-          </Box>
-          <Box
-            maxW="587px"
-            display="flex"
-            flexDirection="column"
+        <Box as="section" maxWidth="1200px" margin="0 auto">
+          <Heading
+            mb={{ base: '16px', md: '40px' }}
+            textAlign="center"
+            lineHeight="37.24px"
+            fontWeight={{ base: 600, md: 700 }}
+            fontSize="28px"
+            color="#000000">
+            About the author(s)
+          </Heading>
+          <Flex
+            flexDirection={{ base: 'column', md: 'row' }}
+            justifyContent="center"
+            gap={{ base: '16px', sm: '21px' }}
             alignItems="center"
-            fontSize="16px"
-            lineHeight="21.28px">
-            <Text as="span"mb='16px' fontWeight="700">
-              Name Surname
-            </Text>
-            <Text as="span" fontWeight="400">
-              Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor Lorem
-              ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor Lorem ipsum
-              dolor sit amet, consectetur adipising elit, sed do eiusmod tempor Lorem ipsum dolor
-              sit amet, consectetur adipising elit, sed do eiusmod temporLorem ipsum dolor sit amet,
-              consectetur adipising elit, sed do eiusmod tempor Lorem ipsum dolor sit amet,
-              consectetur adipising elit, sed do eiusmod tempor Lorem ipsum dolor sit amet,
-              consectetur adipising elit, sed do eiusmod tempor Lorem ipsum dolor sit amet,
-              consectetur adipising elit, sed do eiusmod tempor
-            </Text>
-          </Box>
+            p={{ base: '16px', md: '0' }}>
+            <Box borderRadius={{ base: '16px', md: '36px' }} overflow="hidden" maxW="100%">
+              <Image
+                src="/images/public_available/articles_user_img.jpg"
+                alt="Img"
+                width={487}
+                height={406}
+                // fill
+                // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </Box>
+            <Box
+              maxW="587px"
+              display="flex"
+              flexShrink="3"
+              flexDirection="column"
+              alignItems="center"
+              fontSize="16px"
+              lineHeight="normal"
+              fontStyle="normal"
+              gap={{ base: '8px', sm: '16px' }}>
+              <Text color="#222222" fontWeight={700}>
+                Name Surname
+              </Text>
+              <Text
+                color="#5B5B5B"
+                fontWeight={400}
+                textAlign={{ base: 'left', md: 'center' }}
+                maxWidth={{ base: '311px', sm: '587px' }}
+                // overflow="hidden"
+                // display={{ base: '-webkit-box', sm: 'block' }}
+                // style={{
+                //   WebkitBoxOrient: 'vertical',
+                // }}
+                // WebkitLineClamp={{ base: 2, sm: 9999 }}
+              >
+                Lorem ipsum dolor sit consectetur sed do eiuNext, apply this class to your
+                component:Lorem ipsum dolor sit consectetur sed do Lorem ipsum dolor sit consectetur
+                sed do Lorem ipsum dolor sit , consectetur sed do Lorem ipsum dolor sit ,
+                consectetur sed do Lorem ipsum dolor sit consectetur sed do Lorem ipsum dolor sit
+                consectetur sed do Lorem ipsum dolor sit consectetur sed do dolor sit , consectetur
+                sed do Lorem ipsum dolor sit consectetur sed do Lorem ipsum dolor sit consectetur
+                sed do Lorem ipsum dolor sit consectetur sed do
+              </Text>
+
+              <Button
+                display={{ base: 'block', sm: 'none' }}
+                width="auto"
+                color="#222222"
+                bg="white"
+                variant="link"
+                _hover={{ bg: '#white' }}
+                _active={{
+                  bg: '#white',
+                }}
+                _focus={{
+                  bg: '#white',
+                }}>
+                Read more
+              </Button>
+            </Box>
+          </Flex>
         </Box>
-      </Box>
-    </Box>
+        <Box as="section" maxWidth="1320px" margin="0 auto">
+          <Heading
+            className={segoe.className}
+            textAlign="center"
+            color="#000000"
+            fontWeight={700}
+            fontSize="32px"
+            lineHeight="normal"
+            fontStyle="normal"
+            mb={{ base: '16px', md: '40px' }}>
+            Read Next
+          </Heading>
+
+          <Flex
+            display="flex"
+            gap={{ base: '16px', md: '20px' }}
+            justifyContent="center"
+            flexDirection={{ base: 'column', md: 'row' }}>
+            <Box maxW="387px" border="1px solid #F3F4F6" borderRadius="8px" padding="24px">
+              <UnorderedList
+                margin="0"
+                listStyleType="none"
+                borderBottom="1px solid #858585"
+                pb="32px">
+                <ListItem
+                  fontWeight={700}
+                  fontSize="16px"
+                  lineHeight="normal"
+                  fontStyle="normal"
+                  mb="8px"
+                  color="#222222"
+                  _hover={{ color: '#3CB3E5' }}>
+                  How to Build a Design System if your...
+                </ListItem>
+                <ListItem
+                  fontSize="16px"
+                  lineHeight="normal"
+                  fontStyle="normal"
+                  fontWeight="400"
+                  color="#5B5B5B">
+                  Its always hard to be the only person in a company who is responsible for product
+                  design. Your day can be insanely...
+                </ListItem>
+              </UnorderedList>
+
+              <UnorderedList
+                margin="16px 0 0 0"
+                listStyleType="none"
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                lineHeight="normal"
+                fontStyle="normal"
+                fontWeight={400}
+                color="#5B5B5B"
+                fontSize="16px">
+                <ListItem>March 01, 2021</ListItem>
+
+                <ListItem display="flex" alignItems="center" gap="8px">
+                  <span>
+                    <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
+                  </span>
+                  440
+                </ListItem>
+              </UnorderedList>
+            </Box>
+
+            <Box maxW="387px" border="1px solid #F3F4F6" borderRadius="8px" padding="24px">
+              <UnorderedList
+                margin="0"
+                listStyleType="none"
+                borderBottom="1px solid #858585"
+                pb="32px">
+                <ListItem
+                  fontWeight={700}
+                  fontSize="16px"
+                  lineHeight="normal"
+                  fontStyle="normal"
+                  mb="8px"
+                  color="#222222"
+                  _hover={{ color: '#3CB3E5' }}>
+                  How to Build a Design System if your...
+                </ListItem>
+                <ListItem
+                  fontSize="16px"
+                  lineHeight="normal"
+                  fontStyle="normal"
+                  fontWeight="400"
+                  color="#5B5B5B">
+                  Its always hard to be the only person in a company who is responsible for product
+                  design. Your day can be insanely...
+                </ListItem>
+              </UnorderedList>
+
+              <UnorderedList
+                margin="16px 0 0 0"
+                listStyleType="none"
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                lineHeight="normal"
+                fontStyle="normal"
+                fontWeight={400}
+                color="#5B5B5B"
+                fontSize="16px">
+                <ListItem>March 01, 2021</ListItem>
+
+                <ListItem display="flex" alignItems="center" gap="8px">
+                  <span>
+                    <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
+                  </span>
+                  440
+                </ListItem>
+              </UnorderedList>
+            </Box>
+
+            <Box maxW="387px" border="1px solid #F3F4F6" borderRadius="8px" padding="24px">
+              <UnorderedList
+                margin="0"
+                listStyleType="none"
+                borderBottom="1px solid #858585"
+                pb="32px">
+                <ListItem
+                  fontWeight={700}
+                  fontSize="16px"
+                  lineHeight="normal"
+                  fontStyle="normal"
+                  mb="8px"
+                  color="#222222"
+                  _hover={{ color: '#3CB3E5' }}>
+                  How to Build a Design System if your...
+                </ListItem>
+                <ListItem
+                  fontSize="16px"
+                  lineHeight="normal"
+                  fontStyle="normal"
+                  fontWeight="400"
+                  color="#5B5B5B">
+                  Its always hard to be the only person in a company who is responsible for product
+                  design. Your day can be insanely...
+                </ListItem>
+              </UnorderedList>
+
+              <UnorderedList
+                margin="16px 0 0 0"
+                listStyleType="none"
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                lineHeight="normal"
+                fontStyle="normal"
+                fontWeight={400}
+                color="#5B5B5B"
+                fontSize="16px">
+                <ListItem>March 01, 2021</ListItem>
+
+                <ListItem display="flex" alignItems="center" gap="8px">
+                  <span>
+                    <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
+                  </span>
+                  440
+                </ListItem>
+              </UnorderedList>
+            </Box>
+          </Flex>
+        </Box>
+        <Flex
+          as="section"
+          flexDirection="column"
+          maxW="506px"
+          margin="0 auto"
+          mb={{ base: '36px', md: '80px', xl: '148px' }}>
+          <Heading
+            className={segoe.className}
+            mb={{ base: '16px', md: '32px' }}
+            lineHeight="normal"
+            fontStyle="normal"
+            color="#222222"
+            fontSize={{ base: '28px', sm: '32px' }}
+            fontWeight={700}
+            textAlign="center">
+            Subscribe to get our Newsletter
+          </Heading>
+          <InputGroup
+            width="100%"
+            height="46px"
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            border="1px solid #C0C0C0"
+            padding="4px 4px 4px 16px"
+            borderRadius="12px"
+            outline="none">
+            <Input
+              height="100%"
+              border="none"
+              outline="none"
+              _focusVisible={{ border: 'none' }}
+              lineHeight="normal"
+              fontSize="16px"
+              fontWeight={400}
+              placeholder="Your Email"
+              _placeholder={{ color: '#DEDEDE' }}
+            />
+
+            <Button
+              borderRadius="6px"
+              p="12px 24px"
+              lineHeight="14px"
+              fontSize="14px"
+              fontWeight={600}>
+              Subscribe
+            </Button>
+          </InputGroup>
+        </Flex>
+      </Container>
+    </>
   );
 };
 
-export default page;
+export default Article;
