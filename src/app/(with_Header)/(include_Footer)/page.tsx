@@ -83,9 +83,9 @@ const Home = () => {
                     lg: 'left',
                     xl: 'left',
                   }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. At et posuere est non
-                  vitae enim, sed consectetur. Nullam interdum feugiat nibh lectus viverra
-                  sollicitudin.
+                  Join us on this transformative journey, where every lesson learned becomes a
+                  stepping stone towards a brighter, more promising future, for each individual and
+                  our collective society.Welcome to first Armenian leading educational platform.
                 </Text>
 
                 <Flex gap="24px" alignItems="center">
@@ -295,6 +295,7 @@ const Home = () => {
                   <Box
                     display="flex"
                     flexDirection="column"
+                    boxShadow="0px 8px 16px 0px #00000014"
                     gap="8px"
                     alignItems="center"
                     background="#fff"
@@ -302,19 +303,15 @@ const Home = () => {
                     padding="16px 0"
                     borderRadius="8px">
                     <Box
-                      bg="#C3E7F7"
+                      boxShadow="0px 6px 12px 0px #0000001A"
+                      bg="#fff"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       display="flex"
                       justifyContent="center"
                       borderRadius="7px">
-                      <Image
-                        src="/icons/design_home_icon.svg"
-                        width={24}
-                        height={24}
-                        alt="UI UX Icon"
-                      />
+                      <Image src="/icons/ui_svg_home.svg" width={24} height={24} alt="UI UX Icon" />
                     </Box>
 
                     <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
@@ -324,6 +321,7 @@ const Home = () => {
 
                   <Box
                     display="flex"
+                    boxShadow="0px 8px 16px 0px #00000014"
                     gap="16px"
                     flexDirection="column"
                     alignItems="center"
@@ -332,7 +330,8 @@ const Home = () => {
                     padding="16px 0"
                     borderRadius="8px">
                     <Box
-                      bg="#C3E7F7"
+                      boxShadow="0px 6px 12px 0px #0000001A"
+                      bg="#fff"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
@@ -340,7 +339,7 @@ const Home = () => {
                       justifyContent="center"
                       borderRadius="7px">
                       <Image
-                        src="/icons/marketing_home_icon.svg"
+                        src="/icons/marketing_svg_home.svg"
                         width={24}
                         height={24}
                         alt="UI UX Icon"
@@ -355,6 +354,7 @@ const Home = () => {
                   <Box
                     display="flex"
                     gap="16px"
+                    boxShadow="0px 8px 16px 0px #00000014"
                     flexDirection="column"
                     alignItems="center"
                     background="#FFF"
@@ -362,14 +362,15 @@ const Home = () => {
                     padding="16px 0"
                     borderRadius="8px">
                     <Box
-                      bg="#C3E7F7"
+                      boxShadow="0px 6px 12px 0px #0000001A"
+                      bg="#fff"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       display="flex"
                       justifyContent="center"
                       borderRadius="7px">
-                      <Image src="/icons/react_home_icon.svg" width={24} height={24} alt="React" />
+                      <Image src="/icons/react_svg_home.svg" width={24} height={24} alt="React" />
                     </Box>
                     <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
                       React JS
@@ -379,6 +380,7 @@ const Home = () => {
                   <Box
                     display="flex"
                     gap="16px"
+                    boxShadow="0px 8px 16px 0px #00000014"
                     flexDirection="column"
                     alignItems="center"
                     background="#FFF"
@@ -386,7 +388,8 @@ const Home = () => {
                     padding="16px 0"
                     borderRadius="8px">
                     <Box
-                      bg="#C3E7F7"
+                      boxShadow="0px 6px 12px 0px #0000001A"
+                      bg="#fff"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
@@ -394,7 +397,7 @@ const Home = () => {
                       justifyContent="center"
                       borderRadius="7px">
                       <Image
-                        src="/icons/management_home_icon.svg"
+                        src="/icons/management_svg_home.svg"
                         width={24}
                         height={24}
                         alt="Management"
@@ -408,6 +411,7 @@ const Home = () => {
                   <Box
                     display="flex"
                     gap="16px"
+                    boxShadow="0px 8px 16px 0px #00000014"
                     flexDirection="column"
                     alignItems="center"
                     background="#FFF"
@@ -415,7 +419,8 @@ const Home = () => {
                     padding="16px 0"
                     borderRadius="8px">
                     <Box
-                      bg="#C3E7F7"
+                      boxShadow="0px 6px 12px 0px #0000001A"
+                      bg="#fff"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
@@ -423,7 +428,7 @@ const Home = () => {
                       justifyContent="center"
                       borderRadius="7px">
                       <Image
-                        src="/icons/design_graphic_home_icon.svg"
+                        src="/icons/design_svg_home.svg"
                         width={24}
                         height={24}
                         alt="Management"
@@ -437,6 +442,7 @@ const Home = () => {
 
                   <Box
                     display="flex"
+                    boxShadow="0px 8px 16px 0px #00000014"
                     gap="16px"
                     flexDirection="column"
                     alignItems="center"
@@ -445,19 +451,15 @@ const Home = () => {
                     padding="16px 0"
                     borderRadius="8px">
                     <Box
-                      bg="#C3E7F7"
+                      boxShadow="0px 6px 12px 0px #0000001A"
+                      bg="#fff"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       display="flex"
                       justifyContent="center"
                       borderRadius="7px">
-                      <Image
-                        src="/icons/target_home_icon.svg"
-                        width={24}
-                        height={24}
-                        alt="Target"
-                      />
+                      <Image src="/icons/smm_svg_home.svg" width={24} height={24} alt="Target" />
                     </Box>
                     <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
                       SMM
@@ -506,11 +508,18 @@ const Home = () => {
                 as="h2">
                 What is Persona?
               </Heading>
-              <Text fontSize="16px" fontWeight="400" color="#696984" lineHeight="21.28px">
-                Skilline is a platform that allows educators to create online classes whereby they
-                can store the course materials online; manage assignments, quizzes and exams;
-                monitor due dates; grade results and provide students with feedback all in one
-                place.
+              <Text
+                margin="0"
+                fontSize="16px"
+                fontWeight="400"
+                color="#696984"
+                lineHeight="21.28px">
+                Persona Business Academy is a branch of the American company Persona Media Group in
+                Armenia. We emphasize academics education, we collaborate with professionals with
+                qualifications approved by the academy, providing the best educational programs for
+                our students, both in IT and other fields. Persona, cooperating with a number of
+                well-known companies in Armenia, supports newly graduated students to cooperate with
+                leading companies in the market.
               </Text>
             </Box>
 
@@ -615,11 +624,11 @@ const Home = () => {
                 fontWeight="700"
                 margin="0 0 16px 0"
                 as="h2">
-                Talent Transformation Programm
+                Talent Transformation Program
               </Heading>
               <Text fontSize="16px" fontWeight="400" color="#696984" lineHeight="21.28px">
-                We drive our clients growth through innovation and haLorem ipsum, or lipsum as it is
-                sometimes known, is dummy text used in laying out print, graphic or web designs.
+                Where the classroom becomes your launchpad, and knowledge takes flight through
+                hands-on experience and face-to-face guidance.
               </Text>
             </Box>
 
@@ -649,7 +658,8 @@ const Home = () => {
                     fontWeight="700"
                     lineHeight="42.56px"
                     margin="36px 0 0 0">
-                    We believe learning should be simple and its impact should be big.
+                    We believe that our transformation program will transform not only your
+                    knowledge in the IT world but also in your life
                   </Text>
                 </Box>
 
@@ -704,12 +714,13 @@ const Home = () => {
                         lineHeight="21.28px"
                         fontSize="16px"
                         fontWeight="400">
-                        We are offering this limited free deal for website maintenance in order to
-                        give you free access to the website maintenance service. You can now access
-                        all the features of our website maintenance service for free. You will be
-                        able to monitor your website, apply updates and fix errors for free. With
-                        our free website maintenance service, you can focus on your business instead
-                        of worrying about your website.
+                        The period of courses at a business academy represents an immersive
+                        educational journey designed to provide students with comprehensive
+                        knowledge, practical skills, and a deep understanding of various aspects of
+                        the business world. This period typically encompasses a structured
+                        curriculum that covers fundamental business principles, specialized
+                        coursework, and hands-on training aimed at nurturing well-rounded
+                        professionals with the ability to thrive in diverse business environments.
                       </Text>
                     </Box>
                   </Box>
@@ -764,11 +775,13 @@ const Home = () => {
                         lineHeight="21.28px"
                         fontSize="16px"
                         fontWeight="400">
-                        People are busy and they often forget to check their website for updates and
-                        changes. We value our customers thats why we are giving free website
-                        maintenance services to keep your website up to date and secure. Get your
-                        website updates for free and get professional advice from our team of
-                        experts. Get a free consultation with one of our experts!
+                        By providing hands-on training, interactive workshops, and industry-relevant
+                        case studies, our business academy ensures that students gain a deep
+                        understanding of business fundamentals and are well-prepared to tackle
+                        complex challenges in the workplace. The practical application of learned
+                        concepts allows students to develop problem-solving skills, strategic
+                        thinking, and effective decision-making abilities, which are essential for
+                        thriving in the dynamic business environment.
                       </Text>
                     </Box>
                   </Box>
@@ -823,10 +836,15 @@ const Home = () => {
                         lineHeight="21.28px"
                         fontSize="16px"
                         fontWeight="400">
-                        We are looking for a long-term partnership with our clients and want to know
-                        what you think about our service. We want to improve our service based on
-                        your feedback. You will get a free website migration, free website backup,
-                        free SSL certificate installation, and more! Get in touch with us now!
+                        Passing exams at persona business academy signifies the culmination of
+                        rigorous preparation, dedication, and a comprehensive understanding of the
+                        fundamental concepts and principles within the realm of business studies. It
+                        reflects a student's ability to apply theoretical knowledge to practical
+                        scenarios, demonstrate critical thinking skills, and showcase a deep
+                        comprehension of various business disciplines. The process of passing exams
+                        at a business academy often involves thorough preparation, including
+                        extensive study of course materials, active participation in classroom
+                        discussions, and engagement in collaborative learning activities
                       </Text>
                     </Box>
                   </Box>
@@ -956,11 +974,11 @@ const Home = () => {
                   xl: '32px',
                 }}
                 margin="0 0 16px 0">
-                Every child deserves the chance to learn
+                Persona Kids Academy
               </Heading>
               <Text fontWeight="400" fontSize="16px" lineHeight="21.28px" margin="0 0 24px 0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
+                Building the leaders of tomorrow, one young entrepreneur at a time. Join us at our
+                Kid's Business Academy and let your creativity soar beyond imagination.
               </Text>
 
               <Box>
@@ -1027,8 +1045,11 @@ const Home = () => {
                 </Link>
               </Box>
               <Text fontWeight="400" fontSize="16px" lineHeight="21.28px" margin="0 0 24px 0">
-                bite-sized, flexible learning Upskill, reskill or pursue a passion with short
-                courses across every subject, whether youre a beginner or already an expert.
+                Short online video courses provide a convenient and accessible way for learners to
+                acquire new skills, expand their knowledge, and stay updated on the latest trends in
+                various fields. These courses offer concise, focused lessons that are designed to be
+                easily digestible and engaging for participants.Course registration costs start at
+                $1.99
               </Text>
             </Box>
 
@@ -1419,10 +1440,10 @@ const Home = () => {
                   listStyleType="none"
                   padding="16px 10px">
                   <ListItem mb="8px" fontWeight="700">
-                    Name Surname
+                    Gagik Tamamyan
                   </ListItem>
                   <ListItem pb="10px" borderBottom="1px solid #F3F4F6">
-                    Digital Creator & Educator
+                    SMM Specialist
                   </ListItem>
                   <ListItem pt="10px" mb="6px">
                     Enrolled students: 89
@@ -1430,6 +1451,7 @@ const Home = () => {
                   <ListItem>Graduated students: 12</ListItem>
                 </UnorderedList>
               </Box>
+
               <Box maxW="285px">
                 <Box>
                   <Image
@@ -1449,10 +1471,10 @@ const Home = () => {
                   listStyleType="none"
                   padding="16px 10px">
                   <ListItem mb="8px" fontWeight="700">
-                    Name Surname
+                    Julieta Asatryan
                   </ListItem>
                   <ListItem pb="10px" borderBottom="1px solid #F3F4F6">
-                    Digital Creator & Educator
+                    HRM Specialist
                   </ListItem>
                   <ListItem pt="10px" mb="6px">
                     Enrolled students: 89
@@ -1460,6 +1482,7 @@ const Home = () => {
                   <ListItem>Graduated students: 12</ListItem>
                 </UnorderedList>
               </Box>
+
               <Box maxW="285px">
                 <Box>
                   <Image
@@ -1479,10 +1502,10 @@ const Home = () => {
                   listStyleType="none"
                   padding="16px 10px">
                   <ListItem mb="8px" fontWeight="700">
-                    Name Surname
+                    Narek Boshyan
                   </ListItem>
                   <ListItem pb="10px" borderBottom="1px solid #F3F4F6">
-                    Digital Creator & Educator
+                    Full-Stack Developer
                   </ListItem>
                   <ListItem pt="10px" mb="6px">
                     Enrolled students: 89
@@ -1490,6 +1513,7 @@ const Home = () => {
                   <ListItem>Graduated students: 12</ListItem>
                 </UnorderedList>
               </Box>
+
               <Box maxW="285px">
                 <Box>
                   <Image
@@ -1509,10 +1533,10 @@ const Home = () => {
                   listStyleType="none"
                   padding="16px 10px">
                   <ListItem mb="8px" fontWeight="700">
-                    Name Surname
+                    Tigran Manukyan
                   </ListItem>
                   <ListItem pb="10px" borderBottom="1px solid #F3F4F6">
-                    Digital Creator & Educator
+                    SMM Specialis
                   </ListItem>
                   <ListItem pt="10px" mb="6px">
                     Enrolled students: 89
@@ -1523,7 +1547,9 @@ const Home = () => {
             </Box>
           </Box>
 
-          <Box mb={{ base: '36px', sm: '36px', md: '36px', lg: '148px', xl: '148px' }}>
+          <Box
+            display="none"
+            mb={{ base: '36px', sm: '36px', md: '36px', lg: '148px', xl: '148px' }}>
             <Heading
               textAlign="center"
               margin="0"
@@ -1662,8 +1688,14 @@ const Home = () => {
                     <Image src="/icons/icon_dots.png" alt="Dots" width={24.5} height={20} />
                   </Text>
                   <Text m="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
-                    When our designs need an expert opinion or approval, I know I can rely on your
-                    agency Thank you for all your help-I will be recommending you to everyone
+                    When I first came to Persona Business Academy, at Tigran Manukyan's course, it
+                    seemed like I was on some new planet appeared (so everything was new and mixed).
+                    Then Manukyan the willingness of Tigran, Gagik and Tigran Harutyunyan,
+                    everything to explain thoroughly, patience and created As a result of the
+                    environment, Persona became more than just that organization providing quality
+                    knowledge. By visiting Persona, you are sure to get quality knowledge (not only
+                    in your chosen field) - but also for sure you will have the most interesting and
+                    colorful course in life
                   </Text>
                   <span
                     style={{
@@ -1695,7 +1727,7 @@ const Home = () => {
                     fontSize="16px"
                     margin="0"
                     listStyleType="none">
-                    <ListItem fontWeight="700">Name Surname</ListItem>
+                    <ListItem fontWeight="700">Daniela Zanazanyan</ListItem>
                     <ListItem fontWeight="400">Desinger</ListItem>
                   </UnorderedList>
                 </Box>
@@ -1716,8 +1748,16 @@ const Home = () => {
                     <Image src="/icons/icon_dots.png" alt="Dots" width={24.5} height={20} />
                   </Text>
                   <Text m="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
-                    When our designs need an expert opinion or approval, I know I can rely on your
-                    agency Thank you for all your help-I will be recommending you to everyone
+                    Hi, I'm Garry, I've been trying my strength at IT for almost a year now,
+                    particularly in Front-End. Before learning about the PBA and joining its ranks,
+                    I received professional knowledge in 2 other different educational places.
+                    However I will not hide that they were not so satisfactory and sufficient for
+                    me. Accepting PBA and joining the ranks of students of Narek Boshyan's
+                    JavaScript course group, I realized how big a difference there is between
+                    previous and current studies in the organization of processes, their quality and
+                    level. And both the methodology of organizing the course in PBA and Narek
+                    Boshyan's Compassionate and individualized treatment of any student obligates us
+                    to study well and become leading professionals in the field.
                   </Text>
                   <span
                     style={{
@@ -1749,7 +1789,7 @@ const Home = () => {
                     fontSize="16px"
                     margin="0"
                     listStyleType="none">
-                    <ListItem fontWeight="700">Name Surname</ListItem>
+                    <ListItem fontWeight="700">Garry Gevorgyan</ListItem>
                     <ListItem fontWeight="400">Desinger</ListItem>
                   </UnorderedList>
                 </Box>
@@ -1770,8 +1810,11 @@ const Home = () => {
                     <Image src="/icons/icon_dots.png" alt="Dots" width={24.5} height={20} />
                   </Text>
                   <Text m="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
-                    When our designs need an expert opinion or approval, I know I can rely on your
-                    agency Thank you for all your help-I will be recommending you to everyone
+                    Hi, I'm Armine, attending HRM in PBA I gained new knowledge at the courses by
+                    discovering and loving that realm unknown to me. Thanks to my trainer Julieta
+                    Asatryan, new to increase the level of cognitive perception. The course gave not
+                    only new knowledge, but also friends and invaluable values ​​in the form of
+                    innovative ideas
                   </Text>
                   <span
                     style={{
@@ -1803,7 +1846,7 @@ const Home = () => {
                     fontSize="16px"
                     margin="0"
                     listStyleType="none">
-                    <ListItem fontWeight="700">Name Surname</ListItem>
+                    <ListItem fontWeight="700">Armine Hakobyan</ListItem>
                     <ListItem fontWeight="400">Desinger</ListItem>
                   </UnorderedList>
                 </Box>
