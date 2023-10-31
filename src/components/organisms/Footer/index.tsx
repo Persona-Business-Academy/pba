@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useMemo } from 'react';
 import { Box, Container, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -158,8 +158,9 @@ const footerData = [
 ];
 
 const Footer: FC<Props> = () => {
+  const year = useMemo(() => new Date().getFullYear(), []);
   return (
-    <Stack bg="#F9FAFB" minHeight={714} width="100%">
+    <Stack bg="#F9FAFB" width="100%" minHeight="auto">
       <Container
         maxWidth={1200}
         margin="0 auto"
@@ -212,7 +213,7 @@ const Footer: FC<Props> = () => {
               </Text>
             </Box>
             <Box>
-              <Text>© Persona, Inc. 2022. All rights reserved.</Text>
+              <Text>© Persona, Inc. {year}. All rights reserved.</Text>
             </Box>
           </Flex>
           <Flex flexDirection="column" gap="24px" alignItems={{ base: 'center', md: 'flex-end' }}>

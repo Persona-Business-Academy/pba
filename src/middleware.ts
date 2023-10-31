@@ -17,4 +17,15 @@ export async function middleware(req: NextApiRequest) {
   }
 }
 
-export const config = { matcher: ['/todo'] };
+export const config = {
+  matcher: [
+    '/profile',
+    '/profile/courses',
+    '/profile/pba-credit',
+    '/profile/achievements',
+    '/profile/courses',
+    '/profile/help',
+    '/profile/subscription',
+    '/profile/wishlist',
+  ],
+};

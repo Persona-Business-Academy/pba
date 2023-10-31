@@ -5,7 +5,7 @@ import Link from 'next/link';
 interface NavItemProps extends FlexProps {
   icon: string;
   children: React.ReactNode;
-  href: string;
+  href: string | undefined;
 }
 const NavItem = ({ href, icon: Icon, children, ...rest }: NavItemProps) => {
   const logoutHandler = useCallback(() => {}, []);

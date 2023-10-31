@@ -3,7 +3,7 @@ import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { segoe } from '@/constants/fonts';
 
-export default function LeadershipIndividual() {
+const LeadershipIndividualPage = () => {
   return (
     <Container
       maxWidth={1200}
@@ -93,4 +93,6 @@ export default function LeadershipIndividual() {
       </Flex>
     </Container>
   );
-}
+};
+
+export default LeadershipIndividualPage;
