@@ -219,13 +219,15 @@ const Footer: FC<Props> = () => {
           <Flex flexDirection="column" gap="24px" alignItems={{ base: 'center', md: 'flex-end' }}>
             <Box>
               <Flex gap={24}>
-                <a href="#" target="blank">
+                <a href="https://www.facebook.com/personabusinessacademy" target="blank">
                   <Image src="/icons/facebook_icon.svg" width={32} height={32} alt="facebook" />
                 </a>
-                <a href="#" target="blank">
+                <a href="https://www.instagram.com/persona_business_academy" target="blank">
                   <Image src="/icons/instagram_icon.svg" width={32} height={32} alt="instagram" />
                 </a>
-                <a href="#" target="blank">
+                <a
+                  href="https://www.linkedin.com/school/persona-business-academy/?originalSubdomain=am"
+                  target="blank">
                   <Image src="/icons/linkedin_icon.svg" width={32} height={32} alt="instagram" />
                 </a>
               </Flex>

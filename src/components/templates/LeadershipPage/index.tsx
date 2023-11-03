@@ -6,7 +6,6 @@ import {
   Container,
   Flex,
   Grid,
-  GridItem,
   Heading,
   Tab,
   TabList,
@@ -16,6 +15,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Image from 'next/image';
+import TeamCard from '@/components/molecules/TeamCard';
 import { segoe } from '@/constants/fonts';
 
 type Props = {};
@@ -77,7 +77,7 @@ const LeadershipPage: FC<Props> = () => {
             marginBottom="20px">
             Meet our Team
           </Heading>
-          <Tabs variant="unstyled">
+          <Tabs variant="unstyled" width="100%">
             <TabList display="flex" justifyContent="center" gap="32px" marginBottom="40px">
               <Tab
                 padding="8px 12px"
@@ -124,194 +124,19 @@ const LeadershipPage: FC<Props> = () => {
               <TabPanel padding={0}>
                 <Grid
                   display="grid"
-                  gridTemplateColumns="repeat(auto-fit, minmax(387px, 1fr))"
+                  templateColumns={{
+                    base: 'repeat(auto-fit, minmax(283px, 1fr))',
+                    md: 'repeat(auto-fit, minmax(350px, 1fr))',
+                  }}
                   gridGap="20px">
-                  <GridItem padding="30px">
-                    <Box
-                      overflow="hidden"
-                      marginBottom="16px"
-                      borderRadius="10.556px 10.556px 70.374px 10.556px"
-                      height="331px">
-                      <Image
-                        src="/images/public_available/nature.jpg"
-                        width={327}
-                        height={331}
-                        alt="Leadership members"
-                      />
-                    </Box>
-                    <Flex
-                      flexDirection="column"
-                      gap="8px"
-                      textAlign="center"
-                      fontStyle="normal"
-                      lineHeight="normal"
-                      fontSize="16px">
-                      <Text color="#000" fontWeight={700}>
-                        Name Surname
-                      </Text>
-                      <Text color="#5B5B5B" fontWeight={400}>
-                        Co-founder of Persona
-                      </Text>
-                      <Text color="#000" fontWeight={400}>
-                        Beach lover, keeping life simple
-                      </Text>
-                    </Flex>
-                  </GridItem>
-                  <GridItem padding="30px">
-                    <Box
-                      overflow="hidden"
-                      marginBottom="16px"
-                      borderRadius="10.556px 10.556px 70.374px 10.556px"
-                      height="331px">
-                      <Image
-                        src="/images/public_available/nature.jpg"
-                        width={327}
-                        height={331}
-                        alt="Leadership members"
-                      />
-                    </Box>
-                    <Flex
-                      flexDirection="column"
-                      gap="8px"
-                      textAlign="center"
-                      fontStyle="normal"
-                      lineHeight="normal"
-                      fontSize="16px">
-                      <Text color="#000" fontWeight={700}>
-                        Name Surname
-                      </Text>
-                      <Text color="#5B5B5B" fontWeight={400}>
-                        Co-founder of Persona
-                      </Text>
-                      <Text color="#000" fontWeight={400}>
-                        Beach lover, keeping life simple
-                      </Text>
-                    </Flex>
-                  </GridItem>
-                  <GridItem padding="30px">
-                    <Box
-                      overflow="hidden"
-                      marginBottom="16px"
-                      borderRadius="10.556px 10.556px 70.374px 10.556px"
-                      height="331px">
-                      <Image
-                        src="/images/public_available/nature.jpg"
-                        width={327}
-                        height={331}
-                        alt="Leadership members"
-                      />
-                    </Box>
-                    <Flex
-                      flexDirection="column"
-                      gap="8px"
-                      textAlign="center"
-                      fontStyle="normal"
-                      lineHeight="normal"
-                      fontSize="16px">
-                      <Text color="#000" fontWeight={700}>
-                        Name Surname
-                      </Text>
-                      <Text color="#5B5B5B" fontWeight={400}>
-                        Co-founder of Persona
-                      </Text>
-                      <Text color="#000" fontWeight={400}>
-                        Beach lover, keeping life simple
-                      </Text>
-                    </Flex>
-                  </GridItem>
-                  <GridItem padding="30px">
-                    <Box
-                      overflow="hidden"
-                      marginBottom="16px"
-                      borderRadius="10.556px 10.556px 70.374px 10.556px"
-                      height="331px">
-                      <Image
-                        src="/images/public_available/nature.jpg"
-                        width={327}
-                        height={331}
-                        alt="Leadership members"
-                      />
-                    </Box>
-                    <Flex
-                      flexDirection="column"
-                      gap="8px"
-                      textAlign="center"
-                      fontStyle="normal"
-                      lineHeight="normal"
-                      fontSize="16px">
-                      <Text color="#000" fontWeight={700}>
-                        Name Surname
-                      </Text>
-                      <Text color="#5B5B5B" fontWeight={400}>
-                        Co-founder of Persona
-                      </Text>
-                      <Text color="#000" fontWeight={400}>
-                        Beach lover, keeping life simple
-                      </Text>
-                    </Flex>
-                  </GridItem>
-                  <GridItem padding="30px">
-                    <Box
-                      overflow="hidden"
-                      marginBottom="16px"
-                      borderRadius="10.556px 10.556px 70.374px 10.556px"
-                      height="331px">
-                      <Image
-                        src="/images/public_available/nature.jpg"
-                        width={327}
-                        height={331}
-                        alt="Leadership members"
-                      />
-                    </Box>
-                    <Flex
-                      flexDirection="column"
-                      gap="8px"
-                      textAlign="center"
-                      fontStyle="normal"
-                      lineHeight="normal"
-                      fontSize="16px">
-                      <Text color="#000" fontWeight={700}>
-                        Name Surname
-                      </Text>
-                      <Text color="#5B5B5B" fontWeight={400}>
-                        Co-founder of Persona
-                      </Text>
-                      <Text color="#000" fontWeight={400}>
-                        Beach lover, keeping life simple
-                      </Text>
-                    </Flex>
-                  </GridItem>
-                  <GridItem padding="30px">
-                    <Box
-                      overflow="hidden"
-                      marginBottom="16px"
-                      borderRadius="10.556px 10.556px 70.374px 10.556px"
-                      height="331px">
-                      <Image
-                        src="/images/public_available/nature.jpg"
-                        width={327}
-                        height={331}
-                        alt="Leadership members"
-                      />
-                    </Box>
-                    <Flex
-                      flexDirection="column"
-                      gap="8px"
-                      textAlign="center"
-                      fontStyle="normal"
-                      lineHeight="normal"
-                      fontSize="16px">
-                      <Text color="#000" fontWeight={700}>
-                        Name Surname
-                      </Text>
-                      <Text color="#5B5B5B" fontWeight={400}>
-                        Co-founder of Persona
-                      </Text>
-                      <Text color="#000" fontWeight={400}>
-                        Beach lover, keeping life simple
-                      </Text>
-                    </Flex>
-                  </GridItem>
+                  {Array.from({ length: 6 }, () => ({
+                    firstName: 'First Name',
+                    lastName: 'Last Name',
+                    hobby: 'Dog Lover',
+                    position: 'Web Developer',
+                  })).map((teamMember, i: number) => (
+                    <TeamCard {...teamMember} key={i} />
+                  ))}
                 </Grid>
               </TabPanel>
             </TabPanels>
