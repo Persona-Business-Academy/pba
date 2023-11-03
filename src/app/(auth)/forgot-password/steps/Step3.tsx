@@ -6,7 +6,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
-import { Button, FormInput } from '@/components/atom';
+import { Button, FormInput } from '@/components/atoms';
 import { SIGN_IN_ROUTE } from '@/constants/routes';
 import { useAuth } from '@/contexts/AuthContext';
 import { ForgotPasswordStep3Validation } from '@/validation';

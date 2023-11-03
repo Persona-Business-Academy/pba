@@ -4,8 +4,8 @@ import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { useMutation } from '@tanstack/react-query';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
-import { Button } from '@/components/atom';
-import OTPPassword from '@/components/atom/OTPPassword';
+import { Button } from '@/components/atoms';
+import OTPPassword from '@/components/atoms/OTPPassword';
 import { useAuth } from '@/contexts/AuthContext';
 import { ForgotPasswordStep2Validation } from '@/validation';
 

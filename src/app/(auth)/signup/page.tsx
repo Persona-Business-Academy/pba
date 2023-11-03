@@ -6,8 +6,8 @@ import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
-import { Button, FormInput } from '@/components/atom';
-import { AuthBox } from '@/components/molecule';
+import { Button, FormInput } from '@/components/atoms';
+import { AuthBox } from '@/components/molecules';
 import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/constants/routes';
 import { SignUpValidation } from '@/validation';
 
