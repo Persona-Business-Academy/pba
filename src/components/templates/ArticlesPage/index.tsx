@@ -54,7 +54,7 @@ const ArticlesPage: FC<Props> = () => {
               fontSize="16px"
               fontWeight={400}
               color="#747474">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+              Lorem ipsum, or  as it is sometimes known, is dummy text used in laying out
               print, graphic or web designs. The passage is attributed to an unknown typesetter in
             </Text>
             <Box>
@@ -121,11 +121,12 @@ const ArticlesPage: FC<Props> = () => {
               width={590}
               height={388.7}
               src="/images/public_available/article_img.jpg"
-              alt="Aricle Image"
+              alt="Article Image"
             />
           </Box>
         </Flex>
       </Flex>
+
       <Container maxWidth={1200} margin="0 auto" px={{ base: '16px', xl: '0' }}>
         <Flex flexDirection="column">
           <Heading
