@@ -1,16 +1,13 @@
 'use client';
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Link,
-  ListItem,
-  Text,
-  UnorderedList,
-} from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Link, Text, UnorderedList } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { Button, OutlinedButton } from '@/components/atoms';
+import CourseCard from '@/components/molecules/CourseCard';
+
+const TrainerCard = dynamic(() => import('@/components/molecules/TrainerCard'));
+const ArticleItem = dynamic(() => import('@/components/molecules/ArticleItem'));
+const StudentFeedback = dynamic(() => import('@/components/molecules/StudentFeedback'));
 
 const commonFontStyle = {
   lineHeight: '21.28px',
@@ -24,22 +21,15 @@ const HomePage = () => {
         <Box
           mb={{
             base: '0',
-            sm: '0',
             md: '148px',
-            lg: '148px',
-            xl: '148px',
           }}
           borderRadius={{
             base: '0 0 16px 16px',
-            sm: '0 0 16px 16px',
-            md: '0 0 16px 16px',
             lg: '0 0 74px  74px',
-            xl: '0 0 74px  74px',
           }}
           backgroundColor="#F6FCFF"
           padding={{
             base: '36px 10px ',
-            sm: '36px 10px ',
             md: '36px 16px ',
             lg: '50px 20px',
             xl: '78px 0 86px',
@@ -50,20 +40,17 @@ const HomePage = () => {
               alignItems="center"
               justifyContent={{
                 base: 'center',
-                sm: 'center',
-                md: 'center',
-                lg: 'center',
                 xl: 'space-between',
               }}
-              flexWrap={{ base: 'wrap', sm: 'wrap', md: 'wrap', lg: 'wrap', xl: 'nowrap' }}>
+              flexWrap={{ base: 'wrap', xl: 'nowrap' }}>
               <Flex maxW="490px" flexDirection="column">
                 <Heading
                   as="h1"
                   margin="0 0 16px 0"
-                  fontSize={{ base: '28px', sm: '28px', md: '32px', xl: '44px' }}
+                  fontSize={{ base: '28px', md: '32px' }}
                   color="#1F1646"
-                  textAlign={{ base: 'center', sm: 'center', md: 'center', lg: 'left', xl: 'left' }}
-                  lineHeight={{ base: '37.24px', sm: '37.24px', md: '37.24px', xl: '53.64px' }}>
+                  textAlign={{ base: 'center', lg: 'left' }}
+                  lineHeight={{ base: '37.24px', xl: '53.64px' }}>
                   Welcome to
                   <Text as="span" textTransform="uppercase" color="#3CB3E5">
                     &nbsp;PBA
@@ -73,15 +60,12 @@ const HomePage = () => {
                 <Text
                   fontSize="16px"
                   color="#171717"
-                  marginBottom={{ base: '10px', sm: '10px', md: '10px', xl: '32px' }}
+                  marginBottom={{ base: '10px', xl: '32px' }}
                   {...commonFontStyle}
                   fontWeight={400}
                   textAlign={{
                     base: 'center',
-                    sm: 'center',
-                    md: 'center',
                     lg: 'left',
-                    xl: 'left',
                   }}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. At et posuere est non
                   vitae enim, sed consectetur. Nullam interdum feugiat nibh lectus viverra
@@ -132,10 +116,7 @@ const HomePage = () => {
                     width={{ base: ' 119px', sm: '119px', md: '181px', lg: '181px', xl: '181px' }}
                     padding={{
                       base: '8px',
-                      sm: '8px',
                       md: '16px 32px',
-                      lg: ' 16px 32px',
-                      xl: ' 16px 32px',
                     }}
                     borderRadius="20px">
                     <Text
@@ -143,12 +124,9 @@ const HomePage = () => {
                       fontWeight="700"
                       lineHeight={{
                         base: ' 21.28px',
-                        sm: '21.28px',
                         md: '31.92px',
-                        lg: '31.92px',
-                        xl: '31.92px',
                       }}
-                      fontSize={{ base: ' 16px', sm: '16px', md: '24px', lg: '24px', xl: '24px' }}>
+                      fontSize={{ base: ' 16px', md: '24px' }}>
                       250k
                     </Text>
                     <Text
@@ -299,22 +277,20 @@ const HomePage = () => {
                     alignItems="center"
                     background="#fff"
                     width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
                     padding="16px 0"
                     borderRadius="8px">
                     <Box
                       bg="#C3E7F7"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      background="#FFF"
+                      boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       display="flex"
                       justifyContent="center"
                       borderRadius="7px">
-                      <Image
-                        src="/icons/design_home_icon.svg"
-                        width={24}
-                        height={24}
-                        alt="UI UX Icon"
-                      />
+                      <Image src="/icons/design_home.svg" width={24} height={24} alt="UI UX Icon" />
                     </Box>
 
                     <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
@@ -329,18 +305,21 @@ const HomePage = () => {
                     alignItems="center"
                     background="#FFF"
                     width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
                     padding="16px 0"
                     borderRadius="8px">
                     <Box
                       bg="#C3E7F7"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      background="#FFF"
+                      boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       display="flex"
                       justifyContent="center"
                       borderRadius="7px">
                       <Image
-                        src="/icons/marketing_home_icon.svg"
+                        src="/icons/marketing_home.svg"
                         width={24}
                         height={24}
                         alt="UI UX Icon"
@@ -359,17 +338,20 @@ const HomePage = () => {
                     alignItems="center"
                     background="#FFF"
                     width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
                     padding="16px 0"
                     borderRadius="8px">
                     <Box
                       bg="#C3E7F7"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      background="#FFF"
+                      boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       display="flex"
                       justifyContent="center"
                       borderRadius="7px">
-                      <Image src="/icons/react_home_icon.svg" width={24} height={24} alt="React" />
+                      <Image src="/icons/react_home.svg" width={24} height={24} alt="React" />
                     </Box>
                     <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
                       React JS
@@ -383,18 +365,21 @@ const HomePage = () => {
                     alignItems="center"
                     background="#FFF"
                     width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
                     padding="16px 0"
                     borderRadius="8px">
                     <Box
                       bg="#C3E7F7"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      background="#FFF"
+                      boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       display="flex"
                       justifyContent="center"
                       borderRadius="7px">
                       <Image
-                        src="/icons/management_home_icon.svg"
+                        src="/icons/management_home.svg"
                         width={24}
                         height={24}
                         alt="Management"
@@ -412,22 +397,20 @@ const HomePage = () => {
                     alignItems="center"
                     background="#FFF"
                     width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
                     padding="16px 0"
                     borderRadius="8px">
                     <Box
                       bg="#C3E7F7"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      background="#FFF"
+                      boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       display="flex"
                       justifyContent="center"
                       borderRadius="7px">
-                      <Image
-                        src="/icons/design_graphic_home_icon.svg"
-                        width={24}
-                        height={24}
-                        alt="Management"
-                      />
+                      <Image src="/icons/design_home.svg" width={24} height={24} alt="Management" />
                     </Box>
 
                     <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
@@ -442,22 +425,20 @@ const HomePage = () => {
                     alignItems="center"
                     background="#FFF"
                     width={{ base: '163px', sm: '163px', md: '183px', lg: '183px', xl: '183px' }}
+                    boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
                     padding="16px 0"
-                    borderRadius="8px">
+                    borderRadius={8}>
                     <Box
                       bg="#C3E7F7"
                       margin="4px"
                       width={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
+                      background="#FFF"
+                      boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
                       height={{ base: '40px', sm: '40px', md: '40px', lg: '40px', xl: '40px' }}
                       display="flex"
                       justifyContent="center"
                       borderRadius="7px">
-                      <Image
-                        src="/icons/target_home_icon.svg"
-                        width={24}
-                        height={24}
-                        alt="Target"
-                      />
+                      <Image src="/icons/target_home.svg" width={24} height={24} alt="Target" />
                     </Box>
                     <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
                       SMM
@@ -689,10 +670,7 @@ const HomePage = () => {
                         }}
                         fontSize={{
                           base: '20px',
-                          sm: '20px',
-                          md: '20px',
                           lg: '24px',
-                          xl: '24px',
                         }}
                         fontWeight="700"
                         color="#222222">
@@ -1044,96 +1022,21 @@ const HomePage = () => {
               }}
               gap="20px"
               margin="40px 0">
-              <Box width="387px">
-                <Box>
-                  <Image
-                    src="/images/public_available/sort_courses_design.jpg"
-                    alt="Course Image"
-                    width={387}
-                    height={235}
-                  />
-                </Box>
-
-                <Box border="1px solid" borderTop="none" borderColor="#F3F4F6" borderRadius="12px">
-                  <UnorderedList padding="16px" m="0" listStyleType="none" color="#222222">
-                    <ListItem fontSize="24px" mb="8px" fontWeight="700" lineHeight="31.92px">
-                      Graphic Design
-                    </ListItem>
-                    <ListItem fontWeight="400" fontSize="16px" mb="8px">
-                      Get inspired by this revived W.H. Audens Hymn to the United Nations.
-                    </ListItem>
-                    <ListItem display="flex" alignItems="center" gap="8px">
-                      <span>
-                        <Image src="/icons/star_icon.svg" alt="Star" width={24} height={24} />
-                      </span>
-                      4.8
-                    </ListItem>
-                  </UnorderedList>
-                </Box>
-              </Box>
-              <Box width="387px">
-                <Box>
-                  <Image
-                    src="/images/public_available/sort_courses_design.jpg"
-                    alt="Course Image"
-                    width={387}
-                    height={235}
-                  />
-                </Box>
-
-                <Box border="1px solid" borderTop="none" borderColor="#F3F4F6" borderRadius="12px">
-                  <UnorderedList padding="16px" m="0" listStyleType="none" color="#222222">
-                    <ListItem fontSize="24px" mb="8px" fontWeight="700" lineHeight="31.92px">
-                      Graphic Design
-                    </ListItem>
-                    <ListItem fontWeight="400" fontSize="16px" mb="8px">
-                      Get inspired by this revived W.H. Audens Hymn to the United Nations.{' '}
-                    </ListItem>
-                    <ListItem display="flex" alignItems="center" gap="8px">
-                      <span>
-                        <Image src="/icons/star_icon.svg" alt="Star" width={24} height={24} />
-                      </span>
-                      4.8
-                    </ListItem>
-                  </UnorderedList>
-                </Box>
-              </Box>
-              <Box width="387px">
-                <Box>
-                  <Image
-                    src="/images/public_available/sort_courses_marketing.jpg"
-                    alt="Course Image"
-                    width={387}
-                    height={235}
-                  />
-                </Box>
-
-                <Box border="1px solid" borderTop="none" borderColor="#F3F4F6" borderRadius="12px">
-                  <UnorderedList padding="16px" m="0" listStyleType="none" color="#222222">
-                    <ListItem fontSize="24px" mb="8px" fontWeight="700" lineHeight="31.92px">
-                      Graphic Design
-                    </ListItem>
-                    <ListItem fontWeight="400" fontSize="16px">
-                      Get inspired by this revived W.H. Audens Hymn to the United Nations.{' '}
-                    </ListItem>
-                    <ListItem display="flex" alignItems="center" gap="8px" mb="8px">
-                      <span>
-                        <Image src="/icons/star_icon.svg" alt="Star" width={24} height={24} />
-                      </span>
-                      4.8
-                    </ListItem>
-                  </UnorderedList>
-                </Box>
-              </Box>
+              {Array.from({ length: 3 }, (_, i) => ({
+                id: i,
+                courseTitle: 'Graphic Design',
+                courseDescription:
+                  'Get inspired by this revived W.H. Audens Hymn to the United Nations.',
+                rating: 4.8,
+              })).map(course => (
+                <CourseCard {...course} key={course.id} />
+              ))}
             </Box>
 
             <Box
               display="flex"
               justifyContent={{
                 base: 'center',
-                sm: 'center',
-                md: 'center',
-                lg: 'center',
                 xl: 'flex-end',
               }}>
               <Link lineHeight="21.28px" fontSize="16px" fontWeight="400">
@@ -1142,26 +1045,19 @@ const HomePage = () => {
             </Box>
           </Box>
 
-          <Box mb={{ base: '36px', sm: '36px', md: '36px', lg: '148px', xl: '148px' }}>
+          <Box mb={{ base: '36px', lg: '148px' }}>
             <Heading
               textAlign="center"
               margin={{
                 base: '0 0 16px 0',
-                sm: '0 0 16px 0',
-                md: '0 0 16px 0',
-                lg: '0 0 40px 0',
-                xl: '0 0 40px 0',
               }}
               as="h3"
               color="#222222"
               fontWeight="700"
-              fontSize={{ base: '24px', sm: '24px', md: '24px', lg: '32px', xl: '32px' }}
+              fontSize={{ base: '24px', lg: '32px' }}
               lineHeight={{
                 base: '31.92px',
-                sm: '31.92px',
-                md: '31.92px',
                 lg: '42.56px',
-                xl: '42.56px',
               }}>
               Only Qualified Articles
             </Heading>
@@ -1172,199 +1068,18 @@ const HomePage = () => {
               gap="40px 20px"
               justifyContent={{
                 base: 'center',
-                sm: 'center',
-                md: 'center',
-                lg: 'center',
-                xl: 'center',
               }}
               padding="0">
-              <Box
-                maxW="590px"
-                border="1px solid"
-                borderRadius="8px"
-                borderColor="#F3F4F6"
-                padding="24px">
-                <UnorderedList
-                  listStyleType="none"
-                  color="#333333"
-                  margin="0"
-                  borderBottom="1px solid #858585"
-                  pb="32px">
-                  <ListItem fontWeight="700" fontSize="16px" lineHeight="21.28px" mb="8px">
-                    How to Build a Design System if youre...
-                  </ListItem>
-                  <ListItem fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                    Its always hard to be the only person in a company who is responsible for
-                    product design. Your day can be insanely...
-                  </ListItem>
-                </UnorderedList>
-
-                <UnorderedList
-                  mt="16px 0 0 0 "
-                  color="#333333"
-                  listStyleType="none"
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center">
-                  <ListItem fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                    March 01, 2021
-                  </ListItem>
-
-                  <ListItem
-                    fontSize="16px"
-                    lineHeight="21.28px"
-                    fontWeight="400"
-                    display="flex"
-                    alignItems="center"
-                    gap="8px">
-                    <span>
-                      <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
-                    </span>
-                    440
-                  </ListItem>
-                </UnorderedList>
-              </Box>
-
-              <Box
-                maxW="590px"
-                border="1px solid"
-                borderRadius="8px"
-                borderColor="#F3F4F6"
-                padding="24px">
-                <UnorderedList
-                  margin="0"
-                  listStyleType="none"
-                  color="#333333"
-                  borderBottom="1px solid #858585"
-                  pb="32px">
-                  <ListItem fontWeight="700" fontSize="16px" lineHeight="21.28px" mb="8px">
-                    How to Build a Design System if youre...
-                  </ListItem>
-                  <ListItem fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                    Its always hard to be the only person in a company who is responsible for
-                    product design. Your day can be insanely...
-                  </ListItem>
-                </UnorderedList>
-
-                <UnorderedList
-                  mt="16px 0 0 0"
-                  color="#333333"
-                  listStyleType="none"
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center">
-                  <ListItem fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                    March 01, 2021
-                  </ListItem>
-
-                  <ListItem
-                    fontSize="16px"
-                    lineHeight="21.28px"
-                    fontWeight="400"
-                    display="flex"
-                    alignItems="center"
-                    gap="8px">
-                    <span>
-                      <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
-                    </span>
-                    440
-                  </ListItem>
-                </UnorderedList>
-              </Box>
-
-              <Box
-                maxW="590px"
-                border="1px solid"
-                borderRadius="8px"
-                borderColor="#F3F4F6"
-                padding="24px">
-                <UnorderedList
-                  margin="0"
-                  listStyleType="none"
-                  color="#333333"
-                  borderBottom="1px solid #858585"
-                  pb="32px">
-                  <ListItem fontWeight="700" fontSize="16px" lineHeight="21.28px" mb="8px">
-                    How to Build a Design System if youre...
-                  </ListItem>
-                  <ListItem fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                    Its always hard to be the only person in a company who is responsible for
-                    product design. Your day can be insanely...
-                  </ListItem>
-                </UnorderedList>
-
-                <UnorderedList
-                  margin="16px 0 0 0 "
-                  color="#333333"
-                  listStyleType="none"
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center">
-                  <ListItem fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                    March 01, 2021
-                  </ListItem>
-
-                  <ListItem
-                    fontSize="16px"
-                    lineHeight="21.28px"
-                    fontWeight="400"
-                    display="flex"
-                    alignItems="center"
-                    gap="8px">
-                    <span>
-                      <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
-                    </span>
-                    440
-                  </ListItem>
-                </UnorderedList>
-              </Box>
-
-              <Box
-                maxW="590px"
-                border="1px solid"
-                borderRadius="8px"
-                borderColor="#F3F4F6"
-                padding="24px">
-                <UnorderedList
-                  margin="0"
-                  listStyleType="none"
-                  color="#333333"
-                  borderBottom="1px solid #858585"
-                  pb="32px">
-                  <ListItem fontWeight="700" fontSize="16px" lineHeight="21.28px" mb="8px">
-                    How to Build a Design System if youre...
-                  </ListItem>
-                  <ListItem fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                    Its always hard to be the only person in a company who is responsible for
-                    product design. Your day can be insanely...
-                  </ListItem>
-                </UnorderedList>
-
-                <UnorderedList
-                  margin="16px 0 0 0"
-                  color="#333333"
-                  listStyleType="none"
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center">
-                  <ListItem fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                    March 01, 2021
-                  </ListItem>
-
-                  <ListItem
-                    fontSize="16px"
-                    lineHeight="21.28px"
-                    fontWeight="400"
-                    display="flex"
-                    alignItems="center"
-                    gap="8px">
-                    <span>
-                      <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
-                    </span>
-                    440
-                  </ListItem>
-                </UnorderedList>
-              </Box>
+              {Array.from({ length: 4 }, (_, i) => ({
+                id: i,
+                articleTitle: 'How to Build a Design System if youre...',
+                articleDescription:
+                  'Its always hard to be the only person in a company who is responsible for product design. Your day can be insanely...',
+                articleDate: 'March 01, 2021',
+                viewCount: 440,
+              })).map((article, i) => (
+                <ArticleItem {...article} key={i} />
+              ))}
             </Box>
           </Box>
 
@@ -1391,139 +1106,26 @@ const HomePage = () => {
             <Box
               margin={{
                 base: '0',
-                sm: '0',
-                md: '0',
-                lg: '40px 0 0 0',
                 xl: '40px 0 0 0',
               }}
               display="flex"
               gap="20px"
               flexWrap="wrap"
               justifyContent="center">
-              <Box maxW="285px">
-                <Box>
-                  <Image
-                    src="/images/public_available/trainers_image.jpg"
-                    alt="Treners"
-                    width={285}
-                    height={271}
-                  />
-                </Box>
-
-                <UnorderedList
-                  textAlign="center"
-                  fontSize="16px"
-                  lineHeight="21.28px"
-                  fontWeight="400"
-                  m="0"
-                  listStyleType="none"
-                  padding="16px 10px">
-                  <ListItem mb="8px" fontWeight="700">
-                    Name Surname
-                  </ListItem>
-                  <ListItem pb="10px" borderBottom="1px solid #F3F4F6">
-                    Digital Creator & Educator
-                  </ListItem>
-                  <ListItem pt="10px" mb="6px">
-                    Enrolled students: 89
-                  </ListItem>
-                  <ListItem>Graduated students: 12</ListItem>
-                </UnorderedList>
-              </Box>
-              <Box maxW="285px">
-                <Box>
-                  <Image
-                    src="/images/public_available/trainers_image.jpg"
-                    alt="Treners"
-                    width={285}
-                    height={271}
-                  />
-                </Box>
-
-                <UnorderedList
-                  textAlign="center"
-                  fontSize="16px"
-                  lineHeight="21.28px"
-                  fontWeight="400"
-                  m="0"
-                  listStyleType="none"
-                  padding="16px 10px">
-                  <ListItem mb="8px" fontWeight="700">
-                    Name Surname
-                  </ListItem>
-                  <ListItem pb="10px" borderBottom="1px solid #F3F4F6">
-                    Digital Creator & Educator
-                  </ListItem>
-                  <ListItem pt="10px" mb="6px">
-                    Enrolled students: 89
-                  </ListItem>
-                  <ListItem>Graduated students: 12</ListItem>
-                </UnorderedList>
-              </Box>
-              <Box maxW="285px">
-                <Box>
-                  <Image
-                    src="/images/public_available/trainers_image.jpg"
-                    alt="Treners"
-                    width={285}
-                    height={271}
-                  />
-                </Box>
-
-                <UnorderedList
-                  textAlign="center"
-                  fontSize="16px"
-                  lineHeight="21.28px"
-                  fontWeight="400"
-                  m="0"
-                  listStyleType="none"
-                  padding="16px 10px">
-                  <ListItem mb="8px" fontWeight="700">
-                    Name Surname
-                  </ListItem>
-                  <ListItem pb="10px" borderBottom="1px solid #F3F4F6">
-                    Digital Creator & Educator
-                  </ListItem>
-                  <ListItem pt="10px" mb="6px">
-                    Enrolled students: 89
-                  </ListItem>
-                  <ListItem>Graduated students: 12</ListItem>
-                </UnorderedList>
-              </Box>
-              <Box maxW="285px">
-                <Box>
-                  <Image
-                    src="/images/public_available/trainers_image.jpg"
-                    alt="Treners"
-                    width={285}
-                    height={271}
-                  />
-                </Box>
-
-                <UnorderedList
-                  textAlign="center"
-                  fontSize="16px"
-                  lineHeight="21.28px"
-                  fontWeight="400"
-                  m="0"
-                  listStyleType="none"
-                  padding="16px 10px">
-                  <ListItem mb="8px" fontWeight="700">
-                    Name Surname
-                  </ListItem>
-                  <ListItem pb="10px" borderBottom="1px solid #F3F4F6">
-                    Digital Creator & Educator
-                  </ListItem>
-                  <ListItem pt="10px" mb="6px">
-                    Enrolled students: 89
-                  </ListItem>
-                  <ListItem>Graduated students: 12</ListItem>
-                </UnorderedList>
-              </Box>
+              {Array.from({ length: 4 }, (_, i) => ({
+                id: i + 1,
+                firstName: 'First Name',
+                lastName: 'Last Name',
+                enrolledStudents: i + 3,
+                graduatedStudents: i * 5,
+                profession: 'Web Developer',
+              })).map(trainer => (
+                <TrainerCard key={trainer.id} {...trainer} />
+              ))}
             </Box>
           </Box>
 
-          <Box mb={{ base: '36px', sm: '36px', md: '36px', lg: '148px', xl: '148px' }}>
+          <Box mb={{ base: '36px', lg: '148px' }}>
             <Heading
               textAlign="center"
               margin="0"
@@ -1535,7 +1137,7 @@ const HomePage = () => {
                 lg: '42.56px',
                 xl: '42.56px',
               }}
-              fontSize={{ base: '24px', sm: '24px', md: '32px', lg: '32px', xl: '32px' }}
+              fontSize={{ base: '24px', md: '32px' }}
               fontWeight="700">
               Our Partners
             </Heading>
@@ -1545,20 +1147,14 @@ const HomePage = () => {
               maxWidth="820px"
               margin={{
                 base: '16px auto 0',
-                sm: '16px auto 0',
                 md: '40px auto 0',
-                lg: '40px auto 0',
-                xl: '40px auto 0',
               }}
               gap="34px"
               alignItems="center"
               flexWrap="wrap"
               justifyContent={{
                 base: 'center',
-                sm: 'center',
-                md: 'center',
                 lg: 'space-between',
-                xl: 'space-between',
               }}>
               <Box width="118px" height="32px">
                 <Image
@@ -1592,10 +1188,7 @@ const HomePage = () => {
                   height={32}
                 />
               </Box>
-              <Box
-                width="99px"
-                height="32px"
-                display={{ base: 'none', sm: 'none', md: 'none', lg: 'block', xl: 'block' }}>
+              <Box width="99px" height="32px" display={{ base: 'none', lg: 'block' }}>
                 <Image
                   src="/images/public_available/partners_icon_ware.png"
                   alt="Partner Icon"
@@ -1604,10 +1197,7 @@ const HomePage = () => {
                 />
               </Box>
 
-              <Box
-                width="118px"
-                height="32px"
-                display={{ base: 'none', sm: 'none', md: 'none', lg: 'block', xl: 'block' }}>
+              <Box width="118px" height="32px" display={{ base: 'none', lg: 'block' }}>
                 <Image
                   src="/images/public_available/partners_icon_holding.png"
                   alt="Partner Icon"
@@ -1618,19 +1208,16 @@ const HomePage = () => {
             </Box>
           </Box>
 
-          <Box mb={{ base: '36px', sm: '36px', md: '36px', lg: '148px', xl: '148px' }}>
+          <Box mb={{ base: '36px', lg: '148px' }}>
             <Heading
               textAlign="center"
               m="0"
               as="h3"
               lineHeight={{
                 base: '31.92px',
-                sm: '31.92px',
                 md: '42.56px',
-                lg: '42.56px',
-                xl: '42.56px',
               }}
-              fontSize={{ base: '24px', sm: '24px', md: '32px', lg: '32px', xl: '32px' }}
+              fontSize={{ base: '24px', md: '32px' }}
               fontWeight="700">
               Why Students Love Persona
             </Heading>
@@ -1641,173 +1228,19 @@ const HomePage = () => {
               justifyContent="center"
               margin={{
                 base: '16px 0 0 0',
-                sm: '16px 0 0 0',
                 md: '36px 0 0 0',
                 lg: '40px 0 0 0',
-                xl: '40px 0 0 0',
               }}
-              flexWrap={{ base: 'wrap', sm: 'wrap', md: 'wrap', lg: 'nowrap', xl: 'nowrap' }}>
-              <Box width="387px">
-                <Box
-                  position="relative"
-                  bg="#ECF7FC"
-                  textAlign="center"
-                  padding="48px"
-                  display="flex"
-                  gap="16px"
-                  flexDirection="column"
-                  alignItems="center"
-                  borderRadius="12px">
-                  <Text as="span" width="24.5px" height="20px">
-                    <Image src="/icons/icon_dots.png" alt="Dots" width={24.5} height={20} />
-                  </Text>
-                  <Text m="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
-                    When our designs need an expert opinion or approval, I know I can rely on your
-                    agency Thank you for all your help-I will be recommending you to everyone
-                  </Text>
-                  <span
-                    style={{
-                      position: 'absolute',
-                      bottom: '-15px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                    }}>
-                    <Image
-                      src="/icons/arrow_down_blue.svg"
-                      alt="Arrow"
-                      width={22.5}
-                      height={15.7}
-                    />
-                  </span>
-                </Box>
-
-                <Box
-                  paddingTop="36px"
-                  textAlign="center"
-                  display="flex"
-                  gap="8px"
-                  flexDirection="column"
-                  alignItems="center">
-                  <Image src="/icons/students_feed.png" alt="Feed" width={64} height={64} />
-
-                  <UnorderedList
-                    lineHeight="21.28px"
-                    fontSize="16px"
-                    margin="0"
-                    listStyleType="none">
-                    <ListItem fontWeight="700">Name Surname</ListItem>
-                    <ListItem fontWeight="400">Desinger</ListItem>
-                  </UnorderedList>
-                </Box>
-              </Box>
-
-              <Box width="387px">
-                <Box
-                  position="relative"
-                  bg="#FFEFEA"
-                  textAlign="center"
-                  gap="16px"
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
-                  padding="48px"
-                  borderRadius="12px">
-                  <Text as="span" width="24.5px" height="20px">
-                    <Image src="/icons/icon_dots.png" alt="Dots" width={24.5} height={20} />
-                  </Text>
-                  <Text m="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
-                    When our designs need an expert opinion or approval, I know I can rely on your
-                    agency Thank you for all your help-I will be recommending you to everyone
-                  </Text>
-                  <span
-                    style={{
-                      position: 'absolute',
-                      bottom: '-15px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                    }}>
-                    <Image
-                      src="/icons/arrow_down_blue.svg"
-                      alt="Arrow"
-                      width={22.5}
-                      height={15.7}
-                    />
-                  </span>
-                </Box>
-
-                <Box
-                  paddingTop="36px"
-                  textAlign="center"
-                  display="flex"
-                  gap="8px"
-                  flexDirection="column"
-                  alignItems="center">
-                  <Image src="/icons/students_feed.png" alt="Feed" width={64} height={64} />
-
-                  <UnorderedList
-                    lineHeight="21.28px"
-                    fontSize="16px"
-                    margin="0"
-                    listStyleType="none">
-                    <ListItem fontWeight="700">Name Surname</ListItem>
-                    <ListItem fontWeight="400">Desinger</ListItem>
-                  </UnorderedList>
-                </Box>
-              </Box>
-
-              <Box width="387px">
-                <Box
-                  position="relative"
-                  bg="#ECF7FC"
-                  textAlign="center"
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
-                  gap="16px"
-                  padding="48px"
-                  borderRadius="12px">
-                  <Text as="span" width="24.5px" height="20px">
-                    <Image src="/icons/icon_dots.png" alt="Dots" width={24.5} height={20} />
-                  </Text>
-                  <Text m="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
-                    When our designs need an expert opinion or approval, I know I can rely on your
-                    agency Thank you for all your help-I will be recommending you to everyone
-                  </Text>
-                  <span
-                    style={{
-                      position: 'absolute',
-                      bottom: '-15px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                    }}>
-                    <Image
-                      src="/icons/arrow_down_blue.svg"
-                      alt="Arrow"
-                      width={22.5}
-                      height={15.7}
-                    />
-                  </span>
-                </Box>
-
-                <Box
-                  paddingTop="36px"
-                  textAlign="center"
-                  display="flex"
-                  gap="8px"
-                  flexDirection="column"
-                  alignItems="center">
-                  <Image src="/icons/students_feed.png" alt="Feed" width={64} height={64} />
-
-                  <UnorderedList
-                    lineHeight="21.28px"
-                    fontSize="16px"
-                    margin="0"
-                    listStyleType="none">
-                    <ListItem fontWeight="700">Name Surname</ListItem>
-                    <ListItem fontWeight="400">Desinger</ListItem>
-                  </UnorderedList>
-                </Box>
-              </Box>
+              flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
+              {Array.from({ length: 3 }, () => ({
+                feedbackText:
+                  'When our designs need an expert opinion or approval, I know I can rely on your agency Thank you for all your help-I will be recommending you to everyone',
+                firstName: 'First Name',
+                lastName: 'Last Name',
+                profession: 'Designer',
+              })).map((feedback, i) => (
+                <StudentFeedback key={i} {...feedback} bg={i === 1 ? '#ffefea' : '#ECF7FC'} />
+              ))}
             </Box>
           </Box>
         </Container>
@@ -1817,10 +1250,7 @@ const HomePage = () => {
           bg="#1F1646"
           padding={{
             base: '40px 10px',
-            sm: '40px 10px',
-            md: '40px 10px',
             lg: '40px 0',
-            xl: '40px 0',
           }}
           color="#fff">
           <Box maxW="794px" margin="0 auto" textAlign="center">
