@@ -8,19 +8,20 @@ const $apiClient = axios.create({
   withCredentials: true,
 });
 
-const { toast } = createStandaloneToast();
-
 const handleError = (error: Error | AxiosError) => {
-  if (axios.isAxiosError(error) && !!error.response) {
-    toast({
-      title: error.response.data.responseMessage,
-      status: 'error',
-      ...toastDefaultOptions,
-    });
-    return Promise.reject(error.response.data);
-  } else {
-    toast({ title: error.message, status: 'error', ...toastDefaultOptions });
-    return Promise.reject(error);
+  if (!!window.document) {
+    const { toast } = createStandaloneToast();
+    if (axios.isAxiosError(error) && !!error.response?.data?.responseMessage) {
+      toast({
+        title: error.response.data.responseMessage,
+        status: 'error',
+        ...toastDefaultOptions,
+      });
+      return Promise.reject(error.response.data);
+    } else {
+      toast({ title: error.message, status: 'error', ...toastDefaultOptions });
+      return Promise.reject(error);
+    }
   }
 };
 
