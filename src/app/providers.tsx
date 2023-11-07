@@ -1,11 +1,15 @@
 'use client';
-import { useEffect } from 'react';
+import { FC, memo, useEffect } from 'react';
 import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider, extendTheme, LightMode, ThemeConfig } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SessionProvider } from 'next-auth/react';
 import { colors, components, space } from '@/constants/chakra';
 import { montserrat } from '@/constants/fonts';
+
+type Props = {
+  children: React.ReactNode;
+};
 
 const theme: ThemeConfig = extendTheme({
   config: {
@@ -20,7 +24,7 @@ const theme: ThemeConfig = extendTheme({
 
 const queryClient = new QueryClient();
 
-export function Providers({ children }: { children: React.ReactNode }) {
+const Providers: FC<Props> = ({ children }) => {
   useEffect(() => {
     if (localStorage.getItem('chakra-ui-color-mode')) {
       localStorage.removeItem('chakra-ui-color-mode');
@@ -40,4 +44,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
       </QueryClientProvider>
     </SessionProvider>
   );
-}
+};
+
+export default memo(Providers);

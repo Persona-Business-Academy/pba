@@ -9,17 +9,16 @@ const $apiClient = axios.create({
 });
 
 const handleError = (error: Error | AxiosError) => {
-  if (!!window.document) {
-    const { toast } = createStandaloneToast();
+  if (!!window?.document) {
+    const { toast } = createStandaloneToast({
+      defaultOptions: { status: 'error', ...toastDefaultOptions },
+    });
+
     if (axios.isAxiosError(error) && !!error.response?.data?.responseMessage) {
-      toast({
-        title: error.response.data.responseMessage,
-        status: 'error',
-        ...toastDefaultOptions,
-      });
+      toast({ title: error.response.data.responseMessage });
       return Promise.reject(error.response.data);
     } else {
-      toast({ title: error.message, status: 'error', ...toastDefaultOptions });
+      toast({ title: error.message });
       return Promise.reject(error);
     }
   }
