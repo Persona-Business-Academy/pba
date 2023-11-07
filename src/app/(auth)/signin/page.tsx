@@ -21,13 +21,7 @@ export default function SignInPage() {
   const searchParams = useSearchParams();
   const { push } = useRouter();
 
-  const route = searchParams?.get('callback_url');
-
-  const {
-    control,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<SignInFormData>({ defaultValues: { email: '', password: '', rememberMe: false } });
+  const route = useMemo(() => searchParams?.get('callback_url'), [searchParams]);
 
   const authBoxProps = useMemo(
     () => ({
@@ -39,6 +33,12 @@ export default function SignInPage() {
     }),
     [],
   );
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<SignInFormData>({ defaultValues: { email: '', password: '', rememberMe: false } });
 
   const onSubmit: SubmitHandler<SignInFormData> = useCallback(
     ({ email, password }) => {
