@@ -44,7 +44,7 @@ const FormInput: FC<Props> = ({
   const [isPasswordType, setIsPasswordType] = useState(true);
 
   return (
-    <FormControl isInvalid={isInvalid} id={name}>
+    <FormControl isRequired={isInvalid} id={name}>
       <FormLabel fontWeight={600} marginBottom={4} lineHeight="20px" fontSize={14} color="#222">
         {formLabelName}
         {isRequired && (
