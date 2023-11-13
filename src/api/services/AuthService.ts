@@ -20,7 +20,7 @@ export class AuthService {
   static forgotPasswordStep3(data: ForgotPasswordStep3Validation) {
     // this is only example for serverside calls
     // _______________________________________________________________
-    // const session = await getServerSession(authOptions);
+    //  const session = await serverSession()
     return $apiClient.post(
       '/custom-auth/forgot-password-third-step',
       data,

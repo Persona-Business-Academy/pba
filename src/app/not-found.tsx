@@ -1,5 +1,5 @@
 'use client';
-import React, { FC } from 'react';
+import React from 'react';
 import {
   Box,
   Container,
@@ -12,9 +12,7 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 
-type Props = {};
-
-const NotFound: FC<Props> = () => {
+export default function NotFound() {
   return (
     <Container padding="0" maxWidth="1920px">
       <Flex
@@ -102,6 +100,4 @@ const NotFound: FC<Props> = () => {
       </Flex>
     </Container>
   );
-};
-
-export default NotFound;
+}

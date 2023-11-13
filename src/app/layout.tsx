@@ -1,5 +1,5 @@
 import { segoe } from '@/constants/fonts';
-import { Providers } from './providers';
+import Providers from './providers';
 import './globals.scss';
 
 export const metadata = {
