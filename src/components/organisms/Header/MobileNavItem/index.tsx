@@ -20,18 +20,18 @@ interface MobileNavItemProp {
 const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href }) => {
   return (
     <AccordionItem>
-      <h2>
-        <AccordionButton>
-          <Box flex="1" textAlign="left" as={href ? Link : 'span'} {...(href ? { href } : {})}>
-            {label}
-          </Box>
+      <AccordionButton>
+        <Box flex="3" textAlign="left" as={href ? Link : 'span'} {...(href ? { href } : {})}>
+          {label}
+        </Box>
+        <Box flex="1">
           <AccordionIcon />
-        </AccordionButton>
-      </h2>
+        </Box>
+      </AccordionButton>
       <AccordionPanel pb={0} bg="#F9FAFB" pt={0}>
         <Accordion allowToggle>
           {children?.map((child: SubLabels) => (
-            <AccordionItem key={Math.random()}>
+            <AccordionItem key={child.id}>
               <h2>
                 <AccordionButton>
                   <Box as="span" flex="1" textAlign="left">
@@ -47,7 +47,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href }) => {
                     py={4}
                     my={2}
                     _hover={{
-                      bg: '#0000000a',
+                      bg: '#0000000',
                     }}>
                     <Text href="/" as={Link} display="block">
                       {subLabel.subLabelName}
