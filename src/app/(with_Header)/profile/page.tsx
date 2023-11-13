@@ -14,7 +14,7 @@ type Props = {};
 const Profile: FC<Props> = () => {
   const { data } = useSession();
   return (
-    <Box width="700px" margin="0 auto" py="96px">
+    <Box width="700px" margin="0 auto" py="96px">~
       <Text
         textAlign="center"
         as="h3"

@@ -170,7 +170,15 @@ const LeadershipPage: FC<Props> = () => {
             color="#1f1646"
             padding="16px 32px"
             borderRadius="6px"
-            marginTop="24px">
+            marginTop="24px"
+            _hover={{
+              bg: '#F3F4F6',
+              color: '#1f1646',
+            }}
+            _focus={{
+              bg: '#E9E9E9',
+              color: '#1f1646',
+            }}>
             Apply now
           </Button>
         </Flex>
