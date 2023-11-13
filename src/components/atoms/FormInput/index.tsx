@@ -44,7 +44,7 @@ const FormInput: FC<Props> = ({
   const [isPasswordType, setIsPasswordType] = useState(true);
 
   return (
-    <FormControl isRequired={isInvalid} id={name}>
+    <FormControl isInvalid={isInvalid} id={name}>
       <FormLabel fontWeight={600} marginBottom={4} lineHeight="20px" fontSize={14} color="#222">
         {formLabelName}
         {isRequired && (
@@ -63,6 +63,7 @@ const FormInput: FC<Props> = ({
           isRequired={isRequired}
           borderRadius={6}
           height="40px"
+          bg="#fff"
           boxShadow="0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
           _focus={{
             border: '1px solid #3cb4e7',

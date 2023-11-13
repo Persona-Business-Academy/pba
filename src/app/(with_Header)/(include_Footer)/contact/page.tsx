@@ -1,6 +1,16 @@
 'use client';
 import React from 'react';
-import { Box, Checkbox, Container, Flex, FormControl, Heading, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Checkbox,
+  Container,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  Text,
+  Textarea,
+} from '@chakra-ui/react';
 import Image from 'next/image';
 import { Button, FormInput, PhoneNumberInput } from '@/components/atoms';
 
@@ -169,12 +179,17 @@ const Contact = () => {
                 </Box>
 
                 <Box width="100%">
-                  <FormInput
-                    placeholder="Type here..."
-                    formLabelName="Message"
-                    isRequired
-                    name="Message"
-                  />
+                  <FormControl>
+                    <FormLabel
+                      fontWeight={600}
+                      marginBottom={4}
+                      lineHeight="20px"
+                      fontSize={14}
+                      color="#222">
+                      Message
+                    </FormLabel>
+                    <Textarea bg="#fff" placeholder="Type here ..." resize="none" />
+                  </FormControl>
                 </Box>
 
                 <Flex gap="12px" alignItems="baseline">
