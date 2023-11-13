@@ -74,7 +74,6 @@ export const forgotPasswordStep2 = async ({
 
 export const forgotPasswordStep3 = async ({
   confirmPassword,
-
   newPassword,
   userId,
 }: ForgotPasswordStep3Validation) => {
