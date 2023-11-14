@@ -1,5 +1,13 @@
-import { FC, memo } from 'react';
-import { Box, Collapse, Flex, IconButton, Stack, useDisclosure } from '@chakra-ui/react';
+import { FC, memo, useRef } from 'react';
+import {
+  Box,
+  Collapse,
+  Flex,
+  IconButton,
+  Stack,
+  useDisclosure,
+  useOutsideClick,
+} from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -8,373 +16,29 @@ import { useSession } from 'next-auth/react';
 import CloseIcon from 'public/icons/close_icon.svg';
 import BurgerMenuIcon from 'public/icons/menu.svg';
 import { Button } from '@/components/atoms';
-import {
-  ARTICLES_ROUTE,
-  FOR_KIDS_ROUTE,
-  HOMEPAGE_ROUTE,
-  INDIVIDUALS_ROUTE,
-  PRICING_ROUTE,
-  SIGN_IN_ROUTE,
-  SIGN_UP_ROUTE,
-  VIDEO_COURSES_ROUTE,
-} from '@/constants/routes';
-import { NavItem } from '@/models/header';
+import { HOMEPAGE_ROUTE, NAV_ITEMS, SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/constants/routes';
 import DesktopNav from './DesktopNavigation';
 import MobileNav from './MobileNav';
 import ProfileMenu from './ProfileMenu';
-
-const NAV_ITEMS: NavItem[] = [
-  {
-    label: 'For Individuals',
-    href: INDIVIDUALS_ROUTE,
-    children: [
-      {
-        id: 1,
-        label: 'Development',
-        subLabels: [
-          {
-            subLabelName: 'HTML & CSS',
-            children: [],
-          },
-          {
-            subLabelName: 'JS',
-            children: [],
-          },
-          {
-            subLabelName: 'React.js',
-            children: [],
-          },
-          {
-            subLabelName: 'Node.js',
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 2,
-        label: 'Design',
-        subLabels: [
-          {
-            subLabelName: 'UI/UX Design',
-            children: [],
-          },
-          {
-            subLabelName: 'Graphic Design',
-            children: [],
-          },
-          {
-            subLabelName: 'Motion Design',
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 3,
-        label: 'Marketing',
-        subLabels: [
-          {
-            subLabelName: 'Social Media Marketing',
-            children: [],
-          },
-          {
-            subLabelName: 'Digital Marketing',
-            children: [],
-          },
-          {
-            subLabelName: 'Email Marketing',
-            children: [],
-          },
-          {
-            subLabelName: 'Google Marketing',
-            children: [],
-          },
-          {
-            subLabelName: 'Web Masters',
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 4,
-        label: 'Management',
-        subLabels: [
-          {
-            subLabelName: 'HRM',
-            children: [],
-          },
-          {
-            subLabelName: 'Project Management',
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 5,
-        label: 'Other',
-        subLabels: [
-          {
-            subLabelName: 'Quality Assurance',
-            children: [],
-          },
-        ],
-      },
-    ],
-    featuredItems: [
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-    ],
-  },
-  {
-    label: 'For Kids',
-    href: FOR_KIDS_ROUTE,
-    children: [
-      {
-        id: 1,
-        label: 'Development',
-        subLabels: [
-          {
-            subLabelName: 'HTML',
-            children: [],
-          },
-          {
-            subLabelName: 'CSS',
-            children: [],
-          },
-          {
-            subLabelName: 'JS',
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 2,
-        label: 'Design',
-        subLabels: [
-          {
-            subLabelName: 'UI/UX Design',
-            children: [],
-          },
-          {
-            subLabelName: 'Graphic Design',
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 3,
-        label: 'Robotics',
-        subLabels: [],
-      },
-    ],
-    featuredItems: [
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-    ],
-  },
-  {
-    label: 'Video Courses',
-    href: '' && VIDEO_COURSES_ROUTE,
-    children: [
-      {
-        id: 1,
-        label: 'Marketing',
-        subLabels: [
-          {
-            subLabelName: ' Social Media Marketing',
-            children: [],
-          },
-          {
-            subLabelName: 'Digital Marketing',
-            children: [],
-          },
-          {
-            subLabelName: 'Google Marketing',
-            children: [],
-          },
-          {
-            subLabelName: 'Google Ads',
-            children: [],
-          },
-          {
-            subLabelName: 'Google Analytics',
-            children: [],
-          },
-          {
-            subLabelName: 'GTM',
-            children: [],
-          },
-          {
-            subLabelName: 'Google AdSense',
-            children: [],
-          },
-          {
-            subLabelName: 'Email Marketing',
-            children: [],
-          },
-          {
-            subLabelName: 'Email Marketing',
-            children: [],
-          },
-          {
-            subLabelName: 'Mailchimp Marketing',
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 2,
-        label: 'Programming',
-        subLabels: [
-          {
-            subLabelName: 'Front End Development',
-            children: [],
-          },
-          {
-            subLabelName: 'Html & CSS',
-            children: [],
-          },
-          {
-            subLabelName: 'JavaScript',
-            children: [],
-          },
-          {
-            subLabelName: 'React JS',
-            children: [],
-          },
-          {
-            subLabelName: 'Node JS',
-            children: [],
-          },
-        ],
-      },
-      {
-        id: 3,
-        label: 'Human Resource Management',
-        subLabels: [],
-      },
-      {
-        id: 3,
-        label: 'Business Law',
-        subLabels: [],
-      },
-    ],
-    featuredItems: [
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-    ],
-  },
-  {
-    label: 'Pricing',
-    href: PRICING_ROUTE,
-    children: [],
-    featuredItems: [],
-  },
-  {
-    label: 'Articles',
-    href: ARTICLES_ROUTE,
-    children: [],
-    featuredItems: [],
-  },
-];
 
 type HeaderProps = {
   user: User | null;
 };
 
 const Header: FC<HeaderProps> = ({ user }) => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
   const { data } = useSession();
   const pathname = usePathname();
+  const collapseRef = useRef<HTMLDivElement>(null);
+
+  useOutsideClick({
+    ref: collapseRef,
+    handler: () => {
+      if (isOpen) {
+        onClose();
+      }
+    },
+  });
 
   return (
     <Box
@@ -455,8 +119,8 @@ const Header: FC<HeaderProps> = ({ user }) => {
         </Flex>
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav navItems={NAV_ITEMS} />
+      <Collapse in={isOpen} animateOpacity ref={collapseRef}>
+        <MobileNav navItems={NAV_ITEMS} user={user || data?.user || null} />
       </Collapse>
     </Box>
   );

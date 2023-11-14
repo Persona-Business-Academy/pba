@@ -7,6 +7,7 @@ import PbaCreditIcon from 'public/icons/pba_credit_icon.svg';
 import ProfileIcon from 'public/icons/profile_icon.svg';
 import SubscriptionIcon from 'public/icons/subscription_icon.svg';
 import WishlistIcon from 'public/icons/wishlist_icon.svg';
+import { NavItem } from '@/models/header';
 
 export const HOMEPAGE_ROUTE = '/';
 export const SIGN_IN_ROUTE = '/signin';
@@ -50,3 +51,347 @@ export const linkItems: Array<LinkItemProps> = [
 ];
 
 export const LOGOUT_ID = 9;
+
+export const NAV_ITEMS: NavItem[] = [
+  {
+    label: 'For Individuals',
+    href: INDIVIDUALS_ROUTE,
+    children: [
+      {
+        id: 1,
+        label: 'Development',
+        subLabels: [
+          {
+            subLabelName: 'HTML & CSS',
+            children: [],
+          },
+          {
+            subLabelName: 'JS',
+            children: [],
+          },
+          {
+            subLabelName: 'React.js',
+            children: [],
+          },
+          {
+            subLabelName: 'Node.js',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 2,
+        label: 'Design',
+        subLabels: [
+          {
+            subLabelName: 'UI/UX Design',
+            children: [],
+          },
+          {
+            subLabelName: 'Graphic Design',
+            children: [],
+          },
+          {
+            subLabelName: 'Motion Design',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 3,
+        label: 'Marketing',
+        subLabels: [
+          {
+            subLabelName: 'Social Media Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Digital Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Email Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Google Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Web Masters',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 4,
+        label: 'Management',
+        subLabels: [
+          {
+            subLabelName: 'HRM',
+            children: [],
+          },
+          {
+            subLabelName: 'Project Management',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 5,
+        label: 'Other',
+        subLabels: [
+          {
+            subLabelName: 'Quality Assurance',
+            children: [],
+          },
+        ],
+      },
+    ],
+    featuredItems: [
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+    ],
+  },
+  {
+    label: 'For Kids',
+    href: FOR_KIDS_ROUTE,
+    children: [
+      {
+        id: 1,
+        label: 'Development',
+        subLabels: [
+          {
+            subLabelName: 'HTML',
+            children: [],
+          },
+          {
+            subLabelName: 'CSS',
+            children: [],
+          },
+          {
+            subLabelName: 'JS',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 2,
+        label: 'Design',
+        subLabels: [
+          {
+            subLabelName: 'UI/UX Design',
+            children: [],
+          },
+          {
+            subLabelName: 'Graphic Design',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 3,
+        label: 'Robotics',
+        subLabels: [],
+      },
+    ],
+    featuredItems: [
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+    ],
+  },
+  {
+    label: 'Video Courses',
+    href: '' && VIDEO_COURSES_ROUTE,
+    children: [
+      {
+        id: 1,
+        label: 'Marketing',
+        subLabels: [
+          {
+            subLabelName: ' Social Media Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Digital Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Google Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Google Ads',
+            children: [],
+          },
+          {
+            subLabelName: 'Google Analytics',
+            children: [],
+          },
+          {
+            subLabelName: 'GTM',
+            children: [],
+          },
+          {
+            subLabelName: 'Google AdSense',
+            children: [],
+          },
+          {
+            subLabelName: 'Email Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Email Marketing',
+            children: [],
+          },
+          {
+            subLabelName: 'Mailchimp Marketing',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 2,
+        label: 'Programming',
+        subLabels: [
+          {
+            subLabelName: 'Front End Development',
+            children: [],
+          },
+          {
+            subLabelName: 'Html & CSS',
+            children: [],
+          },
+          {
+            subLabelName: 'JavaScript',
+            children: [],
+          },
+          {
+            subLabelName: 'React JS',
+            children: [],
+          },
+          {
+            subLabelName: 'Node JS',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 3,
+        label: 'Human Resource Management',
+        subLabels: [],
+      },
+      {
+        id: 3,
+        label: 'Business Law',
+        subLabels: [],
+      },
+    ],
+    featuredItems: [
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+    ],
+  },
+  {
+    label: 'Pricing',
+    href: PRICING_ROUTE,
+    children: [],
+    featuredItems: [],
+  },
+  {
+    label: 'Articles',
+    href: ARTICLES_ROUTE,
+    children: [],
+    featuredItems: [],
+  },
+];
