@@ -21,10 +21,7 @@ const TrainerCard: FC<TrainerCardProps> = ({
     <Box
       margin={{
         base: '0',
-        sm: '0',
-        md: '0',
         lg: '40px 0 0 0',
-        xl: '40px 0 0 0',
       }}
       display="flex"
       gap="20px"
