@@ -9,6 +9,7 @@ import ArrowLeft from '/public/icons/left_arrow.svg';
 import ArrowRight from '/public/icons/right_arrow.svg';
 import InputSearchIcon from '/public/icons/search_icon.svg';
 import Image from 'next/image';
+import CourseFilter from '@/components/molecules/CourseFilter';
 import { montserrat } from '@/constants/fonts';
 
 type Props = {};
@@ -57,7 +58,9 @@ const OfflineCourses: FC<Props> = () => {
           </Flex>
         </Flex>
         <Flex as="section" gap="20px" marginBottom="148px">
-          <Flex flexDirection="column" width="285px"></Flex>
+          <Flex flexDirection="column" width="285px">
+            <CourseFilter />
+          </Flex>
           <Flex flexDirection="column" width="895px">
             <Flex flexDirection="column" gap="16px" marginBottom="40px">
               <Flex
