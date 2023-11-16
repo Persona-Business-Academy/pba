@@ -27,7 +27,7 @@ const Partners: FC<Props> = () => {
         as="section"
         flexDirection="column"
         backgroundColor="#F6FCFF"
-        py={{ base: '75.5px', xl: '98px' }}
+        py={{ base: '74px', xl: '98px' }}
         textAlign="center"
         alignItems="center"
         fontStyle="normal"

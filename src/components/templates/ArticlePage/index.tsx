@@ -1,7 +1,17 @@
 'use client';
 
 import React from 'react';
-import { Box, Container, Flex, Heading, Input, InputGroup, ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Input,
+  InputGroup,
+  ListItem,
+  Text,
+  UnorderedList,
+} from '@chakra-ui/react';
 import Image from 'next/image';
 import { Button } from '@/components/atoms';
 import { segoe } from '@/constants/fonts';
@@ -28,7 +38,7 @@ const ArticlePage = () => {
             <Heading
               color="#222222"
               fontSize={{ base: '28px', sm: '44px' }}
-              fontWeight={700}
+              fontWeight={{ base: 600, md: 700 }}
               lineHeight="normal"
               fontStyle="normal">
               How to teach with technology in every subject
@@ -86,7 +96,8 @@ const ArticlePage = () => {
         gap={{ base: '36px', md: '80px', xl: '148px' }}>
         <Box as="section" maxWidth="793px" margin={{ base: '36px auto 36px', md: '64px auto 0' }}>
           <Text
-            _firstLetter={{ fontSize: '44px', fontWeight: '700', color: '#222222' }}
+            _firstLetter={{ fontSize: '44px', fontWeight: '700' }}
+            color="#222222"
             fontSize="16px"
             fontWeight={400}
             lineHeight="normal"
@@ -147,7 +158,6 @@ const ArticlePage = () => {
               fontSize="16px"
               fontWeight="700"
               height="53px"
-              color="#fff"
               padding="16px 32px">
               View subscription options
             </Button>
@@ -167,44 +177,41 @@ const ArticlePage = () => {
           <Flex
             flexDirection={{ base: 'column', md: 'row' }}
             justifyContent="center"
-            gap={{ base: '16px', sm: '21px' }}
             alignItems="center"
-            p={{ base: '16px', md: '0' }}>
-            <Box borderRadius={{ base: '16px', md: '36px' }} overflow="hidden" maxW="100%">
+            flexWrap="wrap"
+            height="auto"
+            p={{ base: '16px', sm: '0' }}>
+            <Box
+              borderRadius={{ base: '16px', md: '36px' }}
+              overflow="hidden"
+              position="relative"
+              width={{ base: '94px', sm: '487px' }}
+              height={{ base: '94px', sm: '406px' }}>
               <Image
                 src="/images/public_available/articles_user_img.jpg"
-                alt="Img"
-                width={487}
-                height={406}
-                // fill
-                // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                alt="Author image"
+                fill
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
               />
             </Box>
             <Box
-              maxW="587px"
+              backgroundColor="#F9FAFB"
+              borderRadius={{ base: '0', sm: '10px 70px 10px 10px' }}
+              flexBasis={{ base: 'auto', md: 713 }}
+              height="100%"
               display="flex"
-              flexShrink="3"
               flexDirection="column"
               alignItems="center"
               fontSize="16px"
               lineHeight="normal"
               fontStyle="normal"
+              padding={{ base: '16px', md: '44px 105px 38px 21px' }}
               gap={{ base: '8px', sm: '16px' }}>
               <Text color="#222222" fontWeight={700}>
                 Name Surname
               </Text>
-              <Text
-                color="#5B5B5B"
-                fontWeight={400}
-                textAlign={{ base: 'left', md: 'center' }}
-                maxWidth={{ base: '311px', sm: '587px' }}
-                // overflow="hidden"
-                // display={{ base: '-webkit-box', sm: 'block' }}
-                // style={{
-                //   WebkitBoxOrient: 'vertical',
-                // }}
-                // WebkitLineClamp={{ base: 2, sm: 9999 }}
-              >
+
+              <Text color="#5B5B5B" fontWeight={400} textAlign={{ base: 'left', md: 'center' }}>
                 Lorem ipsum dolor sit consectetur sed do eiuNext, apply this class to your
                 component:Lorem ipsum dolor sit consectetur sed do Lorem ipsum dolor sit consectetur
                 sed do Lorem ipsum dolor sit , consectetur sed do Lorem ipsum dolor sit ,
