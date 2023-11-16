@@ -39,6 +39,7 @@ const Checkbox: ComponentStyleConfig = {
   baseStyle: {
     control: {
       borderRadius: '5px',
+      borderWidth: '0.83px',
       bg: '#fff',
       borderColor: '#36A1CE',
 
