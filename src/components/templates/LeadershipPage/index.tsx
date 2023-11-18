@@ -25,8 +25,6 @@ const LeadershipPage: FC<Props> = () => {
     <>
       <Container maxWidth={1201} margin="0 auto" px={{ base: '16px', xl: '0px' }}>
         <Box
-          maxWidth={996}
-          margin="0 auto"
           textAlign="center"
           fontStyle="normal"
           lineHeight="normal"
@@ -34,13 +32,13 @@ const LeadershipPage: FC<Props> = () => {
           <Heading
             className={segoe.className}
             fontSize={{ base: '24px', sm: '32px' }}
-            color={{ base: '#222222', sm: '#000' }}
+            color="#222222"
             fontWeight={700}>
             WE ARE PERSONA
           </Heading>
           <Heading
             fontSize={{ base: '32px', sm: '44px' }}
-            color={{ base: '#222222', sm: '#000' }}
+            color="#222222"
             fontWeight={700}
             marginBottom={{ base: '16px', sm: '20px' }}>
             We power better training experiences
@@ -49,13 +47,14 @@ const LeadershipPage: FC<Props> = () => {
             fontSize="16px"
             color="#222222"
             fontWeight={400}
+            lineHeight="22px"
             marginBottom={{ base: '20px', sm: '40px' }}>
             Lorem ipsum, or ipsum as it is sometimes known, is dummy text used in laying out print,
             graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
             century who is thought to have scrambled parts of Ciceros De bus
           </Text>
         </Box>
-        <Box>
+        <Box borderRadius="16px" overflow="hidden">
           <Image
             src="/images/public_available/leadership_main.jpg"
             width={1201}
@@ -73,43 +72,44 @@ const LeadershipPage: FC<Props> = () => {
             className={segoe.className}
             color="#000"
             fontWeight={700}
-            fontSize="32px"
-            marginBottom="20px">
+            lineHeight={{ base: '36px', md: 'normal' }}
+            fontSize={{ base: '28px', md: '32px' }}
+            marginBottom={{ base: '16px', md: '20px' }}>
             Meet our Team
           </Heading>
-          <Tabs variant="unstyled" width="100%">
-            <TabList display="flex" justifyContent="center" gap="32px" marginBottom="40px">
+          <Tabs width="100%" position="relative" variant="unstyled">
+            <TabList
+              width="343px"
+              margin="0 auto"
+              display="flex"
+              justifyContent="center"
+              gap="32px"
+              marginBottom={{ base: '16px', md: '40px' }}>
               <Tab
-                padding="8px 12px"
-                borderRadius="6px"
                 color="#5B5B5B"
                 fontSize="14px"
                 fontStyle="normal"
                 lineHeight="20px"
                 fontWeight={600}
-                _selected={{ color: '#4338CA', bg: '#E0E7FF' }}>
+                _selected={{ color: '#3CB4E7', borderBottom: '2px solid #3CB4E7' }}>
                 Ex leadership
               </Tab>
               <Tab
-                padding="8px 12px"
-                borderRadius="6px"
                 color="#5B5B5B"
                 fontSize="14px"
                 fontStyle="normal"
                 lineHeight="20px"
                 fontWeight={600}
-                _selected={{ color: '#4338CA', bg: '#E0E7FF' }}>
+                _selected={{ color: '#3CB4E7', borderBottom: '2px solid #3CB4E7' }}>
                 Teachers
               </Tab>
               <Tab
-                padding="8px 12px"
-                borderRadius="6px"
                 color="#5B5B5B"
                 fontSize="14px"
                 fontStyle="normal"
                 lineHeight="20px"
                 fontWeight={600}
-                _selected={{ color: '#4338CA', bg: '#E0E7FF' }}>
+                _selected={{ color: '#3CB4E7', borderBottom: '2px solid #3CB4E7' }}>
                 Team
               </Tab>
             </TabList>
@@ -128,7 +128,7 @@ const LeadershipPage: FC<Props> = () => {
                     base: 'repeat(auto-fit, minmax(283px, 1fr))',
                     md: 'repeat(auto-fit, minmax(350px, 1fr))',
                   }}
-                  gridGap="20px">
+                  gridGap={{ base: '16px', sm: '20px' }}>
                   {Array.from({ length: 6 }, () => ({
                     firstName: 'First Name',
                     lastName: 'Last Name',
@@ -143,25 +143,23 @@ const LeadershipPage: FC<Props> = () => {
           </Tabs>
         </Flex>
       </Container>
-      <Flex
-        px={{ base: '10px', xl: '0px' }}
-        backgroundColor="#1f1646"
-        borderRadius="73px 73px 0px 0px"
-        height="299px"
-        flexShrink={0}>
+      <Flex px={{ base: '10px', xl: '0px' }} backgroundColor="#1f1646" py="40px" flexShrink={0}>
         <Flex
           alignItems="center"
           flexDirection="column"
           width="732px"
           margin="0 auto"
           color="#ffffff"
-          lineHeight="normal"
-          fontStyle="normal"
-          paddingTop={{ base: '46px', md: '59.19px' }}>
-          <Text fontSize={{ base: '32px', sm: '44px' }} fontWeight={700}>
+          fontStyle="normal">
+          <Text fontSize={{ base: '24px', sm: '28px' }} fontWeight={700} lineHeight="36px">
             Join Our Team
           </Text>
-          <Text fontSize="16px" fontWeight={400} textAlign="center" marginTop="16px">
+          <Text
+            fontSize="16px"
+            fontWeight={400}
+            textAlign="center"
+            lineHeight="22px"
+            margin="16px 0 24px 0">
             We are always on the lookout for great talent. Want to join us on our mission to help
             great teams grow? Check out our openings to see where you fit in.
           </Text>
@@ -170,15 +168,8 @@ const LeadershipPage: FC<Props> = () => {
             color="#1f1646"
             padding="16px 32px"
             borderRadius="6px"
-            marginTop="24px"
-            _hover={{
-              bg: '#F3F4F6',
-              color: '#1f1646',
-            }}
-            _focus={{
-              bg: '#E9E9E9',
-              color: '#1f1646',
-            }}>
+            _hover={{ bg: '#F3F4F6', color: '#1f1646' }}
+            _focus={{ bg: '#E9E9E9', color: '#1f1646' }}>
             Apply now
           </Button>
         </Flex>

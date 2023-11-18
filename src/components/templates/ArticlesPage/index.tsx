@@ -31,13 +31,13 @@ const ArticlesPage: FC<Props> = () => {
         pt={{ base: '36px', md: '80px', xl: '151.95px' }}
         pb={{ base: '36px', md: '80px', xl: '126.26px' }}>
         <Flex
-          flexDirection={{ base: 'column', md: 'row' }}
+          flexDirection={{ base: 'column', lg: 'row' }}
           gap={{ base: '16px', md: '20px' }}
           maxWidth={1200}
           margin="0 auto"
           px={{ base: '16px', xl: '0' }}
           alignItems="center">
-          <Box maxW={{ base: '100%', md: '50%' }}>
+          <Box width={{ base: '100%', lg: '590px' }}>
             <Heading
               mb="16px"
               lineHeight="normal"
@@ -54,13 +54,12 @@ const ArticlesPage: FC<Props> = () => {
               fontSize="16px"
               fontWeight={400}
               color="#747474">
-              Lorem ipsum, or  as it is sometimes known, is dummy text used in laying out
-              print, graphic or web designs. The passage is attributed to an unknown typesetter in
+              Lorem ipsum, or as it is sometimes known, is dummy text used in laying out print,
+              graphic or web designs. The passage is attributed to an unknown typesetter in
             </Text>
             <Box>
               <InputGroup
-                mt="24px"
-                mb="16px"
+                my="16px"
                 width="100%"
                 display="flex"
                 alignItems="center"
@@ -113,7 +112,7 @@ const ArticlesPage: FC<Props> = () => {
             </Box>
           </Box>
           <Box
-            maxW={{ base: '100%', md: '50%' }}
+            maxW={{ base: '100%', lg: '590px' }}
             height={{ base: 'auto', md: '388.7px' }}
             borderRadius="16px"
             overflow="hidden">
@@ -395,7 +394,7 @@ const ArticlesPage: FC<Props> = () => {
                                 position="relative"
                                 zIndex="2"
                                 margin="-51px 17px 13px 17px"
-                                padding=" 16px 24px"
+                                padding=" 24px"
                                 maxW="351.9px">
                                 <ListItem
                                   lineHeight="21.28px"
@@ -413,7 +412,11 @@ const ArticlesPage: FC<Props> = () => {
                                   enable all students to better engage with and develop their
                                   literacy skills?
                                 </ListItem>
-                                <ListItem display="flex" alignItems="center" gap="20px">
+                                <ListItem
+                                  display="flex"
+                                  alignItems="center"
+                                  gap="20px"
+                                  textDecoration="underline">
                                   <Image
                                     width={24}
                                     height={24}
@@ -441,7 +444,7 @@ const ArticlesPage: FC<Props> = () => {
                                 position="relative"
                                 zIndex="2"
                                 margin="-51px 17px 13px 17px"
-                                padding=" 16px 24px"
+                                padding="24px"
                                 maxW="351.9px">
                                 <ListItem
                                   lineHeight="21.28px"
@@ -459,7 +462,11 @@ const ArticlesPage: FC<Props> = () => {
                                   enable all students to better engage with and develop their
                                   literacy skills?
                                 </ListItem>
-                                <ListItem display="flex" alignItems="center" gap="20px">
+                                <ListItem
+                                  display="flex"
+                                  alignItems="center"
+                                  gap="20px"
+                                  textDecoration="underline">
                                   <Image
                                     width={24}
                                     height={24}
@@ -487,7 +494,7 @@ const ArticlesPage: FC<Props> = () => {
                                 position="relative"
                                 zIndex="2"
                                 margin="-51px 17px 13px 17px"
-                                padding=" 16px 24px"
+                                padding="24px"
                                 maxW="351.9px">
                                 <ListItem
                                   lineHeight="21.28px"
@@ -505,7 +512,11 @@ const ArticlesPage: FC<Props> = () => {
                                   enable all students to better engage with and develop their
                                   literacy skills?
                                 </ListItem>
-                                <ListItem display="flex" alignItems="center" gap="20px">
+                                <ListItem
+                                  display="flex"
+                                  alignItems="center"
+                                  gap="20px"
+                                  textDecoration="underline">
                                   <Image
                                     width={24}
                                     height={24}
@@ -538,7 +549,7 @@ const ArticlesPage: FC<Props> = () => {
                                 position="relative"
                                 zIndex="2"
                                 margin="-51px 17px 13px 17px"
-                                padding=" 16px 24px"
+                                padding=" 24px"
                                 maxW="351.9px">
                                 <ListItem
                                   lineHeight="21.28px"
@@ -556,7 +567,11 @@ const ArticlesPage: FC<Props> = () => {
                                   enable all students to better engage with and develop their
                                   literacy skills?
                                 </ListItem>
-                                <ListItem display="flex" alignItems="center" gap="20px">
+                                <ListItem
+                                  display="flex"
+                                  alignItems="center"
+                                  gap="20px"
+                                  textDecoration="underline">
                                   <Image
                                     width={24}
                                     height={24}
@@ -584,7 +599,7 @@ const ArticlesPage: FC<Props> = () => {
                                 position="relative"
                                 zIndex="2"
                                 margin="-51px 17px 13px 17px"
-                                padding=" 16px 24px"
+                                padding=" 24px"
                                 maxW="351.9px">
                                 <ListItem
                                   lineHeight="21.28px"
@@ -602,7 +617,11 @@ const ArticlesPage: FC<Props> = () => {
                                   enable all students to better engage with and develop their
                                   literacy skills?
                                 </ListItem>
-                                <ListItem display="flex" alignItems="center" gap="20px">
+                                <ListItem
+                                  display="flex"
+                                  alignItems="center"
+                                  gap="20px"
+                                  textDecoration="underline">
                                   <Image
                                     width={24}
                                     height={24}
@@ -630,7 +649,7 @@ const ArticlesPage: FC<Props> = () => {
                                 position="relative"
                                 zIndex="2"
                                 margin="-51px 17px 13px 17px"
-                                padding=" 16px 24px"
+                                padding="24px"
                                 maxW="351.9px">
                                 <ListItem
                                   lineHeight="21.28px"
@@ -648,7 +667,11 @@ const ArticlesPage: FC<Props> = () => {
                                   enable all students to better engage with and develop their
                                   literacy skills?
                                 </ListItem>
-                                <ListItem display="flex" alignItems="center" gap="20px">
+                                <ListItem
+                                  display="flex"
+                                  alignItems="center"
+                                  gap="20px"
+                                  textDecoration="underline">
                                   <Image
                                     width={24}
                                     height={24}

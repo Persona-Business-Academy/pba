@@ -17,17 +17,30 @@ type Props = {};
 
 const TermsAndConditions: FC<Props> = () => {
   return (
-    <Container maxW="1200px">
-      <Box m={{ base: '36px 0 36px', lg: '64px 0 148px', xl: '64px 0 148px' }}>
+    <Container maxW="1200px" p="0">
+      <Box
+        backgroundColor="#F6FCFF"
+        height="255px"
+        width="100%"
+        padding="10px 16px"
+        display={{ base: 'block', sm: 'none' }}>
+        <Flex height="235px" alignItems="center" justifyContent="center">
+          <Heading fontSize="28px" fontStyle="normal" fontWeight={600} lineHeight="normal">
+            Terms & Conditions
+          </Heading>
+        </Flex>
+      </Box>
+
+      <Box m={{ base: '36px 0 36px', lg: '64px 0 148px' }} px={{ base: '16px', xl: '0' }}>
         <Tabs
           display="flex"
           gap="20px"
           id="terms_and_conditions_tabs"
-          justifyContent={{ base: 'center', lg: 'space-between', xl: 'space-between' }}
-          flexWrap={{ base: 'wrap-reverse', lg: 'nowrap', xl: 'nowrap' }}>
+          justifyContent={{ base: 'center', lg: 'space-between' }}
+          flexWrap={{ base: 'wrap-reverse', lg: 'nowrap' }}>
           <TabList
             flexDirection="column"
-            width={{ base: '100%', lg: '387px', xl: '387px' }}
+            width={{ base: '100%', lg: '388px' }}
             fontWeight="700"
             gap={4}
             border="none">
@@ -138,22 +151,18 @@ const TermsAndConditions: FC<Props> = () => {
           </TabList>
 
           <TabPanels padding="0">
-            <TabPanel padding="0">
+            <TabPanel padding="0" color="#222" fontStyle="normal">
               <Heading
-                as="h2"
-                fontSize={{ base: '24px', lg: '44px', xl: '44px' }}
-                lineHeight={{ base: '31.92px', lg: '53.64px', xl: '53.64px' }}
+                fontSize={{ base: '24px', lg: '44px' }}
+                lineHeight={{ base: '31.92px', lg: '53.64px' }}
                 fontWeight="700"
-                color="#212122"
-                textAlign={{ base: 'center', lg: 'start', xl: 'start' }}
+                textAlign={{ base: 'center', lg: 'start' }}
                 margin=" 0 0 16px 0">
                 Terms & Conditions
               </Heading>
               <Flex flexDirection="column" gap="8px">
                 <Text
-                  as="p"
-                  margin="0"
-                  lineHeight={{ base: '18.75px', lg: '21.28px', xl: '21.28px' }}
+                  lineHeight={{ base: '18.75px', lg: '21.28px' }}
                   fontSize="16px"
                   fontWeight="400">
                   These terms and conditions outline the rules and regulations for the use of
@@ -192,11 +201,9 @@ const TermsAndConditions: FC<Props> = () => {
                 </Text>
 
                 <Text
-                  lineHeight={{ base: '18.75px', lg: '21.28px', xl: '21.28px' }}
+                  lineHeight={{ base: '18.75px', lg: '21.28px' }}
                   fontSize="16px"
-                  fontWeight="400"
-                  as="p"
-                  margin="0">
+                  fontWeight="400">
                   By accessing this website we assume you accept these terms and conditions. Do not
                   continue to use Wriggle if you do not agree to take all of the terms and
                   conditions stated on this page. The following terminology applies to these Terms
@@ -215,22 +222,19 @@ const TermsAndConditions: FC<Props> = () => {
               </Flex>
             </TabPanel>
 
-            <TabPanel>
+            <TabPanel padding="0" color="#222" fontStyle="normal">
               <Heading
-                as="h2"
                 fontWeight="700"
-                fontSize={{ base: '24px', lg: '44px', xl: '44px' }}
-                lineHeight={{ base: '31.92px', lg: '53.64px', xl: '53.64px' }}
-                color="#212122"
-                textAlign={{ base: 'center', lg: 'start', xl: 'start' }}
+                fontSize={{ base: '24px', lg: '44px' }}
+                lineHeight={{ base: '31.92px', lg: '53.64px' }}
+                textAlign={{ base: 'center', lg: 'start' }}
                 margin=" 0 0 16px 0">
                 Where does it come from?
               </Heading>
               <Text
-                lineHeight={{ base: '18.75px', lg: '21.28px', xl: '21.28px' }}
+                lineHeight={{ base: '18.75px', lg: '21.28px' }}
                 fontSize="16px"
                 fontWeight="400"
-                as="p"
                 margin="0">
                 These terms and conditions outline the rules and regulations for the use of Wriggles
                 Website, located at www.wriggle.ie. By accessing this website we assume you accept
@@ -280,22 +284,18 @@ const TermsAndConditions: FC<Props> = () => {
               </Text>
             </TabPanel>
 
-            <TabPanel>
+            <TabPanel padding="0" color="#222" fontStyle="normal">
               <Heading
-                as="h2"
                 fontWeight="700"
-                fontSize={{ base: '24px', lg: '44px', xl: '44px' }}
-                lineHeight={{ base: '31.92px', lg: '53.64px', xl: '53.64px' }}
-                color="#212122"
-                textAlign={{ base: 'center', lg: 'start', xl: 'start' }}
+                fontSize={{ base: '24px', lg: '44px' }}
+                lineHeight={{ base: '31.92px', lg: '53.64px' }}
+                textAlign={{ base: 'center', lg: 'start' }}
                 margin=" 0 0 16px 0">
                 Terms & Conditions
               </Heading>
               <Flex flexDirection="column" gap="8px">
                 <Text
-                  as="p"
-                  margin="0"
-                  lineHeight={{ base: '18.75px', lg: '21.28px', xl: '21.28px' }}
+                  lineHeight={{ base: '18.75px', lg: '21.28px' }}
                   fontSize="16px"
                   fontWeight="400">
                   These terms and conditions outline the rules and regulations for the use of
@@ -334,11 +334,9 @@ const TermsAndConditions: FC<Props> = () => {
                 </Text>
 
                 <Text
-                  lineHeight={{ base: '18.75px', lg: '21.28px', xl: '21.28px' }}
+                  lineHeight={{ base: '18.75px', lg: '21.28px' }}
                   fontSize="16px"
-                  fontWeight="400"
-                  as="p"
-                  margin="0">
+                  fontWeight="400">
                   By accessing this website we assume you accept these terms and conditions. Do not
                   continue to use Wriggle if you do not agree to take all of the terms and
                   conditions stated on this page. The following terminology applies to these Terms
@@ -357,86 +355,17 @@ const TermsAndConditions: FC<Props> = () => {
               </Flex>
             </TabPanel>
 
-            <TabPanel>
+            <TabPanel padding="0" color="#222" fontStyle="normal">
               <Heading
-                as="h2"
                 fontWeight="700"
-                fontSize={{ base: '24px', lg: '44px', xl: '44px' }}
-                lineHeight={{ base: '31.92px', lg: '53.64px', xl: '53.64px' }}
-                color="#212122"
-                textAlign={{ base: 'center', lg: 'start', xl: 'start' }}
+                fontSize={{ base: '24px', lg: '44px' }}
+                lineHeight={{ base: '31.92px', lg: '53.64px' }}
+                textAlign={{ base: 'center', lg: 'start' }}
                 margin=" 0 0 16px 0">
                 Terms & Conditions
               </Heading>
               <Text
-                lineHeight={{ base: '18.75px', lg: '21.28px', xl: '21.28px' }}
-                fontSize="16px"
-                fontWeight="400"
-                as="p"
-                margin="0">
-                These terms and conditions outline the rules and regulations for the use of Wriggles
-                Website, located at www.wriggle.ie. By accessing this website we assume you accept
-                these terms and conditions. Do not continue to use Wriggle if you do not agree to
-                take all of the terms and conditions stated on this page. The following terminology
-                applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and
-                all Agreements: “Client”, “You” and “Your” refers to you, the person log on this
-                website and compliant to the Companys terms and conditions. “The Company”,
-                “Ourselves”, “We”, “Our” and “Us”, refers to our Company. “Party”, “Parties”, or
-                “Us”, refers to both the Client and ourselves. All terms refer to the offer,
-                acceptance and consideration of payment necessary to undertake the process of our
-                assistance to the Client in the most appropriate manner for the express purpose of
-                meeting the Clients needs in respect of provision of the Companys stated services,
-                in accordance with and subject to, prevailing law of Netherlands. Any use of the
-                above terminology or other words in the singular, plural, capitalization and/or
-                he/she or they, are taken as interchangeable and therefore as referring to
-                same.These terms and conditions outline the rules and regulations for the use of
-                Wriggles Website, located at www.wriggle.ie. By accessing this website we assume you
-                accept these terms and conditions. Do not continue to use Wriggle if you do not
-                agree to take all of the terms and conditions stated on this page. The following
-                terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer
-                Notice and all Agreements: “Client”, “You” and “Your” refers to you, the person log
-                on this website and compliant to the Companys terms and conditions. “The Company”,
-                “Ourselves”, “We”, “Our” and “Us”, refers to our Company. “Party”, “Parties”, or
-                “Us”, refers to both the Client and ourselves. All terms refer to the offer,
-                acceptance and consideration of payment necessary to undertake the process of our
-                assistance to the Client in the most appropriate manner for the express purpose of
-                meeting the Clients needs in respect of provision of the Companys stated services,
-                in accordance with and subject to, prevailing law of Netherlands. Any use of the
-                above terminology or other words in the singular, plural, capitalization and/or
-                he/she or they, are taken as interchangeable and therefore as referring to
-                same.These terms and conditions outline the rules and regulations for the use of
-                Wriggles Website, located at www.wriggle.ie. By accessing this website we assume you
-                accept these terms and conditions. Do not continue to use Wriggle if you do not
-                agree to take all of the terms and conditions stated on this page. The following
-                terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer
-                Notice and all Agreements: “Client”, “You” and “Your” refers to you, the person log
-                on this website and compliant to the Companys terms and conditions. “The Company”,
-                “Ourselves”, “We”, “Our” and “Us”, refers to our Company. “Party”, “Parties”, or
-                “Us”, refers to both the Client and ourselves. All terms refer to the offer,
-                acceptance and consideration of payment necessary to undertake the process of our
-                assistance to the Client in the most appropriate manner for the express purpose of
-                meeting the Clients needs in respect of provision of the Companys stated services,
-                in accordance with and subject to, prevailing law of Netherlands. Any use of the
-                above terminology or other words in the singular, plural, capitalization and/or
-                he/she or they, are taken as interchangeable and therefore as referring to same.
-              </Text>
-            </TabPanel>
-
-            <TabPanel>
-              <Heading
-                as="h2"
-                fontWeight="700"
-                fontSize={{ base: '24px', lg: '44px', xl: '44px' }}
-                lineHeight={{ base: '31.92px', lg: '53.64px', xl: '53.64px' }}
-                color="#212122"
-                textAlign={{ base: 'center', lg: 'start', xl: 'start' }}
-                margin=" 0 0 16px 0">
-                Terms & Conditions
-              </Heading>
-              <Text
-                as="p"
-                margin="0"
-                lineHeight={{ base: '18.75px', lg: '21.28px', xl: '21.28px' }}
+                lineHeight={{ base: '18.75px', lg: '21.28px' }}
                 fontSize="16px"
                 fontWeight="400">
                 These terms and conditions outline the rules and regulations for the use of Wriggles
@@ -487,21 +416,17 @@ const TermsAndConditions: FC<Props> = () => {
               </Text>
             </TabPanel>
 
-            <TabPanel>
+            <TabPanel padding="0" color="#222" fontStyle="normal">
               <Heading
-                as="h2"
                 fontWeight="700"
-                fontSize={{ base: '24px', lg: '44px', xl: '44px' }}
-                lineHeight={{ base: '31.92px', lg: '53.64px', xl: '53.64px' }}
-                color="#212122"
-                textAlign={{ base: 'center', lg: 'start', xl: 'start' }}
+                fontSize={{ base: '24px', lg: '44px' }}
+                lineHeight={{ base: '31.92px', lg: '53.64px' }}
+                textAlign={{ base: 'center', lg: 'start' }}
                 margin=" 0 0 16px 0">
                 Terms & Conditions
               </Heading>
               <Text
-                as="p"
-                margin="0"
-                lineHeight={{ base: '18.75px', lg: '21.28px', xl: '21.28px' }}
+                lineHeight={{ base: '18.75px', lg: '21.28px' }}
                 fontSize="16px"
                 fontWeight="400">
                 These terms and conditions outline the rules and regulations for the use of Wriggles
@@ -552,23 +477,80 @@ const TermsAndConditions: FC<Props> = () => {
               </Text>
             </TabPanel>
 
-            <TabPanel>
+            <TabPanel padding="0" color="#222" fontStyle="normal">
               <Heading
-                as="h2"
                 fontWeight="700"
-                fontSize={{ base: '24px', lg: '44px', xl: '44px' }}
-                lineHeight={{ base: '31.92px', lg: '53.64px', xl: '53.64px' }}
-                color="#212122"
-                textAlign={{ base: 'center', lg: 'start', xl: 'start' }}
+                fontSize={{ base: '24px', lg: '44px' }}
+                lineHeight={{ base: '31.92px', lg: '53.64px' }}
+                textAlign={{ base: 'center', lg: 'start' }}
+                margin=" 0 0 16px 0">
+                Terms & Conditions
+              </Heading>
+              <Text
+                lineHeight={{ base: '18.75px', lg: '21.28px' }}
+                fontSize="16px"
+                fontWeight="400">
+                These terms and conditions outline the rules and regulations for the use of Wriggles
+                Website, located at www.wriggle.ie. By accessing this website we assume you accept
+                these terms and conditions. Do not continue to use Wriggle if you do not agree to
+                take all of the terms and conditions stated on this page. The following terminology
+                applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and
+                all Agreements: “Client”, “You” and “Your” refers to you, the person log on this
+                website and compliant to the Companys terms and conditions. “The Company”,
+                “Ourselves”, “We”, “Our” and “Us”, refers to our Company. “Party”, “Parties”, or
+                “Us”, refers to both the Client and ourselves. All terms refer to the offer,
+                acceptance and consideration of payment necessary to undertake the process of our
+                assistance to the Client in the most appropriate manner for the express purpose of
+                meeting the Clients needs in respect of provision of the Companys stated services,
+                in accordance with and subject to, prevailing law of Netherlands. Any use of the
+                above terminology or other words in the singular, plural, capitalization and/or
+                he/she or they, are taken as interchangeable and therefore as referring to
+                same.These terms and conditions outline the rules and regulations for the use of
+                Wriggles Website, located at www.wriggle.ie. By accessing this website we assume you
+                accept these terms and conditions. Do not continue to use Wriggle if you do not
+                agree to take all of the terms and conditions stated on this page. The following
+                terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer
+                Notice and all Agreements: “Client”, “You” and “Your” refers to you, the person log
+                on this website and compliant to the Companys terms and conditions. “The Company”,
+                “Ourselves”, “We”, “Our” and “Us”, refers to our Company. “Party”, “Parties”, or
+                “Us”, refers to both the Client and ourselves. All terms refer to the offer,
+                acceptance and consideration of payment necessary to undertake the process of our
+                assistance to the Client in the most appropriate manner for the express purpose of
+                meeting the Clients needs in respect of provision of the Companys stated services,
+                in accordance with and subject to, prevailing law of Netherlands. Any use of the
+                above terminology or other words in the singular, plural, capitalization and/or
+                he/she or they, are taken as interchangeable and therefore as referring to
+                same.These terms and conditions outline the rules and regulations for the use of
+                Wriggles Website, located at www.wriggle.ie. By accessing this website we assume you
+                accept these terms and conditions. Do not continue to use Wriggle if you do not
+                agree to take all of the terms and conditions stated on this page. The following
+                terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer
+                Notice and all Agreements: “Client”, “You” and “Your” refers to you, the person log
+                on this website and compliant to the Companys terms and conditions. “The Company”,
+                “Ourselves”, “We”, “Our” and “Us”, refers to our Company. “Party”, “Parties”, or
+                “Us”, refers to both the Client and ourselves. All terms refer to the offer,
+                acceptance and consideration of payment necessary to undertake the process of our
+                assistance to the Client in the most appropriate manner for the express purpose of
+                meeting the Clients needs in respect of provision of the Companys stated services,
+                in accordance with and subject to, prevailing law of Netherlands. Any use of the
+                above terminology or other words in the singular, plural, capitalization and/or
+                he/she or they, are taken as interchangeable and therefore as referring to same.
+              </Text>
+            </TabPanel>
+
+            <TabPanel padding="0" color="#222" fontStyle="normal">
+              <Heading
+                fontWeight="700"
+                fontSize={{ base: '24px', lg: '44px' }}
+                lineHeight={{ base: '31.92px', lg: '53.64px' }}
+                textAlign={{ base: 'center', lg: 'start' }}
                 margin=" 0 0 16px 0">
                 Terms & Conditions
               </Heading>
 
               <Flex flexDirection="column" gap="8px">
                 <Text
-                  as="p"
-                  margin="0"
-                  lineHeight={{ base: '18.75px', lg: '21.28px', xl: '21.28px' }}
+                  lineHeight={{ base: '18.75px', lg: '21.28px' }}
                   fontSize="16px"
                   fontWeight="400">
                   These terms and conditions outline the rules and regulations for the use of
@@ -607,9 +589,7 @@ const TermsAndConditions: FC<Props> = () => {
                 </Text>
 
                 <Text
-                  as="p"
-                  margin="0"
-                  lineHeight={{ base: '18.75px', lg: '21.28px', xl: '21.28px' }}
+                  lineHeight={{ base: '18.75px', lg: '21.28px' }}
                   fontSize="16px"
                   fontWeight="400">
                   By accessing this website we assume you accept these terms and conditions. Do not
