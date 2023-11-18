@@ -1,7 +1,5 @@
-import { NextApiRequest } from 'next';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import NextAuth, { AuthOptions, getServerSession } from 'next-auth';
-import { getToken } from 'next-auth/jwt';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import prisma from '@/lib/prisma';
 import { findUserWithEmail } from '@/lib/prisma/resolvers';
@@ -34,21 +32,14 @@ export const authOptions: AuthOptions = {
   pages: { signIn: '/signin' },
   session: { strategy: 'jwt' },
 };
-
-export const serverSession = async () => {
+export const serverSession =  () => {
   try {
-    return await getServerSession(authOptions);
+    return  getServerSession(authOptions);
   } catch (e) {
     throw e;
   }
 };
 
-export const getAuthToken = async (req: NextApiRequest) => {
-  try {
-    return await getToken({ req, secret: process.env.JWT_SECRET });
-  } catch (e) {
-    throw e;
-  }
-};
+
 
 export default NextAuth(authOptions);
