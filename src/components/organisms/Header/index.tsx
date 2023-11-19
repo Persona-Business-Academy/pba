@@ -16,7 +16,7 @@ import { useSession } from 'next-auth/react';
 import CloseIcon from 'public/icons/close_icon.svg';
 import BurgerMenuIcon from 'public/icons/menu.svg';
 import { Button } from '@/components/atoms';
-import { HOMEPAGE_ROUTE, NAV_ITEMS, SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/constants/routes';
+import { HOMEPAGE_ROUTE, NAV_ITEMS, SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/utils/constants/routes';
 import DesktopNav from './DesktopNavigation';
 import MobileNav from './MobileNav';
 import ProfileMenu from './ProfileMenu';

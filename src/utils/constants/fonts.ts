@@ -8,7 +8,7 @@ const montserrat = Montserrat({
 });
 
 const segoe = localFont({
-  src: '../../public/fonts/SegoeUI.woff2',
+  src: '../../../public/fonts/SegoeUI.woff2',
   display: 'swap',
   variable: '--font-segoe',
 });

@@ -2,7 +2,7 @@ import { Dispatch, FC, memo, SetStateAction } from 'react';
 import { Box, Flex, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SubLabel } from '@/models/header';
+import { SubLabel } from '@/utils/models/header';
 
 interface DesktopSubNav {
   label: string;

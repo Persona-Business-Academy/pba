@@ -9,7 +9,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
-import { SubLabel, SubLabels } from '@/models/header';
+import { SubLabel, SubLabels } from '@/utils/models/header';
 
 interface MobileNavItemProp {
   label: string;

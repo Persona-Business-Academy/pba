@@ -20,8 +20,7 @@ export const authOptions: AuthOptions = {
   callbacks: {
     session: async ({ session }) => {
       const user = await findUserWithEmail(session.user?.email || '');
-      // eslint-disable-next-line unused-imports/no-unused-vars
-      const { password, ...userWithoutPassword } = user || {}; // Exclude 'password' field
+      const { password: _pass, ...userWithoutPassword } = user || {}; // Exclude 'password' field
       return userWithoutPassword
         ? {
             ...session,

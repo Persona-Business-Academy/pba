@@ -12,8 +12,8 @@ import {
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { User } from 'next-auth';
-import { segoe } from '@/constants/fonts';
-import { linkItems, PROFILE_ROUTE } from '@/constants/routes';
+import { segoe } from '@/utils/constants/fonts';
+import { linkItems, PROFILE_ROUTE } from '@/utils/constants/routes';
 
 type ProfileNavItemProps = {
   user: User;

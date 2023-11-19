@@ -1,12 +1,12 @@
 import bcrypt from 'bcrypt';
 import { BadRequestException } from 'next-api-decorators';
-import { ERROR_MESSAGES } from '@/constants/common';
+import { ERROR_MESSAGES } from '@/utils/constants/common';
 import {
   ForgotPasswordStep1Validation,
   ForgotPasswordStep2Validation,
   ForgotPasswordStep3Validation,
   SignUpValidation,
-} from '@/validation';
+} from '@/utils/validation';
 import { findUserWithEmail } from './user';
 import prisma from '..';
 import { generateRandomNumber } from '../utils/common';

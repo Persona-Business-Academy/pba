@@ -29,7 +29,7 @@ import InputSearchIcon from '/public/icons/search_icon.svg';
 import PlusIcon from 'public/icons/plus_pricing_icon.svg';
 import AddIcon from 'public/icons/xmark_pricing_icon.svg';
 import { Button } from '@/components/atoms';
-import { segoe } from '@/constants/fonts';
+import { segoe } from '@/utils/constants/fonts';
 
 type Props = {};
 

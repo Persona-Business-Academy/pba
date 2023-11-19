@@ -1,6 +1,6 @@
 'use client';
 import React, { createContext, FC, useContext, useState } from 'react';
-import { ForgotPasswordStep } from '@/models/auth';
+import { ForgotPasswordStep } from '@/utils/models/auth';
 
 interface AuthState {
   step: ForgotPasswordStep;

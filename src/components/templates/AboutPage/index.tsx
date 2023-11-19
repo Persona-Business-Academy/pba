@@ -2,7 +2,7 @@
 import React, { FC } from 'react';
 import { Box, Container, Heading, ListItem, Stack, Text, UnorderedList } from '@chakra-ui/react';
 import Image from 'next/image';
-import { segoe } from '@/constants/fonts';
+import { segoe } from '@/utils/constants/fonts';
 
 type Props = {};
 

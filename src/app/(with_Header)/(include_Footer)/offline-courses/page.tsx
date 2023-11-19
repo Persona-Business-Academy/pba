@@ -10,7 +10,7 @@ import ArrowRight from '/public/icons/right_arrow.svg';
 import InputSearchIcon from '/public/icons/search_icon.svg';
 import Image from 'next/image';
 import CourseFilter from '@/components/molecules/CourseFilter';
-import { montserrat } from '@/constants/fonts';
+import { montserrat } from '@/utils/constants/fonts';
 
 type Props = {};
 

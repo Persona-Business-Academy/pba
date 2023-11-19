@@ -4,7 +4,7 @@ import {
   ForgotPasswordStep2Validation,
   ForgotPasswordStep3Validation,
   SignUpValidation,
-} from '@/validation';
+} from '@/utils/validation';
 import $apiClient from '..';
 
 export class AuthService {
