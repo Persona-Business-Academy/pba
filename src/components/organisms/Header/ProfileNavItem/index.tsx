@@ -13,7 +13,7 @@ import {
 import Link from 'next/link';
 import { User } from 'next-auth';
 import { segoe } from '@/constants/fonts';
-import { linkItems } from '@/constants/routes';
+import { linkItems, PROFILE_ROUTE } from '@/constants/routes';
 
 type ProfileNavItemProps = {
   user: User;
@@ -21,9 +21,9 @@ type ProfileNavItemProps = {
 
 const ProfileNavItem: FC<ProfileNavItemProps> = ({ user }) => {
   return (
-    <AccordionItem>
-      <AccordionButton>
-        <Flex flex={6} textAlign="left" gap="8px">
+    <AccordionItem pl={8}>
+      <AccordionButton display="flex">
+        <Flex flex={6} textAlign="left" gap="8px" as={Link} href={PROFILE_ROUTE}>
           <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
           <Flex flexDirection="column" gap="4px">
             <Text
@@ -47,13 +47,13 @@ const ProfileNavItem: FC<ProfileNavItemProps> = ({ user }) => {
       </AccordionButton>
       <AccordionPanel pb={0} bg="#F9FAFB" pt={0}>
         <Accordion allowToggle>
-          {linkItems.map(child => (
-            <AccordionItem key={child.id}>
-              <AccordionButton
-                {...(child.href ? { as: Link, href: child.href } : { onClick: () => {} })}>
-                <Box as="span" flex="1" textAlign="left">
-                  {child.name}
-                </Box>
+          {linkItems.map(({ href, name, icon: Icon, id }) => (
+            <AccordionItem key={id}>
+              <AccordionButton {...(href ? { as: Link, href } : { onClick: () => {} })}>
+                <Flex as="span" flex="1" textAlign="left" pl="24px" alignItems="center" gap="8px">
+                  <Icon />
+                  {name}
+                </Flex>
               </AccordionButton>
             </AccordionItem>
           ))}
