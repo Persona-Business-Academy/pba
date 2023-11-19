@@ -21,8 +21,6 @@ model User {
     confirmationCode Int?     @unique
     createdAt        DateTime @default(now()) @db.Timestamp(0)
     updatedAt        DateTime @updatedAt @db.Timestamp(0)
-
-    @@map(name: "users")
 }
 
 model Admin {

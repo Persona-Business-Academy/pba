@@ -5,7 +5,6 @@ CREATE TYPE "AdminRole" AS ENUM ('ADMIN', 'SUPER_ADMIN');
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
-    "confirmationCode" INTEGER,
     "firstName" VARCHAR(45),
     "lastName" VARCHAR(45),
     "password" VARCHAR(60) NOT NULL,
@@ -14,6 +13,7 @@ CREATE TABLE "User" (
     "country" VARCHAR(60),
     "state" VARCHAR(60),
     "city" VARCHAR(60),
+    "confirmationCode" INTEGER,
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
 
