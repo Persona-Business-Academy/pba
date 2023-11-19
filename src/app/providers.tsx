@@ -4,8 +4,8 @@ import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider, extendTheme, LightMode, ThemeConfig } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SessionProvider } from 'next-auth/react';
-import { colors, components, space } from '@/constants/chakra';
-import { montserrat } from '@/constants/fonts';
+import { colors, components, space } from '@/utils/constants/chakra';
+import { montserrat } from '@/utils/constants/fonts';
 
 type Props = {
   children: React.ReactNode;

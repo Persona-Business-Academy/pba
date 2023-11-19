@@ -4,7 +4,7 @@ import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import { Button } from '@/components/atoms';
 import ButtonArrowRight from '/public/icons/arrow_right_careers.svg';
-import { segoe } from '@/constants/fonts';
+import { segoe } from '@/utils/constants/fonts';
 
 type Props = {};
 

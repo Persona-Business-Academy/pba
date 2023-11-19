@@ -12,7 +12,7 @@ import {
 import Link from 'next/link';
 import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
-import { linkItems, LOGOUT_ID } from '@/constants/routes';
+import { linkItems, LOGOUT_ID } from '@/utils/constants/routes';
 
 type Props = {
   user: User;
@@ -22,8 +22,6 @@ const ProfileMenu: FC<Props> = ({ user }) => {
   const signOutHandler = useCallback(() => {
     signOut();
   }, []);
-  
-
 
   return (
     <Popover>

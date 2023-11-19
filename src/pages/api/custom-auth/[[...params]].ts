@@ -6,7 +6,7 @@ import {
   ForgotPasswordStep2Validation,
   ForgotPasswordStep3Validation,
   SignUpValidation,
-} from '@/validation';
+} from '@/utils/validation';
 
 @Catch(exceptionHandler)
 class AuthHandler {

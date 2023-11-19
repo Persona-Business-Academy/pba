@@ -1,13 +1,13 @@
 import { NextApiRequest } from 'next';
 import { NextResponse } from 'next/server';
-import { getToken } from 'next-auth/jwt';
-import { SIGN_IN_ROUTE } from './constants/routes';
+import { SIGN_IN_ROUTE } from './utils/constants/routes';
+import { validateTokenPayload } from './utils/helpers';
 
 export async function middleware(req: NextApiRequest) {
   const url = process.env.BASE_URL + SIGN_IN_ROUTE;
 
   try {
-    const token = await getToken({ req, secret: process.env.JWT_SECRET });
+    const token = await validateTokenPayload(req);
     if (!token) {
       return NextResponse.redirect(url);
     }

@@ -1,4 +1,4 @@
-import { segoe } from '@/constants/fonts';
+import { segoe } from '@/utils/constants/fonts';
 import Providers from './providers';
 import './globals.scss';
 

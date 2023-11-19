@@ -8,8 +8,8 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Button, FormInput } from '@/components/atoms';
 import PhoneNumberInput from '@/components/atoms/PhoneNumberInput';
 import SelectLabel from '@/components/atoms/SelectLabel';
-import { montserrat, segoe } from '@/constants/fonts';
-import { UserProfileFormData } from '@/models/auth';
+import { montserrat, segoe } from '@/utils/constants/fonts';
+import { UserProfileFormData } from '@/utils/models/auth';
 
 type Props = {
   user: User | null;

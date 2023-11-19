@@ -7,7 +7,7 @@ import {
   AccordionPanel,
   Box,
 } from '@chakra-ui/react';
-import { filterList } from '@/constants/filters';
+import { filterList } from '@/utils/constants/filters';
 import CourseFilterItem from '../CourseFilterItem';
 
 type CourseFilterProps = {};

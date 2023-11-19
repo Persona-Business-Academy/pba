@@ -1,7 +1,7 @@
 'use client';
 import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Link from 'next/link';
-import { segoe } from '@/constants/fonts';
+import { segoe } from '@/utils/constants/fonts';
 
 const LeadershipIndividualPage = () => {
   return (

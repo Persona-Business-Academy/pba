@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { User } from 'next-auth';
 import { Button } from '@/components/atoms';
-import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/constants/routes';
-import { NavItem } from '@/models/header';
+import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/utils/constants/routes';
+import { NavItem } from '@/utils/models/header';
 import MobileNavItem from '../MobileNavItem';
 import ProfileNavItem from '../ProfileNavItem';
 

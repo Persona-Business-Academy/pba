@@ -7,7 +7,7 @@ import { AuthService } from '@/api/services/AuthService';
 import { Button } from '@/components/atoms';
 import OTPPassword from '@/components/atoms/OTPPassword';
 import { useAuth } from '@/contexts/AuthContext';
-import { ForgotPasswordStep2Validation } from '@/validation';
+import { ForgotPasswordStep2Validation } from '@/utils/validation';
 
 const resolver = classValidatorResolver(ForgotPasswordStep2Validation);
 

@@ -8,8 +8,8 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
 import { Button, FormInput } from '@/components/atoms';
 import { AuthBox } from '@/components/molecules';
-import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/constants/routes';
-import { SignUpValidation } from '@/validation';
+import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/utils/constants/routes';
+import { SignUpValidation } from '@/utils/validation';
 
 const resolver = classValidatorResolver(SignUpValidation);
 

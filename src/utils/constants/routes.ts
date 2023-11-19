@@ -7,7 +7,7 @@ import PbaCreditIcon from 'public/icons/pba_credit_icon.svg';
 import ProfileIcon from 'public/icons/profile_icon.svg';
 import SubscriptionIcon from 'public/icons/subscription_icon.svg';
 import WishlistIcon from 'public/icons/wishlist_icon.svg';
-import { NavItem } from '@/models/header';
+import { NavItem } from '@/utils/models/header';
 
 export const HOMEPAGE_ROUTE = '/';
 export const SIGN_IN_ROUTE = '/signin';
