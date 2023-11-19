@@ -20,10 +20,12 @@ export const authOptions: AuthOptions = {
   callbacks: {
     session: async ({ session }) => {
       const user = await findUserWithEmail(session.user?.email || '');
-      return user
+      // eslint-disable-next-line unused-imports/no-unused-vars
+      const { password, ...userWithoutPassword } = user || {}; // Exclude 'password' field
+      return userWithoutPassword
         ? {
             ...session,
-            user: { firstName: user.firstName, lastName: user.lastName, email: user.email },
+            user: userWithoutPassword,
           }
         : session;
     },
@@ -32,14 +34,12 @@ export const authOptions: AuthOptions = {
   pages: { signIn: '/signin' },
   session: { strategy: 'jwt' },
 };
-export const serverSession =  () => {
+export const serverSession = () => {
   try {
-    return  getServerSession(authOptions);
+    return getServerSession(authOptions);
   } catch (e) {
     throw e;
   }
 };
-
-
 
 export default NextAuth(authOptions);

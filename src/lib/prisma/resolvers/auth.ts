@@ -11,88 +11,87 @@ import { findUserWithEmail } from './user';
 import prisma from '..';
 import { generateRandomNumber } from '../utils/common';
 
-export const signUp = async ({ firstName, lastName, email, password }: SignUpValidation) => {
-  const existingUser = await prisma.user.findUnique({
-    where: {
-      email,
-    },
-  });
+export class AuthResolver {
+  static async signUp({ firstName, lastName, email, password }: SignUpValidation) {
+    const existingUser = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
 
-  if (!!existingUser) {
-    throw new BadRequestException(ERROR_MESSAGES.userAlreadyExists);
+    if (!!existingUser) {
+      throw new BadRequestException(ERROR_MESSAGES.userAlreadyExists);
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = await prisma.user.create({
+      data: {
+        firstName,
+        lastName,
+        email,
+        password: hashedPassword,
+      },
+    });
+
+    return !!user;
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  static async forgotPasswordStep1({ email }: ForgotPasswordStep1Validation) {
+    const user = await findUserWithEmail(email);
 
-  const user = await prisma.user.create({
-    data: {
-      firstName,
-      lastName,
-      email,
-      password: hashedPassword,
-    },
-  });
+    if (!user) {
+      throw new BadRequestException(ERROR_MESSAGES.userNotFound);
+    }
 
-  return !!user;
-};
+    const confirmationCode = generateRandomNumber(4);
 
-export const forgotPasswordStep1 = async ({ email }: ForgotPasswordStep1Validation) => {
-  const user = await findUserWithEmail(email);
+    const updatedUser = await prisma.user.update({ where: { email }, data: { confirmationCode } });
+    //
+    // send Email
+    //
 
-  if (!user) {
-    throw new BadRequestException(ERROR_MESSAGES.userNotFound);
+    return updatedUser.id;
   }
 
-  const confirmationCode = generateRandomNumber(4);
+  static async forgotPasswordStep2({ otpPassword, userId }: ForgotPasswordStep2Validation) {
+    if (isNaN(+otpPassword)) {
+      throw new BadRequestException(ERROR_MESSAGES.somethingWentWrong);
+    }
 
-  const updatedUser = await prisma.user.update({ where: { email }, data: { confirmationCode } });
-  //
-  // send Email
-  //
+    const user = await prisma.user.findUnique({
+      where: { id: userId, confirmationCode: +otpPassword },
+    });
 
-  return updatedUser.id;
-};
+    if (!user) {
+      throw new BadRequestException(ERROR_MESSAGES.invalidNumber);
+    }
 
-export const forgotPasswordStep2 = async ({
-  otpPassword,
-  userId,
-}: ForgotPasswordStep2Validation) => {
-  if (isNaN(+otpPassword)) {
-    throw new BadRequestException(ERROR_MESSAGES.somethingWentWrong);
+    return user.id;
   }
 
-  const user = await prisma.user.findUnique({
-    where: { id: userId, confirmationCode: +otpPassword },
-  });
+  static async forgotPasswordStep3({
+    confirmPassword,
+    newPassword,
+    userId,
+  }: ForgotPasswordStep3Validation) {
+    if (confirmPassword !== newPassword) {
+      throw new BadRequestException(ERROR_MESSAGES.passwordDontMatch);
+    }
 
-  if (!user) {
-    throw new BadRequestException(ERROR_MESSAGES.invalidNumber);
+    const user = await prisma.user.findUnique({ where: { id: userId } });
+
+    if (!user) {
+      throw new BadRequestException(ERROR_MESSAGES.somethingWentWrong);
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    const updatedUser = await prisma.user.update({
+      where: { id: user.id },
+      data: { password: hashedPassword },
+    });
+
+    return !!updatedUser;
   }
-
-  return user.id;
-};
-
-export const forgotPasswordStep3 = async ({
-  confirmPassword,
-  newPassword,
-  userId,
-}: ForgotPasswordStep3Validation) => {
-  if (confirmPassword !== newPassword) {
-    throw new BadRequestException(ERROR_MESSAGES.passwordDontMatch);
-  }
-
-  const user = await prisma.user.findUnique({ where: { id: userId } });
-
-  if (!user) {
-    throw new BadRequestException(ERROR_MESSAGES.somethingWentWrong);
-  }
-
-  const hashedPassword = await bcrypt.hash(newPassword, 10);
-
-  const updatedUser = await prisma.user.update({
-    where: { id: user.id },
-    data: { password: hashedPassword },
-  });
-
-  return !!updatedUser;
-};
+}
