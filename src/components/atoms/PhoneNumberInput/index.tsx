@@ -19,7 +19,7 @@ const PhoneNumberInput: FC<PhoneNumberInputProps> = ({ onChange, value }) => {
       <PhoneInput
         country="am"
         value={value}
-        onChange={(phone: any) => onChange({ target: { value: phone } })}
+        onChange={(phone: string) => onChange({ target: { value: phone } })}
         inputStyle={{
           width: '100%',
           height: 40,
