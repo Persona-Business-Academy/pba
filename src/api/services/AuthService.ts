@@ -1,4 +1,3 @@
-import { User } from 'next-auth';
 import {
   ForgotPasswordStep1Validation,
   ForgotPasswordStep2Validation,
@@ -17,10 +16,6 @@ export class AuthService {
   }
   static forgotPasswordStep2(data: ForgotPasswordStep2Validation) {
     return $apiClient.post('/custom-auth/forgot-password-second-step', data);
-  }
-
-  static updateUserProfile(user: Partial<User>) {
-    return $apiClient.put('user-profile', { data: user });
   }
 
   static forgotPasswordStep3(data: ForgotPasswordStep3Validation) {

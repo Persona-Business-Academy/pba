@@ -16,3 +16,9 @@ export interface UserProfileFormData {
   country: string;
   state: string;
 }
+
+export interface PasswordChangeData {
+  currentPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+}

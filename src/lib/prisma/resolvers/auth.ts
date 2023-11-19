@@ -7,7 +7,7 @@ import {
   ForgotPasswordStep3Validation,
   SignUpValidation,
 } from '@/utils/validation';
-import { findUserWithEmail } from './user';
+import { UserResolver } from './user';
 import prisma from '..';
 import { generateRandomNumber } from '../utils/common';
 
@@ -38,7 +38,7 @@ export class AuthResolver {
   }
 
   static async forgotPasswordStep1({ email }: ForgotPasswordStep1Validation) {
-    const user = await findUserWithEmail(email);
+    const user = await UserResolver.findUserWithEmail(email);
 
     if (!user) {
       throw new BadRequestException(ERROR_MESSAGES.userNotFound);

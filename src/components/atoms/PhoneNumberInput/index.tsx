@@ -5,10 +5,9 @@ import 'react-phone-input-2/lib/style.css';
 
 type PhoneNumberInputProps = {
   value: string;
-  country: string;
-  onChange: () => void;
-  placeholder: string;
-  rest: any;
+  country?: string;
+  onChange: (e: { target: { value: string } }) => void;
+  placeholder?: string;
 };
 
 const PhoneNumberInput: FC<PhoneNumberInputProps> = ({ onChange, value }) => {
@@ -20,7 +19,7 @@ const PhoneNumberInput: FC<PhoneNumberInputProps> = ({ onChange, value }) => {
       <PhoneInput
         country="am"
         value={value}
-        onChange={onChange}
+        onChange={(phone: any) => onChange({ target: { value: phone } })}
         inputStyle={{
           width: '100%',
           height: 40,
