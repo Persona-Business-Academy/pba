@@ -34,8 +34,7 @@ const ProfileNavItem: FC<ProfileNavItemProps> = ({ user }) => {
               fontSize="14px"
               fontWeight={600}
               lineHeight="20px">
-              {/* {user?.firstName} {user?.lastName} */}
-              Dan Abramov
+              {user?.firstName} {user?.lastName}
             </Text>
             <Text color="#5B5B5B" className={segoe.className} fontSize="14px" fontWeight={400}>
               My Profile
