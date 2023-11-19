@@ -8,15 +8,14 @@ datasource db {
 }
 
 model User {
-    id        Int      @id @default(autoincrement())
-    email     String   @unique
-    firstName String?  @db.VarChar(45)
-    lastName  String?  @db.VarChar(45)
-    password  String   @db.VarChar(60)
-    createdAt DateTime @default(now()) @db.Timestamp(0)
-    updatedAt DateTime @updatedAt @db.Timestamp(0)
-
-    @@map(name: "users")
+    id               Int      @id @default(autoincrement())
+    email            String   @unique
+    confirmationCode Int?     @unique
+    firstName        String?  @db.VarChar(45)
+    lastName         String?  @db.VarChar(45)
+    password         String   @db.VarChar(60)
+    createdAt        DateTime @default(now()) @db.Timestamp(0)
+    updatedAt        DateTime @updatedAt @db.Timestamp(0)
 }
 
 model Admin {
@@ -28,8 +27,6 @@ model Admin {
     role      AdminRole
     createdAt DateTime  @default(now()) @db.Timestamp(0)
     updatedAt DateTime  @updatedAt @db.Timestamp(0)
-
-    @@map(name: "admin")
 }
 
 model OnlineCourse {
@@ -66,7 +63,7 @@ model OnlineCourseDay {
     onlineCourseId      Int
     onlineCourseLevelId Int
 
-    onlineCourse      OnlineCourse      @relation(fields: [onlineCourseId], references: [id], onDelete: Cascade)
+    OnlineCourse      OnlineCourse      @relation(fields: [onlineCourseId], references: [id], onDelete: Cascade)
     OnlineCourseLevel OnlineCourseLevel @relation(fields: [onlineCourseLevelId], references: [id], onDelete: Cascade)
 
     videos OnlineCourseVideo[]
@@ -83,7 +80,7 @@ model OnlineCourseVideo {
     onlineCourseLevelId Int
     onlineCourseDayId   Int
 
-    onlineCourse      OnlineCourse      @relation(fields: [onlineCourseId], references: [id], onDelete: Cascade)
+    OnlineCourse      OnlineCourse      @relation(fields: [onlineCourseId], references: [id], onDelete: Cascade)
     OnlineCourseLevel OnlineCourseLevel @relation(fields: [onlineCourseLevelId], references: [id], onDelete: Cascade)
     OnlineCourseDay   OnlineCourseDay   @relation(fields: [onlineCourseDayId], references: [id], onDelete: Cascade)
 }

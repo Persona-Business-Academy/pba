@@ -2,20 +2,21 @@
 CREATE TYPE "AdminRole" AS ENUM ('ADMIN', 'SUPER_ADMIN');
 
 -- CreateTable
-CREATE TABLE "users" (
+CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
+    "confirmationCode" INTEGER,
     "firstName" VARCHAR(45),
     "lastName" VARCHAR(45),
     "password" VARCHAR(60) NOT NULL,
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
 
-    CONSTRAINT "users_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "admin" (
+CREATE TABLE "Admin" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
     "firstName" VARCHAR(45),
@@ -25,7 +26,7 @@ CREATE TABLE "admin" (
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
 
-    CONSTRAINT "admin_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Admin_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -76,10 +77,13 @@ CREATE TABLE "OnlineCourseVideo" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "admin_email_key" ON "admin"("email");
+CREATE UNIQUE INDEX "User_confirmationCode_key" ON "User"("confirmationCode");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Admin_email_key" ON "Admin"("email");
 
 -- AddForeignKey
 ALTER TABLE "OnlineCourseLevel" ADD CONSTRAINT "OnlineCourseLevel_onlineCourseId_fkey" FOREIGN KEY ("onlineCourseId") REFERENCES "OnlineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
