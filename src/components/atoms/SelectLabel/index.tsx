@@ -6,15 +6,24 @@ type SelectLabelProps = {
   valueLabel: string;
   nameLabel: string;
   labelName: string;
+  onChange: (e: any) => void;
+  value: string;
 };
 
-const SelectLabel: FC<SelectLabelProps> = ({ options, valueLabel, nameLabel, labelName }) => {
+const SelectLabel: FC<SelectLabelProps> = ({
+  options,
+  valueLabel,
+  nameLabel,
+  labelName,
+  onChange,
+  value,
+}) => {
   return (
     <FormControl>
       <FormLabel fontWeight={600} marginBottom={4} lineHeight="20px" fontSize={14} color="#222">
         {labelName}
       </FormLabel>
-      <Select>
+      <Select onChange={onChange} value={value}>
         {options.map((option, index) => (
           <option key={index} value={option[valueLabel]}>
             {option[nameLabel]}

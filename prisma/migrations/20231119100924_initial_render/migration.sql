@@ -8,6 +8,11 @@ CREATE TABLE "users" (
     "firstName" VARCHAR(45),
     "lastName" VARCHAR(45),
     "password" VARCHAR(60) NOT NULL,
+    "phone" VARCHAR(60),
+    "address" VARCHAR(60),
+    "country" VARCHAR(60),
+    "state" VARCHAR(60),
+    "city" VARCHAR(60),
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
 
