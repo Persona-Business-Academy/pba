@@ -1,7 +1,7 @@
 'use client';
-import React, { FC, useCallback, useEffect } from 'react';
+import React, { FC, useCallback } from 'react';
 import { Box, Button as ChakraButton, Flex, Text } from '@chakra-ui/react';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { Country } from 'country-state-city';
 import Image from 'next/image';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
@@ -15,7 +15,7 @@ import { PasswordChangeData, UserProfileFormData } from '@/utils/models/auth';
 type Props = {};
 
 const Profile: FC<Props> = () => {
-  const { control, handleSubmit, reset } = useForm<UserProfileFormData>();
+  const { control, handleSubmit } = useForm<UserProfileFormData>();
 
   const { control: passwordChangeControl, handleSubmit: passwordChangeHandlerSubmit } =
     useForm<PasswordChangeData>();
@@ -26,23 +26,23 @@ const Profile: FC<Props> = () => {
     any
   >(UserService.updateUserProfile);
 
-  const { data: userData } = useQuery(['get-me'], UserService.getMe);
+  // const { data: userData } = useQuery(['get-me'], UserService.getMe);
 
   console.log({ updatedUserData });
 
-  useEffect(() => {
-    if (userData) {
-      reset({
-        firstName: userData.firstName || '',
-        lastName: userData.lastName || '',
-        email: userData.email || '',
-        state: userData.state || '',
-        city: userData.city || '',
-        country: userData.country || '',
-        phone: userData.phone || '',
-      });
-    }
-  }, [userData, reset]);
+  // useEffect(() => {
+  //   if (userData) {
+  //     reset({
+  //       firstName: userData.firstName || '',
+  //       lastName: userData.lastName || '',
+  //       email: userData.email || '',
+  //       state: userData.state || '',
+  //       city: userData.city || '',
+  //       country: userData.country || '',
+  //       phone: userData.phone || '',
+  //     });
+  //   }
+  // }, [userData, reset]);
 
   const onSubmit: SubmitHandler<UserProfileFormData> = useCallback(
     ({ firstName, lastName, email, state, city, address, country, phone }) => {
@@ -68,8 +68,12 @@ const Profile: FC<Props> = () => {
   );
 
   return (
-    <Box width="700px" margin="0 auto" py="96px">
+    <Box
+      width="700px"
+      margin="0 auto"
+      p={{ base: '36px 16px 36px 16px', md: '96px 16px 159px 16px', xl: '96px 0 159px 0' }}>
       <Text
+        display={{ base: 'none', sm: 'block' }}
         textAlign="center"
         as="h3"
         width="100%"
@@ -79,24 +83,48 @@ const Profile: FC<Props> = () => {
         className={montserrat.className}>
         Edit Profile
       </Text>
-      <Flex gap={16} paddingTop="64px">
-        <Box borderRadius="50%" overflow="hidden">
-          <Image width={101} height={101} alt="avatar_img" src="/images/avatar.jpeg" />
+      <Flex
+        gap={16}
+        textAlign="center"
+        paddingTop={{ base: '0', sm: '40px' }}
+        flexDirection={{ base: 'column', md: 'row' }}
+        alignItems={{ base: 'center', md: 'flex-start' }}>
+        <Box borderRadius="50%" overflow="hidden" position="relative" width="101px" height="101px">
+          <Image fill alt="avatar_img" src="/images/avatar.jpeg" />
         </Box>
         <Box>
-          <Text className={segoe.className} fontSize={24} fontWeight={700} lineHeight="normal">
+          <Text
+            className={segoe.className}
+            fontSize={{ base: '16px', sm: '24px' }}
+            fontWeight={700}
+            lineHeight="normal"
+            m={{ base: '0 0 8px 0', sm: '0 0 16px 0' }}>
+            John Smith
             {/* {user?.firstName} {user?.lastName} */}
           </Text>
-          <ChakraButton>Change Avatar</ChakraButton>
+          <ChakraButton
+            height="22px"
+            color="#1F1646"
+            backgroundColor="#fff"
+            _hover={{
+              color: '#1F1646',
+              backgroundColor: '#fff',
+            }}
+            _focus={{
+              color: '#1F1646',
+              backgroundColor: '#fff',
+            }}>
+            Change Avatar
+          </ChakraButton>
         </Box>
       </Flex>
-      <Flex paddingTop="20px" flexDirection="column" gap={24}>
-        <Flex gap="24px">
+      <Flex paddingTop={{ base: '36px', md: '40px' }} flexDirection="column" gap={24}>
+        <Flex gap="24px" flexDirection={{ base: 'column', lg: 'row' }}>
           <Controller
             name="firstName"
             control={control}
             rules={{
-              required: 'This field is required',
+              required: 'This field idata-themes required',
             }}
             render={({ field: { onChange, value } }) => (
               <FormInput
@@ -134,7 +162,7 @@ const Profile: FC<Props> = () => {
             )}
           />
         </Flex>
-        <Flex gap="24px">
+        <Flex gap="24px" flexDirection={{ base: 'column', lg: 'row' }}>
           <Controller
             name="email"
             control={control}
@@ -186,7 +214,7 @@ const Profile: FC<Props> = () => {
             )}
           />
         </Flex>
-        <Flex gap="24px">
+        <Flex gap="24px" flexDirection={{ base: 'column', lg: 'row' }}>
           <Controller
             name="country"
             control={control}
@@ -248,7 +276,7 @@ const Profile: FC<Props> = () => {
         </Flex>
         <Flex></Flex>
       </Flex>
-      <Flex flexDirection="column" gap={24}>
+      <Flex flexDirection="column" gap={24} mt={{ base: '12px', md: '40px' }}>
         <Text color="#000" fontSize={28} fontWeight={700} className={segoe.className}>
           Private Settings
         </Text>
