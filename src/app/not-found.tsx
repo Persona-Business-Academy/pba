@@ -19,16 +19,15 @@ export default function NotFound() {
         width="100%"
         height="100vh"
         justifyContent="center"
-        flexWrap={{ base: 'wrap', lg: 'nowrap', xl: 'nowrap' }}>
+        flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
         <Flex
           flexDirection="column"
-          justifyContent={{ base: 'center', lg: 'space-between', xl: 'space-between' }}
+          justifyContent={{ base: 'center', lg: 'space-between' }}
           w="960px">
           <Box
-            // bg="pink"
-            padding={{ base: '0 16px', lg: '0', xl: '0' }}
-            margin={{ base: '36px auto', lg: '0 auto', xl: '0 auto' }}
-            width={{ base: '343px', lg: '359px', xl: '359px' }}
+            padding={{ base: '0 16px', lg: '0' }}
+            margin={{ base: '61px 0 36px 0', lg: '0 auto' }}
+            width={{ base: '375px', lg: '359px' }}
             height="100%"
             display="flex"
             justifyContent="center"
@@ -38,16 +37,15 @@ export default function NotFound() {
               404 error
             </Text>
             <Heading
-              as="h2"
               margin="0"
-              size={{ base: '28px', lg: '44px', xl: '44px' }}
+              size={{ base: '28px', lg: '44px' }}
               color="#22222"
               fontWeight="700"
-              lineHeight={{ base: '34.13px', lg: '53.64px', xl: '53.64px' }}>
+              lineHeight={{ base: '34.13px', lg: '53.64px' }}>
               Page not found
             </Heading>
             <Text fontSize="16px" margin="0" paddingBottom="8px" color="#C0C0C0">
-              Sorry, we couldnt find the page youre looking for.
+              Sorry, we couldn't find the page you're looking for.
             </Text>
             <Link
               href="!#"
@@ -64,8 +62,8 @@ export default function NotFound() {
           <Box
             width="100%"
             bg="#E9E8ED"
-            padding={{ base: '8px 16px', lg: '64px 32px', xl: '64px 32px' }}
-            margin={{ base: '0 0 36px 0', lg: '0', xl: '0' }}>
+            padding={{ base: '8px 0', lg: '64px 32px' }}
+            margin={{ base: '0 0 36px 0', lg: '0' }}>
             <UnorderedList
               margin="0 auto"
               listStyleType="none"
@@ -89,7 +87,7 @@ export default function NotFound() {
             </UnorderedList>
           </Box>
         </Flex>
-        <Box width="960px" height={{ base: '419px', lg: '100vh', xl: '100vh' }}>
+        <Box width="960px" height={{ base: '419px', lg: '100vh' }}>
           <Box
             minHeight="100%"
             backgroundImage="/images/public_available/not_found_img.jpg"
