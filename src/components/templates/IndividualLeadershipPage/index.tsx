@@ -1,5 +1,6 @@
 'use client';
 import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { segoe } from '@/utils/constants/fonts';
 
@@ -18,12 +19,12 @@ const LeadershipIndividualPage = () => {
           textAlign="center"
           margin={{ base: '0 auto', lg: '0' }}>
           <Heading
+            className={segoe.className}
             color="#222"
             fontSize="28px"
-            fontWeight={700}
-            className={segoe.className}
+            fontWeight={{ base: 600, md: 700 }}
             fontStyle="normal"
-            lineHeight="normal">
+            lineHeight="36px">
             Tigran Harutyunyan
           </Heading>
           <Text
@@ -31,22 +32,32 @@ const LeadershipIndividualPage = () => {
             fontSize="16px"
             fontWeight={400}
             fontStyle="normal"
-            lineHeight="normal">
+            lineHeight="22px">
             Co-founder of Persona
           </Text>
         </Flex>
-        <Flex gap="20px" flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
+        <Flex
+          gap="20px"
+          flexWrap={{ base: 'wrap', lg: 'nowrap' }}
+          alignItems="center"
+          justifyContent="center">
           <Box
             display="flex"
             justifyContent="center"
             flexDirection="column"
             margin={{ base: '0 auto', lg: '0' }}>
             <Box
-              width={{ base: '343px', lg: '387px' }}
-              height="332px"
-              backgroundColor="blueviolet"
+              maxW={{ base: '100%', md: '387px' }}
               borderRadius="10.556px 10.556px 70.374px 10.556px"
-              marginBottom="24px"></Box>
+              overflow="hidden"
+              marginBottom="24px">
+              <Image
+                width={387}
+                height={332}
+                src="/images/public_available/leadership_individual.jpg"
+                alt="Leadership individual image"
+              />
+            </Box>
             <Text
               as={Link}
               href="#"
@@ -54,18 +65,18 @@ const LeadershipIndividualPage = () => {
               textAlign="center"
               fontSize="16px"
               fontWeight={400}
-              textDecorationLine="underline">
+              textDecorationLine="underline"
+              color="#222">
               View LinkedIn page
             </Text>
           </Box>
-          <Box
-            maxWidth="793px"
-            color="#000"
-            fontSize="16px"
-            fontWeight={400}
-            fontStyle="normal"
-            lineHeight="normal">
-            <Text>
+          <Box width="793px">
+            <Text
+              color="#000"
+              fontSize="16px"
+              fontWeight={400}
+              fontStyle="normal"
+              lineHeight="22px">
               Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
               piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
               McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
@@ -78,9 +89,9 @@ const LeadershipIndividualPage = () => {
               The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those
               interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by
               Cicero are also reproduced in their exact original form, accompanied by English
-              versions from the 1914 translation by H. Rackham. <br></br>\ <br></br>Contrary to
-              popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-              classical Latin literature from 45 BC, making it over 2000 years old. Richard
+              versions from the 1914 translation by H. Rackham. <br />\ <br />
+              Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+              piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
               McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
               the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going
               through the cites of the word in classical literature, discovered the undoubtable

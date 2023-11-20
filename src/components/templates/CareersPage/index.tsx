@@ -37,7 +37,7 @@ const CareersPage: FC<Props> = () => {
               Persona careers
             </Text>
             <Text
-              lineHeight="normal"
+              lineHeight="22px"
               fontStyle="normal"
               fontSize={16}
               color="#222222"
@@ -51,7 +51,7 @@ const CareersPage: FC<Props> = () => {
             </Text>
           </Box>
           <Box
-            maxW={{ base: '576px', md: '50%' }}
+            w={{ base: '100%', md: '50%' }}
             margin="0 auto"
             borderRadius={{ base: '16px', md: '0px 16px 16px 0px' }}
             overflow="hidden">
@@ -64,7 +64,7 @@ const CareersPage: FC<Props> = () => {
           </Box>
         </Flex>
       </Flex>
-      <Flex as="section" flexDirection="column" mt={{ base: '36px', md: '80px', xl: '148px' }}>
+      <Flex as="section" flexDirection="column" my={{ base: '36px', md: '80px', xl: '148px' }}>
         <Flex
           flexDirection="column"
           maxWidth={794}
@@ -84,7 +84,7 @@ const CareersPage: FC<Props> = () => {
             fontSize={16}
             fontWeight={400}
             color="#5B5B5B"
-            lineHeight="normal"
+            lineHeight="24px"
             fontStyle="normal"
             textAlign={{ base: 'left', md: 'center' }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -101,9 +101,12 @@ const CareersPage: FC<Props> = () => {
             <Flex
               justifyContent="space-between"
               flexBasis="590px"
-              pb="22px"
+              pb="24px"
               borderBottom="1px solid #CDCBCF">
-              <Flex flexDirection="column" gap={{ base: '8px', md: '16px' }}>
+              <Flex
+                flexDirection="column"
+                gap={{ base: '8px', md: '16px' }}
+                textAlign={{ base: 'center', sm: 'left' }}>
                 <Heading
                   fontSize={{ base: '24px', md: '28px' }}
                   fontWeight={700}
@@ -141,9 +144,12 @@ const CareersPage: FC<Props> = () => {
               pt={{ base: '24px', md: '0' }}
               justifyContent="space-between"
               flexBasis="590px"
-              paddingBottom="24px"
+              pb="24px"
               borderBottom="1px solid #CDCBCF">
-              <Flex flexDirection="column" gap={{ base: '8px', md: '16px' }}>
+              <Flex
+                flexDirection="column"
+                gap={{ base: '8px', md: '16px' }}
+                textAlign={{ base: 'center', sm: 'left' }}>
                 <Heading
                   fontSize={{ base: '24px', md: '28px' }}
                   fontWeight={700}
@@ -183,9 +189,12 @@ const CareersPage: FC<Props> = () => {
               pt={{ base: '24px', md: '0' }}
               justifyContent="space-between"
               flexBasis="590px"
-              paddingBottom="24px"
+              pb="24px"
               borderBottom="1px solid #CDCBCF">
-              <Flex flexDirection="column" gap={{ base: '8px', md: '16px' }}>
+              <Flex
+                flexDirection="column"
+                gap={{ base: '8px', md: '16px' }}
+                textAlign={{ base: 'center', sm: 'left' }}>
                 <Heading
                   fontSize={{ base: '24px', md: '28px' }}
                   fontWeight={700}
@@ -223,9 +232,12 @@ const CareersPage: FC<Props> = () => {
               pt={{ base: '24px', md: '0' }}
               justifyContent="space-between"
               flexBasis="590px"
-              paddingBottom="24px"
-              borderBottom="1px solid #CDCBCF">
-              <Flex flexDirection="column" gap={{ base: '8px', md: '16px' }}>
+              pb={{ base: '0', sm: '24px' }}
+              borderBottom={{ base: 'none', sm: '1px solid #CDCBCF' }}>
+              <Flex
+                flexDirection="column"
+                gap={{ base: '8px', md: '16px' }}
+                textAlign={{ base: 'center', sm: 'left' }}>
                 <Heading
                   fontSize={{ base: '24px', md: '28px' }}
                   fontWeight={700}
@@ -264,8 +276,8 @@ const CareersPage: FC<Props> = () => {
         <Button
           bg="#fff"
           color="#1F1646"
-          _hover={{ bg: '#fff' }}
-          _focus={{ bg: '#fff' }}
+          _hover={{ bg: '#F3F4F6' }}
+          _focus={{ bg: '#E9E9E9' }}
           borderRadius="6px"
           border="1px solid #F3F4F6"
           padding="16px 32px"
@@ -276,7 +288,7 @@ const CareersPage: FC<Props> = () => {
         </Button>
       </Flex>
 
-      <Flex as="section" flexDirection="column" mt={{ base: '36px', md: '80px', xl: '148px' }}>
+      <Flex as="section" flexDirection="column">
         <Heading
           className={segoe.className}
           textAlign="center"
@@ -290,7 +302,7 @@ const CareersPage: FC<Props> = () => {
         </Heading>
         <Flex gap={24} alignItems="center" flexDirection={{ base: 'column', md: 'row' }}>
           <Box
-            maxW={{ base: '576px', md: '50%' }}
+            w={{ base: '100%', md: '50%' }}
             display={{ base: 'none', sm: 'block' }}
             overflow="hidden"
             borderRadius={{ base: '16px', md: '16px 0px 0px 16px' }}>
@@ -308,16 +320,16 @@ const CareersPage: FC<Props> = () => {
               fontWeight={{ base: 600, md: 700 }}
               color="#222222"
               textAlign="center"
-              lineHeight="normal"
+              lineHeight="36px"
               fontStyle="normal"
-              mb={16}>
+              mb="16px">
               Change the way the world learns
             </Heading>
             <Text
               color="#222222"
               fontSize="16px"
               fontWeight={400}
-              lineHeight="normal"
+              lineHeight="22px"
               fontStyle="normal"
               textAlign={{ base: 'left', md: 'center' }}>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
