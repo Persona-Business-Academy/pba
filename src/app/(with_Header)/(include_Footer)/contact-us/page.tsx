@@ -163,7 +163,6 @@ const Contact = () => {
                       value="number"
                       placeholder="98 901 820"
                       country="am"
-                      rest="number"
                       onChange={Number}
                     />
                   </Box>
