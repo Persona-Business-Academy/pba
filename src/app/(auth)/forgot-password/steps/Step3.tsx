@@ -7,9 +7,9 @@ import { useRouter } from 'next/navigation';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
 import { Button, FormInput } from '@/components/atoms';
-import { SIGN_IN_ROUTE } from '@/constants/routes';
 import { useAuth } from '@/contexts/AuthContext';
-import { ForgotPasswordStep3Validation } from '@/validation';
+import { SIGN_IN_ROUTE } from '@/utils/constants/routes';
+import { ForgotPasswordStep3Validation } from '@/utils/validation';
 
 const resolver = classValidatorResolver(ForgotPasswordStep3Validation);
 

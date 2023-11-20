@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { Button } from '@/components/atoms';
-import { segoe } from '@/constants/fonts';
+import { segoe } from '@/utils/constants/fonts';
 
 type Props = {};
 
@@ -49,6 +49,7 @@ const ArticlesPage: FC<Props> = () => {
               Insights that drive innovation
             </Heading>
             <Text
+              as="span"
               fontStyle="normal"
               lineHeight="normal"
               fontSize="16px"

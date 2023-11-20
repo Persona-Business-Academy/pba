@@ -7,14 +7,14 @@ import { signIn } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Button, FormInput } from '@/components/atoms';
 import { AuthBox } from '@/components/molecules';
-import { ERROR_MESSAGES } from '@/constants/common';
+import { ERROR_MESSAGES } from '@/utils/constants/common';
 import {
   FORGOT_PASSWORD_ROUTE,
   HOMEPAGE_ROUTE,
   SIGN_IN_ROUTE,
   SIGN_UP_ROUTE,
-} from '@/constants/routes';
-import { SignInFormData } from '@/models/auth';
+} from '@/utils/constants/routes';
+import { SignInFormData } from '@/utils/models/auth';
 
 export default function SignInPage() {
   const toast = useToast();

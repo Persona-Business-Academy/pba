@@ -3,8 +3,8 @@ import { Box, Center, Flex, Grid, GridItem, useMediaQuery } from '@chakra-ui/rea
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Logo from 'public/icons/persona_logo_auth.svg';
-import { breakpoints } from '@/constants/chakra';
-import { FORGOT_PASSWORD_ROUTE, HOMEPAGE_ROUTE } from '@/constants/routes';
+import { breakpoints } from '@/utils/constants/chakra';
+import { FORGOT_PASSWORD_ROUTE, HOMEPAGE_ROUTE } from '@/utils/constants/routes';
 
 interface Props {
   isCenter: boolean;

@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { Box, BoxProps, Flex } from '@chakra-ui/react';
-import { linkItems } from '@/constants/routes';
+import { linkItems } from '@/utils/constants/routes';
 import NavItem from '../NavItem';
 
 interface SidebarProps extends BoxProps {}

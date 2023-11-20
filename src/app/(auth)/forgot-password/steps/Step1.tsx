@@ -7,7 +7,7 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
 import { Button, FormInput } from '@/components/atoms';
 import { useAuth } from '@/contexts/AuthContext';
-import { ForgotPasswordStep1Validation } from '@/validation';
+import { ForgotPasswordStep1Validation } from '@/utils/validation';
 
 const resolver = classValidatorResolver(ForgotPasswordStep1Validation);
 

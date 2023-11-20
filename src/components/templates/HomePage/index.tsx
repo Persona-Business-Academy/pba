@@ -1202,10 +1202,19 @@ const HomePage = () => {
           <Button
             bg="#F3F4F6"
             color="#1F1646"
-            height="32px"
+            height="53px"
+            width="168px"
+            borderRadius="6px"
             fontSize="16px"
             lineHeight="21.28px"
-            fontWeight="400">
+            border="1px solid #F3F4F6"
+            fontWeight="400"
+            _hover={{
+              bg: 'F3F4F6',
+            }}
+            _focus={{
+              bg: 'F3F4F6',
+            }}>
             Contact us
           </Button>
         </Box>

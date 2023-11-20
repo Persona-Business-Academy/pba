@@ -1,10 +1,8 @@
-import { NextApiRequest } from 'next';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import NextAuth, { AuthOptions, getServerSession } from 'next-auth';
-import { getToken } from 'next-auth/jwt';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import prisma from '@/lib/prisma';
-import { findUserWithEmail } from '@/lib/prisma/resolvers';
+import { UserResolver } from '@/lib/prisma/resolvers';
 import { validateUserPassword } from '@/lib/prisma/utils/auth';
 
 export const authOptions: AuthOptions = {
@@ -21,11 +19,12 @@ export const authOptions: AuthOptions = {
   ],
   callbacks: {
     session: async ({ session }) => {
-      const user = await findUserWithEmail(session.user?.email || '');
-      return user
+      const user = await UserResolver.findUserWithEmail(session.user?.email || '');
+      const { password: _, ...userWithoutPassword } = user || {};
+      return userWithoutPassword
         ? {
             ...session,
-            user: { firstName: user.firstName, lastName: user.lastName, email: user.email },
+            user: userWithoutPassword,
           }
         : session;
     },
@@ -34,18 +33,9 @@ export const authOptions: AuthOptions = {
   pages: { signIn: '/signin' },
   session: { strategy: 'jwt' },
 };
-
-export const serverSession = async () => {
+export const serverSession = () => {
   try {
-    return await getServerSession(authOptions);
-  } catch (e) {
-    throw e;
-  }
-};
-
-export const getAuthToken = async (req: NextApiRequest) => {
-  try {
-    return await getToken({ req, secret: process.env.JWT_SECRET });
+    return getServerSession(authOptions);
   } catch (e) {
     throw e;
   }

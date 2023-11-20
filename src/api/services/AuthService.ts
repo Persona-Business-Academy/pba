@@ -3,7 +3,7 @@ import {
   ForgotPasswordStep2Validation,
   ForgotPasswordStep3Validation,
   SignUpValidation,
-} from '@/validation';
+} from '@/utils/validation';
 import $apiClient from '..';
 
 export class AuthService {
@@ -17,6 +17,7 @@ export class AuthService {
   static forgotPasswordStep2(data: ForgotPasswordStep2Validation) {
     return $apiClient.post('/custom-auth/forgot-password-second-step', data);
   }
+
   static forgotPasswordStep3(data: ForgotPasswordStep3Validation) {
     // this is only example for serverside calls
     // _______________________________________________________________

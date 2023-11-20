@@ -16,7 +16,7 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import TeamCard from '@/components/molecules/TeamCard';
-import { segoe } from '@/constants/fonts';
+import { segoe } from '@/utils/constants/fonts';
 
 type Props = {};
 

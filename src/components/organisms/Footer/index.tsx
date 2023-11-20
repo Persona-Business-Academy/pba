@@ -12,7 +12,7 @@ import {
   LEADERSHIP_ROUTE,
   TERMS_AND_CONDITIONS_ROUTE,
   VIDEO_COURSES_ROUTE,
-} from '@/constants/routes';
+} from '@/utils/constants/routes';
 
 type Props = {};
 

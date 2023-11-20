@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { Button } from '@/components/atoms';
-import { segoe } from '@/constants/fonts';
+import { segoe } from '@/utils/constants/fonts';
 
 const ArticlePage = () => {
   return (
@@ -96,6 +96,7 @@ const ArticlePage = () => {
         gap={{ base: '36px', md: '80px', xl: '148px' }}>
         <Box as="section" maxWidth="793px" margin={{ base: '36px auto 36px', md: '64px auto 0' }}>
           <Text
+            margin="0"
             _firstLetter={{ fontSize: '44px', fontWeight: '700' }}
             color="#222222"
             fontSize="16px"
@@ -123,7 +124,7 @@ const ArticlePage = () => {
             fontStyle="normal"
             fontSize="16px"
             gap="8px">
-            <Text>Already have an account?</Text>
+            <Text as="span">Already have an account?</Text>
             <Button
               width="auto"
               color="#3CB4E7"
@@ -207,11 +208,15 @@ const ArticlePage = () => {
               fontStyle="normal"
               padding={{ base: '16px', md: '44px 105px 38px 21px' }}
               gap={{ base: '8px', sm: '16px' }}>
-              <Text color="#222222" fontWeight={700}>
+              <Text as="span" color="#222222" fontWeight={700}>
                 Name Surname
               </Text>
 
-              <Text color="#5B5B5B" fontWeight={400} textAlign={{ base: 'left', md: 'center' }}>
+              <Text
+                as="span"
+                color="#5B5B5B"
+                fontWeight={400}
+                textAlign={{ base: 'left', md: 'center' }}>
                 Lorem ipsum dolor sit consectetur sed do eiuNext, apply this class to your
                 component:Lorem ipsum dolor sit consectetur sed do Lorem ipsum dolor sit consectetur
                 sed do Lorem ipsum dolor sit , consectetur sed do Lorem ipsum dolor sit ,

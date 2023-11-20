@@ -2,8 +2,8 @@
 import { useMemo } from 'react';
 import { StackProps } from '@chakra-ui/react';
 import { AuthBox } from '@/components/molecules';
-import { FORGOT_PASSWORD_ROUTE } from '@/constants/routes';
 import { useAuth } from '@/contexts/AuthContext';
+import { FORGOT_PASSWORD_ROUTE } from '@/utils/constants/routes';
 import { Step1, Step2, Step3 } from './steps';
 
 export default function ForgotPasswrodPage() {
