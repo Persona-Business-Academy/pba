@@ -34,26 +34,26 @@ const Contact = () => {
       </Box>
 
       <Container
-        margin={{ base: '36px auto', lg: '148px auto', xl: '148px auto' }}
+        margin={{ base: '36px auto', lg: '148px auto' }}
         maxWidth="1200px"
-        padding={{ base: '32px 16px', lg: '32px', xl: '32px' }}
+        padding={{ base: '32px 16px', lg: '32px' }}
         borderRadius="12px"
         bg="#F3F4F6">
         <Flex
-          gap={{ base: '36px', lg: '100px', xl: '100px' }}
+          gap={{ base: '36px', lg: '100px' }}
           width="100%"
           justifyContent="center"
           alignItems="center"
-          flexWrap={{ base: 'wrap', lg: 'nowrap', xl: 'nowrap' }}>
+          flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
           <Box width="408px">
             <Heading
               as="h2"
-              textAlign={{ base: 'center', lg: 'left', xl: 'left' }}
+              textAlign={{ base: 'center', lg: 'left' }}
               margin="0"
               color="#111827"
               mb="12px"
               lineHeight="36px"
-              fontSize={{ base: '28px', lg: '30px', xl: '30px' }}
+              fontSize={{ base: '28px', lg: '30px' }}
               fontWeight="800">
               Get in touch
             </Heading>
@@ -117,7 +117,7 @@ const Contact = () => {
                 as="h2"
                 margin="0 0 16px 0"
                 fontWeight={700}
-                fontSize={{ base: '28px', lg: '30px', xl: '30px' }}
+                fontSize={{ base: '28px', lg: '30px' }}
                 lineHeight="42.56px">
                 Contact sales
               </Heading>
@@ -130,7 +130,7 @@ const Contact = () => {
             <FormControl maxWidth="628px">
               <Box display="flex" flexDirection="column" gap="16px" flexWrap="wrap">
                 <Box display="flex" gap="20px" flexWrap="wrap">
-                  <Box width={{ base: '100%', lg: '304px', xl: '304px' }}>
+                  <Box width={{ base: '100%', lg: '304px' }}>
                     <FormInput
                       formLabelName="First name"
                       placeholder="Enter name"
@@ -138,7 +138,7 @@ const Contact = () => {
                       isRequired
                     />
                   </Box>
-                  <Box width={{ base: '100%', lg: '304px', xl: '304px' }}>
+                  <Box width={{ base: '100%', lg: '304px' }}>
                     <FormInput
                       formLabelName="Last name"
                       placeholder="Enter last name"
@@ -149,7 +149,7 @@ const Contact = () => {
                 </Box>
 
                 <Flex gap="20px" flexWrap="wrap">
-                  <Box width={{ base: '100%', lg: '304px', xl: '304px' }}>
+                  <Box width={{ base: '100%', lg: '304px' }}>
                     <FormInput
                       formLabelName="Email"
                       placeholder="you@example.com"
@@ -158,7 +158,7 @@ const Contact = () => {
                     />
                   </Box>
 
-                  <Box width={{ base: '100%', lg: '304px', xl: '304px' }}>
+                  <Box width={{ base: '100%', lg: '304px' }}>
                     <PhoneNumberInput
                       value="number"
                       placeholder="98 901 820"
@@ -219,11 +219,11 @@ const Contact = () => {
 
       <Box
         bg={{ base: 'transparent', lg: '#F6FCFF', xl: '#F6FCFF' }}
-        padding={{ base: '0', lg: '74px 0', xl: '74px 0' }}
-        mb={{ base: '36px', lg: '0', xl: ' 0' }}>
+        padding={{ base: '0', lg: '74px 0' }}
+        mb={{ base: '36px', lg: '0' }}>
         <Flex maxWidth="1028px" margin=" 0 auto" gap="46px" flexDirection="column">
           <Box
-            display={{ base: 'none', lg: 'flex', xl: 'flex' }}
+            display={{ base: 'none', lg: 'flex' }}
             gap="215px"
             justifyContent="center"
             textAlign="center"
@@ -248,9 +248,7 @@ const Contact = () => {
 
           <Box display="flex" width="100%" justifyContent="center" gap="36px" flexWrap="wrap">
             <Box display="flex" alignItems="center" gap="24px">
-              <Box
-                width={{ base: '36px', lg: '78px', xl: '78px' }}
-                height={{ base: '36px', lg: '78px', xl: '78px' }}>
+              <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
                 <Image
                   src="/images/public_available/social_facebook.png"
                   alt="Social_icon"
@@ -259,7 +257,7 @@ const Contact = () => {
                 />
               </Box>
 
-              <Box display={{ base: 'none', lg: 'block', xl: 'block' }}>
+              <Box display={{ base: 'none', lg: 'block' }}>
                 <Text as="p" margin="0 0 8px 0" fontWeight={400} lineHeight="22px" fontSize="16px">
                   <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Join</span> our
                 </Text>
@@ -270,9 +268,7 @@ const Contact = () => {
             </Box>
 
             <Box display="flex" alignItems="center" gap="24px">
-              <Box
-                width={{ base: '36px', lg: '78px', xl: '78px' }}
-                height={{ base: '36px', lg: '78px', xl: '78px' }}>
+              <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
                 <Image
                   src="/images/public_available/social_youtube.png"
                   alt="Social_icon"
@@ -281,7 +277,7 @@ const Contact = () => {
                 />
               </Box>
 
-              <Box display={{ base: 'none', lg: 'block', xl: 'block' }}>
+              <Box display={{ base: 'none', lg: 'block' }}>
                 <Text as="p" margin="0 0 8px 0" fontWeight={400} lineHeight="22px" fontSize="16px">
                   <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Watch</span> our
                 </Text>
@@ -292,9 +288,7 @@ const Contact = () => {
             </Box>
 
             <Box display="flex" alignItems="center" gap="24px">
-              <Box
-                width={{ base: '36px', lg: '78px', xl: '78px' }}
-                height={{ base: '36px', lg: '78px', xl: '78px' }}>
+              <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
                 <Image
                   src="/images/public_available/social_instagram.png"
                   alt="Social_icon"
@@ -303,7 +297,7 @@ const Contact = () => {
                 />
               </Box>
 
-              <Box display={{ base: 'none', lg: 'block', xl: 'block' }}>
+              <Box display={{ base: 'none', lg: 'block' }}>
                 <Text as="p" margin="0 0 8px 0" fontWeight={400} lineHeight="22px" fontSize="16px">
                   <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Follow</span> us on
                 </Text>
@@ -314,9 +308,7 @@ const Contact = () => {
             </Box>
 
             <Box display="flex" alignItems="center" gap="24px">
-              <Box
-                width={{ base: '36px', lg: '78px', xl: '78px' }}
-                height={{ base: '36px', lg: '78px', xl: '78px' }}>
+              <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
                 <Image
                   src="/images/public_available/social_facebook.png"
                   alt="Social_icon"
@@ -325,7 +317,7 @@ const Contact = () => {
                 />
               </Box>
 
-              <Box display={{ base: 'none', lg: 'block', xl: 'block' }}>
+              <Box display={{ base: 'none', lg: 'block',  }}>
                 <Text as="p" margin="0 0 8px 0" fontWeight={400} lineHeight="22px" fontSize="16px">
                   <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Connect</span> with us
                   on

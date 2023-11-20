@@ -10,7 +10,7 @@ const AboutPage: FC<Props> = () => {
   return (
     <>
       <Stack
-        backgroundImage="/images/public_available/about_mobile_img.png"
+        backgroundImage="/images/public_available/about_bg.jpg"
         padding={{ base: '68px 16px 67px 16px', md: '68px 0 67px 0', xl: '179px 0 124px 0' }}
         backgroundPosition="center"
         backgroundSize="cover">
@@ -55,18 +55,18 @@ const AboutPage: FC<Props> = () => {
             </Text>
           </Box>
 
-          <Box mb={{ base: '36px', sm: '36px', md: '100px', xl: '148px' }} color="#222222">
+          <Box mb={{ base: '36px', md: '100px', xl: '148px' }} color="#222222">
             <Box
               display="flex"
               gap="24px"
-              marginBottom={{ base: '20px', sm: '20px', md: '30px', lg: '50px', xl: '148px' }}
-              flexWrap={{ base: 'wrap', sm: 'wrap', md: 'wrap', lg: 'wrap', xl: 'nowrap' }}
-              justifyContent={{ base: 'center', sm: 'center', md: 'center', lg: 'center' }}>
+              marginBottom={{ base: '20px', md: '30px', lg: '50px', xl: '148px' }}
+              flexWrap={{ base: 'wrap', xl: 'nowrap' }}
+              justifyContent="center">
               <Box
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
-                textAlign={{ base: 'start', sm: 'start', md: 'center', lg: 'center' }}
+                textAlign={{ base: 'start', md: 'center' }}
                 width="562px">
                 <Heading margin="0 0 16px 0" fontWeight="700" fontSize="24px" lineHeight="31.92px">
                   Lorem ipsum, or lipsum as it is sometimes known, print, graphic or web designs.
@@ -80,7 +80,7 @@ const AboutPage: FC<Props> = () => {
                 </Text>
               </Box>
 
-              <Box display={{ base: 'none', sm: 'none', md: 'none', lg: 'block', xl: 'block' }}>
+              <Box display={{ base: 'none', lg: 'block' }}>
                 <Image
                   src="/images/public_available/courses_img.jpg"
                   width={576}
@@ -93,16 +93,13 @@ const AboutPage: FC<Props> = () => {
             <Box
               display="flex"
               gap={24}
-              marginBottom={{ base: '20px', sm: '20px', md: '30px', lg: '50px', xl: '148px' }}
-              justifyContent={{ base: 'center', sm: 'center', md: 'center', lg: 'center' }}
+              marginBottom={{ base: '20px', md: '30px', lg: '50px', xl: '148px' }}
+              justifyContent="center"
               flexWrap={{
                 base: 'wrap-reverse',
-                sm: 'wrap-reverse',
-                md: 'wrap-reverse',
-                lg: 'wrap-reverse',
                 xl: 'nowrap',
               }}>
-              <Box display={{ base: 'none', sm: 'none', md: 'none', lg: 'block', xl: 'block' }}>
+              <Box display={{ base: 'none', lg: 'block' }}>
                 <Image
                   src="/images/public_available/courses_img.jpg"
                   width={576}
@@ -115,7 +112,7 @@ const AboutPage: FC<Props> = () => {
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
-                textAlign={{ base: 'start', sm: 'start', md: 'center', lg: 'center' }}
+                textAlign={{ base: 'start', md: 'center' }}
                 width="562px">
                 <Heading margin="0 0 16px 0" fontWeight="700" fontSize="24px" lineHeight="31.92px">
                   Lorem ipsum, or lipsum as it is sometimes known, print, graphic or web designs.{' '}
@@ -133,13 +130,13 @@ const AboutPage: FC<Props> = () => {
             <Box
               display="flex"
               gap={24}
-              justifyContent={{ base: 'center', sm: 'center', md: 'center', lg: 'center' }}
-              flexWrap={{ base: 'wrap', sm: 'wrap', md: 'wrap', lg: 'wrap', xl: 'nowrap' }}>
+              justifyContent="center"
+              flexWrap={{ base: 'wrap', xl: 'nowrap' }}>
               <Box
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
-                textAlign={{ base: 'start', sm: 'start', md: 'center', lg: 'center' }}
+                textAlign={{ base: 'start', md: 'center' }}
                 width="562px">
                 <Heading margin="0 0 16px 0" fontWeight="700" fontSize="24px" lineHeight="31.92px">
                   Lorem ipsum, or lipsum as it is sometimes known, print, graphic or web designs.{' '}
@@ -153,7 +150,7 @@ const AboutPage: FC<Props> = () => {
                 </Text>
               </Box>
 
-              <Box display={{ base: 'none', sm: 'none', md: 'none', lg: 'block', xl: 'block' }}>
+              <Box display={{ base: 'none', lg: 'block' }}>
                 <Image
                   src="/images/public_available/courses_img.jpg"
                   width={576}
@@ -165,7 +162,7 @@ const AboutPage: FC<Props> = () => {
           </Box>
         </Container>
 
-        <Box display="none">
+        <Box>
           <Box maxW="804px" margin="0 auto 40px" textAlign="center" color="#000000">
             <Heading margin="0 0 8px 0" fontSize="32px" lineHeight="42.56px" fontWeight="700">
               Our Values
@@ -180,22 +177,22 @@ const AboutPage: FC<Props> = () => {
           <Box
             maxW="1200px"
             margin="0 auto"
-            pb={{ base: '36px', sm: '36px', md: '36px', xl: '148px' }}
+            pb={{ base: '36px', xl: '148px' }}
             gap="20px"
             display="flex"
             flexWrap="wrap"
             justifyContent="center">
-            <Box mt={{ base: '0px', sm: '0px', md: '0px', xl: '40px' }}>
+            <Box mt={{ base: '0px', xl: '40px' }}>
               <Box
                 bg="#fff"
-                width={{ base: '347px', sm: '347px', xl: '386px' }}
+                width={{ base: '347px', xl: '386px' }}
                 margin="0 auto"
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
                 mb="22px"
-                padding={{ base: '64px 17px', sm: '64px 17px', xl: '82.24px 39px 134px' }}>
+                padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
                 <Box mb="36px" width="139px" height="145px">
                   <Image src="/icons/about_value_1.svg" width={138} height={138} alt="Icon" />
                 </Box>
@@ -213,7 +210,7 @@ const AboutPage: FC<Props> = () => {
                     fontSize="16px"
                     fontWeight="400"
                     color="#5B5B5B"
-                    display={{ base: 'none', sm: 'none', xl: 'block' }}>
+                    display={{ base: 'none', xl: 'block' }}>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                   </ListItem>
                 </UnorderedList>
@@ -221,13 +218,13 @@ const AboutPage: FC<Props> = () => {
 
               <Box
                 bg="#fff"
-                width={{ base: '347px', sm: '347px', xl: '386px' }}
+                width={{ base: '347px', xl: '386px' }}
                 margin="0 auto"
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
-                padding={{ base: '64px 17px', sm: '64px 17px', xl: '82.24px 39px 134px' }}>
+                padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
                 <Box mb="36px" width="139px" height="145px">
                   <Image src="/icons/about_value_2.svg" width={138} height={138} alt="Icon" />
                 </Box>
@@ -246,7 +243,7 @@ const AboutPage: FC<Props> = () => {
                     fontSize="16px"
                     fontWeight="400"
                     color="#5B5B5B"
-                    display={{ base: 'none', sm: 'none', xl: 'block' }}>
+                    display={{ base: 'none', xl: 'block' }}>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.{' '}
                   </ListItem>
                 </UnorderedList>
@@ -256,14 +253,14 @@ const AboutPage: FC<Props> = () => {
             <Box>
               <Box
                 bg="#fff"
-                width={{ base: '347px', sm: '347px', xl: '386px' }}
+                width={{ base: '347px', xl: '386px' }}
                 margin="0 auto"
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
                 mb="22px"
-                padding={{ base: '64px 17px', sm: '64px 17px', xl: '82.24px 39px 134px' }}>
+                padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
                 <Box mb="36px" width="139px" height="145px">
                   <Image src="/icons/about_value_3.svg" width={138} height={138} alt="Icon" />
                 </Box>
@@ -277,7 +274,7 @@ const AboutPage: FC<Props> = () => {
                     Speed & <span style={{ color: '#FF6131' }}>Scale</span>
                   </ListItem>
                   <ListItem
-                    display={{ base: 'none', sm: 'none', xl: 'block' }}
+                    display={{ base: 'none', xl: 'block' }}
                     lineHeight="21.28px"
                     fontSize="16px"
                     fontWeight="400"
@@ -289,13 +286,13 @@ const AboutPage: FC<Props> = () => {
 
               <Box
                 bg="#fff"
-                width={{ base: '347px', sm: '347px', xl: '386px' }}
+                width={{ base: '347px', xl: '386px' }}
                 margin="0 auto"
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
-                padding={{ base: '64px 17px', sm: '64px 17px', xl: '82.24px 39px 134px' }}>
+                padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
                 <Box mb="36px" width="139px" height="145px">
                   <Image src="/icons/about_value_4.svg" width={138} height={138} alt="Icon" />
                 </Box>
@@ -310,7 +307,7 @@ const AboutPage: FC<Props> = () => {
                     <span style={{ color: '#FF6131' }}> Start Fixing</span>
                   </ListItem>
                   <ListItem
-                    display={{ base: 'none', sm: 'none', xl: 'block' }}
+                    display={{ base: 'none', xl: 'block' }}
                     lineHeight="21.28px"
                     fontSize="16px"
                     fontWeight="400"
@@ -321,17 +318,17 @@ const AboutPage: FC<Props> = () => {
               </Box>
             </Box>
 
-            <Box mt={{ base: '0px', sm: '0px', md: '0px', xl: '40px' }}>
+            <Box mt={{ base: '0px', xl: '40px' }}>
               <Box
                 bg="#fff"
-                width={{ base: '347px', sm: '347px', xl: '386px' }}
+                width={{ base: '347px', xl: '386px' }}
                 margin="0 auto"
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
                 mb="22px"
-                padding={{ base: '64px 17px', sm: '64px 17px', xl: '82.24px 39px 134px' }}>
+                padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
                 <Box mb="36px" width="139px" height="145px">
                   <Image src="/icons/about_value_5.svg" width={138} height={138} alt="Icon" />
                 </Box>
@@ -345,7 +342,7 @@ const AboutPage: FC<Props> = () => {
                     Show Ownership & <span style={{ color: '#FF6131' }}>Accountability</span>
                   </ListItem>
                   <ListItem
-                    display={{ base: 'none', sm: 'none', xl: 'block' }}
+                    display={{ base: 'none', xl: 'block' }}
                     lineHeight="21.28px"
                     fontSize="16px"
                     fontWeight="400"
@@ -357,13 +354,13 @@ const AboutPage: FC<Props> = () => {
 
               <Box
                 bg="#fff"
-                width={{ base: '347px', sm: '347px', xl: '386px' }}
+                width={{ base: '347px', xl: '386px' }}
                 margin="0 auto"
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
-                padding={{ base: '64px 17px', sm: '64px 17px', xl: '82.24px 39px 134px' }}>
+                padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
                 <Box mb="36px" width="139px" height="145px">
                   <Image src="/icons/about_value_6.svg" width={138} height={138} alt="Icon" />
                 </Box>
@@ -390,7 +387,7 @@ const AboutPage: FC<Props> = () => {
           </Box>
         </Box>
 
-        <Box pb={{ base: '36px', sm: '36px', md: '100px', lg: '148px', xl: '148px' }}>
+        <Box pb={{ base: '36px', md: '100px', lg: '148px' }}>
           <Box
             padding="96px 0"
             mb="37px"
@@ -417,7 +414,7 @@ const AboutPage: FC<Props> = () => {
               the `
             </Text>
             <Text
-              display={{ base: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' }}
+              display={{ base: 'none', xl: 'block' }}
               as="span"
               position="absolute"
               width="50px"
@@ -432,9 +429,9 @@ const AboutPage: FC<Props> = () => {
           <Box maxW="752px" margin="0 auto" display="flex">
             <Box
               maxWidth="348px"
-              marginLeft={{ base: '36px', sm: '36px', md: '0', lg: '0', xl: '0' }}
-              marginRight={{ base: '0', sm: '0', md: '40px', lg: '40px', xl: '40px' }}
-              order={{ base: '1', sm: '1', md: '0', lg: '0', xl: '0' }}>
+              marginLeft={{ base: '36px', md: '0' }}
+              marginRight={{ base: '0', md: '40px' }}
+              order={{ base: '1', md: '0' }}>
               <UnorderedList
                 margin="0 0 96px 0"
                 fontSize="16px"
@@ -490,7 +487,7 @@ const AboutPage: FC<Props> = () => {
               </UnorderedList>
 
               <UnorderedList
-                margin={{ base: '0', sm: '0 ', md: '0 0 96px 0', xl: '0 0 96px 0' }}
+                margin={{ base: '0', md: '0 0 96px 0' }}
                 fontSize="16px"
                 color="#3CB4E7"
                 lineHeight="21.28px"
@@ -514,13 +511,10 @@ const AboutPage: FC<Props> = () => {
               position="relative"
               display="flex"
               flexDirection="column"
-              gap={{ base: '0', sm: '0', md: '210px', lg: '210px', xl: '210px' }}
+              gap={{ base: '0', md: '210px' }}
               padding="40px 0 0 0">
               <Box display="flex" flexDirection="column" alignItems="center" gap="45px">
-                <Box
-                  display="flex"
-                  alignItems="center"
-                  mb={{ base: '260px', sm: '260px', md: '0', lg: '0', xl: '0' }}>
+                <Box display="flex" alignItems="center" mb={{ base: '260px', md: '0' }}>
                   <Text
                     as="span"
                     width="14px"
@@ -529,10 +523,7 @@ const AboutPage: FC<Props> = () => {
                     backgroundColor="#3CB4E7"></Text>
                 </Box>
 
-                <Box
-                  display={{ base: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex' }}
-                  alignItems="center"
-                  gap="8px">
+                <Box display={{ base: 'none', md: 'flex' }} alignItems="center" gap="8px">
                   <Text
                     as="span"
                     width="14px"
@@ -543,10 +534,7 @@ const AboutPage: FC<Props> = () => {
               </Box>
 
               <Box display="flex" flexDirection="column" alignItems="center" gap="45px">
-                <Box
-                  display="flex"
-                  alignItems="center"
-                  mb={{ base: '225px', sm: '225px', md: '0', lg: '0', xl: '0' }}>
+                <Box display="flex" alignItems="center" mb={{ base: '225px', md: '0' }}>
                   <Text
                     as="span"
                     width="14px"
@@ -557,7 +545,7 @@ const AboutPage: FC<Props> = () => {
 
                 <Box display="" alignItems="center" gap="8px">
                   <Text
-                    display={{ base: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex' }}
+                    display={{ base: 'none', md: 'flex' }}
                     as="span"
                     width="14px"
                     height="14px"
@@ -567,10 +555,7 @@ const AboutPage: FC<Props> = () => {
               </Box>
 
               <Box display="flex" flexDirection="column" alignItems="center" gap="45px">
-                <Box
-                  display="flex"
-                  alignItems="center"
-                  mb={{ base: '265px', sm: '265px', md: '0', lg: '0', xl: '0' }}>
+                <Box display="flex" alignItems="center" mb={{ base: '265px', md: '0' }}>
                   <Text
                     as="span"
                     width="14px"
@@ -579,9 +564,7 @@ const AboutPage: FC<Props> = () => {
                     backgroundColor="#3CB4E7"></Text>
                 </Box>
 
-                <Box
-                  display={{ base: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex' }}
-                  alignItems="center">
+                <Box display={{ base: 'none', md: 'flex' }} alignItems="center">
                   <Text
                     as="span"
                     width="14px"
@@ -606,7 +589,7 @@ const AboutPage: FC<Props> = () => {
               marginTop="55px"
               maxWidth="303px"
               marginLeft="60px"
-              display={{ base: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' }}>
+              display={{ base: 'none', md: 'block' }}>
               <UnorderedList
                 margin="0 0 96px 0"
                 fontSize="16px"
@@ -662,16 +645,15 @@ const AboutPage: FC<Props> = () => {
             </Box>
           </Box>
         </Box>
+
         <Box bg="#1F1646">
           <Box
-            padding={{ base: '86px 0', sm: '86px 0', xl: '96px 0' }}
+            padding={{ base: '86px 0', xl: '96px 0' }}
             color="#fff"
             maxWidth="1228px"
             gap={{
               base: '81px',
-              sm: '81px',
               md: '50px',
-              lg: '50px',
               xl: '0',
             }}
             margin="0 auto"
@@ -679,9 +661,6 @@ const AboutPage: FC<Props> = () => {
             flexWrap="wrap"
             justifyContent={{
               base: 'center',
-              sm: 'center',
-              md: 'center',
-              lg: 'center',
               xl: 'space-between',
             }}>
             <UnorderedList
@@ -693,23 +672,17 @@ const AboutPage: FC<Props> = () => {
               <ListItem
                 lineHeight={{
                   base: ' 37.24px',
-                  sm: ' 37.24px',
-                  md: ' 37.24px',
                   lg: '53.64px',
-                  xl: '53.64px',
                 }}
-                fontSize={{ base: '28px', sm: '28px', md: '28px', lg: '44px', xl: '44px' }}>
+                fontSize={{ base: '28px', lg: '44px' }}>
                 1M+
               </ListItem>
               <ListItem
                 lineHeight={{
                   base: ' 31.92px',
-                  sm: ' 31.92px',
-                  md: ' 31.92px',
                   lg: '42.56px',
-                  xl: '42.56px',
                 }}
-                fontSize={{ base: '24px', sm: '24px', md: '24px', lg: '32px', xl: '32px' }}>
+                fontSize={{ base: '24px', lg: '32px' }}>
                 Users on our platform
               </ListItem>
             </UnorderedList>
@@ -723,23 +696,17 @@ const AboutPage: FC<Props> = () => {
               <ListItem
                 lineHeight={{
                   base: ' 37.24px',
-                  sm: ' 37.24px',
-                  md: ' 37.24px',
                   lg: '53.64px',
-                  xl: '53.64px',
                 }}
-                fontSize={{ base: '28px', sm: '28px', md: '28px', lg: '44px', xl: '44px' }}>
+                fontSize={{ base: '28px', lg: '44px' }}>
                 150+
               </ListItem>
               <ListItem
                 lineHeight={{
                   base: ' 31.92px',
-                  sm: ' 31.92px',
-                  md: ' 31.92px',
                   lg: '42.56px',
-                  xl: '42.56px',
                 }}
-                fontSize={{ base: '24px', sm: '24px', md: '24px', lg: '32px', xl: '32px' }}>
+                fontSize={{ base: '24px', lg: '32px' }}>
                 Total course
               </ListItem>
             </UnorderedList>
@@ -753,24 +720,18 @@ const AboutPage: FC<Props> = () => {
               <ListItem
                 lineHeight={{
                   base: ' 37.24px',
-                  sm: ' 37.24px',
-                  md: ' 37.24px',
                   lg: '53.64px',
-                  xl: '53.64px',
                 }}
-                fontSize={{ base: '28px', sm: '28px', md: '28px', lg: '44px', xl: '44px' }}>
+                fontSize={{ base: '28px', lg: '44px' }}>
                 1M+
               </ListItem>
               <ListItem
                 lineHeight={{
                   base: ' 31.92px',
-                  sm: ' 31.92px',
-                  md: ' 31.92px',
                   lg: '42.56px',
-                  xl: '42.56px',
                 }}
-                fontSize={{ base: '24px', sm: '24px', md: '24px', lg: '32px', xl: '32px' }}>
-                Nanodegree certificates earned{' '}
+                fontSize={{ base: '24px', lg: '32px' }}>
+                Nanodegree certificates earned
               </ListItem>
             </UnorderedList>
 
@@ -783,23 +744,17 @@ const AboutPage: FC<Props> = () => {
               <ListItem
                 lineHeight={{
                   base: ' 37.24px',
-                  sm: ' 37.24px',
-                  md: ' 37.24px',
                   lg: '53.64px',
-                  xl: '53.64px',
                 }}
-                fontSize={{ base: '28px', sm: '28px', md: '28px', lg: '44px', xl: '44px' }}>
+                fontSize={{ base: '28px', lg: '44px' }}>
                 1M+
               </ListItem>
               <ListItem
                 lineHeight={{
                   base: ' 31.92px',
-                  sm: ' 31.92px',
-                  md: ' 31.92px',
                   lg: '42.56px',
-                  xl: '42.56px',
                 }}
-                fontSize={{ base: '24px', sm: '24px', md: '24px', lg: '32px', xl: '32px' }}>
+                fontSize={{ base: '24px', lg: '32px' }}>
                 Users on our platform
               </ListItem>
             </UnorderedList>

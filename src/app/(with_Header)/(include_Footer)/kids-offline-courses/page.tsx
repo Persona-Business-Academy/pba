@@ -103,7 +103,7 @@ const KidsOfflineCourses: FC<Props> = () => {
             fontStyle="normal"
             lineHeight="36px"
             color="#222222"
-            mb="24px"
+            m=" 0 0 24px 0"
             textAlign="center">
             Find the right article for you
           </Heading>
@@ -313,8 +313,8 @@ const KidsOfflineCourses: FC<Props> = () => {
               <TabPanel padding="0">
                 {/* Filter should be changed */}
                 <Flex justifyContent="space-between" my="40px">
-                  <Text>Filter</Text>
-                  <Text>Skill level</Text>
+                  <Text as="span">Filter</Text>
+                  <Text as="span">Skill level</Text>
                 </Flex>
                 <Grid
                   gridGap="20px"
@@ -359,8 +359,12 @@ const KidsOfflineCourses: FC<Props> = () => {
                         fontWeight={700}
                         lineHeight="normal"
                         color="#222">
-                        <Text fontSize="24px">Graphic Design</Text>
-                        <Text fontSize="16px">100$/month</Text>
+                        <Text as="span" fontSize="24px">
+                          Graphic Design
+                        </Text>
+                        <Text as="span" fontSize="16px">
+                          100$/month
+                        </Text>
                       </Flex>
                       <Text
                         fontSize="16px"
@@ -457,8 +461,12 @@ const KidsOfflineCourses: FC<Props> = () => {
                         fontWeight={700}
                         lineHeight="normal"
                         color="#222">
-                        <Text fontSize="24px">Graphic Design</Text>
-                        <Text fontSize="16px">100$/month</Text>
+                        <Text as="span" fontSize="24px">
+                          Graphic Design
+                        </Text>
+                        <Text as="span" fontSize="16px">
+                          100$/month
+                        </Text>
                       </Flex>
                       <Text
                         fontSize="16px"
@@ -555,8 +563,12 @@ const KidsOfflineCourses: FC<Props> = () => {
                         fontWeight={700}
                         lineHeight="normal"
                         color="#222">
-                        <Text fontSize="24px">Graphic Design</Text>
-                        <Text fontSize="16px">100$/month</Text>
+                        <Text as="span" fontSize="24px">
+                          Graphic Design
+                        </Text>
+                        <Text as="span" fontSize="16px">
+                          100$/month
+                        </Text>
                       </Flex>
                       <Text
                         fontSize="16px"
@@ -653,8 +665,12 @@ const KidsOfflineCourses: FC<Props> = () => {
                         fontWeight={700}
                         lineHeight="normal"
                         color="#222">
-                        <Text fontSize="24px">Graphic Design</Text>
-                        <Text fontSize="16px">100$/month</Text>
+                        <Text as="span" fontSize="24px">
+                          Graphic Design
+                        </Text>
+                        <Text as="span" fontSize="16px">
+                          100$/month
+                        </Text>
                       </Flex>
                       <Text
                         fontSize="16px"
@@ -751,8 +767,12 @@ const KidsOfflineCourses: FC<Props> = () => {
                         fontWeight={700}
                         lineHeight="normal"
                         color="#222">
-                        <Text fontSize="24px">Graphic Design</Text>
-                        <Text fontSize="16px">100$/month</Text>
+                        <Text as="span" fontSize="24px">
+                          Graphic Design
+                        </Text>
+                        <Text as="span" fontSize="16px">
+                          100$/month
+                        </Text>
                       </Flex>
                       <Text
                         fontSize="16px"
@@ -849,8 +869,115 @@ const KidsOfflineCourses: FC<Props> = () => {
                         fontWeight={700}
                         lineHeight="normal"
                         color="#222">
-                        <Text fontSize="24px">Graphic Design</Text>
-                        <Text fontSize="16px">100$/month</Text>
+                        <Text as="span" fontSize="24px">
+                          Graphic Design
+                        </Text>
+                        <Text as="span" fontSize="16px">
+                          100$/month
+                        </Text>
+                      </Flex>
+
+                      <Text
+                        fontSize="16px"
+                        fontStyle="normal"
+                        fontWeight={400}
+                        lineHeight="22px"
+                        color="#222">
+                        Get inspired by this revived W.H. Auden's Hymn to the United Nations.
+                      </Text>
+                      <Flex display="flex" alignItems="center" gap="21.72px" my="16px">
+                        <Flex gap="8.14px">
+                          <Image
+                            width={22}
+                            height={22}
+                            alt="Time icon"
+                            src="/icons/time_icon.svg"
+                          />
+                          <span
+                            style={{
+                              fontSize: '16px',
+                              fontStyle: 'normal',
+                              fontWeight: 400,
+                              lineHeight: 'normal',
+                            }}>
+                            3 month
+                          </span>
+                        </Flex>
+                        <Flex gap="8.14px">
+                          <Image
+                            width={22}
+                            height={22}
+                            alt="Level icon"
+                            src="/icons/level_icon.svg"
+                          />
+                          <span
+                            style={{
+                              fontSize: '16px',
+                              fontStyle: 'normal',
+                              fontWeight: 400,
+                              lineHeight: 'normal',
+                            }}>
+                            Open level
+                          </span>
+                        </Flex>
+                      </Flex>
+                      <Flex gap="16px">
+                        <Button>Enroll now</Button>
+                        <Button
+                          bg="#FFFFFF"
+                          color="#222"
+                          _hover={{
+                            bg: '#FFFFFF',
+                            color: '#5B5B5B',
+                          }}
+                          _focus={{
+                            bg: '#FFFFFF',
+                            color: '#222',
+                          }}>
+                          View Syllabus
+                        </Button>
+                      </Flex>
+                    </Box>
+                  </GridItem>
+                  <GridItem width="387px">
+                    <Box
+                      borderRadius="12px 12px 0px 0px"
+                      overflow="hidden"
+                      height="242px"
+                      position="relative">
+                      <Image
+                        src="/images/public_available/courses_img.jpg"
+                        alt="Kids offline courses"
+                        width={387}
+                        height={242}
+                      />
+                      <Image
+                        width={24}
+                        height={24}
+                        alt="Heart icon"
+                        src="/icons/heart_icon.svg"
+                        style={{ position: 'absolute', right: '24px', top: '24px' }}
+                      />
+                    </Box>
+                    <Box
+                      p="16px"
+                      borderRadius=" 0px 0px 12px 12px"
+                      background="#FFFFFF"
+                      boxShadow="0px 4px 6px 0px rgba(0, 0, 0, 0.06)">
+                      <Flex
+                        justifyContent="space-between"
+                        alignItems="center"
+                        mb="8px"
+                        fontStyle="normal"
+                        fontWeight={700}
+                        lineHeight="normal"
+                        color="#222">
+                        <Text as="span" fontSize="24px">
+                          Graphic Design
+                        </Text>
+                        <Text as="span" fontSize="16px">
+                          100$/month
+                        </Text>
                       </Flex>
                       <Text
                         fontSize="16px"
@@ -947,8 +1074,12 @@ const KidsOfflineCourses: FC<Props> = () => {
                         fontWeight={700}
                         lineHeight="normal"
                         color="#222">
-                        <Text fontSize="24px">Graphic Design</Text>
-                        <Text fontSize="16px">100$/month</Text>
+                        <Text as="span" fontSize="24px">
+                          Graphic Design
+                        </Text>
+                        <Text as="span" fontSize="16px">
+                          100$/month
+                        </Text>
                       </Flex>
                       <Text
                         fontSize="16px"
@@ -1045,106 +1176,12 @@ const KidsOfflineCourses: FC<Props> = () => {
                         fontWeight={700}
                         lineHeight="normal"
                         color="#222">
-                        <Text fontSize="24px">Graphic Design</Text>
-                        <Text fontSize="16px">100$/month</Text>
-                      </Flex>
-                      <Text
-                        fontSize="16px"
-                        fontStyle="normal"
-                        fontWeight={400}
-                        lineHeight="22px"
-                        color="#222">
-                        Get inspired by this revived W.H. Auden's Hymn to the United Nations.
-                      </Text>
-                      <Flex display="flex" alignItems="center" gap="21.72px" my="16px">
-                        <Flex gap="8.14px">
-                          <Image
-                            width={22}
-                            height={22}
-                            alt="Time icon"
-                            src="/icons/time_icon.svg"
-                          />
-                          <span
-                            style={{
-                              fontSize: '16px',
-                              fontStyle: 'normal',
-                              fontWeight: 400,
-                              lineHeight: 'normal',
-                            }}>
-                            3 month
-                          </span>
-                        </Flex>
-                        <Flex gap="8.14px">
-                          <Image
-                            width={22}
-                            height={22}
-                            alt="Level icon"
-                            src="/icons/level_icon.svg"
-                          />
-                          <span
-                            style={{
-                              fontSize: '16px',
-                              fontStyle: 'normal',
-                              fontWeight: 400,
-                              lineHeight: 'normal',
-                            }}>
-                            Open level
-                          </span>
-                        </Flex>
-                      </Flex>
-                      <Flex gap="16px">
-                        <Button>Enroll now</Button>
-                        <Button
-                          bg="#FFFFFF"
-                          color="#222"
-                          _hover={{
-                            bg: '#FFFFFF',
-                            color: '#5B5B5B',
-                          }}
-                          _focus={{
-                            bg: '#FFFFFF',
-                            color: '#222',
-                          }}>
-                          View Syllabus
-                        </Button>
-                      </Flex>
-                    </Box>
-                  </GridItem>
-                  <GridItem width="387px">
-                    <Box
-                      borderRadius="12px 12px 0px 0px"
-                      overflow="hidden"
-                      height="242px"
-                      position="relative">
-                      <Image
-                        src="/images/public_available/courses_img.jpg"
-                        alt="Kids offline courses"
-                        width={387}
-                        height={242}
-                      />
-                      <Image
-                        width={24}
-                        height={24}
-                        alt="Heart icon"
-                        src="/icons/heart_icon.svg"
-                        style={{ position: 'absolute', right: '24px', top: '24px' }}
-                      />
-                    </Box>
-                    <Box
-                      p="16px"
-                      borderRadius=" 0px 0px 12px 12px"
-                      background="#FFFFFF"
-                      boxShadow="0px 4px 6px 0px rgba(0, 0, 0, 0.06)">
-                      <Flex
-                        justifyContent="space-between"
-                        alignItems="center"
-                        mb="8px"
-                        fontStyle="normal"
-                        fontWeight={700}
-                        lineHeight="normal"
-                        color="#222">
-                        <Text fontSize="24px">Graphic Design</Text>
-                        <Text fontSize="16px">100$/month</Text>
+                        <Text as="span" fontSize="24px">
+                          Graphic Design
+                        </Text>
+                        <Text as="span" fontSize="16px">
+                          100$/month
+                        </Text>
                       </Flex>
                       <Text
                         fontSize="16px"
@@ -1244,11 +1281,12 @@ const KidsOfflineCourses: FC<Props> = () => {
               fontWeight={{ base: 600, md: 700 }}
               lineHeight="normal"
               color="#222"
-              mb={{ base: '16px', sm: '50px' }}
+              m={{ base: '0 0 16px 0', sm: ' 0 0 50px 0' }}
               textAlign="center">
               Why Should Your Kid Learn Computer Science?
             </Heading>
             <UnorderedList
+              margin="0"
               fontSize="16px"
               fontStyle="normal"
               fontWeight={400}
@@ -1288,11 +1326,17 @@ const KidsOfflineCourses: FC<Props> = () => {
             fontWeight={700}
             lineHeight={{ base: '36px', md: 'normal' }}
             color="#222"
-            mb="40px">
+            m="0 0 40px 0">
             It's time to elevate your skills
           </Heading>
           <Flex gap={{ base: '16px', md: '0' }} flexDirection={{ base: 'column', md: 'row' }}>
+            {/*  */}
             <Box
+              _hover={{
+                borderBottom: '8px solid #3CB4E7',
+                marginTop: '24px',
+                transition: 'all 0.5s ',
+              }}
               p="32px"
               boxShadow="0px -4px 4px -1px rgba(0, 0, 0, 0.06)"
               width={400}
@@ -1331,7 +1375,13 @@ const KidsOfflineCourses: FC<Props> = () => {
                 Cras aliquet purus dui laoreet diam sed lacus, fame
               </Text>
             </Box>
+            {/*  */}
             <Box
+              _hover={{
+                borderBottom: '8px solid #3CB4E7',
+                marginTop: '24px',
+                transition: 'all 0.5s ',
+              }}
               p="32px"
               boxShadow="0px -4px 4px -1px rgba(0, 0, 0, 0.06)"
               width={400}
@@ -1370,7 +1420,13 @@ const KidsOfflineCourses: FC<Props> = () => {
                 Cras aliquet purus dui laoreet diam sed lacus, fame
               </Text>
             </Box>
+            {/*  */}
             <Box
+              _hover={{
+                borderBottom: '8px solid #3CB4E7',
+                marginTop: '24px',
+                transition: 'all 0.3s ',
+              }}
               p="32px"
               boxShadow="0px -4px 4px -1px rgba(0, 0, 0, 0.06)"
               width={400}

@@ -49,6 +49,7 @@ const ArticlesPage: FC<Props> = () => {
               Insights that drive innovation
             </Heading>
             <Text
+              as="span"
               fontStyle="normal"
               lineHeight="normal"
               fontSize="16px"
