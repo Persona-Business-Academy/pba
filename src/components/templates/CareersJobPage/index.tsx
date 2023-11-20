@@ -17,36 +17,37 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { Button } from '@/components/atoms';
+import { segoe } from '@/constants/fonts';
 
 type Props = {};
 
 const CareersJobPage: FC<Props> = () => {
   return (
-    <Container maxW="1201px" padding={{ base: '0 16px', xl: '0' }}>
+    <Container maxW="1200px" padding={{ base: '0 16px', xl: '0' }}>
       <Flex
         color="#222222"
-        margin={{ base: '36px 0 36px', lg: '148px 0 41px', xl: ' 148px 0 41px' }}
+        margin={{ base: '36px 0 36px', lg: '148px 0 36px' }}
         flexWrap="wrap"
         justifyContent="space-between"
         gap="24px">
         <Box>
           <Heading
-            as="h2"
+            className={segoe.className}
             noOfLines={1}
             margin="0"
-            fontWeight="700"
+            fontWeight={{ base: 600, md: 700 }}
             lineHeight="42.56px"
-            fontSize="32px">
+            fontSize={{ base: '28px', md: '32px' }}>
             HR Manager
           </Heading>
         </Box>
         <Box>
           <Button
-            padding={{ base: '8px 14px', md: '16px 32px', lg: '16px 32px', xl: ' 16px 32px' }}
+            padding={{ base: '8px 14px', md: '16px 32px' }}
             height="53px"
             width="140px"
             lineHeight="21.28px"
-            fontFamily="400"
+            fontWeight="400"
             fontSize="16px">
             Apply now
           </Button>
@@ -55,65 +56,59 @@ const CareersJobPage: FC<Props> = () => {
 
       <Box
         color="#222222"
-        justifyContent="space-beetwen"
-        display={{ base: 'block', sm: 'flex', md: 'flex', lg: 'flex', xl: 'flex' }}
-        maxWidth="470px"
-        flexWrap="wrap"
-        gap="40px"
+        display={{ base: 'block', sm: 'flex' }}
+        gap={{ base: '20px', sm: '40px' }}
         borderBottom="1px solid #BDBDBD"
         paddingBottom="24px">
         <UnorderedList
-          margin={{ base: '0 0 20px 0', sm: '0', md: '0', lg: '0', xl: '0' }}
+          margin={{ base: '0 0 20px 0', sm: '0' }}
           listStyleType="none"
           fontSize="16px"
-          lineHeight={{ base: '18.75px', sm: '0', md: '21.28px', lg: '21.28px', xl: '21.28px' }}>
+          lineHeight="normal">
           <ListItem fontWeight="700">Salary:</ListItem>
           <ListItem fontWeight="400">£24,000 - £26,000</ListItem>
         </UnorderedList>
 
         <UnorderedList
-          margin={{ base: '0 0 20px 0', sm: '0', md: '0', lg: '0', xl: '0' }}
+          margin={{ base: '0 0 20px 0', sm: '0' }}
           listStyleType="none"
           fontSize="16px"
-          lineHeight={{ base: '18.75px', sm: '0', md: '21.28px', lg: '21.28px', xl: '21.28px' }}>
+          lineHeight="normal">
           <ListItem fontWeight="700">Working hours:</ListItem>
           <ListItem fontWeight="400">10:00-18:00</ListItem>
         </UnorderedList>
 
-        <UnorderedList margin="0" listStyleType="none" fontSize="16px" lineHeight="21.28px">
+        <UnorderedList margin="0" listStyleType="none" fontSize="16px" lineHeight="normal">
           <ListItem fontWeight="700">Contract type:</ListItem>
           <ListItem fontWeight="400">Full-time, Permanent</ListItem>
         </UnorderedList>
       </Box>
 
-      <Box m={{ base: '24px 0 20px', md: '24px 0 40px', lg: ' 24px 0 40px', xl: '24px 0 40px' }}>
+      <Box m={{ base: '24px 0 20px', md: '24px 0 40px' }}>
         <UnorderedList
           listStyleType="none"
           margin="0"
           fontSize="16px"
           fontWeight="400"
-          lineHeight="21.28px">
+          lineHeight="22px"
+          color="#5B5B5B">
           <ListItem marginBottom="8px">Opportunity for HR Manager to build the Team</ListItem>
           <ListItem>Opportunity to work with global counterparts</ListItem>
         </UnorderedList>
       </Box>
 
-      <Box maxW="895px" marginBottom={{ base: '36px', lg: '148px', xl: '148px' }} color="#222222">
-        <Box mb={{ base: '16px', lg: ' 64px', xl: '64px' }}>
+      <Box maxW="895px" marginBottom={{ base: '36px', lg: '148px' }} color="#222222">
+        <Box mb={{ base: '16px', lg: ' 64px' }}>
           <Heading
-            margin={{ base: '0 0 16px 0', lg: ' 0 0 24px 0', xl: '0 0 24px 0' }}
-            fontSize={{ base: '24px', lg: ' 32px', xl: '32px' }}
-            lineHeight={{ base: '31.92px', lg: ' 42.56px', xl: '42.56px' }}
+            className={segoe.className}
+            m={{ base: ' 0 0 16px 0', lg: ' 0 0 24px 0' }}
+            fontSize={{ base: '24px', lg: ' 32px' }}
+            lineHeight={{ base: '31.92px', lg: ' 42.56px' }}
             fontWeight="700">
             Job Description
           </Heading>
-          <Text
-            lineHeight={{ base: '18.75px', lg: ' 21.28px', xl: '21.28px' }}
-            fontSize="16px"
-            fontWeight="400"
-            maxW="876px"
-            margin="0">
-            {`Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+          <Text lineHeight="22px" fontSize="16px" fontWeight="400" fontStyle="normal">
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
             piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
             McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
             the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
@@ -125,25 +120,21 @@ const CareersJobPage: FC<Props> = () => {
             of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
             1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced
             in their exact original form, accompanied by English versions from the 1914 translation
-            by H. Rackham.`}
+            by H. Rackham.
           </Text>
         </Box>
 
-        <Box mb={{ base: '16px', lg: ' 64px', xl: '64px' }}>
+        <Box mb={{ base: '16px', lg: ' 64px' }}>
           <Heading
-            margin={{ base: '0 0 16px 0', lg: ' 0 0 24px 0', xl: '0 0 24px 0' }}
-            fontSize={{ base: '24px', lg: ' 32px', xl: '32px' }}
-            lineHeight={{ base: '31.92px', lg: ' 42.56px', xl: '42.56px' }}
+            className={segoe.className}
+            m={{ base: ' 0 0 16px 0', lg: ' 0 0 24px 0' }}
+            fontSize={{ base: '24px', lg: ' 32px' }}
+            lineHeight={{ base: '31.92px', lg: ' 42.56px' }}
             fontWeight="700">
             Job Responsibilities
           </Heading>
-          <Text
-            lineHeight={{ base: '18.75px', lg: ' 21.28px', xl: '21.28px' }}
-            fontSize="16px"
-            fontWeight="400"
-            maxW="876px"
-            margin="0">
-            {`Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+          <Text lineHeight="22px" fontSize="16px" fontWeight="400" fontStyle="normal">
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
             piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
             McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
             the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
@@ -155,25 +146,21 @@ const CareersJobPage: FC<Props> = () => {
             of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
             1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced
             in their exact original form, accompanied by English versions from the 1914 translation
-            by H. Rackham.`}
+            by H. Rackham.
           </Text>
         </Box>
 
         <Box>
           <Heading
-            margin={{ base: '0 0 16px 0', lg: ' 0 0 24px 0', xl: '0 0 24px 0' }}
-            fontSize={{ base: '24px', lg: ' 32px', xl: '32px' }}
-            lineHeight={{ base: '31.92px', lg: ' 42.56px', xl: '42.56px' }}
+            className={segoe.className}
+            m={{ base: ' 0 0 16px 0', lg: ' 0 0 24px 0' }}
+            fontSize={{ base: '24px', lg: ' 32px' }}
+            lineHeight={{ base: '31.92px', lg: ' 42.56px' }}
             fontWeight="700">
             Requirement & Skills
           </Heading>
-          <Text
-            lineHeight={{ base: '18.75px', lg: ' 21.28px', xl: '21.28px' }}
-            fontSize="16px"
-            fontWeight="400"
-            maxW="876px"
-            margin="0">
-            {`Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+          <Text lineHeight="22px" fontSize="16px" fontWeight="400" fontStyle="normal">
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
             piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
             McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
             the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
@@ -185,26 +172,24 @@ const CareersJobPage: FC<Props> = () => {
             of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
             1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced
             in their exact original form, accompanied by English versions from the 1914 translation
-            by H. Rackham.`}
+            by H. Rackham.
           </Text>
         </Box>
       </Box>
 
-      <Box marginBottom={{ base: '36px', lg: '148px', xl: '148px' }}>
+      <Box marginBottom={{ base: '36px', lg: '148px' }}>
         <Heading
-          margin={{ base: '0 0 16px 0', lg: '0 0 40px 0', xl: '0 0 40px 0' }}
-          fontSize="24px"
-          textAlign={{ base: 'center', lg: 'start', xl: 'start' }}
-          lineHeight="31.92px"
+          className={segoe.className}
+          m={{ base: ' 0 0 16px 0', lg: ' 0 0 40px 0' }}
+          fontSize={{ base: '28px', md: '24px' }}
+          textAlign={{ base: 'center', lg: 'start' }}
+          lineHeight="normal"
           fontWeight="700">
           Vacancy Application
         </Heading>
 
         <Box>
-          <Flex
-            gap="20px"
-            justifyContent={{ base: 'center', lg: 'center', xl: 'center' }}
-            alignItems="center">
+          <Flex gap="20px" justifyContent="center" alignItems="center">
             <Box width="666px">
               <FormControl marginBottom="36px">
                 <FormLabel
@@ -322,8 +307,6 @@ const CareersJobPage: FC<Props> = () => {
 
               <Button
                 type="submit"
-                color="#FFFFFF"
-                bg="#3CB4E7"
                 width="100%"
                 padding="8px 14px"
                 fontSize="16px"
@@ -334,9 +317,7 @@ const CareersJobPage: FC<Props> = () => {
               </Button>
             </Box>
 
-            <Box
-              maxWidth="514px"
-              display={{ base: 'none', lg: 'inline-block', xl: 'inline-block' }}>
+            <Box maxWidth="514px" display={{ base: 'none', lg: 'inline-block' }}>
               <Image src="/icons/job_img_form.jpg" alt="user img" width={507} height={607} />
             </Box>
           </Flex>
