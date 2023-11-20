@@ -1,40 +1,68 @@
 'use client';
 import React, { FC, useCallback, useEffect } from 'react';
 import { Box, Button as ChakraButton, Flex, Text } from '@chakra-ui/react';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { Country } from 'country-state-city';
 import Image from 'next/image';
-import { User } from 'next-auth';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { UserService } from '@/api/services/UserService';
 import { Button, FormInput } from '@/components/atoms';
 import PhoneNumberInput from '@/components/atoms/PhoneNumberInput';
 import SelectLabel from '@/components/atoms/SelectLabel';
 import { montserrat, segoe } from '@/utils/constants/fonts';
-import { UserProfileFormData } from '@/utils/models/auth';
+import { PasswordChangeData, UserProfileFormData } from '@/utils/models/auth';
 
-type Props = {
-  user: User | null;
-};
+type Props = {};
 
-const Profile: FC<Props> = ({ user }) => {
+const Profile: FC<Props> = () => {
   const { control, handleSubmit, reset } = useForm<UserProfileFormData>();
 
+  const { control: passwordChangeControl, handleSubmit: passwordChangeHandlerSubmit } =
+    useForm<PasswordChangeData>();
+
+  const { mutate: updateUserProfileMutation, data: updatedUserData } = useMutation<
+    number,
+    { message: string },
+    any
+  >(UserService.updateUserProfile);
+
+  const { data: userData } = useQuery(['get-me'], UserService.getMe);
+
+  console.log({ updatedUserData });
+
   useEffect(() => {
-    if (user) {
+    if (userData) {
       reset({
-        firstName: user.firstName || '',
-        lastName: user.lastName || '',
-        email: user.email || '',
-        state: user.state || '',
-        city: user.city || '',
-        country: user.country || '',
-        phone: user.phone || '',
+        firstName: userData.firstName || '',
+        lastName: userData.lastName || '',
+        email: userData.email || '',
+        state: userData.state || '',
+        city: userData.city || '',
+        country: userData.country || '',
+        phone: userData.phone || '',
       });
     }
-  }, [user, reset]);
+  }, [userData, reset]);
 
   const onSubmit: SubmitHandler<UserProfileFormData> = useCallback(
     ({ firstName, lastName, email, state, city, address, country, phone }) => {
-      console.log({ email, lastName, firstName, state, city, address, country, phone });
+      updateUserProfileMutation({
+        firstName,
+        lastName,
+        email,
+        state,
+        city,
+        address,
+        country,
+        phone,
+      });
+    },
+    [updateUserProfileMutation],
+  );
+
+  const onPasswordChangeSubmit: SubmitHandler<PasswordChangeData> = useCallback(
+    ({ currentPassword, newPassword, confirmPassword }) => {
+      console.log(currentPassword, newPassword, confirmPassword);
     },
     [],
   );
@@ -57,7 +85,7 @@ const Profile: FC<Props> = ({ user }) => {
         </Box>
         <Box>
           <Text className={segoe.className} fontSize={24} fontWeight={700} lineHeight="normal">
-            {user?.firstName} {user?.lastName}
+            {/* {user?.firstName} {user?.lastName} */}
           </Text>
           <ChakraButton>Change Avatar</ChakraButton>
         </Box>
@@ -131,11 +159,8 @@ const Profile: FC<Props> = ({ user }) => {
           <Controller
             name="phone"
             control={control}
-            rules={{
-              required: 'This field is required',
-            }}
             render={({ field: { onChange, value } }) => (
-              <PhoneNumberInput value={value} placeholder="" onChange={onChange} country="" rest />
+              <PhoneNumberInput onChange={onChange} value={value} />
             )}
           />
         </Flex>
@@ -227,48 +252,70 @@ const Profile: FC<Props> = ({ user }) => {
         <Text color="#000" fontSize={28} fontWeight={700} className={segoe.className}>
           Private Settings
         </Text>
-        <form>
-          <Flex gap={24} flexDirection="column">
-            <FormInput
-              isRequired
-              isInvalid={false}
-              name="first name"
-              type="text"
-              formLabelName="Current Password"
-              placeholder="First Name"
-              value=""
-              handleInputChange={() => {}}
-              formHelperText="Your password must be less than 6 characters."
-            />
-            <FormInput
-              isRequired
-              isInvalid={false}
-              name="first name"
-              type="text"
-              formLabelName="New Password"
-              placeholder="First Name"
-              value=""
-              handleInputChange={() => {}}
-              formHelperText="Your password must be less than 6 characters."
-            />
-            <FormInput
-              isRequired
-              isInvalid={false}
-              name="first name"
-              type="text"
-              formLabelName="Confirm Password"
-              placeholder="First Name"
-              value=""
-              handleInputChange={() => {}}
-              formHelperText="Your password must be less than 6 characters."
-            />
-          </Flex>
-          <Flex alignItems="flex-end" justifyContent="flex-end">
-            <Button width="162px" height="53px" fontSize="16px">
-              Change Password
-            </Button>
-          </Flex>
-        </form>
+        <Flex gap={24} flexDirection="column">
+          <Controller
+            name="currentPassword"
+            control={passwordChangeControl}
+            render={({ field: { onChange, value } }) => (
+              <FormInput
+                isRequired
+                isInvalid={false}
+                name="Current Password"
+                type="text"
+                formLabelName="Current Password"
+                placeholder="Current Password"
+                value={value}
+                handleInputChange={onChange}
+                formHelperText="Your password must be less than 6 characters."
+              />
+            )}
+          />
+
+          <Controller
+            name="newPassword"
+            control={passwordChangeControl}
+            render={({ field: { onChange, value } }) => (
+              <FormInput
+                isRequired
+                isInvalid={false}
+                name="New Password"
+                type="text"
+                formLabelName="New Password"
+                placeholder="New Password"
+                value={value}
+                handleInputChange={onChange}
+                formHelperText="Your password must be less than 6 characters."
+              />
+            )}
+          />
+
+          <Controller
+            name="confirmPassword"
+            control={passwordChangeControl}
+            render={({ field: { onChange, value } }) => (
+              <FormInput
+                isRequired
+                isInvalid={false}
+                name="Confirm Password"
+                type="text"
+                formLabelName="Confirm Password"
+                placeholder="Confirm Password"
+                value={value}
+                handleInputChange={onChange}
+                formHelperText="Your password must be less than 6 characters."
+              />
+            )}
+          />
+        </Flex>
+        <Flex alignItems="flex-end" justifyContent="flex-end">
+          <Button
+            width="162px"
+            height="53px"
+            fontSize="16px"
+            onClick={passwordChangeHandlerSubmit(onPasswordChangeSubmit)}>
+            Change Password
+          </Button>
+        </Flex>
       </Flex>
     </Box>
   );

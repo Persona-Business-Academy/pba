@@ -2,7 +2,7 @@ import { PrismaAdapter } from '@auth/prisma-adapter';
 import NextAuth, { AuthOptions, getServerSession } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import prisma from '@/lib/prisma';
-import { findUserWithEmail } from '@/lib/prisma/resolvers';
+import { UserResolver } from '@/lib/prisma/resolvers';
 import { validateUserPassword } from '@/lib/prisma/utils/auth';
 
 export const authOptions: AuthOptions = {
@@ -19,8 +19,8 @@ export const authOptions: AuthOptions = {
   ],
   callbacks: {
     session: async ({ session }) => {
-      const user = await findUserWithEmail(session.user?.email || '');
-      const { password: _pass, ...userWithoutPassword } = user || {}; // Exclude 'password' field
+      const user = await UserResolver.findUserWithEmail(session.user?.email || '');
+      const { password: _, ...userWithoutPassword } = user || {};
       return userWithoutPassword
         ? {
             ...session,
