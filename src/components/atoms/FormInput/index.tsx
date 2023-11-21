@@ -63,6 +63,7 @@ const FormInput: FC<Props> = ({
           isRequired={isRequired}
           borderRadius={6}
           height="40px"
+          p="8px 12px"
           bg="#fff"
           boxShadow="0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
           _focus={{
