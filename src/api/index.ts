@@ -14,8 +14,8 @@ const handleError = (error: Error | AxiosError) => {
       defaultOptions: { status: 'error', ...toastDefaultOptions },
     });
 
-    if (axios.isAxiosError(error) && !!error.response?.data?.responseMessage) {
-      toast({ title: error.response.data.responseMessage });
+    if (axios.isAxiosError(error) && !!error.response?.data?.message) {
+      toast({ title: error.response.data.message });
       return Promise.reject(error.response.data);
     } else {
       toast({ title: error.message });

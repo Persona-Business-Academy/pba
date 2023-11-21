@@ -9,7 +9,7 @@ export const exceptionHandler = (
 ) => {
   console.error(error);
   res.status(error instanceof HttpException ? error.statusCode : 500).json({
-    responseMessage:
+    message:
       !(error instanceof HttpException) && process.env.NODE_ENV !== 'development'
         ? ERROR_MESSAGES.somethingWentWrong
         : error.message,
