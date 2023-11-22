@@ -2,10 +2,10 @@
 import React, { FC } from 'react';
 import Courses from '@/components/organisms/Courses';
 
-type Props = {};
+type OnlineCoursesProps = {};
 
-const OfflineCourses: FC<Props> = () => {
+const OnlineCourses: FC<OnlineCoursesProps> = () => {
   return <Courses />;
 };
 
-export default OfflineCourses;
+export default OnlineCourses;

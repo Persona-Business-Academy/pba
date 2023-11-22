@@ -32,3 +32,33 @@ export const filterList = [
     ],
   },
 ];
+
+export const skillLevelList = [
+  {
+    title: 'Beginner',
+    value: 'beginner',
+  },
+  {
+    title: 'Intermediate',
+    value: 'intermediate',
+  },
+  {
+    title: 'Advanced',
+    value: 'advanced',
+  },
+];
+
+export const durationList = [
+  {
+    title: '1 Month',
+    value: 100,
+  },
+  {
+    title: '1-2 Months',
+    value: 200,
+  },
+  {
+    title: '1-3 Months',
+    value: 300,
+  },
+];

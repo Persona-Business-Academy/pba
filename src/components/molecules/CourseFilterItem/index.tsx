@@ -5,7 +5,7 @@ import useQueryParams from '@/hooks/useQueryParam';
 
 type CourseFilterItemProps = {
   title: string;
-  value: string;
+  value: string | number;
 };
 
 const CourseFilterItem: FC<CourseFilterItemProps> = ({ title, value }) => {
@@ -18,7 +18,7 @@ const CourseFilterItem: FC<CourseFilterItemProps> = ({ title, value }) => {
   }, [isChecked, setQueryParams, value]);
 
   return (
-    <Box py={4} my={2} _hover={{ bg: '#0000000' }}>
+    <Box py={4} _hover={{ bg: '#0000000' }}>
       <Text display="flex" gap="12px">
         <Checkbox onChange={onChangeHandler} checked={isChecked} />
         {title}

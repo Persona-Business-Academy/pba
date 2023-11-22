@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 import {
   Accordion,
   AccordionButton,
@@ -6,16 +6,19 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
+  Flex,
+  Text,
 } from '@chakra-ui/react';
-import { filterList } from '@/utils/constants/filters';
+import { durationList, filterList, skillLevelList } from '@/utils/constants/filters';
+import { segoe } from '@/utils/constants/fonts';
 import CourseFilterItem from '../CourseFilterItem';
 
 type CourseFilterProps = {};
 
 const CourseFilter: FC<CourseFilterProps> = () => {
   return (
-    <Fragment>
-      <Accordion>
+    <Flex flexDirection="column" gap={32}>
+      <Accordion allowToggle>
         {filterList.map(({ title, id, categoryList }) => (
           <AccordionItem key={id}>
             <AccordionButton>
@@ -32,7 +35,29 @@ const CourseFilter: FC<CourseFilterProps> = () => {
           </AccordionItem>
         ))}
       </Accordion>
-    </Fragment>
+
+      <Flex gap={16} flexDirection="column" m={0}>
+        <Text as="span" color="#222" fontWeight={700} fontSize="16px" className={segoe.className}>
+          Skill Level
+        </Text>
+        <Box m={0}>
+          {skillLevelList.map(({ title, value }, index) => (
+            <CourseFilterItem title={title} key={index} value={value} />
+          ))}
+        </Box>
+      </Flex>
+
+      <Flex gap={16} flexDirection="column" m={0}>
+        <Text as="span" color="#222" fontWeight={700} fontSize="16px" className={segoe.className}>
+          Duration
+        </Text>
+        <Box m={0}>
+          {durationList.map(({ title, value }, index) => (
+            <CourseFilterItem title={title} key={index} value={value} />
+          ))}
+        </Box>
+      </Flex>
+    </Flex>
   );
 };
 
