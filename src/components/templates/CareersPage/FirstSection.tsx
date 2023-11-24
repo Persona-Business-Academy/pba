@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 
-type Section1Props = {};
+type FirstSectionProps = {};
 
-const Section1: FC<Section1Props> = () => {
+const FirstSection: FC<FirstSectionProps> = () => {
   return (
     <Flex as="section" flexDirection="column" gap={{ base: '20px', xl: '40px' }}>
       <Heading
@@ -58,4 +58,4 @@ const Section1: FC<Section1Props> = () => {
   );
 };
 
-export default Section1;
+export default FirstSection;

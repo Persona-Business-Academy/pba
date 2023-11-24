@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { Container } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 
-const Section1 = dynamic(() => import('./Section1'));
+const FirstSection = dynamic(() => import('./FirstSection'));
 const OpenPositions = dynamic(() => import('./OpenPositions'));
 const LastSection = dynamic(() => import('./LastSection'));
 
@@ -16,7 +16,7 @@ const CareersPage: FC<Props> = () => {
       margin="0 auto"
       my={{ base: '36px', md: '80px', xl: '148px' }}
       px={{ base: '16px', xl: '0' }}>
-      <Section1 />
+      <FirstSection />
       <OpenPositions />
       <LastSection />
     </Container>
