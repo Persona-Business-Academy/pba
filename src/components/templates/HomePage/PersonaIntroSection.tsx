@@ -3,9 +3,9 @@ import { Box, Container, Flex, Heading, Text, UnorderedList } from '@chakra-ui/r
 import Image from 'next/image';
 import { OutlinedButton } from '@/components/atoms';
 
-type Section2Props = {};
+type PersonaIntroSectionProps = {};
 
-const Section2: FC<Section2Props> = () => {
+const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
   return (
     <Container maxW="1200px" margin="0 auto" padding={{ base: '0 16px', xl: '0' }}>
       <Box
@@ -367,4 +367,4 @@ const Section2: FC<Section2Props> = () => {
   );
 };
 
-export default Section2;
+export default PersonaIntroSection;
