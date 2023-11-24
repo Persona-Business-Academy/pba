@@ -1,22 +1,63 @@
+'use client';
+import { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
-const useQueryParams = () => {
-  const router = useRouter();
-
-  const setQueryParams = ({ key, value, addingFilter }: any) => {
-    const currentUrl = new URL(window.location.href);
-    const searchParams = currentUrl.searchParams;
-
-    if (!addingFilter || searchParams.get(key)) {
-      searchParams.delete(key);
-    } else {
-      searchParams.set(key, value);
-    }
-
-    router.push(currentUrl.href);
-  };
-
-  return { setQueryParams };
+interface ValueType {
+  filterBy: string;
+  value: string;
 }
 
-export default useQueryParams
+interface FilterState {
+  addQueryParam: (value: ValueType) => void;
+  removeQueryParam: (value: ValueType) => void;
+}
+
+const useQueryParams = (): FilterState => {
+  const updatedUrl = new URL(window.location.href);
+  const updatedSearchParams = updatedUrl.searchParams;
+  const router = useRouter();
+
+  const addQueryParam = useCallback(
+    ({ filterBy, value }: ValueType) => {
+      const encodedValue = encodeURIComponent(value);
+
+      if (updatedSearchParams.has(filterBy)) {
+        const existingValues = updatedSearchParams.get(filterBy);
+        const newValue = `${existingValues},${encodedValue}`;
+        updatedSearchParams.set(filterBy, newValue);
+      } else {
+        updatedSearchParams.set(filterBy, encodedValue);
+      }
+
+      router.push(updatedUrl.href);
+    },
+    [router, updatedSearchParams, updatedUrl.href],
+  );
+
+  const removeQueryParam = useCallback(
+    ({ filterBy, value }: ValueType) => {
+      if (updatedSearchParams.has(filterBy)) {
+        const currentValues = updatedSearchParams.get(filterBy);
+
+        if (currentValues) {
+          const valuesArray = currentValues.split(',');
+
+          const filteredValues = valuesArray.filter(val => val !== value);
+
+          if (filteredValues.length > 0) {
+            updatedSearchParams.set(filterBy, filteredValues.join(','));
+          } else {
+            updatedSearchParams.delete(filterBy);
+          }
+
+          router.push(updatedUrl.href);
+        }
+      }
+    },
+    [router, updatedSearchParams, updatedUrl.href],
+  );
+
+  return { addQueryParam, removeQueryParam };
+};
+
+export default useQueryParams;

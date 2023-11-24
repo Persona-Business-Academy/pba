@@ -29,7 +29,7 @@ const CourseFilter: FC<CourseFilterProps> = () => {
             </AccordionButton>
             <AccordionPanel>
               {categoryList.map(({ id, title, value }) => (
-                <CourseFilterItem title={title} key={id} value={value} />
+                <CourseFilterItem title={title} key={id} value={value} filterBy="topic" />
               ))}
             </AccordionPanel>
           </AccordionItem>
@@ -42,7 +42,7 @@ const CourseFilter: FC<CourseFilterProps> = () => {
         </Text>
         <Box m={0}>
           {skillLevelList.map(({ title, value }, index) => (
-            <CourseFilterItem title={title} key={index} value={value} />
+            <CourseFilterItem title={title} key={index} value={value} filterBy="skill-level" />
           ))}
         </Box>
       </Flex>
@@ -53,7 +53,7 @@ const CourseFilter: FC<CourseFilterProps> = () => {
         </Text>
         <Box m={0}>
           {durationList.map(({ title, value }, index) => (
-            <CourseFilterItem title={title} key={index} value={value} />
+            <CourseFilterItem title={title} key={index} value={value} filterBy="duration" />
           ))}
         </Box>
       </Flex>
