@@ -13,7 +13,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
-import { exLeadershipData } from '@/types/member';
+import { exLeadershipData, teachersData, teamData } from '@/types/member';
 import { segoe } from '@/utils/constants/fonts';
 
 const WelcomeLeadershipPage = dynamic(() => import('./WelcomeLeadershipPage'));
@@ -84,10 +84,10 @@ const LeadershipPage: FC<Props> = () => {
                 <TeamMembers data={exLeadershipData} />
               </TabPanel>
               <TabPanel>
-                <TeamMembers data={exLeadershipData} />
+                <TeamMembers data={teachersData} />
               </TabPanel>
               <TabPanel>
-                <TeamMembers data={exLeadershipData} />
+                <TeamMembers data={teamData} />
               </TabPanel>
             </TabPanels>
           </Tabs>
