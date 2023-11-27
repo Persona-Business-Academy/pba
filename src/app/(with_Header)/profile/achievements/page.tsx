@@ -18,9 +18,12 @@ const Achievements: FC<Props> = () => {
         fontWeight={{ base: 600, md: 700 }}>
         Your achievements
       </Heading>
+
       <Flex flexDirection="column" gap={{ base: '16px', md: '28px' }}>
+        {/* 1************************* */}
         <Flex
-          width="100%"
+          justifyContent="center"
+          alignItems="center"
           flexDirection={{ base: 'column', xl: 'row' }}
           borderRadius="12px"
           boxShadow="0px 4px 6px 0px rgba(0, 0, 0, 0.06)"
@@ -39,14 +42,18 @@ const Achievements: FC<Props> = () => {
               height={244}
             />
           </Box>
+
           <Box
             width="781px"
             display="flex"
             flexDirection="column"
             justifyContent="center"
             alignItems="center">
-            <Flex gap={{ base: '28px', lg: '136px' }}>
-              <Box height="105px">
+            <Flex
+              gap={{ base: '28px', lg: '133px' }}
+              width="100%"
+              justifyContent={{ base: 'center', xl: 'flex-end' }}>
+              <Box display="flex" flexDirection="column" alignItems="center">
                 <Text
                   textAlign="center"
                   fontSize={{ base: '24px', md: '32px' }}
@@ -56,23 +63,82 @@ const Achievements: FC<Props> = () => {
                   color="#222">
                   Interior design
                 </Text>
+
                 <Box m="24px 0" borderRadius="23px">
-                  <div
-                    style={{
-                      width: '427px',
-                      height: '14px',
-                      backgroundColor: '#F6FCFF',
-                      borderRadius: '23px',
-                    }}>
-                    <div
-                      style={{
-                        width: '135px',
-                        height: '14px',
-                        backgroundColor: '#3CB4E7',
-                        borderRadius: '23px',
-                      }}></div>
-                  </div>
+                  <Box
+                    width={{ base: '241px', xl: '427px' }}
+                    height={{ base: '9px', xl: '14px' }}
+                    backgroundColor="#F6FCFF"
+                    borderRadius="23px">
+                    <Box
+                      width={{ base: '100px', xl: '135px' }}
+                      height={{ base: '9px', xl: '14px' }}
+                      backgroundColor="#3CB4E7"
+                      borderRadius="23px"></Box>
+                  </Box>
                 </Box>
+
+                <Flex gap={{ base: '25px', md: '54px' }} mb="24px">
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    justifyContent="center"
+                    alignItems="center">
+                    <Image src="/icons/time_icon.svg" width={46} height={46} alt="time" />
+                    <Text
+                      m="8px 0 0 0"
+                      fontSize="16px"
+                      fontStyle="normal"
+                      fontWeight={400}
+                      lineHeight="22px"
+                      color="#222">
+                      1 hour 20 minute
+                    </Text>
+                  </Box>
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    justifyContent="center"
+                    alignItems="center">
+                    <Image src="/icons/level_icon.svg" width={46} height={46} alt="level" />
+                    <Text
+                      m="8px 0 0 0"
+                      fontSize="16px"
+                      fontStyle="normal"
+                      fontWeight={400}
+                      lineHeight="22px"
+                      color="#222">
+                      Beginner
+                    </Text>
+                  </Box>
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    justifyContent="center"
+                    alignItems="center">
+                    <Image src="/icons/book_icon.svg" width={46} height={46} alt="lessons" />
+                    <Text
+                      m="8px 0 0 0"
+                      fontSize="16px"
+                      fontStyle="normal"
+                      fontWeight={400}
+                      lineHeight="22px"
+                      color="#222">
+                      50 lessons
+                    </Text>
+                  </Box>
+                </Flex>
+
+                <Link
+                  href="#"
+                  target="blank"
+                  fontSize="16px"
+                  fontStyle="normal"
+                  fontWeight={400}
+                  lineHeight="normal"
+                  textDecoration="underline">
+                  Download certificate PDF
+                </Link>
               </Box>
 
               <Box
@@ -80,99 +146,37 @@ const Achievements: FC<Props> = () => {
                 alignItems="center"
                 justifyContent="center"
                 flexDirection="column">
-                <div
-                  style={{
-                    borderRadius: '50%',
-                    border: '4px solid #30A883',
-                    width: '110px',
-                    height: '110px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                  }}>
+                <Box
+                  borderRadius="50%"
+                  border="4px solid #30A883"
+                  width={{ base: '57px', xl: '110px' }}
+                  height={{ base: '57px', xl: '110px' }}
+                  display="flex"
+                  justifyContent="center">
                   <Text
                     className={montserrat.className}
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
-                    fontSize="44px"
+                    fontSize={{ base: '28px', xl: '44px' }}
                     fontStyle="normal"
                     fontWeight={700}
                     lineHeight="normal"
                     color="#30A883">
                     75
                   </Text>
-                </div>
+                </Box>
                 <Text
-                  fontSize="24px"
+                  fontSize={{ base: '16px', md: '24px' }}
                   fontStyle="normal"
                   fontWeight={700}
                   lineHeight="normal"
                   color="#222"
-                  m="16px 0 0 0">
+                  m={{ base: '0', sm: '16px 0 0 0' }}>
                   Very good
                 </Text>
               </Box>
             </Flex>
-            <Flex gap="54px" mb="24px">
-              <Box
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center">
-                <Image src="/icons/time_icon.svg" width={46} height={46} alt="time" />
-                <Text
-                  m="8px 0 0 0"
-                  fontSize="16px"
-                  fontStyle="normal"
-                  fontWeight={400}
-                  lineHeight="22px"
-                  color="#222">
-                  1 hour 20 minute
-                </Text>
-              </Box>
-              <Box
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center">
-                <Image src="/icons/level_icon.svg" width={46} height={46} alt="level" />
-                <Text
-                  m="8px 0 0 0"
-                  fontSize="16px"
-                  fontStyle="normal"
-                  fontWeight={400}
-                  lineHeight="22px"
-                  color="#222">
-                  1 hour 20 minute
-                </Text>
-              </Box>
-              <Box
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center">
-                <Image src="/icons/book_icon.svg" width={46} height={46} alt="lessons" />
-                <Text
-                  m="8px 0 0 0"
-                  fontSize="16px"
-                  fontStyle="normal"
-                  fontWeight={400}
-                  lineHeight="22px"
-                  color="#222">
-                  1 hour 20 minute
-                </Text>
-              </Box>
-            </Flex>
-            <Link
-              href="#"
-              target="blank"
-              fontSize="16px"
-              fontStyle="normal"
-              fontWeight={400}
-              lineHeight="normal"
-              textDecoration="underline">
-              Download certificate PDF
-            </Link>
           </Box>
         </Flex>
       </Flex>
