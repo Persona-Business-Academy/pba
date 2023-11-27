@@ -1,6 +1,8 @@
-import React, { FC } from 'react';
+/* eslint-disable unused-imports/no-unused-vars */
+import React, { FC, useMemo } from 'react';
 import { Box, Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 import CourseFilter from '@/components/molecules/CourseFilter';
 import TimeIcon from '/public/icons/time_icon.svg';
 import LevelIcon from '/public/icons/level_icon.svg';
@@ -9,11 +11,36 @@ import HeartIcon from '/public/icons/heart_icon.svg';
 import ArrowLeft from '/public/icons/left_arrow.svg';
 import ArrowRight from '/public/icons/right_arrow.svg';
 import InputSearchIcon from '/public/icons/search_icon.svg';
+import { filterList } from '@/utils/constants/filters';
 import { montserrat } from '@/utils/constants/fonts';
 
 type CoursesProps = {};
 
 const Courses: FC<CoursesProps> = () => {
+  const params = useSearchParams();
+
+  const getAllSkillLevels = useMemo(() => {
+    const keys = params?.getAll('skill-level');
+
+    console.log({ keys });
+
+    if (keys?.length) {
+      // return filterList.map(list => list.categoryList.filter(({ value }) => keys.includes(value)));
+
+      const x = filterList.flatMap(list => list.categoryList);
+      const y = x.map(({ value }) => keys.includes(value));
+
+      console.log({ x, y, keys });
+    }
+
+    return [];
+  }, [params]);
+
+  const getAllDurations = useMemo(() => params?.getAll('duration'), [params]);
+  const getAllTopics = useMemo(() => params?.getAll('topic'), [params]);
+
+  console.log({ getAllSkillLevels });
+
   return (
     <>
       <Flex
@@ -61,6 +88,9 @@ const Courses: FC<CoursesProps> = () => {
             <CourseFilter />
           </Flex>
           <Flex flexDirection="column" width="895px">
+            <Flex>
+              <Text as="span">Filter By:</Text>
+            </Flex>
             <Flex flexDirection="column" gap="16px" marginBottom="40px">
               <Flex
                 padding="16px"

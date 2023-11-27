@@ -9,9 +9,10 @@ import {
   Flex,
   Text,
 } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 import { durationList, filterList, skillLevelList } from '@/utils/constants/filters';
 import { segoe } from '@/utils/constants/fonts';
-import CourseFilterItem from '../CourseFilterItem';
+const CourseFilterItem = dynamic(() => import('../CourseFilterItem'), { ssr: false });
 
 type CourseFilterProps = {};
 
