@@ -1,11 +1,9 @@
 'use client';
 import React, { FC } from 'react';
 import {
-  Box,
   Button,
   Container,
   Flex,
-  Grid,
   Heading,
   Tab,
   TabList,
@@ -14,9 +12,11 @@ import {
   Tabs,
   Text,
 } from '@chakra-ui/react';
-import Image from 'next/image';
-import TeamCard from '@/components/molecules/TeamCard';
+import dynamic from 'next/dynamic';
 import { segoe } from '@/utils/constants/fonts';
+
+const WelcomeLeadershipPage = dynamic(() => import('./WelcomeLeadershipPage'));
+const TeamMembers = dynamic(() => import('./TeamMembers'));
 
 type Props = {};
 
@@ -24,44 +24,8 @@ const LeadershipPage: FC<Props> = () => {
   return (
     <>
       <Container maxWidth={1201} margin="0 auto" px={{ base: '16px', xl: '0px' }}>
-        <Box
-          textAlign="center"
-          fontStyle="normal"
-          lineHeight="normal"
-          marginTop={{ base: '36px', md: '50px', lg: '96px' }}>
-          <Heading
-            className={segoe.className}
-            fontSize={{ base: '24px', sm: '32px' }}
-            color="#222222"
-            fontWeight={700}>
-            WE ARE PERSONA
-          </Heading>
-          <Heading
-            fontSize={{ base: '32px', sm: '44px' }}
-            color="#222222"
-            fontWeight={700}
-            marginBottom={{ base: '16px', sm: '20px' }}>
-            We power better training experiences
-          </Heading>
-          <Text
-            fontSize="16px"
-            color="#222222"
-            fontWeight={400}
-            lineHeight="22px"
-            marginBottom={{ base: '20px', sm: '40px' }}>
-            Lorem ipsum, or ipsum as it is sometimes known, is dummy text used in laying out print,
-            graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
-            century who is thought to have scrambled parts of Ciceros De bus
-          </Text>
-        </Box>
-        <Box borderRadius="16px" overflow="hidden">
-          <Image
-            src="/images/public_available/leadership_main.jpg"
-            width={1201}
-            height={591}
-            alt="Leadership_image"
-          />
-        </Box>
+        <WelcomeLeadershipPage />
+
         <Flex
           alignItems="center"
           flexDirection="column"
@@ -121,28 +85,13 @@ const LeadershipPage: FC<Props> = () => {
               <TabPanel>
                 <p>two!</p>
               </TabPanel>
-              <TabPanel padding={0}>
-                <Grid
-                  display="grid"
-                  templateColumns={{
-                    base: 'repeat(auto-fit, minmax(283px, 1fr))',
-                    md: 'repeat(auto-fit, minmax(350px, 1fr))',
-                  }}
-                  gridGap={{ base: '16px', sm: '20px' }}>
-                  {Array.from({ length: 6 }, () => ({
-                    firstName: 'First Name',
-                    lastName: 'Last Name',
-                    hobby: 'Dog Lover',
-                    position: 'Web Developer',
-                  })).map((teamMember, i: number) => (
-                    <TeamCard {...teamMember} key={i} />
-                  ))}
-                </Grid>
-              </TabPanel>
+
+              <TeamMembers />
             </TabPanels>
           </Tabs>
         </Flex>
       </Container>
+
       <Flex px={{ base: '10px', xl: '0px' }} backgroundColor="#1f1646" py="40px" flexShrink={0}>
         <Flex
           alignItems="center"
