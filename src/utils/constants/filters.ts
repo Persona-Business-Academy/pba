@@ -51,14 +51,14 @@ export const skillLevelList = [
 export const durationList = [
   {
     title: '1 Month',
-    value: 100,
+    value: '100',
   },
   {
     title: '1-2 Months',
-    value: 200,
+    value: '200',
   },
   {
     title: '1-3 Months',
-    value: 300,
+    value: '300',
   },
 ];
