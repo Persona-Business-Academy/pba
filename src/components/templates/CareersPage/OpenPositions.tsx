@@ -31,9 +31,9 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
           lineHeight="24px"
           fontStyle="normal"
           textAlign={{ base: 'left', md: 'center' }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris.
+          If you are an enthusiastic professional eager to inspire and empower the next generation
+          of creative professionals, we want to hear from you! To apply, please submit your resume,
+          a cover letter outlining your teaching philosophy, and any relevant certifications.
         </Text>
       </Flex>
 
@@ -57,7 +57,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 color="#222"
                 lineHeight="normal"
                 fontStyle="normal">
-                Product Manager
+                Back-End Developer
               </Heading>
               <Text
                 fontSize="16px"
@@ -100,7 +100,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 color="#222"
                 lineHeight="normal"
                 fontStyle="normal">
-                Product Manager
+                UI/UX Designer
               </Heading>
               <Text
                 fontSize="16px"
@@ -145,7 +145,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 color="#222"
                 lineHeight="normal"
                 fontStyle="normal">
-                Product Manager
+                Graphic Designer
               </Heading>
               <Text
                 fontSize="16px"
@@ -188,7 +188,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 color="#222"
                 lineHeight="normal"
                 fontStyle="normal">
-                Product Manager
+                QA Specialist
               </Heading>
               <Text
                 fontSize="16px"
