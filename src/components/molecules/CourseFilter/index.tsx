@@ -10,7 +10,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
-import { durationList, filterList, skillLevelList } from '@/utils/constants/filters';
+import { durationList, skillLevelList, topicList } from '@/utils/constants/filters';
 import { segoe } from '@/utils/constants/fonts';
 const CourseFilterItem = dynamic(() => import('../CourseFilterItem'), { ssr: false });
 
@@ -20,7 +20,7 @@ const CourseFilter: FC<CourseFilterProps> = () => {
   return (
     <Flex flexDirection="column" gap={32}>
       <Accordion allowToggle>
-        {filterList.map(({ title, id, categoryList }) => (
+        {topicList.map(({ title, id, categoryList }) => (
           <AccordionItem key={id}>
             <AccordionButton>
               <Box as="span" flex="1" textAlign="left">
