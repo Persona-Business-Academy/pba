@@ -1,10 +1,16 @@
 'use client';
+import { FC } from 'react';
 import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { MemberType } from '@/types/member';
 import { segoe } from '@/utils/constants/fonts';
 
-const LeadershipIndividualPage = () => {
+type LeadershipIndividualPageProps = {
+  member: MemberType;
+};
+
+const LeadershipIndividualPage: FC<LeadershipIndividualPageProps> = ({ member }) => {
   return (
     <Container
       maxWidth={1200}
@@ -25,7 +31,7 @@ const LeadershipIndividualPage = () => {
             fontWeight={{ base: 600, md: 700 }}
             fontStyle="normal"
             lineHeight="36px">
-            Tigran Harutyunyan
+            {member.firstName} {member.lastName}
           </Heading>
           <Text
             color="#5b5b5b"
@@ -33,7 +39,7 @@ const LeadershipIndividualPage = () => {
             fontWeight={400}
             fontStyle="normal"
             lineHeight="22px">
-            Co-founder of Persona
+            {member.position}
           </Text>
         </Flex>
         <Flex
