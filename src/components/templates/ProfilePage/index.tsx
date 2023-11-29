@@ -1,5 +1,5 @@
 'use client';
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, memo, useCallback, useMemo } from 'react';
 import { Box, Button as ChakraButton, Flex, Text } from '@chakra-ui/react';
 import { useMutation } from '@tanstack/react-query';
 import { Country } from 'country-state-city';
@@ -344,4 +344,4 @@ const Profile: FC<Props> = ({ sessionUser }) => {
   );
 };
 
-export default Profile;
+export default memo(Profile);
