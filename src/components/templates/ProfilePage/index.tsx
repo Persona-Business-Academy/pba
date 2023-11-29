@@ -6,7 +6,6 @@ import { Country } from 'country-state-city';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { User } from 'next-auth';
-import { useSession } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { UserService } from '@/api/services/UserService';
 import { Button, FormInput } from '@/components/atoms';
@@ -20,7 +19,6 @@ type Props = {
 };
 
 const Profile: FC<Props> = ({ sessionUser }) => {
-  const { update } = useSession();
   const router = useRouter();
 
   const defaultValues = useMemo(
@@ -62,9 +60,8 @@ const Profile: FC<Props> = ({ sessionUser }) => {
   >(UserService.updateUserProfile);
 
   const onSubmit: SubmitHandler<any> = useCallback(
-    async data => updateUserProfileMutation(data).then(() => update(data).finally(router.refresh)),
-
-    [router, update, updateUserProfileMutation],
+    async data => updateUserProfileMutation(data).finally(router.refresh),
+    [router, updateUserProfileMutation],
   );
 
   const onPasswordChangeSubmit: SubmitHandler<PasswordChangeData> = useCallback(
