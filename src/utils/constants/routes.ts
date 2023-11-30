@@ -28,6 +28,8 @@ export const TERMS_AND_CONDITIONS_ROUTE = '/terms-and-conditions';
 export const LEADERSHIP_ROUTE = '/leadership';
 export const CAREERS_ROUTE = '/careers';
 export const INDIVIDUALS_ROUTE = '/individuals';
+export const ONLINE_COURSES_ROUTE = '/online-courses';
+export const OFFLINE_COURSES_ROUTE = '/offline-courses';
 export const FOR_KIDS_ROUTE = '/for-kids';
 export const VIDEO_COURSES_ROUTE = '/video-courses';
 export const ARTICLES_ROUTE = '/articles';
@@ -55,7 +57,7 @@ export const LOGOUT_ID = 9;
 export const NAV_ITEMS: NavItem[] = [
   {
     label: 'For Individuals',
-    href: INDIVIDUALS_ROUTE,
+    href: ONLINE_COURSES_ROUTE,
     children: [
       {
         id: 1,

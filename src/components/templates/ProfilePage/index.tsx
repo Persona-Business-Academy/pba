@@ -1,9 +1,11 @@
 'use client';
-import React, { FC, useCallback, useEffect } from 'react';
+import React, { FC, memo, useCallback, useMemo } from 'react';
 import { Box, Button as ChakraButton, Flex, Text } from '@chakra-ui/react';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { Country } from 'country-state-city';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { User } from 'next-auth';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { UserService } from '@/api/services/UserService';
 import { Button, FormInput } from '@/components/atoms';
@@ -12,52 +14,54 @@ import SelectLabel from '@/components/atoms/SelectLabel';
 import { montserrat, segoe } from '@/utils/constants/fonts';
 import { PasswordChangeData, UserProfileFormData } from '@/utils/models/auth';
 
-type Props = {};
+type Props = {
+  sessionUser: User;
+};
 
-const Profile: FC<Props> = () => {
-  const { control, handleSubmit, reset } = useForm<UserProfileFormData>();
+const Profile: FC<Props> = ({ sessionUser }) => {
+  const router = useRouter();
+
+  const defaultValues = useMemo(
+    () => ({
+      firstName: sessionUser?.firstName || '',
+      lastName: sessionUser?.lastName || '',
+      email: sessionUser?.email || '',
+      state: sessionUser?.state || '',
+      city: sessionUser?.city || '',
+      country: sessionUser?.country || '',
+      phone: sessionUser?.phone || '',
+      address: sessionUser?.address || '',
+    }),
+    [
+      sessionUser?.address,
+      sessionUser?.city,
+      sessionUser?.country,
+      sessionUser?.email,
+      sessionUser?.firstName,
+      sessionUser?.lastName,
+      sessionUser?.phone,
+      sessionUser?.state,
+    ],
+  );
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UserProfileFormData>({ defaultValues });
 
   const { control: passwordChangeControl, handleSubmit: passwordChangeHandlerSubmit } =
     useForm<PasswordChangeData>();
 
-  const { mutate: updateUserProfileMutation, data: updatedUserData } = useMutation<
+  const { mutateAsync: updateUserProfileMutation } = useMutation<
     number,
     { message: string },
-    any
+    UserProfileFormData
   >(UserService.updateUserProfile);
 
-  const { data: userData } = useQuery(['get-me'], UserService.getMe);
-
-  console.log({ updatedUserData });
-
-  useEffect(() => {
-    if (userData) {
-      reset({
-        firstName: userData.firstName || '',
-        lastName: userData.lastName || '',
-        email: userData.email || '',
-        state: userData.state || '',
-        city: userData.city || '',
-        country: userData.country || '',
-        phone: userData.phone || '',
-      });
-    }
-  }, [userData, reset]);
-
-  const onSubmit: SubmitHandler<UserProfileFormData> = useCallback(
-    ({ firstName, lastName, email, state, city, address, country, phone }) => {
-      updateUserProfileMutation({
-        firstName,
-        lastName,
-        email,
-        state,
-        city,
-        address,
-        country,
-        phone,
-      });
-    },
-    [updateUserProfileMutation],
+  const onSubmit: SubmitHandler<any> = useCallback(
+    async data => updateUserProfileMutation(data).finally(router.refresh),
+    [router, updateUserProfileMutation],
   );
 
   const onPasswordChangeSubmit: SubmitHandler<PasswordChangeData> = useCallback(
@@ -68,8 +72,12 @@ const Profile: FC<Props> = () => {
   );
 
   return (
-    <Box width="700px" margin="0 auto" py="96px">
+    <Box
+      width="700px"
+      margin="0 auto"
+      p={{ base: '36px 16px 36px 16px', md: '96px 16px 159px 16px', xl: '96px 0 159px 0' }}>
       <Text
+        display={{ base: 'none', sm: 'block' }}
         textAlign="center"
         as="h3"
         width="100%"
@@ -79,36 +87,59 @@ const Profile: FC<Props> = () => {
         className={montserrat.className}>
         Edit Profile
       </Text>
-      <Flex gap={16} paddingTop="64px">
-        <Box borderRadius="50%" overflow="hidden">
-          <Image width={101} height={101} alt="avatar_img" src="/images/avatar.jpeg" />
+      <Flex
+        gap={16}
+        textAlign="center"
+        paddingTop={{ base: '0', sm: '40px' }}
+        flexDirection={{ base: 'column', md: 'row' }}
+        alignItems={{ base: 'center', md: 'flex-start' }}>
+        <Box borderRadius="50%" overflow="hidden" position="relative" width="101px" height="101px">
+          <Image fill alt="avatar_img" src="/images/avatar.jpeg" />
         </Box>
         <Box>
-          <Text className={segoe.className} fontSize={24} fontWeight={700} lineHeight="normal">
-            {/* {user?.firstName} {user?.lastName} */}
+          <Text
+            className={segoe.className}
+            fontSize={{ base: '16px', sm: '24px' }}
+            fontWeight={700}
+            lineHeight="normal"
+            m={{ base: '0 0 8px 0', sm: '0 0 16px 0' }}>
+            {`${sessionUser?.firstName || ''} ${sessionUser?.lastName || ''}`}
           </Text>
-          <ChakraButton>Change Avatar</ChakraButton>
+          <ChakraButton
+            height="22px"
+            color="#1F1646"
+            backgroundColor="#fff"
+            _hover={{
+              color: '#1F1646',
+              backgroundColor: '#fff',
+            }}
+            _focus={{
+              color: '#1F1646',
+              backgroundColor: '#fff',
+            }}>
+            Change Avatar
+          </ChakraButton>
         </Box>
       </Flex>
-      <Flex paddingTop="20px" flexDirection="column" gap={24}>
-        <Flex gap="24px">
+      <Flex paddingTop={{ base: '36px', md: '40px' }} flexDirection="column" gap={24}>
+        <Flex gap="24px" flexDirection={{ base: 'column', lg: 'row' }}>
           <Controller
             name="firstName"
             control={control}
             rules={{
               required: 'This field is required',
             }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 isRequired
-                isInvalid={false}
-                name="first name"
+                name="firstName"
                 type="text"
                 formLabelName="First Name"
                 placeholder="First Name"
                 value={value}
                 handleInputChange={onChange}
-                formErrorMessage=""
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
@@ -119,39 +150,39 @@ const Profile: FC<Props> = () => {
             rules={{
               required: 'This field is required',
             }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 isRequired
-                isInvalid={false}
-                name="last name"
+                name="lastName"
                 type="text"
                 formLabelName="Last Name"
                 value={value}
                 placeholder="Last Name"
                 handleInputChange={onChange}
-                formErrorMessage=""
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
         </Flex>
-        <Flex gap="24px">
+        <Flex gap="24px" flexDirection={{ base: 'column', lg: 'row' }}>
           <Controller
             name="email"
             control={control}
             rules={{
               required: 'This field is required',
             }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 isRequired
-                isInvalid={false}
                 name="email"
                 type="email"
                 formLabelName="Email"
                 placeholder="you@gmail.com"
                 value={value}
                 handleInputChange={onChange}
-                formErrorMessage=""
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
@@ -168,31 +199,25 @@ const Profile: FC<Props> = () => {
           <Controller
             name="address"
             control={control}
-            rules={{
-              required: 'This field is required',
-            }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 isRequired
-                isInvalid={false}
                 name="address"
                 type="text"
                 formLabelName="Address"
                 placeholder="33062 komitas, 5st."
                 value={value}
                 handleInputChange={onChange}
-                formErrorMessage=""
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
         </Flex>
-        <Flex gap="24px">
+        <Flex gap="24px" flexDirection={{ base: 'column', lg: 'row' }}>
           <Controller
             name="country"
             control={control}
-            rules={{
-              required: 'This field is required',
-            }}
             render={({ field: { onChange, value } }) => (
               <SelectLabel
                 options={Country.getAllCountries()}
@@ -208,10 +233,7 @@ const Profile: FC<Props> = () => {
           <Controller
             name="state"
             control={control}
-            rules={{
-              required: 'This field is required',
-            }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 name="state"
                 type="text"
@@ -219,6 +241,8 @@ const Profile: FC<Props> = () => {
                 placeholder="Enter your state"
                 value={value}
                 handleInputChange={onChange}
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
@@ -226,10 +250,7 @@ const Profile: FC<Props> = () => {
           <Controller
             name="city"
             control={control}
-            rules={{
-              required: 'This field is required',
-            }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 name="city"
                 type="text"
@@ -237,6 +258,8 @@ const Profile: FC<Props> = () => {
                 placeholder="Enter your City"
                 value={value}
                 handleInputChange={onChange}
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
@@ -248,7 +271,7 @@ const Profile: FC<Props> = () => {
         </Flex>
         <Flex></Flex>
       </Flex>
-      <Flex flexDirection="column" gap={24}>
+      <Flex flexDirection="column" gap={24} mt={{ base: '12px', md: '40px' }}>
         <Text color="#000" fontSize={28} fontWeight={700} className={segoe.className}>
           Private Settings
         </Text>
@@ -321,4 +344,4 @@ const Profile: FC<Props> = () => {
   );
 };
 
-export default Profile;
+export default memo(Profile);
