@@ -35,7 +35,7 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <Grid templateColumns={{ base: '100%', md: '55% 45%' }} h={'100vh'}>
       <GridItem position="relative">
-        <Image src="/images/public_available/auth_background.png" fill alt="" />
+        <Image src="/images/public_available/auth_background.png" fill alt="" quality={10} />
       </GridItem>
       <GridItem
         paddingY={{ base: isCenter ? 'unset' : '40px', md: '60px', '2xl': '126px' }}
