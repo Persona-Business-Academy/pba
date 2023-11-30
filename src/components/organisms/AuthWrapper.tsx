@@ -1,5 +1,6 @@
 import { FC, memo, useMemo } from 'react';
 import { Box, Center, Flex, Grid, GridItem, useMediaQuery } from '@chakra-ui/react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Logo from 'public/icons/persona_logo_auth.svg';
@@ -33,12 +34,9 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Grid templateColumns={{ base: '100%', md: '55% 45%' }} h={'100vh'}>
-      <GridItem
-        backgroundImage={'url("/images/public_available/auth_background.png")'}
-        backgroundRepeat={'no-repeat'}
-        backgroundSize={'cover'}
-        display={{ base: 'none', md: 'block' }}
-      />
+      <GridItem position="relative">
+        <Image src="/images/public_available/auth_background.png" fill alt="" />
+      </GridItem>
       <GridItem
         paddingY={{ base: isCenter ? 'unset' : '40px', md: '60px', '2xl': '126px' }}
         paddingX={{ md: 5 }}
