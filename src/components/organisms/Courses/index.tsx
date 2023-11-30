@@ -18,6 +18,7 @@ type CoursesProps = {};
 
 const Courses: FC<CoursesProps> = () => {
   const [filteredData, setFilteredData] = useState<any[]>([]);
+
   const params = useSearchParams();
 
   useEffect(() => {
@@ -102,9 +103,9 @@ const Courses: FC<CoursesProps> = () => {
                   <RemovableButton
                     key={data.value}
                     filterId={data.id}
-                    removeFilterHandler={filterId =>
-                      setFilteredData(prevState => prevState.filter(({ id }) => id !== filterId))
-                    }>
+                    removeFilterHandler={filterId => {
+                      setFilteredData(prevState => prevState.filter(({ id }) => id !== filterId));
+                    }}>
                     {data.title}
                   </RemovableButton>
                 ))}
