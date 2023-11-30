@@ -1,9 +1,11 @@
 'use client';
-import React, { FC, useCallback } from 'react';
+import React, { FC, memo, useCallback, useMemo } from 'react';
 import { Box, Button as ChakraButton, Flex, Text } from '@chakra-ui/react';
 import { useMutation } from '@tanstack/react-query';
 import { Country } from 'country-state-city';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { User } from 'next-auth';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { UserService } from '@/api/services/UserService';
 import { Button, FormInput } from '@/components/atoms';
@@ -12,52 +14,54 @@ import SelectLabel from '@/components/atoms/SelectLabel';
 import { montserrat, segoe } from '@/utils/constants/fonts';
 import { PasswordChangeData, UserProfileFormData } from '@/utils/models/auth';
 
-type Props = {};
+type Props = {
+  sessionUser: User;
+};
 
-const Profile: FC<Props> = () => {
-  const { control, handleSubmit } = useForm<UserProfileFormData>();
+const Profile: FC<Props> = ({ sessionUser }) => {
+  const router = useRouter();
+
+  const defaultValues = useMemo(
+    () => ({
+      firstName: sessionUser?.firstName || '',
+      lastName: sessionUser?.lastName || '',
+      email: sessionUser?.email || '',
+      state: sessionUser?.state || '',
+      city: sessionUser?.city || '',
+      country: sessionUser?.country || '',
+      phone: sessionUser?.phone || '',
+      address: sessionUser?.address || '',
+    }),
+    [
+      sessionUser?.address,
+      sessionUser?.city,
+      sessionUser?.country,
+      sessionUser?.email,
+      sessionUser?.firstName,
+      sessionUser?.lastName,
+      sessionUser?.phone,
+      sessionUser?.state,
+    ],
+  );
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UserProfileFormData>({ defaultValues });
 
   const { control: passwordChangeControl, handleSubmit: passwordChangeHandlerSubmit } =
     useForm<PasswordChangeData>();
 
-  const { mutate: updateUserProfileMutation, data: updatedUserData } = useMutation<
+  const { mutateAsync: updateUserProfileMutation } = useMutation<
     number,
     { message: string },
-    any
+    UserProfileFormData
   >(UserService.updateUserProfile);
 
-  // const { data: userData } = useQuery(['get-me'], UserService.getMe);
-
-  console.log({ updatedUserData });
-
-  // useEffect(() => {
-  //   if (userData) {
-  //     reset({
-  //       firstName: userData.firstName || '',
-  //       lastName: userData.lastName || '',
-  //       email: userData.email || '',
-  //       state: userData.state || '',
-  //       city: userData.city || '',
-  //       country: userData.country || '',
-  //       phone: userData.phone || '',
-  //     });
-  //   }
-  // }, [userData, reset]);
-
-  const onSubmit: SubmitHandler<UserProfileFormData> = useCallback(
-    ({ firstName, lastName, email, state, city, address, country, phone }) => {
-      updateUserProfileMutation({
-        firstName,
-        lastName,
-        email,
-        state,
-        city,
-        address,
-        country,
-        phone,
-      });
-    },
-    [updateUserProfileMutation],
+  const onSubmit: SubmitHandler<any> = useCallback(
+    async data => updateUserProfileMutation(data).finally(router.refresh),
+    [router, updateUserProfileMutation],
   );
 
   const onPasswordChangeSubmit: SubmitHandler<PasswordChangeData> = useCallback(
@@ -99,8 +103,7 @@ const Profile: FC<Props> = () => {
             fontWeight={700}
             lineHeight="normal"
             m={{ base: '0 0 8px 0', sm: '0 0 16px 0' }}>
-            John Smith
-            {/* {user?.firstName} {user?.lastName} */}
+            {`${sessionUser?.firstName || ''} ${sessionUser?.lastName || ''}`}
           </Text>
           <ChakraButton
             height="22px"
@@ -124,19 +127,19 @@ const Profile: FC<Props> = () => {
             name="firstName"
             control={control}
             rules={{
-              required: 'This field idata-themes required',
+              required: 'This field is required',
             }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 isRequired
-                isInvalid={false}
-                name="first name"
+                name="firstName"
                 type="text"
                 formLabelName="First Name"
                 placeholder="First Name"
                 value={value}
                 handleInputChange={onChange}
-                formErrorMessage=""
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
@@ -147,17 +150,17 @@ const Profile: FC<Props> = () => {
             rules={{
               required: 'This field is required',
             }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 isRequired
-                isInvalid={false}
-                name="last name"
+                name="lastName"
                 type="text"
                 formLabelName="Last Name"
                 value={value}
                 placeholder="Last Name"
                 handleInputChange={onChange}
-                formErrorMessage=""
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
@@ -169,17 +172,17 @@ const Profile: FC<Props> = () => {
             rules={{
               required: 'This field is required',
             }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 isRequired
-                isInvalid={false}
                 name="email"
                 type="email"
                 formLabelName="Email"
                 placeholder="you@gmail.com"
                 value={value}
                 handleInputChange={onChange}
-                formErrorMessage=""
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
@@ -196,20 +199,17 @@ const Profile: FC<Props> = () => {
           <Controller
             name="address"
             control={control}
-            rules={{
-              required: 'This field is required',
-            }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 isRequired
-                isInvalid={false}
                 name="address"
                 type="text"
                 formLabelName="Address"
                 placeholder="33062 komitas, 5st."
                 value={value}
                 handleInputChange={onChange}
-                formErrorMessage=""
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
@@ -218,9 +218,6 @@ const Profile: FC<Props> = () => {
           <Controller
             name="country"
             control={control}
-            rules={{
-              required: 'This field is required',
-            }}
             render={({ field: { onChange, value } }) => (
               <SelectLabel
                 options={Country.getAllCountries()}
@@ -236,10 +233,7 @@ const Profile: FC<Props> = () => {
           <Controller
             name="state"
             control={control}
-            rules={{
-              required: 'This field is required',
-            }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 name="state"
                 type="text"
@@ -247,6 +241,8 @@ const Profile: FC<Props> = () => {
                 placeholder="Enter your state"
                 value={value}
                 handleInputChange={onChange}
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
@@ -254,10 +250,7 @@ const Profile: FC<Props> = () => {
           <Controller
             name="city"
             control={control}
-            rules={{
-              required: 'This field is required',
-            }}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <FormInput
                 name="city"
                 type="text"
@@ -265,6 +258,8 @@ const Profile: FC<Props> = () => {
                 placeholder="Enter your City"
                 value={value}
                 handleInputChange={onChange}
+                isInvalid={!!errors[name]?.message}
+                formErrorMessage={errors[name]?.message}
               />
             )}
           />
@@ -349,4 +344,4 @@ const Profile: FC<Props> = () => {
   );
 };
 
-export default Profile;
+export default memo(Profile);

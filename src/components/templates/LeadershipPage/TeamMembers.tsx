@@ -1,10 +1,13 @@
 import React, { FC } from 'react';
 import { Grid, TabPanel } from '@chakra-ui/react';
 import TeamCard from '@/components/molecules/TeamCard';
+import { MemberType } from '@/types/member';
 
-type TeamMembersProps = {};
+type TeamMembersProps = {
+  data: MemberType[];
+};
 
-const TeamMembers: FC<TeamMembersProps> = () => {
+const TeamMembers: FC<TeamMembersProps> = ({ data }) => {
   return (
     <TabPanel padding={0}>
       <Grid
@@ -14,12 +17,7 @@ const TeamMembers: FC<TeamMembersProps> = () => {
           md: 'repeat(auto-fit, minmax(350px, 1fr))',
         }}
         gridGap={{ base: '16px', sm: '20px' }}>
-        {Array.from({ length: 6 }, () => ({
-          firstName: 'First Name',
-          lastName: 'Last Name',
-          hobby: 'Dog Lover',
-          position: 'Web Developer',
-        })).map((teamMember, i: number) => (
+        {data.map((teamMember, i: number) => (
           <TeamCard {...teamMember} key={i} />
         ))}
       </Grid>
