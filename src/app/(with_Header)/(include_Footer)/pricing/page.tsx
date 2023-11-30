@@ -24,6 +24,39 @@ import { segoe } from '@/utils/constants/fonts';
 
 type Props = {};
 
+const questions = [
+  {
+    id: 1,
+    question: 'Will I be charged for a free trial?',
+    answer:
+      "With any plan, you have 7 days during which you won't be charged. You will be charged automatically starting on the 8 day, unless you cancel your subscription.",
+  },
+  {
+    id: 2,
+    question: 'How does PBA subscription work?',
+    answer:
+      'When you register on the website, you must definitely choose one of the subscription plans, in which case you have the opportunity to use it for free for 7 days. You can cancel the subscription at any time after making the payment. If you cancel the subscription before your payment date, we will refund the unused amount within 14 working days.',
+  },
+  {
+    id: 3,
+    question: 'Can I cancel my subscription any time?',
+    answer:
+      'Yes, you can cancel your subscription at any time. Your subscription will auto-renew until you cancel, but why would you want to? ',
+  },
+  {
+    id: 4,
+    question: 'What is the best plan for me?',
+    answer:
+      'Basically, the best is the light version, which is more affordable and includes many features, such as up to 50 blogs per month, up to 3 courses learning, 1 free online meet with teacher.',
+  },
+  {
+    id: 5,
+    question: 'Can I pay any annual plan month by month?',
+    answer:
+      'There are both monthly and annual subscription plans available on PBA. All annual subscription plans are paid upfront, so if you want to pay month by month, you need to choose one of the monthly subscription plans.',
+  },
+];
+
 const Pricing: FC<Props> = () => {
   return (
     <>
@@ -43,11 +76,8 @@ const Pricing: FC<Props> = () => {
             }}
             fontSize={{ base: '28px', lg: '44px' }}
             fontWeight={{ base: 600, md: 700 }}>
-            Lets find the right <span style={{ color: '#3CB3E5' }}> plan </span>for you
+            GET STARTED WITH <span style={{ color: '#3CB3E5' }}> PBA </span>
           </Heading>
-          <Text color="#222222" mb="8px " lineHeight="21.28px" fontSize="16px" fontWeight="700">
-            For only online video courses and articles
-          </Text>
           <Text
             maxW="478px"
             color="#222222"
@@ -56,8 +86,9 @@ const Pricing: FC<Props> = () => {
             fontSize="16px"
             fontWeight="400"
             mb={{ base: '36px', lg: '32px' }}>
-            Whether you're just starting a community or ready to scale your course or membership
-            business, theres a Mighty Network for you.
+            Every product or service we offer is a testament to our commitment to quality and
+            innovation. Our value-based pricing ensures that you not only pay for a product but
+            invest in an experience that surpasses your expectations.
           </Text>
         </Box>
 
@@ -149,6 +180,7 @@ const Pricing: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
+                          3999{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -156,9 +188,8 @@ const Pricing: FC<Props> = () => {
                               lineHeight: '21.28px',
                               fontWeight: '400',
                             }}>
-                            $
+                            AMD
                           </span>
-                          150
                         </ListItem>
                         <ListItem
                           lineHeight="22px"
@@ -188,7 +219,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          Up to 50 blog
+                          UP TO 15 BLOGS per month
                         </ListItem>
 
                         <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
@@ -200,43 +231,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          3 topics
-                        </ListItem>
-
-                        <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Website with Unlimited Pages
-                        </ListItem>
-
-                        <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
-                        </ListItem>
-
-                        <ListItem display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
+                          UP TO 1 COURSE LEARNING
                         </ListItem>
                       </UnorderedList>
                     </Box>
@@ -256,7 +251,7 @@ const Pricing: FC<Props> = () => {
                         fontWeight="700"
                         lineHeight="42.56px"
                         color="#222">
-                        Standard
+                        Light
                       </Heading>
                       <Text
                         textAlign="center"
@@ -280,6 +275,7 @@ const Pricing: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
+                          5999{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -287,9 +283,8 @@ const Pricing: FC<Props> = () => {
                               lineHeight: '21.28px',
                               fontWeight: '400',
                             }}>
-                            $
+                            AMD
                           </span>
-                          150
                         </ListItem>
                         <ListItem
                           lineHeight="22px"
@@ -319,7 +314,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          Up to 50 blog
+                          UP TO 50 BLOGS per month
                         </ListItem>
 
                         <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
@@ -331,7 +326,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          3 topics
+                          UP TO 3 COURSES LEARNING
                         </ListItem>
 
                         <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
@@ -343,31 +338,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          Website with Unlimited Pages
-                        </ListItem>
-
-                        <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
-                        </ListItem>
-
-                        <ListItem display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
+                          1 FREE ONLINE MEET WITH TEACHER
                         </ListItem>
                       </UnorderedList>
                     </Box>
@@ -387,7 +358,7 @@ const Pricing: FC<Props> = () => {
                         fontWeight="700"
                         lineHeight="42.56px"
                         color="#222">
-                        Standard
+                        Pro
                       </Heading>
                       <Text
                         textAlign="center"
@@ -411,6 +382,7 @@ const Pricing: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
+                          9999{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -418,9 +390,8 @@ const Pricing: FC<Props> = () => {
                               lineHeight: '21.28px',
                               fontWeight: '400',
                             }}>
-                            $
+                            AMD
                           </span>
-                          150
                         </ListItem>
                         <ListItem
                           lineHeight="22px"
@@ -450,7 +421,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          Up to 50 blog
+                          UNLIMITED BLOGS
                         </ListItem>
 
                         <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
@@ -462,7 +433,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          3 topics
+                          UNLIMITED COURSES LEARNING
                         </ListItem>
 
                         <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
@@ -474,31 +445,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          Website with Unlimited Pages
-                        </ListItem>
-
-                        <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
-                        </ListItem>
-
-                        <ListItem display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
+                          UP TO 3 FREE ONLINE MEET WITH TEACHER
                         </ListItem>
                       </UnorderedList>
                     </Box>
@@ -553,6 +500,7 @@ const Pricing: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
+                          2800{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -560,9 +508,8 @@ const Pricing: FC<Props> = () => {
                               lineHeight: '21.28px',
                               fontWeight: '400',
                             }}>
-                            $
+                            AMD
                           </span>
-                          150
                         </ListItem>
                         <ListItem
                           lineHeight="22px"
@@ -592,7 +539,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          Up to 50 blog
+                          UP TO 15 BLOGS per month
                         </ListItem>
 
                         <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
@@ -604,43 +551,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          3 topics
-                        </ListItem>
-
-                        <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Website with Unlimited Pages
-                        </ListItem>
-
-                        <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
-                        </ListItem>
-
-                        <ListItem display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
+                          UP TO 1 COURSE LEARNING
                         </ListItem>
                       </UnorderedList>
                     </Box>
@@ -660,7 +571,7 @@ const Pricing: FC<Props> = () => {
                         fontWeight="700"
                         lineHeight="42.56px"
                         color="#222">
-                        Premium
+                        Light
                       </Heading>
                       <Text
                         textAlign="center"
@@ -684,6 +595,7 @@ const Pricing: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
+                          4200{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -691,9 +603,8 @@ const Pricing: FC<Props> = () => {
                               lineHeight: '21.28px',
                               fontWeight: '400',
                             }}>
-                            $
+                            AMD
                           </span>
-                          150
                         </ListItem>
                         <ListItem
                           lineHeight="22px"
@@ -723,7 +634,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          Up to 50 blog
+                          UP TO 50 BLOGS per month
                         </ListItem>
 
                         <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
@@ -735,7 +646,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          3 topics
+                          UP TO 3 COURSES LEARNING
                         </ListItem>
 
                         <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
@@ -747,31 +658,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          Website with Unlimited Pages
-                        </ListItem>
-
-                        <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
-                        </ListItem>
-
-                        <ListItem display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
+                          1 FREE ONLINE MEET WITH TEACHER
                         </ListItem>
                       </UnorderedList>
                     </Box>
@@ -791,7 +678,7 @@ const Pricing: FC<Props> = () => {
                         fontWeight="700"
                         lineHeight="42.56px"
                         color="#222">
-                        Premium Plus
+                        Pro
                       </Heading>
                       <Text
                         textAlign="center"
@@ -815,6 +702,7 @@ const Pricing: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
+                          7000{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -822,9 +710,8 @@ const Pricing: FC<Props> = () => {
                               lineHeight: '21.28px',
                               fontWeight: '400',
                             }}>
-                            $
+                            AMD
                           </span>
-                          150
                         </ListItem>
                         <ListItem
                           lineHeight="22px"
@@ -854,7 +741,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          Up to 50 blog
+                          UNLIMITED BLOGS
                         </ListItem>
 
                         <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
@@ -866,7 +753,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          3 topics
+                          UNLIMITED COURSES LEARNING
                         </ListItem>
 
                         <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
@@ -878,31 +765,7 @@ const Pricing: FC<Props> = () => {
                               alt="Select"
                             />
                           </span>
-                          Website with Unlimited Pages
-                        </ListItem>
-
-                        <ListItem mb="16px" display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
-                        </ListItem>
-
-                        <ListItem display="flex" alignItems="center" gap={8}>
-                          <span>
-                            <Image
-                              width={18}
-                              height={18}
-                              src="/icons/pricing_icon.svg"
-                              alt="Select"
-                            />
-                          </span>
-                          Lorem Ispum
+                          UP TO 3 FREE ONLINE MEET WITH TEACHER
                         </ListItem>
                       </UnorderedList>
                     </Box>
@@ -1009,8 +872,8 @@ const Pricing: FC<Props> = () => {
           </Heading>
 
           <Accordion allowMultiple display="flex" flexDirection="column" gap="16px">
-            {Array.from({ length: 4 }, (_, index) => index).map((_, i) => (
-              <AccordionItem border="none" key={i} id={i.toString()}>
+            {questions.map((item, index) => (
+              <AccordionItem border="none" key={item.id} id={index.toString()}>
                 {({ isExpanded }) => (
                   <>
                     <Box>
@@ -1028,7 +891,7 @@ const Pricing: FC<Props> = () => {
                             lg: '18px',
                           }}
                           color="#222222">
-                          How many children will be there in one batch?
+                          {item.question}
                         </Box>
                         {isExpanded ? <AddIcon fontSize="12px" /> : <PlusIcon fontSize="12px" />}
                       </AccordionButton>
@@ -1041,9 +904,7 @@ const Pricing: FC<Props> = () => {
                       lineHeight="22px"
                       fontWeight="400"
                       color="#5B5B5B">
-                      All our mentors are experienced and accomplished professionals with a passion
-                      for teaching. They've been working in their respective fields for a minimum of
-                      5+ years.
+                      {item.answer}
                     </AccordionPanel>
                   </>
                 )}

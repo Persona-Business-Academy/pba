@@ -6,7 +6,13 @@ declare module 'next-auth' {
   export type User = Prisma.PromiseReturnType<typeof UserResolver.findUserWithEmail>;
   interface Session {
     expires: ISODateString;
-    token: { email: string; iat: number; jti: string; exp: number };
+    token?: {
+      email: string;
+      sub: string;
+      iat: number;
+      exp: number;
+      jti: string;
+    } | null;
     user: User;
   }
 }

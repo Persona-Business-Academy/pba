@@ -19,7 +19,7 @@ import { SignInFormData } from '@/utils/models/auth';
 export default function SignInPage() {
   const toast = useToast();
   const searchParams = useSearchParams();
-  const { push } = useRouter();
+  const router = useRouter();
 
   const route = useMemo(() => searchParams?.get('callback_url'), [searchParams]);
 
@@ -42,10 +42,16 @@ export default function SignInPage() {
 
   const onSubmit: SubmitHandler<SignInFormData> = useCallback(
     ({ email, password }) => {
-      signIn('credentials', { email, password, redirect: false })
+      signIn('credentials', {
+        email,
+        password,
+        callbackUrl: route || HOMEPAGE_ROUTE,
+        redirect: false,
+      })
         .then(res => {
-          if (res?.ok) {
-            push(route || HOMEPAGE_ROUTE);
+          if (res?.ok && res.url) {
+            router.push(res.url);
+            router.refresh();
           } else {
             toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
           }
@@ -54,7 +60,7 @@ export default function SignInPage() {
           toast({ title: ERROR_MESSAGES.somethingWentWrong, status: 'error' });
         });
     },
-    [push, route, toast],
+    [route, router, toast],
   );
 
   return (
