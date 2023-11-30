@@ -10,11 +10,11 @@ export class UserResolver {
   }
 
   static async updateUserProfile(input: UserProfileFormData, user: User) {
-    return prisma.user.update({
-      where: {
-        id: user.id,
-      },
-      data: input,
-    });
+    return (
+      await prisma.user.update({
+        where: { id: user.id },
+        data: input,
+      })
+    ).id;
   }
 }
