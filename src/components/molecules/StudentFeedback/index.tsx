@@ -55,7 +55,9 @@ const StudentFeedback: FC<StudentFeedbackProps> = ({
         gap="8px"
         flexDirection="column"
         alignItems="center">
-        <Image src={studentAvatarSrc} alt="Feed" width={64} height={64} />
+        <Box width="64px" height="64px" position="relative" borderRadius="50px" overflow="hidden">
+          <Image src={studentAvatarSrc} fill alt={firstName} objectFit="contain" />
+        </Box>
 
         <UnorderedList lineHeight="21.28px" fontSize="16px" margin="0" listStyleType="none">
           <ListItem fontWeight="700">

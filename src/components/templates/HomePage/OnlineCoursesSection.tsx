@@ -6,6 +6,30 @@ import CourseCard from '@/components/molecules/CourseCard';
 type OnlineCoursesSectionProps = {};
 
 const OnlineCoursesSection: FC<OnlineCoursesSectionProps> = () => {
+  const shortCourse = [
+    {
+      id: 1,
+      src: '/icons/short_course_smm.svg',
+      courseTitle: 'SMM',
+      courseDescription: 'Get inspired by this revived W.H. Auden’s Hymn to the United Nations.',
+      rating: 4.8,
+    },
+    {
+      id: 2,
+      src: '/icons/short_course_front_end.svg',
+      courseTitle: 'Front-End',
+      courseDescription: 'Get inspired by this revived W.H. Auden’s Hymn to the United Nations.',
+      rating: 4.8,
+    },
+    {
+      id: 3,
+      src: '/icons/short_course_digital_marketing.svg',
+      courseTitle: 'Digital Marketing',
+      courseDescription: 'Get inspired by this revived W.H. Auden’s Hymn to the United Nations.',
+      rating: 4.8,
+    },
+  ];
+
   return (
     <Box mb={{ base: '36px', lg: '148px' }}>
       <Box textAlign="center" maxW="564px" m="0 auto">
@@ -42,8 +66,10 @@ const OnlineCoursesSection: FC<OnlineCoursesSectionProps> = () => {
           </Link>
         </Box>
         <Text fontWeight="400" fontSize="16px" lineHeight="21.28px" margin="0 0 24px 0">
-          bite-sized, flexible learning Upskill, reskill or pursue a passion with short courses
-          across every subject, whether youre a beginner or already an expert.
+          Short online video courses provide a convenient and accessible way for learners to acquire
+          new skills, expand their knowledge, and stay updated on the latest trends in various
+          fields. These courses offer concise, focused lessons that are designed to be easily
+          digestible and engaging for participants.Course registration costs start at $1.99.
         </Text>
       </Box>
 
@@ -56,12 +82,7 @@ const OnlineCoursesSection: FC<OnlineCoursesSectionProps> = () => {
         }}
         gap="20px"
         margin="40px 0">
-        {Array.from({ length: 3 }, (_, i) => ({
-          id: i,
-          courseTitle: 'Graphic Design',
-          courseDescription: 'Get inspired by this revived W.H. Audens Hymn to the United Nations.',
-          rating: 4.8,
-        })).map(course => (
+        {shortCourse.map(course => (
           <CourseCard {...course} key={course.id} />
         ))}
       </Box>
