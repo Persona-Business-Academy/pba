@@ -36,6 +36,8 @@ const useQueryParams = (): FilterState => {
 
   const removeQueryParam = useCallback(
     ({ filterBy, value }: ValueType) => {
+      console.log('REMOVING QUERY PARAM');
+
       if (updatedSearchParams.has(filterBy)) {
         const currentValues = updatedSearchParams.get(filterBy);
 
@@ -57,7 +59,10 @@ const useQueryParams = (): FilterState => {
     [router, updatedSearchParams, updatedUrl.href],
   );
 
-  return { addQueryParam, removeQueryParam };
+  return {
+    addQueryParam,
+    removeQueryParam,
+  };
 };
 
 export default useQueryParams;

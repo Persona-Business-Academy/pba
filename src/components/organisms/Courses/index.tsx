@@ -18,7 +18,6 @@ type CoursesProps = {};
 
 const Courses: FC<CoursesProps> = () => {
   const [filteredData, setFilteredData] = useState<any[]>([]);
-
   const params = useSearchParams();
 
   useEffect(() => {
@@ -47,7 +46,8 @@ const Courses: FC<CoursesProps> = () => {
     setFilteredData(data);
   }, [params]);
 
-  console.log(filteredData);
+  console.log({ filteredData });
+
   return (
     <>
       <Flex
@@ -92,7 +92,7 @@ const Courses: FC<CoursesProps> = () => {
         </Flex>
         <Flex as="section" gap="20px" marginBottom="148px">
           <Flex flexDirection="column" width="285px">
-            <CourseFilter />
+            <CourseFilter filteredData={filteredData} />
           </Flex>
           <Flex flexDirection="column" width="895px" gap={16}>
             <Flex alignItems="center" gap={16}>

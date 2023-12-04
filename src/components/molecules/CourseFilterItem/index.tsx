@@ -1,37 +1,58 @@
 'use client';
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { Box, FormLabel, Text } from '@chakra-ui/react';
 import Checkbox from '@/components/atoms/Checkbox';
 import useQueryParams from '@/hooks/useQueryParam';
 
 type CourseFilterItemProps = {
+  id: number;
+  filteredData: any[];
   title: string;
   value: string;
   filterBy: 'duration' | 'topic' | 'skill-level';
 };
 
-const CourseFilterItem: FC<CourseFilterItemProps> = ({ title, value, filterBy }) => {
-  const [isChecked, setIsChecked] = useState<null | boolean>(null);
+const CourseFilterItem: FC<CourseFilterItemProps> = ({
+  id,
+  title,
+  value,
+  filterBy,
+  filteredData,
+}) => {
   const { addQueryParam, removeQueryParam } = useQueryParams();
+  const [isChecked, setIsChecked] = useState<null | boolean>(null);
 
   const onChangeHandler = useCallback(() => {
     setIsChecked(prevState => !prevState);
   }, []);
 
   useEffect(() => {
-    if (isChecked === null) return;
     if (isChecked) {
       addQueryParam({ filterBy, value });
     } else {
       removeQueryParam({ filterBy, value });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isChecked]);
+  }, [isChecked, value, filterBy]);
+
+  const checked = useMemo(() => !!filteredData.find(data => data.id === id), [filteredData, id]);
+
+  console.log(checked);
+
+  useEffect(() => {
+    if (!checked) {
+      removeQueryParam({ filterBy, value });
+    }
+  }, [checked, filterBy, removeQueryParam, value]);
 
   return (
     <Box py={4} _hover={{ bg: '#0000000' }}>
       <Text display="flex" gap="12px">
-        <Checkbox onChange={onChangeHandler} checked={!!isChecked} id={title} />
+        <Checkbox
+          onChange={onChangeHandler}
+          isChecked={!!isChecked || checked}
+          checked={!!isChecked || checked}
+          id={title}
+        />
         <FormLabel htmlFor={title} cursor="pointer" margin={0}>
           {title}
         </FormLabel>

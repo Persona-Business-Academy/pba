@@ -14,9 +14,11 @@ import { durationList, skillLevelList, topicList } from '@/utils/constants/filte
 import { segoe } from '@/utils/constants/fonts';
 const CourseFilterItem = dynamic(() => import('../CourseFilterItem'), { ssr: false });
 
-type CourseFilterProps = {};
+type CourseFilterProps = {
+  filteredData: any[];
+};
 
-const CourseFilter: FC<CourseFilterProps> = () => {
+const CourseFilter: FC<CourseFilterProps> = ({ filteredData }) => {
   return (
     <Flex flexDirection="column" gap={32}>
       <Accordion allowToggle>
@@ -30,7 +32,14 @@ const CourseFilter: FC<CourseFilterProps> = () => {
             </AccordionButton>
             <AccordionPanel>
               {categoryList.map(({ id, title, value }) => (
-                <CourseFilterItem title={title} key={id} value={value} filterBy="topic" />
+                <CourseFilterItem
+                  title={title}
+                  id={id}
+                  key={id}
+                  value={value}
+                  filterBy="topic"
+                  filteredData={filteredData}
+                />
               ))}
             </AccordionPanel>
           </AccordionItem>
@@ -42,8 +51,15 @@ const CourseFilter: FC<CourseFilterProps> = () => {
           Skill Level
         </Text>
         <Box m={0}>
-          {skillLevelList.map(({ title, value }, index) => (
-            <CourseFilterItem title={title} key={index} value={value} filterBy="skill-level" />
+          {skillLevelList.map(({ id, title, value }, index) => (
+            <CourseFilterItem
+              title={title}
+              id={id}
+              key={index}
+              value={value}
+              filterBy="skill-level"
+              filteredData={filteredData}
+            />
           ))}
         </Box>
       </Flex>
@@ -53,8 +69,15 @@ const CourseFilter: FC<CourseFilterProps> = () => {
           Duration
         </Text>
         <Box m={0}>
-          {durationList.map(({ title, value }, index) => (
-            <CourseFilterItem title={title} key={index} value={value} filterBy="duration" />
+          {durationList.map(({ id, title, value }, index) => (
+            <CourseFilterItem
+              id={id}
+              title={title}
+              key={index}
+              value={value}
+              filterBy="duration"
+              filteredData={filteredData}
+            />
           ))}
         </Box>
       </Flex>
