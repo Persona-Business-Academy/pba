@@ -10,7 +10,7 @@ type CourseCardProps = {
 };
 
 const CourseCard: FC<CourseCardProps> = ({
-  src = '/images/public_available/sort_courses_design.jpg',
+  src = '/icons/short_course_smm.svg',
   courseTitle,
   courseDescription,
   rating,

@@ -33,10 +33,10 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
           alignItems="center"
           justifyContent={{
             base: 'center',
-            xl: 'space-between',
+            lg: 'space-between',
           }}
-          flexWrap={{ base: 'wrap', xl: 'nowrap' }}>
-          <Flex maxW="490px" flexDirection="column">
+          flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
+          <Flex maxW={{ base: '100%', md: '490px' }} flexDirection="column">
             <Heading
               as="h1"
               margin="0 0 16px 0"
@@ -98,16 +98,16 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
             justifyContent="center"
             width={{
               base: '211px',
-              sm: '450px',
-              xl: ' 636px',
+              md: '636px',
             }}>
             <Box display="flex" justifyContent="center">
               <Box
+                zIndex="1"
                 bg="#FFFFFFCC"
-                left={{ base: '-60px', lg: '-45px' }}
-                bottom={{ base: '40px', lg: '70px' }}
+                left={{ base: '-60px', md: '-30px' }}
+                bottom={{ base: '45px', md: '70px' }}
                 position="absolute"
-                width={{ base: ' 119px', sm: '119px', xl: '181px' }}
+                width={{ base: ' 119px', md: '181px' }}
                 padding={{
                   base: '8px',
                   md: '16px 32px',
@@ -133,14 +133,14 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
               </Box>
 
               <Box
+                zIndex="1"
                 bg="#FFFFFFCC"
-                top={{ base: '20px', sm: '90px', md: '75px' }}
-                left={{ base: '-30px', sm: '-10px', md: '20px' }}
+                top={{ base: '20px', md: '75px' }}
+                left={{ base: '-35px', md: '40px' }}
                 position="absolute"
                 padding={{
                   base: '8px',
                   md: '16px 32px',
-                  xl: ' 16px 32px',
                 }}
                 borderRadius="20px">
                 <Text
@@ -172,9 +172,10 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
               </Box>
 
               <Box
+                zIndex="1"
                 bg="#FFFFFFCC"
-                top={{ base: '80px', sm: '140px' }}
-                right={{ base: '0', sm: '30px', md: '45px' }}
+                top={{ base: '80px', md: '140px' }}
+                right={{ base: '-30px', md: '45px' }}
                 position="absolute"
                 padding={{
                   base: '8px',
@@ -205,13 +206,49 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                   Courses
                 </Text>
               </Box>
-              <Box>
-                <Image
-                  src="/images/public_available/home_page_img.png"
-                  alt="Homepage image"
-                  width={415}
-                  height={542}
-                />
+
+              <Box
+                position="relative"
+                width={{ base: '211px', md: '376px' }}
+                height={{ base: '305px', md: '542px' }}>
+                <Box
+                  width={{ base: '93px', md: '166px' }}
+                  top="0"
+                  left="0"
+                  borderTopLeftRadius={{ base: '40px', md: '80px' }}
+                  overflow="hidden"
+                  border="1px solid transparent"
+                  position="absolute"
+                  height={{ base: '92px', md: '164px' }}>
+                  <Image fill src="/icons/first_img_pba_welcome.svg" alt="Students img" />
+                </Box>
+                <Box
+                  width={{ base: '93px', md: '166px' }}
+                  height={{ base: '187px', md: '332px' }}
+                  position="absolute"
+                  borderBottomRightRadius={{ base: '40px', md: '80px' }}
+                  border="1px solid transparent"
+                  overflow="hidden"
+                  bottom="0">
+                  <Image
+                    fill
+                    objectFit="contain"
+                    src="/icons/second_img_pba_welcome.svg"
+                    alt="Student img"
+                  />
+                </Box>
+                <Box
+                  width={{ base: '93px', md: '166px' }}
+                  position="absolute"
+                  overflow="hidden"
+                  borderTopRightRadius={{ base: '40px', md: '80px' }}
+                  borderBottomRightRadius={{ base: '40px', md: '80px' }}
+                  border="1px solid transparent"
+                  top="0"
+                  right="0"
+                  height={{ base: '211px', md: '376px' }}>
+                  <Image src="/icons/third_img_pba_welcome.svg" fill alt="Student img" />
+                </Box>
               </Box>
             </Box>
           </Flex>
