@@ -46,9 +46,9 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             lineHeight="21.28px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2012</ListItem>
+            <ListItem mb="8px">2019</ListItem>
             <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              Our first experiment
+              Idea to create Persona Business Academy
             </ListItem>
             <ListItem color="#222222">
               Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
@@ -64,9 +64,9 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             lineHeight="21.28px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2012</ListItem>
+            <ListItem mb="8px">2021</ListItem>
             <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              Our first experiment
+              Start of courses
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
               Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
@@ -82,27 +82,9 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             lineHeight="21.28px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2012</ListItem>
+            <ListItem mb="8px">2022-2023</ListItem>
             <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              Our first experiment
-            </ListItem>
-            <ListItem fontWeight="400" color="#222222">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-              print, graphic or web designs. The passage is attributed to an unknown typesetter in
-              the 15th century who is thought to have scrambled parts of Cicero's De Finibus.
-            </ListItem>
-          </UnorderedList>
-
-          <UnorderedList
-            margin={{ base: '0', md: '0 0 96px 0' }}
-            fontSize="16px"
-            color="#3CB4E7"
-            lineHeight="21.28px"
-            listStyleType="none"
-            fontWeight="400">
-            <ListItem mb="8px">2012</ListItem>
-            <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              Our first experiment
+              pba.am first e-learning platform in Armenia
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
               Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
@@ -204,9 +186,9 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             lineHeight="21.28px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2012</ListItem>
+            <ListItem mb="8px">2020</ListItem>
             <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              Our first experiment
+              Start launching PBA
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
               Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
@@ -222,26 +204,9 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             lineHeight="21.28px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2012</ListItem>
+            <ListItem mb="8px">2022</ListItem>
             <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              Our first experiment
-            </ListItem>
-            <ListItem fontWeight="400" color="#222222">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-              print, graphic or web designs. The passage is attributed to an unknown typesetter in
-              the 15th century who is thought to have scrambled parts of Cicero's De Finibus.
-            </ListItem>
-          </UnorderedList>
-          <UnorderedList
-            margin="0 0 96px 0"
-            fontSize="16px"
-            color="#3CB4E7"
-            lineHeight="21.28px"
-            listStyleType="none"
-            fontWeight="400">
-            <ListItem mb="8px">2012</ListItem>
-            <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              Our first experiment
+              Start of Talent Transformation Programm
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
               Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
