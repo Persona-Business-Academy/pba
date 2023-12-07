@@ -7,9 +7,10 @@ type WelcomeAboutPageProps = {};
 const WelcomeAboutPage: FC<WelcomeAboutPageProps> = () => {
   return (
     <Stack
-      backgroundImage="/images/public_available/about_bg.jpg"
+      backgroundImage="/icons/welcome_about_bg.svg"
       padding={{ base: '68px 16px 67px 16px', md: '68px 0 67px 0', xl: '179px 0 124px 0' }}
       backgroundPosition="center"
+      backgroundRepeat='no-repeat'
       backgroundSize="cover">
       <Heading
         className={segoe.className}
