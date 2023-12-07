@@ -15,10 +15,10 @@ import { segoe } from '@/utils/constants/fonts';
 const CourseFilterItem = dynamic(() => import('../CourseFilterItem'), { ssr: false });
 
 type CourseFilterProps = {
-  filteredData: any[];
+  queryParams: any;
 };
 
-const CourseFilter: FC<CourseFilterProps> = ({ filteredData }) => {
+const CourseFilter: FC<CourseFilterProps> = ({ queryParams }) => {
   return (
     <Flex flexDirection="column" gap={32}>
       <Accordion allowToggle>
@@ -38,7 +38,7 @@ const CourseFilter: FC<CourseFilterProps> = ({ filteredData }) => {
                   key={id}
                   value={value}
                   filterBy="topic"
-                  filteredData={filteredData}
+                  queryParams={queryParams}
                 />
               ))}
             </AccordionPanel>
@@ -58,7 +58,7 @@ const CourseFilter: FC<CourseFilterProps> = ({ filteredData }) => {
               key={index}
               value={value}
               filterBy="skill-level"
-              filteredData={filteredData}
+              queryParams={queryParams}
             />
           ))}
         </Box>
@@ -76,7 +76,7 @@ const CourseFilter: FC<CourseFilterProps> = ({ filteredData }) => {
               key={index}
               value={value}
               filterBy="duration"
-              filteredData={filteredData}
+              queryParams={queryParams}
             />
           ))}
         </Box>

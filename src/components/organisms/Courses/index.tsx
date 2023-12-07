@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { Box, Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
@@ -17,36 +17,63 @@ import { montserrat } from '@/utils/constants/fonts';
 type CoursesProps = {};
 
 const Courses: FC<CoursesProps> = () => {
+  const [queryParams, setQueryParams] = useState({
+    'front-end': false,
+    'back-end': false,
+    'graphic-design': false,
+    'ui-ux-design': false,
+    beginner: false,
+    intermediate: false,
+    advanced: false,
+    100: false,
+    200: false,
+    300: false,
+  });
   const [filteredData, setFilteredData] = useState<any[]>([]);
   const params = useSearchParams();
 
   useEffect(() => {
-    const data = [];
     const [topics] = params?.getAll('topic') || [];
     const [skillLevels] = params?.getAll('skill-level') || [];
     const [durations] = params?.getAll('duration') || [];
 
+    const d: any = {};
+
     if (topics) {
       const topicNames = topics.split(',');
-      const list = topicList.flatMap(item => item.categoryList);
-      const topicsData = list.filter(({ value }) => topicNames.includes(value));
-      data.push(...topicsData);
+      topicList.forEach(item =>
+        item.categoryList.forEach(({ value }) => {
+          if (topicNames.includes(value)) {
+            d[value] = true;
+          }
+        }),
+      );
     }
+
     if (skillLevels) {
       const skillNames = skillLevels.split(',');
-      const skillLevelData = skillLevelList.filter(({ value }) => skillNames.includes(value));
-      data.push(...skillLevelData);
+      skillLevelList.forEach(({ value }) => {
+        if (skillNames.includes(value)) {
+          d[value] = true;
+        }
+      });
     }
+
     if (durations) {
       const durationNames = durations.split(',');
-      const topicsData = durationList.filter(({ value }) => durationNames.includes(value));
-      data.push(...topicsData);
+      durationList.forEach(({ value }) => {
+        if (durationNames.includes(value)) {
+          d[value] = true;
+        }
+      });
     }
 
-    setFilteredData(data);
+    setQueryParams(prevState => ({ ...prevState, ...d }));
   }, [params]);
 
-  console.log({ filteredData });
+  const a = useMemo(() => {
+    const keys = Object.keys(queryParams);
+  }, []);
 
   return (
     <>
@@ -92,7 +119,7 @@ const Courses: FC<CoursesProps> = () => {
         </Flex>
         <Flex as="section" gap="20px" marginBottom="148px">
           <Flex flexDirection="column" width="285px">
-            <CourseFilter filteredData={filteredData} />
+            <CourseFilter queryParams={queryParams} />
           </Flex>
           <Flex flexDirection="column" width="895px" gap={16}>
             <Flex alignItems="center" gap={16}>
