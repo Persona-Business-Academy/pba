@@ -52,7 +52,7 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
             alignItems="center"
             flexDirection="column">
             <Box>
-              <Image src="./icons/home_icon_indeviduals.svg" alt="" width={108} height={108} />
+              <Image src="./icons/for_individuals.svg" alt="" width={108} height={108} />
             </Box>
 
             <Text
@@ -90,7 +90,7 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
             alignItems="center"
             flexDirection="column">
             <Box width="108px" height="108px">
-              <Image src="./icons/home_icon_kids.svg" alt="Kids Icon" width={108} height={108} />
+              <Image src="./icons/for_kids.svg" alt="Kids Icon" width={108} height={108} />
             </Box>
 
             <Text
@@ -153,7 +153,12 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
               flexDirection="column"
               justifyContent="center"
               alignItems="center">
-              <Image src="/icons/student_hat.svg" alt="Should icon" width={128} height={128} />
+              <Image
+                src="/icons/transformation_program.svg"
+                alt="Should icon"
+                width={128}
+                height={128}
+              />
               <Text
                 display={{ base: 'none', lg: 'block' }}
                 textAlign="center"
@@ -225,7 +230,8 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
                     <Image src="/icons/done_icon_homepage.svg" alt="Done" width={24} height={24} />
                   </Box>
 
-                  <Box width="2px" height="100%" bg="#1F1646"></Box>
+                  <Box width="2px" height="100%"
+                   bg="#1F1646"></Box>
                 </Box>
 
                 <Box mb="64px">

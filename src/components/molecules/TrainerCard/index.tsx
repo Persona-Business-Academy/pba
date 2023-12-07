@@ -3,6 +3,7 @@ import { Box, ListItem, UnorderedList } from '@chakra-ui/react';
 import Image from 'next/image';
 
 type TrainerCardProps = {
+  src?: string;
   firstName: string;
   lastName: string;
   profession: string;
