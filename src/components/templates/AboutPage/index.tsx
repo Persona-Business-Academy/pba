@@ -51,7 +51,7 @@ const AboutPage: FC<Props> = () => {
                   lg: '53.64px',
                 }}
                 fontSize={{ base: '28px', lg: '44px' }}>
-                1M+
+                3000+
               </ListItem>
               <ListItem
                 lineHeight={{
@@ -59,7 +59,7 @@ const AboutPage: FC<Props> = () => {
                   lg: '42.56px',
                 }}
                 fontSize={{ base: '24px', lg: '32px' }}>
-                Users on our platform
+                Students of PBA
               </ListItem>
             </UnorderedList>
 
@@ -75,7 +75,7 @@ const AboutPage: FC<Props> = () => {
                   lg: '53.64px',
                 }}
                 fontSize={{ base: '28px', lg: '44px' }}>
-                150+
+                15+
               </ListItem>
               <ListItem
                 lineHeight={{
@@ -83,7 +83,7 @@ const AboutPage: FC<Props> = () => {
                   lg: '42.56px',
                 }}
                 fontSize={{ base: '24px', lg: '32px' }}>
-                Total course
+                Total Courses
               </ListItem>
             </UnorderedList>
 
@@ -99,7 +99,7 @@ const AboutPage: FC<Props> = () => {
                   lg: '53.64px',
                 }}
                 fontSize={{ base: '28px', lg: '44px' }}>
-                1M+
+                500+
               </ListItem>
               <ListItem
                 lineHeight={{
@@ -107,7 +107,7 @@ const AboutPage: FC<Props> = () => {
                   lg: '42.56px',
                 }}
                 fontSize={{ base: '24px', lg: '32px' }}>
-                Nanodegree certificates earned
+                Students working in this field
               </ListItem>
             </UnorderedList>
 
@@ -123,7 +123,7 @@ const AboutPage: FC<Props> = () => {
                   lg: '53.64px',
                 }}
                 fontSize={{ base: '28px', lg: '44px' }}>
-                1M+
+                650+
               </ListItem>
               <ListItem
                 lineHeight={{
@@ -131,7 +131,7 @@ const AboutPage: FC<Props> = () => {
                   lg: '42.56px',
                 }}
                 fontSize={{ base: '24px', lg: '32px' }}>
-                Users on our platform
+                Master LVL certified students
               </ListItem>
             </UnorderedList>
           </Box>

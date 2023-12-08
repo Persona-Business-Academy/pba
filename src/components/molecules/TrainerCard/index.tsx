@@ -3,6 +3,7 @@ import { Box, ListItem, UnorderedList } from '@chakra-ui/react';
 import Image from 'next/image';
 
 type TrainerCardProps = {
+  src?: string;
   firstName: string;
   lastName: string;
   profession: string;
@@ -28,12 +29,18 @@ const TrainerCard: FC<TrainerCardProps> = ({
       flexWrap="wrap"
       justifyContent="center">
       <Box maxW="285px">
-        <Box>
+        <Box
+          overflow="hidden"
+          position="relative"
+          bg="pink"
+          borderTopRightRadius="16px"
+          width="285px"
+          height="271px">
           <Image
             src="/images/public_available/trainers_image.jpg"
             alt="Treners"
-            width={285}
-            height={271}
+            fill
+            objectFit="cover"
           />
         </Box>
 

@@ -32,7 +32,7 @@ const ArticleItem: FC<ArticleItemProps> = ({
       </UnorderedList>
 
       <UnorderedList
-        mt="16px 0 0 0 "
+        m="16px 0 0 0 "
         color="#333333"
         listStyleType="none"
         display="flex"

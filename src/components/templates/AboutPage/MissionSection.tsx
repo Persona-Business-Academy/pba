@@ -17,12 +17,7 @@ const MissionSection: FC<MissionSectionProps> = () => {
           textAlign="center">
           Our Mission
         </Heading>
-        <Text fontSize="16px" fontWeight="400" lineHeight="21.28px" margin="0">
-          To create value - each day, every day - as we build an equal and accessible learning
-          environment for all. The BYJU'S mission is to redefine how the world learns through
-          relentless effort and innovation, breaking the barriers to quality education, and helping
-          to build a learning ecosystem that will create leaders of tomorrow.
-        </Text>
+        <Text fontSize="16px" fontWeight="400" lineHeight="21.28px" margin="0"></Text>
       </Box>
 
       <Box mb={{ base: '36px', md: '100px', xl: '148px' }} color="#222222">
@@ -39,24 +34,24 @@ const MissionSection: FC<MissionSectionProps> = () => {
             textAlign={{ base: 'start', md: 'center' }}
             width="562px">
             <Heading margin="0 0 16px 0" fontWeight="700" fontSize="24px" lineHeight="31.92px">
-              Lorem ipsum, or lipsum as it is sometimes known, print, graphic or web designs.
+              Innovation:
             </Heading>
             <Text margin="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text ever since the 1500s, when an unknown
-              printer took a galley of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into electronic typesetting,
-              remaining essentially unchanged.
+              Encourage creative thinking and a forward-looking mindset, empowering students to
+              embrace new ideas and technologies within the ever-evolving business landscape. Նկար
+              19
             </Text>
           </Box>
 
-          <Box display={{ base: 'none', lg: 'block' }}>
-            <Image
-              src="/images/public_available/courses_img.jpg"
-              width={576}
-              height={402}
-              alt="Courses"
-            />
+          <Box
+            display={{ base: 'none', lg: 'block' }}
+            overflow="hidden"
+            position="relative"
+            width="576px"
+            height="402px"
+            borderTopRightRadius="16px"
+            borderBottomRightRadius="16px">
+            <Image src="/icons/about_inovation.svg" fill objectFit="cover" alt="Courses" />
           </Box>
         </Box>
 
@@ -69,13 +64,15 @@ const MissionSection: FC<MissionSectionProps> = () => {
             base: 'wrap-reverse',
             xl: 'nowrap',
           }}>
-          <Box display={{ base: 'none', lg: 'block' }}>
-            <Image
-              src="/images/public_available/courses_img.jpg"
-              width={576}
-              height={402}
-              alt="Courses"
-            />
+          <Box
+            display={{ base: 'none', lg: 'block' }}
+            overflow="hidden"
+            position="relative"
+            borderTopLeftRadius="16px"
+            borderBottomLeftRadius="16px"
+            width="576px"
+            height="402px">
+            <Image src="/icons/about_collaboration.svg" fill objectFit="cover" alt="Courses" />
           </Box>
 
           <Box
@@ -85,14 +82,11 @@ const MissionSection: FC<MissionSectionProps> = () => {
             textAlign={{ base: 'start', md: 'center' }}
             width="562px">
             <Heading margin="0 0 16px 0" fontWeight="700" fontSize="24px" lineHeight="31.92px">
-              Lorem ipsum, or lipsum as it is sometimes known, print, graphic or web designs.{' '}
+              Collaboration:
             </Heading>
             <Text margin="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text ever since the 1500s, when an unknown
-              printer took a galley of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into electronic typesetting,
-              remaining essentially unchanged.
+              Foster a collaborative environment where diverse perspectives are valued, and teamwork
+              is encouraged to promote a sense of community and mutual growth
             </Text>
           </Box>
         </Box>
@@ -109,24 +103,24 @@ const MissionSection: FC<MissionSectionProps> = () => {
             textAlign={{ base: 'start', md: 'center' }}
             width="562px">
             <Heading margin="0 0 16px 0" fontWeight="700" fontSize="24px" lineHeight="31.92px">
-              Lorem ipsum, or lipsum as it is sometimes known, print, graphic or web designs.{' '}
+              Perspective:
             </Heading>
             <Text margin="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text ever since the 1500s, when an unknown
-              printer took a galley of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into electronic typesetting,
-              remaining essentially unchanged.
+              Cultivate a global mindset and awareness, preparing students to thrive in an
+              interconnected world and to address business challenges on both local and
+              international scales
             </Text>
           </Box>
 
-          <Box display={{ base: 'none', lg: 'block' }}>
-            <Image
-              src="/images/public_available/courses_img.jpg"
-              width={576}
-              height={402}
-              alt="Courses"
-            />
+          <Box
+            display={{ base: 'none', lg: 'block' }}
+            overflow="hidden"
+            position="relative"
+            borderTopRightRadius="16px"
+            borderBottomRightRadius="16px"
+            width="576px"
+            height="402px">
+            <Image src="/icons/about_perspective.svg" objectFit="cover" fill alt="Courses" />
           </Box>
         </Box>
       </Box>

@@ -14,6 +14,7 @@ const Trainers: FC<TrainersProps> = () => {
       profession: 'SMM Specialist',
       enrolledStudents: 0,
       graduatedStudents: 0,
+      src: '/icons/tariner_smm.svg',
     },
     {
       id: 2,
@@ -22,6 +23,7 @@ const Trainers: FC<TrainersProps> = () => {
       profession: 'HRM Specialist',
       enrolledStudents: 0,
       graduatedStudents: 0,
+      src: '/icons/trainer_hrm.svg',
     },
     {
       id: 3,
@@ -30,6 +32,7 @@ const Trainers: FC<TrainersProps> = () => {
       profession: 'Full-Stack Developer',
       enrolledStudents: 0,
       graduatedStudents: 0,
+      src: '/icons/tariner_developer.svg',
     },
     {
       id: 4,
@@ -38,6 +41,7 @@ const Trainers: FC<TrainersProps> = () => {
       profession: 'SMM Specialist',
       enrolledStudents: 0,
       graduatedStudents: 0,
+      src: '/icons/tariner_smm_manukyan.svg',
     },
   ];
   return (
