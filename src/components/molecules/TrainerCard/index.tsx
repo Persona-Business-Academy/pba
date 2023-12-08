@@ -12,7 +12,6 @@ type TrainerCardProps = {
 };
 
 const TrainerCard: FC<TrainerCardProps> = ({
-  src = '/images/public_available/trainers_image.jpg',
   firstName,
   lastName,
   profession,
@@ -30,8 +29,19 @@ const TrainerCard: FC<TrainerCardProps> = ({
       flexWrap="wrap"
       justifyContent="center">
       <Box maxW="285px">
-        <Box>
-          <Image src={src} alt={firstName} width={285} height={271} />
+        <Box
+          overflow="hidden"
+          position="relative"
+          bg="pink"
+          borderTopRightRadius="16px"
+          width="285px"
+          height="271px">
+          <Image
+            src="/images/public_available/trainers_image.jpg"
+            alt="Treners"
+            fill
+            objectFit="cover"
+          />
         </Box>
 
         <UnorderedList
