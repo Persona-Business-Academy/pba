@@ -1,3 +1,4 @@
+'use client';
 import React, { FC } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
@@ -29,9 +30,7 @@ const ArticlesSection: FC<ArticlesSectionProps> = () => {
         display="flex"
         flexWrap="wrap"
         gap="40px 20px"
-        justifyContent={{
-          base: 'center',
-        }}
+        justifyContent="center"
         padding="0">
         {Array.from({ length: 4 }, (_, i) => ({
           id: i,

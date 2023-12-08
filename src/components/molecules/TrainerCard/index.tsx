@@ -1,9 +1,10 @@
+'use client';
 import React, { FC, memo } from 'react';
 import { Box, ListItem, UnorderedList } from '@chakra-ui/react';
 import Image from 'next/image';
 
 type TrainerCardProps = {
-  src?: string;
+  src: string;
   firstName: string;
   lastName: string;
   profession: string;
@@ -17,6 +18,7 @@ const TrainerCard: FC<TrainerCardProps> = ({
   profession,
   enrolledStudents,
   graduatedStudents,
+  src,
 }) => {
   return (
     <Box
@@ -33,15 +35,11 @@ const TrainerCard: FC<TrainerCardProps> = ({
           overflow="hidden"
           position="relative"
           bg="pink"
-          borderTopRightRadius="16px"
+          borderTopRightRadius="72px"
+          borderTopLeftRadius="12px"
           width="285px"
           height="271px">
-          <Image
-            src="/images/public_available/trainers_image.jpg"
-            alt="Treners"
-            fill
-            objectFit="cover"
-          />
+          <Image src={src} alt="Treners" fill objectFit="cover" />
         </Box>
 
         <UnorderedList

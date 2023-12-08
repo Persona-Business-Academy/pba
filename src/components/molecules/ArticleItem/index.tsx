@@ -16,17 +16,21 @@ const ArticleItem: FC<ArticleItemProps> = ({
   viewCount,
 }) => {
   return (
-    <Box maxW="590px" border="1px solid" borderRadius="8px" borderColor="#F3F4F6" padding="24px">
-      <UnorderedList
-        listStyleType="none"
-        color="#333333"
-        margin="0"
-        borderBottom="1px solid #858585"
-        pb="32px">
-        <ListItem fontWeight="700" fontSize="16px" lineHeight="21.28px" mb="8px">
+    <Box
+      flexGrow="1"
+      maxW={{ base: '500px', xl: '590px' }}
+      border="1px solid"
+      borderRadius="8px"
+      borderColor="#F3F4F6"
+      color="#333333"
+      transition="box-shadow  0.3s, color 0.3s"
+      _hover={{ boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', cursor: 'pointer', color: '#3CB3E5' }}
+      padding="24px">
+      <UnorderedList listStyleType="none" margin="0" borderBottom="1px solid #858585" pb="32px">
+        <ListItem fontWeight="700" color="inherit" fontSize="16px" lineHeight="21.28px" mb="8px">
           {articleTitle}
         </ListItem>
-        <ListItem fontSize="16px" lineHeight="21.28px" fontWeight="400">
+        <ListItem color="#333333" fontSize="16px" lineHeight="21.28px" fontWeight="400">
           {articleDescription}
         </ListItem>
       </UnorderedList>
