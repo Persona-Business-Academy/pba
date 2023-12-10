@@ -1,18 +1,18 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
-import { Box, Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
-import Image from 'next/image';
+import { Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
 import { useSearchParams } from 'next/navigation';
 import RemovableButton from '@/components/atoms/RemovableButton';
 import CourseFilter from '@/components/molecules/CourseFilter';
-import TimeIcon from '/public/icons/time_icon.svg';
-import LevelIcon from '/public/icons/level_icon.svg';
-import LessonsIcon from '/public/icons/book_icon.svg';
-import HeartIcon from '/public/icons/heart_icon.svg';
 import ArrowLeft from '/public/icons/left_arrow.svg';
 import ArrowRight from '/public/icons/right_arrow.svg';
 import InputSearchIcon from '/public/icons/search_icon.svg';
+import OnlineCourseItem from '@/components/molecules/OnlineCourseItem';
 import { durationList, skillLevelList, topicList } from '@/utils/constants/filters';
 import { montserrat } from '@/utils/constants/fonts';
+
+// const FilterButtonsList = dynamic(() => import('@/components/molecules/FilterButtonsList'), {
+//   ssr: false,
+// });
 
 type CoursesProps = {};
 
@@ -32,48 +32,49 @@ const Courses: FC<CoursesProps> = () => {
   const [filteredData, setFilteredData] = useState<any[]>([]);
   const params = useSearchParams();
 
-  useEffect(() => {
-    const [topics] = params?.getAll('topic') || [];
-    const [skillLevels] = params?.getAll('skill-level') || [];
-    const [durations] = params?.getAll('duration') || [];
+  const [topics] = useMemo(() => params?.getAll('topic') || [], [params]);
+  const [skillLevels] = useMemo(() => params?.getAll('skill-level') || [], [params]);
+  const [durations] = useMemo(() => params?.getAll('duration') || [], [params]);
 
+  useEffect(() => {
     const d: any = {};
+    const data: any = [];
 
     if (topics) {
       const topicNames = topics.split(',');
       topicList.forEach(item =>
-        item.categoryList.forEach(({ value }) => {
+        item.categoryList.forEach(({ title, id, value }) => {
           if (topicNames.includes(value)) {
             d[value] = true;
+            data.push({ title, id, value, queryKey: 'topic' });
           }
         }),
       );
     }
 
-    if (skillLevels) {
-      const skillNames = skillLevels.split(',');
-      skillLevelList.forEach(({ value }) => {
-        if (skillNames.includes(value)) {
-          d[value] = true;
-        }
-      });
-    }
+    const skillNames = (skillLevels || '').split(',');
+    skillLevelList.forEach(({ value, id, title }) => {
+      if (skillNames.includes(value)) {
+        d[value] = true;
+        data.push({ title, id, value, queryKey: 'skill-level' });
+      } else {
+        d[value] = false;
+      }
+    });
 
     if (durations) {
       const durationNames = durations.split(',');
-      durationList.forEach(({ value }) => {
+      durationList.forEach(({ value, id, title }) => {
         if (durationNames.includes(value)) {
           d[value] = true;
+          data.push({ title, id, value, queryKey: 'duration' });
         }
       });
     }
 
     setQueryParams(prevState => ({ ...prevState, ...d }));
-  }, [params]);
-
-  const a = useMemo(() => {
-    const keys = Object.keys(queryParams);
-  }, []);
+    setFilteredData(data);
+  }, [durations, params, skillLevels, topics]);
 
   return (
     <>
@@ -130,9 +131,8 @@ const Courses: FC<CoursesProps> = () => {
                   <RemovableButton
                     key={data.value}
                     filterId={data.id}
-                    removeFilterHandler={filterId => {
-                      setFilteredData(prevState => prevState.filter(({ id }) => id !== filterId));
-                    }}>
+                    filterBy={data.queryKey}
+                    value={data.value}>
                     {data.title}
                   </RemovableButton>
                 ))}
@@ -140,342 +140,9 @@ const Courses: FC<CoursesProps> = () => {
             </Flex>
 
             <Flex flexDirection="column" gap="16px" marginBottom="40px">
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        <TimeIcon />
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        <LessonsIcon />
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
+              {Array.from({ length: 7 }, (_, i) => (
+                <OnlineCourseItem key={i} />
+              ))}
             </Flex>
             <Flex
               justifyContent="center"

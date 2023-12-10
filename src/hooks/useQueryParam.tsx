@@ -36,8 +36,6 @@ const useQueryParams = (): FilterState => {
 
   const removeQueryParam = useCallback(
     ({ filterBy, value }: ValueType) => {
-      console.log('REMOVING QUERY PARAM');
-
       if (updatedSearchParams.has(filterBy)) {
         const currentValues = updatedSearchParams.get(filterBy);
 

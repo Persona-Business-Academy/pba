@@ -1,5 +1,5 @@
 'use client';
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, memo, useCallback, useEffect, useState } from 'react';
 import { Box, FormLabel, Text } from '@chakra-ui/react';
 import Checkbox from '@/components/atoms/Checkbox';
 import useQueryParams from '@/hooks/useQueryParam';
@@ -12,19 +12,17 @@ type CourseFilterItemProps = {
   filterBy: 'duration' | 'topic' | 'skill-level';
 };
 
-const CourseFilterItem: FC<CourseFilterItemProps> = ({
-  id,
-  title,
-  value,
-  filterBy,
-  queryParams,
-}) => {
+const CourseFilterItem: FC<CourseFilterItemProps> = ({ title, value, filterBy, queryParams }) => {
   const { addQueryParam, removeQueryParam } = useQueryParams();
-  const [isChecked, setIsChecked] = useState<boolean>(queryParams[value]);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const onChangeHandler = useCallback(() => {
     setIsChecked(prevState => !prevState);
   }, []);
+
+  useEffect(() => {
+    setIsChecked(queryParams[value]);
+  }, [queryParams, value]);
 
   useEffect(() => {
     if (isChecked) {
@@ -32,7 +30,8 @@ const CourseFilterItem: FC<CourseFilterItemProps> = ({
     } else {
       removeQueryParam({ filterBy, value });
     }
-  }, [isChecked]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isChecked, filterBy, value]);
 
   return (
     <Box py={4} _hover={{ bg: '#0000000' }}>
@@ -51,4 +50,4 @@ const CourseFilterItem: FC<CourseFilterItemProps> = ({
   );
 };
 
-export default CourseFilterItem;
+export default memo(CourseFilterItem);

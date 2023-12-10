@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+'use client';
+import React, { FC, memo } from 'react';
 import {
   Accordion,
   AccordionButton,
@@ -85,4 +86,4 @@ const CourseFilter: FC<CourseFilterProps> = ({ queryParams }) => {
   );
 };
 
-export default CourseFilter;
+export default memo(CourseFilter);
