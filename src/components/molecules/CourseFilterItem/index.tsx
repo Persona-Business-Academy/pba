@@ -31,7 +31,7 @@ const CourseFilterItem: FC<CourseFilterItemProps> = ({ title, value, filterBy, q
       removeQueryParam({ filterBy, value });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isChecked, filterBy, value]);
+  }, [isChecked]);
 
   return (
     <Box py={4} _hover={{ bg: '#0000000' }}>

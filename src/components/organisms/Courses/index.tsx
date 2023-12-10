@@ -10,10 +10,6 @@ import OnlineCourseItem from '@/components/molecules/OnlineCourseItem';
 import { durationList, skillLevelList, topicList } from '@/utils/constants/filters';
 import { montserrat } from '@/utils/constants/fonts';
 
-// const FilterButtonsList = dynamic(() => import('@/components/molecules/FilterButtonsList'), {
-//   ssr: false,
-// });
-
 type CoursesProps = {};
 
 const Courses: FC<CoursesProps> = () => {
@@ -127,12 +123,15 @@ const Courses: FC<CoursesProps> = () => {
               <Text as="span">Filter By:</Text>
 
               <Flex flexWrap="wrap" gap="10px">
-                {filteredData.map(data => (
+                {filteredData.map((data: { value: any; title: string }) => (
                   <RemovableButton
                     key={data.value}
-                    filterId={data.id}
-                    filterBy={data.queryKey}
-                    value={data.value}>
+                    removeQueryParamHandler={() => {
+                      setQueryParams((prevState: any) => ({
+                        ...prevState,
+                        [data.value]: false,
+                      }));
+                    }}>
                     {data.title}
                   </RemovableButton>
                 ))}

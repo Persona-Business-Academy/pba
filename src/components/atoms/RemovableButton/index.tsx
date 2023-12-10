@@ -1,22 +1,13 @@
-import React, { FC, memo, useCallback } from 'react';
+import React, { FC, memo } from 'react';
 import { Box, Button } from '@chakra-ui/react';
 import RemoveIcon from 'public/icons/remove.svg';
-import useQueryParams from '@/hooks/useQueryParam';
 
 type RemovableButtonProps = {
   children: string;
-  filterId: number;
-  filterBy: string;
-  value: string;
+  removeQueryParamHandler: () => void;
 };
 
-const RemovableButton: FC<RemovableButtonProps> = ({ children, filterId, filterBy, value }) => {
-  const { removeQueryParam } = useQueryParams();
-
-  const removeQueryFilterHandler = useCallback(() => {
-    removeQueryParam({ value, filterBy });
-  }, []);
-
+const RemovableButton: FC<RemovableButtonProps> = ({ children, removeQueryParamHandler }) => {
   return (
     <Button
       width="134px"
@@ -35,7 +26,7 @@ const RemovableButton: FC<RemovableButtonProps> = ({ children, filterId, filterB
       }}
       px={16}>
       {children}
-      <Box as="span" onClick={removeQueryFilterHandler}>
+      <Box as="span" onClick={removeQueryParamHandler}>
         <RemoveIcon />
       </Box>
     </Button>
