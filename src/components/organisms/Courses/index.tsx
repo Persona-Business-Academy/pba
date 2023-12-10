@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
 import { useSearchParams } from 'next/navigation';
 import RemovableButton from '@/components/atoms/RemovableButton';
@@ -7,71 +7,85 @@ import ArrowLeft from '/public/icons/left_arrow.svg';
 import ArrowRight from '/public/icons/right_arrow.svg';
 import InputSearchIcon from '/public/icons/search_icon.svg';
 import OnlineCourseItem from '@/components/molecules/OnlineCourseItem';
+import useQueryParams from '@/hooks/useQueryParam';
+import { QueryParams } from '@/types/queryParams';
 import { durationList, skillLevelList, topicList } from '@/utils/constants/filters';
 import { montserrat } from '@/utils/constants/fonts';
 
 type CoursesProps = {};
 
+type FilterType = {
+  title: string;
+  id: number;
+  value: string;
+  queryKey: string;
+};
+
+const initData: QueryParams = {
+  'front-end': false,
+  'back-end': false,
+  'graphic-design': false,
+  'ui-ux-design': false,
+  beginner: false,
+  intermediate: false,
+  advanced: false,
+  '100': false,
+  '200': false,
+  '300': false,
+};
+
 const Courses: FC<CoursesProps> = () => {
-  const [queryParams, setQueryParams] = useState({
-    'front-end': false,
-    'back-end': false,
-    'graphic-design': false,
-    'ui-ux-design': false,
-    beginner: false,
-    intermediate: false,
-    advanced: false,
-    100: false,
-    200: false,
-    300: false,
-  });
+  const { removeQueryParam } = useQueryParams();
+  const [queryParams, setQueryParams] = useState<QueryParams>(initData);
 
-  const [filteredData, setFilteredData] = useState<any[]>([]);
+  const [filteredData, setFilteredData] = useState<Array<FilterType>>([]);
   const params = useSearchParams()!;
+  const searchParams = useMemo(() => new URLSearchParams(params), [params]);
 
-  const [topics] = useMemo(() => params?.getAll('topic') || [], [params]);
-  const [skillLevels] = useMemo(() => params?.getAll('skill-level') || [], [params]);
-  const [durations] = useMemo(() => params?.getAll('duration') || [], [params]);
+  const topicData = useMemo(() => topicList.flatMap(item => item.categoryList), []);
+
+  const getListToCheck = useCallback(
+    (key: string) => {
+      switch (key) {
+        case 'topic':
+          return topicData;
+        case 'skill-level':
+          return skillLevelList;
+        default:
+          return durationList;
+      }
+    },
+    [topicData],
+  );
 
   useEffect(() => {
-    const d: any = {};
-    const data: any = [];
+    const updatedQueryParams: Partial<QueryParams> = {};
+    const filteredDataList: { title: string; id: number; value: string; queryKey: string }[] = [];
 
-    const topicNames = topics?.split(',');
-    topicList.forEach(item =>
-      item.categoryList.forEach(({ title, id, value }) => {
-        if ((topicNames || []).includes(value)) {
-          d[value] = true;
-          data.push({ title, id, value, queryKey: 'topic' });
+    if (![...searchParams].length) {
+      setQueryParams(initData);
+      setFilteredData([]);
+    }
+    console.log(searchParams);
+    searchParams.forEach((queryValues, queryKey) => {
+      const queryNames = queryValues.split(',');
+
+      const listToCheck = getListToCheck(queryKey);
+      listToCheck.forEach(({ value, id, title }) => {
+        if (queryNames.includes(value)) {
+          updatedQueryParams[value as keyof QueryParams] = true;
+          filteredDataList.push({ title, id, value, queryKey });
         } else {
-          d[value] = false;
+          updatedQueryParams[value as keyof QueryParams] = false;
         }
-      }),
-    );
-
-    const skillNames = skillLevels?.split(',');
-    skillLevelList.forEach(({ value, id, title }) => {
-      if ((skillNames || []).includes(value)) {
-        d[value] = true;
-        data.push({ title, id, value, queryKey: 'skill-level' });
-      } else {
-        d[value] = false;
-      }
+      });
     });
 
-    const durationNames = durations?.split(',');
-    durationList.forEach(({ value, id, title }) => {
-      if ((durationNames || []).includes(value)) {
-        d[value] = true;
-        data.push({ title, id, value, queryKey: 'duration' });
-      } else {
-        d[value] = false;
-      }
-    });
+    setQueryParams(prevState => ({ ...prevState, ...updatedQueryParams }) as QueryParams);
+    setFilteredData(filteredDataList);
+  }, [getListToCheck, params, searchParams, topicData]);
 
-    setQueryParams(prevState => ({ ...prevState, ...d }));
-    setFilteredData(data);
-  }, [durations, params, skillLevels, topics]);
+  console.log({ queryParams });
 
   return (
     <>
@@ -124,14 +138,11 @@ const Courses: FC<CoursesProps> = () => {
               <Text as="span">Filter By:</Text>
 
               <Flex flexWrap="wrap" gap="10px">
-                {filteredData.map((data: { value: any; title: string }) => (
+                {filteredData.map((data: FilterType) => (
                   <RemovableButton
                     key={data.value}
                     removeQueryParamHandler={() => {
-                      setQueryParams((prevState: any) => ({
-                        ...prevState,
-                        [data.value]: false,
-                      }));
+                      removeQueryParam({ filterBy: data.queryKey, value: data.value });
                     }}>
                     {data.title}
                   </RemovableButton>

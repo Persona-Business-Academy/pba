@@ -1,12 +1,12 @@
-'use client';
-import React, { FC, memo, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import { Box, FormLabel, Text } from '@chakra-ui/react';
 import Checkbox from '@/components/atoms/Checkbox';
 import useQueryParams from '@/hooks/useQueryParam';
+import { QueryParams } from '@/types/queryParams';
 
 type CourseFilterItemProps = {
   id: number;
-  queryParams: any;
+  queryParams: QueryParams;
   title: string;
   value: string;
   filterBy: 'duration' | 'topic' | 'skill-level';
@@ -14,35 +14,33 @@ type CourseFilterItemProps = {
 
 const CourseFilterItem: FC<CourseFilterItemProps> = ({ title, value, filterBy, queryParams }) => {
   const { addQueryParam, removeQueryParam } = useQueryParams();
-  const [isChecked, setIsChecked] = useState<boolean | null>(null);
-
-  const onChangeHandler = useCallback(() => {
-    setIsChecked(prevState => !prevState);
-  }, []);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
 
   useEffect(() => {
-    setIsChecked(queryParams[value]);
+    setIsChecked(queryParams[value as keyof QueryParams]);
   }, [queryParams, value]);
 
-  useEffect(() => {
-    if (isChecked === null) return;
-    if (isChecked) {
-      addQueryParam({ filterBy, value });
-    } else {
-      removeQueryParam({ filterBy, value });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isChecked]);
+  const toggleQueryParam = useCallback(
+    (updatedValue: boolean) => {
+      if (updatedValue) {
+        addQueryParam({ filterBy, value });
+      } else {
+        removeQueryParam({ filterBy, value });
+      }
+    },
+    [addQueryParam, filterBy, removeQueryParam, value],
+  );
+
+  const onChangeHandler = useCallback(() => {
+    const updatedValue = !isChecked;
+    setIsChecked(updatedValue);
+    toggleQueryParam(updatedValue);
+  }, [isChecked, toggleQueryParam]);
 
   return (
     <Box py={4} _hover={{ bg: '#0000000' }}>
       <Text display="flex" gap="12px">
-        <Checkbox
-          onChange={onChangeHandler}
-          isChecked={!!isChecked}
-          checked={!!isChecked}
-          id={title}
-        />
+        <Checkbox onChange={onChangeHandler} isChecked={isChecked} checked={isChecked} id={title} />
         <FormLabel htmlFor={title} cursor="pointer" margin={0}>
           {title}
         </FormLabel>
@@ -51,4 +49,4 @@ const CourseFilterItem: FC<CourseFilterItemProps> = ({ title, value, filterBy, q
   );
 };
 
-export default memo(CourseFilterItem);
+export default CourseFilterItem;

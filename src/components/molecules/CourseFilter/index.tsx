@@ -10,12 +10,13 @@ import {
   Flex,
   Text,
 } from '@chakra-ui/react';
+import { QueryParams } from '@/types/queryParams';
 import { durationList, skillLevelList, topicList } from '@/utils/constants/filters';
 import { segoe } from '@/utils/constants/fonts';
 import CourseFilterItem from '../CourseFilterItem';
 
 type CourseFilterProps = {
-  queryParams: any;
+  queryParams: QueryParams;
 };
 
 const CourseFilter: FC<CourseFilterProps> = ({ queryParams }) => {

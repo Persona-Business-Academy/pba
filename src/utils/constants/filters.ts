@@ -41,13 +41,11 @@ export const skillLevelList = [
   },
   {
     id: 7,
-
     title: 'Intermediate',
     value: 'intermediate',
   },
   {
     id: 8,
-
     title: 'Advanced',
     value: 'advanced',
   },
