@@ -25,8 +25,9 @@ const Courses: FC<CoursesProps> = () => {
     200: false,
     300: false,
   });
+
   const [filteredData, setFilteredData] = useState<any[]>([]);
-  const params = useSearchParams();
+  const params = useSearchParams()!;
 
   const [topics] = useMemo(() => params?.getAll('topic') || [], [params]);
   const [skillLevels] = useMemo(() => params?.getAll('skill-level') || [], [params]);
@@ -36,21 +37,21 @@ const Courses: FC<CoursesProps> = () => {
     const d: any = {};
     const data: any = [];
 
-    if (topics) {
-      const topicNames = topics.split(',');
-      topicList.forEach(item =>
-        item.categoryList.forEach(({ title, id, value }) => {
-          if (topicNames.includes(value)) {
-            d[value] = true;
-            data.push({ title, id, value, queryKey: 'topic' });
-          }
-        }),
-      );
-    }
+    const topicNames = topics?.split(',');
+    topicList.forEach(item =>
+      item.categoryList.forEach(({ title, id, value }) => {
+        if ((topicNames || []).includes(value)) {
+          d[value] = true;
+          data.push({ title, id, value, queryKey: 'topic' });
+        } else {
+          d[value] = false;
+        }
+      }),
+    );
 
-    const skillNames = (skillLevels || '').split(',');
+    const skillNames = skillLevels?.split(',');
     skillLevelList.forEach(({ value, id, title }) => {
-      if (skillNames.includes(value)) {
+      if ((skillNames || []).includes(value)) {
         d[value] = true;
         data.push({ title, id, value, queryKey: 'skill-level' });
       } else {
@@ -58,15 +59,15 @@ const Courses: FC<CoursesProps> = () => {
       }
     });
 
-    if (durations) {
-      const durationNames = durations.split(',');
-      durationList.forEach(({ value, id, title }) => {
-        if (durationNames.includes(value)) {
-          d[value] = true;
-          data.push({ title, id, value, queryKey: 'duration' });
-        }
-      });
-    }
+    const durationNames = durations?.split(',');
+    durationList.forEach(({ value, id, title }) => {
+      if ((durationNames || []).includes(value)) {
+        d[value] = true;
+        data.push({ title, id, value, queryKey: 'duration' });
+      } else {
+        d[value] = false;
+      }
+    });
 
     setQueryParams(prevState => ({ ...prevState, ...d }));
     setFilteredData(data);

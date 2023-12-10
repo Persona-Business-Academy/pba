@@ -26,7 +26,7 @@ export const topicList = [
       },
       {
         id: 6,
-        title: 'UI UX DESIGN',
+        title: 'UI UX Design',
         value: 'ui-ux-design',
       },
     ],

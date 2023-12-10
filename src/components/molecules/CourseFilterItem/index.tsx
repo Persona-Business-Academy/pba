@@ -14,7 +14,7 @@ type CourseFilterItemProps = {
 
 const CourseFilterItem: FC<CourseFilterItemProps> = ({ title, value, filterBy, queryParams }) => {
   const { addQueryParam, removeQueryParam } = useQueryParams();
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState<boolean | null>(null);
 
   const onChangeHandler = useCallback(() => {
     setIsChecked(prevState => !prevState);
@@ -25,6 +25,7 @@ const CourseFilterItem: FC<CourseFilterItemProps> = ({ title, value, filterBy, q
   }, [queryParams, value]);
 
   useEffect(() => {
+    if (isChecked === null) return;
     if (isChecked) {
       addQueryParam({ filterBy, value });
     } else {

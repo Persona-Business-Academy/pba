@@ -22,7 +22,7 @@ type CourseFilterProps = {
 const CourseFilter: FC<CourseFilterProps> = ({ queryParams }) => {
   return (
     <Flex flexDirection="column" gap={32}>
-      <Accordion allowToggle>
+      <Accordion allowMultiple>
         {topicList.map(({ title, id, categoryList }) => (
           <AccordionItem key={id}>
             <AccordionButton>
