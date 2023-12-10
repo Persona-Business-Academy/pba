@@ -29,10 +29,6 @@ const footerData = [
         href: CONTACT_US_ROUTE,
       },
       {
-        name: 'Terms & Condition',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
         name: 'Leadership',
         href: LEADERSHIP_ROUTE,
       },
