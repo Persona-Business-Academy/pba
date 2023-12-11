@@ -247,7 +247,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                   top="0"
                   right="0"
                   height={{ base: '211px', md: '376px' }}>
-                  <Image src="/icons/third_img_pba_welcome.svg" fill alt="Student img" />
+                  <Image src="/icons/third_img_welcome.svg" fill alt="Student img" />
                 </Box>
               </Box>
             </Box>
