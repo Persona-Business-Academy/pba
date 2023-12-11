@@ -1,45 +1,91 @@
-/* eslint-disable unused-imports/no-unused-vars */
-import React, { FC, useMemo } from 'react';
-import { Box, Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
-import Image from 'next/image';
+import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
 import { useSearchParams } from 'next/navigation';
+import RemovableButton from '@/components/atoms/RemovableButton';
 import CourseFilter from '@/components/molecules/CourseFilter';
-import TimeIcon from '/public/icons/time_icon.svg';
-import LevelIcon from '/public/icons/level_icon.svg';
-import LessonsIcon from '/public/icons/book_icon.svg';
-import HeartIcon from '/public/icons/heart_icon.svg';
 import ArrowLeft from '/public/icons/left_arrow.svg';
 import ArrowRight from '/public/icons/right_arrow.svg';
 import InputSearchIcon from '/public/icons/search_icon.svg';
-import { filterList } from '@/utils/constants/filters';
+import OnlineCourseItem from '@/components/molecules/OnlineCourseItem';
+import useQueryParams from '@/hooks/useQueryParam';
+import { QueryParams } from '@/types/queryParams';
+import { durationList, skillLevelList, topicList } from '@/utils/constants/filters';
 import { montserrat } from '@/utils/constants/fonts';
 
 type CoursesProps = {};
 
+type FilterType = {
+  title: string;
+  id: number;
+  value: string;
+  queryKey: string;
+};
+
+const initData: QueryParams = {
+  'front-end': false,
+  'back-end': false,
+  'graphic-design': false,
+  'ui-ux-design': false,
+  beginner: false,
+  intermediate: false,
+  advanced: false,
+  '100': false,
+  '200': false,
+  '300': false,
+};
+
 const Courses: FC<CoursesProps> = () => {
-  const params = useSearchParams();
+  const { removeQueryParam } = useQueryParams();
+  const [queryParams, setQueryParams] = useState<QueryParams>(initData);
 
-  const getAllSkillLevels = useMemo(() => {
-    const keys = params?.getAll('skill-level');
+  const [filteredData, setFilteredData] = useState<Array<FilterType>>([]);
+  const params = useSearchParams()!;
+  const searchParams = useMemo(() => new URLSearchParams(params), [params]);
 
-    console.log({ keys });
+  const topicData = useMemo(() => topicList.flatMap(item => item.categoryList), []);
 
-    if (keys?.length) {
-      // return filterList.map(list => list.categoryList.filter(({ value }) => keys.includes(value)));
+  const getListToCheck = useCallback(
+    (key: string) => {
+      switch (key) {
+        case 'topic':
+          return topicData;
+        case 'skill-level':
+          return skillLevelList;
+        default:
+          return durationList;
+      }
+    },
+    [topicData],
+  );
 
-      const x = filterList.flatMap(list => list.categoryList);
-      const y = x.map(({ value }) => keys.includes(value));
+  useEffect(() => {
+    const updatedQueryParams: Partial<QueryParams> = {};
+    const filteredDataList: { title: string; id: number; value: string; queryKey: string }[] = [];
 
-      console.log({ x, y, keys });
+    if (![...searchParams].length) {
+      setQueryParams(initData);
+      setFilteredData([]);
     }
+    console.log(searchParams);
+    searchParams.forEach((queryValues, queryKey) => {
+      const queryNames = queryValues.split(',');
 
-    return [];
-  }, [params]);
+      const listToCheck = getListToCheck(queryKey);
+      listToCheck.forEach(({ value, id, title }) => {
+        if (queryNames.includes(value)) {
+          updatedQueryParams[value as keyof QueryParams] = true;
+          filteredDataList.push({ title, id, value, queryKey });
+        } else {
+          updatedQueryParams[value as keyof QueryParams] = false;
+        }
+      });
+    });
 
-  const getAllDurations = useMemo(() => params?.getAll('duration'), [params]);
-  const getAllTopics = useMemo(() => params?.getAll('topic'), [params]);
+    setQueryParams(prevState => ({ ...prevState, ...updatedQueryParams }) as QueryParams);
+    setFilteredData(filteredDataList);
+  }, [getListToCheck, params, searchParams, topicData]);
 
-  console.log({ getAllSkillLevels });
+  console.log({ queryParams });
 
   return (
     <>
@@ -85,349 +131,29 @@ const Courses: FC<CoursesProps> = () => {
         fontStyle="normal">
         <Flex as="section" gap="20px" marginBottom="148px">
           <Flex flexDirection="column" width="285px">
-            <CourseFilter />
+            <CourseFilter queryParams={queryParams} />
           </Flex>
-          <Flex flexDirection="column" width="895px">
-            <Flex>
+          <Flex flexDirection="column" width="895px" gap={16}>
+            <Flex alignItems="center" gap={16}>
               <Text as="span">Filter By:</Text>
+
+              <Flex flexWrap="wrap" gap="10px">
+                {filteredData.map((data: FilterType) => (
+                  <RemovableButton
+                    key={data.value}
+                    removeQueryParamHandler={() => {
+                      removeQueryParam({ filterBy: data.queryKey, value: data.value });
+                    }}>
+                    {data.title}
+                  </RemovableButton>
+                ))}
+              </Flex>
             </Flex>
+
             <Flex flexDirection="column" gap="16px" marginBottom="40px">
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        <TimeIcon />
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        <LessonsIcon />
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
-              <Flex
-                padding="16px"
-                gap="16px"
-                borderRadius="12px"
-                border="1px solid #F3F4F6"
-                backgroundColor="#FFFFFF">
-                <Box>
-                  <Image
-                    src="/images/public_available/offline_courses.jpg"
-                    alt=""
-                    width={240}
-                    height={154}
-                  />
-                </Box>
-                <Box maxWidth="608px" color="#222222">
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    fontWeight={700}
-                    marginBottom="8px">
-                    <Text fontSize="24px">Interior design</Text>
-                    <Text fontSize="16px">100$/month</Text>
-                  </Flex>
-                  <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-                    This professional interior designing course will help you gain practical
-                    knowledge on how to create and manage your own design projects right through to
-                    running your own interior design business.This professional interior designing
-                    course will....
-                  </Text>
-                  <Flex justifyContent="space-between">
-                    <Flex width="332px" justifyContent="space-between" alignItems="center">
-                      <Flex gap="8px">
-                        {<TimeIcon />}
-                        <Text>3 month</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LevelIcon />}
-                        <Text>Open level</Text>
-                      </Flex>
-                      <Flex gap="8px">
-                        {<LessonsIcon />}
-                        <Text>50 lessons</Text>
-                      </Flex>
-                    </Flex>
-                    <Flex>{<HeartIcon />}</Flex>
-                  </Flex>
-                </Box>
-              </Flex>
+              {Array.from({ length: 7 }, (_, i) => (
+                <OnlineCourseItem key={i} />
+              ))}
             </Flex>
             <Flex
               justifyContent="center"

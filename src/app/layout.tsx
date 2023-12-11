@@ -3,7 +3,7 @@ import Providers from './providers';
 import './globals.scss';
 
 export const metadata = {
-  title: 'PBA Website',
+  title: 'Persona Business Academy',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

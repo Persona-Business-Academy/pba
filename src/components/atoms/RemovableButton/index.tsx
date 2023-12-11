@@ -1,24 +1,36 @@
-import React, { FC } from 'react';
-import { Button } from '@chakra-ui/react';
+import React, { FC, memo, ReactNode } from 'react';
+import { Box, Button } from '@chakra-ui/react';
 import RemoveIcon from 'public/icons/remove.svg';
 
 type RemovableButtonProps = {
-  text: string;
+  children: ReactNode;
+  removeQueryParamHandler: () => void;
 };
 
-const RemovableButton: FC<RemovableButtonProps> = ({ text }) => {
+const RemovableButton: FC<RemovableButtonProps> = ({ children, removeQueryParamHandler }) => {
   return (
     <Button
-      width="134px"
+      width="auto"
       height="38px"
       display="flex"
       alignItems="center"
-      justifyContent="space-between"
+      borderRadius="6px"
+      border="1px solid #F3F4F6"
+      backgroundColor="#fff"
+      _hover={{
+        bg: '#fff',
+      }}
+      _focus={{
+        bg: '#fff',
+      }}
+      lineHeight="22px"
       px={16}>
-      {text}
-      <RemoveIcon />
+      {children}
+      <Box as="span" ml={8} onClick={removeQueryParamHandler} display="flex" alignItems="center">
+        <RemoveIcon />
+      </Box>
     </Button>
   );
 };
 
-export default RemovableButton;
+export default memo(RemovableButton);

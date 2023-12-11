@@ -3,9 +3,9 @@ import { useCallback, useMemo } from 'react';
 import { AbsoluteCenter, Box, Divider, Link, useToast, VStack } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { signIn, SignInResponse } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { Button, FormInput } from '@/components/atoms';
+import { Button, FormInput, Loading } from '@/components/atoms';
 import { AuthBox } from '@/components/molecules';
 import { ERROR_MESSAGES } from '@/utils/constants/common';
 import {
@@ -41,30 +41,29 @@ export default function SignInPage() {
   } = useForm<SignInFormData>({ defaultValues: { email: '', password: '', rememberMe: false } });
 
   const onSubmit: SubmitHandler<SignInFormData> = useCallback(
-    ({ email, password }) => {
-      signIn('credentials', {
-        email,
-        password,
-        callbackUrl: route || HOMEPAGE_ROUTE,
-        redirect: false,
-      })
-        .then(res => {
-          if (res?.ok && res.url) {
-            router.push(res.url);
-            router.refresh();
-          } else {
-            toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
-          }
-        })
-        .catch(() => {
-          toast({ title: ERROR_MESSAGES.somethingWentWrong, status: 'error' });
+    async ({ email, password }: { email: string; password: string }) => {
+      try {
+        const res: SignInResponse | undefined = await signIn('credentials', {
+          email,
+          password,
+          callbackUrl: route || HOMEPAGE_ROUTE,
+          redirect: false,
         });
+
+        if (res?.ok && res.url) {
+          router.push(res.url);
+        }
+        toast({ title: ERROR_MESSAGES.somethingWentWrong, status: 'error' });
+      } catch (error) {
+        toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
+      }
     },
     [route, router, toast],
   );
 
   return (
     <AuthBox data={authBoxProps.data} boxProps={authBoxProps.boxProps}>
+      {isSubmitting && <Loading />}
       <VStack spacing={32}>
         <Controller
           name="email"

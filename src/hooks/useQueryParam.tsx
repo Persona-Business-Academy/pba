@@ -1,6 +1,6 @@
 'use client';
-import { useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useCallback, useMemo } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 interface ValueType {
   filterBy: string;
@@ -13,8 +13,8 @@ interface FilterState {
 }
 
 const useQueryParams = (): FilterState => {
-  const updatedUrl = new URL(window.location.href);
-  const updatedSearchParams = updatedUrl.searchParams;
+  const searchParams = useSearchParams()!;
+  const updatedSearchParams = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
   const router = useRouter();
 
   const addQueryParam = useCallback(
@@ -29,9 +29,9 @@ const useQueryParams = (): FilterState => {
         updatedSearchParams.set(filterBy, encodedValue);
       }
 
-      router.push(updatedUrl.href);
+      router.push('?' + updatedSearchParams.toString());
     },
-    [router, updatedSearchParams, updatedUrl.href],
+    [router, updatedSearchParams],
   );
 
   const removeQueryParam = useCallback(
@@ -50,14 +50,17 @@ const useQueryParams = (): FilterState => {
             updatedSearchParams.delete(filterBy);
           }
 
-          router.push(updatedUrl.href);
+          router.push('?' + updatedSearchParams.toString());
         }
       }
     },
-    [router, updatedSearchParams, updatedUrl.href],
+    [router, updatedSearchParams],
   );
 
-  return { addQueryParam, removeQueryParam };
+  return {
+    addQueryParam,
+    removeQueryParam,
+  };
 };
 
 export default useQueryParams;
