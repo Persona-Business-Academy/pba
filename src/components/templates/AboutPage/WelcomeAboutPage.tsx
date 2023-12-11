@@ -10,12 +10,12 @@ const WelcomeAboutPage: FC<WelcomeAboutPageProps> = () => {
       backgroundImage="/icons/welcome_about_bg.svg"
       padding={{ base: '68px 16px 67px 16px', md: '68px 0 67px 0', xl: '179px 0 124px 0' }}
       backgroundPosition="center"
-      backgroundRepeat='no-repeat'
+      backgroundRepeat="no-repeat"
       backgroundSize="cover">
       <Heading
         className={segoe.className}
         boxSizing="border-box"
-        color="#fff"
+        color="#000"
         textAlign={{ base: 'center', md: 'center', xl: 'left' }}
         margin={{ md: '0px auto', xl: '0px 0px 0px 366px' }}
         maxWidth="668px"

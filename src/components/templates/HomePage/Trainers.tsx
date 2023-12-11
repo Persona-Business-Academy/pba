@@ -36,12 +36,12 @@ const Trainers: FC<TrainersProps> = () => {
     },
     {
       id: 4,
-      firstName: 'Tigran ',
-      lastName: 'Manukyan',
-      profession: 'SMM Specialist',
+      firstName: 'Liana ',
+      lastName: 'Manusajyan',
+      profession: 'Branding & Tech Lawyer/Attorney',
       enrolledStudents: 0,
       graduatedStudents: 0,
-      src: '/icons/tariner_smm_manukyan.svg',
+      src: '/icons/liana_trainer.svg',
     },
   ];
   return (

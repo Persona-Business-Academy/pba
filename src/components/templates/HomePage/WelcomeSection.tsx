@@ -167,7 +167,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                     xl: '21.28px',
                   }}
                   fontSize={{ base: ' 14px', md: '16px' }}>
-                  Experts
+                  Courses
                 </Text>
               </Box>
 
@@ -203,7 +203,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                     md: '21.28px',
                   }}
                   fontSize={{ base: ' 14px', lg: '16px' }}>
-                  Courses
+                  Experts
                 </Text>
               </Box>
 
