@@ -167,7 +167,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                     xl: '21.28px',
                   }}
                   fontSize={{ base: ' 14px', md: '16px' }}>
-                  Experts
+                  Courses
                 </Text>
               </Box>
 
@@ -203,7 +203,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                     md: '21.28px',
                   }}
                   fontSize={{ base: ' 14px', lg: '16px' }}>
-                  Courses
+                  Experts
                 </Text>
               </Box>
 
@@ -247,7 +247,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                   top="0"
                   right="0"
                   height={{ base: '211px', md: '376px' }}>
-                  <Image src="/icons/third_img_pba_welcome.svg" fill alt="Student img" />
+                  <Image src="/icons/third_img_welcome.svg" fill alt="Student img" />
                 </Box>
               </Box>
             </Box>
