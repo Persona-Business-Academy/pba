@@ -53,7 +53,7 @@ export default function SignInPage() {
         if (res?.ok && res.url) {
           router.push(res.url);
         }
-        toast({ title: ERROR_MESSAGES.somethingWentWrong, status: 'error' });
+        toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
       } catch (error) {
         toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
       }
