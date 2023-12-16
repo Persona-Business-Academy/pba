@@ -5,4 +5,5 @@ export const ERROR_MESSAGES = {
   userNotFound: 'User with this email not found',
   invalidNumber: 'Invalid number',
   passwordDontMatch: `Password don't match`,
+  invalidPassword: `Invalid password`,
 };
