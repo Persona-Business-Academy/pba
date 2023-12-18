@@ -9,25 +9,22 @@ const $apiClient = axios.create({
 });
 
 const handleError = (error: Error | AxiosError) => {
-  if (!!window?.document) {
-    const { toast } = createStandaloneToast({
-      defaultOptions: { status: 'error', ...toastDefaultOptions },
-    });
-    console.log(error, 'errorrrrrerer');
-    if (axios.isAxiosError(error) && !!error.response?.data?.message) {
-      toast({ title: error.response.data.message });
-      if (error.response.status === 401) {
-        signOut();
-      }
-      return Promise.reject(error.response.data);
-    } else {
-      toast({ title: error.message });
-      return Promise.reject(error);
+  const { toast } = createStandaloneToast({
+    defaultOptions: { status: 'error', ...toastDefaultOptions },
+  });
+  if (axios.isAxiosError(error) && !!error.response?.data?.message) {
+    toast({ title: error.response.data.message });
+    if (error.response.status === 401) {
+      signOut();
     }
+    return Promise.reject(error.response.data);
+  } else {
+    toast({ title: error.message });
+    return Promise.reject(error);
   }
 };
 
-$apiClient.interceptors.request.use(async config => {
+$apiClient.interceptors.request.use(config => {
   if (config.headers) {
     config.headers['Content-Type'] = 'application/json';
   }
