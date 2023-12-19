@@ -14,14 +14,14 @@ const ReviewSection: FC<ReviewSectionProps> = () => {
       studentAvatarSrc: '/icons/feed_dani.svg',
       firstName: 'Daniela',
       lastName: 'Zanazanyan',
-      profession: 'Designer',
+      profession: 'SMM Speciailist',
     },
     {
       id: 2,
       feedbackText:
         "Hi, I'm Garry, I've been trying my strength at IT for almost a year now, particularly in Front-End. Before learning about the PBA and joining its ranks, I received professional knowledge in 2 other different educational places. However I will not hide that they were not so satisfactory and sufficient for me. Accepting PBA and joining the ranks of students of Narek Boshyan's JavaScript course group, I realized how big a difference there is between previous and current studies in the organization of processes, their quality and level. And both the methodology of organizing the course in PBA and Narek Boshyan's Compassionate and individualized treatment of any student obligates us to study well and become leading professionals in the field.",
       studentAvatarSrc: '/icons/feed_garri.svg',
-      firstName: 'Garri',
+      firstName: 'Garry',
       lastName: 'Gevorgyan',
       profession: 'Web-developer',
     },
@@ -32,7 +32,7 @@ const ReviewSection: FC<ReviewSectionProps> = () => {
       studentAvatarSrc: '/icons/feed_armine.svg',
       firstName: 'Armine',
       lastName: 'Hakobyan',
-      profession: 'Desinger',
+      profession: 'HR',
     },
   ];
   return (

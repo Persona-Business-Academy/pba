@@ -33,9 +33,12 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
             What is Persona?
           </Heading>
           <Text fontSize="16px" fontWeight="400" color="#696984" lineHeight="21.28px">
-            Skilline is a platform that allows educators to create online classes whereby they can
-            store the course materials online; manage assignments, quizzes and exams; monitor due
-            dates; grade results and provide students with feedback all in one place.
+            Persona Business Academy is a branch of the American company Persona Media Group in
+            Armenia. We emphasize academics education, we collaborate with professionals with
+            qualifications approved by the academy, providing the best educational programs for our
+            students, both in IT and other fields. Persona, cooperating with a number of well-known
+            companies in Armenia, supports newly graduated students to cooperate with leading
+            companies in the market.
           </Text>
         </Box>
 
@@ -200,7 +203,7 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
                     }}
                     fontWeight="700"
                     color="#222222">
-                    Free access to the maintenance
+                    Start
                   </Heading>
                   <Text
                     margin="0"
@@ -230,8 +233,7 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
                     <Image src="/icons/done_icon_homepage.svg" alt="Done" width={24} height={24} />
                   </Box>
 
-                  <Box width="2px" height="100%"
-                   bg="#1F1646"></Box>
+                  <Box width="2px" height="100%" bg="#1F1646"></Box>
                 </Box>
 
                 <Box mb="64px">
@@ -248,7 +250,7 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
                     }}
                     fontWeight="700"
                     color="#222222">
-                    Providing an authentic report on web performance
+                    Believe
                   </Heading>
                   <Text
                     margin="0"
@@ -295,7 +297,7 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
                     }}
                     fontWeight="700"
                     color="#222222">
-                    Achieving your loyalty and feedback
+                    Success
                   </Heading>
                   <Text
                     margin="0"
