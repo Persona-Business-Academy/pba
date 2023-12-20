@@ -49,12 +49,13 @@ CREATE TABLE "OnlineCourse" (
     "updatedAt" TIMESTAMP(0) NOT NULL,
     "courseLevel" "SkillLevel" NOT NULL,
     "coverPhoto" TEXT NOT NULL,
+    "coverPhotoId" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "duration" DOUBLE PRECISION NOT NULL,
-    "graduatedStudentsCount" INTEGER NOT NULL,
+    "duration" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "graduatedStudentsCount" INTEGER NOT NULL DEFAULT 0,
     "instructorId" INTEGER NOT NULL,
     "language" "Language" NOT NULL,
-    "rate" DOUBLE PRECISION NOT NULL,
+    "rate" DOUBLE PRECISION,
     "topic" VARCHAR(45) NOT NULL,
     "whatYouWillLearn" JSON NOT NULL,
 
@@ -118,6 +119,7 @@ CREATE TABLE "Instructor" (
     "lastName" VARCHAR(45) NOT NULL,
     "about" TEXT NOT NULL,
     "avatar" TEXT NOT NULL,
+    "avatarId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
 
@@ -132,6 +134,12 @@ CREATE UNIQUE INDEX "User_confirmationCode_key" ON "User"("confirmationCode");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Admin_email_key" ON "Admin"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "OnlineCourse_coverPhotoId_key" ON "OnlineCourse"("coverPhotoId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Instructor_avatarId_key" ON "Instructor"("avatarId");
 
 -- AddForeignKey
 ALTER TABLE "OnlineCourse" ADD CONSTRAINT "OnlineCourse_instructorId_fkey" FOREIGN KEY ("instructorId") REFERENCES "Instructor"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
