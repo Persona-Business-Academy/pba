@@ -68,7 +68,7 @@ export const NAV_ITEMS: NavItem[] = [
             children: [],
           },
           {
-            subLabelName: 'JS',
+            subLabelName: 'Javascript',
             children: [],
           },
           {

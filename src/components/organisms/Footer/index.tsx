@@ -230,7 +230,9 @@ const Footer: FC<Props> = () => {
             </Box>
             <Box>
               <Flex gap={8}>
-                <Text>Terms & Conditions</Text>
+                <Text as={Link} href={TERMS_AND_CONDITIONS_ROUTE}>
+                  Terms & Conditions
+                </Text>
                 <Text>|</Text>
                 <Text>Privacy</Text>
               </Flex>
