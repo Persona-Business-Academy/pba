@@ -29,29 +29,20 @@ const GraphicDesignCourse = () => {
         bg="#F6FCFF"
         padding={{
           base: '0 16px ',
-          sm: '0 16px ',
-          md: '0 16px ',
           lg: ' 0',
-          xl: ' 0',
         }}>
         <Container maxW="1200px" padding="0 0 82px 0" position="relative">
           <Flex
             gap={{
               base: '24px',
-              sm: '24px',
-              md: '24px',
               lg: '122px',
-              xl: '122px',
             }}
             justifyContent="center"
             alignItems="center"
             padding="24px 0"
             flexWrap={{
               base: 'wrap-reverse',
-              sm: 'wrap-reverse',
-              md: 'wrap-reverse',
               lg: 'nowrap',
-              xl: 'nowrap',
             }}>
             <Box maxW="488px" color="#222222" textAlign="center">
               <Heading
@@ -60,12 +51,9 @@ const GraphicDesignCourse = () => {
                 color="#1F1646"
                 lineHeight={{
                   base: '34.13px',
-                  sm: '34.13px',
-                  md: ' 34.13px',
                   lg: '53.64px',
-                  xl: '53.64px',
                 }}
-                fontSize={{ base: '28px', sm: '28px', md: ' 28px', lg: '44px', xl: '44px' }}>
+                fontSize={{ base: '28px', lg: '44px' }}>
                 Graphic Design
               </Heading>
               <Flex justifyContent="center" gap="13px" mb="16px">
@@ -119,10 +107,7 @@ const GraphicDesignCourse = () => {
                   bg="transparent"
                   padding={{
                     base: '12px 24px',
-                    sm: '12px 24px',
                     md: '16px 32px',
-                    lg: '16px 32px',
-                    xl: '16px 32px',
                   }}
                   border=" 1px solid #3CB4E7"
                   height="53px"
@@ -390,11 +375,8 @@ const GraphicDesignCourse = () => {
 
       <Box
         padding={{
-          base: '0 16px ',
-          sm: '0 16px ',
-          md: '0 16px ',
-          lg: ' 0',
-          xl: ' 0',
+          base: '0 16px',
+          lg: '0',
         }}
         maxWidth="100%"
         marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
@@ -405,59 +387,39 @@ const GraphicDesignCourse = () => {
                 as="h2"
                 textAlign={{
                   base: 'center',
-                  sm: 'center',
-                  md: 'center',
                   lg: 'left',
-                  xl: 'left',
                 }}
                 margin="0 0 24px 0"
                 fontSize="28px"
                 lineHeight="37.24px">
                 Your Child Will Learn
               </Heading>
-              <Flex
-                gap={{ base: '16px', sm: '16px', md: '16px', lg: '16px', xl: '29px' }}
-                flexWrap="wrap"
-                justifyContent="center">
+              <Flex gap={{ base: '16px', xl: '29px' }} flexWrap="wrap" justifyContent="center">
                 <UnorderedList
                   display="flex"
                   flexDirection="column"
                   margin="0"
                   gap="16px"
+                  lineHeight="24px"
+                  fontWeight="400"
+                  fontSize="16px"
                   listStyleType="0"
                   color="#222222"
                   maxWidth="387px">
-                  <ListItem
-                    lineHeight="24px"
-                    fontWeight="400"
-                    fontSize="16px"
-                    display="flex"
-                    alignItems="flex-start"
-                    gap="12px">
+                  <ListItem display="flex" alignItems="flex-start" gap="12px">
                     <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Introduction to the production process (pre, production, and post)
+                    Facebook Algorithms (News Feed Algorithm, Post Reach Algorithm)
                   </ListItem>
 
-                  <ListItem
-                    lineHeight="24px"
-                    fontWeight="400"
-                    fontSize="16px"
-                    display="flex"
-                    alignItems="flex-start"
-                    gap="12px">
+                  <ListItem display="flex" alignItems="flex-start" gap="12px">
                     <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Introduction to the production process (pre, production, and post)
+                    Facebook/Instagram settings (New Page Experience,Professional Dashboard,
+                    (Account Centre))
                   </ListItem>
 
-                  <ListItem
-                    lineHeight="24px"
-                    fontWeight="400"
-                    fontSize="16px"
-                    display="flex"
-                    alignItems="flex-start"
-                    gap="12px">
+                  <ListItem display="flex" alignItems="flex-start" gap="12px">
                     <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Introduction to the production process (pre, production, and post)
+                    Manychat Integration(Grow Tools, Permissions, Chat Bot Creation Strategies)
                   </ListItem>
                 </UnorderedList>
 
@@ -466,40 +428,26 @@ const GraphicDesignCourse = () => {
                   flexDirection="column"
                   margin="0"
                   gap="16px"
+                  lineHeight="24px"
+                  fontWeight="400"
+                  fontSize="16px"
                   listStyleType="0"
                   color="#222222"
                   maxWidth="387px">
-                  <ListItem
-                    lineHeight="24px"
-                    fontWeight="400"
-                    fontSize="16px"
-                    display="flex"
-                    alignItems="flex-start"
-                    gap="12px">
+                  <ListItem display="flex" alignItems="flex-start" gap="12px">
                     <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Introduction to the production process (pre, production, and post)
+                    Meta Business Suite (Insights, Lead Generation)
                   </ListItem>
 
-                  <ListItem
-                    lineHeight="24px"
-                    fontWeight="400"
-                    fontSize="16px"
-                    display="flex"
-                    alignItems="flex-start"
-                    gap="12px">
+                  <ListItem display="flex" alignItems="flex-start" gap="12px">
                     <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Introduction to the production process (pre, production, and post)
+                    Ads Manager (Custom Audience, Targeting, Audience Types)
                   </ListItem>
 
-                  <ListItem
-                    lineHeight="24px"
-                    fontWeight="400"
-                    fontSize="16px"
-                    display="flex"
-                    alignItems="flex-start"
-                    gap="12px">
+                  <ListItem display="flex" alignItems="flex-start" gap="12px">
                     <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Introduction to the production process (pre, production, and post)
+                    Web Performance (Event Manager / Pixel, API Conversion Gateway, Attribution
+                    Models)
                   </ListItem>
                 </UnorderedList>
               </Flex>
@@ -510,9 +458,6 @@ const GraphicDesignCourse = () => {
               display="flex"
               justifyContent={{
                 base: 'center ',
-                sm: 'center ',
-                md: 'center',
-                lg: 'center',
                 xl: 'flex-start',
               }}
               padding="16px 0 16px 16px"
@@ -770,10 +715,7 @@ const GraphicDesignCourse = () => {
       <Box
         padding={{
           base: '0 16px ',
-          sm: '0 16px ',
-          md: '0 16px ',
           lg: ' 0',
-          xl: ' 0',
         }}>
         <Container maxWidth="1246px" padding="0">
           <Box color="#222222" marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
@@ -782,15 +724,11 @@ const GraphicDesignCourse = () => {
               as="h2"
               lineHeight={{
                 base: '31.92px',
-                sm: '31.92px',
                 md: '37.24px ',
-                lg: '37.24px',
-                xl: '37.24px',
               }}
               margin={{
                 base: '0 0 16px 0',
                 lg: '0 0 40px 0',
-                xl: '0 0 40px 0',
               }}
               fontSize={{ base: '24px', lg: '32px', xl: '32px' }}
               fontWeight="700">
@@ -816,10 +754,7 @@ const GraphicDesignCourse = () => {
                     as="span"
                     lineHeight={{
                       base: '18.75px ',
-                      sm: '18.75px ',
-                      md: '18.75px ',
                       lg: '21.28px',
-                      xl: '21.28px',
                     }}
                     fontSize="16px">
                     When our designs need an expert opinion or approval, I know I can rely on your
@@ -896,10 +831,7 @@ const GraphicDesignCourse = () => {
                     as="span"
                     lineHeight={{
                       base: '18.75px ',
-                      sm: '18.75px ',
-                      md: '18.75px ',
                       lg: '21.28px',
-                      xl: '21.28px',
                     }}
                     fontSize="16px">
                     When our designs need an expert opinion or approval, I know I can rely on your

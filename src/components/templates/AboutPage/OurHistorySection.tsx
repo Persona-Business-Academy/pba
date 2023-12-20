@@ -33,7 +33,7 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
           transform="translateX(-25%)"></Text>
       </Box>
 
-      <Box maxW="752px" margin="0 auto" display="flex">
+      <Box maxW="752px" position="relative" margin="0 auto" display="flex">
         <Box
           maxWidth="348px"
           marginLeft={{ base: '36px', md: '0' }}
@@ -43,12 +43,23 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             margin="0 0 96px 0"
             fontSize="16px"
             color="#3CB4E7"
-            lineHeight="21.28px"
+            lineHeight="31.92px"
             listStyleType="none"
             fontWeight="400">
             <ListItem mb="8px">2019</ListItem>
-            <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              Idea to create Persona Business Academy
+            <ListItem display="flex" mb="8px" fontSize="24px" fontWeight="700">
+              <Text as="span">Idea to create Persona Business Academy </Text>
+              <Text
+                position="absolute"
+                zIndex="4"
+                right={{ base: '98%', md: '47.5%' }}
+                top="5%"
+                width="14px"
+                height="14px"
+                borderRadius="50"
+                display="block"
+                as="span"
+                bg="#3CB4E7"></Text>
             </ListItem>
             <ListItem color="#222222">
               Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
@@ -61,12 +72,23 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             margin="0 0 96px 0"
             fontSize="16px"
             color="#3CB4E7"
-            lineHeight="21.28px"
+            lineHeight="31.92px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2021</ListItem>
-            <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              Start of courses
+            <ListItem mb="8px">2020</ListItem>
+            <ListItem display="flex" mb="8px" fontSize="24px" fontWeight="700">
+              <Text as="span"> Start launching PBA</Text>
+              <Text
+                position="absolute"
+                right={{ base: '98%', md: '47.5%' }}
+                zIndex="4"
+                top="40%"
+                width="14px"
+                height="14px"
+                borderRadius="50"
+                display="block"
+                as="span"
+                bg="#3CB4E7"></Text>
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
               Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
@@ -79,12 +101,23 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             margin="0 0 96px 0"
             fontSize="16px"
             color="#3CB4E7"
-            lineHeight="21.28px"
+            lineHeight="31.92px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2022-2023</ListItem>
-            <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              pba.am first e-learning platform in Armenia
+            <ListItem mb="8px">2021</ListItem>
+            <ListItem display="flex" mb="8px" fontSize="24px" fontWeight="700">
+              <Text as="span">Start of courses</Text>
+              <Text
+                position="absolute"
+                right={{ base: '98%', md: '47.5%' }}
+                zIndex="4"
+                top="73%"
+                width="14px"
+                height="14px"
+                borderRadius="50"
+                display="block"
+                as="span"
+                bg="#3CB4E7"></Text>
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
               Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
@@ -94,85 +127,7 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
           </UnorderedList>
         </Box>
 
-        <Box
-          width="2px"
-          backgroundColor="#000000"
-          position="relative"
-          display="flex"
-          flexDirection="column"
-          gap={{ base: '0', md: '210px' }}
-          padding="40px 0 0 0">
-          <Box display="flex" flexDirection="column" alignItems="center" gap="45px">
-            <Box display="flex" alignItems="center" mb={{ base: '260px', md: '0' }}>
-              <Text
-                as="span"
-                width="14px"
-                height="14px"
-                borderRadius="50%"
-                backgroundColor="#3CB4E7"></Text>
-            </Box>
-
-            <Box display={{ base: 'none', md: 'flex' }} alignItems="center" gap="8px">
-              <Text
-                as="span"
-                width="14px"
-                height="14px"
-                borderRadius="50%"
-                backgroundColor="#3CB4E7"></Text>
-            </Box>
-          </Box>
-
-          <Box display="flex" flexDirection="column" alignItems="center" gap="45px">
-            <Box display="flex" alignItems="center" mb={{ base: '225px', md: '0' }}>
-              <Text
-                as="span"
-                width="14px"
-                height="14px"
-                borderRadius="50%"
-                backgroundColor="#3CB4E7"></Text>
-            </Box>
-
-            <Box display="" alignItems="center" gap="8px">
-              <Text
-                display={{ base: 'none', md: 'flex' }}
-                as="span"
-                width="14px"
-                height="14px"
-                borderRadius="50%"
-                backgroundColor="#3CB4E7"></Text>
-            </Box>
-          </Box>
-
-          <Box display="flex" flexDirection="column" alignItems="center" gap="45px">
-            <Box display="flex" alignItems="center" mb={{ base: '265px', md: '0' }}>
-              <Text
-                as="span"
-                width="14px"
-                height="14px"
-                borderRadius="50%"
-                backgroundColor="#3CB4E7"></Text>
-            </Box>
-
-            <Box display={{ base: 'none', md: 'flex' }} alignItems="center">
-              <Text
-                as="span"
-                width="14px"
-                height="14px"
-                borderRadius="50%"
-                backgroundColor="#3CB4E7"></Text>
-            </Box>
-          </Box>
-          <Box display="flex" flexDirection="column" alignItems="center">
-            <Box display="flex" alignItems="center" gap="8px">
-              <Text
-                as="span"
-                width="14px"
-                height="14px"
-                borderRadius="50%"
-                backgroundColor="#3CB4E7"></Text>
-            </Box>
-          </Box>
-        </Box>
+        <Box width="2px" backgroundColor="#000000" position="relative" padding="40px 0 0 0"></Box>
 
         <Box
           marginTop="55px"
@@ -183,13 +138,25 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             margin="0 0 96px 0"
             fontSize="16px"
             color="#3CB4E7"
-            lineHeight="21.28px"
+            lineHeight="31.92px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2020</ListItem>
-            <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              Start launching PBA
+            <ListItem mb="8px">2022</ListItem>
+            <ListItem display="flex" mb="8px" fontSize="24px" fontWeight="700">
+              <Text as="span"> Start of Talent Transformation Programm</Text>
+              <Text
+                position="absolute"
+                right="47.5%"
+                zIndex="4"
+                top="10%"
+                width="14px"
+                height="14px"
+                borderRadius="50"
+                display="block"
+                as="span"
+                bg="#3CB4E7"></Text>
             </ListItem>
+
             <ListItem fontWeight="400" color="#222222">
               Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
               print, graphic or web designs. The passage is attributed to an unknown typesetter in
@@ -201,12 +168,23 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             margin="0 0 96px 0"
             fontSize="16px"
             color="#3CB4E7"
-            lineHeight="21.28px"
+            lineHeight="31.92px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2022</ListItem>
-            <ListItem mb="8px" fontSize="24px" fontWeight="700">
-              Start of Talent Transformation Programm
+            <ListItem mb="8px">2022-2023</ListItem>
+            <ListItem display="flex" mb="8px" fontSize="24px" fontWeight="700">
+              <Text as="span">pba.am first e-learning platform in Armenia</Text>
+              <Text
+                position="absolute"
+                right="47.5%"
+                zIndex="4"
+                top="45%"
+                width="14px"
+                height="14px"
+                borderRadius="50"
+                display="block"
+                as="span"
+                bg="#3CB4E7"></Text>
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
               Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out

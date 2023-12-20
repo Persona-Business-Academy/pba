@@ -1,3 +1,4 @@
+import { UnauthorizedException } from 'next-api-decorators';
 import NextAuth, { AuthOptions, getServerSession } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { UserResolver } from '@/lib/prisma/resolvers';
@@ -17,13 +18,18 @@ export const authOptions: AuthOptions = {
   callbacks: {
     session: async ({ session }) => {
       const user = await UserResolver.findUserWithEmail(session.user?.email || '');
-
       if (!user) {
-        return session;
+        throw new UnauthorizedException();
       }
-
       const { password: _, ...userWithoutPassword } = user;
       return { ...session, user: userWithoutPassword };
+    },
+    jwt: async ({ token }) => {
+      const user = await UserResolver.findUserWithEmail(token.email || '');
+      if (!user) {
+        throw new UnauthorizedException();
+      }
+      return token;
     },
   },
 
