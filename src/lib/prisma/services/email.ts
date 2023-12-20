@@ -4,7 +4,7 @@ enum TemplateIdsEnum {
   emailVerificationTemplateId = 'd-11c7313df6e94ae99f64e5db3e3dd7ac',
 }
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
 class Email {
   static formatEmails(emails: string[]): { email: string }[] {
@@ -20,7 +20,26 @@ class Email {
       template_id: TemplateIdsEnum.emailVerificationTemplateId,
       personalizations: [
         {
-          to: { email },
+          to: email,
+          dynamic_template_data: {
+            userFirstName,
+            link: `${process.env.NEXTAUTH_URL}/email-confirmation/${confirmationCode}`,
+          },
+        },
+      ],
+    });
+  }
+
+  async sendForgotPasswordEmail(
+    email: string,
+    confirmationCode: number,
+    userFirstName: string,
+  ): Promise<any> {
+    return this.sendEmail(email, {
+      template_id: TemplateIdsEnum.emailVerificationTemplateId,
+      personalizations: [
+        {
+          to: email,
           dynamic_template_data: {
             userFirstName,
             link: `${process.env.NEXTAUTH_URL}/email-confirmation/${confirmationCode}`,

@@ -37,7 +37,9 @@ export class AuthResolver {
       },
     });
 
-    await Email.sendConfirmationCodeEmail(user.email, confirmationCode, firstName);
+    Email.sendConfirmationCodeEmail(user.email, confirmationCode, firstName)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
 
     return !!user;
   }
