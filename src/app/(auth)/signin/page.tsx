@@ -49,11 +49,12 @@ export default function SignInPage() {
           callbackUrl: route || HOMEPAGE_ROUTE,
           redirect: false,
         });
-
         if (res?.ok && res.url) {
           router.push(res.url);
+          router.refresh();
+        } else {
+          toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
         }
-        toast({ title: ERROR_MESSAGES.somethingWentWrong, status: 'error' });
       } catch (error) {
         toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
       }
