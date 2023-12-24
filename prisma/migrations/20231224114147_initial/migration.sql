@@ -7,6 +7,9 @@ CREATE TYPE "Language" AS ENUM ('EN', 'ARM');
 -- CreateEnum
 CREATE TYPE "SkillLevel" AS ENUM ('BEGINNER', 'INTERMEDIATE', 'ADVANCED', 'MASTER');
 
+-- CreateEnum
+CREATE TYPE "Currency" AS ENUM ('AMD', 'USD');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
@@ -51,11 +54,11 @@ CREATE TABLE "OnlineCourse" (
     "coverPhoto" TEXT NOT NULL,
     "coverPhotoId" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "duration" DOUBLE PRECISION NOT NULL DEFAULT 0,
-    "graduatedStudentsCount" INTEGER NOT NULL DEFAULT 0,
+    "duration" DOUBLE PRECISION NOT NULL,
+    "graduatedStudentsCount" INTEGER NOT NULL,
     "instructorId" INTEGER NOT NULL,
     "language" "Language" NOT NULL,
-    "rate" DOUBLE PRECISION,
+    "rating" DOUBLE PRECISION NOT NULL,
     "topic" VARCHAR(45) NOT NULL,
     "whatYouWillLearn" JSON NOT NULL,
 
@@ -126,6 +129,37 @@ CREATE TABLE "Instructor" (
     CONSTRAINT "Instructor_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "OfflineCourse" (
+    "id" SERIAL NOT NULL,
+    "title" VARCHAR(45) NOT NULL,
+    "subTitle" TEXT NOT NULL,
+    "rating" DOUBLE PRECISION NOT NULL,
+    "description" TEXT NOT NULL,
+    "language" "Language" NOT NULL,
+    "ageLimit" TEXT NOT NULL,
+    "totalDuration" DOUBLE PRECISION NOT NULL,
+    "level" "SkillLevel" NOT NULL,
+    "graduatedStudentsCount" INTEGER NOT NULL,
+    "price" DOUBLE PRECISION NOT NULL,
+    "currency" "Currency" NOT NULL,
+    "whatYouWillLearn" JSON NOT NULL,
+    "benefits" JSON NOT NULL,
+    "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(0) NOT NULL,
+
+    CONSTRAINT "OfflineCourse_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "OfflineCourseInstructors" (
+    "id" SERIAL NOT NULL,
+    "offlineCourseId" INTEGER NOT NULL,
+    "instructorId" INTEGER NOT NULL,
+
+    CONSTRAINT "OfflineCourseInstructors_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
@@ -140,6 +174,9 @@ CREATE UNIQUE INDEX "OnlineCourse_coverPhotoId_key" ON "OnlineCourse"("coverPhot
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Instructor_avatarId_key" ON "Instructor"("avatarId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "OfflineCourseInstructors_offlineCourseId_instructorId_key" ON "OfflineCourseInstructors"("offlineCourseId", "instructorId");
 
 -- AddForeignKey
 ALTER TABLE "OnlineCourse" ADD CONSTRAINT "OnlineCourse_instructorId_fkey" FOREIGN KEY ("instructorId") REFERENCES "Instructor"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -167,3 +204,9 @@ ALTER TABLE "OnlineCourseComment" ADD CONSTRAINT "OnlineCourseComment_authorId_f
 
 -- AddForeignKey
 ALTER TABLE "OnlineCourseComment" ADD CONSTRAINT "OnlineCourseComment_onlineCourseId_fkey" FOREIGN KEY ("onlineCourseId") REFERENCES "OnlineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_instructorId_fkey" FOREIGN KEY ("instructorId") REFERENCES "Instructor"("id") ON DELETE CASCADE ON UPDATE CASCADE;
