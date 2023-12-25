@@ -111,6 +111,13 @@ const OnlineCourseItem = async ({ params: { id } }: { params: { id: string } }) 
                 href={`/video-course/${course.id}`}
                 width="236px"
                 height="53px"
+                display="inline-block"
+                fontSize="16px"
+                fontWeight={700}
+                className={segoe.className}
+                bg="#3CB4E7"
+                color="#fff"
+                borderRadius="6px"
                 p="16px 32px">
                 Get your subscription
               </Text>
