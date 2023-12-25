@@ -92,7 +92,7 @@ const OnlineCourseItem = async ({ params: { id } }: { params: { id: string } }) 
                 </Flex>
 
                 <Text as="span" margin="0" lineHeight="18.75px" fontSize="16px">
-                  {course.rate}
+                  {course.rating}
                 </Text>
               </Flex>
 
