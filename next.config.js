@@ -9,6 +9,18 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'persona-business-academy-website.s3.us-west-1.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'https://d2cnsoh3yg3xet.cloudfront.net',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

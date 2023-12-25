@@ -117,30 +117,29 @@ model Instructor {
   avatarId        String         @unique
   createdAt       DateTime       @default(now()) @db.Timestamp(0)
   updatedAt       DateTime       @updatedAt @db.Timestamp(0)
-  onlineCourse    OnlineCourse[]
-  OfflineCourse   OfflineCourse? @relation(fields: [offlineCourseId], references: [id])
   offlineCourseId Int?
+  OfflineCourse   OfflineCourse? @relation(fields: [offlineCourseId], references: [id])
+  onlineCourse    OnlineCourse[]
 }
 
 model OfflineCourse {
-  id                     Int        @id @default(autoincrement())
-  title                  String     @db.VarChar(45)
+  id                     Int          @id @default(autoincrement())
+  title                  String       @db.VarChar(45)
   subTitle               String
-  rating                 Float      @default(0)
+  rating                 Float        @default(0)
   description            String
   language               Language
   ageLimit               String
-  totalDuration          Float      @default(0)
+  totalDuration          Float        @default(0)
   level                  SkillLevel
-  graduatedStudentsCount Int        @default(0)
+  graduatedStudentsCount Int          @default(0)
   price                  Float
   currency               Currency
-  whatYouWillLearn       Json       @db.Json
-  benefits               Json       @db.Json
-
-  createdAt  DateTime     @default(now()) @db.Timestamp(0)
-  updatedAt  DateTime     @updatedAt @db.Timestamp(0)
-  Instructor Instructor[]
+  whatYouWillLearn       Json         @db.Json
+  benefits               Json         @db.Json
+  createdAt              DateTime     @default(now()) @db.Timestamp(0)
+  updatedAt              DateTime     @updatedAt @db.Timestamp(0)
+  Instructor             Instructor[]
 }
 
 enum AdminRole {

@@ -23,7 +23,7 @@ import { segoe } from '@/utils/constants/fonts';
 
 type Props = {};
 
-const GraphicDesignVideoCourse: FC<Props> = () => {
+const OnlineCourseItemPage: FC<Props> = () => {
   return (
     <>
       <Box
@@ -2073,4 +2073,4 @@ const GraphicDesignVideoCourse: FC<Props> = () => {
   );
 };
 
-export default GraphicDesignVideoCourse;
+export default OnlineCourseItemPage;
