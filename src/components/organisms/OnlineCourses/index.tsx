@@ -1,6 +1,10 @@
+'use client';
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
+import { useQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
+import { OnlineCourseService } from '@/api/services/OnlineCourseService';
+import { Loading } from '@/components/atoms';
 import RemovableButton from '@/components/atoms/RemovableButton';
 import CourseFilter from '@/components/molecules/CourseFilter';
 import ArrowLeft from '/public/icons/left_arrow.svg';
@@ -34,10 +38,10 @@ const initData: QueryParams = {
   '300': false,
 };
 
-const Courses: FC<CoursesProps> = () => {
+const OnlineCourseList: FC<CoursesProps> = () => {
   const { removeQueryParam } = useQueryParams();
   const [queryParams, setQueryParams] = useState<QueryParams>(initData);
-
+  const [search, setSearch] = useState('');
   const [filteredData, setFilteredData] = useState<Array<FilterType>>([]);
   const params = useSearchParams()!;
   const searchParams = useMemo(() => new URLSearchParams(params), [params]);
@@ -66,7 +70,6 @@ const Courses: FC<CoursesProps> = () => {
       setQueryParams(initData);
       setFilteredData([]);
     }
-    console.log(searchParams);
     searchParams.forEach((queryValues, queryKey) => {
       const queryNames = queryValues.split(',');
 
@@ -85,10 +88,24 @@ const Courses: FC<CoursesProps> = () => {
     setFilteredData(filteredDataList);
   }, [getListToCheck, params, searchParams, topicData]);
 
-  console.log({ queryParams });
+  console.log(searchParams.getAll('skill-level'));
+
+  const queryString = useMemo(() => {
+    let queryStr = ``;
+    searchParams.forEach((value, key) => {
+      queryStr += `${key}=${value}&`;
+    });
+    return queryStr;
+  }, [searchParams]);
+
+  const { data, isLoading } = useQuery({
+    queryKey: ['online-courses'],
+    queryFn: () => OnlineCourseService.getOnlineCourseList(`q=${search}&${queryString}`),
+  });
 
   return (
     <>
+      {isLoading && <Loading />}
       <Flex
         as="section"
         backgroundColor="#F6FCFF"
@@ -118,6 +135,8 @@ const Courses: FC<CoursesProps> = () => {
               fontSize="16px"
               fontWeight={400}
               padding="12px 16px"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
             />
             <InputRightElement width="45px">{<InputSearchIcon />}</InputRightElement>
           </InputGroup>
@@ -151,8 +170,8 @@ const Courses: FC<CoursesProps> = () => {
             </Flex>
 
             <Flex flexDirection="column" gap="16px" marginBottom="40px">
-              {Array.from({ length: 7 }, (_, i) => (
-                <OnlineCourseItem key={i} />
+              {(data || []).map(onlineCourse => (
+                <OnlineCourseItem key={onlineCourse.id} {...onlineCourse} />
               ))}
             </Flex>
             <Flex
@@ -211,4 +230,4 @@ const Courses: FC<CoursesProps> = () => {
   );
 };
 
-export default Courses;
+export default OnlineCourseList;

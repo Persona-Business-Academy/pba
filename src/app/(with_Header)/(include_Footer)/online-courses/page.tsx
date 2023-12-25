@@ -1,11 +1,11 @@
 'use client';
 import React, { FC } from 'react';
-import Courses from '@/components/organisms/Courses';
+import OnlineCourseList from '@/components/organisms/OnlineCourses';
 
 type OnlineCoursesProps = {};
 
 const OnlineCourses: FC<OnlineCoursesProps> = () => {
-  return <Courses />;
+  return <OnlineCourseList />;
 };
 
 export default OnlineCourses;

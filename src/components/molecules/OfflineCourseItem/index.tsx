@@ -21,7 +21,7 @@ import Image from 'next/image';
 import { Button } from '@/components/atoms';
 import { segoe } from '@/utils/constants/fonts';
 
-const GraphicDesignCourse = () => {
+const OfflineCourseItem = () => {
   return (
     <>
       <Box
@@ -1567,4 +1567,4 @@ const GraphicDesignCourse = () => {
   );
 };
 
-export default GraphicDesignCourse;
+export default OfflineCourseItem;
