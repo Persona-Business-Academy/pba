@@ -10,3 +10,11 @@ export type QueryParams = {
   200: boolean;
   300: boolean;
 };
+
+export type OnlineCoursesQueryParams = {
+  offset?: number;
+  limit?: number;
+  q?: string;
+  duration?: string;
+  topic?: string;
+};
