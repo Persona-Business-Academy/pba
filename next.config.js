@@ -13,11 +13,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'persona-business-academy-website.s3.us-west-1.amazonaws.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'https://d2cnsoh3yg3xet.cloudfront.net',
+        hostname: 'd2cnsoh3yg3xet.cloudfront.net',
       },
     ],
   },
