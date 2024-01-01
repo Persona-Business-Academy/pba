@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import {
   Accordion,
@@ -16,15 +18,10 @@ import {
   UnorderedList,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import { OfflineCourseService } from '@/api/services/OfflineCourseService';
 import { Button } from '@/components/atoms';
 import { segoe } from '@/utils/constants/fonts';
 
-const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => {
-  const offlineCourse = await OfflineCourseService.getOfflineCourseItem(id);
-
-  console.log(offlineCourse);
-
+const OfflineCourseItem = () => {
   return (
     <>
       <Box
@@ -57,7 +54,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   lg: '53.64px',
                 }}
                 fontSize={{ base: '28px', lg: '44px' }}>
-                {offlineCourse.title}
+                Graphic Design
               </Heading>
               <Flex justifyContent="center" gap="13px" mb="16px">
                 <Flex alignItems="center" gap="6px">
@@ -94,13 +91,14 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                 </Flex>
 
                 <Text as="span" margin="0" lineHeight="18.75px" fontSize="16px">
-                  {offlineCourse.rating}
+                  4.8
                 </Text>
               </Flex>
 
               <Box lineHeight="18.75px" fontSize="16px" mb="24px">
                 <Text as="p" margin="0" lineHeight="18.75px" fontSize="16px">
-                  {offlineCourse.subTitle}
+                  Master the basics of Photoshop and Illustrator and gain invaluable insights in
+                  this introductory level course from Jake Bartlett.
                 </Text>
               </Box>
 
@@ -177,7 +175,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Language
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.language}
+              Armenian
             </ListItem>
           </UnorderedList>
 
@@ -193,7 +191,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Age
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.ageLimit}
+              10-18
             </ListItem>
           </UnorderedList>
 
@@ -221,7 +219,23 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Duration
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.totalDuration}
+              17 weeks
+            </ListItem>
+          </UnorderedList>
+
+          <UnorderedList
+            listStyleType="none"
+            margin="0"
+            display="flex"
+            flexDirection="column"
+            paddingRight="16px"
+            gap="8px"
+            borderRight="1px solid #C0C0C0">
+            <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="400" color="#5B5B5B">
+              Total
+            </ListItem>
+            <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
+              128 hours
             </ListItem>
           </UnorderedList>
 
@@ -237,7 +251,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Level
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.level}
+              Advance
             </ListItem>
           </UnorderedList>
 
@@ -279,7 +293,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Course ended
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.graduatedStudentsCount}
+              120 students
             </ListItem>
           </UnorderedList>
         </Flex>
@@ -298,7 +312,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Course fee
             </Text>
             <Text fontWeight="700" lineHeight="37.24px" as="p" fontSize="28px" margin="0">
-              {offlineCourse.price}/
+              $100/
               <Text fontWeight="400" fontSize="16px" lineHeight="21.28px" as="span" margin="0">
                 month
               </Text>
@@ -347,7 +361,14 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
             Description
           </Heading>
           <Text as="p" margin="0" fontSize="16px" lineHeight="24px" fontWeight="400">
-            {offlineCourse.description}
+            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,
+            graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
+            century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum
+            for use in a type specimen book. It usually begins with: Lorem ipsum, or lipsum as it is
+            sometimes known, is dummy text used in laying out print, graphic or web designs. The
+            passage is attributed to an unknown typesetter in the 15th century who is thought to
+            have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type
+            specimen book. It usually begins with:
           </Text>
         </Box>
       </Box>
@@ -1546,4 +1567,4 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
   );
 };
 
-export default OfflineCourse;
+export default OfflineCourseItem;

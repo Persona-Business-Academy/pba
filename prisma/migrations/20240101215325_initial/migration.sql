@@ -5,6 +5,9 @@ CREATE TYPE "AdminRole" AS ENUM ('ADMIN', 'SUPER_ADMIN');
 CREATE TYPE "Language" AS ENUM ('EN', 'ARM');
 
 -- CreateEnum
+CREATE TYPE "Topic" AS ENUM ('GRAPHIC_DESIGN', 'UI_UX_DESIGN', 'FRONT_END', 'BACK_END', 'SMM', 'DIGITAL_MARKETING', 'BUSINESS_LAW', 'BUSINESS_ENGLISH', 'HRM');
+
+-- CreateEnum
 CREATE TYPE "SkillLevel" AS ENUM ('BEGINNER', 'INTERMEDIATE', 'ADVANCED', 'MASTER');
 
 -- CreateEnum
@@ -47,20 +50,23 @@ CREATE TABLE "Admin" (
 -- CreateTable
 CREATE TABLE "OnlineCourse" (
     "id" SERIAL NOT NULL,
-    "name" VARCHAR(45) NOT NULL,
-    "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(0) NOT NULL,
+    "title" VARCHAR(45) NOT NULL,
+    "subTitle" VARCHAR(45) NOT NULL,
     "courseLevel" "SkillLevel" NOT NULL,
     "coverPhoto" TEXT NOT NULL,
     "coverPhotoId" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "duration" DOUBLE PRECISION NOT NULL,
-    "graduatedStudentsCount" INTEGER NOT NULL,
+    "duration" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "lessonsCount" INTEGER NOT NULL DEFAULT 0,
+    "graduatedStudentsCount" INTEGER NOT NULL DEFAULT 0,
+    "enrolledStudentsCount" INTEGER NOT NULL DEFAULT 0,
     "instructorId" INTEGER NOT NULL,
     "language" "Language" NOT NULL,
-    "rating" DOUBLE PRECISION NOT NULL,
-    "topic" VARCHAR(45) NOT NULL,
+    "rating" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "topic" "Topic" NOT NULL,
     "whatYouWillLearn" JSON NOT NULL,
+    "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(0) NOT NULL,
 
     CONSTRAINT "OnlineCourse_pkey" PRIMARY KEY ("id")
 );
@@ -111,6 +117,7 @@ CREATE TABLE "OnlineCourseComment" (
     "onlineCourseId" INTEGER,
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
+    "offlineCourseId" INTEGER,
 
     CONSTRAINT "OnlineCourseComment_pkey" PRIMARY KEY ("id")
 );
@@ -119,7 +126,10 @@ CREATE TABLE "OnlineCourseComment" (
 CREATE TABLE "Instructor" (
     "id" SERIAL NOT NULL,
     "firstName" VARCHAR(45) NOT NULL,
+    "profession" VARCHAR(45) NOT NULL,
     "lastName" VARCHAR(45) NOT NULL,
+    "graduatedStudentsCount" INTEGER NOT NULL DEFAULT 0,
+    "enrolledStudentsCount" INTEGER NOT NULL DEFAULT 0,
     "about" TEXT NOT NULL,
     "avatar" TEXT NOT NULL,
     "avatarId" TEXT NOT NULL,
@@ -134,13 +144,17 @@ CREATE TABLE "OfflineCourse" (
     "id" SERIAL NOT NULL,
     "title" VARCHAR(45) NOT NULL,
     "subTitle" TEXT NOT NULL,
-    "rating" DOUBLE PRECISION NOT NULL,
+    "topic" "Topic" NOT NULL,
+    "coverPhoto" TEXT NOT NULL,
+    "rating" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "description" TEXT NOT NULL,
     "language" "Language" NOT NULL,
     "ageLimit" TEXT NOT NULL,
-    "totalDuration" DOUBLE PRECISION NOT NULL,
+    "totalDuration" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "level" "SkillLevel" NOT NULL,
-    "graduatedStudentsCount" INTEGER NOT NULL,
+    "graduatedStudentsCount" INTEGER NOT NULL DEFAULT 0,
+    "enrolledStudentsCount" INTEGER NOT NULL DEFAULT 0,
+    "lessonsCount" INTEGER NOT NULL DEFAULT 0,
     "price" DOUBLE PRECISION NOT NULL,
     "currency" "Currency" NOT NULL,
     "whatYouWillLearn" JSON NOT NULL,
@@ -204,6 +218,9 @@ ALTER TABLE "OnlineCourseComment" ADD CONSTRAINT "OnlineCourseComment_authorId_f
 
 -- AddForeignKey
 ALTER TABLE "OnlineCourseComment" ADD CONSTRAINT "OnlineCourseComment_onlineCourseId_fkey" FOREIGN KEY ("onlineCourseId") REFERENCES "OnlineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OnlineCourseComment" ADD CONSTRAINT "OnlineCourseComment_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;

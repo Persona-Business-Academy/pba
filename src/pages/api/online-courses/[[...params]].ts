@@ -4,7 +4,7 @@ import { OnlineCoursesResolver } from '@/lib/prisma/resolvers/online-courses';
 import type { OnlineCoursesQueryParams } from '@/types/queryParams';
 
 @Catch(exceptionHandler)
-class AuthHandler {
+class OnlineCourseHandler {
   @Get('/list')
   _getOnlineCoursesList(@Query() queryParams: OnlineCoursesQueryParams) {
     return OnlineCoursesResolver.getOnlineCourseList(queryParams);
@@ -15,4 +15,4 @@ class AuthHandler {
   }
 }
 
-export default createHandler(AuthHandler);
+export default createHandler(OnlineCourseHandler);
