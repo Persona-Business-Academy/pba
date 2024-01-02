@@ -10,6 +10,7 @@ interface ValueType {
 interface FilterState {
   addQueryParam: (value: ValueType) => void;
   removeQueryParam: (value: ValueType) => void;
+  addSingleSearchParam: (value: ValueType) => void;
 }
 
 const useQueryParams = (): FilterState => {
@@ -29,6 +30,14 @@ const useQueryParams = (): FilterState => {
         updatedSearchParams.set(filterBy, encodedValue);
       }
 
+      router.push('?' + updatedSearchParams.toString());
+    },
+    [router, updatedSearchParams],
+  );
+
+  const addSingleSearchParam = useCallback(
+    ({ filterBy, value }: ValueType) => {
+      updatedSearchParams.set(filterBy, value);
       router.push('?' + updatedSearchParams.toString());
     },
     [router, updatedSearchParams],
@@ -60,6 +69,7 @@ const useQueryParams = (): FilterState => {
   return {
     addQueryParam,
     removeQueryParam,
+    addSingleSearchParam,
   };
 };
 
