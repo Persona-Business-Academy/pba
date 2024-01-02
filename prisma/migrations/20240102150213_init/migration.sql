@@ -64,7 +64,7 @@ CREATE TABLE "OnlineCourse" (
     "language" "Language" NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "topic" "Topic" NOT NULL,
-    "whatYouWillLearn" JSON NOT NULL,
+    "whatYouWillLearn" TEXT[],
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
 
@@ -158,7 +158,7 @@ CREATE TABLE "OfflineCourse" (
     "lessonsCount" INTEGER NOT NULL DEFAULT 0,
     "price" DOUBLE PRECISION NOT NULL,
     "currency" "Currency" NOT NULL,
-    "whatYouWillLearn" JSON NOT NULL,
+    "whatYouWillLearn" TEXT[],
     "benefits" JSON NOT NULL,
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
