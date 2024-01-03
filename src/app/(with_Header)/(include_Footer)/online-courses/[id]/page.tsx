@@ -55,7 +55,7 @@ const OnlineCourseItem = async ({ params: { id } }: { params: { id: string } }) 
                 lineHeight="normal"
                 color="#222"
                 m="0 0 8px 0">
-                {course.name}
+                {course.title}
               </Heading>
               <Flex justifyContent="center" gap="13px">
                 <Flex alignItems="center" gap="6px">

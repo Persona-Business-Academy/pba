@@ -43,8 +43,6 @@ export class OfflineCoursesResolver {
     });
 
     const course = { ...offlineCourse, courseInstructors };
-
-    console.log(course);
     return course;
   }
 }

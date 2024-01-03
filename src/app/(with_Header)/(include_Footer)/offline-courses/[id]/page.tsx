@@ -19,6 +19,7 @@ import Image from 'next/image';
 import { OfflineCourseService } from '@/api/services/OfflineCourseService';
 import { Button } from '@/components/atoms';
 import { segoe } from '@/utils/constants/fonts';
+import { generateAWSUrl } from '@/utils/helpers/common';
 
 const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => {
   const offlineCourse = await OfflineCourseService.getOfflineCourseItem(id);
@@ -126,6 +127,18 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   lineHeight="21.28px"
                   fontSize="16px"
                   bg="transparent"
+                  _focus={{
+                    bg: 'transparent',
+                  }}
+                  _focusWithin={{
+                    bg: 'transparent',
+                  }}
+                  _focusVisible={{
+                    bg: 'transparent',
+                  }}
+                  _hover={{
+                    bg: 'transparent',
+                  }}
                   color="#1F1646">
                   View programm
                 </Button>
@@ -135,7 +148,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
             <Box maxW="590px">
               <Box width="100%">
                 <Image
-                  src="/images/public_available/graphic_design_bg.png"
+                  src={generateAWSUrl(offlineCourse.coverPhoto)}
                   alt="Graphic Design"
                   width={590}
                   height={334}
@@ -221,7 +234,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Duration
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.totalDuration}
+              {offlineCourse.totalDuration} months
             </ListItem>
           </UnorderedList>
 
@@ -279,7 +292,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Course ended
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.graduatedStudentsCount}
+              {offlineCourse.graduatedStudentsCount} students
             </ListItem>
           </UnorderedList>
         </Flex>
@@ -375,8 +388,8 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               </Heading>
               <Flex gap={{ base: '16px', xl: '29px' }} flexWrap="wrap" justifyContent="center">
                 <UnorderedList
-                  display="flex"
-                  flexDirection="column"
+                  display="grid"
+                  gridTemplateColumns="1fr 1fr"
                   margin="0"
                   gap="16px"
                   lineHeight="24px"
@@ -384,50 +397,13 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   fontSize="16px"
                   listStyleType="0"
                   color="#222222"
-                  maxWidth="387px">
-                  <ListItem display="flex" alignItems="flex-start" gap="12px">
-                    <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Facebook Algorithms (News Feed Algorithm, Post Reach Algorithm)
-                  </ListItem>
-
-                  <ListItem display="flex" alignItems="flex-start" gap="12px">
-                    <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Facebook/Instagram settings (New Page Experience,Professional Dashboard,
-                    (Account Centre))
-                  </ListItem>
-
-                  <ListItem display="flex" alignItems="flex-start" gap="12px">
-                    <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Manychat Integration(Grow Tools, Permissions, Chat Bot Creation Strategies)
-                  </ListItem>
-                </UnorderedList>
-
-                <UnorderedList
-                  display="flex"
-                  flexDirection="column"
-                  margin="0"
-                  gap="16px"
-                  lineHeight="24px"
-                  fontWeight="400"
-                  fontSize="16px"
-                  listStyleType="0"
-                  color="#222222"
-                  maxWidth="387px">
-                  <ListItem display="flex" alignItems="flex-start" gap="12px">
-                    <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Meta Business Suite (Insights, Lead Generation)
-                  </ListItem>
-
-                  <ListItem display="flex" alignItems="flex-start" gap="12px">
-                    <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Ads Manager (Custom Audience, Targeting, Audience Types)
-                  </ListItem>
-
-                  <ListItem display="flex" alignItems="flex-start" gap="12px">
-                    <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
-                    Web Performance (Event Manager / Pixel, API Conversion Gateway, Attribution
-                    Models)
-                  </ListItem>
+                  maxWidth="803px">
+                  {offlineCourse.whatYouWillLearn.map((learning: string, index: number) => (
+                    <ListItem key={index} display="flex" alignItems="flex-start" gap="12px">
+                      <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
+                      {learning}
+                    </ListItem>
+                  ))}
                 </UnorderedList>
               </Flex>
             </Box>
@@ -445,7 +421,9 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               <Image
                 src="/images/public_available/courses_img_design.png"
                 alt="Learn Img"
-                objectFit="fill"
+                style={{
+                  objectFit: 'cover',
+                }}
                 width={361}
                 height={205}
               />
@@ -715,233 +693,87 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
             </Heading>
 
             <Flex margin="0 auto" gap="20px" flexWrap="wrap" justifyContent="center">
-              <Box maxW="402px">
-                <Flex
-                  mb="24px"
-                  borderRadius="12px"
-                  flexDirection="column"
-                  gap="16px"
-                  alignItems="center"
-                  bg="#ECF7FC"
-                  padding="48px">
-                  <Box>
-                    <Image src="/icons/quote.svg" alt="comma" width={24.5} height={19.9} />
-                  </Box>
-                  <Text
-                    textAlign="center"
-                    margin="0"
-                    as="span"
-                    lineHeight={{
-                      base: '18.75px ',
-                      lg: '21.28px',
-                    }}
-                    fontSize="16px">
-                    When our designs need an expert opinion or approval, I know I can rely on your
-                    agency Thank you for all your help-I will be recommending you to everyone
-                  </Text>
-                </Flex>
+              {offlineCourse.courseInstructors.map((instructor, index: number) => (
+                <Box key={index} maxW="402px">
+                  <Flex
+                    mb="24px"
+                    borderRadius="12px"
+                    flexDirection="column"
+                    gap="16px"
+                    alignItems="center"
+                    bg="#ECF7FC"
+                    padding="48px">
+                    <Box>
+                      <Image src="/icons/quote.svg" alt="comma" width={24.5} height={19.9} />
+                    </Box>
+                    <Text
+                      textAlign="center"
+                      margin="0"
+                      as="span"
+                      lineHeight={{
+                        base: '18.75px ',
+                        lg: '21.28px',
+                      }}
+                      fontSize="16px">
+                      {instructor.about}
+                    </Text>
+                  </Flex>
 
-                <Flex flexDirection="column" alignItems="center" gap="8px">
-                  <Box>
-                    <Image
-                      src="/images/public_available/instructor_img.png"
-                      alt="Instructor"
+                  <Flex flexDirection="column" alignItems="center" gap="8px">
+                    <Box
                       width={74}
                       height={74}
-                    />
-                  </Box>
+                      position="relative"
+                      borderRadius="50%"
+                      overflow="auto">
+                      <Image
+                        src={generateAWSUrl(instructor.avatar)}
+                        alt={[instructor.firstName, instructor.lastName].join(' ')}
+                        fill
+                      />
+                    </Box>
 
-                  <UnorderedList
-                    borderBottom="1px solid #E9E8ED"
-                    margin="0"
-                    display="flex"
-                    fontSize="16px"
-                    flexDirection="column"
-                    alignItems="center">
-                    <ListItem mb="8px" lineHeight="16px" fontWeight="600" as="span">
-                      Tigran Harutyunyan
-                    </ListItem>
-                    <ListItem
-                      mb="8px"
-                      as="span"
-                      color="#5B5B5B"
-                      lineHeight="21.28px"
-                      fontWeight="400">
-                      Digital Creator & Educator
-                    </ListItem>
-                  </UnorderedList>
+                    <UnorderedList
+                      borderBottom="1px solid #E9E8ED"
+                      margin="0"
+                      display="flex"
+                      fontSize="16px"
+                      flexDirection="column"
+                      alignItems="center">
+                      <ListItem mb="8px" lineHeight="16px" fontWeight="600" as="span">
+                        {instructor.firstName} {instructor.lastName}
+                      </ListItem>
+                      <ListItem
+                        mb="8px"
+                        as="span"
+                        color="#5B5B5B"
+                        lineHeight="21.28px"
+                        fontWeight="400">
+                        {instructor.profession}
+                      </ListItem>
+                    </UnorderedList>
 
-                  <UnorderedList
-                    margin="0"
-                    display="flex"
-                    flexDirection="column"
-                    alignItems="center">
-                    <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                      Enrolled:
-                      <Text as="span" fontWeight="700">
-                        100
-                      </Text>
-                    </ListItem>
-                    <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                      Graduated:
-                      <Text as="span" fontWeight="700">
-                        100
-                      </Text>
-                    </ListItem>
-                  </UnorderedList>
-                </Flex>
-              </Box>
-
-              <Box maxW="402px">
-                <Flex
-                  mb="24px"
-                  borderRadius="12px"
-                  flexDirection="column"
-                  gap="16px"
-                  alignItems="center"
-                  bg="#ECF7FC"
-                  padding="48px">
-                  <Box>
-                    <Image src="/icons/quote.svg" alt="comma" width={24.5} height={19.9} />
-                  </Box>
-                  <Text
-                    textAlign="center"
-                    margin="0"
-                    as="span"
-                    lineHeight={{
-                      base: '18.75px ',
-                      lg: '21.28px',
-                    }}
-                    fontSize="16px">
-                    When our designs need an expert opinion or approval, I know I can rely on your
-                    agency Thank you for all your help-I will be recommending you to everyone
-                  </Text>
-                </Flex>
-
-                <Flex flexDirection="column" alignItems="center" gap="8px">
-                  <Box>
-                    <Image
-                      src="/images/public_available/instructor_img.png"
-                      alt="Instructor"
-                      width={74}
-                      height={74}
-                    />
-                  </Box>
-
-                  <UnorderedList
-                    borderBottom="1px solid #E9E8ED"
-                    margin="0"
-                    display="flex"
-                    fontSize="16px"
-                    flexDirection="column"
-                    alignItems="center">
-                    <ListItem mb="8px" lineHeight="16px" fontWeight="600" as="span">
-                      Tigran Harutyunyan
-                    </ListItem>
-                    <ListItem
-                      mb="8px"
-                      as="span"
-                      color="#5B5B5B"
-                      lineHeight="21.28px"
-                      fontWeight="400">
-                      Digital Creator & Educator
-                    </ListItem>
-                  </UnorderedList>
-
-                  <UnorderedList
-                    margin="0"
-                    display="flex"
-                    flexDirection="column"
-                    alignItems="center">
-                    <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                      Enrolled:
-                      <Text as="span" fontWeight="700">
-                        100
-                      </Text>
-                    </ListItem>
-                    <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                      Graduated:
-                      <Text as="span" fontWeight="700">
-                        100
-                      </Text>
-                    </ListItem>
-                  </UnorderedList>
-                </Flex>
-              </Box>
-
-              <Box maxW="402px">
-                <Flex
-                  mb="24px"
-                  borderRadius="12px"
-                  flexDirection="column"
-                  gap="16px"
-                  alignItems="center"
-                  bg="#ECF7FC"
-                  padding="48px">
-                  <Box>
-                    <Image src="/icons/quote.svg" alt="comma" width={24.5} height={19.9} />
-                  </Box>
-                  <Text
-                    textAlign="center"
-                    margin="0"
-                    as="span"
-                    lineHeight="18.75px"
-                    fontSize="16px">
-                    When our designs need an expert opinion or approval, I know I can rely on your
-                    agency Thank you for all your help-I will be recommending you to everyone
-                  </Text>
-                </Flex>
-
-                <Flex flexDirection="column" alignItems="center" gap="8px">
-                  <Box>
-                    <Image
-                      src="/images/public_available/instructor_img.png"
-                      alt="Instructor"
-                      width={74}
-                      height={74}
-                    />
-                  </Box>
-
-                  <UnorderedList
-                    borderBottom="1px solid #E9E8ED"
-                    margin="0"
-                    display="flex"
-                    fontSize="16px"
-                    flexDirection="column"
-                    alignItems="center">
-                    <ListItem mb="8px" lineHeight="16px" fontWeight="600" as="span">
-                      Tigran Harutyunyan
-                    </ListItem>
-                    <ListItem
-                      mb="8px"
-                      as="span"
-                      color="#5B5B5B"
-                      lineHeight="21.28px"
-                      fontWeight="400">
-                      Digital Creator & Educator
-                    </ListItem>
-                  </UnorderedList>
-
-                  <UnorderedList
-                    margin="0"
-                    display="flex"
-                    flexDirection="column"
-                    alignItems="center">
-                    <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                      Enrolled:
-                      <Text as="span" fontWeight="700">
-                        100
-                      </Text>
-                    </ListItem>
-                    <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                      Graduated:
-                      <Text as="span" fontWeight="700">
-                        100
-                      </Text>
-                    </ListItem>
-                  </UnorderedList>
-                </Flex>
-              </Box>
+                    <UnorderedList
+                      margin="0"
+                      display="flex"
+                      flexDirection="column"
+                      alignItems="center">
+                      <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
+                        Enrolled:
+                        <Text as="span" fontWeight="700">
+                          {instructor.enrolledStudentsCount}
+                        </Text>
+                      </ListItem>
+                      <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
+                        Graduated:
+                        <Text as="span" fontWeight="700">
+                          {instructor.graduatedStudentsCount}
+                        </Text>
+                      </ListItem>
+                    </UnorderedList>
+                  </Flex>
+                </Box>
+              ))}
             </Flex>
           </Box>
 
