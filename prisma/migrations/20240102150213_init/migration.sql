@@ -64,7 +64,7 @@ CREATE TABLE "OnlineCourse" (
     "language" "Language" NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "topic" "Topic" NOT NULL,
-    "whatYouWillLearn" JSON NOT NULL,
+    "whatYouWillLearn" TEXT[],
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
 
@@ -146,6 +146,7 @@ CREATE TABLE "OfflineCourse" (
     "subTitle" TEXT NOT NULL,
     "topic" "Topic" NOT NULL,
     "coverPhoto" TEXT NOT NULL,
+    "coverPhotoId" TEXT NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "description" TEXT NOT NULL,
     "language" "Language" NOT NULL,
@@ -157,7 +158,7 @@ CREATE TABLE "OfflineCourse" (
     "lessonsCount" INTEGER NOT NULL DEFAULT 0,
     "price" DOUBLE PRECISION NOT NULL,
     "currency" "Currency" NOT NULL,
-    "whatYouWillLearn" JSON NOT NULL,
+    "whatYouWillLearn" TEXT[],
     "benefits" JSON NOT NULL,
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
@@ -188,6 +189,9 @@ CREATE UNIQUE INDEX "OnlineCourse_coverPhotoId_key" ON "OnlineCourse"("coverPhot
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Instructor_avatarId_key" ON "Instructor"("avatarId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "OfflineCourse_coverPhotoId_key" ON "OfflineCourse"("coverPhotoId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "OfflineCourseInstructors_offlineCourseId_instructorId_key" ON "OfflineCourseInstructors"("offlineCourseId", "instructorId");
