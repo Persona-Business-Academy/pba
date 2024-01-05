@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { BadRequestException } from 'next-api-decorators';
+import { UnauthorizedException } from 'next-api-decorators';
 import { ERROR_MESSAGES } from '@/utils/constants/common';
 import { UserResolver } from '../resolvers';
 
@@ -8,12 +8,12 @@ export const validateUserPassword = async (email: string, password: string) => {
     const user = await UserResolver.findUserWithEmail(email);
 
     if (!user) {
-      throw new BadRequestException(ERROR_MESSAGES.invalidCredentials);
+      throw new UnauthorizedException(ERROR_MESSAGES.invalidCredentials);
     }
 
     const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
-      throw new BadRequestException(ERROR_MESSAGES.invalidCredentials);
+      throw new UnauthorizedException(ERROR_MESSAGES.invalidCredentials);
     }
 
     return user;

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import {
   Accordion,
   AccordionButton,
@@ -18,12 +18,15 @@ import {
   UnorderedList,
 } from '@chakra-ui/react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { OnlineCourseService } from '@/api/services/OnlineCourseService';
 import { Button } from '@/components/atoms';
 import { segoe } from '@/utils/constants/fonts';
+import { generateAWSUrl } from '@/utils/helpers/common';
 
-type Props = {};
+const OnlineCourseItem = async ({ params: { id } }: { params: { id: string } }) => {
+  const course = await OnlineCourseService.getOnlineCourseItem(id);
 
-const GraphicDesignVideoCourse: FC<Props> = () => {
   return (
     <>
       <Box
@@ -52,7 +55,7 @@ const GraphicDesignVideoCourse: FC<Props> = () => {
                 lineHeight="normal"
                 color="#222"
                 m="0 0 8px 0">
-                Graphic Design
+                {course.title}
               </Heading>
               <Flex justifyContent="center" gap="13px">
                 <Flex alignItems="center" gap="6px">
@@ -89,7 +92,7 @@ const GraphicDesignVideoCourse: FC<Props> = () => {
                 </Flex>
 
                 <Text as="span" margin="0" lineHeight="18.75px" fontSize="16px">
-                  4.8
+                  {course.rating}
                 </Text>
               </Flex>
 
@@ -100,25 +103,29 @@ const GraphicDesignVideoCourse: FC<Props> = () => {
                 fontWeight={400}
                 lineHeight="22px"
                 color="#222">
-                Master the basics of Photoshop and Illustrator and gain invaluable insights in this
-                introductory level course from Jake Bartlett. By the end of this course, you'll be
-                able to create your own artwork from scratch with tools and workflows used by
-                professional designers every day.
+                {course.description}
               </Text>
 
-              <Button width="236px" height="53px" p="16px 32px">
+              <Text
+                as={Link}
+                href={`/video-course/${course.id}`}
+                width="236px"
+                height="53px"
+                display="inline-block"
+                fontSize="16px"
+                fontWeight={700}
+                className={segoe.className}
+                bg="#3CB4E7"
+                color="#fff"
+                borderRadius="6px"
+                p="16px 32px">
                 Get your subscription
-              </Button>
+              </Text>
             </Box>
 
             <Box maxW="692px">
-              <Box width="100%">
-                <Image
-                  src="/images/public_available/graphic_design_bg.png"
-                  alt="Graphic Design"
-                  width={692}
-                  height={334}
-                />
+              <Box width={692} height={334} position="relative">
+                <Image src={generateAWSUrl(course.coverPhoto)} alt="Graphic Design" fill />
               </Box>
             </Box>
           </Flex>
@@ -155,7 +162,7 @@ const GraphicDesignVideoCourse: FC<Props> = () => {
               Language
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              Armenian
+              {course.language}
             </ListItem>
           </UnorderedList>
 
@@ -225,7 +232,7 @@ const GraphicDesignVideoCourse: FC<Props> = () => {
               Level
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              Advance
+              {course.courseLevel}
             </ListItem>
           </UnorderedList>
 
@@ -298,14 +305,7 @@ const GraphicDesignVideoCourse: FC<Props> = () => {
               lineHeight="normal"
               color="#222"
               m={{ base: '0 0 36px 0', md: '0 0 46px 0' }}>
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-              print, graphic or web designs. The passage is attributed to an unknown typesetter in
-              the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum
-              et Malorum for use in a type specimen book. It usually begins with: Lorem ipsum, or
-              lipsum as it is sometimes known, is dummy text used in laying out print, graphic or
-              web designs. The passage is attributed to an unknown typesetter in the 15th century
-              who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for
-              use in a type specimen book. It usually begins with:
+              {course.description}
             </Text>
             <Heading
               className={segoe.className}
@@ -2073,4 +2073,4 @@ const GraphicDesignVideoCourse: FC<Props> = () => {
   );
 };
 
-export default GraphicDesignVideoCourse;
+export default OnlineCourseItem;

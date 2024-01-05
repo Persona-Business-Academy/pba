@@ -25,7 +25,7 @@ import Image from 'next/image';
 import { Button, FormInput, PhoneNumberInput } from '@/components/atoms';
 import Checkbox from '@/components/atoms/Checkbox';
 
-const page = () => {
+const OnlineVideoCourse = () => {
   return (
     <>
       <Flex maxW="1920px" margin="0 auto">
@@ -1620,4 +1620,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default OnlineVideoCourse;

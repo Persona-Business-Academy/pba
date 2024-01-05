@@ -1,3 +1,5 @@
+import { Topic } from '@prisma/client';
+
 export type QueryParams = {
   'front-end': boolean;
   'back-end': boolean;
@@ -9,4 +11,12 @@ export type QueryParams = {
   100: boolean;
   200: boolean;
   300: boolean;
+};
+
+export type OnlineCoursesQueryParams = {
+  offset?: number;
+  limit?: number;
+  q?: string;
+  duration?: string;
+  topic?: Topic;
 };

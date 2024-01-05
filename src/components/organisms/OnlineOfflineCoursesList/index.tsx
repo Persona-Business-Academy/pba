@@ -1,16 +1,15 @@
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
+'use client';
+import React, { FC, PropsWithChildren, useCallback, useEffect, useMemo, useState } from 'react';
+import { Flex, Text } from '@chakra-ui/react';
 import { useSearchParams } from 'next/navigation';
 import RemovableButton from '@/components/atoms/RemovableButton';
+import SearchInput from '@/components/atoms/SearchInput';
 import CourseFilter from '@/components/molecules/CourseFilter';
 import ArrowLeft from '/public/icons/left_arrow.svg';
 import ArrowRight from '/public/icons/right_arrow.svg';
-import InputSearchIcon from '/public/icons/search_icon.svg';
-import OnlineCourseItem from '@/components/molecules/OnlineCourseItem';
 import useQueryParams from '@/hooks/useQueryParam';
 import { QueryParams } from '@/types/queryParams';
 import { durationList, skillLevelList, topicList } from '@/utils/constants/filters';
-import { montserrat } from '@/utils/constants/fonts';
 
 type CoursesProps = {};
 
@@ -34,10 +33,9 @@ const initData: QueryParams = {
   '300': false,
 };
 
-const Courses: FC<CoursesProps> = () => {
+const OnlineOfflineCourseList: FC<PropsWithChildren<CoursesProps>> = ({ children }) => {
   const { removeQueryParam } = useQueryParams();
   const [queryParams, setQueryParams] = useState<QueryParams>(initData);
-
   const [filteredData, setFilteredData] = useState<Array<FilterType>>([]);
   const params = useSearchParams()!;
   const searchParams = useMemo(() => new URLSearchParams(params), [params]);
@@ -66,11 +64,12 @@ const Courses: FC<CoursesProps> = () => {
       setQueryParams(initData);
       setFilteredData([]);
     }
-    console.log(searchParams);
     searchParams.forEach((queryValues, queryKey) => {
       const queryNames = queryValues.split(',');
 
+      console.log(queryNames);
       const listToCheck = getListToCheck(queryKey);
+
       listToCheck.forEach(({ value, id, title }) => {
         if (queryNames.includes(value)) {
           updatedQueryParams[value as keyof QueryParams] = true;
@@ -85,8 +84,6 @@ const Courses: FC<CoursesProps> = () => {
     setFilteredData(filteredDataList);
   }, [getListToCheck, params, searchParams, topicData]);
 
-  console.log({ queryParams });
-
   return (
     <>
       <Flex
@@ -96,32 +93,7 @@ const Courses: FC<CoursesProps> = () => {
         padding="64px 0"
         marginTop="24px"
         marginBottom="96px">
-        <Flex width="794px" margin="0 auto" flexDirection="column" alignItems="center">
-          <Text
-            className={montserrat.className}
-            fontSize="44px"
-            fontWeight={700}
-            color="#222222"
-            marginBottom="16px">
-            Courses
-          </Text>
-          <Text fontSize="16px" fontWeight={400} color="#222222" marginBottom="32px">
-            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying.
-          </Text>
-          <InputGroup>
-            <Input
-              placeholder="What are you looking for?"
-              borderRadius="12px"
-              border="1px solid #F9FAFB"
-              background="#FFF"
-              color="#C0C0C0"
-              fontSize="16px"
-              fontWeight={400}
-              padding="12px 16px"
-            />
-            <InputRightElement width="45px">{<InputSearchIcon />}</InputRightElement>
-          </InputGroup>
-        </Flex>
+        <SearchInput />
       </Flex>
       <Flex
         flexDirection="column"
@@ -151,9 +123,7 @@ const Courses: FC<CoursesProps> = () => {
             </Flex>
 
             <Flex flexDirection="column" gap="16px" marginBottom="40px">
-              {Array.from({ length: 7 }, (_, i) => (
-                <OnlineCourseItem key={i} />
-              ))}
+              {children}
             </Flex>
             <Flex
               justifyContent="center"
@@ -211,4 +181,4 @@ const Courses: FC<CoursesProps> = () => {
   );
 };
 
-export default Courses;
+export default OnlineOfflineCourseList;

@@ -1,56 +1,104 @@
 import React, { FC, memo } from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
-import TimeIcon from '/public/icons/time_icon.svg';
-import LevelIcon from '/public/icons/level_icon.svg';
-import LessonsIcon from '/public/icons/book_icon.svg';
-import HeartIcon from '/public/icons/heart_icon.svg';
+import Link from 'next/link';
+import EyeIcon from 'public/icons/eye.svg';
+import StarIcon from 'public/icons/star.svg';
+import { segoe } from '@/utils/constants/fonts';
+import { generateAWSUrl } from '@/utils/helpers/common';
 
-type OnlineCourseItemProps = {};
+type OnlineCourseItemProps = {
+  id: number;
+  name: string;
+  description: string;
+  coverPhoto: string;
+};
 
-const OnlineCourseItem: FC<OnlineCourseItemProps> = () => {
+const OnlineCourseItem: FC<OnlineCourseItemProps> = ({ name, description, coverPhoto, id }) => {
   return (
     <Flex
+      as={Link}
+      href={`online-courses/${id}`}
       padding="16px"
       gap="16px"
       borderRadius="12px"
       border="1px solid #F3F4F6"
       backgroundColor="#FFFFFF">
-      <Box>
-        <Image src="/images/public_available/offline_courses.jpg" alt="" width={240} height={154} />
+      <Box
+        width="240px"
+        height="180px"
+        objectFit="cover"
+        position="relative"
+        borderRadius="6px"
+        overflow="hidden">
+        <Image src={generateAWSUrl(coverPhoto)} alt="" fill />
       </Box>
-      <Box maxWidth="608px" color="#222222">
+      <Flex
+        flexDirection="column"
+        maxWidth="608px"
+        color="#222222"
+        justifyContent="space-between"
+        alignItems="center">
         <Flex
+          justifySelf="flex-start"
+          width="100%"
           justifyContent="space-between"
           alignItems="center"
           fontWeight={700}
           marginBottom="8px">
-          <Text fontSize="24px">Interior design</Text>
-          <Text fontSize="16px">100$/month</Text>
+          <Text fontSize="24px">{name}</Text>
         </Flex>
-        <Text fontWeight={400} fontSize="16px" marginBottom="16px">
-          This professional interior designing course will help you gain practical knowledge on how
-          to create and manage your own design projects right through to running your own interior
-          design business.This professional interior designing course will....
+        <Text fontWeight={400} fontSize="16px" color="#000">
+          {description}
         </Text>
-        <Flex justifyContent="space-between">
-          <Flex width="332px" justifyContent="space-between" alignItems="center">
-            <Flex gap="8px">
-              {<TimeIcon />}
-              <Text>3 month</Text>
-            </Flex>
-            <Flex gap="8px">
-              {<LevelIcon />}
-              <Text>Open level</Text>
-            </Flex>
-            <Flex gap="8px">
-              {<LessonsIcon />}
-              <Text>50 lessons</Text>
-            </Flex>
+        <Flex justifySelf="flex-start" width="100%" alignItems="center" gap="16px" my="8px">
+          <Flex alignItems="center" gap="10px">
+            <EyeIcon />
+            <Text
+              as="span"
+              className={segoe.className}
+              fontSize="16px"
+              fontWeight={700}
+              color="#1F1646">
+              120
+            </Text>
           </Flex>
-          <Flex>{<HeartIcon />}</Flex>
+          <Flex alignItems="center">
+            <StarIcon />
+            <Text
+              as="span"
+              className={segoe.className}
+              fontSize="16px"
+              fontWeight={700}
+              color="#1F1646">
+              4.8
+            </Text>
+          </Flex>
         </Flex>
-      </Box>
+        <Flex justifyContent="space-between" justifySelf="center">
+          <Text
+            as={Link}
+            href={'overview-courses'}
+            bg="transparent"
+            className={segoe.className}
+            fontSize="16px"
+            fontWeight={700}
+            color="#1F1646"
+            width="auto"
+            height="auto"
+            _hover={{
+              bg: 'transparent',
+            }}
+            _focusVisible={{
+              bg: 'transparent',
+            }}
+            _focus={{
+              bg: 'transparent',
+            }}>
+            Get your subscription
+          </Text>
+        </Flex>
+      </Flex>
     </Flex>
   );
 };

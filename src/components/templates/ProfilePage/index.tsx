@@ -1,8 +1,9 @@
 'use client';
-import React, { FC, memo, useCallback, useMemo } from 'react';
-import { Box, Button as ChakraButton, Flex, Text, useToast } from '@chakra-ui/react';
+import React, { ChangeEvent, FC, memo, useCallback, useMemo, useState } from 'react';
+import { Box, Button as ChakraButton, Flex, Input, Text, useToast } from '@chakra-ui/react';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
 import { Country } from 'country-state-city';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -10,9 +11,11 @@ import { User } from 'next-auth';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { UserService } from '@/api/services/UserService';
 import { Button, FormInput, Loading } from '@/components/atoms';
+import Avatar from '@/components/atoms/Avatar';
 import PhoneNumberInput from '@/components/atoms/PhoneNumberInput';
 import SelectLabel from '@/components/atoms/SelectLabel';
 import { montserrat, segoe } from '@/utils/constants/fonts';
+import { generateAWSUrl } from '@/utils/helpers/common';
 import { ChangePasswordValidation, UserProfileFormValidation } from '@/utils/validation';
 
 const resolver = classValidatorResolver(UserProfileFormValidation);
@@ -23,6 +26,8 @@ type Props = {
 };
 
 const Profile: FC<Props> = ({ sessionUser }) => {
+  const [localImage, setLocalImage] = useState<{ file: File; localUrl: string } | null>(null);
+
   const router = useRouter();
   const toast = useToast();
 
@@ -36,9 +41,12 @@ const Profile: FC<Props> = ({ sessionUser }) => {
       country: sessionUser?.country || '',
       phone: sessionUser?.phone || '',
       address: sessionUser?.address || '',
+      avatar: sessionUser?.avatar || localImage?.localUrl || '',
     }),
     [
+      localImage?.localUrl,
       sessionUser?.address,
+      sessionUser?.avatar,
       sessionUser?.city,
       sessionUser?.country,
       sessionUser?.email,
@@ -78,18 +86,44 @@ const Profile: FC<Props> = ({ sessionUser }) => {
   >(UserService.changeUserPassword);
 
   const onSubmit: SubmitHandler<UserProfileFormValidation> = useCallback(
-    async data =>
-      updateUserProfileMutation(data)
-        .then(() => toast({ title: 'Success', status: 'success' }))
-        .finally(router.refresh),
-    [router.refresh, toast, updateUserProfileMutation],
+    data => {
+      (async () => {
+        try {
+          let avatar = '';
+          if (localImage) {
+            avatar = `users/${sessionUser?.id}/${localImage?.file.name}`;
+            const { url } = await UserService.getPreSignedUrl(avatar);
+            await axios.put(url, localImage.file);
+          }
+          await updateUserProfileMutation({ ...data, avatar });
+          toast({ title: 'Success', status: 'success' });
+        } catch (error) {
+          console.log(error);
+        } finally {
+          router.refresh();
+        }
+      })();
+    },
+    [localImage, router, sessionUser?.id, toast, updateUserProfileMutation],
   );
+
+  const onFileSelect = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files?.length) {
+      setLocalImage({ file: files[0], localUrl: URL.createObjectURL(files[0]) });
+    }
+  }, []);
 
   const onPasswordChangeSubmit: SubmitHandler<ChangePasswordValidation> = useCallback(
     async data => {
-      changePasswordMutation(data)
-        .then(() => toast({ title: 'Success', status: 'success' }))
-        .finally(reset);
+      try {
+        await changePasswordMutation(data);
+        toast({ title: 'Success', status: 'success' });
+      } catch (error) {
+        console.log(error);
+      } finally {
+        reset();
+      }
     },
     [changePasswordMutation, reset, toast],
   );
@@ -124,7 +158,18 @@ const Profile: FC<Props> = ({ sessionUser }) => {
             position="relative"
             width="101px"
             height="101px">
-            <Image fill alt="avatar_img" src="/images/avatar.jpeg" />
+            {localImage?.localUrl || sessionUser?.avatar ? (
+              <Image
+                fill
+                alt="avatar_img"
+                src={localImage?.localUrl || '' || generateAWSUrl(sessionUser?.avatar || '')}
+              />
+            ) : (
+              <Avatar
+                firstName={sessionUser?.firstName || ''}
+                lastName={sessionUser?.lastName || ''}
+              />
+            )}
           </Box>
           <Box>
             <Text
@@ -137,16 +182,50 @@ const Profile: FC<Props> = ({ sessionUser }) => {
             </Text>
             <ChakraButton
               height="22px"
+              cursor="pointer"
               color="#1F1646"
               backgroundColor="#fff"
               _hover={{
                 color: '#1F1646',
                 backgroundColor: '#fff',
               }}
+              position="relative"
               _focus={{
                 color: '#1F1646',
                 backgroundColor: '#fff',
               }}>
+              <Controller
+                name="avatar"
+                control={control}
+                rules={{ required: 'This field is required' }}
+                render={({ field: { onChange, name } }) => (
+                  <Input
+                    as="input"
+                    name={name}
+                    type="file"
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    opacity="0"
+                    onChange={e => {
+                      onFileSelect(e);
+                      onChange(e);
+                    }}
+                    right={0}
+                    bottom={0}
+                    color="#1F1646"
+                    backgroundColor="#fff"
+                    _hover={{
+                      color: '#1F1646',
+                      backgroundColor: '#fff',
+                    }}
+                    _focus={{
+                      color: '#1F1646',
+                      backgroundColor: '#fff',
+                    }}
+                  />
+                )}
+              />
               Change Avatar
             </ChakraButton>
           </Box>
