@@ -9,6 +9,7 @@ import {
 } from '@/utils/validation';
 import { UserResolver } from './user';
 import prisma from '..';
+import { Email } from '../services/email';
 import { generateRandomNumber } from '../utils/common';
 
 export class AuthResolver {
@@ -25,6 +26,8 @@ export class AuthResolver {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    const confirmationCode = generateRandomNumber(6);
+
     const user = await prisma.user.create({
       data: {
         firstName,
@@ -33,6 +36,10 @@ export class AuthResolver {
         password: hashedPassword,
       },
     });
+
+    Email.sendConfirmationCodeEmail(user.email, confirmationCode, firstName)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
 
     return !!user;
   }
@@ -47,9 +54,6 @@ export class AuthResolver {
     const confirmationCode = generateRandomNumber(4);
 
     const updatedUser = await prisma.user.update({ where: { email }, data: { confirmationCode } });
-    //
-    // send Email
-    //
 
     return updatedUser.id;
   }
