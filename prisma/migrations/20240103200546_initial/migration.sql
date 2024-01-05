@@ -5,13 +5,13 @@ CREATE TYPE "AdminRole" AS ENUM ('ADMIN', 'SUPER_ADMIN');
 CREATE TYPE "Language" AS ENUM ('EN', 'ARM');
 
 -- CreateEnum
-CREATE TYPE "Topic" AS ENUM ('GRAPHIC_DESIGN', 'UI_UX_DESIGN', 'FRONT_END', 'BACK_END', 'SMM', 'DIGITAL_MARKETING', 'BUSINESS_LAW', 'BUSINESS_ENGLISH', 'HRM');
-
--- CreateEnum
 CREATE TYPE "SkillLevel" AS ENUM ('BEGINNER', 'INTERMEDIATE', 'ADVANCED', 'MASTER');
 
 -- CreateEnum
 CREATE TYPE "Currency" AS ENUM ('AMD', 'USD');
+
+-- CreateEnum
+CREATE TYPE "Topic" AS ENUM ('GRAPHIC_DESIGN', 'UI_UX_DESIGN', 'FRONT_END', 'BACK_END', 'SMM', 'DIGITAL_MARKETING', 'BUSINESS_LAW', 'BUSINESS_ENGLISH', 'HRM');
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -109,7 +109,7 @@ CREATE TABLE "OnlineCourseVideo" (
 );
 
 -- CreateTable
-CREATE TABLE "OnlineCourseComment" (
+CREATE TABLE "CourseComment" (
     "id" SERIAL NOT NULL,
     "headline" TEXT NOT NULL,
     "text" TEXT NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE "OnlineCourseComment" (
     "updatedAt" TIMESTAMP(0) NOT NULL,
     "offlineCourseId" INTEGER,
 
-    CONSTRAINT "OnlineCourseComment_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "CourseComment_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -218,16 +218,16 @@ ALTER TABLE "OnlineCourseVideo" ADD CONSTRAINT "OnlineCourseVideo_onlineCourseId
 ALTER TABLE "OnlineCourseVideo" ADD CONSTRAINT "OnlineCourseVideo_onlineCourseLevelId_fkey" FOREIGN KEY ("onlineCourseLevelId") REFERENCES "OnlineCourseLevel"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OnlineCourseComment" ADD CONSTRAINT "OnlineCourseComment_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "CourseComment" ADD CONSTRAINT "CourseComment_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OnlineCourseComment" ADD CONSTRAINT "OnlineCourseComment_onlineCourseId_fkey" FOREIGN KEY ("onlineCourseId") REFERENCES "OnlineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "CourseComment" ADD CONSTRAINT "CourseComment_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OnlineCourseComment" ADD CONSTRAINT "OnlineCourseComment_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE SET NULL ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "CourseComment" ADD CONSTRAINT "CourseComment_onlineCourseId_fkey" FOREIGN KEY ("onlineCourseId") REFERENCES "OnlineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_instructorId_fkey" FOREIGN KEY ("instructorId") REFERENCES "Instructor"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;

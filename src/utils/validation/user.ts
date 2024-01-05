@@ -26,6 +26,9 @@ export class UserProfileFormValidation {
   state: string;
 
   @IsString()
+  avatar: string;
+
+  @IsString()
   city: string;
 }
 
@@ -41,4 +44,10 @@ export class ChangePasswordValidation {
   @IsString()
   @IsNotEmpty({ message: 'Confirm password is required' })
   confirmPassword: string;
+}
+
+export class GetPresignedUrlInput {
+  @IsString()
+  @IsNotEmpty({ message: 'Image key is required' })
+  imageKey: string;
 }
