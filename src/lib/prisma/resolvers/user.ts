@@ -2,8 +2,13 @@ import bcrypt from 'bcrypt';
 import { BadRequestException } from 'next-api-decorators';
 import { User } from 'next-auth';
 import { ERROR_MESSAGES } from '@/utils/constants/common';
-import { ChangePasswordValidation, UserProfileFormValidation } from '@/utils/validation';
+import {
+  ChangePasswordValidation,
+  GetPresignedUrlInput,
+  UserProfileFormValidation,
+} from '@/utils/validation';
 import prisma from '../index';
+import { AWSService } from '../services/aws.service';
 
 export class UserResolver {
   static async findUserWithEmail(email: string) {
@@ -43,5 +48,16 @@ export class UserResolver {
         data: { password: hashedPassword },
       })
     ).id;
+  }
+
+  static async getPreSignedUrl(input: GetPresignedUrlInput, user: User) {
+    const { imageKey } = input;
+    const awsService = new AWSService();
+
+    if (user?.avatar) {
+      awsService.deleteAttachment(user.avatar);
+    }
+
+    return awsService.getUploadUrl(imageKey);
   }
 }

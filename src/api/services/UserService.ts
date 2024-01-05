@@ -8,4 +8,8 @@ export class UserService {
   static changeUserPassword(input: ChangePasswordValidation): Promise<number> {
     return $apiClient.post('user/update-password', input);
   }
+
+  static getPreSignedUrl(imageKey: string): Promise<{ url: string }> {
+    return $apiClient.post('user/get-presigned-url', { imageKey });
+  }
 }
