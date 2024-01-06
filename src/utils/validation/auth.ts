@@ -28,15 +28,9 @@ export class ForgotPasswordStep2Validation {
   @IsNotEmpty()
   @Length(4)
   otpPassword: string;
-
-  @IsNumber()
-  userId: number;
 }
 
 export class ForgotPasswordStep3Validation {
-  @IsNumber()
-  userId: number;
-
   @IsString()
   @IsNotEmpty()
   @Length(6, 20)
@@ -46,4 +40,8 @@ export class ForgotPasswordStep3Validation {
   @IsNotEmpty()
   @Length(6, 20)
   confirmPassword: string;
+
+  @IsNumber()
+  @IsNotEmpty()
+  confirmationCode: number;
 }

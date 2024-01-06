@@ -9,7 +9,7 @@ import {
 } from '@/utils/validation';
 import { UserResolver } from './user';
 import prisma from '..';
-import { Email } from '../services/email';
+import { Email } from '../services/sendgrid.service';
 import { generateRandomNumber } from '../utils/common';
 
 export class AuthResolver {
@@ -34,12 +34,13 @@ export class AuthResolver {
         lastName,
         email,
         password: hashedPassword,
+        confirmationCode,
       },
     });
 
-    Email.sendConfirmationCodeEmail(user.email, confirmationCode, firstName)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+    await Email.sendConfirmationCodeEmail(user.email, confirmationCode, firstName)
+      .then(res => console.log({ res }))
+      .catch(err => console.log({ err }));
 
     return !!user;
   }
@@ -53,37 +54,50 @@ export class AuthResolver {
 
     const confirmationCode = generateRandomNumber(4);
 
-    const updatedUser = await prisma.user.update({ where: { email }, data: { confirmationCode } });
+    await Email.sendForgotPasswordEmail(user.email, confirmationCode)
+      .then(res => console.log({ res }))
+      .catch(err => console.log({ err }));
 
-    return updatedUser.id;
+    return prisma.user.update({ where: { email }, data: { confirmationCode } });
   }
 
-  static async forgotPasswordStep2({ otpPassword, userId }: ForgotPasswordStep2Validation) {
+  static async forgotPasswordStep2({ otpPassword }: ForgotPasswordStep2Validation) {
     if (isNaN(+otpPassword)) {
       throw new BadRequestException(ERROR_MESSAGES.somethingWentWrong);
     }
 
     const user = await prisma.user.findUnique({
-      where: { id: userId, confirmationCode: +otpPassword },
+      where: { confirmationCode: +otpPassword },
     });
 
     if (!user) {
       throw new BadRequestException(ERROR_MESSAGES.invalidNumber);
     }
 
-    return user.id;
+    const confirmationCode = generateRandomNumber(4);
+
+    await prisma.user.update({
+      where: {
+        confirmationCode: +otpPassword,
+      },
+      data: {
+        confirmationCode,
+      },
+    });
+
+    return confirmationCode;
   }
 
   static async forgotPasswordStep3({
     confirmPassword,
     newPassword,
-    userId,
+    confirmationCode,
   }: ForgotPasswordStep3Validation) {
     if (confirmPassword !== newPassword) {
       throw new BadRequestException(ERROR_MESSAGES.passwordDontMatch);
     }
 
-    const user = await prisma.user.findUnique({ where: { id: userId } });
+    const user = await prisma.user.findUnique({ where: { confirmationCode } });
 
     if (!user) {
       throw new BadRequestException(ERROR_MESSAGES.somethingWentWrong);

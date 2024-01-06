@@ -5,8 +5,6 @@ import { useSearchParams } from 'next/navigation';
 import RemovableButton from '@/components/atoms/RemovableButton';
 import SearchInput from '@/components/atoms/SearchInput';
 import CourseFilter from '@/components/molecules/CourseFilter';
-import ArrowLeft from '/public/icons/left_arrow.svg';
-import ArrowRight from '/public/icons/right_arrow.svg';
 import useQueryParams from '@/hooks/useQueryParam';
 import { QueryParams } from '@/types/queryParams';
 import { durationList, skillLevelList, topicList } from '@/utils/constants/filters';
@@ -106,7 +104,7 @@ const OnlineOfflineCourseList: FC<PropsWithChildren<CoursesProps>> = ({ children
             <CourseFilter queryParams={queryParams} />
           </Flex>
           <Flex flexDirection="column" width="895px" gap={16}>
-            <Flex alignItems="center" gap={16}>
+            <Flex alignItems="center" gap={16} height="40px">
               <Text as="span">Filter By:</Text>
 
               <Flex flexWrap="wrap" gap="10px">
@@ -125,7 +123,7 @@ const OnlineOfflineCourseList: FC<PropsWithChildren<CoursesProps>> = ({ children
             <Flex flexDirection="column" gap="16px" marginBottom="40px">
               {children}
             </Flex>
-            <Flex
+            {/* <Flex
               justifyContent="center"
               alignItems="center"
               gap="38px"
@@ -144,7 +142,7 @@ const OnlineOfflineCourseList: FC<PropsWithChildren<CoursesProps>> = ({ children
               <Text>...</Text>
               <Text>52</Text>
               <Text>{<ArrowRight />}</Text>
-            </Flex>
+            </Flex> */}
           </Flex>
         </Flex>
       </Flex>

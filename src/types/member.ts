@@ -1,9 +1,12 @@
 export type MemberType = {
   id: number;
+  avatarSrc: string;
   firstName: string;
   lastName: string;
   position: string;
   biography: string;
+  enrolledStudents: number;
+  graduatedStudents: number;
 };
 
 export const exLeadershipData: MemberType[] = [
@@ -11,6 +14,10 @@ export const exLeadershipData: MemberType[] = [
     id: 1,
     firstName: 'Tigran',
     lastName: 'Harutyunyan',
+    enrolledStudents: 0,
+    graduatedStudents: 0,
+    avatarSrc: '/images/public_available/tigran_harutyunyan.webp',
+
     position: 'Co-Founder',
     biography:
       ' Tigran Harutyunyan is an Entrepreneur and Startuper with many IT projects, also Digital Marketing Specialist working for many Armenian companies.His  first goal is to create company or startup which can help people to make easier their life, reaching theirneeds in the field of technology and innovation.He has a large experience as a Executor Director leading teams, also as a Digital Marketing specialist in the platforms such as Facebook, Instagram, LinkedIn, Google, Youtube.',
@@ -18,30 +25,22 @@ export const exLeadershipData: MemberType[] = [
   {
     id: 2,
     firstName: 'Liana',
+    avatarSrc: '/images/public_available/lian_manusajyan.webp',
     lastName: 'Manusajyan',
+    enrolledStudents: 0,
+    graduatedStudents: 0,
     position: 'Co-founder',
     biography: 'Liana Manusajyan biography',
   },
 ];
 
 export const teachersData: MemberType[] = [
-  {
-    id: 3,
-    firstName: 'Tigran',
-    lastName: 'Harutyunyan',
-    position: 'Co-Founder',
-    biography:
-      ' Tigran Harutyunyan is an Entrepreneur and Startuper with many IT projects, also Digital Marketing Specialist working for many Armenian companies.His  first goal is to create company or startup which can help people to make easier their life, reaching theirneeds in the field of technology and innovation.He has a large experience as a Executor Director leading teams, also as a Digital Marketing specialist in the platforms such as Facebook, Instagram, LinkedIn, Google, Youtube.',
-  },
-  {
-    id: 4,
-    firstName: 'Liana',
-    lastName: 'Manusajyan',
-    position: 'Co-Founder',
-    biography: 'Liana Manusajyan biography',
-  },
+  ...exLeadershipData,
   {
     id: 5,
+    enrolledStudents: 0,
+    avatarSrc: '/images/public_available/gagik_tamamyan.webp',
+    graduatedStudents: 0,
     firstName: 'Gagik',
     lastName: 'Tamamyan',
     position: 'SMM/DM Specialist',
@@ -61,6 +60,10 @@ export const teachersData: MemberType[] = [
     id: 6,
     firstName: 'Julieta',
     lastName: 'Asatryan',
+    enrolledStudents: 0,
+    avatarSrc: '/images/public_available/julieta.webp',
+
+    graduatedStudents: 0,
     position: 'HRM Specialist',
     biography: `Julieta Asatryan worked in human resources management with a number of companies and simultaneously taught at Persona Business Academy.
     Certifications and trainings: 
@@ -82,6 +85,9 @@ export const teachersData: MemberType[] = [
   {
     id: 7,
     firstName: 'Narek',
+    enrolledStudents: 0,
+    avatarSrc: '/images/public_available/narek_boshyan.webp',
+    graduatedStudents: 0,
     lastName: 'Boshyan',
     position: 'Full-Stack Developer',
     biography: `Narek Bosyan's biography `,
@@ -90,17 +96,25 @@ export const teachersData: MemberType[] = [
 
 export const teamData: MemberType[] = [
   {
-    id: 1,
+    id: 8,
     firstName: 'Arman',
     lastName: 'Grigoryan',
     position: 'Graphic Designer',
     biography: 'Arman biography',
+    enrolledStudents: 0,
+    avatarSrc: '/images/public_available/arman.webp',
+    graduatedStudents: 0,
   },
   {
-    id: 2,
+    id: 9,
     firstName: 'Daniela',
     lastName: 'Zanazanyan',
     position: 'Content Creator',
     biography: 'Daniela biography',
+    enrolledStudents: 0,
+    avatarSrc: '/images/public_available/dani.webp',
+    graduatedStudents: 0,
   },
 ];
+
+export const pbaTeam: Array<MemberType> = teachersData.concat(teamData);

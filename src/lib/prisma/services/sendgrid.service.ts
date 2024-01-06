@@ -1,7 +1,8 @@
 import sgMail from '@sendgrid/mail';
 
 enum TemplateIdsEnum {
-  emailVerificationTemplateId = 'd-11c7313df6e94ae99f64e5db3e3dd7ac',
+  emailVerificationTemplateId = 'd-cf8f50b184474cb1a17f0b652177eb55',
+  forgotPasswordTemplateId = 'd-85df99defaf5421aa6d623d85f858df4',
 }
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
@@ -23,41 +24,35 @@ class Email {
           to: email,
           dynamic_template_data: {
             userFirstName,
-            link: `${process.env.NEXTAUTH_URL}/email-confirmation/${confirmationCode}`,
+            link: `${process.env.NEXTAUTH_URL}/signin?confirmation-code=${confirmationCode}`,
           },
         },
       ],
     });
   }
 
-  async sendForgotPasswordEmail(
-    email: string,
-    confirmationCode: number,
-    userFirstName: string,
-  ): Promise<any> {
+  async sendForgotPasswordEmail(email: string, confirmationCode: number): Promise<any> {
     return this.sendEmail(email, {
-      template_id: TemplateIdsEnum.emailVerificationTemplateId,
+      template_id: TemplateIdsEnum.forgotPasswordTemplateId,
       personalizations: [
         {
           to: email,
           dynamic_template_data: {
-            userFirstName,
-            link: `${process.env.NEXTAUTH_URL}/email-confirmation/${confirmationCode}`,
+            confirmationCode,
           },
         },
       ],
     });
   }
 
-  async sendEmail(to: string, data: any = {}, from: string = `training@pba.am`): Promise<any> {
-    console.log({ data, to });
+  async sendEmail(to: string, data: any = {}, from: string = `account@pba.am`): Promise<any> {
     try {
       const message = {
         to,
         from,
         ...data,
       };
-      return await sgMail.send(message);
+      return sgMail.send(message);
     } catch (error: any) {
       console.error(error);
 

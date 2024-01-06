@@ -220,7 +220,11 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                   border="1px solid transparent"
                   position="absolute"
                   height={{ base: '92px', md: '164px' }}>
-                  <Image fill src="/icons/first_img_pba_welcome.svg" alt="Students img" />
+                  <Image
+                    fill
+                    src="/images/public_available/first_img_pba_welcome.webp"
+                    alt="Students img"
+                  />
                 </Box>
                 <Box
                   width={{ base: '93px', md: '166px' }}
@@ -233,7 +237,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                   <Image
                     fill
                     objectFit="contain"
-                    src="/icons/second_img_pba_welcome.svg"
+                    src="/images/public_available/second_img_pba_welcome.webp"
                     alt="Student img"
                   />
                 </Box>
@@ -247,7 +251,11 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                   top="0"
                   right="0"
                   height={{ base: '211px', md: '376px' }}>
-                  <Image src="/icons/third_img_welcome.svg" fill alt="Student img" />
+                  <Image
+                    src="/images/public_available/third_img_welcome.webp"
+                    fill
+                    alt="Student img"
+                  />
                 </Box>
               </Box>
             </Box>

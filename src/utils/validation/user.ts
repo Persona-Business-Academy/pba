@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class UserProfileFormValidation {
   @IsString()
@@ -50,4 +50,10 @@ export class GetPresignedUrlInput {
   @IsString()
   @IsNotEmpty({ message: 'Image key is required' })
   imageKey: string;
+}
+
+export class VerifyUserEmailInput {
+  @IsNumber()
+  @IsNotEmpty({ message: 'Code is required' })
+  code: number;
 }

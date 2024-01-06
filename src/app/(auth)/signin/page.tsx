@@ -1,10 +1,12 @@
 'use client';
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { AbsoluteCenter, Box, Divider, Link, useToast, VStack } from '@chakra-ui/react';
+import { useMutation } from '@tanstack/react-query';
 import NextLink from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { signIn, SignInResponse } from 'next-auth/react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { UserService } from '@/api/services/UserService';
 import { Button, FormInput, Loading } from '@/components/atoms';
 import { AuthBox } from '@/components/molecules';
 import { ERROR_MESSAGES } from '@/utils/constants/common';
@@ -16,7 +18,7 @@ import {
 } from '@/utils/constants/routes';
 import { SignInFormData } from '@/utils/models/auth';
 
-export default function SignInPage() {
+const SignIn = () => {
   const toast = useToast();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -53,7 +55,7 @@ export default function SignInPage() {
           router.push(res.url);
           router.refresh();
         } else {
-          toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
+          toast({ title: res?.error, status: 'error' });
         }
       } catch (error) {
         toast({ title: ERROR_MESSAGES.invalidCredentials, status: 'error' });
@@ -62,8 +64,20 @@ export default function SignInPage() {
     [route, router, toast],
   );
 
+  const { mutate, isLoading: confirmationUserEmailIsLoading } = useMutation(
+    UserService.confirmUserEmail,
+  );
+
+  useEffect(() => {
+    const code = searchParams?.get('confirmation-code');
+    if (code) {
+      mutate(code);
+    }
+  }, [mutate, searchParams]);
+
   return (
     <AuthBox data={authBoxProps.data} boxProps={authBoxProps.boxProps}>
+      {confirmationUserEmailIsLoading && <Loading />}
       {isSubmitting && <Loading />}
       <VStack spacing={32}>
         <Controller
@@ -128,4 +142,5 @@ export default function SignInPage() {
       </VStack>
     </AuthBox>
   );
-}
+};
+export default SignIn;

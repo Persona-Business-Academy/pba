@@ -1,14 +1,15 @@
 'use client';
-import { useParams } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import LeadershipIndividualPage from '@/components/templates/IndividualLeadershipPage';
-import { exLeadershipData, MemberType } from '@/types/member';
+import { MemberType, pbaTeam } from '@/types/member';
+import { LEADERSHIP_ROUTE } from '@/utils/constants/routes';
 
-export default function LeadershipIndividual() {
-  const params: { memberId: string } | null = useParams();
+export default function LeadershipIndividual({ params }: { params: { memberId: string } }) {
+  const member = pbaTeam.find((teamMember: MemberType) => teamMember.id === +params.memberId);
 
-  const member = exLeadershipData.find(
-    (teamMember: MemberType) => teamMember.id === +(params?.memberId || 1),
-  );
+  if (!member) {
+    redirect(LEADERSHIP_ROUTE);
+  }
 
-  return member && <LeadershipIndividualPage member={member} />;
+  return member ? <LeadershipIndividualPage member={member} /> : null;
 }

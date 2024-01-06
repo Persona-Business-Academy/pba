@@ -12,4 +12,8 @@ export class UserService {
   static getPreSignedUrl(imageKey: string): Promise<{ url: string }> {
     return $apiClient.post('user/get-presigned-url', { imageKey });
   }
+
+  static confirmUserEmail(code: string): Promise<boolean> {
+    return $apiClient.post('user/confirm-user-email', { code });
+  }
 }

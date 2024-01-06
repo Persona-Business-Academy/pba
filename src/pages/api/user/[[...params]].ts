@@ -8,11 +8,12 @@ import {
   ChangePasswordValidation,
   GetPresignedUrlInput,
   UserProfileFormValidation,
+  VerifyUserEmailInput,
 } from '@/utils/validation';
 
 @Catch(exceptionHandler)
-@AuthMiddleware()
 class UserHandler {
+  @AuthMiddleware()
   @Post('/update-profile')
   updateUserProfile(
     @Body(ValidationPipe) input: UserProfileFormValidation,
@@ -21,6 +22,7 @@ class UserHandler {
     return UserResolver.updateUserProfile(input, user);
   }
 
+  @AuthMiddleware()
   @Post('/update-password')
   changeUserPassword(
     @Body(ValidationPipe) input: ChangePasswordValidation,
@@ -29,12 +31,18 @@ class UserHandler {
     return UserResolver.changeUserPassword(input, user);
   }
 
+  @AuthMiddleware()
   @Post('/get-presigned-url')
   getPreSignedUrl(
     @Body(ValidationPipe) input: GetPresignedUrlInput,
     @CurrentUser() user: NonNullable<User>,
   ) {
     return UserResolver.getPreSignedUrl(input, user);
+  }
+
+  @Post('/confirm-user-email')
+  confirmUserEmail(@Body(ValidationPipe) input: VerifyUserEmailInput) {
+    return UserResolver.verifyUserEmail(input);
   }
 }
 

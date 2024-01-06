@@ -14,7 +14,7 @@ const Trainers: FC<TrainersProps> = () => {
       profession: 'SMM Specialist',
       enrolledStudents: 0,
       graduatedStudents: 0,
-      src: '/icons/tariner_smm.svg',
+      src: '/images/public_available/gagik_tamamyan.webp',
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const Trainers: FC<TrainersProps> = () => {
       profession: 'HRM Specialist',
       enrolledStudents: 0,
       graduatedStudents: 0,
-      src: '/icons/trainer_hrm.svg',
+      src: '/images/public_available/julieta.webp',
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ const Trainers: FC<TrainersProps> = () => {
       profession: 'Full-Stack Developer',
       enrolledStudents: 0,
       graduatedStudents: 0,
-      src: '/icons/tariner_developer.svg',
+      src: '/images/public_available/narek_boshyan.webp',
     },
     {
       id: 4,
@@ -41,9 +41,10 @@ const Trainers: FC<TrainersProps> = () => {
       profession: 'Branding & Tech Lawyer/Attorney',
       enrolledStudents: 0,
       graduatedStudents: 0,
-      src: '/icons/liana_trainer.svg',
+      src: '/images/public_available/lian_manusajyan.webp',
     },
   ];
+
   return (
     <Box mb={{ base: '36px', lg: '148px' }}>
       <Box textAlign="center" maxW="419px" m="0 auto" mb="20px">

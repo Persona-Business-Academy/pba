@@ -12,7 +12,7 @@ import { ForgotPasswordStep1Validation } from '@/utils/validation';
 const resolver = classValidatorResolver(ForgotPasswordStep1Validation);
 
 const Step1 = () => {
-  const { setStep, setForgotPasswordUserId } = useAuth();
+  const { setStep } = useAuth();
   const {
     control,
     handleSubmit,
@@ -24,9 +24,8 @@ const Step1 = () => {
     { message: string },
     ForgotPasswordStep1Validation
   >(AuthService.forgotPasswordStep1, {
-    onSuccess: userId => {
+    onSuccess: () => {
       setStep('OTPStep');
-      setForgotPasswordUserId(userId);
     },
   });
 

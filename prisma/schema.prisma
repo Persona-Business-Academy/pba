@@ -13,6 +13,7 @@ model User {
   firstName            String?               @db.VarChar(45)
   lastName             String?               @db.VarChar(45)
   password             String                @db.VarChar(60)
+  isVerified           Boolean               @default(false)
   phone                String?               @db.VarChar(60)
   address              String?               @db.VarChar(60)
   country              String?               @db.VarChar(60)
@@ -141,7 +142,7 @@ model OfflineCourse {
   language                 Language
   ageLimit                 String
   totalDuration            Float                      @default(0)
-  level                    SkillLevel
+  courseLevel              SkillLevel
   graduatedStudentsCount   Int                        @default(0)
   enrolledStudentsCount    Int                        @default(0)
   lessonsCount             Int                        @default(0)

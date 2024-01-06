@@ -8,7 +8,7 @@ const KidsAcademySection = dynamic(() => import('./KidsAcademySection'));
 const OnlineCoursesSection = dynamic(() => import('./OnlineCoursesSection'));
 const ArticlesSection = dynamic(() => import('./ArticlesSection'));
 const Trainers = dynamic(() => import('./Trainers'));
-const PartnersSection = dynamic(() => import('./PartnersSection'));
+// const PartnersSection = dynamic(() => import('./PartnersSection'));
 const ReviewSection = dynamic(() => import('./ReviewSection'));
 const HaveAQuestion = dynamic(() => import('./HaveAQuestion'));
 
@@ -27,7 +27,7 @@ const HomePage = () => {
         <ArticlesSection />
 
         <Trainers />
-        <PartnersSection />
+        {/* <PartnersSection /> */}
         <ReviewSection />
       </Container>
 

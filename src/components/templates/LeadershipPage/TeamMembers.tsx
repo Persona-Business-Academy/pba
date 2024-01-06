@@ -13,8 +13,7 @@ const TeamMembers: FC<TeamMembersProps> = ({ data }) => {
       <Grid
         display="grid"
         templateColumns={{
-          base: 'repeat(auto-fit, minmax(283px, 1fr))',
-          md: 'repeat(auto-fit, minmax(350px, 1fr))',
+          base: 'repeat(auto-fit,350px)',
         }}
         gridGap={{ base: '16px', sm: '20px' }}>
         {data.map((teamMember, i: number) => (

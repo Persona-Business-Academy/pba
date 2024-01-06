@@ -11,7 +11,7 @@ const ReviewSection: FC<ReviewSectionProps> = () => {
       id: 1,
       feedbackText:
         'When I first came to Persona Business Academy, at Tigran Manukyans course, it seemed like I was on some new planet appeared (so everything was new and mixed).Then Manukyan the willingness of Tigran, Gagik and Tigran Harutyunyan, everything to explain thoroughly, patience and created As a result of the environment, Persona became more than just that organization providing quality knowledge. By visiting Persona, you are sure to get quality knowledge (not only in your chosen field) but also for sure you will have the most interesting and colorful course in life',
-      studentAvatarSrc: '/icons/feed_dani.svg',
+      studentAvatarSrc: '/images/public_available/dani_comment.webp',
       firstName: 'Daniela',
       lastName: 'Zanazanyan',
       profession: 'SMM Speciailist',
@@ -29,7 +29,7 @@ const ReviewSection: FC<ReviewSectionProps> = () => {
       id: 3,
       feedbackText:
         "Hi, I'm Armine, attending HRM in PBA I gained new knowledge at the courses by discovering and loving that realm unknown to me. Thanks to my trainer Julieta Asatryan, new to increase the level of cognitive perception. The course gave not only new knowledge, but also friends and invaluable values in the form of innovative ideas",
-      studentAvatarSrc: '/icons/feed_armine.svg',
+      studentAvatarSrc: '/images/public_available/armine_hakobyan_comment.webp',
       firstName: 'Armine',
       lastName: 'Hakobyan',
       profession: 'HR',

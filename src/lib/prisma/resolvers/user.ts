@@ -1,11 +1,12 @@
 import bcrypt from 'bcrypt';
-import { BadRequestException } from 'next-api-decorators';
+import { BadRequestException, ConflictException } from 'next-api-decorators';
 import { User } from 'next-auth';
 import { ERROR_MESSAGES } from '@/utils/constants/common';
 import {
   ChangePasswordValidation,
   GetPresignedUrlInput,
   UserProfileFormValidation,
+  VerifyUserEmailInput,
 } from '@/utils/validation';
 import prisma from '../index';
 import { AWSService } from '../services/aws.service';
@@ -59,5 +60,30 @@ export class UserResolver {
     }
 
     return awsService.getUploadUrl(imageKey);
+  }
+
+  static async verifyUserEmail(input: VerifyUserEmailInput) {
+    const { code } = input;
+    const user = await prisma.user.findUnique({
+      where: {
+        confirmationCode: code,
+      },
+    });
+
+    if (!user) {
+      throw new ConflictException('Confirmation code is not valid');
+    }
+
+    await prisma.user.update({
+      where: {
+        id: user.id,
+      },
+      data: {
+        isVerified: true,
+        confirmationCode: null,
+      },
+    });
+
+    return true;
   }
 }

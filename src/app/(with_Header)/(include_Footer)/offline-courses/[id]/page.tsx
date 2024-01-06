@@ -24,8 +24,6 @@ import { generateAWSUrl } from '@/utils/helpers/common';
 const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => {
   const offlineCourse = await OfflineCourseService.getOfflineCourseItem(id);
 
-  console.log(offlineCourse);
-
   return (
     <>
       <Box
@@ -250,7 +248,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Level
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.level}
+              {offlineCourse.courseLevel}
             </ListItem>
           </UnorderedList>
 
@@ -310,8 +308,16 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
             <Text fontWeight="400" fontSize="16px" margin="0" lineHeight="18.75px">
               Course fee
             </Text>
-            <Text fontWeight="700" lineHeight="37.24px" as="p" fontSize="28px" margin="0">
-              {offlineCourse.price}/
+            <Text
+              fontWeight="700"
+              lineHeight="37.24px"
+              as="p"
+              fontSize="28px"
+              margin="0"
+              display="flex"
+              alignItems="center">
+              {offlineCourse.price}
+              <Image src="/icons/dram.svg" alt="dram" width={18} height={18} /> /
               <Text fontWeight="400" fontSize="16px" lineHeight="21.28px" as="span" margin="0">
                 month
               </Text>

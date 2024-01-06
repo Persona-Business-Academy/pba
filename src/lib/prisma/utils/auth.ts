@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { UnauthorizedException } from 'next-api-decorators';
+import { ConflictException, UnauthorizedException } from 'next-api-decorators';
 import { ERROR_MESSAGES } from '@/utils/constants/common';
 import { UserResolver } from '../resolvers';
 
@@ -14,6 +14,10 @@ export const validateUserPassword = async (email: string, password: string) => {
     const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
       throw new UnauthorizedException(ERROR_MESSAGES.invalidCredentials);
+    }
+
+    if (!user.isVerified) {
+      throw new ConflictException(ERROR_MESSAGES.verifyYourEmail);
     }
 
     return user;

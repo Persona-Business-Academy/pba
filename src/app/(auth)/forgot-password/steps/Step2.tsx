@@ -12,14 +12,14 @@ import { ForgotPasswordStep2Validation } from '@/utils/validation';
 const resolver = classValidatorResolver(ForgotPasswordStep2Validation);
 
 const Step2 = () => {
-  const { setStep, forgotPasswordUserId } = useAuth();
+  const { setStep, setConfirmationCode } = useAuth();
   const {
     control,
     handleSubmit,
     formState: { isValid },
   } = useForm<ForgotPasswordStep2Validation>({
     resolver,
-    defaultValues: { otpPassword: '', userId: forgotPasswordUserId },
+    defaultValues: { otpPassword: '' },
   });
 
   const { mutate, isLoading } = useMutation<
@@ -27,13 +27,16 @@ const Step2 = () => {
     { message: string },
     ForgotPasswordStep2Validation
   >(AuthService.forgotPasswordStep2, {
-    onSuccess: userId => {
-      if (userId === forgotPasswordUserId) setStep('passwordStep');
+    onSuccess: res => {
+      setConfirmationCode(res);
+      setStep('passwordStep');
     },
   });
 
   const onSubmit: SubmitHandler<ForgotPasswordStep2Validation> = useCallback(
-    data => mutate(data),
+    data => {
+      mutate(data);
+    },
     [mutate],
   );
 
@@ -49,7 +52,9 @@ const Step2 = () => {
         name="otpPassword"
         control={control}
         rules={{ required: 'This field is required' }}
-        render={({ field: { onChange } }) => <OTPPassword onChange={onChange} />}
+        render={({ field: { onChange, value } }) => (
+          <OTPPassword onChange={onChange} value={value} />
+        )}
       />
       <Button
         width={'100%'}

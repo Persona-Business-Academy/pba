@@ -32,13 +32,9 @@ export class AWSService {
       .headObject({ Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME!, Key })
       .promise();
 
-    console.log({ existingImageObject });
-
     if (!existingImageObject) {
       return;
     }
-
-    console.log({ Key });
 
     return this.s3
       .deleteObject({ Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME!, Key })

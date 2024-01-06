@@ -11,7 +11,6 @@ import {
   INDIVIDUALS_ROUTE,
   LEADERSHIP_ROUTE,
   TERMS_AND_CONDITIONS_ROUTE,
-  VIDEO_COURSES_ROUTE,
 } from '@/utils/constants/routes';
 
 type Props = {};
@@ -49,10 +48,10 @@ const footerData = [
         name: 'For Kids',
         href: FOR_KIDS_ROUTE,
       },
-      {
-        name: 'Video Courses',
-        href: VIDEO_COURSES_ROUTE,
-      },
+      // {
+      //   name: 'Video Courses',
+      //   href: VIDEO_COURSES_ROUTE,
+      // },
       {
         name: 'Articles',
         href: ARTICLES_ROUTE,
@@ -93,47 +92,47 @@ const footerData = [
       },
     ],
   },
-  {
-    rowTitle: 'Online Courses',
-    subNavigation: [
-      {
-        name: 'Email Marketing',
-        href: ABOUT_ROUTE,
-      },
-      {
-        name: 'Google Ads',
-        href: CONTACT_US_ROUTE,
-      },
-      {
-        name: 'Google Analytics',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'SEO',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'Search Engine Mattering',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'Html & CSS',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'JavaScript',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'React Js',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'Node Js',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-    ],
-  },
+  // {
+  //   rowTitle: 'Online Courses',
+  //   subNavigation: [
+  //     {
+  //       name: 'Email Marketing',
+  //       href: ABOUT_ROUTE,
+  //     },
+  //     {
+  //       name: 'Google Ads',
+  //       href: CONTACT_US_ROUTE,
+  //     },
+  //     {
+  //       name: 'Google Analytics',
+  //       href: TERMS_AND_CONDITIONS_ROUTE,
+  //     },
+  //     {
+  //       name: 'SEO',
+  //       href: TERMS_AND_CONDITIONS_ROUTE,
+  //     },
+  //     {
+  //       name: 'Search Engine Mattering',
+  //       href: TERMS_AND_CONDITIONS_ROUTE,
+  //     },
+  //     {
+  //       name: 'Html & CSS',
+  //       href: TERMS_AND_CONDITIONS_ROUTE,
+  //     },
+  //     {
+  //       name: 'JavaScript',
+  //       href: TERMS_AND_CONDITIONS_ROUTE,
+  //     },
+  //     {
+  //       name: 'React Js',
+  //       href: TERMS_AND_CONDITIONS_ROUTE,
+  //     },
+  //     {
+  //       name: 'Node Js',
+  //       href: TERMS_AND_CONDITIONS_ROUTE,
+  //     },
+  //   ],
+  // },
   {
     rowTitle: 'Community',
     subNavigation: [

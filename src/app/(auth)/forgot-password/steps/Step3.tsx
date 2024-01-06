@@ -14,14 +14,15 @@ import { ForgotPasswordStep3Validation } from '@/utils/validation';
 const resolver = classValidatorResolver(ForgotPasswordStep3Validation);
 
 const Step3 = () => {
-  const { forgotPasswordUserId } = useAuth();
+  const { confirmationCode } = useAuth();
+
   const { push } = useRouter();
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<ForgotPasswordStep3Validation>({
-    defaultValues: { newPassword: '', confirmPassword: '', userId: forgotPasswordUserId },
+    defaultValues: { newPassword: '', confirmPassword: '', confirmationCode },
     resolver,
   });
 
@@ -32,7 +33,9 @@ const Step3 = () => {
   >(AuthService.forgotPasswordStep3, { onSuccess: () => push(SIGN_IN_ROUTE) });
 
   const onSubmit: SubmitHandler<ForgotPasswordStep3Validation> = useCallback(
-    data => mutate(data),
+    data => {
+      mutate(data);
+    },
     [mutate],
   );
 

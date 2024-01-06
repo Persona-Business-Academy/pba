@@ -4,8 +4,17 @@ import prisma from '..';
 
 export class OfflineCoursesResolver {
   static async getOfflineCourseList(queryParams: OnlineCoursesQueryParams) {
-    const { topic, limit = 10, offset = 0, q } = queryParams;
+    const { topic, limit = 10, offset = 0, q, ...rest } = queryParams;
+
+    console.log(rest['skill-level']);
+
     const conditions = [];
+
+    if (rest['skill-level']) {
+      conditions.push({
+        courseLevel: rest['skill-level'],
+      });
+    }
 
     if (topic) {
       conditions.push({ topic });
