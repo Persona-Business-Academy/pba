@@ -55,7 +55,7 @@ CREATE TABLE "OnlineCourse" (
     "subTitle" VARCHAR(45) NOT NULL,
     "courseLevel" "SkillLevel" NOT NULL,
     "coverPhoto" TEXT NOT NULL,
-    "coverPhotoId" TEXT NOT NULL,
+    "mediaId" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "duration" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "lessonsCount" INTEGER NOT NULL DEFAULT 0,
@@ -133,7 +133,7 @@ CREATE TABLE "Instructor" (
     "enrolledStudentsCount" INTEGER NOT NULL DEFAULT 0,
     "about" TEXT NOT NULL,
     "avatar" TEXT NOT NULL,
-    "avatarId" TEXT NOT NULL,
+    "mediaId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
 
@@ -147,7 +147,8 @@ CREATE TABLE "OfflineCourse" (
     "subTitle" TEXT NOT NULL,
     "topic" "Topic" NOT NULL,
     "coverPhoto" TEXT NOT NULL,
-    "coverPhotoId" TEXT NOT NULL,
+    "video" TEXT NOT NULL,
+    "mediaId" TEXT NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "description" TEXT NOT NULL,
     "language" "Language" NOT NULL,
@@ -186,13 +187,13 @@ CREATE UNIQUE INDEX "User_confirmationCode_key" ON "User"("confirmationCode");
 CREATE UNIQUE INDEX "Admin_email_key" ON "Admin"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "OnlineCourse_coverPhotoId_key" ON "OnlineCourse"("coverPhotoId");
+CREATE UNIQUE INDEX "OnlineCourse_mediaId_key" ON "OnlineCourse"("mediaId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Instructor_avatarId_key" ON "Instructor"("avatarId");
+CREATE UNIQUE INDEX "Instructor_mediaId_key" ON "Instructor"("mediaId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "OfflineCourse_coverPhotoId_key" ON "OfflineCourse"("coverPhotoId");
+CREATE UNIQUE INDEX "OfflineCourse_mediaId_key" ON "OfflineCourse"("mediaId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "OfflineCourseInstructors_offlineCourseId_instructorId_key" ON "OfflineCourseInstructors"("offlineCourseId", "instructorId");
