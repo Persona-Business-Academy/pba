@@ -110,7 +110,7 @@ CREATE TABLE "OnlineCourseVideo" (
 );
 
 -- CreateTable
-CREATE TABLE "OnlineCourseComment" (
+CREATE TABLE "CourseComment" (
     "id" SERIAL NOT NULL,
     "headline" TEXT NOT NULL,
     "text" TEXT NOT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE "OnlineCourseComment" (
     "updatedAt" TIMESTAMP(0) NOT NULL,
     "offlineCourseId" INTEGER,
 
-    CONSTRAINT "OnlineCourseComment_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "CourseComment_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -220,13 +220,13 @@ ALTER TABLE "OnlineCourseVideo" ADD CONSTRAINT "OnlineCourseVideo_onlineCourseId
 ALTER TABLE "OnlineCourseVideo" ADD CONSTRAINT "OnlineCourseVideo_onlineCourseLevelId_fkey" FOREIGN KEY ("onlineCourseLevelId") REFERENCES "OnlineCourseLevel"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OnlineCourseComment" ADD CONSTRAINT "OnlineCourseComment_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "CourseComment" ADD CONSTRAINT "CourseComment_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OnlineCourseComment" ADD CONSTRAINT "OnlineCourseComment_onlineCourseId_fkey" FOREIGN KEY ("onlineCourseId") REFERENCES "OnlineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "CourseComment" ADD CONSTRAINT "CourseComment_onlineCourseId_fkey" FOREIGN KEY ("onlineCourseId") REFERENCES "OnlineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OnlineCourseComment" ADD CONSTRAINT "OnlineCourseComment_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "CourseComment" ADD CONSTRAINT "CourseComment_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
