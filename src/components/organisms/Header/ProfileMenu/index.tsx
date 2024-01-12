@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import { HOMEPAGE_ROUTE, linkItems, LOGOUT_ID } from '@/utils/constants/routes';
+import { generateAWSUrl } from '@/utils/helpers/common';
 
 type Props = {
   user: User;
@@ -25,8 +26,8 @@ const ProfileMenu: FC<Props> = ({ user }) => {
     <Popover>
       <PopoverTrigger>
         <Avatar
-          name={`${user?.firstName} `}
-          src="avatar url"
+          name={`${user?.firstName} ${user?.lastName}`}
+          src={user?.avatar ? generateAWSUrl(user.avatar) : ''}
           bg="#F3F4F6"
           color="#C0C0C0"
           cursor="pointer"

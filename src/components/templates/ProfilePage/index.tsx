@@ -1,5 +1,14 @@
 'use client';
-import React, { ChangeEvent, FC, memo, useCallback, useMemo, useState } from 'react';
+import React, {
+  ChangeEvent,
+  FC,
+  memo,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Box, Button as ChakraButton, Flex, Input, Text, useToast } from '@chakra-ui/react';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { useMutation } from '@tanstack/react-query';
@@ -27,6 +36,7 @@ type Props = {
 
 const Profile: FC<Props> = ({ sessionUser }) => {
   const [localImage, setLocalImage] = useState<{ file: File; localUrl: string } | null>(null);
+  const timeout = useRef<NodeJS.Timeout>();
 
   const router = useRouter();
   const toast = useToast();
@@ -100,7 +110,7 @@ const Profile: FC<Props> = ({ sessionUser }) => {
         } catch (error) {
           console.log(error);
         } finally {
-          router.refresh();
+          timeout.current = setTimeout(router.refresh, 500);
         }
       })();
     },
@@ -127,6 +137,12 @@ const Profile: FC<Props> = ({ sessionUser }) => {
     },
     [changePasswordMutation, reset, toast],
   );
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timeout.current);
+    };
+  }, []);
 
   return (
     <>

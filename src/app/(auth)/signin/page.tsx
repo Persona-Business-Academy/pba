@@ -66,6 +66,11 @@ const SignIn = () => {
 
   const { mutate, isLoading: confirmationUserEmailIsLoading } = useMutation(
     UserService.confirmUserEmail,
+    {
+      onSuccess() {
+        router.push(SIGN_IN_ROUTE);
+      },
+    },
   );
 
   useEffect(() => {

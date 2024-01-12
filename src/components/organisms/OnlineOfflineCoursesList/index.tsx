@@ -65,7 +65,6 @@ const OnlineOfflineCourseList: FC<PropsWithChildren<CoursesProps>> = ({ children
     searchParams.forEach((queryValues, queryKey) => {
       const queryNames = queryValues.split(',');
 
-      console.log(queryNames);
       const listToCheck = getListToCheck(queryKey);
 
       listToCheck.forEach(({ value, id, title }) => {

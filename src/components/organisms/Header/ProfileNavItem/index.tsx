@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useMemo } from 'react';
 import {
   Accordion,
   AccordionButton,
@@ -14,17 +14,23 @@ import Link from 'next/link';
 import { User } from 'next-auth';
 import { segoe } from '@/utils/constants/fonts';
 import { linkItems, PROFILE_ROUTE } from '@/utils/constants/routes';
+import { generateAWSUrl } from '@/utils/helpers/common';
 
 type ProfileNavItemProps = {
   user: User;
 };
 
 const ProfileNavItem: FC<ProfileNavItemProps> = ({ user }) => {
+  const name = useMemo(
+    () => `${user?.firstName} ${user?.lastName}`,
+    [user?.firstName, user?.lastName],
+  );
+
   return (
     <AccordionItem pl={8}>
       <AccordionButton display="flex">
         <Flex flex={6} textAlign="left" gap="8px" as={Link} href={PROFILE_ROUTE}>
-          <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+          <Avatar name={name} src={user?.avatar ? generateAWSUrl(user.avatar) : ''} />
           <Flex flexDirection="column" gap="4px">
             <Text
               display="flex"
@@ -34,7 +40,7 @@ const ProfileNavItem: FC<ProfileNavItemProps> = ({ user }) => {
               fontSize="14px"
               fontWeight={600}
               lineHeight="20px">
-              {user?.firstName} {user?.lastName}
+              {name}
             </Text>
             <Text color="#5B5B5B" className={segoe.className} fontSize="14px" fontWeight={400}>
               My Profile
