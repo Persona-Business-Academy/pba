@@ -36,7 +36,7 @@ const ReviewSection: FC<ReviewSectionProps> = () => {
     },
   ];
   return (
-    <Box mb={{ base: '36px', lg: '148px' }}>
+    <Box as="section" id="feedback" mb={{ base: '36px', lg: '148px' }}>
       <Heading
         textAlign="center"
         m="0"

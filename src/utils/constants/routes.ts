@@ -1,12 +1,12 @@
-import AchievementsIcon from 'public/icons/achievements_icon.svg';
+// import AchievementsIcon from 'public/icons/achievements_icon.svg';
 import CoursesIcon from 'public/icons/courses_icon.svg';
 import HelpIcon from 'public/icons/help_icon.svg';
 import LogoutIcon from 'public/icons/logout_icon.svg';
-import PaymentsIcon from 'public/icons/payments_icon.svg';
-import PbaCreditIcon from 'public/icons/pba_credit_icon.svg';
+// import PaymentsIcon from 'public/icons/payments_icon.svg';
+// import PbaCreditIcon from 'public/icons/pba_credit_icon.svg';
 import ProfileIcon from 'public/icons/profile_icon.svg';
-import SubscriptionIcon from 'public/icons/subscription_icon.svg';
-import WishlistIcon from 'public/icons/wishlist_icon.svg';
+// import SubscriptionIcon from 'public/icons/subscription_icon.svg';
+// import WishlistIcon from 'public/icons/wishlist_icon.svg';
 import { NavItem } from '@/utils/models/header';
 
 export const HOMEPAGE_ROUTE = '/';
@@ -43,11 +43,11 @@ interface LinkItemProps {
 export const linkItems: Array<LinkItemProps> = [
   { id: 1, name: 'Profile', icon: ProfileIcon, href: PROFILE_ROUTE },
   { id: 2, name: 'Courses', icon: CoursesIcon, href: COURSES_ROUTE },
-  { id: 3, name: 'Achievements', icon: AchievementsIcon, href: ACHIEVEMENTS_ROUTE },
-  { id: 4, name: 'Subscription', icon: SubscriptionIcon, href: SUBSCRIPTION_ROUTE },
-  { id: 5, name: 'Wishlist', icon: WishlistIcon, href: WISHLIST_ROUTE },
-  { id: 6, name: 'PBA credit', icon: PbaCreditIcon, href: PBA_CREDIT_ROUTE },
-  { id: 7, name: 'Payments', icon: PaymentsIcon, href: PAYMENTS_ROUTE },
+  // { id: 3, name: 'Achievements', icon: AchievementsIcon, href: ACHIEVEMENTS_ROUTE },
+  // { id: 4, name: 'Subscription', icon: SubscriptionIcon, href: SUBSCRIPTION_ROUTE },
+  // { id: 5, name: 'Wishlist', icon: WishlistIcon, href: WISHLIST_ROUTE },
+  // { id: 6, name: 'PBA credit', icon: PbaCreditIcon, href: PBA_CREDIT_ROUTE },
+  // { id: 7, name: 'Payments', icon: PaymentsIcon, href: PAYMENTS_ROUTE },
   { id: 8, name: 'Help', icon: HelpIcon, href: HELP_ROUTE },
   { id: 9, name: 'Log out', icon: LogoutIcon },
 ];
@@ -91,10 +91,6 @@ export const NAV_ITEMS: NavItem[] = [
           },
           {
             subLabelName: 'Graphic Design',
-            children: [],
-          },
-          {
-            subLabelName: 'Motion Design',
             children: [],
           },
         ],
@@ -185,83 +181,83 @@ export const NAV_ITEMS: NavItem[] = [
       },
     ],
   },
-  // {
-  //   label: 'For Kids',
-  //   href: FOR_KIDS_ROUTE,
-  //   children: [
-  //     {
-  //       id: 1,
-  //       label: 'Development',
-  //       subLabels: [
-  //         {
-  //           subLabelName: 'HTML',
-  //           children: [],
-  //         },
-  //         {
-  //           subLabelName: 'CSS',
-  //           children: [],
-  //         },
-  //         {
-  //           subLabelName: 'JS',
-  //           children: [],
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       id: 2,
-  //       label: 'Design',
-  //       subLabels: [
-  //         {
-  //           subLabelName: 'UI/UX Design',
-  //           children: [],
-  //         },
-  //         {
-  //           subLabelName: 'Graphic Design',
-  //           children: [],
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       id: 3,
-  //       label: 'Robotics',
-  //       subLabels: [],
-  //     },
-  //   ],
-  //   featuredItems: [
-  //     {
-  //       categoryName: 'Graphic Design',
-  //       imgPath: '/images/public_available/featured_example.jpg',
-  //     },
-  //     {
-  //       categoryName: 'Graphic Design',
-  //       imgPath: '/images/public_available/featured_example.jpg',
-  //     },
-  //     {
-  //       categoryName: 'Graphic Design',
-  //       imgPath: '/images/public_available/featured_example.jpg',
-  //     },
-  //     {
-  //       categoryName: 'Graphic Design',
-  //       imgPath: '/images/public_available/featured_example.jpg',
-  //     },
-  //     {
-  //       categoryName: 'Graphic Design',
-  //       imgPath: '/images/public_available/featured_example.jpg',
-  //     },
-  //     {
-  //       categoryName: 'Graphic Design',
-  //       imgPath: '/images/public_available/featured_example.jpg',
-  //     },
-  //     {
-  //       categoryName: 'Graphic Design',
-  //       imgPath: '/images/public_available/featured_example.jpg',
-  //     },
-  //     {
-  //       categoryName: 'Graphic Design',
-  //       imgPath: '/images/public_available/featured_example.jpg',
-  //     },
-  //   ],
-  // },
+  {
+    label: 'For Kids',
+    href: FOR_KIDS_ROUTE,
+    children: [
+      {
+        id: 1,
+        label: 'Development',
+        subLabels: [
+          {
+            subLabelName: 'HTML',
+            children: [],
+          },
+          {
+            subLabelName: 'CSS',
+            children: [],
+          },
+          {
+            subLabelName: 'JS',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 2,
+        label: 'Design',
+        subLabels: [
+          {
+            subLabelName: 'UI/UX Design',
+            children: [],
+          },
+          {
+            subLabelName: 'Graphic Design',
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 3,
+        label: 'Robotics',
+        subLabels: [],
+      },
+    ],
+    featuredItems: [
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+      {
+        categoryName: 'Graphic Design',
+        imgPath: '/images/public_available/featured_example.jpg',
+      },
+    ],
+  },
   // {
   //   label: 'Video Courses',
   //   href: ONLINE_COURSES_ROUTE,
@@ -393,6 +389,18 @@ export const NAV_ITEMS: NavItem[] = [
   {
     label: 'Articles',
     href: ARTICLES_ROUTE,
+    children: [],
+    featuredItems: [],
+  },
+  {
+    label: 'About',
+    href: ABOUT_ROUTE,
+    children: [],
+    featuredItems: [],
+  },
+  {
+    label: 'Contact Us',
+    href: CONTACT_US_ROUTE,
     children: [],
     featuredItems: [],
   },

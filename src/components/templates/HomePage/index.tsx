@@ -5,7 +5,7 @@ import WelcomeSection from './WelcomeSection';
 
 const PersonaIntroSection = dynamic(() => import('./PersonaIntroSection'));
 const KidsAcademySection = dynamic(() => import('./KidsAcademySection'));
-const OnlineCoursesSection = dynamic(() => import('./OnlineCoursesSection'));
+// const OnlineCoursesSection = dynamic(() => import('./OnlineCoursesSection'));
 const ArticlesSection = dynamic(() => import('./ArticlesSection'));
 const Trainers = dynamic(() => import('./Trainers'));
 // const PartnersSection = dynamic(() => import('./PartnersSection'));
@@ -22,7 +22,7 @@ const HomePage = () => {
       <KidsAcademySection />
 
       <Container maxW="1200px" margin="0 auto" padding={{ base: '0 16px', xl: '0' }}>
-        <OnlineCoursesSection />
+        {/* <OnlineCoursesSection /> */}
 
         <ArticlesSection />
 

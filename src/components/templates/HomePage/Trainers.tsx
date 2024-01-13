@@ -1,50 +1,12 @@
 import React, { FC } from 'react';
 import { Box, Heading, Text } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
+import { teachersData } from '@/types/member';
 const TrainerCard = dynamic(() => import('@/components/molecules/TrainerCard'));
 
 type TrainersProps = {};
 
 const Trainers: FC<TrainersProps> = () => {
-  const trainers = [
-    {
-      id: 1,
-      firstName: 'Gagik',
-      lastName: 'Tamamyan',
-      profession: 'SMM Specialist',
-      enrolledStudents: 0,
-      graduatedStudents: 0,
-      src: '/images/public_available/gagik_tamamyan.webp',
-    },
-    {
-      id: 2,
-      firstName: 'Julieta',
-      lastName: 'Asatryan',
-      profession: 'HRM Specialist',
-      enrolledStudents: 0,
-      graduatedStudents: 0,
-      src: '/images/public_available/julieta.webp',
-    },
-    {
-      id: 3,
-      firstName: 'Narek',
-      lastName: 'Boshyan',
-      profession: 'Full-Stack Developer',
-      enrolledStudents: 0,
-      graduatedStudents: 0,
-      src: '/images/public_available/narek_boshyan.webp',
-    },
-    {
-      id: 4,
-      firstName: 'Liana ',
-      lastName: 'Manusajyan',
-      profession: 'Branding & Tech Lawyer/Attorney',
-      enrolledStudents: 0,
-      graduatedStudents: 0,
-      src: '/images/public_available/lian_manusajyan.webp',
-    },
-  ];
-
   return (
     <Box mb={{ base: '36px', lg: '148px' }}>
       <Box textAlign="center" maxW="419px" m="0 auto" mb="20px">
@@ -72,8 +34,8 @@ const Trainers: FC<TrainersProps> = () => {
         gap="20px"
         flexWrap="wrap"
         justifyContent="center">
-        {trainers.map(trainer => (
-          <TrainerCard key={trainer.id} {...trainer} />
+        {teachersData.map(trainer => (
+          <TrainerCard key={trainer.id} trainer={trainer} />
         ))}
       </Box>
     </Box>

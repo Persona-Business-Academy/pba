@@ -9,18 +9,16 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { Box, Button as ChakraButton, Flex, Input, Text, useToast } from '@chakra-ui/react';
+import { Avatar, Box, Button as ChakraButton, Flex, Input, Text, useToast } from '@chakra-ui/react';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { Country } from 'country-state-city';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { User } from 'next-auth';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { UserService } from '@/api/services/UserService';
 import { Button, FormInput, Loading } from '@/components/atoms';
-import Avatar from '@/components/atoms/Avatar';
 import PhoneNumberInput from '@/components/atoms/PhoneNumberInput';
 import SelectLabel from '@/components/atoms/SelectLabel';
 import { montserrat, segoe } from '@/utils/constants/fonts';
@@ -36,6 +34,7 @@ type Props = {
 
 const Profile: FC<Props> = ({ sessionUser }) => {
   const [localImage, setLocalImage] = useState<{ file: File; localUrl: string } | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const timeout = useRef<NodeJS.Timeout>();
 
   const router = useRouter();
@@ -98,6 +97,7 @@ const Profile: FC<Props> = ({ sessionUser }) => {
   const onSubmit: SubmitHandler<UserProfileFormValidation> = useCallback(
     data => {
       (async () => {
+        setIsLoading(true);
         try {
           let avatar = '';
           if (localImage) {
@@ -111,6 +111,7 @@ const Profile: FC<Props> = ({ sessionUser }) => {
           console.log(error);
         } finally {
           timeout.current = setTimeout(router.refresh, 500);
+          setIsLoading(false);
         }
       })();
     },
@@ -146,7 +147,7 @@ const Profile: FC<Props> = ({ sessionUser }) => {
 
   return (
     <>
-      {isSubmitting || passwordSubmitting ? <Loading /> : null}
+      {isSubmitting || passwordSubmitting || isLoading ? <Loading /> : null}
       <Box
         width="700px"
         margin="0 auto"
@@ -174,18 +175,13 @@ const Profile: FC<Props> = ({ sessionUser }) => {
             position="relative"
             width="101px"
             height="101px">
-            {localImage?.localUrl || sessionUser?.avatar ? (
-              <Image
-                fill
-                alt="avatar_img"
-                src={localImage?.localUrl || '' || generateAWSUrl(sessionUser?.avatar || '')}
-              />
-            ) : (
-              <Avatar
-                firstName={sessionUser?.firstName || ''}
-                lastName={sessionUser?.lastName || ''}
-              />
-            )}
+            <Avatar
+              name={`${sessionUser?.firstName} ${sessionUser?.lastName}`}
+              src={sessionUser?.avatar ? generateAWSUrl(sessionUser?.avatar) : ''}
+              bg="#F3F4F6"
+              color="#C0C0C0"
+              size="xl"
+            />
           </Box>
           <Box>
             <Text

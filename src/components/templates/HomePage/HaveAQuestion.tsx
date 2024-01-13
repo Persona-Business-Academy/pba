@@ -7,7 +7,7 @@ const HaveAQuestion = () => {
     <Box
       maxWidth="100%"
       bg="#1F1646"
-      margin={{ base: '0', lg: '148px 0' }}
+      margin={{ base: '0', lg: '148px 0 0 0' }}
       padding={{
         base: '40px 10px',
         lg: '40px 0',

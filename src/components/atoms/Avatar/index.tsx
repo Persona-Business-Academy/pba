@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
-import { generateBrightColor } from '@/utils/helpers/avatar';
 
 type AvatarProps = {
   firstName: string;
@@ -9,12 +8,7 @@ type AvatarProps = {
 
 const Avatar: FC<AvatarProps> = ({ firstName, lastName }) => {
   return (
-    <Flex
-      height="100%"
-      width="100%"
-      bg={generateBrightColor()}
-      justifyContent="center"
-      alignItems="center">
+    <Flex height="100%" width="100%" bg="#F3F4F6" justifyContent="center" alignItems="center">
       <Text fontSize="38px" fontWeight={700} color="#fff">
         {firstName[0].toUpperCase()} {lastName[0].toUpperCase()}
       </Text>

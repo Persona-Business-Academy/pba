@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { Box, Container, Flex, Heading, Text, UnorderedList } from '@chakra-ui/react';
 import Image from 'next/image';
 import { OutlinedButton } from '@/components/atoms';
+import MovableButton from '@/components/atoms/MovableButton';
+import { FOR_KIDS_ROUTE, OFFLINE_COURSES_ROUTE } from '@/utils/constants/routes';
 
 type PersonaIntroSectionProps = {};
 
@@ -30,7 +32,7 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
             fontWeight="700"
             margin="0 0 16px 0"
             as="h2">
-            What is Persona?
+            What is PBA?
           </Heading>
           <Text fontSize="16px" fontWeight="400" color="#696984" lineHeight="21.28px">
             Persona Business Academy is a branch of the American company Persona Media Group in
@@ -53,6 +55,10 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
             padding="45px 0"
             display="flex"
             alignItems="center"
+            transition="all 0.3s"
+            _hover={{
+              bg: '#F6FCFF',
+            }}
             flexDirection="column">
             <Box>
               <Image src="./icons/for_individuals.svg" alt="" width={108} height={108} />
@@ -71,23 +77,16 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
               </span>
             </Text>
 
-            <Text
-              color="#FF6131"
-              fontSize="16px"
-              fontWeight="700"
-              lineHeight="21.28px"
-              margin="0"
-              display="flex"
-              gap="8px">
-              Start a class today
-              <Image src="/icons/not_found_icon.svg" alt="Arrow icon" width={24} height={24} />
-            </Text>
+            <MovableButton href={OFFLINE_COURSES_ROUTE} btnText="Start a class today" />
           </Box>
 
           <Box
             width="590px"
-            bg="#F6FCFF"
+            _hover={{
+              bg: '#F6FCFF',
+            }}
             borderRadius="20px"
+            transition="all 0.3s"
             padding="45px 0"
             display="flex"
             alignItems="center"
@@ -107,19 +106,7 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
               <span style={{ color: '#1F1646', marginLeft: '15px' }}>Kids</span>
             </Text>
 
-            <Text
-              color="#FF6131"
-              fontSize="16px"
-              fontWeight="700"
-              lineHeight="21.28px"
-              margin="0"
-              display="flex"
-              gap="8px">
-              Start a class today
-              <span>
-                <Image src="/icons/not_found_icon.svg" alt="Arrow icon" width={24} height={24} />
-              </span>
-            </Text>
+            <MovableButton href={FOR_KIDS_ROUTE} btnText="Start a class today" />
           </Box>
         </Box>
       </Box>

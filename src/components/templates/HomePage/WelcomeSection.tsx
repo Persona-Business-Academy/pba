@@ -1,7 +1,16 @@
 import React, { FC } from 'react';
 import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/atoms';
+import CourseTopicBlock from '@/components/atoms/CourseTopicBlock';
+import { courseTopicBlock } from '@/utils/constants/course-topic-block';
+import {
+  CONTACT_US_ROUTE,
+  LEADERSHIP_ROUTE,
+  OFFLINE_COURSES_ROUTE,
+} from '@/utils/constants/routes';
 
 type WelcomeSectionProps = {};
 
@@ -11,6 +20,8 @@ const commonFontStyle = {
 };
 
 const WelcomeSection: FC<WelcomeSectionProps> = () => {
+  const router = useRouter();
+
   return (
     <Box
       mb={{
@@ -71,11 +82,12 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
               justifyContent={{ base: 'center', lg: 'flex-start' }}>
               <Button
                 width="177px"
+                onClick={() => router.push(OFFLINE_COURSES_ROUTE)}
                 height="53px"
                 fontSize="16px"
                 fontWeight="400"
                 lineHeight="21.28px">
-                Try it free
+                Find your Course
               </Button>
 
               <Button
@@ -83,11 +95,12 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                 fontSize="16px"
                 fontWeight="400"
                 lineHeight="21.28px"
+                onClick={() => router.push(CONTACT_US_ROUTE)}
                 bg="#F6FCFF"
                 color="#222222"
                 _hover={{ background: 'none' }}
                 _focus={{ bg: 'transparent' }}>
-                Explore courses
+                Have a Question?
               </Button>
             </Flex>
           </Flex>
@@ -102,6 +115,8 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
             }}>
             <Box display="flex" justifyContent="center">
               <Box
+                as={Link}
+                href="#feedback"
                 zIndex="1"
                 bg="#FFFFFFCC"
                 left={{ base: '-60px', md: '-30px' }}
@@ -121,7 +136,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                     md: '31.92px',
                   }}
                   fontSize={{ base: ' 16px', md: '24px' }}>
-                  250k
+                  3000+
                 </Text>
                 <Text
                   margin="0"
@@ -133,6 +148,8 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
               </Box>
 
               <Box
+                as={Link}
+                href={OFFLINE_COURSES_ROUTE}
                 zIndex="1"
                 bg="#FFFFFFCC"
                 top={{ base: '20px', md: '75px' }}
@@ -156,7 +173,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                     md: '24px',
                     xl: '24px',
                   }}>
-                  250k
+                  20+
                 </Text>
                 <Text
                   margin="0"
@@ -173,6 +190,8 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
 
               <Box
                 zIndex="1"
+                as={Link}
+                href={LEADERSHIP_ROUTE}
                 bg="#FFFFFFCC"
                 top={{ base: '80px', md: '140px' }}
                 right={{ base: '-30px', md: '45px' }}
@@ -193,7 +212,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                     base: ' 16px',
                     md: '24px',
                   }}>
-                  250k
+                  15+
                 </Text>
                 <Text
                   margin="0"
@@ -286,170 +305,13 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
               alignItems="center"
               justifyContent="center"
               flexWrap="wrap">
-              <Box
-                display="flex"
-                flexDirection="column"
-                gap="8px"
-                alignItems="center"
-                background="#fff"
-                width={{ base: '163px', md: '183px' }}
-                boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
-                padding="16px 0"
-                borderRadius="8px">
-                <Box
-                  bg="#C3E7F7"
-                  margin="4px"
-                  width={{ base: '40px', lg: '40px' }}
-                  background="#FFF"
-                  boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
-                  height="40px"
-                  display="flex"
-                  justifyContent="center"
-                  borderRadius="7px">
-                  <Image src="/icons/design_home.svg" width={24} height={24} alt="UI UX Icon" />
-                </Box>
-
-                <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                  UI/UX Design
-                </Text>
-              </Box>
-
-              <Box
-                display="flex"
-                gap="16px"
-                flexDirection="column"
-                alignItems="center"
-                background="#FFF"
-                width={{ base: '163px', md: '183px' }}
-                boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
-                padding="16px 0"
-                borderRadius="8px">
-                <Box
-                  bg="#C3E7F7"
-                  margin="4px"
-                  width="40px"
-                  background="#FFF"
-                  boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
-                  height="40px"
-                  display="flex"
-                  justifyContent="center"
-                  borderRadius="7px">
-                  <Image src="/icons/marketing_home.svg" width={24} height={24} alt="UI UX Icon" />
-                </Box>
-
-                <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                  Digital Marketing
-                </Text>
-              </Box>
-
-              <Box
-                display="flex"
-                gap="16px"
-                flexDirection="column"
-                alignItems="center"
-                background="#FFF"
-                width={{ base: '163px', md: '183px' }}
-                boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
-                padding="16px 0"
-                borderRadius="8px">
-                <Box
-                  bg="#C3E7F7"
-                  margin="4px"
-                  width="40px"
-                  background="#FFF"
-                  boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
-                  height="40px"
-                  display="flex"
-                  justifyContent="center"
-                  borderRadius="7px">
-                  <Image src="/icons/react_home.svg" width={24} height={24} alt="React" />
-                </Box>
-                <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                  React JS
-                </Text>
-              </Box>
-
-              <Box
-                display="flex"
-                gap="16px"
-                flexDirection="column"
-                alignItems="center"
-                background="#FFF"
-                width={{ base: '163px', md: '183px' }}
-                boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
-                padding="16px 0"
-                borderRadius="8px">
-                <Box
-                  bg="#C3E7F7"
-                  margin="4px"
-                  width="40px"
-                  background="#FFF"
-                  boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
-                  height="40px"
-                  display="flex"
-                  justifyContent="center"
-                  borderRadius="7px">
-                  <Image src="/icons/management_home.svg" width={24} height={24} alt="Management" />
-                </Box>
-                <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                  HRM
-                </Text>
-              </Box>
-
-              <Box
-                display="flex"
-                gap="16px"
-                flexDirection="column"
-                alignItems="center"
-                background="#FFF"
-                width={{ base: '163px', md: '183px' }}
-                boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
-                padding="16px 0"
-                borderRadius="8px">
-                <Box
-                  bg="#C3E7F7"
-                  margin="4px"
-                  width="40px"
-                  background="#FFF"
-                  boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
-                  height="40px"
-                  display="flex"
-                  justifyContent="center"
-                  borderRadius="7px">
-                  <Image src="/icons/design_home.svg" width={24} height={24} alt="Management" />
-                </Box>
-
-                <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                  Graphic Design
-                </Text>
-              </Box>
-
-              <Box
-                display="flex"
-                gap="16px"
-                flexDirection="column"
-                alignItems="center"
-                background="#FFF"
-                width={{ base: '163px', md: '183px' }}
-                boxShadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
-                padding="16px 0"
-                borderRadius={8}>
-                <Box
-                  bg="#C3E7F7"
-                  margin="4px"
-                  width="40px"
-                  background="#FFF"
-                  boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
-                  height="40px"
-                  display="flex"
-                  justifyContent="center"
-                  borderRadius="7px">
-                  <Image src="/icons/target_home.svg" width={24} height={24} alt="Target" />
-                </Box>
-                <Text as="span" fontWeight="700" fontSize="16px" lineHeight="21.28px">
-                  SMM
-                </Text>
-              </Box>
+              {courseTopicBlock.map(courseBlock => (
+                <CourseTopicBlock
+                  imgName={courseBlock.imgName}
+                  key={courseBlock.id}
+                  imgSrc={courseBlock.imgSrc}
+                />
+              ))}
             </Box>
           </Flex>
         </Box>

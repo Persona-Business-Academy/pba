@@ -1,13 +1,10 @@
 import React, { FC } from 'react';
-import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
+import MovableButton from '@/components/atoms/MovableButton';
+import { FOR_KIDS_ROUTE } from '@/utils/constants/routes';
 
 type KidsAcademySectionProps = {};
-
-const commonFontStyle = {
-  lineHeight: '21.28px',
-  fontWeight: 700,
-};
 
 const KidsAcademySection: FC<KidsAcademySectionProps> = () => {
   return (
@@ -60,16 +57,7 @@ const KidsAcademySection: FC<KidsAcademySectionProps> = () => {
           </Text>
 
           <Box>
-            <Link
-              display="flex"
-              justifyContent="center"
-              gap="8px"
-              fontSize="16px"
-              {...commonFontStyle}
-              color="#FF6131">
-              Explore courses
-              <Image src="/icons/not_found_icon.svg" alt="Arrow" width={24} height={24} />
-            </Link>
+            <MovableButton href={FOR_KIDS_ROUTE} btnText="Explore courses" />
           </Box>
         </Box>
       </Flex>

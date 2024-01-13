@@ -26,7 +26,15 @@ const OutlinedButton: FC<OutlinedButtonProps> = ({ children }) => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      gap="8px">
+      gap="8px"
+      sx={{
+        '& > svg': {
+          transition: 'transform 0.3s',
+        },
+        '&:hover > svg': {
+          transform: 'translateX(12px)',
+        },
+      }}>
       {children}
       <ArrowIcon className="outlined_btn_arrow" />
     </Button>
