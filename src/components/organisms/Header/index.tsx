@@ -37,8 +37,6 @@ const Header: FC<HeaderProps> = ({ user, forIndividuals }) => {
 
   const navigation: NavItem[] = getNavigationItems(forIndividuals);
 
-  console.log({ navigation });
-
   useOutsideClick({
     ref: collapseRef,
     handler: () => {
