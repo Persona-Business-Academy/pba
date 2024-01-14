@@ -1,7 +1,9 @@
-import React, { FC, memo, useMemo } from 'react';
+import React, { FC, memo } from 'react';
 import { Box, Container, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { OfflineCourseService } from '@/api/services/OfflineCourseService';
+import { OfflineCourseListNamesModel } from '@/models/offline-course.model';
 import {
   ABOUT_ROUTE,
   ARTICLES_ROUTE,
@@ -10,12 +12,13 @@ import {
   FOR_KIDS_ROUTE,
   INDIVIDUALS_ROUTE,
   LEADERSHIP_ROUTE,
+  OFFLINE_COURSES_ROUTE,
   TERMS_AND_CONDITIONS_ROUTE,
 } from '@/utils/constants/routes';
 
 type Props = {};
 
-const footerData = [
+const footerData = (offlineCourseListNames: OfflineCourseListNamesModel) => [
   {
     rowTitle: 'Company',
     subNavigation: [
@@ -48,10 +51,6 @@ const footerData = [
         name: 'For Kids',
         href: FOR_KIDS_ROUTE,
       },
-      // {
-      //   name: 'Video Courses',
-      //   href: VIDEO_COURSES_ROUTE,
-      // },
       {
         name: 'Articles',
         href: ARTICLES_ROUTE,
@@ -61,78 +60,11 @@ const footerData = [
 
   {
     rowTitle: 'Offline Courses',
-    subNavigation: [
-      {
-        name: 'Digital Marketing',
-        href: ABOUT_ROUTE,
-      },
-      {
-        name: 'Social Media Marketing ',
-        href: CONTACT_US_ROUTE,
-      },
-      {
-        name: ' Front End Development',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'Back End Development',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'HRM',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'Project Management',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-      {
-        name: 'Business Law',
-        href: TERMS_AND_CONDITIONS_ROUTE,
-      },
-    ],
+    subNavigation: offlineCourseListNames.map(course => ({
+      name: course.title,
+      href: `${OFFLINE_COURSES_ROUTE}/${course.id}`,
+    })),
   },
-  // {
-  //   rowTitle: 'Online Courses',
-  //   subNavigation: [
-  //     {
-  //       name: 'Email Marketing',
-  //       href: ABOUT_ROUTE,
-  //     },
-  //     {
-  //       name: 'Google Ads',
-  //       href: CONTACT_US_ROUTE,
-  //     },
-  //     {
-  //       name: 'Google Analytics',
-  //       href: TERMS_AND_CONDITIONS_ROUTE,
-  //     },
-  //     {
-  //       name: 'SEO',
-  //       href: TERMS_AND_CONDITIONS_ROUTE,
-  //     },
-  //     {
-  //       name: 'Search Engine Mattering',
-  //       href: TERMS_AND_CONDITIONS_ROUTE,
-  //     },
-  //     {
-  //       name: 'Html & CSS',
-  //       href: TERMS_AND_CONDITIONS_ROUTE,
-  //     },
-  //     {
-  //       name: 'JavaScript',
-  //       href: TERMS_AND_CONDITIONS_ROUTE,
-  //     },
-  //     {
-  //       name: 'React Js',
-  //       href: TERMS_AND_CONDITIONS_ROUTE,
-  //     },
-  //     {
-  //       name: 'Node Js',
-  //       href: TERMS_AND_CONDITIONS_ROUTE,
-  //     },
-  //   ],
-  // },
   {
     rowTitle: 'Community',
     subNavigation: [
@@ -152,8 +84,9 @@ const footerData = [
   },
 ];
 
-const Footer: FC<Props> = () => {
-  const year = useMemo(() => new Date().getFullYear(), []);
+const Footer: FC<Props> = async () => {
+  const offlineCourseListNames = await OfflineCourseService.getOfflineCourseListNames();
+
   return (
     <Stack bg="#F9FAFB" width="100%" minHeight="auto">
       <Container
@@ -172,7 +105,7 @@ const Footer: FC<Props> = () => {
           rowGap={{ base: '20px', md: '72px' }}
           paddingBottom={{ base: '20px', md: '40px' }}
           borderBottom={{ base: '1px solid #C0C0C0', md: '1px solid #DDDCE3' }}>
-          {footerData.map((footerItem, i: number) => (
+          {footerData(offlineCourseListNames).map((footerItem, i: number) => (
             <GridItem key={i}>
               <Flex
                 flexDirection="column"
@@ -208,7 +141,7 @@ const Footer: FC<Props> = () => {
               </Text>
             </Box>
             <Box>
-              <Text>© Persona, Inc. {year}. All rights reserved.</Text>
+              <Text>© Persona, Inc. {new Date().getFullYear()}. All rights reserved.</Text>
             </Box>
           </Flex>
           <Flex flexDirection="column" gap="24px" alignItems={{ base: 'center', md: 'flex-end' }}>

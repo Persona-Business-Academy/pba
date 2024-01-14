@@ -1,4 +1,9 @@
-import { OfflineCourseItemModel, OfflineCourseListModel } from '@/models/offline-course.model';
+import {
+  OfflineCourseItemModel,
+  OfflineCourseListGroupedModel,
+  OfflineCourseListModel,
+  OfflineCourseListNamesModel,
+} from '@/models/offline-course.model';
 import $apiClient from '..';
 
 export class OfflineCourseService {
@@ -7,5 +12,13 @@ export class OfflineCourseService {
   }
   static getOfflineCourseItem(id: string): Promise<OfflineCourseItemModel> {
     return $apiClient.get(`offline-courses/${id}`);
+  }
+
+  static getOfflineCourseListNames(): Promise<OfflineCourseListNamesModel> {
+    return $apiClient.get(`offline-courses/list/names`);
+  }
+
+  static getOfflineCourseListGrouped(): Promise<OfflineCourseListGroupedModel> {
+    return $apiClient.get(`offline-courses/list/groupBy`);
   }
 }

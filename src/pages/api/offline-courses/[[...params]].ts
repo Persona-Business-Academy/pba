@@ -9,6 +9,17 @@ class OfflineCourseHandler {
   _getOfflineCoursesList(@Query() queryParams: OnlineCoursesQueryParams) {
     return OfflineCoursesResolver.getOfflineCourseList(queryParams);
   }
+
+  @Get('/list/names')
+  _getOfflineCoursesListNames() {
+    return OfflineCoursesResolver.getOfflineCourseListNames();
+  }
+
+  @Get('/list/groupBy')
+  _getOfflineCoursesListGroup() {
+    return OfflineCoursesResolver.getOfflineCourseListGrouped();
+  }
+
   @Get('/:id')
   _getOfflineCourseById(@Param('id') id: string) {
     return OfflineCoursesResolver.getOfflineCourseById(+id);

@@ -16,20 +16,28 @@ import { useSession } from 'next-auth/react';
 import CloseIcon from 'public/icons/close_icon.svg';
 import BurgerMenuIcon from 'public/icons/menu.svg';
 import { Button } from '@/components/atoms';
-import { HOMEPAGE_ROUTE, NAV_ITEMS, SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/utils/constants/routes';
+import { OfflineCourseListGroupedModel } from '@/models/offline-course.model';
+import { HOMEPAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/utils/constants/routes';
+import { getNavigationItems } from '@/utils/helpers/navigation';
+import { NavItem } from '@/utils/models/header';
 import DesktopNav from './DesktopNavigation';
 import MobileNav from './MobileNav';
 import ProfileMenu from './ProfileMenu';
 
 type HeaderProps = {
   user: User | null;
+  forIndividuals: OfflineCourseListGroupedModel;
 };
 
-const Header: FC<HeaderProps> = ({ user }) => {
+const Header: FC<HeaderProps> = ({ user, forIndividuals }) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const { data } = useSession();
   const pathname = usePathname();
   const collapseRef = useRef<HTMLDivElement>(null);
+
+  const navigation: NavItem[] = getNavigationItems(forIndividuals);
+
+  console.log({ navigation });
 
   useOutsideClick({
     ref: collapseRef,
@@ -73,7 +81,7 @@ const Header: FC<HeaderProps> = ({ user }) => {
           </Link>
 
           <Flex display={{ base: 'none', lg: 'flex' }}>
-            <DesktopNav navItems={NAV_ITEMS} />
+            <DesktopNav navItems={navigation} />
           </Flex>
           <Flex display={{ base: 'flex', lg: 'none' }}>
             <IconButton
@@ -120,7 +128,7 @@ const Header: FC<HeaderProps> = ({ user }) => {
       </Flex>
 
       <Collapse in={isOpen} animateOpacity ref={collapseRef}>
-        <MobileNav navItems={NAV_ITEMS} user={user || data?.user || null} />
+        <MobileNav navItems={navigation} user={user || data?.user || null} />
       </Collapse>
     </Box>
   );

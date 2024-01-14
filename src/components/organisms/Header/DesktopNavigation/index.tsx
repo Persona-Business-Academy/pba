@@ -61,6 +61,7 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
                         key={index}
                         {...child}
                         isChevronIconVisible={isChevronIconVisible}
+                        mainCourseLink={navItem.href || ''}
                         setIsChevronIconVisible={setIsChevronIconVisible}
                       />
                     ))}

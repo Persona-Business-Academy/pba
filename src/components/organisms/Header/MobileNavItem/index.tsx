@@ -51,7 +51,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href }) => {
                 </Box>
               </AccordionButton>
               <AccordionPanel p={0}>
-                {child.subLabels.map((subLabel: SubLabel, i) => (
+                {(child.subLabels || []).map((subLabel: SubLabel, i) => (
                   <Box
                     key={i}
                     py={4}
@@ -60,7 +60,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href }) => {
                       bg: '#0000000',
                     }}>
                     <Text href="/" as={Link} display="block">
-                      {subLabel.subLabelName}
+                      {subLabel.title}
                     </Text>
                   </Box>
                 ))}

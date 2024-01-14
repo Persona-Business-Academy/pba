@@ -243,6 +243,9 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                     fill
                     src="/images/public_available/first_img_pba_welcome.webp"
                     alt="Students img"
+                    style={{
+                      objectFit: 'cover',
+                    }}
                   />
                 </Box>
                 <Box
@@ -255,9 +258,11 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                   bottom="0">
                   <Image
                     fill
-                    objectFit="contain"
                     src="/images/public_available/second_img_pba_welcome.webp"
                     alt="Student img"
+                    style={{
+                      objectFit: 'cover',
+                    }}
                   />
                 </Box>
                 <Box
@@ -274,6 +279,9 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                     src="/images/public_available/third_img_welcome.webp"
                     fill
                     alt="Student img"
+                    style={{
+                      objectFit: 'cover',
+                    }}
                   />
                 </Box>
               </Box>

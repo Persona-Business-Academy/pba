@@ -4,8 +4,8 @@ import LeadershipIndividualPage from '@/components/templates/IndividualLeadershi
 import { MemberType, pbaTeam } from '@/types/member';
 import { LEADERSHIP_ROUTE } from '@/utils/constants/routes';
 
-export default function LeadershipIndividual({ params }: { params: { memberId: string } }) {
-  const member = pbaTeam.find((teamMember: MemberType) => teamMember.id === +params.memberId);
+export default function LeadershipIndividual({ params }: { params: { id: string } }) {
+  const member = pbaTeam.find((teamMember: MemberType) => teamMember.id === +params.id);
 
   if (!member) {
     redirect(LEADERSHIP_ROUTE);
