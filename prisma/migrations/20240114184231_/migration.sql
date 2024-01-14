@@ -148,7 +148,6 @@ CREATE TABLE "OfflineCourse" (
     "subTitle" TEXT NOT NULL,
     "topic" "Topic" NOT NULL,
     "coverPhoto" TEXT NOT NULL,
-    "video" TEXT NOT NULL,
     "mediaId" TEXT NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "description" TEXT NOT NULL,
