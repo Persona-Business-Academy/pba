@@ -1,11 +1,6 @@
-import { OfflineCourse } from '@prisma/client';
 import { NotFoundException } from 'next-api-decorators';
 import { OnlineCoursesQueryParams } from '@/types/queryParams';
 import prisma from '..';
-
-type GroupedCourses = {
-  [key: string]: OfflineCourse[];
-};
 
 export class OfflineCoursesResolver {
   static async getOfflineCourseList(queryParams: OnlineCoursesQueryParams) {
@@ -47,7 +42,7 @@ export class OfflineCoursesResolver {
     });
 
     if (!offlineCourse) {
-      throw new NotFoundException('Offline course with provided id does not exist');
+      throw new NotFoundException('Kids course with provided id does not exist');
     }
 
     const courseInstructors = await prisma.instructor.findMany({
@@ -58,27 +53,5 @@ export class OfflineCoursesResolver {
 
     const course = { ...offlineCourse, courseInstructors };
     return course;
-  }
-
-  static async getOfflineCourseListNames() {
-    return prisma.offlineCourse.findMany({
-      select: {
-        id: true,
-        title: true,
-      },
-    });
-  }
-
-  static async getOfflineCourseListGrouped() {
-    const courses = await prisma.offlineCourse.findMany();
-
-    const groupedCourses = courses.reduce((group: GroupedCourses, course: OfflineCourse) => {
-      const { topic } = course;
-      group[topic] = group[topic] || [];
-      group[topic].push(course);
-      return group;
-    }, {});
-
-    return groupedCourses;
   }
 }

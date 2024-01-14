@@ -10,6 +10,7 @@ interface DesktopSubNav {
   isChevronIconVisible: number | null;
   id: number;
   setIsChevronIconVisible: Dispatch<SetStateAction<null | number>>;
+  mainCourseLink: string;
 }
 const DesktopSubNav: FC<DesktopSubNav> = ({
   label,
@@ -17,6 +18,7 @@ const DesktopSubNav: FC<DesktopSubNav> = ({
   isChevronIconVisible,
   setIsChevronIconVisible,
   id,
+  mainCourseLink,
 }) => {
   return (
     <Flex width="183px">
@@ -50,10 +52,10 @@ const DesktopSubNav: FC<DesktopSubNav> = ({
 
       <Flex flexBasis="267px" flexDirection="column" position="absolute" left="183px" top={0}>
         {id === isChevronIconVisible &&
-          subLabels.map(({ subLabelName }, index: number) => (
+          (subLabels || []).map(({ title, id }, index: number) => (
             <Box
               as={Link}
-              href={''}
+              href={`${mainCourseLink}/${id}`}
               display="flex"
               gap={11}
               flexDirection="column"
@@ -67,7 +69,7 @@ const DesktopSubNav: FC<DesktopSubNav> = ({
                 _hover={{ color: '#3CB3E5' }}
                 fontWeight={400}
                 fontSize={16}>
-                {subLabelName}
+                {title}
               </Text>
             </Box>
           ))}

@@ -56,7 +56,14 @@ const StudentFeedback: FC<StudentFeedbackProps> = ({
         flexDirection="column"
         alignItems="center">
         <Box width="64px" height="64px" position="relative" borderRadius="50px" overflow="hidden">
-          <Image src={studentAvatarSrc} fill alt={firstName} objectFit="contain" />
+          <Image
+            src={studentAvatarSrc}
+            fill
+            alt={firstName}
+            style={{
+              objectFit: 'cover',
+            }}
+          />
         </Box>
 
         <UnorderedList lineHeight="21.28px" fontSize="16px" margin="0" listStyleType="none">

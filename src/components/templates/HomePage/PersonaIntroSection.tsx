@@ -1,13 +1,17 @@
 import React, { FC } from 'react';
-import { Box, Container, Flex, Heading, Text, UnorderedList } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, ListItem, Text, UnorderedList } from '@chakra-ui/react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { OfflineCourseService } from '@/api/services/OfflineCourseService';
 import { OutlinedButton } from '@/components/atoms';
 import MovableButton from '@/components/atoms/MovableButton';
 import { FOR_KIDS_ROUTE, OFFLINE_COURSES_ROUTE } from '@/utils/constants/routes';
 
 type PersonaIntroSectionProps = {};
 
-const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
+const PersonaIntroSection: FC<PersonaIntroSectionProps> = async () => {
+  const offlineCourseListNames = await OfflineCourseService.getOfflineCourseListNames();
+
   return (
     <Container maxW="1200px" margin="0 auto" padding={{ base: '0 16px', xl: '0' }}>
       <Box
@@ -342,18 +346,10 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = () => {
             justifyContent="center"
             gap="16px"
             flexWrap="wrap">
-            {Array.from({ length: 7 }, (_, index: number) => index).map((index: number) => (
-              <OutlinedButton key={index}>Design</OutlinedButton>
-            ))}
-          </UnorderedList>
-          <UnorderedList
-            margin="0"
-            listStyleType="none"
-            display={{ base: 'none', md: 'flex', xl: '"flex"' }}
-            gap="16px"
-            justifyContent="center">
-            {Array.from({ length: 4 }, (_, index: number) => index).map((index: number) => (
-              <OutlinedButton key={index}>Design </OutlinedButton>
+            {(offlineCourseListNames || []).map((course, index: number) => (
+              <ListItem key={index} as={Link} href={`${OFFLINE_COURSES_ROUTE}/${course.id}`}>
+                <OutlinedButton>{course.title}</OutlinedButton>
+              </ListItem>
             ))}
           </UnorderedList>
         </Flex>
