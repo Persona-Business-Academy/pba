@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 import { teachersData } from '@/types/member';
 const TrainerCard = dynamic(() => import('@/components/molecules/TrainerCard'));
@@ -13,16 +13,6 @@ const Trainers: FC<TrainersProps> = () => {
         <Heading lineHeight="42.56px" fontWeight="700" fontSize="30" margin="0 0 16px 0">
           Top Trainers
         </Heading>
-        <Text
-          fontWeight="400"
-          fontSize="16px"
-          lineHeight="21.28px"
-          margin={{
-            base: '"0 0 16px 0"',
-            lg: '"0 0 24px 0"',
-          }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-        </Text>
       </Box>
 
       <Box

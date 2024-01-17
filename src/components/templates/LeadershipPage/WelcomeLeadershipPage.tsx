@@ -33,14 +33,13 @@ const WelcomeLeadershipPage: FC<WelcomeLeadershipPageProps> = () => {
           fontWeight={400}
           lineHeight="22px"
           marginBottom={{ base: '20px', sm: '40px' }}>
-          Lorem ipsum, or ipsum as it is sometimes known, is dummy text used in laying out print,
-          graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
-          century who is thought to have scrambled parts of Ciceros De bus
+          Leading an IT team is not just about managing tasks; it's about inspiring innovation,
+          fostering collaboration, and guiding individuals to reach their full potential.
         </Text>
       </Box>
       <Box borderRadius="16px" overflow="hidden">
         <Image
-          src="/images/public_available/leadership_main.jpg"
+          src="/images/public_available/leadership_main_img.jpg"
           width={1201}
           height={591}
           alt="Leadership_image"
