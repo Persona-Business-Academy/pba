@@ -10,7 +10,15 @@ export type OfflineCourseListNamesModel = Prisma.PromiseReturnType<
 >;
 
 export type OfflineCourseListGroupedModel = Prisma.PromiseReturnType<
-  typeof OfflineCoursesResolver.getOfflineCourseListGrouped
+  typeof OfflineCoursesResolver.getOfflineCourseGroupedList
+>;
+
+export type OfflineCourseSkillsListModel = Prisma.PromiseReturnType<
+  typeof OfflineCoursesResolver.getOfflineCourseSkillsList
+>;
+
+export type OfflineCourseDurationsListModel = Prisma.PromiseReturnType<
+  typeof OfflineCoursesResolver.getOfflineCourseDurationsList
 >;
 
 export type OfflineCourseItemModel = Prisma.PromiseReturnType<

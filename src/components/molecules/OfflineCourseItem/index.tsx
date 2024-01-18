@@ -4,7 +4,6 @@ import Image from 'next/image';
 import TimeIcon from '/public/icons/time_icon.svg';
 import LevelIcon from '/public/icons/level_icon.svg';
 import LessonsIcon from '/public/icons/book_icon.svg';
-import HeartIcon from '/public/icons/heart_icon.svg';
 import { OfflineCourse } from '@/models/offline-course.model';
 import { generateAWSUrl } from '@/utils/helpers/common';
 
@@ -13,7 +12,6 @@ type OfflineCourseItemProps = {
 };
 
 const OfflineCourseItem: FC<OfflineCourseItemProps> = ({ courseData }) => {
-  console.log(courseData);
   return (
     <Flex
       padding="16px"
@@ -66,7 +64,6 @@ const OfflineCourseItem: FC<OfflineCourseItemProps> = ({ courseData }) => {
               <Text>{courseData.lessonsCount} lessons</Text>
             </Flex>
           </Flex>
-          <Flex>{<HeartIcon />}</Flex>
         </Flex>
       </Flex>
     </Flex>

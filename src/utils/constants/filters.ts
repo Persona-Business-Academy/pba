@@ -1,53 +1,59 @@
-export const topicList = [
+import { Topic } from '@prisma/client';
+
+export const CACHE_CONFIG = {
+  cacheTime: 3600000,
+  staleTime: 3600000,
+  refetchOnWindowFocus: false,
+};
+
+interface CategoryListItem {
+  id: number;
+  title: string;
+  value: string;
+}
+
+export interface TopicHandlerItem {
+  id: number;
+  label: string;
+  categoryList: CategoryListItem[];
+}
+
+export const topicHandler = (courseData: any): TopicHandlerItem[] => [
   {
     id: 1,
-    title: 'Development',
-    categoryList: [
-      {
-        id: 2,
-        title: 'Front End',
-        value: 'front-end',
-      },
-      {
-        id: 3,
-        title: 'Back End',
-        value: 'back-end',
-      },
-    ],
+    label: 'Development',
+    categoryList: (courseData[Topic.DEVELOPMENT] || []).map((course: CategoryListItem) => ({
+      id: course.id,
+      title: course.title,
+      value: course.title,
+    })),
+  },
+  {
+    id: 2,
+    label: 'Design',
+    categoryList: (courseData[Topic.DESIGN] || []).map((course: CategoryListItem) => ({
+      id: course.id,
+      title: course.title,
+      value: course.title,
+    })),
+  },
+  {
+    id: 3,
+    label: 'Marketing',
+    categoryList: (courseData[Topic.DIGITAL_MARKETING] || []).map((course: CategoryListItem) => ({
+      id: course.id,
+      title: course.title,
+      value: course.title.toLowerCase(),
+    })),
   },
   {
     id: 4,
-    title: 'Design',
-    categoryList: [
-      {
-        id: 5,
-        title: 'Graphic Design',
-        value: 'graphic-design',
-      },
-      {
-        id: 6,
-        title: 'UI UX Design',
-        value: 'ui-ux-design',
-      },
-    ],
-  },
-];
-
-export const skillLevelList = [
-  {
-    id: 6,
-    title: 'Beginner',
-    value: 'beginner',
-  },
-  {
-    id: 7,
-    title: 'Intermediate',
-    value: 'intermediate',
-  },
-  {
-    id: 8,
-    title: 'Advanced',
-    value: 'advanced',
+    label: 'Management',
+    categoryList: (courseData[Topic.MANAGEMENT] || []).map((course: CategoryListItem) => ({
+      id: course.id,
+      title: course.title,
+      value: course.title.toLowerCase(),
+    })),
   },
 ];
 

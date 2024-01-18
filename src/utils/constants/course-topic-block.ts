@@ -2,7 +2,7 @@ export const courseTopicBlock = [
   {
     id: 1,
     imgSrc: '/icons/design_home.svg',
-    imgName: 'UI UX Icon',
+    imgName: 'UI UX',
   },
   {
     id: 2,
