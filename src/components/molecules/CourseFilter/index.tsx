@@ -10,36 +10,43 @@ import {
   Flex,
   Text,
 } from '@chakra-ui/react';
-import { QueryParams } from '@/types/queryParams';
-import { durationList, skillLevelList, topicList } from '@/utils/constants/filters';
+import { TopicHandlerItem } from '@/utils/constants/filters';
 import { segoe } from '@/utils/constants/fonts';
 import CourseFilterItem from '../CourseFilterItem';
 
 type CourseFilterProps = {
-  queryParams: QueryParams;
+  queryParams: {
+    [key: string]: string;
+  };
+  courseTopicDataList: TopicHandlerItem[];
+  courseSkillsDataList: { id: number; title: string; value: string }[];
+  courseDurationsDataList: { id: number; title: number; value: number }[];
 };
 
-const CourseFilter: FC<CourseFilterProps> = ({ queryParams }) => {
+const CourseFilter: FC<CourseFilterProps> = ({
+  courseTopicDataList = [],
+  courseSkillsDataList = [],
+  courseDurationsDataList = [],
+}) => {
   return (
     <Flex flexDirection="column" gap={32}>
       <Accordion allowMultiple>
-        {topicList.map(({ title, id, categoryList }) => (
+        {courseTopicDataList.map(({ label, id, categoryList }) => (
           <AccordionItem key={id}>
             <AccordionButton>
               <Box as="span" flex="1" textAlign="left">
-                {title}
+                {label}
               </Box>
               <AccordionIcon />
             </AccordionButton>
             <AccordionPanel>
-              {categoryList.map(({ id, title, value }) => (
+              {categoryList.map(({ id, title }) => (
                 <CourseFilterItem
                   title={title}
                   id={id}
                   key={id}
-                  value={value}
-                  filterBy="topic"
-                  queryParams={queryParams}
+                  value={id.toString()}
+                  filterBy="course"
                 />
               ))}
             </AccordionPanel>
@@ -52,14 +59,13 @@ const CourseFilter: FC<CourseFilterProps> = ({ queryParams }) => {
           Skill Level
         </Text>
         <Box m={0}>
-          {skillLevelList.map(({ id, title, value }, index) => (
+          {courseSkillsDataList.map(({ id, title, value }, index) => (
             <CourseFilterItem
               title={title}
               id={id}
               key={index}
               value={value}
               filterBy="skill-level"
-              queryParams={queryParams}
             />
           ))}
         </Box>
@@ -70,14 +76,13 @@ const CourseFilter: FC<CourseFilterProps> = ({ queryParams }) => {
           Duration
         </Text>
         <Box m={0}>
-          {durationList.map(({ id, title, value }, index) => (
+          {courseDurationsDataList.map(({ id, title, value }, index) => (
             <CourseFilterItem
               id={id}
-              title={title}
+              title={title.toString()}
               key={index}
-              value={value}
+              value={value.toString()}
               filterBy="duration"
-              queryParams={queryParams}
             />
           ))}
         </Box>

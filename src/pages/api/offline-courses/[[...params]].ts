@@ -15,9 +15,19 @@ class OfflineCourseHandler {
     return OfflineCoursesResolver.getOfflineCourseListNames();
   }
 
-  @Get('/list/groupBy')
+  @Get('/grouped/list')
   _getOfflineCoursesListGroup() {
-    return OfflineCoursesResolver.getOfflineCourseListGrouped();
+    return OfflineCoursesResolver.getOfflineCourseGroupedList();
+  }
+
+  @Get('/skills/list')
+  _getOfflineCourseSkillList() {
+    return OfflineCoursesResolver.getOfflineCourseSkillsList();
+  }
+
+  @Get('/durations/list')
+  _getOfflineCourseDurationList() {
+    return OfflineCoursesResolver.getOfflineCourseDurationsList();
   }
 
   @Get('/:id')

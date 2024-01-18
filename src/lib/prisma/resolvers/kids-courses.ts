@@ -6,8 +6,6 @@ export class OfflineCoursesResolver {
   static async getOfflineCourseList(queryParams: OnlineCoursesQueryParams) {
     const { topic, limit = 10, offset = 0, q, ...rest } = queryParams;
 
-    console.log(rest['skill-level']);
-
     const conditions = [];
 
     if (rest['skill-level']) {
