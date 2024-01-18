@@ -180,7 +180,7 @@ const PricingPage: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
-                          3999{' '}
+                          4900{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -275,7 +275,7 @@ const PricingPage: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
-                          5999{' '}
+                          7900{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -382,7 +382,7 @@ const PricingPage: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
-                          9999{' '}
+                          11900{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -500,7 +500,7 @@ const PricingPage: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
-                          2800{' '}
+                          3700{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -595,7 +595,7 @@ const PricingPage: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
-                          4200{' '}
+                          6700{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -702,7 +702,7 @@ const PricingPage: FC<Props> = () => {
                           fontWeight="700"
                           lineHeight="42.56px"
                           color="#222">
-                          7000{' '}
+                          10700{' '}
                           <span
                             style={{
                               verticalAlign: 'super',
@@ -846,10 +846,11 @@ const PricingPage: FC<Props> = () => {
             fontSize="14px"
             fontWeight="400"
             color="#BABABA">
-            Lorem ipsum, or as it is sometimes known, is dummy text used in laying out print,
-            graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
-            century who is thought to have scrambled parts of Ciceros De et for use in a type
-            specimen book. It usually begins with:
+            We strive to make your payment experience convenient and secure. We accept the following
+            payment methods: <br />
+            -Credit/Debit Cards: We gladly accept Visa, MasterCard,Discover <br />
+            -Online Payment Services: Enjoy the ease of online payments through trusted platforms
+            such as PayPal
           </Text>
         </Box>
 
