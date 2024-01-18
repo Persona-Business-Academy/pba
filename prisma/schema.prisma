@@ -57,7 +57,7 @@ model OnlineCourse {
   whatYouWillLearn       String[]
   createdAt              DateTime            @default(now()) @db.Timestamp(0)
   updatedAt              DateTime            @updatedAt @db.Timestamp(0)
-  Instructor             Instructor          @relation(fields: [instructorId], references: [id], onDelete: Cascade)
+  Instructor             Instructor          @relation(fields: [instructorId], references: [id])
   comments               CourseComment[]
   days                   OnlineCourseDay[]
   levels                 OnlineCourseLevel[]
@@ -146,6 +146,7 @@ model OfflineCourse {
   ageLimit                 String
   totalDuration            Float                      @default(0)
   courseLevel              SkillLevel
+  forKids                  Boolean                    @default(false)
   graduatedStudentsCount   Int                        @default(0)
   enrolledStudentsCount    Int                        @default(0)
   lessonsCount             Int                        @default(0)
@@ -174,7 +175,7 @@ model OfflineCourseInstructors {
   id              Int           @id @default(autoincrement())
   offlineCourseId Int
   instructorId    Int
-  course          OfflineCourse @relation(fields: [offlineCourseId], references: [id], onDelete: Cascade)
+  course          OfflineCourse @relation(fields: [offlineCourseId], references: [id])
   instructor      Instructor    @relation(fields: [instructorId], references: [id], onDelete: Cascade)
 
   @@unique([offlineCourseId, instructorId], name: "offlineCourseInstructorId")
