@@ -12,8 +12,9 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
           Our Values
         </Heading>
         <Text fontSize="16px" fontWeight="400" lineHeight="21.28px" margin="0">
-          Our five key values guide everything we do, from the way we build relationships with
-          schools and families to the way we work together behind the scenes to make things happen.
+          These 6 values collectively define the ethos of our Persona Business Academy, creating an
+          environment where IT professionals of the future are not only educated but empowered to
+          make a lasting impact on the industry.
         </Text>
       </Box>
 
@@ -37,7 +38,12 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
             mb="22px"
             padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
             <Box mb="36px" width="139px" height="145px">
-              <Image src="/icons/about_value_1.svg" width={138} height={138} alt="Icon" />
+              <Image
+                src="/images/public_available/about_value_1.webp"
+                width={138}
+                height={138}
+                alt="Icon"
+              />
             </Box>
             <UnorderedList listStyleType="none" textAlign="center" margin="0">
               <ListItem
@@ -45,8 +51,8 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 lineHeight="31.92px"
                 fontSize="24px"
                 fontWeight="700"
-                color="#1F1646">
-                Always Follow <span style={{ color: '#FF6131' }}>Up Process</span>
+                color="#FF6131">
+                Lifelong Learning
               </ListItem>
               <ListItem
                 lineHeight="21.28px"
@@ -54,7 +60,9 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 fontWeight="400"
                 color="#5B5B5B"
                 display={{ base: 'none', xl: 'block' }}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Learning doesn't stop at graduation. We instill a passion for lifelong learning,
+                equipping our students with the adaptability to thrive in the ever-evolving
+                landscape of IT.
               </ListItem>
             </UnorderedList>
           </Box>
@@ -69,7 +77,12 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
             alignItems="center"
             padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
             <Box mb="36px" width="139px" height="145px">
-              <Image src="/icons/about_value_2.svg" width={138} height={138} alt="Icon" />
+              <Image
+                src="/images/public_available/about_value_2.webp"
+                width={138}
+                height={138}
+                alt="Icon"
+              />
             </Box>
             <UnorderedList listStyleType="none" textAlign="center" margin="0">
               <ListItem
@@ -77,9 +90,8 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 lineHeight="31.92px"
                 fontSize="24px"
                 fontWeight="700"
-                color="#1F1646">
-                Never Compromise
-                <span style={{ color: '#FF6131' }}> with Quality</span>
+                color="#FF6131">
+                Practical Skill Development
               </ListItem>
               <ListItem
                 lineHeight="21.28px"
@@ -87,7 +99,9 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 fontWeight="400"
                 color="#5B5B5B"
                 display={{ base: 'none', xl: 'block' }}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.{' '}
+                Beyond theory, we emphasize hands-on learning. Our programs focus on practical skill
+                development, enabling students to apply their knowledge effectively in real-world
+                scenarios.
               </ListItem>
             </UnorderedList>
           </Box>
@@ -105,7 +119,12 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
             mb="22px"
             padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
             <Box mb="36px" width="139px" height="145px">
-              <Image src="/icons/about_value_3.svg" width={138} height={138} alt="Icon" />
+              <Image
+                src="/images/public_available/about_value_3.webp"
+                width={138}
+                height={138}
+                alt="Icon"
+              />
             </Box>
             <UnorderedList listStyleType="none" textAlign="center" margin="0">
               <ListItem
@@ -113,8 +132,8 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 lineHeight="31.92px"
                 fontSize="24px"
                 fontWeight="700"
-                color="#1F1646">
-                Speed & <span style={{ color: '#FF6131' }}>Scale</span>
+                color="#FF6131">
+                Global Perspective
               </ListItem>
               <ListItem
                 display={{ base: 'none', xl: 'block' }}
@@ -122,7 +141,9 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 fontSize="16px"
                 fontWeight="400"
                 color="#5B5B5B">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                We provide a global perspective, preparing students for the interconnected world of
+                IT. Our curriculum reflects diverse industry practices, ensuring graduates are
+                globally competitive.
               </ListItem>
             </UnorderedList>
           </Box>
@@ -137,7 +158,12 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
             alignItems="center"
             padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
             <Box mb="36px" width="139px" height="145px">
-              <Image src="/icons/about_value_4.svg" width={138} height={138} alt="Icon" />
+              <Image
+                src="/images/public_available/about_value_4.webp"
+                width={138}
+                height={138}
+                alt="Icon"
+              />
             </Box>
             <UnorderedList listStyleType="none" textAlign="center" margin="0">
               <ListItem
@@ -145,9 +171,8 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 lineHeight="31.92px"
                 fontSize="24px"
                 fontWeight="700"
-                color="#1F1646">
-                Stop Complaining and
-                <span style={{ color: '#FF6131' }}> Start Fixing</span>
+                color="#FF6131">
+                Collaborative Learning
               </ListItem>
               <ListItem
                 display={{ base: 'none', xl: 'block' }}
@@ -155,7 +180,9 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 fontSize="16px"
                 fontWeight="400"
                 color="#5B5B5B">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Collaboration is key. We cultivate an environment where students, faculty, and
+                industry professionals collaborate, share insights, and collectively elevate the
+                learning experience.
               </ListItem>
             </UnorderedList>
           </Box>
@@ -173,7 +200,12 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
             mb="22px"
             padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
             <Box mb="36px" width="139px" height="145px">
-              <Image src="/icons/about_value_5.svg" width={138} height={138} alt="Icon" />
+              <Image
+                src="/images/public_available/about_value_5.webp"
+                width={138}
+                height={138}
+                alt="Icon"
+              />
             </Box>
             <UnorderedList listStyleType="none" textAlign="center" margin="0">
               <ListItem
@@ -181,8 +213,8 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 lineHeight="31.92px"
                 fontSize="24px"
                 fontWeight="700"
-                color="#1F1646">
-                Show Ownership & <span style={{ color: '#FF6131' }}>Accountability</span>
+                color="#FF6131">
+                Professionalism
               </ListItem>
               <ListItem
                 display={{ base: 'none', xl: 'block' }}
@@ -190,7 +222,8 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 fontSize="16px"
                 fontWeight="400"
                 color="#5B5B5B">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Instill a strong sense of professionalism, ethics, and integrity in all aspects of
+                IT education.
               </ListItem>
             </UnorderedList>
           </Box>
@@ -205,7 +238,12 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
             alignItems="center"
             padding={{ base: '64px 17px', xl: '82.24px 39px 134px' }}>
             <Box mb="36px" width="139px" height="145px">
-              <Image src="/icons/about_value_6.svg" width={138} height={138} alt="Icon" />
+              <Image
+                src="/images/public_available/about_value_6.webp"
+                width={138}
+                height={138}
+                alt="Icon"
+              />
             </Box>
             <UnorderedList listStyleType="none" textAlign="center" margin="0">
               <ListItem
@@ -213,8 +251,8 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 lineHeight="31.92px"
                 fontSize="24px"
                 fontWeight="700"
-                color="#1F1646">
-                Be Persistence & <span style={{ color: '#FF6131' }}>Effective Learner</span>
+                color="#FF6131">
+                Technological Agility
               </ListItem>
               <ListItem
                 display={{ base: 'none', sm: 'none', xl: 'block' }}
@@ -222,7 +260,8 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
                 fontSize="16px"
                 fontWeight="400"
                 color="#5B5B5B">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Develop students' technological agility, ensuring they are proficient in the latest
+                tools, languages, and platforms relevant to IT professions.
               </ListItem>
             </UnorderedList>
           </Box>

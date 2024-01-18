@@ -17,7 +17,15 @@ const MissionSection: FC<MissionSectionProps> = () => {
           textAlign="center">
           Our Mission
         </Heading>
-        <Text fontSize="16px" fontWeight="400" lineHeight="21.28px" margin="0"></Text>
+        <Text fontSize="16px" fontWeight="400" lineHeight="21.28px" margin="0">
+          The mission of Persona Business Academy that encompasses learning modules such as Social
+          Media Marketing (SMM), Human Resource Management (HRM), Front-End Development, and other
+          related areas may include the following key objectives: to provide a multifaceted
+          educational experience that equips students with a diverse skill set, to promote a global
+          perspective by integrating international case studies and best practices, to prepare
+          students for successful careers in their chosen fields by providing them with the
+          necessary tools, resources.
+        </Text>
       </Box>
 
       <Box mb={{ base: '36px', md: '100px', xl: '148px' }} color="#222222">
@@ -38,8 +46,7 @@ const MissionSection: FC<MissionSectionProps> = () => {
             </Heading>
             <Text margin="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
               Encourage creative thinking and a forward-looking mindset, empowering students to
-              embrace new ideas and technologies within the ever-evolving business landscape. Նկար
-              19
+              embrace new ideas and technologies within the ever-evolving business landscape.
             </Text>
           </Box>
 
@@ -86,7 +93,7 @@ const MissionSection: FC<MissionSectionProps> = () => {
             </Heading>
             <Text margin="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
               Foster a collaborative environment where diverse perspectives are valued, and teamwork
-              is encouraged to promote a sense of community and mutual growth
+              is encouraged to promote a sense of community and mutual growth.
             </Text>
           </Box>
         </Box>
@@ -108,7 +115,7 @@ const MissionSection: FC<MissionSectionProps> = () => {
             <Text margin="0" lineHeight="21.28px" fontWeight="400" fontSize="16px">
               Cultivate a global mindset and awareness, preparing students to thrive in an
               interconnected world and to address business challenges on both local and
-              international scales
+              international scales.
             </Text>
           </Box>
 
