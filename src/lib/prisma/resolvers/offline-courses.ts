@@ -11,8 +11,6 @@ export class OfflineCoursesResolver {
   static async getOfflineCourseList(queryParams: OnlineCoursesQueryParams) {
     const { topic, limit = 10, offset = 0, q, ...rest } = queryParams;
 
-    console.log(rest['skill-level']);
-
     const conditions = [];
 
     if (rest['skill-level']) {
@@ -22,13 +20,20 @@ export class OfflineCoursesResolver {
     }
 
     if (topic) {
-      conditions.push({ topic });
+      conditions.push({
+        id: {
+          in: topic.split(',').map(id => +id),
+        },
+      });
     }
+
     if (q) {
       conditions.push({ name: { contains: q } });
     }
 
     const whereClause = conditions.length > 0 ? { OR: conditions } : {};
+
+    console.log(topic, whereClause.OR);
 
     const offlineCourses = await prisma.offlineCourse.findMany({
       where: whereClause,
@@ -69,7 +74,7 @@ export class OfflineCoursesResolver {
     });
   }
 
-  static async getOfflineCourseListGrouped() {
+  static async getOfflineCourseGroupedList() {
     const courses = await prisma.offlineCourse.findMany();
 
     const groupedCourses = courses.reduce((group: GroupedCourses, course: OfflineCourse) => {
@@ -80,5 +85,50 @@ export class OfflineCoursesResolver {
     }, {});
 
     return groupedCourses;
+  }
+
+  static async getOfflineCourseSkillsList() {
+    // Fetch all course levels from the database
+    const courses = await prisma.offlineCourse.findMany({
+      select: {
+        id: true,
+        courseLevel: true,
+      },
+    });
+
+    const courseLevels = courses.reduce(
+      (acc: Array<Pick<OfflineCourse, 'id' | 'courseLevel'>>, cur) => {
+        const existingCourseLevel = acc.find(course => course.courseLevel === cur.courseLevel);
+        if (!existingCourseLevel) {
+          acc.push(cur);
+        }
+        return acc;
+      },
+      [],
+    );
+
+    return courseLevels;
+  }
+
+  static async getOfflineCourseDurationsList() {
+    const courses = await prisma.offlineCourse.findMany({
+      select: {
+        id: true,
+        totalDuration: true,
+      },
+    });
+
+    const courseDurations = courses.reduce(
+      (acc: Array<Pick<OfflineCourse, 'id' | 'totalDuration'>>, cur) => {
+        const existingCourseLevel = acc.find(course => course.totalDuration === cur.totalDuration);
+        if (!existingCourseLevel) {
+          acc.push(cur);
+        }
+        return acc;
+      },
+      [],
+    );
+
+    return courseDurations;
   }
 }

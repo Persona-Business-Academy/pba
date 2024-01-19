@@ -1,8 +1,10 @@
 import {
+  OfflineCourseDurationsListModel,
   OfflineCourseItemModel,
   OfflineCourseListGroupedModel,
   OfflineCourseListModel,
   OfflineCourseListNamesModel,
+  OfflineCourseSkillsListModel,
 } from '@/models/offline-course.model';
 import $apiClient from '..';
 
@@ -18,7 +20,15 @@ export class OfflineCourseService {
     return $apiClient.get(`offline-courses/list/names`);
   }
 
-  static getOfflineCourseListGrouped(): Promise<OfflineCourseListGroupedModel> {
-    return $apiClient.get(`offline-courses/list/groupBy`);
+  static getOfflineCourseGroupedList(): Promise<OfflineCourseListGroupedModel> {
+    return $apiClient.get(`offline-courses/grouped/list`);
+  }
+
+  static getOfflineCourseSkillList(): Promise<OfflineCourseSkillsListModel> {
+    return $apiClient.get(`offline-courses/skills/list`);
+  }
+
+  static getOfflineCourseDurationList(): Promise<OfflineCourseDurationsListModel> {
+    return $apiClient.get(`offline-courses/durations/list`);
   }
 }

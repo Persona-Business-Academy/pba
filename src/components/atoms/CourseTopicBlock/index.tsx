@@ -10,6 +10,7 @@ type CourseTopicBlockProps = {
 const CourseTopicBlock: FC<CourseTopicBlockProps> = ({ imgSrc, imgName }) => {
   return (
     <Box
+      cursor="pointer"
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -22,25 +23,22 @@ const CourseTopicBlock: FC<CourseTopicBlockProps> = ({ imgSrc, imgName }) => {
       height="109px"
       sx={{
         '&:hover': {
-          '> block': {
-            scale: 1.2,
+          '> #block': {
+            width: '49px',
+            height: '49px',
           },
           img: {
             width: '29px',
             height: '29px',
           },
         },
-      }}
-	  >
+      }}>
       <Box
+        as="div"
         id="block"
         bg="#C3E7F7"
-        transition="width"
-        position="absolute"
-        top="20px"
-        left="50%"
-        transform="translateX(-50%)"
-        transitionDuration="0.2s"
+        transition="all"
+        transitionDuration="0.3s"
         width="40px"
         background="#FFF"
         boxShadow="0px 6px 12px 0px rgba(0, 0, 0, 0.10)"
@@ -48,6 +46,7 @@ const CourseTopicBlock: FC<CourseTopicBlockProps> = ({ imgSrc, imgName }) => {
         display="flex"
         justifyContent="center"
         alignItems="center"
+        mt="-30px"
         borderRadius="7px">
         <Image
           src={imgSrc}
@@ -55,20 +54,22 @@ const CourseTopicBlock: FC<CourseTopicBlockProps> = ({ imgSrc, imgName }) => {
           height={24}
           alt={imgName}
           style={{
-            transition: 'all 0.2s',
+            transition: 'all 0.3s',
           }}
         />
       </Box>
 
       <Text
         as="span"
+        width="100%"
         fontWeight="700"
         fontSize="16px"
         lineHeight="21.28px"
         position="absolute"
         bottom="16px"
-        left="50%"
-        transform="translateX(-50%)">
+        mx="auto"
+        display="flex"
+        justifyContent="center">
         {imgName}
       </Text>
     </Box>

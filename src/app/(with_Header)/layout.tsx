@@ -5,7 +5,7 @@ import { serverSession } from '@/pages/api/auth/[...nextauth]';
 
 export default async function HeaderLayout({ children }: { children: React.ReactNode }) {
   const session = await serverSession();
-  const forIndividuals = await OfflineCourseService.getOfflineCourseListGrouped();
+  const forIndividuals = await OfflineCourseService.getOfflineCourseGroupedList();
 
   return (
     <>
