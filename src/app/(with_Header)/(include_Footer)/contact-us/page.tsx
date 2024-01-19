@@ -28,7 +28,8 @@ const Contact = () => {
             How can we help?
           </Heading>
           <Text as="p" margin="0" fontWeight={400} lineHeight="26.6px" fontSize="20px">
-            A member of our team would love to help youwith your query.
+            We're here to assist you. Whether you have a question, feedback, or need support, we'd
+            love to hear from you.
           </Text>
         </Box>
       </Box>
@@ -55,7 +56,7 @@ const Contact = () => {
               lineHeight="36px"
               fontSize={{ base: '28px', lg: '30px' }}
               fontWeight="800">
-              Get in touch
+              Customer Support
             </Heading>
 
             <Text
@@ -65,8 +66,8 @@ const Contact = () => {
               fontSize="16px"
               color="#6B7280"
               fontWeight={400}>
-              Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet.
-              Sapien tortor lacus arcu.
+              For inquiries regarding our products or assistance with an order, our dedicated
+              customer support team is ready to help.
             </Text>
 
             <Box
@@ -79,26 +80,14 @@ const Contact = () => {
               color="#6B7280">
               <Flex flexDirection="column">
                 <Text as="p" margin="0">
-                  742 Evergreen Terrace
-                </Text>
-                <Text as="p" margin="0">
-                  Springfield, OR 12345
+                  Yervand Kochar 20, Yerevan
                 </Text>
               </Flex>
 
               <Box display="flex" gap="13px" flexDirection="column">
                 <Flex gap="12px">
-                  <Image
-                    src="./icons/contact_phone_icon.svg"
-                    alt="Call Us"
-                    width={24}
-                    height={24}
-                  />
-                  <Text as="span">+1 (555) 123-4567</Text>
-                </Flex>
-                <Flex gap="12px">
                   <Image src="./icons/contact_mail_icon.svg" alt="Call Us" width={24} height={24} />
-                  <Text as="span">support@example.com</Text>
+                  <Text as="span">training@pba.am</Text>
                 </Flex>
               </Box>
 
@@ -122,8 +111,8 @@ const Contact = () => {
                 Contact sales
               </Heading>
               <Text color="#6B7280" as="span" lineHeight="22px" fontSize="16px" fontWeight={400}>
-                Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst
-                amet. Sapien tortor lacus arcu.
+                If you're experiencing technical issues with our products or services, our technical
+                support team is here to assist you.
               </Text>
             </Box>
 
@@ -232,100 +221,121 @@ const Contact = () => {
                 Yerevan, Armenia
               </Text>
               <Text fontWeight={400} lineHeight="22px" fontSize="16px" as="span">
-                20 Yervand Kochar St, Yerevan 0070
-              </Text>
-            </Box>
-            <Box>
-              <Text margin="0 0 16px 0" fontWeight={700} lineHeight="36px" fontSize="28px" as="p">
-                Yerevan, Armenia
-              </Text>
-              <Text fontWeight={400} lineHeight="22px" fontSize="16px" as="span">
-                05 Sayat Nova St, Yerevan 0070
+                20 Yervand Kochar St, 0070
               </Text>
             </Box>
           </Box>
 
           <Box display="flex" width="100%" justifyContent="center" gap="36px" flexWrap="wrap">
-            <Box display="flex" alignItems="center" gap="24px">
-              <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
-                <Image
-                  src="/images/public_available/social_facebook.png"
-                  alt="Social_icon"
-                  width={78}
-                  height={78}
-                />
-              </Box>
+            <a target="_blank" href="https://www.facebook.com/personabusinessacademy">
+              <Box display="flex" alignItems="center" gap="24px">
+                <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
+                  <Image
+                    src="/images/public_available/social_facebook.png"
+                    alt="Social_icon"
+                    width={78}
+                    height={78}
+                  />
+                </Box>
 
-              <Box display={{ base: 'none', lg: 'block' }}>
-                <Text as="p" margin="0 0 8px 0" fontWeight={400} lineHeight="22px" fontSize="16px">
-                  <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Join</span> our
-                </Text>
-                <Text as="span" fontWeight={400} lineHeight="22px" fontSize="16px">
-                  Facebook
-                </Text>
+                <Box display={{ base: 'none', lg: 'block' }}>
+                  <Text
+                    as="p"
+                    margin="0 0 8px 0"
+                    fontWeight={400}
+                    lineHeight="22px"
+                    fontSize="16px">
+                    <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Join</span> our
+                  </Text>
+                  <Text as="span" fontWeight={400} lineHeight="22px" fontSize="16px">
+                    Facebook
+                  </Text>
+                </Box>
               </Box>
-            </Box>
+            </a>
+            <a
+              target="_blank"
+              href="https://youtube.com/@personabusinessacademy?si=MXVSd_7svcYuZDdc">
+              <Box display="flex" alignItems="center" gap="24px">
+                <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
+                  <Image
+                    src="/images/public_available/social_youtube.png"
+                    alt="Social_icon"
+                    width={78}
+                    height={78}
+                  />
+                </Box>
 
-            <Box display="flex" alignItems="center" gap="24px">
-              <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
-                <Image
-                  src="/images/public_available/social_youtube.png"
-                  alt="Social_icon"
-                  width={78}
-                  height={78}
-                />
+                <Box display={{ base: 'none', lg: 'block' }}>
+                  <Text
+                    as="p"
+                    margin="0 0 8px 0"
+                    fontWeight={400}
+                    lineHeight="22px"
+                    fontSize="16px">
+                    <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Watch</span> our
+                  </Text>
+                  <Text as="span" fontWeight={400} lineHeight="22px" fontSize="16px">
+                    YouTube videos
+                  </Text>
+                </Box>
               </Box>
+            </a>
+            <a target="_blank" href="https://www.instagram.com/persona_business_academy/">
+              <Box display="flex" alignItems="center" gap="24px">
+                <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
+                  <Image
+                    src="/images/public_available/social_instagram.png"
+                    alt="Social_icon"
+                    width={78}
+                    height={78}
+                  />
+                </Box>
 
-              <Box display={{ base: 'none', lg: 'block' }}>
-                <Text as="p" margin="0 0 8px 0" fontWeight={400} lineHeight="22px" fontSize="16px">
-                  <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Watch</span> our
-                </Text>
-                <Text as="span" fontWeight={400} lineHeight="22px" fontSize="16px">
-                  YouTube videos
-                </Text>
+                <Box display={{ base: 'none', lg: 'block' }}>
+                  <Text
+                    as="p"
+                    margin="0 0 8px 0"
+                    fontWeight={400}
+                    lineHeight="22px"
+                    fontSize="16px">
+                    <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Follow</span> us on
+                  </Text>
+                  <Text as="span" fontWeight={400} lineHeight="22px" fontSize="16px">
+                    Instagram
+                  </Text>
+                </Box>
               </Box>
-            </Box>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/school/persona-business-academy/?originalSubdomain=am">
+              <Box display="flex" alignItems="center" gap="24px">
+                <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
+                  <Image
+                    src="/images/public_available/social_linkedin.png"
+                    alt="Social_icon"
+                    width={78}
+                    height={78}
+                  />
+                </Box>
 
-            <Box display="flex" alignItems="center" gap="24px">
-              <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
-                <Image
-                  src="/images/public_available/social_instagram.png"
-                  alt="Social_icon"
-                  width={78}
-                  height={78}
-                />
+                <Box display={{ base: 'none', lg: 'block' }}>
+                  <Text
+                    as="p"
+                    margin="0 0 8px 0"
+                    fontWeight={400}
+                    lineHeight="22px"
+                    fontSize="16px">
+                    <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Connect</span> with
+                    us on
+                  </Text>
+                  <Text as="span" fontWeight={400} lineHeight="22px" fontSize="16px">
+                    Linkedin
+                  </Text>
+                </Box>
               </Box>
-
-              <Box display={{ base: 'none', lg: 'block' }}>
-                <Text as="p" margin="0 0 8px 0" fontWeight={400} lineHeight="22px" fontSize="16px">
-                  <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Follow</span> us on
-                </Text>
-                <Text as="span" fontWeight={400} lineHeight="22px" fontSize="16px">
-                  Instagram
-                </Text>
-              </Box>
-            </Box>
-
-            <Box display="flex" alignItems="center" gap="24px">
-              <Box width={{ base: '36px', lg: '78px' }} height={{ base: '36px', lg: '78px' }}>
-                <Image
-                  src="/images/public_available/social_facebook.png"
-                  alt="Social_icon"
-                  width={78}
-                  height={78}
-                />
-              </Box>
-
-              <Box display={{ base: 'none', lg: 'block',  }}>
-                <Text as="p" margin="0 0 8px 0" fontWeight={400} lineHeight="22px" fontSize="16px">
-                  <span style={{ fontWeight: '700', lineHeight: '21.28px' }}>Connect</span> with us
-                  on
-                </Text>
-                <Text as="span" fontWeight={400} lineHeight="22px" fontSize="16px">
-                  Connect
-                </Text>
-              </Box>
-            </Box>
+            </a>
           </Box>
         </Flex>
       </Box>

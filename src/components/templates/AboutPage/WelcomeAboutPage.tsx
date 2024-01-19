@@ -27,7 +27,7 @@ const WelcomeAboutPage: FC<WelcomeAboutPageProps> = () => {
           fontSize={{ base: '28px', xl: '44px' }}
           fontWeight="700"
           lineHeight={{ md: '37.4px', xl: '56.64px' }}>
-          Hi, were Persona
+          Hi, we are Persona
           <br />
         </Text>
         And were changing the way people think and feel about training.
