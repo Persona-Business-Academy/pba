@@ -11,8 +11,9 @@ const OutlinedButton: FC<OutlinedButtonProps> = ({ children }) => {
     <Button
       bg="white"
       color="#222"
-      width="148px"
+      padding="16px 32px"
       height="56px"
+      width="auto"
       fontWeight={700}
       border="1px solid #E5EEFF"
       fontSize="16px"
