@@ -94,7 +94,8 @@ const KidsCourses: FC<Props> = () => {
               mb={{ base: '24px', md: '32px' }}
               fontStyle="normal"
               lineHeight="22px">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying.
+              Empower young minds with knowledge - where every course becomes a stepping stone to a
+              future filled with endless possibilities
             </Text>
             <InputGroup>
               <Input
