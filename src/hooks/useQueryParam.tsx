@@ -37,6 +37,9 @@ const useQueryParams = (): FilterState => {
 
   const addSingleSearchParam = useCallback(
     ({ filterBy, value }: ValueType) => {
+      if (updatedSearchParams.get(filterBy)) {
+        updatedSearchParams.delete(filterBy);
+      }
       updatedSearchParams.set(filterBy, value);
       router.push('?' + updatedSearchParams.toString());
     },

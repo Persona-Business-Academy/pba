@@ -1,5 +1,6 @@
 'use client';
 import { Topic } from '@prisma/client';
+import { KidsCourseGroupListModel } from '@/models/kids-course.model';
 import { OfflineCourseListGroupedModel } from '@/models/offline-course.model';
 import {
   ABOUT_ROUTE,
@@ -10,7 +11,10 @@ import {
 } from '../constants/routes';
 import { NavItem } from '../models/header';
 
-export const getNavigationItems = (courseData: OfflineCourseListGroupedModel): NavItem[] => [
+export const getNavigationItems = (
+  courseData: OfflineCourseListGroupedModel,
+  forKids: KidsCourseGroupListModel,
+): NavItem[] => [
   {
     label: 'For Individuals',
     href: OFFLINE_COURSES_ROUTE,
@@ -78,34 +82,12 @@ export const getNavigationItems = (courseData: OfflineCourseListGroupedModel): N
       {
         id: 1,
         label: 'Development',
-        subLabels: [
-          {
-            id: 1,
-            title: 'HTML',
-          },
-          {
-            id: 2,
-            title: 'CSS',
-          },
-          {
-            id: 3,
-            title: 'JS',
-          },
-        ],
+        subLabels: forKids[Topic.DEVELOPMENT],
       },
       {
         id: 2,
         label: 'Design',
-        subLabels: [
-          {
-            id: 3,
-            title: 'UI/UX Design',
-          },
-          {
-            id: 7,
-            title: 'Graphic Design',
-          },
-        ],
+        subLabels: forKids[Topic.DESIGN],
       },
       {
         id: 3,

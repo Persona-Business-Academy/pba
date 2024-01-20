@@ -1,26 +1,35 @@
 import React, { FC } from 'react';
 import { Box, Flex, GridItem, Text } from '@chakra-ui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/atoms';
+import { FOR_KIDS_ROUTE } from '@/utils/constants/routes';
 
-type KidsCourseItemProps = {};
+type KidsCourseItemProps = {
+  title: string;
+  subTitle: string;
+  price: number;
+  totalDuration: number;
+  courseLevel: string;
+  id: number;
+};
 
-const KidsCourseItem: FC<KidsCourseItemProps> = () => {
+const KidsCourseItem: FC<KidsCourseItemProps> = ({
+  title,
+  subTitle,
+  price,
+  totalDuration,
+  courseLevel,
+  id,
+}) => {
   return (
-    <GridItem width="387px">
+    <GridItem width="387px" as={Link} href={`${FOR_KIDS_ROUTE}/${id}`}>
       <Box borderRadius="12px 12px 0px 0px" overflow="hidden" height="242px" position="relative">
         <Image
           src="/images/public_available/courses_img.jpg"
           alt="Kids offline courses"
           width={387}
           height={242}
-        />
-        <Image
-          width={24}
-          height={24}
-          alt="Heart icon"
-          src="/icons/heart_icon.svg"
-          style={{ position: 'absolute', right: '24px', top: '24px' }}
         />
       </Box>
       <Box
@@ -37,14 +46,16 @@ const KidsCourseItem: FC<KidsCourseItemProps> = () => {
           lineHeight="normal"
           color="#222">
           <Text as="span" fontSize="24px">
-            Graphic Design
+            {title}
           </Text>
-          <Text as="span" fontSize="16px">
-            100$/month
+          <Text as="span" fontSize="16px" display="flex">
+            {price}
+            <Image src="/icons/dram.svg" alt="dram" width={13} height={13} />
+            /month
           </Text>
         </Flex>
         <Text fontSize="16px" fontStyle="normal" fontWeight={400} lineHeight="22px" color="#222">
-          Get inspired by this revived W.H. Auden's Hymn to the United Nations.
+          {subTitle}
         </Text>
         <Flex display="flex" alignItems="center" gap="21.72px" my="16px">
           <Flex gap="8.14px">
@@ -56,7 +67,7 @@ const KidsCourseItem: FC<KidsCourseItemProps> = () => {
                 fontWeight: 400,
                 lineHeight: 'normal',
               }}>
-              3 month
+              {totalDuration} month
             </span>
           </Flex>
           <Flex gap="8.14px">
@@ -68,7 +79,7 @@ const KidsCourseItem: FC<KidsCourseItemProps> = () => {
                 fontWeight: 400,
                 lineHeight: 'normal',
               }}>
-              Open level
+              {courseLevel} level
             </span>
           </Flex>
         </Flex>

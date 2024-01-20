@@ -1,6 +1,7 @@
 import { OfflineCourse } from '@prisma/client';
 import { NotFoundException } from 'next-api-decorators';
 import { OnlineCoursesQueryParams } from '@/types/queryParams';
+import { SkillLevelType } from '@/utils/models/common';
 import prisma from '..';
 
 type GroupedCourses = {
@@ -9,43 +10,59 @@ type GroupedCourses = {
 
 export class OfflineCoursesResolver {
   static async getOfflineCourseList(queryParams: OnlineCoursesQueryParams) {
-    const { topic, limit = 10, offset = 0, q, ...rest } = queryParams;
+    const { limit = 10, offset = 0, q, title, duration, ...rest } = queryParams;
 
     const conditions = [];
 
-    if (rest['skill-level']) {
+    if (title) {
       conditions.push({
-        courseLevel: rest['skill-level'],
+        id: {
+          in: title.split(',').map(id => +id),
+        },
       });
     }
 
-    if (topic) {
+    if (duration) {
       conditions.push({
-        id: {
-          in: topic.split(',').map(id => +id),
+        totalDuration: {
+          in: duration.split(',').map(id => +id),
+        },
+      });
+    }
+
+    if (rest['skill-level']) {
+      conditions.push({
+        courseLevel: {
+          in: rest['skill-level'].split(','),
+        },
+      });
+    }
+
+    if (rest['skill-level']) {
+      const skillLevels = rest['skill-level'].split(',') as SkillLevelType[];
+
+      conditions.push({
+        courseLevel: {
+          in: skillLevels,
         },
       });
     }
 
     if (q) {
-      conditions.push({ name: { contains: q } });
+      conditions.push({ title: { contains: q } });
     }
 
     const whereClause = conditions.length > 0 ? { OR: conditions } : {};
 
-    console.log(topic, whereClause.OR);
-
-    const offlineCourses = await prisma.offlineCourse.findMany({
-      where: whereClause,
+    return prisma.offlineCourse.findMany({
+      where: { forKids: false, ...whereClause },
       skip: offset,
       take: limit,
     });
-
-    return offlineCourses;
   }
   static async getOfflineCourseById(id: number) {
     const offlineCourse = await prisma.offlineCourse.findUnique({
-      where: { id },
+      where: { id, forKids: false },
       include: {
         OfflineCourseInstructors: true,
       },
@@ -67,6 +84,9 @@ export class OfflineCoursesResolver {
 
   static async getOfflineCourseListNames() {
     return prisma.offlineCourse.findMany({
+      where: {
+        forKids: false,
+      },
       select: {
         id: true,
         title: true,
@@ -75,7 +95,11 @@ export class OfflineCoursesResolver {
   }
 
   static async getOfflineCourseGroupedList() {
-    const courses = await prisma.offlineCourse.findMany();
+    const courses = await prisma.offlineCourse.findMany({
+      where: {
+        forKids: false,
+      },
+    });
 
     const groupedCourses = courses.reduce((group: GroupedCourses, course: OfflineCourse) => {
       const { topic } = course;
@@ -90,6 +114,9 @@ export class OfflineCoursesResolver {
   static async getOfflineCourseSkillsList() {
     // Fetch all course levels from the database
     const courses = await prisma.offlineCourse.findMany({
+      where: {
+        forKids: false,
+      },
       select: {
         id: true,
         courseLevel: true,
@@ -112,6 +139,9 @@ export class OfflineCoursesResolver {
 
   static async getOfflineCourseDurationsList() {
     const courses = await prisma.offlineCourse.findMany({
+      where: {
+        forKids: false,
+      },
       select: {
         id: true,
         totalDuration: true,

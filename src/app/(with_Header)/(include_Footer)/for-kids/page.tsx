@@ -11,26 +11,35 @@ import {
   Flex,
   Grid,
   Heading,
-  Input,
-  InputGroup,
-  InputRightElement,
   ListItem,
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
+import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
-import InputSearchIcon from '/public/icons/search_icon.svg';
 import PlusIcon from 'public/icons/plus_pricing_icon.svg';
 import AddIcon from 'public/icons/xmark_pricing_icon.svg';
-import { Button } from '@/components/atoms';
+import { KidsCourseService } from '@/api/services/KidsCourseService';
+import { Button, Loading } from '@/components/atoms';
+import SearchInput from '@/components/atoms/SearchInput';
 import KidsCourseItem from '@/components/molecules/KidsCourseItem';
+import { KidsCourse } from '@/models/kids-course.model';
 import { segoe } from '@/utils/constants/fonts';
 
-type Props = {};
+type Props = {
+  searchParams: {
+    [key: string]: string;
+  };
+};
 
-const KidsCourses: FC<Props> = () => {
+const KidsCourses: FC<Props> = ({ searchParams }) => {
+  const { data: kidsCourseData, isLoading } = useQuery(['kids-courses', searchParams], () =>
+    KidsCourseService.getKidsCourseList(searchParams),
+  );
+
   return (
     <>
+      {isLoading && <Loading />}
       <Flex
         as="section"
         backgroundColor="#F6FCFF"
@@ -52,32 +61,9 @@ const KidsCourses: FC<Props> = () => {
               marginBottom="16px"
               fontStyle="normal"
               lineHeight="normal">
-              Courses
+              Kids Offline Courses
             </Heading>
-            <Text
-              fontSize="16px"
-              fontWeight={400}
-              color="#222222"
-              mb={{ base: '24px', md: '32px' }}
-              fontStyle="normal"
-              lineHeight="22px">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying.
-            </Text>
-            <InputGroup>
-              <Input
-                placeholder="What are you looking for?"
-                borderRadius="12px"
-                border="1px solid #F9FAFB"
-                background="#FFF"
-                color="#C0C0C0"
-                fontSize="16px"
-                fontWeight={400}
-                fontStyle="normal"
-                lineHeight="22px"
-                padding="12px 16px"
-              />
-              <InputRightElement width="45px">{<InputSearchIcon />}</InputRightElement>
-            </InputGroup>
+            <SearchInput />
           </Box>
           <Box borderRadius="38px" overflow="hidden">
             <Image
@@ -100,7 +86,7 @@ const KidsCourses: FC<Props> = () => {
             color="#222222"
             m=" 0 0 24px 0"
             textAlign="center">
-            Find the right article for you
+            Find the right course for you
           </Heading>
 
           <Flex justifyContent="space-between" my="40px">
@@ -117,7 +103,17 @@ const KidsCourses: FC<Props> = () => {
             justifyContent="center"
             alignItems="center"
             justifyItems="center">
-            <KidsCourseItem />
+            {kidsCourseData?.map((course: KidsCourse) => (
+              <KidsCourseItem
+                key={course.id}
+                id={course.id}
+                title={course.title}
+                subTitle={course.subTitle}
+                price={course.price}
+                totalDuration={course.totalDuration}
+                courseLevel={course.courseLevel}
+              />
+            ))}
           </Grid>
         </Flex>
 
@@ -184,7 +180,6 @@ const KidsCourses: FC<Props> = () => {
             It's time to elevate your skills
           </Heading>
           <Flex gap={{ base: '16px', md: '0' }} flexDirection={{ base: 'column', md: 'row' }}>
-            {/*  */}
             <Box
               _hover={{
                 borderBottom: '8px solid #3CB4E7',
@@ -229,16 +224,15 @@ const KidsCourses: FC<Props> = () => {
                 Cras aliquet purus dui laoreet diam sed lacus, fame
               </Text>
             </Box>
-            {/*  */}
             <Box
               _hover={{
                 borderBottom: '8px solid #3CB4E7',
                 marginTop: '24px',
-                transition: 'all 0.5s ',
               }}
               p="32px"
               boxShadow="0px -4px 4px -1px rgba(0, 0, 0, 0.06)"
               width={400}
+              transition="all 0.3s"
               height={333}>
               <Box
                 borderRadius="86px"
@@ -274,16 +268,15 @@ const KidsCourses: FC<Props> = () => {
                 Cras aliquet purus dui laoreet diam sed lacus, fame
               </Text>
             </Box>
-            {/*  */}
             <Box
               _hover={{
                 borderBottom: '8px solid #3CB4E7',
                 marginTop: '24px',
-                transition: 'all 0.3s ',
               }}
               p="32px"
               boxShadow="0px -4px 4px -1px rgba(0, 0, 0, 0.06)"
               width={400}
+              transition="all 0.3s"
               height={333}>
               <Box
                 borderRadius="86px"

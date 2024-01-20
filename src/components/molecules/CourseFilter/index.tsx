@@ -15,12 +15,9 @@ import { segoe } from '@/utils/constants/fonts';
 import CourseFilterItem from '../CourseFilterItem';
 
 type CourseFilterProps = {
-  queryParams: {
-    [key: string]: string;
-  };
   courseTopicDataList: TopicHandlerItem[];
   courseSkillsDataList: { id: number; title: string; value: string }[];
-  courseDurationsDataList: { id: number; title: number; value: number }[];
+  courseDurationsDataList: { id: number; title: string; value: number }[];
 };
 
 const CourseFilter: FC<CourseFilterProps> = ({
@@ -46,7 +43,7 @@ const CourseFilter: FC<CourseFilterProps> = ({
                   id={id}
                   key={id}
                   value={id.toString()}
-                  filterBy="course"
+                  filterBy="title"
                 />
               ))}
             </AccordionPanel>
