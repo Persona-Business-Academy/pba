@@ -65,6 +65,7 @@ export class OfflineCoursesResolver {
       where: { id, forKids: false },
       include: {
         OfflineCourseInstructors: true,
+        OfflineCourseVideo: true,
       },
     });
 

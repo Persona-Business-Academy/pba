@@ -623,12 +623,12 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                 width="800px"
                 gap={{ base: '0', sm: '0', md: '30px', lg: '80px', xl: '132px' }}>
                 <Box
-                  maxWidth="821px"
+                  maxWidth="850px"
                   display="flex"
                   flexDirection="column"
                   alignItems="center"
                   position="relative">
-                  <Slide />
+                  <Slide offlineCourseVideo={offlineCourse.OfflineCourseVideo} />
                 </Box>
               </Flex>
             </Box>
