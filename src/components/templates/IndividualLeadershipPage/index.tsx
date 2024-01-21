@@ -64,19 +64,28 @@ const LeadershipIndividualPage: FC<LeadershipIndividualPageProps> = ({ member })
                 alt={`${member.firstName} ${member.lastName} `}
               />
             </Box>
-            <Text
-              as={Link}
-              href={member.linkedinAccount}
-              display="inline-block"
-              textAlign="center"
-              fontSize="16px"
-              fontWeight={400}
-              textDecorationLine="underline"
-              color="#222">
-              View LinkedIn page
-            </Text>
+            <Flex justifyContent="center">
+              <Text
+                as={Link}
+                href={member.linkedinAccount}
+                textAlign="center"
+                display="inline-block"
+                fontSize="16px"
+                fontWeight={400}
+                color="#222"
+                borderBottom="1px solid"
+                borderColor="#222"
+                paddingBottom="2px"
+                _hover={{
+                  color: '#5B5B5B',
+                  borderColor: '#5B5B5B',
+                }}>
+                View Linkedin page
+              </Text>
+            </Flex>
           </Box>
-          <Box width="793px">
+
+          <Box width="793px" alignSelf="flex-start">
             <Text
               color="#000"
               fontSize="16px"

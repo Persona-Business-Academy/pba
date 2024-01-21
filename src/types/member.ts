@@ -47,7 +47,23 @@ export const exLeadershipData: MemberType[] = [
 ];
 
 export const teachersData: MemberType[] = [
-  ...exLeadershipData,
+  {
+    id: 2,
+    firstName: 'Liana',
+    avatarSrc: '/images/public_available/lian_manusajyan.webp',
+    lastName: 'Manusajyan',
+    enrolledStudents: 45,
+    graduatedStudents: 43,
+    position: 'Head of Legal & Branding Department, Co-Founder',
+    linkedinAccount: 'https://www.linkedin.com/in/liana-manusajyan-it-tech-lawyer-bb617b13b/',
+    biography: `Liana Manusajyan is a Co-Founder & Head of Legal & Branding Department at PBA, Owner of Manusajyan Business & Law firm, Entrepreneur and Licensed Attorney having in portfolio more than 9 years of experience as Business/IT/IP/Tech Lawyer in doing legal consultations, court representations, document making, contracts, NDAs, negotiations, ADR /alternative disputeresolution/ working for many Armenian and foreign companies.   
+    She has a large experience in leading teams, using E-Platforms.  
+    Liana has extensive experience in various projects such as  
+    -Manusajyan Business & Law Firm Founder, CEO, Licensed Advocate in International law,Business/IT/IP/Tech law   
+    -Persona Business Academy, Co- Founder, Lawyer, Business Law & ADR trainer   
+    - European University in Armenia, Business Law trainer Have a Leadership Certificate from School for Young Leaders, IVLP /USG/ Alumni  
+    Along with work, he also teaches in the academy both online and offline platforms and has more than 40+ successfully graduated students`,
+  },
   {
     id: 5,
     enrolledStudents: 158,

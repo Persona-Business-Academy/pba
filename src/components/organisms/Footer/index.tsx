@@ -12,11 +12,10 @@ const Footer = async () => {
   const kidsCourseListNames = await KidsCourseService.getOfflineCourseListNames();
 
   return (
-    <Stack bg="#F9FAFB" width="100%" minHeight="auto">
+    <Stack bg="#F9FAFB" width="100%" minHeight="auto" pt="20px">
       <Container
         maxWidth={1200}
         margin="0 auto"
-        marginTop={{ base: '10px', md: '66px' }}
         marginBottom={66.14}
         fontSize={{ base: '14px', sm: '16px' }}
         fontWeight={400}
@@ -90,7 +89,9 @@ const Footer = async () => {
                   Terms & Conditions
                 </Text>
                 <Text>|</Text>
-                <Text>Privacy</Text>
+                <Text as={Link} href={`${TERMS_AND_CONDITIONS_ROUTE}?selected=12`}>
+                  Privacy
+                </Text>
               </Flex>
             </Box>
           </Flex>

@@ -137,13 +137,13 @@ export const getNavigationItems = (
     featuredItems: [],
   },
   {
-    label: 'About',
+    label: 'About us',
     href: ABOUT_ROUTE,
     children: [],
     featuredItems: [],
   },
   {
-    label: 'Contact Us',
+    label: 'Contact us',
     href: CONTACT_US_ROUTE,
     children: [],
     featuredItems: [],

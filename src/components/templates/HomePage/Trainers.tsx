@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { teachersData } from '@/types/member';
+import { LEADERSHIP_ROUTE } from '@/utils/constants/routes';
 const TrainerCard = dynamic(() => import('@/components/molecules/TrainerCard'));
 
 type TrainersProps = {};
@@ -28,6 +30,11 @@ const Trainers: FC<TrainersProps> = () => {
           <TrainerCard key={trainer.id} trainer={trainer} />
         ))}
       </Box>
+      <Flex justifyContent="center" marginTop="30px">
+        <Text as={Link} href={LEADERSHIP_ROUTE}>
+          View More
+        </Text>
+      </Flex>
     </Box>
   );
 };

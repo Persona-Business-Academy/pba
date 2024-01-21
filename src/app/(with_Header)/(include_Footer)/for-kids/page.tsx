@@ -76,46 +76,28 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
         </Flex>
       </Flex>
       <Container maxWidth={1200} px={{ base: '16px', xl: '0px' }}>
-        <Flex flexDirection="column">
-          <Heading
-            className={segoe.className}
-            fontSize="28px"
-            fontWeight={700}
-            fontStyle="normal"
-            lineHeight="36px"
-            color="#222222"
-            m=" 0 0 24px 0"
-            textAlign="center">
-            Find the right course for you
-          </Heading>
-
-          <Flex justifyContent="space-between" my="40px">
-            <Text as="span">Filter</Text>
-            <Text as="span">Skill level</Text>
-          </Flex>
-          <Grid
-            gridGap="20px"
-            templateColumns={{
-              base: 'repeat(auto-fill, minmax(300px, 387px))',
-              md: 'repeat(auto-fill, minmax(380px, 1fr))',
-            }}
-            mb={{ base: '20px', md: '64px' }}
-            justifyContent="center"
-            alignItems="center"
-            justifyItems="center">
-            {kidsCourseData?.map((course: KidsCourse) => (
-              <KidsCourseItem
-                key={course.id}
-                id={course.id}
-                title={course.title}
-                subTitle={course.subTitle}
-                price={course.price}
-                totalDuration={course.totalDuration}
-                courseLevel={course.courseLevel}
-              />
-            ))}
-          </Grid>
-        </Flex>
+        <Grid
+          gridGap="20px"
+          templateColumns={{
+            base: 'repeat(auto-fill, minmax(300px, 387px))',
+            md: 'repeat(auto-fill, minmax(380px, 1fr))',
+          }}
+          mb={{ base: '20px', md: '64px' }}
+          justifyContent="center"
+          alignItems="center"
+          justifyItems="center">
+          {kidsCourseData?.map((course: KidsCourse) => (
+            <KidsCourseItem
+              key={course.id}
+              id={course.id}
+              title={course.title}
+              subTitle={course.subTitle}
+              price={course.price}
+              totalDuration={course.totalDuration}
+              courseLevel={course.courseLevel}
+            />
+          ))}
+        </Grid>
 
         <Flex
           flexDirection={{ base: 'column', lg: 'row' }}

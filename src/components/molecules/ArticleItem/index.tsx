@@ -1,6 +1,5 @@
 import React, { FC, memo } from 'react';
 import { Box, ListItem, UnorderedList } from '@chakra-ui/react';
-import Image from 'next/image';
 
 type ArticleItemProps = {
   articleTitle: string;
@@ -9,12 +8,7 @@ type ArticleItemProps = {
   viewCount: number;
 };
 
-const ArticleItem: FC<ArticleItemProps> = ({
-  articleTitle,
-  articleDescription,
-  articleDate,
-  viewCount,
-}) => {
+const ArticleItem: FC<ArticleItemProps> = ({ articleTitle, articleDescription, articleDate }) => {
   return (
     <Box
       flexGrow="1"
@@ -46,7 +40,7 @@ const ArticleItem: FC<ArticleItemProps> = ({
           {articleDate}
         </ListItem>
 
-        <ListItem
+        {/* <ListItem
           fontSize="16px"
           lineHeight="21.28px"
           fontWeight="400"
@@ -57,7 +51,7 @@ const ArticleItem: FC<ArticleItemProps> = ({
             <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
           </span>
           {viewCount}
-        </ListItem>
+        </ListItem> */}
       </UnorderedList>
     </Box>
   );

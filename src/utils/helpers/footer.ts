@@ -3,6 +3,7 @@ import { OfflineCourseListNamesModel } from '@/models/offline-course.model';
 import {
   ABOUT_ROUTE,
   ARTICLES_ROUTE,
+  CAREERS_ROUTE,
   CONTACT_US_ROUTE,
   FOR_KIDS_ROUTE,
   LEADERSHIP_ROUTE,
@@ -70,14 +71,14 @@ export const footerData = (
         name: 'Partners',
         href: ABOUT_ROUTE,
       },
-      // {
-      //   name: 'Become a Teacher',
-      //   href: TERMS_AND_CONDITIONS_ROUTE,
-      // },
-      // {
-      //   name: 'Job Position',
-      //   href: TERMS_AND_CONDITIONS_ROUTE,
-      // },
+      {
+        name: 'Job Position',
+        href: CAREERS_ROUTE,
+      },
+      {
+        name: 'Careers',
+        href: CAREERS_ROUTE,
+      },
     ],
   },
 ];
