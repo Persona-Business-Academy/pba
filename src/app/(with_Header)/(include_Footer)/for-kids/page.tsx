@@ -1,6 +1,5 @@
 'use client';
 
-import { FC } from 'react';
 import {
   Accordion,
   AccordionButton,
@@ -32,10 +31,43 @@ type Props = {
   };
 };
 
-const KidsCourses: FC<Props> = ({ searchParams }) => {
+const KidsCourses = ({ searchParams }: Props) => {
   const { data: kidsCourseData, isLoading } = useQuery(['kids-courses', searchParams], () =>
     KidsCourseService.getKidsCourseList(searchParams),
   );
+
+  const questionsKidsPage = [
+    {
+      id: 1,
+      question: 'What age group is the Persona Kids Academy suitable for?',
+      answer:
+        'The academy is tailored for children aged 9-16, providing age-appropriate activities and learning experiences.',
+    },
+    {
+      id: 2,
+      question: 'Are the classes focused on practical skills?',
+      answer:
+        'Yes, the Persona Kids Academy emphasizes both theoretical knowledge and practical skills related to various professions, allowing children to gain a well-rounded understanding.',
+    },
+    {
+      id: 3,
+      question: 'What is the duration of each class or session?',
+      answer:
+        'The duration of classes may vary, but on average, each session lasts 3-5 months. We aim to balance learning and playtime for an enriching experience.',
+    },
+    {
+      id: 4,
+      question: "Is there any assessment or evaluation of the children's progress?",
+      answer:
+        "While we prioritize a positive learning environment, we do conduct periodic assessments to track each child's development and provide feedback to parents.",
+    },
+    {
+      id: 5,
+      question: 'What kinds of professions do children learn about?',
+      answer:
+        'Children will have the opportunity to explore a wide range of professions, including robotics,graphic design, ui/ux and etc., through engaging lessons and activities',
+    },
+  ];
 
   return (
     <>
@@ -115,7 +147,7 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
               color="#222"
               m={{ base: '0 0 16px 0', sm: ' 0 0 50px 0' }}
               textAlign="center">
-              Why Should Your Kid Learn Computer Science?
+              Why Should Your Child Learn IT Professions?
             </Heading>
             <UnorderedList
               margin="0"
@@ -125,18 +157,20 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
               lineHeight="normal"
               color="#000">
               <ListItem mb={{ base: '8px', md: '16px' }}>
-                Computing would offer opportunities for creativity and innovation. Creating
-                something from scratch encourages students to improve students' imagination and
-                skills at the same time..
+                Learning IT professions equips your child with skills that are in high demand and
+                likely to be critical in the future job market. In a rapidly advancing technological
+                landscape, IT proficiency is a valuable asset that provides long-term relevance.
               </ListItem>
               <ListItem mb={{ base: '8px', md: '16px' }}>
-                When learning computer science, students will face challenges that require them to
-                navigate obstacles and learn to be an incredible problem solver.
+                IT education fosters problem-solving skills and critical thinking. Through coding
+                and various IT activities, children learn to approach challenges systematically,
+                analyze problems, and develop logical solutions.
               </ListItem>
               <ListItem>
-                With technology leads our current world, learning the basics of computer science
-                helps students to increase their ability in integral and analytical thinking when
-                solving complicated problems that will be useful to overcome their future
+                IT skills are versatile and can be applied across various disciplines. Whether your
+                child aspires to be a scientist, artist, or engineer, the foundational knowledge
+                gained through IT education provides a versatile skill set that can be adapted to
+                diverse career paths.
               </ListItem>
             </UnorderedList>
           </Box>
@@ -179,7 +213,7 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
                 alignItems="center"
                 justifyContent="center">
                 <Image
-                  src="/images/public_available/kids_courses_skills_img1.jpg"
+                  src="/images/public_available/kids_skills_img1.webp"
                   alt="Kids offline courses skills"
                   width={86}
                   height={86}
@@ -193,7 +227,7 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
                 color="#222"
                 my="16px"
                 textAlign="center">
-                Schedule and attend your favorite class
+                Best for you
               </Text>
               <Text
                 fontSize="16px"
@@ -202,8 +236,9 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
                 lineHeight="22px"
                 color="#5B5B5B"
                 textAlign="center">
-                Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non.
-                Cras aliquet purus dui laoreet diam sed lacus, fame
+                Choosing the right profession is a crucial decision that significantly impacts
+                various aspects of an individual's life. Choose the most suitable for you from our
+                various courses.
               </Text>
             </Box>
             <Box
@@ -223,7 +258,7 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
                 alignItems="center"
                 justifyContent="center">
                 <Image
-                  src="/images/public_available/kids_courses_skills_img2.jpg"
+                  src="/images/public_available/kids_skills_img2.webp"
                   alt="Kids offline courses skills"
                   width={86}
                   height={86}
@@ -246,8 +281,8 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
                 lineHeight="22px"
                 color="#5B5B5B"
                 textAlign="center">
-                Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non.
-                Cras aliquet purus dui laoreet diam sed lacus, fame
+                Exams serve as a standardized method to assess a student's understanding of the
+                material covered in a course.
               </Text>
             </Box>
             <Box
@@ -267,7 +302,7 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
                 alignItems="center"
                 justifyContent="center">
                 <Image
-                  src="/images/public_available/kids_courses_skills_img3.jpg"
+                  src="/images/public_available/kids_skills_img3.webp"
                   alt="Kids offline courses skills"
                   width={86}
                   height={86}
@@ -281,7 +316,7 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
                 color="#222"
                 my="16px"
                 textAlign="center">
-                Become a pro and get your certificate
+                Graduation
               </Text>
               <Text
                 fontSize="16px"
@@ -290,8 +325,9 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
                 lineHeight="22px"
                 color="#5B5B5B"
                 textAlign="center">
-                Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non.
-                Cras aliquet purus dui laoreet diam sed lacus, fame
+                Graduation symbolizes the successful completion of an educational journey. It
+                signifies the acquisition of knowledge, skills, and academic achievements over the
+                course of the program.
               </Text>
             </Box>
           </Flex>
@@ -315,8 +351,8 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
           </Heading>
 
           <Accordion allowMultiple display="flex" flexDirection="column" gap="16px">
-            {Array.from({ length: 4 }, (_, index) => index).map((_, i) => (
-              <AccordionItem border="none" key={i} id={i.toString()}>
+            {questionsKidsPage.map((item, index) => (
+              <AccordionItem border="none" key={item.id} id={index.toString()}>
                 {({ isExpanded }) => (
                   <>
                     <Box>
@@ -331,7 +367,7 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
                           lineHeight="normal"
                           fontSize="16px"
                           color="#222222">
-                          How many children will be there in one batch?
+                          {item.question}
                         </Box>
                         {isExpanded ? <AddIcon fontSize="12px" /> : <PlusIcon fontSize="12px" />}
                       </AccordionButton>
@@ -344,9 +380,7 @@ const KidsCourses: FC<Props> = ({ searchParams }) => {
                       lineHeight="22px"
                       fontWeight="400"
                       color="#5B5B5B">
-                      All our mentors are experienced and accomplished professionals with a passion
-                      for teaching. They've been working in their respective fields for a minimum of
-                      5+ years.
+                      {item.answer}
                     </AccordionPanel>
                   </>
                 )}
