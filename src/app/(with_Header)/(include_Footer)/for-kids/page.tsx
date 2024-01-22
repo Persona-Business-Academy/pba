@@ -1,6 +1,5 @@
 'use client';
 
-import { FC } from 'react';
 import {
   Accordion,
   AccordionButton,
@@ -11,59 +10,68 @@ import {
   Flex,
   Grid,
   Heading,
-  Input,
-  InputGroup,
-  InputRightElement,
   ListItem,
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
+import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
-import InputSearchIcon from '/public/icons/search_icon.svg';
 import PlusIcon from 'public/icons/plus_pricing_icon.svg';
 import AddIcon from 'public/icons/xmark_pricing_icon.svg';
-import { Button } from '@/components/atoms';
+import { KidsCourseService } from '@/api/services/KidsCourseService';
+import { Button, Loading } from '@/components/atoms';
+import SearchInput from '@/components/atoms/SearchInput';
 import KidsCourseItem from '@/components/molecules/KidsCourseItem';
+import { KidsCourse } from '@/models/kids-course.model';
 import { segoe } from '@/utils/constants/fonts';
 
-type Props = {};
+type Props = {
+  searchParams: {
+    [key: string]: string;
+  };
+};
 
-const questionsKidsPage = [
-  {
-    id: 1,
-    question: 'What age group is the Persona Kids Academy suitable for?',
-    answer:
-      'The academy is tailored for children aged 9-16, providing age-appropriate activities and learning experiences.',
-  },
-  {
-    id: 2,
-    question: 'Are the classes focused on practical skills?',
-    answer:
-      'Yes, the Persona Kids Academy emphasizes both theoretical knowledge and practical skills related to various professions, allowing children to gain a well-rounded understanding.',
-  },
-  {
-    id: 3,
-    question: 'What is the duration of each class or session?',
-    answer:
-      'The duration of classes may vary, but on average, each session lasts 3-5 months. We aim to balance learning and playtime for an enriching experience.',
-  },
-  {
-    id: 4,
-    question: "Is there any assessment or evaluation of the children's progress?",
-    answer:
-      "While we prioritize a positive learning environment, we do conduct periodic assessments to track each child's development and provide feedback to parents.",
-  },
-  {
-    id: 5,
-    question: 'What kinds of professions do children learn about?',
-    answer:
-      'Children will have the opportunity to explore a wide range of professions, including robotics,graphic design, ui/ux and etc., through engaging lessons and activities',
-  },
-];
+const KidsCourses = ({ searchParams }: Props) => {
+  const { data: kidsCourseData, isLoading } = useQuery(['kids-courses', searchParams], () =>
+    KidsCourseService.getKidsCourseList(searchParams),
+  );
 
-const KidsCourses: FC<Props> = () => {
+  const questionsKidsPage = [
+    {
+      id: 1,
+      question: 'What age group is the Persona Kids Academy suitable for?',
+      answer:
+        'The academy is tailored for children aged 9-16, providing age-appropriate activities and learning experiences.',
+    },
+    {
+      id: 2,
+      question: 'Are the classes focused on practical skills?',
+      answer:
+        'Yes, the Persona Kids Academy emphasizes both theoretical knowledge and practical skills related to various professions, allowing children to gain a well-rounded understanding.',
+    },
+    {
+      id: 3,
+      question: 'What is the duration of each class or session?',
+      answer:
+        'The duration of classes may vary, but on average, each session lasts 3-5 months. We aim to balance learning and playtime for an enriching experience.',
+    },
+    {
+      id: 4,
+      question: "Is there any assessment or evaluation of the children's progress?",
+      answer:
+        "While we prioritize a positive learning environment, we do conduct periodic assessments to track each child's development and provide feedback to parents.",
+    },
+    {
+      id: 5,
+      question: 'What kinds of professions do children learn about?',
+      answer:
+        'Children will have the opportunity to explore a wide range of professions, including robotics,graphic design, ui/ux and etc., through engaging lessons and activities',
+    },
+  ];
+
   return (
     <>
+      {isLoading && <Loading />}
       <Flex
         as="section"
         backgroundColor="#F6FCFF"
@@ -85,33 +93,9 @@ const KidsCourses: FC<Props> = () => {
               marginBottom="16px"
               fontStyle="normal"
               lineHeight="normal">
-              Courses
+              Kids Offline Courses
             </Heading>
-            <Text
-              fontSize="16px"
-              fontWeight={400}
-              color="#222222"
-              mb={{ base: '24px', md: '32px' }}
-              fontStyle="normal"
-              lineHeight="22px">
-              Empower young minds with knowledge - where every course becomes a stepping stone to a
-              future filled with endless possibilities
-            </Text>
-            <InputGroup>
-              <Input
-                placeholder="What are you looking for?"
-                borderRadius="12px"
-                border="1px solid #F9FAFB"
-                background="#FFF"
-                color="#C0C0C0"
-                fontSize="16px"
-                fontWeight={400}
-                fontStyle="normal"
-                lineHeight="22px"
-                padding="12px 16px"
-              />
-              <InputRightElement width="45px">{<InputSearchIcon />}</InputRightElement>
-            </InputGroup>
+            <SearchInput />
           </Box>
           <Box borderRadius="38px" overflow="hidden">
             <Image
@@ -124,36 +108,28 @@ const KidsCourses: FC<Props> = () => {
         </Flex>
       </Flex>
       <Container maxWidth={1200} px={{ base: '16px', xl: '0px' }}>
-        <Flex flexDirection="column">
-          <Heading
-            className={segoe.className}
-            fontSize="28px"
-            fontWeight={700}
-            fontStyle="normal"
-            lineHeight="36px"
-            color="#222222"
-            m=" 0 0 24px 0"
-            textAlign="center">
-            Find the right article for you
-          </Heading>
-
-          <Flex justifyContent="space-between" my="40px">
-            <Text as="span">Filter</Text>
-            <Text as="span">Skill level</Text>
-          </Flex>
-          <Grid
-            gridGap="20px"
-            templateColumns={{
-              base: 'repeat(auto-fill, minmax(300px, 387px))',
-              md: 'repeat(auto-fill, minmax(380px, 1fr))',
-            }}
-            mb={{ base: '20px', md: '64px' }}
-            justifyContent="center"
-            alignItems="center"
-            justifyItems="center">
-            <KidsCourseItem />
-          </Grid>
-        </Flex>
+        <Grid
+          gridGap="20px"
+          templateColumns={{
+            base: 'repeat(auto-fill, minmax(300px, 387px))',
+            md: 'repeat(auto-fill, minmax(380px, 1fr))',
+          }}
+          mb={{ base: '20px', md: '64px' }}
+          justifyContent="center"
+          alignItems="center"
+          justifyItems="center">
+          {kidsCourseData?.map((course: KidsCourse) => (
+            <KidsCourseItem
+              key={course.id}
+              id={course.id}
+              title={course.title}
+              subTitle={course.subTitle}
+              price={course.price}
+              totalDuration={course.totalDuration}
+              courseLevel={course.courseLevel}
+            />
+          ))}
+        </Grid>
 
         <Flex
           flexDirection={{ base: 'column', lg: 'row' }}
@@ -220,7 +196,6 @@ const KidsCourses: FC<Props> = () => {
             It's time to elevate your skills
           </Heading>
           <Flex gap={{ base: '16px', md: '0' }} flexDirection={{ base: 'column', md: 'row' }}>
-            {/*  */}
             <Box
               _hover={{
                 borderBottom: '8px solid #3CB4E7',
@@ -266,16 +241,15 @@ const KidsCourses: FC<Props> = () => {
                 various courses.
               </Text>
             </Box>
-            {/*  */}
             <Box
               _hover={{
                 borderBottom: '8px solid #3CB4E7',
                 marginTop: '24px',
-                transition: 'all 0.5s ',
               }}
               p="32px"
               boxShadow="0px -4px 4px -1px rgba(0, 0, 0, 0.06)"
               width={400}
+              transition="all 0.3s"
               height={333}>
               <Box
                 borderRadius="86px"
@@ -311,16 +285,15 @@ const KidsCourses: FC<Props> = () => {
                 material covered in a course.
               </Text>
             </Box>
-            {/*  */}
             <Box
               _hover={{
                 borderBottom: '8px solid #3CB4E7',
                 marginTop: '24px',
-                transition: 'all 0.3s ',
               }}
               p="32px"
               boxShadow="0px -4px 4px -1px rgba(0, 0, 0, 0.06)"
               width={400}
+              transition="all 0.3s"
               height={333}>
               <Box
                 borderRadius="86px"

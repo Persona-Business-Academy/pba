@@ -56,9 +56,9 @@ const KidsAcademySection: FC<KidsAcademySectionProps> = () => {
             Business Academy and let your creativity soar beyond imagination.
           </Text>
 
-          <Box>
+          <Flex justifyContent="center">
             <MovableButton href={FOR_KIDS_ROUTE} btnText="Explore courses" />
-          </Box>
+          </Flex>
         </Box>
       </Flex>
     </Box>

@@ -9,8 +9,12 @@ import {
 import $apiClient from '..';
 
 export class OfflineCourseService {
-  static getOfflineCourseList(queryString: string): Promise<OfflineCourseListModel> {
-    return $apiClient.get(`offline-courses/list?${queryString}`);
+  static getOfflineCourseList(params: {
+    [key: string]: string | string[];
+  }): Promise<OfflineCourseListModel> {
+    return $apiClient.get(`offline-courses/list`, {
+      params,
+    });
   }
   static getOfflineCourseItem(id: string): Promise<OfflineCourseItemModel> {
     return $apiClient.get(`offline-courses/${id}`);

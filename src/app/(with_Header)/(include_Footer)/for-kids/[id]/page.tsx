@@ -16,13 +16,13 @@ import {
   UnorderedList,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import { OfflineCourseService } from '@/api/services/OfflineCourseService';
+import { KidsCourseService } from '@/api/services/KidsCourseService';
 import { Button } from '@/components/atoms';
 import { segoe } from '@/utils/constants/fonts';
 import { generateAWSUrl } from '@/utils/helpers/common';
 
-const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => {
-  const offlineCourse = await OfflineCourseService.getOfflineCourseItem(id);
+const KidsCourse = async ({ params: { id } }: { params: { id: string } }) => {
+  const kidsCourse = await KidsCourseService.getKidsCourseItem(id);
 
   return (
     <>
@@ -56,7 +56,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   lg: '53.64px',
                 }}
                 fontSize={{ base: '28px', lg: '44px' }}>
-                {offlineCourse.title}
+                {kidsCourse.title}
               </Heading>
               <Flex justifyContent="center" gap="13px" mb="16px">
                 <Flex alignItems="center" gap="6px">
@@ -93,13 +93,13 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                 </Flex>
 
                 <Text as="span" margin="0" lineHeight="18.75px" fontSize="16px">
-                  {offlineCourse.rating}
+                  {kidsCourse.rating}
                 </Text>
               </Flex>
 
               <Box lineHeight="18.75px" fontSize="16px" mb="24px">
                 <Text as="p" margin="0" lineHeight="18.75px" fontSize="16px">
-                  {offlineCourse.subTitle}
+                  {kidsCourse.subTitle}
                 </Text>
               </Box>
 
@@ -146,7 +146,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
             <Box maxW="590px">
               <Box width="100%">
                 <Image
-                  src={generateAWSUrl(offlineCourse.coverPhoto)}
+                  src={generateAWSUrl(kidsCourse.coverPhoto)}
                   alt="Graphic Design"
                   width={590}
                   height={334}
@@ -188,7 +188,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Language
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.language}
+              {kidsCourse.language}
             </ListItem>
           </UnorderedList>
 
@@ -204,7 +204,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Age
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.ageLimit}
+              {kidsCourse.ageLimit}
             </ListItem>
           </UnorderedList>
 
@@ -232,7 +232,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Duration
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.totalDuration} months
+              {kidsCourse.totalDuration} months
             </ListItem>
           </UnorderedList>
 
@@ -248,7 +248,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Level
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.courseLevel}
+              {kidsCourse.courseLevel}
             </ListItem>
           </UnorderedList>
 
@@ -290,7 +290,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Course ended
             </ListItem>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" color="#222222">
-              {offlineCourse.graduatedStudentsCount} students
+              {kidsCourse.graduatedStudentsCount} students
             </ListItem>
           </UnorderedList>
         </Flex>
@@ -316,7 +316,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               margin="0"
               display="flex"
               alignItems="center">
-              {offlineCourse.price}
+              {kidsCourse.price}
               <Image src="/icons/dram.svg" alt="dram" width={18} height={18} /> /
               <Text fontWeight="400" fontSize="16px" lineHeight="21.28px" as="span" margin="0">
                 month
@@ -366,7 +366,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
             Description
           </Heading>
           <Text as="p" margin="0" fontSize="16px" lineHeight="24px" fontWeight="400">
-            {offlineCourse.description}
+            {kidsCourse.description}
           </Text>
         </Box>
       </Box>
@@ -392,10 +392,14 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                 lineHeight="37.24px">
                 Your Child Will Learn
               </Heading>
-              <Flex gap={{ base: '16px', xl: '29px' }} flexWrap="wrap" justifyContent="center">
+              <Flex
+                gap={{ base: '16px', xl: '29px' }}
+                flexWrap="wrap"
+                justifyContent="center"
+                maxWidth="803px">
                 <UnorderedList
                   display="grid"
-                  gridTemplateColumns="1fr 1fr"
+                  gridTemplateColumns="repeat(2,1fr)"
                   margin="0"
                   gap="16px"
                   lineHeight="24px"
@@ -403,36 +407,20 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   fontSize="16px"
                   listStyleType="0"
                   color="#222222"
-                  maxWidth="803px">
-                  {offlineCourse.whatYouWillLearn.map((learning: string, index: number) => (
-                    <ListItem key={index} display="flex" alignItems="flex-start" gap="12px">
+                  width="100%">
+                  {kidsCourse.whatYouWillLearn.map((learning: string, index: number) => (
+                    <ListItem
+                      key={index}
+                      display="flex"
+                      alignItems="flex-start"
+                      gap="12px"
+                      width="100%">
                       <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
                       {learning}
                     </ListItem>
                   ))}
                 </UnorderedList>
               </Flex>
-            </Box>
-
-            <Box
-              width="361px"
-              display="flex"
-              justifyContent={{
-                base: 'center ',
-                xl: 'flex-start',
-              }}
-              padding="16px 0 16px 16px"
-              bg="#F6FCFF"
-              flexGrow="2">
-              <Image
-                src="/images/public_available/courses_img_design.png"
-                alt="Learn Img"
-                style={{
-                  objectFit: 'cover',
-                }}
-                width={361}
-                height={205}
-              />
             </Box>
           </Flex>
         </Box>
@@ -668,7 +656,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
             <Text fontSize="18px" lineHeight="18px" margin="0" as="span">
               Don't see a time that works for you?
             </Text>
-            <Text fontSize="18px" lineHeight="18px" margin="0" as="span">
+            <Text fontSize="18px" lineHeight="18px" margin="0" as="button">
               Request another time
             </Text>
           </Flex>
@@ -699,7 +687,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
             </Heading>
 
             <Flex margin="0 auto" gap="20px" flexWrap="wrap" justifyContent="center">
-              {offlineCourse.courseInstructors.map((instructor, index: number) => (
+              {kidsCourse.courseInstructors.map((instructor, index: number) => (
                 <Box key={index} maxW="402px">
                   <Flex
                     mb="24px"
@@ -1384,4 +1372,4 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
   );
 };
 
-export default OfflineCourse;
+export default KidsCourse;

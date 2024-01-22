@@ -1,35 +1,58 @@
 'use client';
-import React, { createContext, FC, useContext, useState } from 'react';
-import { ForgotPasswordStep } from '@/utils/models/auth';
 
-interface AuthState {
-  step: ForgotPasswordStep;
-  setStep: React.Dispatch<React.SetStateAction<ForgotPasswordStep>>;
-  confirmationCode?: number;
-  setConfirmationCode: React.Dispatch<React.SetStateAction<number | undefined>>;
-}
+import React, {
+  createContext,
+  FC,
+  PropsWithChildren,
+  useCallback,
+  useContext,
+  useState,
+} from 'react';
 
-interface Props {
-  children?: React.ReactNode;
-}
+export type Course = {
+  id: number;
+  name: string;
+  value: string;
+  filterBy: 'duration' | 'title' | 'skill-level';
+};
 
-const AuthContext = createContext<AuthState>({} as AuthState);
+type CourseFilterState = {
+  courseNames: Course[];
+  setCourseNameHandler: (course: Course) => void;
+  removeCourseNameHandler: (courseId: number) => void;
+};
 
-export const CourseFilterNaProvider: FC<Props> = ({ children }) => {
-  const [step, setStep] = useState<ForgotPasswordStep>('emailStep');
-  const [confirmationCode, setConfirmationCode] = useState<number>();
+const CourseFilterContext = createContext<CourseFilterState | undefined>(undefined);
+
+export const CourseFilterProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
+  const [courseNames, setCourseNames] = useState<Course[]>([]);
+
+  const setCourseNameHandler = useCallback((course: Course) => {
+    setCourseNames(prevCourseNames => [...prevCourseNames, course]);
+  }, []);
+
+  const removeCourseNameHandler = useCallback((courseId: number) => {
+    setCourseNames(prevCourseNames => prevCourseNames.filter(({ id }) => id !== courseId));
+  }, []);
 
   return (
-    <AuthContext.Provider
+    <CourseFilterContext.Provider
       value={{
-        step,
-        confirmationCode,
-        setConfirmationCode,
-        setStep,
+        courseNames,
+        setCourseNameHandler,
+        removeCourseNameHandler,
       }}>
       {children}
-    </AuthContext.Provider>
+    </CourseFilterContext.Provider>
   );
 };
 
-export const useAuth = () => useContext(AuthContext);
+export const useCourseFilter = (): CourseFilterState => {
+  const context = useContext(CourseFilterContext);
+
+  if (!context) {
+    throw new Error('useCourseFilter must be used within a CourseFilterProvider');
+  }
+
+  return context;
+};

@@ -3,10 +3,10 @@ import React, { FC } from 'react';
 import { Container, Flex, Heading, Input, InputGroup } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 import { Button } from '@/components/atoms';
+import ArticleCardItem from '@/components/molecules/ArticleCardItem';
 import { segoe } from '@/utils/constants/fonts';
 
 const SubscribeSection = dynamic(() => import('./SubscribeSection'));
-const FindArticlesSection = dynamic(() => import('./FindArticlesSection'));
 const MoreArticles = dynamic(() => import('./MoreArticles'));
 
 type Props = {};
@@ -16,7 +16,7 @@ const ArticlesPage: FC<Props> = () => {
     <>
       <SubscribeSection />
       <Container maxWidth={1200} margin="0 auto" px={{ base: '16px', xl: '0' }}>
-        <FindArticlesSection />
+        <ArticleCardItem />
         <MoreArticles />
 
         <Flex

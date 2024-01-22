@@ -1,5 +1,10 @@
 import OnlineOfflineCourseList from '@/components/organisms/OnlineOfflineCoursesList';
+import { CourseFilterProvider } from '@/contexts/CourseFilterContext';
 
 export default function CoursesFilterLayout({ children }: { children: React.ReactNode }) {
-  return <OnlineOfflineCourseList> {children} </OnlineOfflineCourseList>;
+  return (
+    <CourseFilterProvider>
+      <OnlineOfflineCourseList> {children} </OnlineOfflineCourseList>;
+    </CourseFilterProvider>
+  );
 }

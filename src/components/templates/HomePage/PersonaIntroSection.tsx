@@ -55,6 +55,8 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = async () => {
           gap="20px">
           <Box
             width="590px"
+            as={Link}
+            href={OFFLINE_COURSES_ROUTE}
             borderRadius="20px"
             padding="45px 0"
             display="flex"
@@ -86,6 +88,8 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = async () => {
 
           <Box
             width="590px"
+            as={Link}
+            href={FOR_KIDS_ROUTE}
             _hover={{
               bg: '#F6FCFF',
             }}
