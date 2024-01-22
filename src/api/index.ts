@@ -9,6 +9,10 @@ const $apiClient = axios.create({
 });
 
 const handleError = (error: Error | AxiosError) => {
+  if (typeof window === 'undefined') {
+    console.log({ handleError: error });
+    return;
+  }
   const { toast } = createStandaloneToast({
     defaultOptions: { status: 'error', ...toastDefaultOptions },
   });
