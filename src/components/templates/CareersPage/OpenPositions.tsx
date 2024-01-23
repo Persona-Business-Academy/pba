@@ -31,9 +31,10 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
           lineHeight="24px"
           fontStyle="normal"
           textAlign={{ base: 'left', md: 'center' }}>
-          If you are an enthusiastic professional eager to inspire and empower the next generation
-          of creative professionals, we want to hear from you! To apply, please submit your resume,
-          a cover letter outlining your teaching philosophy, and any relevant certifications.
+          Unlock your potential: Join us on a journey of innovation and growth. Explore open
+          positions and be part of a team where your talents are valued and Ideas Are
+          celebrated.Your next opportunity awaits – apply today and elevate your career with Persona
+          Business Academy.
         </Text>
       </Flex>
 
@@ -57,7 +58,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 color="#222"
                 lineHeight="normal"
                 fontStyle="normal">
-                Back-End Developer
+                UI/UX Designer
               </Heading>
               <Text
                 fontSize="16px"
@@ -65,7 +66,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 fontStyle="normal"
                 fontWeight={400}
                 color="#5B5B5B">
-                San Francisco / Full Time
+                Yerevan, Armenia / Part Time
               </Text>
             </Flex>
             <Button
@@ -100,7 +101,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 color="#222"
                 lineHeight="normal"
                 fontStyle="normal">
-                UI/UX Designer
+                Node JS Developer
               </Heading>
               <Text
                 fontSize="16px"
@@ -108,7 +109,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 fontStyle="normal"
                 fontWeight={400}
                 color="#5B5B5B">
-                San Francisco / Full Time
+                Yerevan, Armenia / Part Time
               </Text>
             </Flex>
             <Button
@@ -145,7 +146,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 color="#222"
                 lineHeight="normal"
                 fontStyle="normal">
-                Graphic Designer
+                QA
               </Heading>
               <Text
                 fontSize="16px"
@@ -153,7 +154,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 fontStyle="normal"
                 fontWeight={400}
                 color="#5B5B5B">
-                San Francisco / Full Time
+                Yerevan, Armenia / Part Time
               </Text>
             </Flex>
             <Button
@@ -188,7 +189,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 color="#222"
                 lineHeight="normal"
                 fontStyle="normal">
-                QA Specialist
+                Ios Development
               </Heading>
               <Text
                 fontSize="16px"
@@ -196,7 +197,7 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
                 fontStyle="normal"
                 fontWeight={400}
                 color="#5B5B5B">
-                San Francisco / Full Time
+                Yerevan, Armenia / Part Time
               </Text>
             </Flex>
             <Button
@@ -217,19 +218,6 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
           </Flex>
         </Flex>
       </Flex>
-      <Button
-        bg="#fff"
-        color="#1F1646"
-        _hover={{ bg: '#F3F4F6' }}
-        _focus={{ bg: '#E9E9E9' }}
-        borderRadius="6px"
-        border="1px solid #F3F4F6"
-        padding="16px 32px"
-        height="53px"
-        margin="0 auto"
-        mt={{ base: '20px', md: '64px' }}>
-        View more
-      </Button>
     </Flex>
   );
 };
