@@ -27,15 +27,16 @@ import ProfileMenu from './ProfileMenu';
 type HeaderProps = {
   user: User | null;
   forIndividuals: OfflineCourseListGroupedModel;
+  forKids: OfflineCourseListGroupedModel;
 };
 
-const Header: FC<HeaderProps> = ({ user, forIndividuals }) => {
+const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const { data } = useSession();
   const pathname = usePathname();
   const collapseRef = useRef<HTMLDivElement>(null);
 
-  const navigation: NavItem[] = getNavigationItems(forIndividuals);
+  const navigation: NavItem[] = getNavigationItems(forIndividuals, forKids);
 
   useOutsideClick({
     ref: collapseRef,

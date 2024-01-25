@@ -28,7 +28,7 @@ const ReviewSection: FC<ReviewSectionProps> = () => {
     {
       id: 3,
       feedbackText:
-        "Hi, I'm Armine, attending HRM in PBA I gained new knowledge at the courses by discovering and loving that realm unknown to me. Thanks to my trainer Julieta Asatryan, new to increase the level of cognitive perception. The course gave not only new knowledge, but also friends and invaluable values in the form of innovative ideas",
+        "Hi, I'm Armine, attending HRM in PBA I gained new knowledge at the courses by discovering and loving that realm unknown to me. Thanks to my trainer Julieta Asatryan, new to increase the level of cognitive perception. The course gave not only new knowledge, but also friends and invaluable values in the form of innovative ideas. PBA is a good and professional training academy, come on! The classes are very pleasant, because after working hours, the balance of humor and positive atmosphere is motivating, and of course the seriousness added to it. PBA, fast and quality education. ",
       studentAvatarSrc: '/images/public_available/armine_hakobyan_comment.webp',
       firstName: 'Armine',
       lastName: 'Hakobyan',

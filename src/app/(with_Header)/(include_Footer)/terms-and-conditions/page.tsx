@@ -1,5 +1,5 @@
 'use client';
-import React, { FC } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   Box,
   Container,
@@ -16,9 +16,13 @@ import {
   UnorderedList,
 } from '@chakra-ui/react';
 
-type Props = {};
+const TermsAndConditions = ({ searchParams }: { searchParams: { selected: number } }) => {
+  const [selectedTab, setSelectedTab] = useState(+searchParams?.selected || 0);
 
-const TermsAndConditions: FC<Props> = () => {
+  const handleTabChange = useCallback((index: number) => {
+    setSelectedTab(index);
+  }, []);
+
   return (
     <Container maxW="1200px" p="0">
       <Box
@@ -40,7 +44,9 @@ const TermsAndConditions: FC<Props> = () => {
           gap="20px"
           id="terms_and_conditions_tabs"
           justifyContent={{ base: 'center', lg: 'space-between' }}
-          flexWrap={{ base: 'wrap-reverse', lg: 'nowrap' }}>
+          flexWrap={{ base: 'wrap-reverse', lg: 'nowrap' }}
+          index={selectedTab}
+          onChange={handleTabChange}>
           <TabList
             flexDirection="column"
             width={{ base: '100%', lg: '388px' }}

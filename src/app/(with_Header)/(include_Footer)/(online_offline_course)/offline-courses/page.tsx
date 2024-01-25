@@ -6,25 +6,35 @@ import Link from 'next/link';
 import { OfflineCourseService } from '@/api/services/OfflineCourseService';
 import { Loading } from '@/components/atoms';
 import OfflineCourseItem from '@/components/molecules/OfflineCourseItem';
+import { Course, useCourseFilter } from '@/contexts/CourseFilterContext';
 import { OFFLINE_COURSES_ROUTE } from '@/utils/constants/routes';
 
-type OnlineCoursesProps = {};
+type OnlineCoursesProps = {
+  searchParams: {
+    [key: string]: string;
+  };
+};
 
-const OfflineCourses: FC<OnlineCoursesProps> = () => {
-  // const params = useSearchParams()!;
-  // const searchParams = useMemo(() => new URLSearchParams(params), [params]);
+const OfflineCourses: FC<OnlineCoursesProps> = ({ searchParams }) => {
+  const { courseNames } = useCourseFilter();
 
-  // const queryString = useMemo(() => {
-  //   let queryStr = ``;
-  //   searchParams.forEach((value, key) => {
-  //     queryStr += `${key}=${value.toUpperCase()}&`;
-  //   });
-  //   return queryStr;
-  // }, [searchParams]);
+  const groupedCourses = courseNames.reduce(
+    (group: any, course: Course) => {
+      group[course.filterBy] += (group[course.filterBy] ? ',' : '') + course.value;
+      return group;
+    },
+    {
+      'skill-level': '',
+      duration: '',
+      title: '',
+    },
+  );
+
 
   const { data, isLoading } = useQuery({
-    queryKey: ['offline-courses'],
-    queryFn: () => OfflineCourseService.getOfflineCourseList(''),
+    queryKey: ['offline-courses', searchParams, groupedCourses],
+    queryFn: () =>
+      OfflineCourseService.getOfflineCourseList({ ...searchParams, ...groupedCourses }),
   });
 
   return (

@@ -1,4 +1,4 @@
-import { SkillLevel, Topic } from '@prisma/client';
+import { Topic } from '@prisma/client';
 
 export type QueryParams = {
   'front-end': boolean;
@@ -15,9 +15,10 @@ export type QueryParams = {
 
 export type OnlineCoursesQueryParams = {
   offset?: number;
+  title?: string;
   limit?: number;
   q?: string;
   duration?: string;
   topic?: Topic;
-  'skill-level'?: SkillLevel;
+  'skill-level'?: any;
 };

@@ -26,6 +26,7 @@ const OnlineCourses: FC<OnlineCoursesProps> = () => {
   });
 
   console.log(data);
+
   return <>{isLoading && <Loading />}</>;
 };
 

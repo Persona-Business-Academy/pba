@@ -1,39 +1,50 @@
 import { NotFoundException } from 'next-api-decorators';
+import { OfflineCourse } from '@/models/offline-course.model';
 import { OnlineCoursesQueryParams } from '@/types/queryParams';
 import prisma from '..';
 
-export class OfflineCoursesResolver {
-  static async getOfflineCourseList(queryParams: OnlineCoursesQueryParams) {
-    const { topic, limit = 10, offset = 0, q, ...rest } = queryParams;
+type GroupedCourses = {
+  [key: string]: OfflineCourse[];
+};
+
+export class KidsCourseResolver {
+  static async getKidsCourseList(queryParams: OnlineCoursesQueryParams) {
+    const { limit = 10, offset = 0, q } = queryParams;
 
     const conditions = [];
 
-    if (rest['skill-level']) {
-      conditions.push({
-        courseLevel: rest['skill-level'],
-      });
-    }
-
-    if (topic) {
-      conditions.push({ topic });
-    }
     if (q) {
-      conditions.push({ name: { contains: q } });
+      conditions.push({ title: { contains: q } });
     }
 
     const whereClause = conditions.length > 0 ? { OR: conditions } : {};
 
-    const offlineCourses = await prisma.offlineCourse.findMany({
-      where: whereClause,
+    return prisma.offlineCourse.findMany({
+      where: {
+        forKids: true,
+        ...whereClause,
+      },
       skip: offset,
       take: limit,
     });
-
-    return offlineCourses;
   }
-  static async getOfflineCourseById(id: number) {
+
+  static async getOfflineCourseListNames() {
+    return prisma.offlineCourse.findMany({
+      where: {
+        forKids: true,
+      },
+      select: {
+        id: true,
+        title: true,
+        topic: true,
+      },
+    });
+  }
+
+  static async getKidsCourseById(id: number) {
     const offlineCourse = await prisma.offlineCourse.findUnique({
-      where: { id },
+      where: { id, forKids: true },
       include: {
         OfflineCourseInstructors: true,
       },
@@ -51,5 +62,22 @@ export class OfflineCoursesResolver {
 
     const course = { ...offlineCourse, courseInstructors };
     return course;
+  }
+
+  static async getKidsCourseGroupedList() {
+    const courses = await prisma.offlineCourse.findMany({
+      where: {
+        forKids: true,
+      },
+    });
+
+    const groupedCourses = courses.reduce((group: GroupedCourses, course: OfflineCourse) => {
+      const { topic } = course;
+      group[topic] = group[topic] || [];
+      group[topic].push(course);
+      return group;
+    }, {});
+
+    return groupedCourses;
   }
 }

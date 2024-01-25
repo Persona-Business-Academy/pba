@@ -123,9 +123,13 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                 bottom={{ base: '45px', md: '70px' }}
                 position="absolute"
                 width={{ base: ' 119px', md: '181px' }}
+                transition="all 0.3s"
                 padding={{
                   base: '8px',
                   md: '16px 32px',
+                }}
+                _hover={{
+                  boxShadow: '0px 8.711px 21.777px 0px rgba(0, 0, 0, 0.10)',
                 }}
                 borderRadius="20px">
                 <Text
@@ -155,11 +159,15 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                 top={{ base: '20px', md: '75px' }}
                 left={{ base: '-35px', md: '40px' }}
                 position="absolute"
+                transition="all 0.3s"
                 padding={{
                   base: '8px',
                   md: '16px 32px',
                 }}
-                borderRadius="20px">
+                borderRadius="20px"
+                _hover={{
+                  boxShadow: '0px 8.711px 21.777px 0px rgba(0, 0, 0, 0.10)',
+                }}>
                 <Text
                   margin="0"
                   fontWeight="700"
@@ -196,11 +204,15 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                 top={{ base: '80px', md: '140px' }}
                 right={{ base: '-30px', md: '45px' }}
                 position="absolute"
+                transition="all 0.3s"
                 padding={{
                   base: '8px',
                   md: '16px 32px',
                 }}
-                borderRadius="20px">
+                borderRadius="20px"
+                _hover={{
+                  boxShadow: '0px 8.711px 21.777px 0px rgba(0, 0, 0, 0.10)',
+                }}>
                 <Text
                   margin="0"
                   fontWeight="700"

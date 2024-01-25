@@ -1,31 +1,17 @@
 'use client';
 
-import React, { FC, PropsWithChildren, useEffect, useMemo, useState } from 'react';
+import React, { FC, PropsWithChildren, useMemo } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import { useQuery } from '@tanstack/react-query';
-import { useSearchParams } from 'next/navigation';
 import { OfflineCourseService } from '@/api/services/OfflineCourseService';
 import RemovableButton from '@/components/atoms/RemovableButton';
 import SearchInput from '@/components/atoms/SearchInput';
 import CourseFilter from '@/components/molecules/CourseFilter';
-import useQueryParams from '@/hooks/useQueryParam';
+import { Course, useCourseFilter } from '@/contexts/CourseFilterContext';
 import { CACHE_CONFIG, topicHandler } from '@/utils/constants/filters';
 
-type CoursesProps = {};
-
-type FilterType = {
-  title: string;
-  id: number;
-  value: string;
-  queryKey: string;
-};
-
-const OnlineOfflineCourseList: FC<PropsWithChildren<CoursesProps>> = ({ children }) => {
-  const { removeQueryParam } = useQueryParams();
-  const [queryParams, setQueryParams] = useState({});
-  const [filteredData, setFilteredData] = useState<any[]>([]);
-  const params = useSearchParams()!;
-  const searchParams = useMemo(() => new URLSearchParams(params), [params]);
+const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
+  const { courseNames, removeCourseNameHandler } = useCourseFilter();
 
   const { data: offlineCourseGroupedListData } = useQuery(
     ['groupedCourses'],
@@ -44,24 +30,6 @@ const OnlineOfflineCourseList: FC<PropsWithChildren<CoursesProps>> = ({ children
     OfflineCourseService.getOfflineCourseDurationList,
     CACHE_CONFIG,
   );
-
-  useEffect(() => {
-    const courseIds = searchParams.getAll('course');
-    const skillLevels = searchParams.getAll('skill-level');
-    const durations = searchParams.getAll('duration');
-
-    console.log({ offlineCourseSkillListData });
-
-    const courseData = Object.values(offlineCourseGroupedListData || {})
-      .flat()
-      .filter(course => courseIds.map(id => +id).includes(course.id));
-
-    console.log({ skillLevels });
-
-    // setFilteredData(courseData);
-
-    console.log({ courseData });
-  }, [offlineCourseGroupedListData, searchParams]);
 
   const courseTopicDataList = useMemo(() => {
     if (offlineCourseGroupedListData) {
@@ -85,7 +53,7 @@ const OnlineOfflineCourseList: FC<PropsWithChildren<CoursesProps>> = ({ children
     if (offlineCourseDurationsListData) {
       return offlineCourseDurationsListData.map(courseDuration => ({
         id: courseDuration.id,
-        title: courseDuration.totalDuration,
+        title: `${courseDuration.totalDuration} Months`,
         value: courseDuration.totalDuration,
       }));
     }
@@ -112,7 +80,6 @@ const OnlineOfflineCourseList: FC<PropsWithChildren<CoursesProps>> = ({ children
         <Flex as="section" gap="20px" marginBottom="148px">
           <Flex flexDirection="column" width="285px">
             <CourseFilter
-              queryParams={queryParams}
               courseTopicDataList={courseTopicDataList}
               courseSkillsDataList={courseSkillsDataList}
               courseDurationsDataList={courseDurationsDataList}
@@ -123,13 +90,13 @@ const OnlineOfflineCourseList: FC<PropsWithChildren<CoursesProps>> = ({ children
               <Text as="span">Filter By:</Text>
 
               <Flex flexWrap="wrap" gap="10px">
-                {filteredData.map((data: FilterType) => (
+                {courseNames.map((course: Course) => (
                   <RemovableButton
-                    key={data.value}
+                    key={course.id}
                     removeQueryParamHandler={() => {
-                      removeQueryParam({ filterBy: data.queryKey, value: data.value });
+                      removeCourseNameHandler(course.id);
                     }}>
-                    {data.title}
+                    {course.name}
                   </RemovableButton>
                 ))}
               </Flex>

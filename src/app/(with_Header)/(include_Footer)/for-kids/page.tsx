@@ -1,6 +1,5 @@
 'use client';
 
-import { FC } from 'react';
 import {
   Accordion,
   AccordionButton,
@@ -11,26 +10,68 @@ import {
   Flex,
   Grid,
   Heading,
-  Input,
-  InputGroup,
-  InputRightElement,
   ListItem,
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
+import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
-import InputSearchIcon from '/public/icons/search_icon.svg';
 import PlusIcon from 'public/icons/plus_pricing_icon.svg';
 import AddIcon from 'public/icons/xmark_pricing_icon.svg';
-import { Button } from '@/components/atoms';
+import { KidsCourseService } from '@/api/services/KidsCourseService';
+import { Button, Loading } from '@/components/atoms';
+import SearchInput from '@/components/atoms/SearchInput';
 import KidsCourseItem from '@/components/molecules/KidsCourseItem';
+import { KidsCourse } from '@/models/kids-course.model';
 import { segoe } from '@/utils/constants/fonts';
 
-type Props = {};
+type Props = {
+  searchParams: {
+    [key: string]: string;
+  };
+};
 
-const KidsCourses: FC<Props> = () => {
+const KidsCourses = ({ searchParams }: Props) => {
+  const { data: kidsCourseData, isLoading } = useQuery(['kids-courses', searchParams], () =>
+    KidsCourseService.getKidsCourseList(searchParams),
+  );
+
+  const questionsKidsPage = [
+    {
+      id: 1,
+      question: 'What age group is the Persona Kids Academy suitable for?',
+      answer:
+        'The academy is tailored for children aged 9-16, providing age-appropriate activities and learning experiences.',
+    },
+    {
+      id: 2,
+      question: 'Are the classes focused on practical skills?',
+      answer:
+        'Yes, the Persona Kids Academy emphasizes both theoretical knowledge and practical skills related to various professions, allowing children to gain a well-rounded understanding.',
+    },
+    {
+      id: 3,
+      question: 'What is the duration of each class or session?',
+      answer:
+        'The duration of classes may vary, but on average, each session lasts 3-5 months. We aim to balance learning and playtime for an enriching experience.',
+    },
+    {
+      id: 4,
+      question: "Is there any assessment or evaluation of the children's progress?",
+      answer:
+        "While we prioritize a positive learning environment, we do conduct periodic assessments to track each child's development and provide feedback to parents.",
+    },
+    {
+      id: 5,
+      question: 'What kinds of professions do children learn about?',
+      answer:
+        'Children will have the opportunity to explore a wide range of professions, including robotics,graphic design, ui/ux and etc., through engaging lessons and activities',
+    },
+  ];
+
   return (
     <>
+      {isLoading && <Loading />}
       <Flex
         as="section"
         backgroundColor="#F6FCFF"
@@ -52,32 +93,9 @@ const KidsCourses: FC<Props> = () => {
               marginBottom="16px"
               fontStyle="normal"
               lineHeight="normal">
-              Courses
+              Kids Offline Courses
             </Heading>
-            <Text
-              fontSize="16px"
-              fontWeight={400}
-              color="#222222"
-              mb={{ base: '24px', md: '32px' }}
-              fontStyle="normal"
-              lineHeight="22px">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying.
-            </Text>
-            <InputGroup>
-              <Input
-                placeholder="What are you looking for?"
-                borderRadius="12px"
-                border="1px solid #F9FAFB"
-                background="#FFF"
-                color="#C0C0C0"
-                fontSize="16px"
-                fontWeight={400}
-                fontStyle="normal"
-                lineHeight="22px"
-                padding="12px 16px"
-              />
-              <InputRightElement width="45px">{<InputSearchIcon />}</InputRightElement>
-            </InputGroup>
+            <SearchInput />
           </Box>
           <Box borderRadius="38px" overflow="hidden">
             <Image
@@ -90,36 +108,28 @@ const KidsCourses: FC<Props> = () => {
         </Flex>
       </Flex>
       <Container maxWidth={1200} px={{ base: '16px', xl: '0px' }}>
-        <Flex flexDirection="column">
-          <Heading
-            className={segoe.className}
-            fontSize="28px"
-            fontWeight={700}
-            fontStyle="normal"
-            lineHeight="36px"
-            color="#222222"
-            m=" 0 0 24px 0"
-            textAlign="center">
-            Find the right article for you
-          </Heading>
-
-          <Flex justifyContent="space-between" my="40px">
-            <Text as="span">Filter</Text>
-            <Text as="span">Skill level</Text>
-          </Flex>
-          <Grid
-            gridGap="20px"
-            templateColumns={{
-              base: 'repeat(auto-fill, minmax(300px, 387px))',
-              md: 'repeat(auto-fill, minmax(380px, 1fr))',
-            }}
-            mb={{ base: '20px', md: '64px' }}
-            justifyContent="center"
-            alignItems="center"
-            justifyItems="center">
-            <KidsCourseItem />
-          </Grid>
-        </Flex>
+        <Grid
+          gridGap="20px"
+          templateColumns={{
+            base: 'repeat(auto-fill, minmax(300px, 387px))',
+            md: 'repeat(auto-fill, minmax(380px, 1fr))',
+          }}
+          mb={{ base: '20px', md: '64px' }}
+          justifyContent="center"
+          alignItems="center"
+          justifyItems="center">
+          {kidsCourseData?.map((course: KidsCourse) => (
+            <KidsCourseItem
+              key={course.id}
+              id={course.id}
+              title={course.title}
+              subTitle={course.subTitle}
+              price={course.price}
+              totalDuration={course.totalDuration}
+              courseLevel={course.courseLevel}
+            />
+          ))}
+        </Grid>
 
         <Flex
           flexDirection={{ base: 'column', lg: 'row' }}
@@ -137,7 +147,7 @@ const KidsCourses: FC<Props> = () => {
               color="#222"
               m={{ base: '0 0 16px 0', sm: ' 0 0 50px 0' }}
               textAlign="center">
-              Why Should Your Kid Learn Computer Science?
+              Why Should Your Child Learn IT Professions?
             </Heading>
             <UnorderedList
               margin="0"
@@ -147,18 +157,20 @@ const KidsCourses: FC<Props> = () => {
               lineHeight="normal"
               color="#000">
               <ListItem mb={{ base: '8px', md: '16px' }}>
-                Computing would offer opportunities for creativity and innovation. Creating
-                something from scratch encourages students to improve students' imagination and
-                skills at the same time..
+                Learning IT professions equips your child with skills that are in high demand and
+                likely to be critical in the future job market. In a rapidly advancing technological
+                landscape, IT proficiency is a valuable asset that provides long-term relevance.
               </ListItem>
               <ListItem mb={{ base: '8px', md: '16px' }}>
-                When learning computer science, students will face challenges that require them to
-                navigate obstacles and learn to be an incredible problem solver.
+                IT education fosters problem-solving skills and critical thinking. Through coding
+                and various IT activities, children learn to approach challenges systematically,
+                analyze problems, and develop logical solutions.
               </ListItem>
               <ListItem>
-                With technology leads our current world, learning the basics of computer science
-                helps students to increase their ability in integral and analytical thinking when
-                solving complicated problems that will be useful to overcome their future
+                IT skills are versatile and can be applied across various disciplines. Whether your
+                child aspires to be a scientist, artist, or engineer, the foundational knowledge
+                gained through IT education provides a versatile skill set that can be adapted to
+                diverse career paths.
               </ListItem>
             </UnorderedList>
           </Box>
@@ -184,7 +196,6 @@ const KidsCourses: FC<Props> = () => {
             It's time to elevate your skills
           </Heading>
           <Flex gap={{ base: '16px', md: '0' }} flexDirection={{ base: 'column', md: 'row' }}>
-            {/*  */}
             <Box
               _hover={{
                 borderBottom: '8px solid #3CB4E7',
@@ -202,7 +213,7 @@ const KidsCourses: FC<Props> = () => {
                 alignItems="center"
                 justifyContent="center">
                 <Image
-                  src="/images/public_available/kids_courses_skills_img1.jpg"
+                  src="/images/public_available/kids_skills_img1.webp"
                   alt="Kids offline courses skills"
                   width={86}
                   height={86}
@@ -216,7 +227,7 @@ const KidsCourses: FC<Props> = () => {
                 color="#222"
                 my="16px"
                 textAlign="center">
-                Schedule and attend your favorite class
+                Best for you
               </Text>
               <Text
                 fontSize="16px"
@@ -225,20 +236,20 @@ const KidsCourses: FC<Props> = () => {
                 lineHeight="22px"
                 color="#5B5B5B"
                 textAlign="center">
-                Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non.
-                Cras aliquet purus dui laoreet diam sed lacus, fame
+                Choosing the right profession is a crucial decision that significantly impacts
+                various aspects of an individual's life. Choose the most suitable for you from our
+                various courses.
               </Text>
             </Box>
-            {/*  */}
             <Box
               _hover={{
                 borderBottom: '8px solid #3CB4E7',
                 marginTop: '24px',
-                transition: 'all 0.5s ',
               }}
               p="32px"
               boxShadow="0px -4px 4px -1px rgba(0, 0, 0, 0.06)"
               width={400}
+              transition="all 0.3s"
               height={333}>
               <Box
                 borderRadius="86px"
@@ -247,7 +258,7 @@ const KidsCourses: FC<Props> = () => {
                 alignItems="center"
                 justifyContent="center">
                 <Image
-                  src="/images/public_available/kids_courses_skills_img2.jpg"
+                  src="/images/public_available/kids_skills_img2.webp"
                   alt="Kids offline courses skills"
                   width={86}
                   height={86}
@@ -270,20 +281,19 @@ const KidsCourses: FC<Props> = () => {
                 lineHeight="22px"
                 color="#5B5B5B"
                 textAlign="center">
-                Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non.
-                Cras aliquet purus dui laoreet diam sed lacus, fame
+                Exams serve as a standardized method to assess a student's understanding of the
+                material covered in a course.
               </Text>
             </Box>
-            {/*  */}
             <Box
               _hover={{
                 borderBottom: '8px solid #3CB4E7',
                 marginTop: '24px',
-                transition: 'all 0.3s ',
               }}
               p="32px"
               boxShadow="0px -4px 4px -1px rgba(0, 0, 0, 0.06)"
               width={400}
+              transition="all 0.3s"
               height={333}>
               <Box
                 borderRadius="86px"
@@ -292,7 +302,7 @@ const KidsCourses: FC<Props> = () => {
                 alignItems="center"
                 justifyContent="center">
                 <Image
-                  src="/images/public_available/kids_courses_skills_img3.jpg"
+                  src="/images/public_available/kids_skills_img3.webp"
                   alt="Kids offline courses skills"
                   width={86}
                   height={86}
@@ -306,7 +316,7 @@ const KidsCourses: FC<Props> = () => {
                 color="#222"
                 my="16px"
                 textAlign="center">
-                Become a pro and get your certificate
+                Graduation
               </Text>
               <Text
                 fontSize="16px"
@@ -315,8 +325,9 @@ const KidsCourses: FC<Props> = () => {
                 lineHeight="22px"
                 color="#5B5B5B"
                 textAlign="center">
-                Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non.
-                Cras aliquet purus dui laoreet diam sed lacus, fame
+                Graduation symbolizes the successful completion of an educational journey. It
+                signifies the acquisition of knowledge, skills, and academic achievements over the
+                course of the program.
               </Text>
             </Box>
           </Flex>
@@ -340,8 +351,8 @@ const KidsCourses: FC<Props> = () => {
           </Heading>
 
           <Accordion allowMultiple display="flex" flexDirection="column" gap="16px">
-            {Array.from({ length: 4 }, (_, index) => index).map((_, i) => (
-              <AccordionItem border="none" key={i} id={i.toString()}>
+            {questionsKidsPage.map((item, index) => (
+              <AccordionItem border="none" key={item.id} id={index.toString()}>
                 {({ isExpanded }) => (
                   <>
                     <Box>
@@ -356,7 +367,7 @@ const KidsCourses: FC<Props> = () => {
                           lineHeight="normal"
                           fontSize="16px"
                           color="#222222">
-                          How many children will be there in one batch?
+                          {item.question}
                         </Box>
                         {isExpanded ? <AddIcon fontSize="12px" /> : <PlusIcon fontSize="12px" />}
                       </AccordionButton>
@@ -369,9 +380,7 @@ const KidsCourses: FC<Props> = () => {
                       lineHeight="22px"
                       fontWeight="400"
                       color="#5B5B5B">
-                      All our mentors are experienced and accomplished professionals with a passion
-                      for teaching. They've been working in their respective fields for a minimum of
-                      5+ years.
+                      {item.answer}
                     </AccordionPanel>
                   </>
                 )}
