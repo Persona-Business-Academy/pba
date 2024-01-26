@@ -10,16 +10,29 @@ type Props = {
 };
 
 const DesktopNav: FC<Props> = ({ navItems }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isChevronIconVisible, setIsChevronIconVisible] = useState<null | number>(null);
 
   return (
-    <Stack direction={'row'} justifyContent="center" alignItems="center" gap={40}>
+    <Stack
+      direction={'row'}
+      justifyContent="center"
+      alignItems="center"
+      gap={40}
+      onMouseLeave={() => setIsOpen(false)}>
       {navItems.map((navItem, index) => (
         <Box key={index}>
-          <Popover trigger="hover" id="popover-trigger-menu">
+          <Popover trigger="hover" id="popover-trigger-menu" isOpen={isOpen}>
             <PopoverTrigger>
               <Box
-                {...(navItem.href ? { as: Link, href: navItem.href } : {})}
+                {...(navItem.href
+                  ? {
+                      as: Link,
+                      href: navItem.href,
+                      onMouseOver: () => setIsOpen(true),
+                      onClick: () => setIsOpen(false),
+                    }
+                  : {})}
                 cursor="pointer"
                 fontSize={16}
                 fontWeight={400}

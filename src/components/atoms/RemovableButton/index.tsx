@@ -1,6 +1,6 @@
 import React, { FC, memo, ReactNode } from 'react';
 import { Box, Button } from '@chakra-ui/react';
-import RemoveIcon from 'public/icons/remove.svg';
+import RemoveIcon from '/public/icons/remove.svg';
 
 type RemovableButtonProps = {
   children: ReactNode;

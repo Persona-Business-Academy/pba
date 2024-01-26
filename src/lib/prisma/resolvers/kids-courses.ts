@@ -47,6 +47,7 @@ export class KidsCourseResolver {
       where: { id, forKids: true },
       include: {
         OfflineCourseInstructors: true,
+        OfflineCourseVideo: true,
       },
     });
 
@@ -56,11 +57,12 @@ export class KidsCourseResolver {
 
     const courseInstructors = await prisma.instructor.findMany({
       where: {
-        id: { in: offlineCourse.OfflineCourseInstructors.map(({ id }) => id) },
+        id: { in: offlineCourse.OfflineCourseInstructors.map(({ instructorId }) => instructorId) },
       },
     });
 
     const course = { ...offlineCourse, courseInstructors };
+
     return course;
   }
 

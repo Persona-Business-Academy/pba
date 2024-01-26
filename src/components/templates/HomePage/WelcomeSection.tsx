@@ -116,7 +116,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
             <Box display="flex" justifyContent="center">
               <Box
                 as={Link}
-                href="#feedback"
+                href="/#feedback"
                 zIndex="1"
                 bg="#FFFFFFCC"
                 left={{ base: '-60px', md: '-30px' }}

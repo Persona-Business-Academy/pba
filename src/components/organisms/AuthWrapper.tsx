@@ -3,7 +3,7 @@ import { Box, Center, Flex, Grid, GridItem, useMediaQuery } from '@chakra-ui/rea
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Logo from 'public/icons/persona_logo_auth.svg';
+import Logo from '/public/icons/persona_logo_auth.svg';
 import { breakpoints } from '@/utils/constants/chakra';
 import { FORGOT_PASSWORD_ROUTE, HOMEPAGE_ROUTE } from '@/utils/constants/routes';
 

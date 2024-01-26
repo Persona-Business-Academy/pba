@@ -1,6 +1,8 @@
 import { segoe } from '@/utils/constants/fonts';
 import Providers from './providers';
 import './globals.scss';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 export const metadata = {
   title: 'Persona Business Academy',

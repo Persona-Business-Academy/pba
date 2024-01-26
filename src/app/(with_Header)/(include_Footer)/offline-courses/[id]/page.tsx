@@ -15,16 +15,21 @@ import {
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { OfflineCourseService } from '@/api/services/OfflineCourseService';
 import { Button } from '@/components/atoms';
-import Slide from '@/components/molecules/Swiper';
+import StudentCommentSlide from '@/components/molecules/StudentCommentsSlide';
 import TimeLine from '@/components/molecules/TimeLine';
 import { segoe } from '@/utils/constants/fonts';
 import { generateAWSUrl } from '@/utils/helpers/common';
 
+const Slide = dynamic(() => import('@/components/molecules/Swiper'), { ssr: false });
+
 const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => {
   const offlineCourse = await OfflineCourseService.getOfflineCourseItem(id);
+
+  console.log({offlineCourse})
 
   return (
     <>
@@ -121,8 +126,11 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   fontSize="16px">
                   Apply now
                 </Button>
-                <Button
+                <Text
                   padding="16px 0"
+                  as="a"
+                  href={generateAWSUrl(offlineCourse.pdf)}
+                  target='_blank'
                   fontWeight="400"
                   lineHeight="21.28px"
                   fontSize="16px"
@@ -141,7 +149,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   }}
                   color="#1F1646">
                   View programm
-                </Button>
+                </Text>
               </Flex>
             </Box>
 
@@ -467,7 +475,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
 
             <Flex margin="0 auto" gap="20px" flexWrap="wrap" justifyContent="center">
               {offlineCourse.courseInstructors.map((instructor, index: number) => (
-                <Box key={index} maxW="402px">
+                <Box key={index} flexBasis="590px">
                   <Flex
                     mb="24px"
                     borderRadius="12px"
@@ -477,7 +485,9 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                     bg="#ECF7FC"
                     padding="48px">
                     <Box>
-                      <Image src="/icons/quote.svg" alt="comma" width={24.5} height={19.9} />
+                      <Image src="/icons/quote.svg" alt="comma" width={24.5} height={19.9} style={{
+                        objectFit:"contain"
+                      }} />
                     </Box>
                     <Text
                       textAlign="center"
@@ -503,6 +513,9 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                         src={generateAWSUrl(instructor.avatar)}
                         alt={[instructor.firstName, instructor.lastName].join(' ')}
                         fill
+                        style={{
+                          objectFit:"cover"
+                        }}
                       />
                     </Box>
 
@@ -550,89 +563,10 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
             </Flex>
           </Box>
 
-          <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
-            <Box
-              textAlign="center"
-              maxW="673px"
-              margin={{
-                base: '0 auto 20px',
-                sm: '0 auto 20px',
-                md: '0 auto 40px ',
-                lg: '0 auto 40px',
-                xl: '0 auto 40px',
-              }}>
-              <Heading
-                color="#222222"
-                as="h2"
-                margin={{
-                  base: '0',
-                  sm: '0',
-                  md: '0 0 16px 0 ',
-                  lg: '0 0 16px 0',
-                  xl: '0 0 16px 0',
-                }}
-                fontWeight="700"
-                lineHeight={{
-                  base: '31.92px',
-                  sm: '31.92px',
-                  md: '37.24px ',
-                  lg: '37.24px',
-                  xl: '37.24px',
-                }}
-                fontSize={{ base: '24px', lg: '32px', xl: '32px' }}>
-                how we pass PBA DESIGN COURSE
-              </Heading>
-              <Text
-                display={{
-                  base: 'none',
-                  sm: 'none',
-                  md: 'block ',
-                  lg: 'block',
-                  xl: 'block',
-                }}
-                color="#747474"
-                as="p"
-                margin="0"
-                lineHeight="24px"
-                fontSize="16px"
-                fontWeight="400">
-                Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-                print, graphic or web designs. The passage is attributed to an unknown typesetter in
-                the 15th century who
-              </Text>
-            </Box>
-
-            <Box
-              maxWidth="1200px"
-              margin="0 auto"
-              display="flex"
-              flexDirection="column"
-              alignItems="center">
-              <Box
-                textAlign="center"
-                lineHeight="21.28px"
-                fontSize="12px"
-                fontWeight="400"
-                mb="16px">
-                <Text as="span">Watch Video</Text>
-              </Box>
-
-              <Flex
-                alignItems="center"
-                height="600px"
-                width="800px"
-                gap={{ base: '0', sm: '0', md: '30px', lg: '80px', xl: '132px' }}>
-                <Box
-                  maxWidth="850px"
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
-                  position="relative">
-                  <Slide offlineCourseVideo={offlineCourse.OfflineCourseVideo} />
-                </Box>
-              </Flex>
-            </Box>
-          </Box>
+          <Slide
+            offlineCourseVideo={offlineCourse.OfflineCourseVideo}
+            courseName={offlineCourse.title}
+          />
 
           <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
             <Box
@@ -664,7 +598,8 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   xl: '37.24px',
                 }}
                 fontSize={{ base: '24px', sm: '24px', md: '32px ', lg: '32px', xl: '32px' }}>
-                Gain industry recognized certificate
+                Elevate Your Expertise: Unlock Professional Achievement with Certificates After
+                Completing Our Courses
               </Heading>
               <Text
                 color="#747474"
@@ -673,27 +608,26 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                 lineHeight="24px"
                 fontSize="16px"
                 fontWeight="400">
-                Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-                print, graphic or web designs. The passage is attributed to an unknown typesetter in
-                the 15th century who is th
+                Empower Your Journey: Transform Learning into Achievement with Certificates Earned
+                After Each Course Completion. Elevate Your Expertise and Showcase Your Skills with
+                Pride
               </Text>
             </Box>
 
             <Flex
               maxW="1200px"
               margin="0 auto"
-              alignItems="center"
               gap={{ base: '20px', sm: '20px', md: '67px', lg: '67px', xl: '67px' }}
               flexWrap="wrap"
               justifyContent="center">
               <Box width="590px">
                 <Accordion
                   maxWidth="590px"
-                  defaultIndex={[0]}
-                  allowMultiple
                   display="flex"
                   flexDirection="column"
-                  gap="16px">
+                  gap="16px"
+                  allowMultiple
+                  allowToggle>
                   <AccordionItem
                     boxShadow="0px 2px 4px 0px #0000001F"
                     borderRadius="12px"
@@ -722,7 +656,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                         fontWeight="700"
                         textAlign="left"
                         lineHeight="31.92px">
-                        1. Fast results
+                        1. Advanced courses
                       </Box>
                     </AccordionButton>
                     <AccordionPanel
@@ -731,9 +665,53 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                       ml="auto"
                       lineHeight="18.75px"
                       color="#5B5B5B">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                      Dive into Excellence with Our Advanced Courses. Elevate Your Skills, Expand
+                      Your Knowledge, and Propel Your Career Forward. The Future of Mastery Begins
+                      Here
+                    </AccordionPanel>
+                  </AccordionItem>
+
+                  <AccordionItem
+                    boxShadow="0px 2px 4px 0px #0000001F"
+                    borderRadius="12px"
+                    padding="24px"
+                    border="none">
+                    <h2>
+                      <AccordionButton
+                        padding="0"
+                        _hover={{ background: 'transparent' }}
+                        display="flex"
+                        alignItems="center"
+                        gap="8px">
+                        <Box>
+                          <Image
+                            src="/icons/result_course_icon.svg"
+                            alt="Icon"
+                            width={32}
+                            height={32}
+                          />
+                        </Box>
+
+                        <Box
+                          as="span"
+                          padding="0"
+                          flex="1"
+                          fontSize="24px"
+                          fontWeight="700"
+                          textAlign="left"
+                          lineHeight="31.92px">
+                          2. Difficult exam period
+                        </Box>
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel
+                      maxWidth="502px"
+                      padding="0"
+                      ml="auto"
+                      lineHeight="18.75px"
+                      color="#5B5B5B">
+                      A Time of Challenge and Triumph. , Conquer the Material, and Emerge Stronger.
+                      Your Success Journey Begins in the Exam Hall
                     </AccordionPanel>
                   </AccordionItem>
 
@@ -766,7 +744,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                           fontWeight="700"
                           textAlign="left"
                           lineHeight="31.92px">
-                          3. results
+                          3.Graduation
                         </Box>
                       </AccordionButton>
                     </h2>
@@ -776,54 +754,9 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                       ml="auto"
                       lineHeight="18.75px"
                       color="#5B5B5B">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </AccordionPanel>
-                  </AccordionItem>
-
-                  <AccordionItem
-                    boxShadow="0px 2px 4px 0px #0000001F"
-                    borderRadius="12px"
-                    padding="24px"
-                    border="none">
-                    <h2>
-                      <AccordionButton
-                        padding="0"
-                        _hover={{ background: 'trnsparents' }}
-                        display="flex"
-                        alignItems="center"
-                        gap="8px">
-                        <Box>
-                          <Image
-                            src="/icons/result_course_icon.svg"
-                            alt="Icon"
-                            width={32}
-                            height={32}
-                          />
-                        </Box>
-
-                        <Box
-                          as="span"
-                          padding="0"
-                          flex="1"
-                          fontSize="24px"
-                          fontWeight="700"
-                          textAlign="left"
-                          lineHeight="31.92px">
-                          1. Fast results
-                        </Box>
-                      </AccordionButton>
-                    </h2>
-                    <AccordionPanel
-                      maxWidth="502px"
-                      padding="0"
-                      ml="auto"
-                      lineHeight="18.75px"
-                      color="#5B5B5B">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                      A Journey Fulfilled, a Chapter Completed. Graduation is the Celebration of
+                      Hard Work, Growth, and the Beginning of New Horizons. Here's to the Graduates
+                      – Your Future Awaits
                     </AccordionPanel>
                   </AccordionItem>
                 </Accordion>
@@ -831,136 +764,24 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
 
               <Box>
                 <Image
-                  src="/images/public_available/course_student_img.jpg"
+                  src={generateAWSUrl(offlineCourse.graduationPhoto)}
                   alt="Students"
                   width={543}
                   height={374}
+                  style={{
+                  width:543,
+                  height:374,
+                    objectFit:"cover",
+                    borderRadius:"16px",
+                  }}
                 />
               </Box>
             </Flex>
           </Box>
 
-          <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
-            <Heading
-              textAlign="center"
-              color="#222222"
-              as="h2"
-              margin={{
-                base: '0 0 16px 0',
-                sm: '0 0 16px 0',
-                md: '0 0 55px 0 ',
-                lg: '0 0 55px 0',
-                xl: '0 0 55px 0',
-              }}
-              fontWeight="700"
-              lineHeight={{
-                base: '31.92px',
-                sm: '31.92px',
-                md: '37.24px ',
-                lg: '37.24px',
-                xl: '37.24px',
-              }}
-              fontSize={{ base: '24px', sm: '24px', md: '32px ', lg: '32px', xl: '32px' }}>
-              Here is what our students are saying about us
-            </Heading>
+          <StudentCommentSlide comments={offlineCourse.comments} />
 
-            <Flex
-              maxWidth="1200px"
-              margin="0 auto"
-              alignItems="center"
-              justifyContent="center"
-              gap={{ base: '0 ', sm: '0 ', md: '50px', lg: ' 50px', xl: ' 162.5px' }}
-              mb="55px">
-              <Box
-                width="40px"
-                padding="8px"
-                display={{ base: 'none ', sm: 'none ', md: 'none', lg: ' block', xl: ' block' }}>
-                <Image src="/icons/arrow_left_partners.svg" alt="Arrow" height={24} width={24} />
-              </Box>
-
-              <Box
-                borderRadius="15px"
-                maxWidth="794px"
-                padding={{
-                  base: '24px ',
-                  sm: '24px',
-                  md: '24px',
-                  lg: ' 48px 90px',
-                  xl: ' 68px 124px',
-                }}
-                color="#222222"
-                textAlign="center"
-                bg="#FDF1F0">
-                <Text
-                  as="p"
-                  fontWeight="700"
-                  lineHeight={{
-                    base: '21.28px ',
-                    sm: '21.px',
-                    md: '21.px',
-                    lg: '42.56px',
-                    xl: '42.56px',
-                  }}
-                  fontSize={{ base: '16px ', sm: '16px', md: '32px', lg: '32px', xl: '32px' }}>
-                  It was a very good experience
-                </Text>
-                <Text as="span" fontSize="16px" lineHeight="18.75px">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec
-                  turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat
-                  duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque
-                  enim arcu. Elementum felis magna pretium in tincidunt. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas.
-                </Text>
-              </Box>
-
-              <Box
-                padding="8px"
-                display={{ base: 'none ', sm: 'none ', md: 'none', lg: ' block', xl: ' block' }}>
-                <Image src="/icons/arrow_right_partners.svg" alt="Arrow" height={24} width={24} />
-              </Box>
-            </Flex>
-
-            <Flex
-              alignItems="center"
-              gap="40px"
-              maxW="579px"
-              margin=" 0 auto"
-              display={{ base: 'none ', sm: 'none ', md: 'flex ', lg: ' flex', xl: ' flex' }}>
-              <Image
-                src="/icons/feedback_students_first.png"
-                alt="Feedback"
-                width={72.7}
-                height={75.9}
-              />
-              <Image
-                src="/icons/feedback_students_second.png"
-                alt="Feedback"
-                width={72.7}
-                height={75.9}
-              />
-
-              <Image
-                src="/icons/feedback_students_third.png"
-                alt="Feedback"
-                width={126.9}
-                height={132.5}
-              />
-              <Image
-                src="/icons/feedback_students_first.png"
-                alt="Feedback"
-                width={72.7}
-                height={75.9}
-              />
-              <Image
-                src="/icons/feedback_students_second.png"
-                alt="Feedback"
-                width={72.7}
-                height={75.9}
-              />
-            </Flex>
-          </Box>
-
-          <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
+          <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }} mt="148px">
             <Heading
               textAlign="center"
               color="#222222"

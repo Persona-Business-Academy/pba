@@ -15,9 +15,9 @@ import {
   UnorderedList,
 } from '@chakra-ui/react';
 import { useQuery } from '@tanstack/react-query';
+import PlusIcon from '/public/icons/plus_pricing_icon.svg';
+import AddIcon from '/public/icons/xmark_pricing_icon.svg';
 import Image from 'next/image';
-import PlusIcon from 'public/icons/plus_pricing_icon.svg';
-import AddIcon from 'public/icons/xmark_pricing_icon.svg';
 import { KidsCourseService } from '@/api/services/KidsCourseService';
 import { Button, Loading } from '@/components/atoms';
 import SearchInput from '@/components/atoms/SearchInput';

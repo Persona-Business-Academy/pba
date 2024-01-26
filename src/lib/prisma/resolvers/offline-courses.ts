@@ -66,8 +66,11 @@ export class OfflineCoursesResolver {
       include: {
         OfflineCourseInstructors: true,
         OfflineCourseVideo: true,
+        comments: true,
       },
     });
+
+    console.log({ offlineCourse });
 
     if (!offlineCourse) {
       throw new NotFoundException('Offline course with provided id does not exist');
@@ -75,7 +78,7 @@ export class OfflineCoursesResolver {
 
     const courseInstructors = await prisma.instructor.findMany({
       where: {
-        id: { in: offlineCourse.OfflineCourseInstructors.map(({ id }) => id) },
+        id: { in: offlineCourse.OfflineCourseInstructors.map(({ instructorId }) => instructorId) },
       },
     });
 
