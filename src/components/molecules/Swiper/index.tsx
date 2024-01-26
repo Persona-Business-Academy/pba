@@ -58,41 +58,34 @@ const Slide: FC<SwiperProps> = ({ offlineCourseVideo, courseName }) => {
           <Text as="span">Watch Video</Text>
         </Box>
 
-        <Flex
-          alignItems="center"
-          width="800px"
-          gap={{ base: '0', sm: '0', md: '30px', lg: '80px', xl: '132px' }}>
+        <Flex alignItems="center" gap={{ base: '0', sm: '0', md: '30px', lg: '80px', xl: '132px' }}>
           <Box
-            maxWidth="850px"
+            maxWidth={{
+              base: '350px',
+              lg: '800px',
+            }}
             display="flex"
             flexDirection="column"
             alignItems="center"
+            margin={0}
             position="relative">
-            <Flex
-              width="100%"
-              height="100%"
-              justifyContent="center"
-              alignItems="center"
-              sx={{
-                '& .swiper-button-next': {},
-                '& .swiper-button-prev': {},
-              }}>
+            <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
               <Swiper
                 id="main"
                 onSwiper={swiper => console.log(swiper)}
                 navigation
                 pagination={{ clickable: true }}
                 slidesPerView={1}
-                spaceBetween={30}
+                spaceBetween={5}
                 modules={[Navigation, Pagination]}>
                 {offlineCourseVideo.map((video: OfflineCourseVideo) => (
-                  <SwiperSlide key={video.id}>
+                  <SwiperSlide key={video.id} className="">
                     <ReactPlayer
                       url={generateAWSUrl(video.key)}
                       playing={false}
                       controls={true}
-                      width="80%"
-                      height="80%"
+                      width="70%"
+                      height="70%"
                       style={{
                         margin: '0 auto',
                       }}

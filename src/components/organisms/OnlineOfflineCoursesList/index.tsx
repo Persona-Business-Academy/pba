@@ -78,7 +78,7 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
         lineHeight="normal"
         fontStyle="normal">
         <Flex as="section" gap="20px" marginBottom="148px">
-          <Flex flexDirection="column" width="285px">
+          <Flex flexDirection="column" width="285px" display={{ base: 'none', sm: 'flex' }}>
             <CourseFilter
               courseTopicDataList={courseTopicDataList}
               courseSkillsDataList={courseSkillsDataList}

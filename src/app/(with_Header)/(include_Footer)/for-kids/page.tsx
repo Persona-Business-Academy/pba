@@ -85,7 +85,7 @@ const KidsCourses = ({ searchParams }: Props) => {
           alignItems="center"
           gap="19px"
           flexDirection={{ base: 'column', lg: 'row' }}>
-          <Box w={{ base: '100%', md: '794px' }} textAlign="center">
+          <Box w={{ base: '90%', md: '794px' }} textAlign="center">
             <Heading
               fontSize={{ base: '28px', md: '44px' }}
               fontWeight={{ base: 600, md: 700 }}
@@ -99,7 +99,7 @@ const KidsCourses = ({ searchParams }: Props) => {
           </Box>
           <Box borderRadius="38px" overflow="hidden">
             <Image
-              src="/images/public_available/kids_offline_courses.jpg"
+              src="/images/public_available/kids.webp"
               alt="Kids offline courses"
               width={387}
               height={260}

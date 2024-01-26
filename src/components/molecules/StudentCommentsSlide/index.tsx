@@ -18,26 +18,13 @@ const StudentCommentSlide: FC<StudentCommentSlideProps> = ({ comments }) => {
     setActiveSlideIndex(swiper.activeIndex);
   }, []);
 
-  console.log({ activeSlideIndex });
-
   return (
-    <Box
-      sx={{
-        '& .swiper-button-next': {
-          'background-image': 'url(/icons/chevron-right.svg)',
-        },
-        '& .swiper-button-prev': {
-          'background-image': 'url(/icons/chevron-left.svg)',
-        },
-      }}>
+    <Box>
       <Swiper
         slidesPerView={1}
         spaceBetween={5}
         onSwiper={swiper => console.log(swiper)}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }}
+        navigation
         pagination={{ clickable: true }}
         modules={[Navigation, Pagination]}
         onSlideChange={handleSlideChange}>
@@ -78,7 +65,7 @@ const StudentCommentSlide: FC<StudentCommentSlideProps> = ({ comments }) => {
         ))}
       </Swiper>
 
-      <Flex justifyContent="center" gap="40px" height="222px" mt="55px">
+      <Flex justifyContent="center" gap="40px" height="222px" mt="55px" flexWrap="wrap">
         {comments.map((_, index) => (
           <Avatar
             key={index}

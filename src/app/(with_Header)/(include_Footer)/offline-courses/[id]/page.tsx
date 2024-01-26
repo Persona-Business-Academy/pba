@@ -29,7 +29,7 @@ const Slide = dynamic(() => import('@/components/molecules/Swiper'), { ssr: fals
 const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => {
   const offlineCourse = await OfflineCourseService.getOfflineCourseItem(id);
 
-  console.log({offlineCourse})
+  console.log({ offlineCourse });
 
   return (
     <>
@@ -130,7 +130,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   padding="16px 0"
                   as="a"
                   href={generateAWSUrl(offlineCourse.pdf)}
-                  target='_blank'
+                  target="_blank"
                   fontWeight="400"
                   lineHeight="21.28px"
                   fontSize="16px"
@@ -347,9 +347,6 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                 Buy Now
               </Button>
             </Box>
-            <Box>
-              <Image src="/icons/heart_icon.svg" alt="Heart" width={24} height={24} />
-            </Box>
           </Box>
         </Flex>
       </Box>
@@ -400,12 +397,12 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                 margin="0 0 24px 0"
                 fontSize="28px"
                 lineHeight="37.24px">
-                Your Child Will Learn
+                What you will Learn
               </Heading>
               <Flex gap={{ base: '16px', xl: '29px' }} flexWrap="wrap" justifyContent="center">
                 <UnorderedList
                   display="grid"
-                  gridTemplateColumns="1fr 1fr"
+                  gridTemplateColumns="repeat(2,1fr)"
                   margin="0"
                   gap="16px"
                   lineHeight="24px"
@@ -413,9 +410,14 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   fontSize="16px"
                   listStyleType="0"
                   color="#222222"
-                  maxWidth="803px">
+                  width="100%">
                   {offlineCourse.whatYouWillLearn.map((learning: string, index: number) => (
-                    <ListItem key={index} display="flex" alignItems="flex-start" gap="12px">
+                    <ListItem
+                      key={index}
+                      display="flex"
+                      alignItems="flex-start"
+                      gap="12px"
+                      width="100%">
                       <Image src="/icons/confirm_icon.svg" alt="Confirm" width={24} height={24} />
                       {learning}
                     </ListItem>
@@ -485,9 +487,15 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                     bg="#ECF7FC"
                     padding="48px">
                     <Box>
-                      <Image src="/icons/quote.svg" alt="comma" width={24.5} height={19.9} style={{
-                        objectFit:"contain"
-                      }} />
+                      <Image
+                        src="/icons/quote.svg"
+                        alt="comma"
+                        width={24.5}
+                        height={19.9}
+                        style={{
+                          objectFit: 'contain',
+                        }}
+                      />
                     </Box>
                     <Text
                       textAlign="center"
@@ -514,7 +522,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                         alt={[instructor.firstName, instructor.lastName].join(' ')}
                         fill
                         style={{
-                          objectFit:"cover"
+                          objectFit: 'cover',
                         }}
                       />
                     </Box>
@@ -626,8 +634,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   display="flex"
                   flexDirection="column"
                   gap="16px"
-                  allowMultiple
-                  allowToggle>
+                  allowMultiple>
                   <AccordionItem
                     boxShadow="0px 2px 4px 0px #0000001F"
                     borderRadius="12px"
@@ -769,10 +776,10 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   width={543}
                   height={374}
                   style={{
-                  width:543,
-                  height:374,
-                    objectFit:"cover",
-                    borderRadius:"16px",
+                    width: 543,
+                    height: 374,
+                    objectFit: 'cover',
+                    borderRadius: '16px',
                   }}
                 />
               </Box>
@@ -907,7 +914,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   </Button>
                 </Flex>
               </form>
-              <Box
+              {/* <Box
                 margin={{
                   base: '0 auto',
                   sm: '0 auto',
@@ -933,7 +940,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   lineHeight="24px">
                   Thank you for your message. It has been sent.
                 </Text>
-              </Box>
+              </Box> */}
             </Box>
           </Box>
         </Container>

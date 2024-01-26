@@ -18,8 +18,11 @@ const OfflineCourseItem: FC<OfflineCourseItemProps> = ({ courseData }) => {
       gap="16px"
       borderRadius="12px"
       border="1px solid #F3F4F6"
-      backgroundColor="#FFFFFF">
-      <Box width={240} height={154} position="relative">
+      width={{ base: '343px', sm: 'auto' }}
+      margin="0 auto"
+      backgroundColor="#FFFFFF"
+      flexDirection={{ base: 'column', sm: 'row' }}>
+      <Box width={{ base: 311, sm: 240 }} height={{ base: 139, sm: 154 }} position="relative">
         <Image src={generateAWSUrl(courseData.coverPhoto)} alt="" fill />
       </Box>
       <Flex flexDirection="column" justifyContent="space-between" flex={1} color="#222222">
@@ -50,7 +53,7 @@ const OfflineCourseItem: FC<OfflineCourseItemProps> = ({ courseData }) => {
           {courseData.subTitle}
         </Text>
         <Flex justifyContent="space-between">
-          <Flex width="332px" justifyContent="space-between" alignItems="center">
+          <Flex width="332px" justifyContent="space-between" alignItems="center" flexWrap="wrap">
             <Flex gap="8px">
               {<TimeIcon />}
               <Text>{courseData.totalDuration} month</Text>

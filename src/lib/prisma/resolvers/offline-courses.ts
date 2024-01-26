@@ -70,8 +70,6 @@ export class OfflineCoursesResolver {
       },
     });
 
-    console.log({ offlineCourse });
-
     if (!offlineCourse) {
       throw new NotFoundException('Offline course with provided id does not exist');
     }

@@ -30,7 +30,12 @@ const ProfileNavItem: FC<ProfileNavItemProps> = ({ user }) => {
     <AccordionItem pl={8}>
       <AccordionButton display="flex">
         <Flex flex={6} textAlign="left" gap="8px" as={Link} href={PROFILE_ROUTE}>
-          <Avatar name={name} src={user?.avatar ? generateAWSUrl(user.avatar) : ''} />
+          <Avatar
+            name={name}
+            src={user?.avatar ? generateAWSUrl(user.avatar) : ''}
+            bg="#F3F4F6"
+            color="#C0C0C0"
+          />
           <Flex flexDirection="column" gap="4px">
             <Text
               display="flex"
