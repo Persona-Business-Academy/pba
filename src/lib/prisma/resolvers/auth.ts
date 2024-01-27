@@ -1,10 +1,11 @@
 import bcrypt from 'bcrypt';
-import { BadRequestException } from 'next-api-decorators';
+import { BadRequestException, NotFoundException } from 'next-api-decorators';
 import { ERROR_MESSAGES } from '@/utils/constants/common';
 import {
   ForgotPasswordStep1Validation,
   ForgotPasswordStep2Validation,
   ForgotPasswordStep3Validation,
+  ResendEmailValidation,
   SignUpValidation,
 } from '@/utils/validation';
 import { UserResolver } from './user';
@@ -111,5 +112,33 @@ export class AuthResolver {
     });
 
     return !!updatedUser;
+  }
+
+  static async resendEmail(data: ResendEmailValidation) {
+    const { email, firstName } = data;
+    const confirmationCode = generateRandomNumber(6);
+
+    const user = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User with provided email does not exist');
+    }
+
+    await prisma.user.update({
+      where: {
+        email,
+      },
+      data: {
+        confirmationCode,
+      },
+    });
+
+    await Email.sendConfirmationCodeEmail(email, confirmationCode, firstName);
+
+    return true;
   }
 }

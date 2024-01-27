@@ -1,6 +1,8 @@
 import { memo, useCallback } from 'react';
 import { Box, Flex, FlexProps } from '@chakra-ui/react';
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
+import { HOMEPAGE_ROUTE } from '@/utils/constants/routes';
 
 interface NavItemProps extends FlexProps {
   icon: string;
@@ -8,7 +10,8 @@ interface NavItemProps extends FlexProps {
   href: string | undefined;
 }
 const NavItem = ({ href, icon: Icon, children, ...rest }: NavItemProps) => {
-  const logoutHandler = useCallback(() => {}, []);
+  const signOutHandler = useCallback(() => signOut({ callbackUrl: HOMEPAGE_ROUTE }), []);
+
   return (
     <Box
       as={Link}
@@ -23,7 +26,7 @@ const NavItem = ({ href, icon: Icon, children, ...rest }: NavItemProps) => {
         color: '#222',
       }}
       height="52px"
-      {...(href ? {} : { onClick: logoutHandler })}>
+      {...(href ? {} : { onClick: signOutHandler })}>
       <Flex
         align="center"
         p="4"

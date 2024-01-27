@@ -7,29 +7,28 @@ import {
   Box,
   Container,
   Flex,
-  FormControl,
-  FormLabel,
   Heading,
-  Input,
   ListItem,
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import Link from 'next/link';
 import { OfflineCourseService } from '@/api/services/OfflineCourseService';
 import { Button } from '@/components/atoms';
-import StudentCommentSlide from '@/components/molecules/StudentCommentsSlide';
+import ApplyCourse from '@/components/molecules/ApplyCourse';
 import TimeLine from '@/components/molecules/TimeLine';
 import { segoe } from '@/utils/constants/fonts';
 import { generateAWSUrl } from '@/utils/helpers/common';
 
 const Slide = dynamic(() => import('@/components/molecules/Swiper'), { ssr: false });
+const StudentCommentSlide = dynamic(() => import('@/components/molecules/StudentCommentsSlide'), {
+  ssr: false,
+});
 
 const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => {
   const offlineCourse = await OfflineCourseService.getOfflineCourseItem(id);
-
-  console.log({ offlineCourse });
 
   return (
     <>
@@ -111,8 +110,10 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               </Box>
 
               <Flex gap="16px" alignItems="center" justifyContent="center" flexWrap="wrap">
-                <Button
+                <Text
                   bg="transparent"
+                  as={Link}
+                  href="#apply-course"
                   padding={{
                     base: '12px 24px',
                     md: '16px 32px',
@@ -125,7 +126,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   lineHeight="21.28px"
                   fontSize="16px">
                   Apply now
-                </Button>
+                </Text>
                 <Text
                   padding="16px 0"
                   as="a"
@@ -795,152 +796,19 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               as="h2"
               margin={{
                 base: '0 0 16px 0',
-                sm: '0 0 16px 0',
                 md: '0 0 40px 0',
-                lg: '0 0 40px 0',
-                xl: '0 0 40px 0',
               }}
               fontWeight="700"
               lineHeight={{
                 base: '31.92px',
-                sm: '31.92px',
                 md: '37.24px ',
-                lg: '37.24px',
-                xl: '37.24px',
               }}
               fontSize={{ base: '24px', sm: '24px', md: '32px ', lg: '32px', xl: '32px' }}>
               Apply for course
             </Heading>
 
-            <Box maxWidth="1200px" margin="0 auto" color="#C0C0C0">
-              <form style={{ width: '100%' }}>
-                <Flex
-                  width="100%"
-                  alignItems="end"
-                  gap="20px"
-                  mb="40px"
-                  flexWrap="wrap"
-                  justifyContent="center">
-                  <FormControl
-                    maxWidth={{
-                      base: '335px ',
-                      sm: '335px ',
-                      md: '335px ',
-                      lg: ' 335px',
-                      xl: ' 285px',
-                    }}>
-                    <FormLabel
-                      margin="0 0 4px 0"
-                      color="#222222"
-                      fontSize="14px"
-                      fontWeight="600"
-                      lineHeight="20px">
-                      Name
-                    </FormLabel>
-                    <Input
-                      fontWeight="400"
-                      height="37px"
-                      lineHeight="21.28px"
-                      fontSize="16px"
-                      padding="8px 12px"
-                      border="1px solid #C0C0C0"
-                      type="text"
-                      placeholder="Enter name"
-                    />
-                  </FormControl>
-
-                  <FormControl
-                    maxWidth={{
-                      base: '335px ',
-                      sm: '335px ',
-                      md: '335px ',
-                      lg: ' 335px',
-                      xl: ' 285px',
-                    }}>
-                    <FormLabel
-                      margin="0 0 4px 0"
-                      color="#222222"
-                      fontSize="14px"
-                      fontWeight="600"
-                      lineHeight="20px">
-                      Email
-                    </FormLabel>
-                    <Input
-                      fontWeight="400"
-                      height="37px"
-                      lineHeight="21.28px"
-                      fontSize="16px"
-                      padding="8px 12px"
-                      border="1px solid #C0C0C0"
-                      type="email"
-                      placeholder="you@example.com"
-                    />
-                  </FormControl>
-
-                  <FormControl
-                    maxWidth={{
-                      base: '335px ',
-                      sm: '335px ',
-                      md: '335px ',
-                      lg: ' 335px',
-                      xl: ' 335px',
-                    }}>
-                    <FormLabel
-                      margin="0 0 4px 0"
-                      fontSize="14px"
-                      color="#222222"
-                      fontWeight="600"
-                      lineHeight="20px">
-                      Phone Number
-                    </FormLabel>
-                    <Input
-                      fontWeight="400"
-                      height="37px"
-                      lineHeight="21.28px"
-                      fontSize="16px"
-                      padding="8px 12px"
-                      border="1px solid #C0C0C0"
-                      type="number"
-                      placeholder="+374 98 901 820"
-                    />
-                  </FormControl>
-                  <Button
-                    lineHeight="21.28px"
-                    fontSize="16px"
-                    padding="16px 32px"
-                    width={{ base: '100%', lg: '235px', xl: '235px' }}
-                    height="42px">
-                    Apply
-                  </Button>
-                </Flex>
-              </form>
-              {/* <Box
-                margin={{
-                  base: '0 auto',
-                  sm: '0 auto',
-                  md: '0 auto',
-                  lg: '0 auto',
-                  xl: ' 0 0 0 auto',
-                }}
-                maxWidth="459px"
-                height="56px"
-                display="flex"
-                alignItems="center"
-                justifyContent="flex-end"
-                border="1px solid"
-                borderColor="#059669"
-                borderRadius="6px"
-                padding="16px 28px">
-                <Image width={24} height={24} src="./icons/check_circle_icon.svg" alt="Image" />
-                <Text
-                  margin="0 0 0 10px"
-                  color="#059669"
-                  fontSize="16px"
-                  fontWeight="500"
-                  lineHeight="24px">
-                  Thank you for your message. It has been sent.
-                </Text>
-              </Box> */}
+            <Box maxWidth="1200px" margin="0 auto" color="#C0C0C0" as="section" id="apply-course">
+              <ApplyCourse offlineCourseId={offlineCourse.id} />
             </Box>
           </Box>
         </Container>

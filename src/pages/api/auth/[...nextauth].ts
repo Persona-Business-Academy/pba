@@ -2,7 +2,7 @@ import { UnauthorizedException } from 'next-api-decorators';
 import NextAuth, { AuthOptions, getServerSession } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { UserResolver } from '@/lib/prisma/resolvers';
-import { validateUserPassword } from '@/lib/prisma/utils/auth';
+import { validateUserByConfirmationCode, validateUserPassword } from '@/lib/prisma/utils/auth';
 
 export const authOptions: AuthOptions = {
   secret: process.env.JWT_SECRET,
@@ -10,9 +10,18 @@ export const authOptions: AuthOptions = {
     CredentialsProvider({
       id: 'credentials',
       name: 'Credentials',
-      credentials: { email: { type: 'text' }, password: { type: 'password' } },
-      authorize: async credentials =>
-        (await validateUserPassword(credentials?.email || '', credentials?.password || '')) || null,
+      credentials: {
+        email: { type: 'text' },
+        password: { type: 'password' },
+        confirmationCode: { type: 'string' },
+      },
+      authorize: async credentials => {
+        if (credentials?.confirmationCode) {
+          return await validateUserByConfirmationCode(+credentials.confirmationCode);
+        } else {
+          return await validateUserPassword(credentials?.email || '', credentials?.password || '');
+        }
+      },
     }),
   ],
   callbacks: {

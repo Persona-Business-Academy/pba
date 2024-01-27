@@ -1,6 +1,7 @@
-import { memo } from 'react';
 import { Box, Heading, Text } from '@chakra-ui/react';
+import Link from 'next/link';
 import { Button } from '@/components/atoms';
+import { OFFLINE_COURSES_ROUTE } from '@/utils/constants/routes';
 
 const HaveAQuestion = () => {
   return (
@@ -22,6 +23,8 @@ const HaveAQuestion = () => {
           educational experience that goes beyond boundaries.
         </Text>
         <Button
+          as={Link}
+          href={OFFLINE_COURSES_ROUTE}
           bg="#F3F4F6"
           color="#1F1646"
           height="53px"
@@ -44,4 +47,4 @@ const HaveAQuestion = () => {
   );
 };
 
-export default memo(HaveAQuestion);
+export default HaveAQuestion;

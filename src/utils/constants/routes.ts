@@ -38,6 +38,7 @@ interface LinkItemProps {
   id: number;
   href?: string;
 }
+
 export const linkItems: Array<LinkItemProps> = [
   { id: 1, name: 'Profile', icon: ProfileIcon, href: PROFILE_ROUTE },
   { id: 2, name: 'Courses', icon: CoursesIcon, href: COURSES_ROUTE },

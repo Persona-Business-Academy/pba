@@ -20,6 +20,7 @@ export class SignUpValidation {
 
 export class ForgotPasswordStep1Validation {
   @IsEmail()
+  @IsNotEmpty({ message: 'Email is required' })
   email: string;
 }
 
@@ -28,6 +29,12 @@ export class ForgotPasswordStep2Validation {
   @IsNotEmpty()
   @Length(4)
   otpPassword: string;
+}
+
+export class ResendEmailValidation extends ForgotPasswordStep1Validation {
+  @IsString()
+  @IsNotEmpty({ message: 'First name is required' })
+  firstName: string;
 }
 
 export class ForgotPasswordStep3Validation {

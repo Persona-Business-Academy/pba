@@ -1,7 +1,8 @@
-import { OfflineCourse } from '@prisma/client';
+import { ApplicantType, OfflineCourse } from '@prisma/client';
 import { NotFoundException } from 'next-api-decorators';
 import { OnlineCoursesQueryParams } from '@/types/queryParams';
 import { SkillLevelType } from '@/utils/models/common';
+import { ApplyOfflineCourseFormValidation } from '@/utils/validation/apply-offline-course';
 import prisma from '..';
 
 type GroupedCourses = {
@@ -162,5 +163,29 @@ export class OfflineCoursesResolver {
     );
 
     return courseDurations;
+  }
+
+  static async createApplicantForOfflineCourse(
+    offlineCourseId: string,
+    data: ApplyOfflineCourseFormValidation,
+  ) {
+    const { name, email, phoneNumber } = data;
+
+    return prisma.applicant
+      .create({
+        data: {
+          name,
+          email,
+          phoneNumber,
+          for: ApplicantType.OFFLINE_COURSE_APPLICANT,
+          offlineCourse: {
+            connect: {
+              id: +offlineCourseId,
+            },
+          },
+        },
+      })
+      .then(() => true)
+      .catch(() => false);
   }
 }

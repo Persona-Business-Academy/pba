@@ -1,11 +1,7 @@
 import React, { FC } from 'react';
-import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/atoms';
-import CourseTopicBlock from '@/components/atoms/CourseTopicBlock';
-import { courseTopicBlock } from '@/utils/constants/course-topic-block';
 import {
   CONTACT_US_ROUTE,
   LEADERSHIP_ROUTE,
@@ -20,8 +16,6 @@ const commonFontStyle = {
 };
 
 const WelcomeSection: FC<WelcomeSectionProps> = () => {
-  const router = useRouter();
-
   return (
     <Box
       mb={{
@@ -81,27 +75,43 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
               alignItems="center"
               justifyContent={{ base: 'center', lg: 'flex-start' }}>
               <Button
+                as={Link}
                 width="177px"
-                onClick={() => router.push(OFFLINE_COURSES_ROUTE)}
+                href={OFFLINE_COURSES_ROUTE}
                 height="53px"
                 fontSize="16px"
                 fontWeight="400"
-                lineHeight="21.28px">
+                lineHeight="21.28px"
+                bg="#3CB4E7"
+                color="#FFFFFF"
+                _hover={{
+                  bg: 'blue.400',
+                  color: '#FFFFFF',
+                }}
+                _focus={{
+                  bg: 'blue.500',
+                  color: '#FFFFFF',
+                }}
+                _focusVisible={{
+                  bg: 'blue.500',
+                  color: '#FFFFFF',
+                }}>
                 Find your Course
               </Button>
 
-              <Button
+              <Text
+                as={Link}
                 variant="link"
                 fontSize="16px"
                 fontWeight="400"
                 lineHeight="21.28px"
-                onClick={() => router.push(CONTACT_US_ROUTE)}
+                href={CONTACT_US_ROUTE}
                 bg="#F6FCFF"
                 color="#222222"
                 _hover={{ background: 'none' }}
                 _focus={{ bg: 'transparent' }}>
                 Have a Question?
-              </Button>
+              </Text>
             </Flex>
           </Flex>
 
@@ -275,6 +285,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                     style={{
                       objectFit: 'cover',
                     }}
+                    sizes="100%"
                   />
                 </Box>
                 <Box
@@ -317,7 +328,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
             </Heading>
           </Box>
 
-          <Flex>
+          {/* <Flex>
             <Box
               width="100%"
               display="flex"
@@ -333,7 +344,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                 />
               ))}
             </Box>
-          </Flex>
+          </Flex> */}
         </Box>
       </Container>
     </Box>

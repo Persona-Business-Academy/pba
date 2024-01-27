@@ -54,15 +54,15 @@ const OfflineCourseItem: FC<OfflineCourseItemProps> = ({ courseData }) => {
         </Text>
         <Flex justifyContent="space-between">
           <Flex width="332px" justifyContent="space-between" alignItems="center" flexWrap="wrap">
-            <Flex gap="8px">
+            <Flex gap="8px" alignItems="center">
               {<TimeIcon />}
               <Text>{courseData.totalDuration} month</Text>
             </Flex>
-            <Flex gap="8px">
+            <Flex gap="8px" alignItems="center">
               {<LevelIcon />}
               <Text>{courseData.courseLevel}</Text>
             </Flex>
-            <Flex gap="8px">
+            <Flex gap="8px" alignItems="center">
               {<LessonsIcon />}
               <Text>{courseData.lessonsCount} lessons</Text>
             </Flex>

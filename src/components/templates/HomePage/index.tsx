@@ -1,4 +1,3 @@
-'use client';
 import { Container } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 import WelcomeSection from './WelcomeSection';

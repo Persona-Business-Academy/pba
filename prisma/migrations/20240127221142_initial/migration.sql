@@ -1,4 +1,7 @@
 -- CreateEnum
+CREATE TYPE "ApplicantType" AS ENUM ('OFFLINE_COURSE_APPLICANT', 'CONTACT_US_APPLICANT', 'JOB_APPLICANT');
+
+-- CreateEnum
 CREATE TYPE "AdminRole" AS ENUM ('ADMIN', 'SUPER_ADMIN');
 
 -- CreateEnum
@@ -148,6 +151,8 @@ CREATE TABLE "OfflineCourse" (
     "subTitle" TEXT NOT NULL,
     "topic" "Topic" NOT NULL,
     "coverPhoto" TEXT NOT NULL,
+    "pdf" TEXT NOT NULL DEFAULT '',
+    "graduationPhoto" TEXT NOT NULL DEFAULT '',
     "mediaId" TEXT NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "description" TEXT NOT NULL,
@@ -188,6 +193,32 @@ CREATE TABLE "OfflineCourseInstructors" (
     "instructorId" INTEGER NOT NULL,
 
     CONSTRAINT "OfflineCourseInstructors_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "OfflineCourseTimeline" (
+    "id" SERIAL NOT NULL,
+    "offlineCourseId" INTEGER NOT NULL,
+    "startDates" TIMESTAMP(3)[],
+
+    CONSTRAINT "OfflineCourseTimeline_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Applicant" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "phoneNumber" TEXT NOT NULL,
+    "company" TEXT,
+    "message" TEXT,
+    "motivationLater" TEXT,
+    "hasAgreedToPrivacyPolicy" BOOLEAN NOT NULL DEFAULT true,
+    "file" TEXT DEFAULT '',
+    "for" "ApplicantType" NOT NULL,
+    "offlineCourseId" INTEGER,
+
+    CONSTRAINT "Applicant_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -252,3 +283,9 @@ ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_
 
 -- AddForeignKey
 ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_instructorId_fkey" FOREIGN KEY ("instructorId") REFERENCES "Instructor"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OfflineCourseTimeline" ADD CONSTRAINT "OfflineCourseTimeline_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Applicant" ADD CONSTRAINT "Applicant_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;

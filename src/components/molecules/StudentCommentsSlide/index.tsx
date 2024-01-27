@@ -1,5 +1,5 @@
 'use client';
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import { Avatar, Box, Flex, Text } from '@chakra-ui/react';
 import { CourseComment } from '@prisma/client';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -18,54 +18,84 @@ const StudentCommentSlide: FC<StudentCommentSlideProps> = ({ comments }) => {
     setActiveSlideIndex(swiper.activeIndex);
   }, []);
 
+  const isMobile = useMemo(() => innerWidth > 370, []);
+
   return (
-    <Box>
+    <Box overflow="hidden">
       <Swiper
-        slidesPerView={1}
-        spaceBetween={5}
+        slidesPerView={isMobile ? 1 : 'auto'}
+        centeredSlides={!isMobile}
+        style={{
+          overflow: 'visible',
+        }}
+        spaceBetween={10}
         onSwiper={swiper => console.log(swiper)}
-        navigation
+        navigation={isMobile}
         pagination={{ clickable: true }}
         modules={[Navigation, Pagination]}
+        loop
         onSlideChange={handleSlideChange}>
         {comments.map((comment: CourseComment) => (
           <SwiperSlide key={comment.id}>
-            <Box
-              borderRadius="15px"
+            <Flex
+              flexDirection="column"
+              gap="8px"
+              justifyContent="space-between"
               margin="0 auto"
-              maxWidth="794px"
-              padding={{
-                base: '24px ',
-                sm: '24px',
-                md: '24px',
-                lg: ' 48px 90px',
-                xl: ' 68px 124px',
-              }}
-              color="#222222"
-              textAlign="center"
-              bg="#FDF1F0">
-              <Text
-                as="p"
-                fontWeight="700"
-                lineHeight={{
-                  base: '21.28px ',
-                  sm: '21.px',
-                  md: '21.px',
-                  lg: '42.56px',
-                  xl: '42.56px',
+              width={{
+                base: '274px',
+                sm: '794px',
+              }}>
+              <Box
+                borderRadius="15px"
+                width="100%"
+                padding={{
+                  base: '24px ',
+                  lg: ' 48px 90px',
+                  xl: ' 68px 124px',
                 }}
-                fontSize={{ base: '16px ', sm: '16px', md: '32px', lg: '32px', xl: '32px' }}>
-                {comment.headline}
-              </Text>
-              <Text as="span" fontSize="16px" lineHeight="18.75px">
-                {comment.text}
-              </Text>
-            </Box>
+                color="#222222"
+                textAlign="center"
+                bg="#FDF1F0">
+                <Text
+                  as="p"
+                  fontWeight="700"
+                  lineHeight={{
+                    base: '21.28px ',
+                    lg: '42.56px',
+                  }}
+                  fontSize={{ base: '16px ', md: '32px' }}>
+                  {comment.headline}
+                </Text>
+                <Text as="span" fontSize="16px" lineHeight="18.75px">
+                  {comment.text}
+                </Text>
+              </Box>
+              <Flex
+                justifyContent="center"
+                display={{
+                  base: 'flex',
+                  sm: 'none',
+                }}>
+                <Avatar
+                  src={`/icons/feedback_students_third.png`}
+                  width="72px"
+                  height="72px"
+                  transition="all 0.3s"
+                />
+              </Flex>
+            </Flex>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <Flex justifyContent="center" gap="40px" height="222px" mt="55px" flexWrap="wrap">
+      <Flex
+        justifyContent="center"
+        gap="40px"
+        height="222px"
+        mt="55px"
+        flexWrap="wrap"
+        display={{ base: 'none', sm: 'flex' }}>
         {comments.map((_, index) => (
           <Avatar
             key={index}

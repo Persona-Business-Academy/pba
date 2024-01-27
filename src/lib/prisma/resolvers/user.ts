@@ -18,6 +18,12 @@ export class UserResolver {
     });
   }
 
+  static async findUserWithConfirmationCode(confirmationCode: number) {
+    return prisma.user.findUnique({
+      where: { confirmationCode },
+    });
+  }
+
   static async updateUserProfile(input: UserProfileFormValidation, user: NonNullable<User>) {
     return (
       await prisma.user.update({

@@ -193,18 +193,24 @@ model OfflineCourseTimeline {
 }
 
 model Applicant {
-  id              Int            @id @default(autoincrement())
-  name            String
-  email           String
-  phoneNumber     String
-  for             ApplicantType
-  offlineCourseId Int?
-  offlineCourse   OfflineCourse? @relation(fields: [offlineCourseId], references: [id], onDelete: Cascade)
+  id                       Int            @id @default(autoincrement())
+  name                     String
+  email                    String
+  phoneNumber              String
+  company                  String?
+  message                  String?
+  motivationLater          String?
+  hasAgreedToPrivacyPolicy Boolean        @default(true)
+  file                     String?        @default("")
+  for                      ApplicantType
+  offlineCourseId          Int?
+  offlineCourse            OfflineCourse? @relation(fields: [offlineCourseId], references: [id], onDelete: Cascade)
 }
 
 enum ApplicantType {
-  JOB
-  OFFLINE_COURSE
+  OFFLINE_COURSE_APPLICANT
+  CONTACT_US_APPLICANT
+  JOB_APPLICANT
 }
 
 enum AdminRole {
