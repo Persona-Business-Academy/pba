@@ -105,6 +105,7 @@ model CourseComment {
   id              Int            @id @default(autoincrement())
   headline        String
   text            String
+  userPicture     String?
   authorId        Int?
   authorAdminId   Int?
   onlineCourseId  Int?
@@ -155,6 +156,7 @@ model OfflineCourse {
   price                    Float
   currency                 Currency
   whatYouWillLearn         String[]
+  whatYouWillLearnPhoto    String                     @default("")
   benefits                 Json                       @db.Json
   comments                 CourseComment[]
   createdAt                DateTime                   @default(now()) @db.Timestamp(0)

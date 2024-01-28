@@ -167,6 +167,7 @@ CREATE TABLE "OfflineCourse" (
     "price" DOUBLE PRECISION NOT NULL,
     "currency" "Currency" NOT NULL,
     "whatYouWillLearn" TEXT[],
+    "whatYouWillLearnPhoto" TEXT NOT NULL DEFAULT '',
     "benefits" JSON NOT NULL,
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
