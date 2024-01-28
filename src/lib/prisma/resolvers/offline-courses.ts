@@ -178,7 +178,7 @@ export class OfflineCoursesResolver {
           email,
           phoneNumber,
           for: ApplicantType.OFFLINE_COURSE_APPLICANT,
-          offlineCourse: {
+          OfflineCourse: {
             connect: {
               id: +offlineCourseId,
             },

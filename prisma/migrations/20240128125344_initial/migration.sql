@@ -210,15 +210,31 @@ CREATE TABLE "Applicant" (
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "phoneNumber" TEXT NOT NULL,
+    "attachment" TEXT,
     "company" TEXT,
     "message" TEXT,
-    "motivationLater" TEXT,
+    "motivationLetter" TEXT,
     "hasAgreedToPrivacyPolicy" BOOLEAN NOT NULL DEFAULT true,
     "file" TEXT DEFAULT '',
     "for" "ApplicantType" NOT NULL,
     "offlineCourseId" INTEGER,
+    "jobId" INTEGER,
 
     CONSTRAINT "Applicant_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Job" (
+    "id" SERIAL NOT NULL,
+    "title" TEXT NOT NULL,
+    "salary" TEXT NOT NULL,
+    "workingHours" TEXT NOT NULL,
+    "contractType" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "responsibilities" TEXT NOT NULL,
+    "requirements" TEXT NOT NULL,
+
+    CONSTRAINT "Job_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -289,3 +305,6 @@ ALTER TABLE "OfflineCourseTimeline" ADD CONSTRAINT "OfflineCourseTimeline_offlin
 
 -- AddForeignKey
 ALTER TABLE "Applicant" ADD CONSTRAINT "Applicant_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Applicant" ADD CONSTRAINT "Applicant_jobId_fkey" FOREIGN KEY ("jobId") REFERENCES "Job"("id") ON DELETE SET NULL ON UPDATE CASCADE;

@@ -197,14 +197,29 @@ model Applicant {
   name                     String
   email                    String
   phoneNumber              String
+  attachment               String?
   company                  String?
   message                  String?
-  motivationLater          String?
+  motivationLetter         String?
   hasAgreedToPrivacyPolicy Boolean        @default(true)
   file                     String?        @default("")
   for                      ApplicantType
   offlineCourseId          Int?
-  offlineCourse            OfflineCourse? @relation(fields: [offlineCourseId], references: [id], onDelete: Cascade)
+  OfflineCourse            OfflineCourse? @relation(fields: [offlineCourseId], references: [id], onDelete: Cascade)
+  jobId                    Int?
+  Job                      Job?           @relation(fields: [jobId], references: [id])
+}
+
+model Job {
+  id               Int         @id @default(autoincrement())
+  title            String
+  salary           String
+  workingHours     String
+  contractType     String
+  description      String
+  responsibilities String
+  requirements     String
+  Applicant        Applicant[]
 }
 
 enum ApplicantType {
