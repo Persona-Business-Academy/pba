@@ -1,12 +1,17 @@
 import React, { FC } from 'react';
+import { Flex, Heading, Text } from '@chakra-ui/react';
+import { Job } from '@prisma/client';
+import Link from 'next/link';
 import { Button } from '@/components/atoms';
 import { segoe } from '@/utils/constants/fonts';
-import { Flex, Heading, Text } from '@chakra-ui/react';
 import ButtonArrowRight from '/public/icons/arrow_right_careers.svg';
+import { CAREERS_ROUTE } from '@/utils/constants/routes';
 
-type OpenPositionsProps = {};
+type OpenPositionsProps = {
+  jobs: Job[];
+};
 
-const OpenPositions: FC<OpenPositionsProps> = () => {
+const OpenPositions: FC<OpenPositionsProps> = ({ jobs }) => {
   return (
     <Flex as="section" flexDirection="column" my={{ base: '36px', md: '80px', xl: '148px' }}>
       <Flex
@@ -43,179 +48,53 @@ const OpenPositions: FC<OpenPositionsProps> = () => {
         flexDirection="column"
         mt={{ base: '20px', md: '40px' }}>
         <Flex columnGap="20px" flexWrap={{ base: 'wrap', md: 'nowrap' }}>
-          <Flex
-            justifyContent="space-between"
-            flexBasis="590px"
-            pb="24px"
-            borderBottom="1px solid #CDCBCF">
+          {jobs.map((job: Job) => (
             <Flex
-              flexDirection="column"
-              gap={{ base: '8px', md: '16px' }}
-              textAlign={{ base: 'center', sm: 'left' }}>
-              <Heading
-                fontSize={{ base: '24px', md: '28px' }}
-                fontWeight={700}
-                color="#222"
-                lineHeight="normal"
-                fontStyle="normal">
-                UI/UX Designer
-              </Heading>
-              <Text
-                fontSize="16px"
-                lineHeight="normal"
-                fontStyle="normal"
-                fontWeight={400}
-                color="#5B5B5B">
-                Yerevan, Armenia / Part Time
-              </Text>
+              key={job.id}
+              justifyContent="space-between"
+              as={Link}
+              href={`${CAREERS_ROUTE}/job/${job.id}`}
+              flexBasis="590px"
+              pb="24px"
+              borderBottom="1px solid #CDCBCF">
+              <Flex
+                flexDirection="column"
+                gap={{ base: '8px', md: '16px' }}
+                textAlign={{ base: 'center', sm: 'left' }}>
+                <Heading
+                  fontSize={{ base: '24px', md: '28px' }}
+                  fontWeight={700}
+                  color="#222"
+                  lineHeight="normal"
+                  fontStyle="normal">
+                  {job.title}
+                </Heading>
+                <Text
+                  fontSize="16px"
+                  lineHeight="normal"
+                  fontStyle="normal"
+                  fontWeight={400}
+                  color="#5B5B5B">
+                  {job.contractType}
+                </Text>
+              </Flex>
+              <Button
+                bg="#FFFFFF"
+                display={{ base: 'block', sm: 'none' }}
+                _hover={{ bg: '#fff' }}
+                _focus={{ bg: '#fff' }}>
+                <ButtonArrowRight />
+              </Button>
+              <Button
+                alignSelf="center"
+                width="127px"
+                height="53px"
+                padding="16px 32px"
+                display={{ base: 'none', sm: 'block' }}>
+                Join now
+              </Button>
             </Flex>
-            <Button
-              bg="#FFFFFF"
-              display={{ base: 'block', sm: 'none' }}
-              _hover={{ bg: '#fff' }}
-              _focus={{ bg: '#fff' }}>
-              <ButtonArrowRight />
-            </Button>
-            <Button
-              alignSelf="center"
-              width="127px"
-              height="53px"
-              padding="16px 32px"
-              display={{ base: 'none', sm: 'block' }}>
-              Join now
-            </Button>
-          </Flex>
-          <Flex
-            pt={{ base: '24px', md: '0' }}
-            justifyContent="space-between"
-            flexBasis="590px"
-            pb="24px"
-            borderBottom="1px solid #CDCBCF">
-            <Flex
-              flexDirection="column"
-              gap={{ base: '8px', md: '16px' }}
-              textAlign={{ base: 'center', sm: 'left' }}>
-              <Heading
-                fontSize={{ base: '24px', md: '28px' }}
-                fontWeight={700}
-                color="#222"
-                lineHeight="normal"
-                fontStyle="normal">
-                Node JS Developer
-              </Heading>
-              <Text
-                fontSize="16px"
-                lineHeight="normal"
-                fontStyle="normal"
-                fontWeight={400}
-                color="#5B5B5B">
-                Yerevan, Armenia / Part Time
-              </Text>
-            </Flex>
-            <Button
-              bg="#FFFFFF"
-              display={{ base: 'block', sm: 'none' }}
-              _hover={{ bg: '#fff' }}
-              _focus={{ bg: '#fff' }}>
-              <ButtonArrowRight />
-            </Button>
-            <Button
-              alignSelf="center"
-              width="127px"
-              height="53px"
-              padding="16px 32px"
-              display={{ base: 'none', sm: 'block' }}>
-              Join now
-            </Button>
-          </Flex>
-        </Flex>
-        <Flex columnGap="20px" flexWrap={{ base: 'wrap', md: 'nowrap' }}>
-          <Flex
-            pt={{ base: '24px', md: '0' }}
-            justifyContent="space-between"
-            flexBasis="590px"
-            pb="24px"
-            borderBottom="1px solid #CDCBCF">
-            <Flex
-              flexDirection="column"
-              gap={{ base: '8px', md: '16px' }}
-              textAlign={{ base: 'center', sm: 'left' }}>
-              <Heading
-                fontSize={{ base: '24px', md: '28px' }}
-                fontWeight={700}
-                color="#222"
-                lineHeight="normal"
-                fontStyle="normal">
-                QA
-              </Heading>
-              <Text
-                fontSize="16px"
-                lineHeight="normal"
-                fontStyle="normal"
-                fontWeight={400}
-                color="#5B5B5B">
-                Yerevan, Armenia / Part Time
-              </Text>
-            </Flex>
-            <Button
-              bg="#FFFFFF"
-              display={{ base: 'block', sm: 'none' }}
-              _hover={{ bg: '#fff' }}
-              _focus={{ bg: '#fff' }}>
-              <ButtonArrowRight />
-            </Button>
-            <Button
-              alignSelf="center"
-              width="127px"
-              height="53px"
-              padding="16px 32px"
-              display={{ base: 'none', sm: 'block' }}>
-              Join now
-            </Button>
-          </Flex>
-          <Flex
-            pt={{ base: '24px', md: '0' }}
-            justifyContent="space-between"
-            flexBasis="590px"
-            pb={{ base: '0', sm: '24px' }}
-            borderBottom={{ base: 'none', sm: '1px solid #CDCBCF' }}>
-            <Flex
-              flexDirection="column"
-              gap={{ base: '8px', md: '16px' }}
-              textAlign={{ base: 'center', sm: 'left' }}>
-              <Heading
-                fontSize={{ base: '24px', md: '28px' }}
-                fontWeight={700}
-                color="#222"
-                lineHeight="normal"
-                fontStyle="normal">
-                Ios Development
-              </Heading>
-              <Text
-                fontSize="16px"
-                lineHeight="normal"
-                fontStyle="normal"
-                fontWeight={400}
-                color="#5B5B5B">
-                Yerevan, Armenia / Part Time
-              </Text>
-            </Flex>
-            <Button
-              bg="#FFFFFF"
-              display={{ base: 'block', sm: 'none' }}
-              _hover={{ bg: '#fff' }}
-              _focus={{ bg: '#fff' }}>
-              <ButtonArrowRight />
-            </Button>
-            <Button
-              alignSelf="center"
-              width="127px"
-              height="53px"
-              padding="16px 32px"
-              display={{ base: 'none', sm: 'block' }}>
-              Join now
-            </Button>
-          </Flex>
+          ))}
         </Flex>
       </Flex>
     </Flex>

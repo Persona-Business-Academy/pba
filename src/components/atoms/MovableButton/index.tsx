@@ -1,14 +1,12 @@
 import React, { FC } from 'react';
 import { Text } from '@chakra-ui/react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 type MovableButtonProps = {
-  href: string;
   btnText: string;
 };
 
-const MovableButton: FC<MovableButtonProps> = ({ href, btnText }) => {
+const MovableButton: FC<MovableButtonProps> = ({ btnText }) => {
   return (
     <Text
       color="#FF6131"
@@ -18,8 +16,6 @@ const MovableButton: FC<MovableButtonProps> = ({ href, btnText }) => {
       }}
       fontWeight="700"
       lineHeight="21.28px"
-      as={Link}
-      href={href}
       margin="0"
       display="flex"
       alignItems="center"

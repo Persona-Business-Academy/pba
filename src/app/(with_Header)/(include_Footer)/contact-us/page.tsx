@@ -1,23 +1,54 @@
 'use client';
-import React from 'react';
-import {
-  Box,
-  Checkbox,
-  Container,
-  Flex,
-  FormControl,
-  FormLabel,
-  Heading,
-  Text,
-  Textarea,
-} from '@chakra-ui/react';
+import React, { useCallback, useState } from 'react';
+import { Box, Container, Flex, FormControl, Heading, Text } from '@chakra-ui/react';
+import { classValidatorResolver } from '@hookform/resolvers/class-validator';
+import { useMutation } from '@tanstack/react-query';
 import Image from 'next/image';
-import { Button, FormInput, PhoneNumberInput } from '@/components/atoms';
+import { Controller, useForm } from 'react-hook-form';
+import { ContactUsService } from '@/api/services/ContactUsService';
+import { Button, FormInput, Loading, PhoneNumberInput } from '@/components/atoms';
+import Checkbox from '@/components/atoms/Checkbox';
+import FormTextarea from '@/components/atoms/FormTextarea';
+import { ContactUsApplicantFormValidation } from '@/utils/validation/contact-us';
+
+const resolver = classValidatorResolver(ContactUsApplicantFormValidation);
+
+const defaultValues = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phoneNumber: '',
+  company: '',
+  message: '',
+  agreeToPrivacyPolicy: false,
+};
 
 const Contact = () => {
+  const [isChecked, setIsChecked] = useState(false);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ContactUsApplicantFormValidation>({ defaultValues, resolver });
+
+  const { mutate, isLoading } = useMutation<
+    boolean,
+    { message: boolean },
+    ContactUsApplicantFormValidation
+  >(ContactUsService.createContactUsApplicant);
+
+  const submitHandler = useCallback(
+    (data: ContactUsApplicantFormValidation) => {
+      if (!isChecked) return;
+      mutate(data);
+    },
+    [isChecked, mutate],
+  );
+
   return (
     <>
       <Box bg="#F6FCFF" padding="98px 0" borderRadius="0 0 34px 34px">
+        {isLoading && <Loading />}
         <Box color="#222222" maxW="764px" margin="0 auto" textAlign="center">
           <Heading
             as="h1"
@@ -120,68 +151,142 @@ const Contact = () => {
               <Box display="flex" flexDirection="column" gap="16px" flexWrap="wrap">
                 <Box display="flex" gap="20px" flexWrap="wrap">
                   <Box width={{ base: '100%', lg: '304px' }}>
-                    <FormInput
-                      formLabelName="First name"
-                      placeholder="Enter name"
+                    <Controller
                       name="firstName"
-                      isRequired
+                      control={control}
+                      rules={{
+                        required: 'This field is required',
+                      }}
+                      render={({ field: { onChange, value, name } }) => (
+                        <FormInput
+                          isRequired
+                          name={name}
+                          type="text"
+                          formLabelName="First name"
+                          placeholder="Enter your name"
+                          value={value}
+                          handleInputChange={onChange}
+                          isInvalid={!!errors[name]?.message}
+                          formErrorMessage={errors[name]?.message}
+                        />
+                      )}
                     />
                   </Box>
                   <Box width={{ base: '100%', lg: '304px' }}>
-                    <FormInput
-                      formLabelName="Last name"
-                      placeholder="Enter last name"
-                      name="lastname"
-                      isRequired
+                    <Controller
+                      name="lastName"
+                      control={control}
+                      rules={{
+                        required: 'This field is required',
+                      }}
+                      render={({ field: { onChange, value, name } }) => (
+                        <FormInput
+                          isRequired
+                          name={name}
+                          type="text"
+                          formLabelName="Last name"
+                          placeholder="Enter your name"
+                          value={value}
+                          handleInputChange={onChange}
+                          isInvalid={!!errors[name]?.message}
+                          formErrorMessage={errors[name]?.message}
+                        />
+                      )}
                     />
                   </Box>
                 </Box>
 
                 <Flex gap="20px" flexWrap="wrap">
                   <Box width={{ base: '100%', lg: '304px' }}>
-                    <FormInput
-                      formLabelName="Email"
-                      placeholder="you@example.com"
-                      isRequired
+                    <Controller
                       name="email"
+                      control={control}
+                      rules={{
+                        required: 'This field is required',
+                      }}
+                      render={({ field: { onChange, value, name } }) => (
+                        <FormInput
+                          isRequired
+                          name={name}
+                          type="text"
+                          formLabelName="Email"
+                          placeholder="you@example.com"
+                          value={value}
+                          handleInputChange={onChange}
+                          isInvalid={!!errors[name]?.message}
+                          formErrorMessage={errors[name]?.message}
+                        />
+                      )}
                     />
                   </Box>
 
                   <Box width={{ base: '100%', lg: '304px' }}>
-                    <PhoneNumberInput
-                      value="number"
-                      placeholder="98 901 820"
-                      country="am"
-                      onChange={Number}
+                    <Controller
+                      name="phoneNumber"
+                      control={control}
+                      rules={{
+                        required: 'This field is required',
+                      }}
+                      render={({ field: { onChange, value } }) => (
+                        <PhoneNumberInput
+                          onChange={onChange}
+                          value={value}
+                          isRequired
+                          formLabelName="Phone Number"
+                        />
+                      )}
                     />
                   </Box>
                 </Flex>
 
                 <Box maxW="100%">
-                  <FormInput
-                    placeholder="you@example.com"
-                    formLabelName="Company"
-                    isRequired
-                    name="Company"
+                  <Controller
+                    name="company"
+                    control={control}
+                    rules={{
+                      required: 'This field is required',
+                    }}
+                    render={({ field: { onChange, value, name } }) => (
+                      <FormInput
+                        isRequired
+                        name={name}
+                        type="text"
+                        formLabelName="Company"
+                        placeholder="Enter your company name"
+                        value={value}
+                        handleInputChange={onChange}
+                        isInvalid={!!errors[name]?.message}
+                        formErrorMessage={errors[name]?.message}
+                      />
+                    )}
                   />
                 </Box>
 
                 <Box width="100%">
                   <FormControl>
-                    <FormLabel
-                      fontWeight={600}
-                      marginBottom={4}
-                      lineHeight="20px"
-                      fontSize={14}
-                      color="#222">
-                      Message
-                    </FormLabel>
-                    <Textarea bg="#fff" placeholder="Type here ..." resize="none" />
+                    <Controller
+                      name="message"
+                      control={control}
+                      rules={{ required: true }}
+                      render={({ field: { onChange, value, name } }) => (
+                        <FormTextarea
+                          name={name}
+                          formLabelName="Message"
+                          placeholder="Add a new value"
+                          value={value}
+                          handleInputChange={onChange}
+                        />
+                      )}
+                    />
                   </FormControl>
                 </Box>
 
-                <Flex gap="12px" alignItems="baseline">
-                  <Checkbox />
+                <Flex gap="12px" alignItems="center">
+                  <Checkbox
+                    onChange={e => setIsChecked(e.target.checked)}
+                    isChecked={isChecked}
+                    checked={isChecked}
+                  />
 
                   <Text as="span">
                     By selecting this, you agree to the Privacy Policy and Cookie Policy.
@@ -195,6 +300,8 @@ const Contact = () => {
                     lineHeight="22px"
                     height="100%"
                     fontWeight={400}
+                    onClick={handleSubmit(submitHandler)}
+                    isDisabled={!isChecked}
                     padding="16px 32px">
                     Lets talk
                   </Button>

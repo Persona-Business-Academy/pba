@@ -25,3 +25,17 @@ export const validateUserPassword = async (email: string, password: string) => {
     throw new Error(e as string);
   }
 };
+
+export const validateUserByConfirmationCode = async (confirmationCode: number) => {
+  try {
+    const user = await UserResolver.findUserWithConfirmationCode(confirmationCode);
+
+    if (!user) {
+      throw new UnauthorizedException(ERROR_MESSAGES.invalidCredentials);
+    }
+
+    return user;
+  } catch (e) {
+    throw new Error(e as string);
+  }
+};

@@ -1,10 +1,11 @@
+import CoursesIcon from '/public/icons/courses.svg';
+import HelpIcon from '/public/icons/help.svg';
+import LogoutIcon from '/public/icons/log-out.svg';
+import ProfileIcon from '/public/icons/profile.svg';
+
 // import AchievementsIcon from 'public/icons/achievements_icon.svg';
-import CoursesIcon from 'public/icons/courses_icon.svg';
-import HelpIcon from 'public/icons/help_icon.svg';
-import LogoutIcon from 'public/icons/logout_icon.svg';
 // import PaymentsIcon from 'public/icons/payments_icon.svg';
 // import PbaCreditIcon from 'public/icons/pba_credit_icon.svg';
-import ProfileIcon from 'public/icons/profile_icon.svg';
 // import SubscriptionIcon from 'public/icons/subscription_icon.svg';
 // import WishlistIcon from 'public/icons/wishlist_icon.svg';
 
@@ -37,6 +38,7 @@ interface LinkItemProps {
   id: number;
   href?: string;
 }
+
 export const linkItems: Array<LinkItemProps> = [
   { id: 1, name: 'Profile', icon: ProfileIcon, href: PROFILE_ROUTE },
   { id: 2, name: 'Courses', icon: CoursesIcon, href: COURSES_ROUTE },

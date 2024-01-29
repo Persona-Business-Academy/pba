@@ -1,7 +1,17 @@
-import { Catch, createHandler, Get, Param, Query } from 'next-api-decorators';
+import {
+  Body,
+  Catch,
+  createHandler,
+  Get,
+  Param,
+  Post,
+  Query,
+  ValidationPipe,
+} from 'next-api-decorators';
 import { exceptionHandler } from '@/lib/prisma/error';
 import { OfflineCoursesResolver } from '@/lib/prisma/resolvers/offline-courses';
 import type { OnlineCoursesQueryParams } from '@/types/queryParams';
+import { ApplyOfflineCourseFormValidation } from '@/utils/validation/apply-offline-course';
 
 @Catch(exceptionHandler)
 class OfflineCourseHandler {
@@ -33,6 +43,14 @@ class OfflineCourseHandler {
   @Get('/:id')
   _getOfflineCourseById(@Param('id') id: string) {
     return OfflineCoursesResolver.getOfflineCourseById(+id);
+  }
+
+  @Post('/:offlineCourseId/apply')
+  _applyToOfflineCourse(
+    @Param('offlineCourseId') offlineCourseId: string,
+    @Body(ValidationPipe) body: ApplyOfflineCourseFormValidation,
+  ) {
+    return OfflineCoursesResolver.createApplicantForOfflineCourse(offlineCourseId, body);
   }
 }
 

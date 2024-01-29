@@ -1,25 +1,52 @@
-import React, { FC } from 'react';
-import {
-  Box,
-  Flex,
-  FormControl,
-  FormLabel,
-  Heading,
-  Input,
-  InputGroup,
-  InputLeftAddon,
-  Text,
-  Textarea,
-} from '@chakra-ui/react';
+'use client';
+import React, { FC, useCallback } from 'react';
+import { Box, Flex, FormControl, Heading, Text } from '@chakra-ui/react';
+import { classValidatorResolver } from '@hookform/resolvers/class-validator';
+import { useMutation } from '@tanstack/react-query';
 import Image from 'next/image';
-import { Button } from '@/components/atoms';
+import { Controller, useForm } from 'react-hook-form';
+import { JobService } from '@/api/services/JobService';
+import { Button, FormInput, Loading, PhoneNumberInput } from '@/components/atoms';
+import FormTextarea from '@/components/atoms/FormTextarea';
 import { segoe } from '@/utils/constants/fonts';
+import { ApplyJobFormValidation } from '@/utils/validation/apply-job';
 
-type ApplicationFormProps = {};
+type ApplicationFormProps = {
+  jobId: number;
+};
 
-const ApplicationForm: FC<ApplicationFormProps> = () => {
+const resolver = classValidatorResolver(ApplyJobFormValidation);
+
+const defaultValues = {
+  name: '',
+  phoneNumber: '',
+  email: '',
+  motivationLetter: '',
+  attachment: '',
+};
+
+const ApplicationForm: FC<ApplicationFormProps> = ({ jobId }) => {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ApplyJobFormValidation>({ defaultValues, resolver });
+
+  const { mutate, isLoading } = useMutation<boolean, { message: string }, ApplyJobFormValidation>(
+    data => JobService.createJobApplicant(jobId, data),
+  );
+
+  const submitHandler = useCallback(
+    (data: ApplyJobFormValidation) => {
+      console.log({ data });
+      mutate(data);
+    },
+    [mutate],
+  );
+
   return (
     <Box marginBottom={{ base: '36px', lg: '148px' }}>
+      {isLoading && <Loading />}
       <Heading
         className={segoe.className}
         m={{ base: ' 0 0 16px 0', lg: ' 0 0 40px 0' }}
@@ -33,130 +60,129 @@ const ApplicationForm: FC<ApplicationFormProps> = () => {
       <Box>
         <Flex gap="20px" justifyContent="center" alignItems="center">
           <Box width="666px">
-            <FormControl marginBottom="36px">
-              <FormLabel
-                lineHeight="20px"
-                fontSize="14px"
-                fontWeight="600"
-                paddingBottom="4px"
-                margin="0">
-                Full name*
-              </FormLabel>
-              <Input
-                fontWeight="400"
-                fontSize="16px"
-                lineHeight="21.28px"
-                borderColor="#DEDEDE"
-                height="37px"
-                type="email"
-                placeholder="Enter full name"
-                padding="8px 12px"
-              />
-            </FormControl>
-
-            <FormControl marginBottom="36px">
-              <FormLabel
-                lineHeight="20px"
-                color="#22222"
-                fontSize="14px"
-                fontWeight="600"
-                paddingBottom="4px"
-                margin="0">
-                Email*
-              </FormLabel>
-              <Input
-                type="email"
-                height="37px"
-                borderColor="#DEDEDE"
-                placeholder="you@example.com"
-                padding="8px 12px"
-                fontWeight="400"
-                fontSize="16px"
-                lineHeight="21.28px"
-              />
-            </FormControl>
-
-            <FormControl marginBottom="36px">
-              <FormLabel
-                lineHeight="20px"
-                fontSize="14px"
-                fontWeight="600"
-                paddingBottom="4px"
-                margin="0">
-                Phone Number*
-              </FormLabel>
-              <InputGroup>
-                <InputLeftAddon>ICON</InputLeftAddon>
-                <Input
-                  type="tel"
-                  height="37px"
-                  borderColor="#DEDEDE"
-                  placeholder="+374 98 901 820"
-                  fontWeight="400"
-                  fontSize="14px"
-                  lineHeight="18.62px"
+            <form onSubmit={handleSubmit(submitHandler)}>
+              <FormControl marginBottom="36px">
+                <Controller
+                  name="name"
+                  control={control}
+                  rules={{
+                    required: 'This field is required',
+                  }}
+                  render={({ field: { onChange, value, name } }) => (
+                    <FormInput
+                      isRequired
+                      name={name}
+                      type="text"
+                      formLabelName="Full name"
+                      placeholder="Enter full name"
+                      value={value}
+                      handleInputChange={onChange}
+                      isInvalid={!!errors[name]?.message}
+                      formErrorMessage={errors[name]?.message}
+                    />
+                  )}
                 />
-              </InputGroup>
-            </FormControl>
+              </FormControl>
 
-            <Box marginBottom="36px">
-              <Text margin="0 0 6px 0" fontSize="14px" lineHeight="20px" fontWeight="600">
-                CV*
-              </Text>
+              <FormControl marginBottom="36px">
+                <Controller
+                  name="email"
+                  control={control}
+                  rules={{
+                    required: 'This field is required',
+                  }}
+                  render={({ field: { onChange, value, name } }) => (
+                    <FormInput
+                      isRequired
+                      name={name}
+                      type="text"
+                      formLabelName="Email"
+                      placeholder="you@example.com"
+                      value={value}
+                      handleInputChange={onChange}
+                      isInvalid={!!errors[name]?.message}
+                      formErrorMessage={errors[name]?.message}
+                    />
+                  )}
+                />
+              </FormControl>
 
-              <Box
-                borderRadius="12px"
-                padding="20px 0"
-                bg="#F6FCFF"
-                color="#C0C0C0"
-                display="flex"
-                justifyContent="center"
-                flexDirection="column"
-                alignItems="center">
-                <Text margin="0 0 2px 0" fontSize="14px" fontWeight="500" lineHeight="20px">
-                  Upload documents
+              <FormControl marginBottom="36px">
+                <Controller
+                  name="phoneNumber"
+                  control={control}
+                  rules={{
+                    required: 'This field is required',
+                  }}
+                  render={({ field: { onChange, value } }) => (
+                    <PhoneNumberInput
+                      onChange={onChange}
+                      value={value}
+                      isRequired
+                      placeholder="98 901 820"
+                      formLabelName="Phone Number"
+                    />
+                  )}
+                />
+              </FormControl>
+
+              <Box marginBottom="36px">
+                <Text margin="0 0 6px 0" fontSize="14px" lineHeight="20px" fontWeight="600">
+                  CV*
                 </Text>
-                <Text fontSize="13px" fontWeight="400" lineHeight="18px" margin="0">
-                  pdf, doc, xls
-                </Text>
+
+                <Box
+                  borderRadius="12px"
+                  padding="20px 0"
+                  bg="#F6FCFF"
+                  color="#C0C0C0"
+                  display="flex"
+                  justifyContent="center"
+                  flexDirection="column"
+                  alignItems="center">
+                  <Text margin="0 0 2px 0" fontSize="14px" fontWeight="500" lineHeight="20px">
+                    Upload documents
+                  </Text>
+                  <Text fontSize="13px" fontWeight="400" lineHeight="18px" margin="0">
+                    pdf, doc, xls
+                  </Text>
+                </Box>
               </Box>
-            </Box>
 
-            <FormControl>
-              <FormLabel
-                margin="0 0 4px 0"
+              <FormControl>
+                <Controller
+                  name="motivationLetter"
+                  control={control}
+                  rules={{
+                    required: 'This field is required',
+                  }}
+                  render={({ field: { onChange, value, name } }) => (
+                    <FormTextarea
+                      isRequired
+                      name={name}
+                      formLabelName="Motivation letter"
+                      placeholder="Type here..."
+                      value={value}
+                      handleInputChange={onChange}
+                      isInvalid={!!errors[name]?.message}
+                      formErrorMessage={errors[name]?.message}
+                    />
+                  )}
+                />
+              </FormControl>
+
+              <Button
+                type="submit"
+                width="100%"
+                padding="8px 14px"
+                fontSize="16px"
                 fontWeight="600"
-                fontSize="16px"
-                lineHeight="20px"
-                color="#5B5B5B">
-                Motivation letter
-              </FormLabel>
-              <Textarea
-                fontWeight="400"
-                fontSize="16px"
-                lineHeight="24px"
-                height="87px"
-                padding="9px 13px"
-                placeholder="Type here..."
-                color="#C0C0C0"
-                size="md"
-                resize="vertical"
-              />
-              <Text textAlign="end" color="#BAB7C6">
-                0/100
-              </Text>
-            </FormControl>
-
-            <Button
-              type="submit"
-              width="100%"
-              padding="8px 14px"
-              fontSize="16px"
-              fontWeight="600"
-              height="37px"
-              lineHeight="21.28px">
-              Submit
-            </Button>
+                height="37px"
+                lineHeight="21.28px"
+                onClick={handleSubmit(submitHandler)}>
+                Submit
+              </Button>
+            </form>
           </Box>
 
           <Box maxWidth="514px" display={{ base: 'none', lg: 'inline-block' }}>

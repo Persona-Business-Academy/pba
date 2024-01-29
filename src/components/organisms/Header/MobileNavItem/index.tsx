@@ -15,9 +15,10 @@ interface MobileNavItemProp {
   label: string;
   children?: SubLabels[];
   href?: string;
+  onClose: () => void;
 }
 
-const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href }) => {
+const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href, onClose }) => {
   return (
     <AccordionItem>
       <AccordionButton>
@@ -29,7 +30,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href }) => {
           textAlign="left"
           pl={8}
           as={href ? Link : 'span'}
-          {...(href ? { href } : {})}>
+          {...(href ? { href, onClick: onClose } : {})}>
           {label}
         </Box>
         {!!children?.length && (
@@ -59,7 +60,11 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href }) => {
                     _hover={{
                       bg: '#0000000',
                     }}>
-                    <Text href="/" as={Link} display="block">
+                    <Text
+                      href={`${href}/${subLabel.id}`}
+                      as={Link}
+                      display="block"
+                      onClick={onClose}>
                       {subLabel.title}
                     </Text>
                   </Box>

@@ -1,6 +1,7 @@
-import { memo } from 'react';
 import { Box, Heading, Text } from '@chakra-ui/react';
+import Link from 'next/link';
 import { Button } from '@/components/atoms';
+import { OFFLINE_COURSES_ROUTE } from '@/utils/constants/routes';
 
 const HaveAQuestion = () => {
   return (
@@ -15,13 +16,15 @@ const HaveAQuestion = () => {
       color="#fff">
       <Box maxW="794px" margin="0 auto" textAlign="center">
         <Heading as="h2" margin="0" pb="16px" fontSize="28px" lineHeight="34.13px">
-          Have a question?
+          Is this most suitable for you??
         </Heading>
         <Text as="p" margin="0" pb="24px">
-          Were always on the lookout for great talent. Want to join us on our mission to help great
-          teams grow? Check out our openings to see where you fit in.
+          Embrace the journey of learning with us! Register now to embark on a transformative
+          educational experience that goes beyond boundaries.
         </Text>
         <Button
+          as={Link}
+          href={OFFLINE_COURSES_ROUTE}
           bg="#F3F4F6"
           color="#1F1646"
           height="53px"
@@ -37,11 +40,11 @@ const HaveAQuestion = () => {
           _focus={{
             bg: 'F3F4F6',
           }}>
-          Contact us
+          Join now
         </Button>
       </Box>
     </Box>
   );
 };
 
-export default memo(HaveAQuestion);
+export default HaveAQuestion;

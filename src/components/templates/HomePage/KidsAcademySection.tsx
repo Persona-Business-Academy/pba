@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import MovableButton from '@/components/atoms/MovableButton';
 import { FOR_KIDS_ROUTE } from '@/utils/constants/routes';
 
@@ -56,8 +57,8 @@ const KidsAcademySection: FC<KidsAcademySectionProps> = () => {
             Business Academy and let your creativity soar beyond imagination.
           </Text>
 
-          <Flex justifyContent="center">
-            <MovableButton href={FOR_KIDS_ROUTE} btnText="Explore courses" />
+          <Flex justifyContent="center" as={Link} href={FOR_KIDS_ROUTE}>
+            <MovableButton btnText="Explore courses" />
           </Flex>
         </Box>
       </Flex>

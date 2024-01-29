@@ -1,10 +1,30 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { Box, Container, Flex, Heading, ListItem, Text, UnorderedList } from '@chakra-ui/react';
 import { Button } from '@/components/atoms';
+import { OfflineCourseItemModel } from '@/models/offline-course.model';
+import { SKILL_LEVELS } from '@/utils/constants/offline_course';
 
-type TimeLineProps = {};
+type TimeLineProps = {
+  offlineCourse: OfflineCourseItemModel;
+};
 
-const TimeLine: FC<TimeLineProps> = () => {
+const getFormattedDate = (date: Date, opt: Intl.DateTimeFormatOptions) =>
+  new Intl.DateTimeFormat('en-US', opt).format(date);
+
+const TimeLine: FC<TimeLineProps> = ({ offlineCourse }) => {
+  const skillLevels = useMemo(() => {
+    const myLevelOrderNumber = SKILL_LEVELS.find(
+      level => level.value === offlineCourse?.courseLevel,
+    )?.order;
+
+    if (myLevelOrderNumber) {
+      return SKILL_LEVELS.sort((a, b) => a.order - b.order).filter(
+        ({ order }) => order <= myLevelOrderNumber,
+      );
+    }
+    return [];
+  }, [offlineCourse?.courseLevel]);
+
   return (
     <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
       <Container maxWidth="895px" margin="0 auto" padding="0" color="#222222">
@@ -34,202 +54,100 @@ const TimeLine: FC<TimeLineProps> = () => {
             <Flex
               justifyContent="space-around"
               flexDirection={{ base: 'column', lg: 'row', xl: 'row' }}>
-              <UnorderedList
-                flexDirection={{ base: 'row', lg: 'column', xl: 'column' }}
-                gap="13px"
-                margin="0"
-                display="flex"
-                alignItems="center"
-                listStyleType="none">
-                <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700">
-                  Beginner
-                </ListItem>
-                <ListItem
-                  transform={{
-                    base: 'translate(8px , 0px)',
-                    lg: 'translate(0, 7px)',
-                    xl: 'translate(0,7px)',
-                  }}
-                  width="12px"
-                  height="12px"
-                  bg="#000"
-                  borderRadius="10px"></ListItem>
-              </UnorderedList>
-
-              <UnorderedList
-                gap="13px"
-                margin="0"
-                display="flex"
-                flexDirection={{ base: 'row', lg: 'column', xl: 'column' }}
-                alignItems="center"
-                listStyleType="none">
-                <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700">
-                  Mid level
-                </ListItem>
-                <ListItem
-                  transform={{
-                    base: 'translate(6px , 0px)',
-                    lg: 'translate(0, 7px)',
-                    xl: 'translate(0,7px)',
-                  }}
-                  width="12px"
-                  height="12px"
-                  bg="#000"
-                  borderRadius="10px"></ListItem>
-              </UnorderedList>
-
-              <UnorderedList
-                gap="13px"
-                margin="0"
-                display="flex"
-                flexDirection={{ base: 'row', lg: 'column', xl: 'column' }}
-                alignItems="center"
-                listStyleType="none">
-                <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700">
-                  Advance
-                </ListItem>
-                <ListItem
-                  transform={{
-                    base: 'translate(9px , 2px)',
-                    lg: 'translate(0, 7px)',
-                    xl: 'translate(0,7px)',
-                  }}
-                  width="12px"
-                  height="12px"
-                  bg="#000"
-                  borderRadius="10px"></ListItem>
-              </UnorderedList>
+              {skillLevels.map(({ name }) => (
+                <UnorderedList
+                  key={name}
+                  flexDirection={{ base: 'row', lg: 'column', xl: 'column' }}
+                  gap="13px"
+                  margin="0"
+                  display="flex"
+                  alignItems="center"
+                  listStyleType="none">
+                  <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700">
+                    Exam
+                  </ListItem>
+                  <ListItem
+                    transform={{
+                      base: 'translate(8px , 0px)',
+                      lg: 'translate(0, 7px)',
+                      xl: 'translate(0,7px)',
+                    }}
+                    width="12px"
+                    height="12px"
+                    bg="#000"
+                    borderRadius="10px"
+                  />
+                </UnorderedList>
+              ))}
             </Flex>
+
             <Text
               as="span"
               margin="0"
               display="block"
               width={{ base: '1px', lg: '100%', xl: '100%' }}
               height={{ base: '100%', lg: '2px', xl: '2px' }}
-              bg="#000"></Text>
+              bg="#000"
+            />
           </Box>
 
           <Flex
-            flex={{ base: '1', lg: '0', xl: '0' }}
-            justifyContent="space-between"
-            flexDirection={{ base: 'column', lg: 'row', xl: 'row' }}>
-            <Text as="p" margin="0" lineHeight="18.75px" fontSize="16px" fontWeight="400">
-              Lorem Ipsum
-            </Text>
-            <Text as="p" margin="0" lineHeight="18.75px" fontSize="16px" fontWeight="400">
-              Lorem Ipsum
-            </Text>
-            <Text as="p" margin="0" lineHeight="18.75px" fontSize="16px" fontWeight="400">
-              Lorem Ipsum
-            </Text>
-            <Text as="p" margin="0" lineHeight="18.75px" fontSize="16px" fontWeight="400">
-              Lorem Ipsum
-            </Text>
+            flex={{ base: '1', lg: '0' }}
+            gap={{ base: '80px', lg: '170px' }}
+            flexDirection={{ base: 'column', lg: 'row' }}>
+            {skillLevels.map(({ name }) => (
+              <Text
+                key={name}
+                as="p"
+                margin="0"
+                lineHeight="18.75px"
+                fontSize="16px"
+                fontWeight="400">
+                {name}
+              </Text>
+            ))}
           </Flex>
         </Box>
 
         <Flex justifyContent="center" gap="20px" flexWrap="wrap">
-          <Box
-            borderRadius="15px"
-            width="285px"
-            boxShadow="0px 4px 6px 0px #0000000F"
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            gap="8px"
-            padding="23px 47px">
-            <Text as="p" margin="0" fontWeight="700" fontSize="24px" lineHeight="31.92px">
-              Wed, Mar 22
-            </Text>
-            <Text as="p" lineHeight="21.28px" fontSize="16px" fontWeight="400" margin="0">
-              Wednesday
-            </Text>
-            <Text as="p" lineHeight="21.28px" fontSize="16px" fontWeight="400" margin="0">
-              2:00-2:45 PM
-            </Text>
-
-            <Box width="100%" mt="8px">
-              <Button
-                color="#3CB4E7"
-                padding="12px 24px"
-                height="37px"
-                width="100%"
-                border="1px solid #3CB4E7"
-                lineHeight="21.28px"
-                fontSize="16px"
-                background="transparent">
-                Enroll
-              </Button>
-            </Box>
-          </Box>
-
-          <Box
-            borderRadius="15px"
-            width="285px"
-            boxShadow="0px 4px 6px 0px #0000000F"
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            gap="8px"
-            padding="23px 47px">
-            <Text as="p" margin="0" fontWeight="700" fontSize="24px" lineHeight="31.92px">
-              Wed, Mar 22
-            </Text>
-            <Text as="p" lineHeight="21.28px" fontSize="16px" fontWeight="400" margin="0">
-              Wednesday
-            </Text>
-            <Text as="p" lineHeight="21.28px" fontSize="16px" fontWeight="400" margin="0">
-              2:00-2:45 PM
-            </Text>
-
-            <Box width="100%" mt="8px">
-              <Button
-                color="#3CB4E7"
-                padding="12px 24px"
-                height="37px"
-                width="100%"
-                border="1px solid #3CB4E7"
-                lineHeight="21.28px"
-                fontSize="16px"
-                background="transparent">
-                Enroll
-              </Button>
-            </Box>
-          </Box>
-
-          <Box
-            borderRadius="15px"
-            width="285px"
-            boxShadow="0px 4px 6px 0px #0000000F"
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            gap="8px"
-            padding="23px 47px">
-            <Text as="p" margin="0" fontWeight="700" fontSize="24px" lineHeight="31.92px">
-              Wed, Mar 22
-            </Text>
-            <Text as="p" lineHeight="21.28px" fontSize="16px" fontWeight="400" margin="0">
-              Wednesday
-            </Text>
-            <Text as="p" lineHeight="21.28px" fontSize="16px" fontWeight="400" margin="0">
-              2:00-2:45 PM
-            </Text>
-
-            <Box width="100%" mt="8px">
-              <Button
-                color="#3CB4E7"
-                padding="12px 24px"
-                height="37px"
-                width="100%"
-                border="1px solid #3CB4E7"
-                lineHeight="21.28px"
-                fontSize="16px"
-                background="transparent">
-                Enroll
-              </Button>
-            </Box>
-          </Box>
+          {offlineCourse.timeline?.startDates.map((value, idx) => {
+            const date = new Date(value);
+            return (
+              <Box
+                key={`${date.toDateString()}/${idx}`}
+                borderRadius="15px"
+                width="285px"
+                boxShadow="0px 4px 6px 0px #0000000F"
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                gap="8px"
+                padding="23px 47px">
+                <Text as="p" margin="0" fontWeight="700" fontSize="24px" lineHeight="31.92px">
+                  {getFormattedDate(date, { month: 'long', day: 'numeric' })}
+                </Text>
+                <Text as="p" lineHeight="21.28px" fontSize="16px" fontWeight="400" margin="0">
+                  {getFormattedDate(date, { weekday: 'long' })}
+                </Text>
+                <Text as="p" lineHeight="21.28px" fontSize="16px" fontWeight="400" margin="0">
+                  {getFormattedDate(date, { hour: 'numeric', minute: 'numeric' })}
+                </Text>
+                <Box width="100%" mt="8px">
+                  <Button
+                    color="#3CB4E7"
+                    padding="12px 24px"
+                    height="37px"
+                    width="100%"
+                    border="1px solid #3CB4E7"
+                    lineHeight="21.28px"
+                    fontSize="16px"
+                    background="transparent">
+                    Enroll
+                  </Button>
+                </Box>
+              </Box>
+            );
+          })}
         </Flex>
 
         <Flex flexDirection="column" alignItems="center" gap="16px" mt="24px">

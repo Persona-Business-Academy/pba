@@ -2,6 +2,7 @@ import {
   ForgotPasswordStep1Validation,
   ForgotPasswordStep2Validation,
   ForgotPasswordStep3Validation,
+  ResendEmailValidation,
   SignUpValidation,
 } from '@/utils/validation';
 import $apiClient from '..';
@@ -19,18 +20,10 @@ export class AuthService {
   }
 
   static forgotPasswordStep3(data: ForgotPasswordStep3Validation) {
-    // this is only example for serverside calls
-    // _______________________________________________________________
-    //  const session = await serverSession()
-    return $apiClient.post(
-      '/custom-auth/forgot-password-third-step',
-      data,
-      // {
-      //   headers: {
-      //     Authorization: `Bearer ${session?.user.token}`,
-      //     'Content-Type': 'application/json',
-      //   },
-      // },
-    );
+    return $apiClient.post('/custom-auth/forgot-password-third-step', data);
+  }
+
+  static resendEmail(data: ResendEmailValidation) {
+    return $apiClient.post('/custom-auth/resend-email', data);
   }
 }

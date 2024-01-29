@@ -13,8 +13,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { User } from 'next-auth';
 import { useSession } from 'next-auth/react';
-import CloseIcon from 'public/icons/close_icon.svg';
-import BurgerMenuIcon from 'public/icons/menu.svg';
+import CloseIcon from '/public/icons/close_icon.svg';
+import BurgerMenuIcon from '/public/icons/menu.svg';
 import { Button } from '@/components/atoms';
 import { OfflineCourseListGroupedModel } from '@/models/offline-course.model';
 import { HOMEPAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/utils/constants/routes';
@@ -127,7 +127,7 @@ const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
       </Flex>
 
       <Collapse in={isOpen} animateOpacity ref={collapseRef}>
-        <MobileNav navItems={navigation} user={user || data?.user || null} />
+        <MobileNav navItems={navigation} user={user || data?.user || null} onClose={onClose} />
       </Collapse>
     </Box>
   );

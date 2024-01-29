@@ -10,19 +10,44 @@ type Props = {
 };
 
 const DesktopNav: FC<Props> = ({ navItems }) => {
+  const [selectedItem, setSelectedItem] = useState<null | string>(null);
   const [isChevronIconVisible, setIsChevronIconVisible] = useState<null | number>(null);
 
   return (
-    <Stack direction={'row'} justifyContent="center" alignItems="center" gap={40}>
+    <Stack
+      direction={'row'}
+      justifyContent="center"
+      alignItems="center"
+      gap={40}
+      onMouseLeave={() => setSelectedItem(null)}>
       {navItems.map((navItem, index) => (
-        <Box key={index}>
-          <Popover trigger="hover" id="popover-trigger-menu">
+        <Box
+          key={index}
+          sx={{
+            '& popover-trigger-menu:first-child': {
+              height: '100%',
+            },
+          }}>
+          <Popover
+            trigger="hover"
+            id="popover-trigger-menu"
+            isOpen={selectedItem === navItem.href ? true : false}>
             <PopoverTrigger>
               <Box
-                {...(navItem.href ? { as: Link, href: navItem.href } : {})}
+                {...(navItem.href
+                  ? {
+                      as: Link,
+                      href: navItem.href,
+                      onMouseOver: () => setSelectedItem(navItem.href || null),
+                      onClick: () => setSelectedItem(null),
+                    }
+                  : {})}
                 cursor="pointer"
                 fontSize={16}
                 fontWeight={400}
+                height="100%"
+                display="flex"
+                alignItems="center"
                 color="#222"
                 _hover={{
                   textDecoration: 'none',

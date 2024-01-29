@@ -2,6 +2,7 @@ import { createStandaloneToast } from '@chakra-ui/react';
 import axios, { AxiosError } from 'axios';
 import { signOut } from 'next-auth/react';
 import { toastDefaultOptions } from '@/utils/constants/chakra';
+import { HOMEPAGE_ROUTE } from '@/utils/constants/routes';
 
 const $apiClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -19,7 +20,7 @@ const handleError = (error: Error | AxiosError) => {
   if (axios.isAxiosError(error) && !!error.response?.data?.message) {
     toast({ title: error.response.data.message });
     if (error.response.status === 401) {
-      signOut();
+      signOut({ callbackUrl: HOMEPAGE_ROUTE });
     }
     return Promise.reject(error.response.data);
   } else {

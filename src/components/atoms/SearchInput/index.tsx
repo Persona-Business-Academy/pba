@@ -34,7 +34,11 @@ const SearchInput = () => {
   }, []);
 
   return (
-    <Flex width="794px" margin="0 auto" flexDirection="column" alignItems="center">
+    <Flex
+      width={{ base: '343px', sm: '794px' }}
+      margin="0 auto"
+      flexDirection="column"
+      alignItems="center">
       <Text
         className={montserrat.className}
         fontSize="44px"

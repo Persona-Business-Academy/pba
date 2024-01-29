@@ -1,20 +1,39 @@
 import React, { FC, memo } from 'react';
-import { FormControl, FormLabel } from '@chakra-ui/react';
+import { FormControl, FormLabel, Text } from '@chakra-ui/react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { segoe } from '@/utils/constants/fonts';
 
 type PhoneNumberInputProps = {
   value: string;
   country?: string;
   onChange: (e: { target: { value: string } }) => void;
   placeholder?: string;
+  isRequired?: boolean;
+  formLabelName?: string;
 };
 
-const PhoneNumberInput: FC<PhoneNumberInputProps> = ({ onChange, value }) => {
+const PhoneNumberInput: FC<PhoneNumberInputProps> = ({
+  onChange,
+  value,
+  isRequired,
+  formLabelName = 'Phone Number',
+}) => {
   return (
     <FormControl>
-      <FormLabel fontWeight={600} marginBottom={4} lineHeight="20px" fontSize={14} color="#222">
-        Phone Number
+      <FormLabel
+        fontWeight={600}
+        marginBottom={4}
+        lineHeight="20px"
+        fontSize={14}
+        color="#222"
+        className={segoe.className}>
+        {formLabelName}
+        {isRequired && (
+          <Text as="span" color="#222">
+            *
+          </Text>
+        )}
       </FormLabel>
       <PhoneInput
         country="am"
@@ -34,6 +53,7 @@ const PhoneNumberInput: FC<PhoneNumberInputProps> = ({ onChange, value }) => {
           display: 'flex',
           justifyContent: 'center',
         }}
+        dropdownStyle={{ left: 0, top: '-125px' }}
       />
     </FormControl>
   );

@@ -3,6 +3,7 @@ import { ButtonProps, Button as ChakraButton } from '@chakra-ui/react';
 
 interface SharedButtonProps extends ButtonProps {
   children: ReactNode;
+  href?: string;
 }
 
 const Button: FC<SharedButtonProps> = ({ children, ...props }) => {

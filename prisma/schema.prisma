@@ -105,6 +105,7 @@ model CourseComment {
   id              Int            @id @default(autoincrement())
   headline        String
   text            String
+  userPicture     String?
   authorId        Int?
   authorAdminId   Int?
   onlineCourseId  Int?
@@ -139,6 +140,8 @@ model OfflineCourse {
   subTitle                 String                     @db.Text
   topic                    Topic
   coverPhoto               String
+  pdf                      String                     @default("")
+  graduationPhoto          String                     @default("")
   mediaId                  String                     @unique
   rating                   Float                      @default(0)
   description              String                     @db.Text
@@ -153,12 +156,15 @@ model OfflineCourse {
   price                    Float
   currency                 Currency
   whatYouWillLearn         String[]
+  whatYouWillLearnPhoto    String                     @default("")
   benefits                 Json                       @db.Json
   comments                 CourseComment[]
   createdAt                DateTime                   @default(now()) @db.Timestamp(0)
   updatedAt                DateTime                   @updatedAt @db.Timestamp(0)
   OfflineCourseInstructors OfflineCourseInstructors[]
   OfflineCourseVideo       OfflineCourseVideo[]
+  timeline                 OfflineCourseTimeline?
+  Applicant                Applicant[]
 }
 
 model OfflineCourseVideo {
@@ -179,6 +185,49 @@ model OfflineCourseInstructors {
   instructor      Instructor    @relation(fields: [instructorId], references: [id], onDelete: Cascade)
 
   @@unique([offlineCourseId, instructorId], name: "offlineCourseInstructorId")
+}
+
+model OfflineCourseTimeline {
+  id              Int           @id @default(autoincrement())
+  offlineCourseId Int           @unique
+  startDates      DateTime[]
+  offlineCourse   OfflineCourse @relation(fields: [offlineCourseId], references: [id], onDelete: Cascade)
+}
+
+model Applicant {
+  id                       Int            @id @default(autoincrement())
+  name                     String
+  email                    String
+  phoneNumber              String
+  attachment               String?
+  company                  String?
+  message                  String?
+  motivationLetter         String?
+  hasAgreedToPrivacyPolicy Boolean        @default(true)
+  file                     String?        @default("")
+  for                      ApplicantType
+  offlineCourseId          Int?
+  OfflineCourse            OfflineCourse? @relation(fields: [offlineCourseId], references: [id], onDelete: Cascade)
+  jobId                    Int?
+  Job                      Job?           @relation(fields: [jobId], references: [id])
+}
+
+model Job {
+  id               Int         @id @default(autoincrement())
+  title            String
+  salary           String
+  workingHours     String
+  contractType     String
+  description      String
+  responsibilities String
+  requirements     String
+  Applicant        Applicant[]
+}
+
+enum ApplicantType {
+  OFFLINE_COURSE_APPLICANT
+  CONTACT_US_APPLICANT
+  JOB_APPLICANT
 }
 
 enum AdminRole {

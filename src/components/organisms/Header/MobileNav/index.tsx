@@ -12,8 +12,9 @@ import ProfileNavItem from '../ProfileNavItem';
 interface MobileNavProps {
   navItems: NavItem[];
   user: User | null;
+  onClose: () => void;
 }
-const MobileNav: FC<MobileNavProps> = ({ navItems, user }) => {
+const MobileNav: FC<MobileNavProps> = ({ navItems, user, onClose }) => {
   const pathname = usePathname();
 
   return (
@@ -22,7 +23,7 @@ const MobileNav: FC<MobileNavProps> = ({ navItems, user }) => {
         <Box px={16}>
           {user && <ProfileNavItem user={user} />}
           {navItems.map((navItem: NavItem, i: number) => (
-            <MobileNavItem key={i} {...navItem} />
+            <MobileNavItem key={i} {...navItem} onClose={onClose} />
           ))}
           {!user && (
             <Flex flexDirection="column" gap={16} pb="50px" pt={24}>

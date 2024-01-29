@@ -31,7 +31,12 @@ const Trainers: FC<TrainersProps> = () => {
         ))}
       </Box>
       <Flex justifyContent="center" marginTop="30px">
-        <Text as={Link} href={LEADERSHIP_ROUTE}>
+        <Text
+          as={Link}
+          href={LEADERSHIP_ROUTE}
+          _hover={{
+            color: '#5B5B5B',
+          }}>
           View More
         </Text>
       </Flex>

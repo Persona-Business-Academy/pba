@@ -6,6 +6,7 @@ import {
   OfflineCourseListNamesModel,
   OfflineCourseSkillsListModel,
 } from '@/models/offline-course.model';
+import { ApplyOfflineCourseFormValidation } from '@/utils/validation/apply-offline-course';
 import $apiClient from '..';
 
 export class OfflineCourseService {
@@ -34,5 +35,12 @@ export class OfflineCourseService {
 
   static getOfflineCourseDurationList(): Promise<OfflineCourseDurationsListModel> {
     return $apiClient.get(`offline-courses/durations/list`);
+  }
+
+  static applyOfflineCourse(
+    offlineCourseId: number,
+    data: ApplyOfflineCourseFormValidation,
+  ): Promise<boolean> {
+    return $apiClient.post(`offline-courses/${offlineCourseId}/apply`, data);
   }
 }

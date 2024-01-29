@@ -1,43 +1,53 @@
-import { S3 } from 'aws-sdk';
+import {
+  DeleteObjectCommand,
+  PutObjectCommand,
+  S3Client,
+  S3ClientConfig,
+} from '@aws-sdk/client-s3';
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
 export class AWSService {
-  s3: S3;
+  s3: S3Client;
 
   constructor() {
-    this.s3 = new S3({
+    const options: S3ClientConfig = {
       region: process.env.NEXT_PUBLIC_AWS_REGION,
-      signatureVersion: 'v4',
       credentials: {
         accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY!,
         secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_KEY!,
       },
-    });
-  }
-  async getUploadUrl(key: string) {
-    const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
-
-    const params = {
-      Bucket,
-      Key: key,
-      Expires: 18000,
-      ACL: 'public-read',
     };
 
-    const url = await this.s3.getSignedUrlPromise('putObject', params);
-
-    return { url };
+    this.s3 = new S3Client(options);
   }
-  async deleteAttachment(Key: string) {
-    const existingImageObject = await this.s3
-      .headObject({ Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME!, Key })
-      .promise();
+  async getUploadUrl(Key: string) {
+    const Bucket = process.env.NEXT_PUBLIC_AWS_BUCKET_NAME;
 
-    if (!existingImageObject) {
-      return;
-    }
+    return getSignedUrl(
+      this.s3,
+      new PutObjectCommand({
+        Bucket,
+        Key,
+        ACL: 'public-read',
+      }),
+      { expiresIn: 3600 },
+    )
+      .then(url => {
+        return { url };
+      })
+      .catch(err => {
+        console.log({ err });
 
-    return this.s3
-      .deleteObject({ Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME!, Key })
-      .promise();
+        return err;
+      });
+  }
+  async deleteAttachment(path: string) {
+    const key = path.substring(path.indexOf('aws.com/') + 8);
+    await this.s3.send(
+      new DeleteObjectCommand({
+        Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME!,
+        Key: key,
+      }),
+    );
   }
 }

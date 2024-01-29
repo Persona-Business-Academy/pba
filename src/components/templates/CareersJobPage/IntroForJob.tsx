@@ -1,11 +1,14 @@
 import React, { FC } from 'react';
 import { Box, Flex, Heading, ListItem, UnorderedList } from '@chakra-ui/react';
 import { Button } from '@/components/atoms';
+import { Job } from '@/models/careers.model';
 import { segoe } from '@/utils/constants/fonts';
 
-type IntroForJobProps = {};
+type IntroForJobProps = {
+  job: Job;
+};
 
-const IntroForJob: FC<IntroForJobProps> = () => {
+const IntroForJob: FC<IntroForJobProps> = ({ job }) => {
   return (
     <>
       <Flex
@@ -22,7 +25,7 @@ const IntroForJob: FC<IntroForJobProps> = () => {
             fontWeight={{ base: 600, md: 700 }}
             lineHeight="42.56px"
             fontSize={{ base: '28px', md: '32px' }}>
-            HR Manager
+            {job.title}
           </Heading>
         </Box>
         <Box>
@@ -50,7 +53,7 @@ const IntroForJob: FC<IntroForJobProps> = () => {
           fontSize="16px"
           lineHeight="normal">
           <ListItem fontWeight="700">Salary:</ListItem>
-          <ListItem fontWeight="400">£24,000 - £26,000</ListItem>
+          <ListItem fontWeight="400">{job.salary}</ListItem>
         </UnorderedList>
 
         <UnorderedList
@@ -59,12 +62,12 @@ const IntroForJob: FC<IntroForJobProps> = () => {
           fontSize="16px"
           lineHeight="normal">
           <ListItem fontWeight="700">Working hours:</ListItem>
-          <ListItem fontWeight="400">10:00-18:00</ListItem>
+          <ListItem fontWeight="400">{job.workingHours}</ListItem>
         </UnorderedList>
 
         <UnorderedList margin="0" listStyleType="none" fontSize="16px" lineHeight="normal">
           <ListItem fontWeight="700">Contract type:</ListItem>
-          <ListItem fontWeight="400">Full-time, Permanent</ListItem>
+          <ListItem fontWeight="400">{job.contractType}, Permanent</ListItem>
         </UnorderedList>
       </Box>
 

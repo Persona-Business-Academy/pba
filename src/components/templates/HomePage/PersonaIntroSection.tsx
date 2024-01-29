@@ -83,7 +83,7 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = async () => {
               </span>
             </Text>
 
-            <MovableButton href={OFFLINE_COURSES_ROUTE} btnText="Start a class today" />
+            <MovableButton btnText="Start a class today" />
           </Box>
 
           <Box
@@ -114,7 +114,7 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = async () => {
               <span style={{ color: '#1F1646', marginLeft: '15px' }}>Kids</span>
             </Text>
 
-            <MovableButton href={FOR_KIDS_ROUTE} btnText="Start a class today" />
+            <MovableButton btnText="Start a class today" />
           </Box>
         </Box>
       </Box>
