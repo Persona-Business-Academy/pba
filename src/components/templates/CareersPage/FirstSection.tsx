@@ -34,11 +34,11 @@ const FirstSection: FC<FirstSectionProps> = () => {
             color="#222222"
             fontWeight={400}
             textAlign={{ base: 'left', md: 'center' }}>
-            If you are mission-focused, passionate about your career path, and above all else,
-            looking for a deeper meaning in your work then look no further! We continuously strive
-            to be BETTER by fostering a collaborative learning environment, providing support and
-            guidance for development, seeking out and embracing change, and being employee-centric
-            all while fulfilling our mission of making the workplace safer and smarter.
+            At Persona Business Academy , we believe in the power of talented individuals coming
+            together to drive innovation and make a positive impact. If you are passionate,
+            dedicated, and eager to contribute your skills to a dynamic and collaborative
+            environment, we invite you to explore the exciting career opportunities available with
+            us.
           </Text>
         </Box>
         <Box
@@ -47,7 +47,7 @@ const FirstSection: FC<FirstSectionProps> = () => {
           borderRadius={{ base: '16px', md: '0px 16px 16px 0px' }}
           overflow="hidden">
           <Image
-            src="/images/public_available/courses_img.jpg"
+            src="/images/public_available/careers_img1.webp"
             width={576}
             height={402}
             alt="courses_image"
