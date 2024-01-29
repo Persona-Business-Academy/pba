@@ -117,6 +117,7 @@ CREATE TABLE "CourseComment" (
     "id" SERIAL NOT NULL,
     "headline" TEXT NOT NULL,
     "text" TEXT NOT NULL,
+    "userPicture" TEXT,
     "authorId" INTEGER,
     "authorAdminId" INTEGER,
     "onlineCourseId" INTEGER,
@@ -258,6 +259,9 @@ CREATE UNIQUE INDEX "OfflineCourse_mediaId_key" ON "OfflineCourse"("mediaId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "OfflineCourseInstructors_offlineCourseId_instructorId_key" ON "OfflineCourseInstructors"("offlineCourseId", "instructorId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "OfflineCourseTimeline_offlineCourseId_key" ON "OfflineCourseTimeline"("offlineCourseId");
 
 -- AddForeignKey
 ALTER TABLE "OnlineCourse" ADD CONSTRAINT "OnlineCourse_instructorId_fkey" FOREIGN KEY ("instructorId") REFERENCES "Instructor"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

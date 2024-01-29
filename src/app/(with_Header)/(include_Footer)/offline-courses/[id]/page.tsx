@@ -30,6 +30,8 @@ const StudentCommentSlide = dynamic(() => import('@/components/molecules/Student
 const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => {
   const offlineCourse = await OfflineCourseService.getOfflineCourseItem(id);
 
+  console.log(offlineCourse, 'offlineCourse.timeline');
+
   return (
     <>
       <Box
@@ -436,16 +438,18 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               }}
               padding="16px 0 16px 16px"
               bg="#F6FCFF"
-              flexGrow="2">
-              <Image
-                src="/images/public_available/courses_img_design.png"
-                alt="Learn Img"
-                style={{
-                  objectFit: 'cover',
-                }}
-                width={361}
-                height={205}
-              />
+              flexGrow="2"
+              height="236px">
+              <Box width="361px" height="204px" position="relative">
+                <Image
+                  src={generateAWSUrl(offlineCourse.whatYouWillLearnPhoto)}
+                  alt="Learn Img"
+                  style={{
+                    objectFit: 'cover',
+                  }}
+                  fill
+                />
+              </Box>
             </Box>
           </Flex>
         </Box>

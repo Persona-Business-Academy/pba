@@ -4,8 +4,7 @@ import { Avatar, Box, Flex, Text } from '@chakra-ui/react';
 import { CourseComment } from '@prisma/client';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-// import 'swiper/css/navigation';
+import { generateAWSUrl } from '@/utils/helpers/common';
 
 type StudentCommentSlideProps = {
   comments: CourseComment[];
@@ -78,7 +77,7 @@ const StudentCommentSlide: FC<StudentCommentSlideProps> = ({ comments }) => {
                   sm: 'none',
                 }}>
                 <Avatar
-                  src={`/icons/feedback_students_third.png`}
+                  src={generateAWSUrl(comment.userPicture || '')}
                   width="72px"
                   height="72px"
                   transition="all 0.3s"
@@ -96,10 +95,10 @@ const StudentCommentSlide: FC<StudentCommentSlideProps> = ({ comments }) => {
         mt="55px"
         flexWrap="wrap"
         display={{ base: 'none', sm: 'flex' }}>
-        {comments.map((_, index) => (
+        {comments.map((comment: CourseComment, index) => (
           <Avatar
             key={index}
-            src={`/icons/feedback_students_third.png`}
+            src={generateAWSUrl(comment.userPicture || '')}
             width={activeSlideIndex === index ? '126px' : '72px'}
             height={activeSlideIndex === index ? '132px' : '72px'}
             transition="all 0.3s"
