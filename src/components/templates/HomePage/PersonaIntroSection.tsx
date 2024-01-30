@@ -350,7 +350,7 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = async () => {
             justifyContent="center"
             gap="16px"
             flexWrap="wrap">
-            {(offlineCourseListNames || []).map((course, index: number) => (
+            {(offlineCourseListNames || []).map((course: any, index: number) => (
               <ListItem key={index} as={Link} href={`${OFFLINE_COURSES_ROUTE}/${course.id}`}>
                 <OutlinedButton>{course.title}</OutlinedButton>
               </ListItem>

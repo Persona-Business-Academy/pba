@@ -41,7 +41,7 @@ const SearchInput = () => {
       alignItems="center">
       <Text
         className={montserrat.className}
-        fontSize="44px"
+        fontSize={{ base: '28px', md: '44px' }}
         fontWeight={700}
         color="#222222"
         marginBottom="16px">
