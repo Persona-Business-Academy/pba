@@ -3,9 +3,11 @@ import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { Button } from '@/components/atoms';
 import { segoe } from '@/utils/constants/fonts';
 
-type LogInSectionProps = {};
+type LogInSectionProps = {
+  description: string;
+};
 
-const LogInSection: FC<LogInSectionProps> = () => {
+const LogInSection: FC<LogInSectionProps> = ({ description }) => {
   return (
     <Box as="section" maxWidth="793px" margin={{ base: '36px auto 36px', md: '64px auto 0' }}>
       <Text
@@ -16,14 +18,7 @@ const LogInSection: FC<LogInSectionProps> = () => {
         fontWeight={400}
         lineHeight="normal"
         fontStyle="normal">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-        galley of type and scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        It was in the 1960s with the release of sheets containing Lorem Ipsum passages, and more
-        recently with desktop publishing software like release of sheets containing Lorem Ipsum
-        passages, and more recently with desktop publishing software like PageMaker including
-        versions of Lorem Ipsum.
+        {description}
       </Text>
 
       <Flex

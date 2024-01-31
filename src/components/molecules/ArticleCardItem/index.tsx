@@ -1,12 +1,24 @@
 import React, { FC } from 'react';
 import { Box, ListItem, UnorderedList } from '@chakra-ui/react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ARTICLES_ROUTE } from '@/utils/constants/routes';
 
-type ArticleCardItemProps = {};
+type ArticleCardItemProps = {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+};
 
-const ArticleCardItem: FC<ArticleCardItemProps> = () => {
+const ArticleCardItem: FC<ArticleCardItemProps> = ({ title, description, id }) => {
   return (
-    <Box maxW="386px" borderRadius="6px" overflow="hidden">
+    <Box
+      maxW="386px"
+      borderRadius="6px"
+      overflow="hidden"
+      as={Link}
+      href={`${ARTICLES_ROUTE}/${id}`}>
       <Image
         width={386}
         height={316}
@@ -26,19 +38,24 @@ const ArticleCardItem: FC<ArticleCardItemProps> = () => {
         padding=" 24px"
         maxW="351.9px">
         <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" mb="8px">
-          How to teach in every subject...
+          {title}
         </ListItem>
-        <ListItem mb="16px" lineHeight="21.28px" fontSize="16px" fontWeight="400">
-          Did you know that there are apps already on your iPad that will enable all students to
-          better engage with and develop their literacy skills?
+        <ListItem
+          mb="16px"
+          lineHeight="21.28px"
+          fontSize="16px"
+          fontWeight="400"
+          maxHeight="44px"
+          overflow="hidden"
+          display="-webkit-box"
+          sx={{
+            WebkitLineClamp: 4,
+            WebkitBoxOrient: 'vertical',
+            textOverflow: 'ellipsis',
+          }}>
+          {description}
         </ListItem>
         <ListItem display="flex" alignItems="center" gap="20px" textDecoration="underline">
-          <Image
-            width={24}
-            height={24}
-            alt="Heart Favorite icon"
-            src="/icons/heart_icon_article.svg"
-          />
           Read full article
         </ListItem>
       </UnorderedList>

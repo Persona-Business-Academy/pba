@@ -2,6 +2,7 @@
 import React, { FC } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
+import { articlesData } from '@/utils/constants/articles';
 
 const ArticleItem = dynamic(() => import('@/components/molecules/ArticleItem'));
 
@@ -26,20 +27,8 @@ const ArticlesSection: FC<ArticlesSectionProps> = () => {
         Only Qualified Articles
       </Heading>
 
-      <Box
-        display="flex"
-        flexWrap="wrap"
-        gap="40px 20px"
-        justifyContent="center"
-        padding="0">
-        {Array.from({ length: 4 }, (_, i) => ({
-          id: i,
-          articleTitle: 'How to Build a Design System if youre...',
-          articleDescription:
-            'Its always hard to be the only person in a company who is responsible for product design. Your day can be insanely...',
-          articleDate: 'March 01, 2021',
-          viewCount: 440,
-        })).map((article, i) => (
+      <Box display="flex" flexWrap="wrap" gap="40px 20px" justifyContent="center" padding="0">
+        {articlesData.map((article, i) => (
           <ArticleItem {...article} key={i} />
         ))}
       </Box>

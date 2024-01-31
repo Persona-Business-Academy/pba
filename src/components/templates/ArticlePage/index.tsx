@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { FC } from 'react';
 import { Container, Flex, Heading, Input, InputGroup } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 import { Button } from '@/components/atoms';
@@ -9,12 +9,18 @@ import { segoe } from '@/utils/constants/fonts';
 const WelcomeSection = dynamic(() => import('./WelcomeSection'));
 const LogInSection = dynamic(() => import('./LogInSection'));
 const AboutAuthor = dynamic(() => import('./AboutAuthor'));
-const ReadArticles = dynamic(() => import('./ReadArticles'));
+// const ReadArticles = dynamic(() => import('./ReadArticles'));
 
-const ArticlePage = () => {
+type ArticlePageProps = {
+  id: number;
+  title: string;
+  description: string;
+};
+
+const ArticlePage: FC<ArticlePageProps> = ({ title, description }) => {
   return (
     <>
-      <WelcomeSection />
+      <WelcomeSection title={title} />
 
       <Container
         display="flex"
@@ -22,11 +28,11 @@ const ArticlePage = () => {
         maxWidth={1320}
         px={{ base: '16px', xl: '0' }}
         gap={{ base: '36px', md: '80px', xl: '148px' }}>
-        <LogInSection />
+        <LogInSection description={description} />
 
         <AboutAuthor />
 
-        <ReadArticles />
+        {/* <ReadArticles /> */}
 
         <Flex
           as="section"
