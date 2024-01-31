@@ -1,20 +1,38 @@
 'use client';
 
 import React, { FC, PropsWithChildren, useMemo, useState } from 'react';
-import { Box, Flex, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Flex,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react';
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import { OfflineCourseService } from '@/api/services/OfflineCourseService';
+import FilterButton from '@/components/atoms/FilterButton';
 import RemovableButton from '@/components/atoms/RemovableButton';
 import SearchInput from '@/components/atoms/SearchInput';
 import CourseFilter from '@/components/molecules/CourseFilter';
-import ModalOffline from '@/components/organisms/ModalOffline';
 import { Course, useCourseFilter } from '@/contexts/CourseFilterContext';
 import { CACHE_CONFIG, topicHandler } from '@/utils/constants/filters';
 
 const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
   const { courseNames, removeCourseNameHandler } = useCourseFilter();
-  const [openModal, setOpenModal] = useState(false);
+  const [size, setSize] = useState('full');
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handelSizeClick = (newSize: string) => {
+    setSize(newSize);
+    onOpen();
+  };
 
   const { data: offlineCourseGroupedListData } = useQuery(
     ['groupedCourses'],
@@ -95,13 +113,31 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
               justifyContent={{ base: 'flex-end', sm: 'flex-start' }}
               gap={16}>
               <Text as="span">Filter By:</Text>
-              <Box
-                width="20px"
-                height="20px"
-                display={{ base: 'block', sm: 'none' }}
-                onClick={() => setOpenModal(true)}
-                cursor="pointer">
-                <Image src="/icons/filter_icon.svg" alt="Filter" width={20} height={20} />
+
+              <Box position="relative" display={{ base: 'block', lg: 'none' }}>
+                <Button
+                  onClick={() => handelSizeClick(size)}
+                  width="20px"
+                  bg="transparent"
+                  _hover={{ bg: 'none' }}
+                  _focus={{ bg: 'none' }}>
+                  <FilterButton />
+                </Button>
+                <Modal size={size} onClose={onClose} isOpen={isOpen} isCentered>
+                  <ModalOverlay />
+                  <ModalContent position="absolute">
+                    <ModalHeader padding="8.5px 16px" borderBottom="1px solid #F3F4F6">
+                      <Image src="/icons/persona_logo.png" alt="Persona" width={115} height={23} />
+                    </ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody padding="0 16px">
+                      <Box fontWeight="600" mt="36px" lineHeight="20px" fontSize="14px">
+                        <Text>Skill</Text>
+                        <Text>Duration</Text>
+                      </Box>
+                    </ModalBody>
+                  </ModalContent>
+                </Modal>
               </Box>
 
               <Flex flexWrap="wrap" gap="10px">
@@ -117,18 +153,6 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
               </Flex>
             </Flex>
 
-            <Box>{openModal && <ModalOffline closeModal={setOpenModal} />}</Box>
-
-            {/* delete page */}
-            {/* <Box>
-              <Image
-                width={150}
-                height={150}
-                src="/images/public_available/kids_offline_courses.jpg"
-                alt="bg"
-              />
-            </Box> */}
-
             <Flex
               flexDirection="column"
               alignItems={{ base: ' center', md: 'start' }}
@@ -139,7 +163,6 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
           </Flex>
         </Flex>
       </Flex>
-      {/* skilll bg */}
       <Flex
         as="section"
         backgroundColor="#1F1646"
@@ -148,17 +171,17 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
         overflow="hidden"
         flexWrap={{ base: 'wrap', lg: 'nowrap' }}
         justifyContent={{ base: 'center', lg: 'flex-end' }}
-        marginBottom="148px">
+        marginBottom={{ base: '36px', lg: '148px' }}>
         <Flex
           maxWidth={449}
           flexDirection="column"
-          gap="24px"
+          gap={{ base: '16px', lg: '24px' }}
           alignItems="center"
-          padding={{ base: '34px 14px 0', md: '0' }}
+          padding={{ base: '34px 14px 0', lg: '0' }}
           justifyContent="center"
           color="#FFFFFF"
           textAlign="center">
-          <Text fontSize="32px" fontWeight={700}>
+          <Text fontSize={{ base: '28px', lg: '32px' }} fontWeight={700} margin="0">
             How our skill management works
           </Text>
           <Text fontSize="16px" fontWeight={400}>
