@@ -17,7 +17,7 @@ const LastSection: FC<LastSectionProps> = () => {
         lineHeight="normal"
         fontStyle="normal"
         mb={{ base: '36px', md: '40px' }}>
-        Do you have a question?
+        Why Persona?
       </Heading>
       <Flex gap={24} alignItems="center" flexDirection={{ base: 'column', md: 'row' }}>
         <Box
@@ -26,7 +26,7 @@ const LastSection: FC<LastSectionProps> = () => {
           overflow="hidden"
           borderRadius={{ base: '16px', md: '16px 0px 0px 16px' }}>
           <Image
-            src="/images/public_available/courses_img.jpg"
+            src="/images/public_available/careers_img2.webp"
             width={576}
             height={402}
             alt="courses_image"
@@ -42,7 +42,7 @@ const LastSection: FC<LastSectionProps> = () => {
             lineHeight="36px"
             fontStyle="normal"
             mb="16px">
-            Change the way the world learns
+            Choose Persona to Ignite Minds and Shape Futures
           </Heading>
           <Text
             color="#222222"
@@ -51,11 +51,9 @@ const LastSection: FC<LastSectionProps> = () => {
             lineHeight="22px"
             fontStyle="normal"
             textAlign={{ base: 'left', md: 'center' }}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy text ever since the 1500s, when an unknown
-            printer took a galley of type and scrambled it to make a type specimen book. It has
-            survived not only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
+            Persona Business Academy is committed to your continuous growth. Benefit from regular
+            workshops, seminars, and access to resources that enhance your teaching skills and keep
+            you at the forefront of educational trends.
           </Text>
         </Box>
       </Flex>

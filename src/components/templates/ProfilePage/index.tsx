@@ -145,6 +145,18 @@ const Profile: FC<Props> = ({ sessionUser }) => {
     };
   }, []);
 
+  console.log(sessionUser?.avatar);
+
+  const avatarSrc = useMemo(
+    () =>
+      localImage?.localUrl
+        ? localImage.localUrl
+        : sessionUser?.avatar
+          ? generateAWSUrl(sessionUser.avatar)
+          : '',
+    [localImage?.localUrl, sessionUser?.avatar],
+  );
+
   return (
     <>
       {isSubmitting || passwordSubmitting || isLoading ? <Loading /> : null}
@@ -177,7 +189,7 @@ const Profile: FC<Props> = ({ sessionUser }) => {
             height="101px">
             <Avatar
               name={`${sessionUser?.firstName} ${sessionUser?.lastName}`}
-              src={sessionUser?.avatar ? generateAWSUrl(sessionUser?.avatar) : ''}
+              src={avatarSrc}
               bg="#F3F4F6"
               color="#C0C0C0"
               size="xl"
