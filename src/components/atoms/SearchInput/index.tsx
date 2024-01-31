@@ -4,7 +4,6 @@ import { useSearchParams } from 'next/navigation';
 import useQueryParams from '@/hooks/useQueryParam';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
-
 const SearchInput = () => {
   const { addSingleSearchParam } = useQueryParams();
   const searchParams = useSearchParams()!;
@@ -39,7 +38,6 @@ const SearchInput = () => {
       margin="0 auto"
       flexDirection="column"
       alignItems="center">
-     
       <InputGroup>
         <Input
           placeholder="What are you looking for?"
