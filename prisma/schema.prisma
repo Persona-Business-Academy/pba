@@ -223,6 +223,7 @@ model Job {
   description      String
   responsibilities String
   requirements     String
+  disabled         Boolean     @default(false)
   createdAt        DateTime    @default(now()) @db.Timestamp(0)
   updatedAt        DateTime    @updatedAt @db.Timestamp(0)
   Applicant        Applicant[]
