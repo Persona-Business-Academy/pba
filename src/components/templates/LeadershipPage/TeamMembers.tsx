@@ -12,6 +12,8 @@ const TeamMembers: FC<TeamMembersProps> = ({ data }) => {
     <TabPanel padding={0}>
       <Grid
         display="grid"
+        justifyContent="center"
+        alignItems="center"
         templateColumns={{
           base: 'repeat(auto-fit,350px)',
         }}
