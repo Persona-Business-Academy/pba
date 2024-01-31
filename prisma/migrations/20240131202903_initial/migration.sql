@@ -221,6 +221,8 @@ CREATE TABLE "Applicant" (
     "for" "ApplicantType" NOT NULL,
     "offlineCourseId" INTEGER,
     "jobId" INTEGER,
+    "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(0) NOT NULL,
 
     CONSTRAINT "Applicant_pkey" PRIMARY KEY ("id")
 );
@@ -235,6 +237,8 @@ CREATE TABLE "Job" (
     "description" TEXT NOT NULL,
     "responsibilities" TEXT NOT NULL,
     "requirements" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(0) NOT NULL,
 
     CONSTRAINT "Job_pkey" PRIMARY KEY ("id")
 );
