@@ -1,18 +1,19 @@
 import React, { FC } from 'react';
 import { Box, Container, Text } from '@chakra-ui/react';
+import { Instructor } from '@prisma/client';
 import Image from 'next/image';
+import { generateAWSUrl } from '@/utils/helpers/common';
 
-type KidCourseInstructorProps = {};
+type KidCourseInstructorProps = {
+  instructor: Instructor;
+};
 
-const KidCourseInstructor: FC<KidCourseInstructorProps> = () => {
+const KidCourseInstructor: FC<KidCourseInstructorProps> = ({ instructor }) => {
   return (
     <Container maxWidth={590} p={0}>
       <Box p="38px" borderRadius="12px" backgroundColor="#F6FCFF" height="272px">
         <Text fontSize="16px" fontStyle="normal" fontWeight={400} lineHeight="22px">
-          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,
-          graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
-          century who Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying
-          out print, graphic or web designs.{' '}
+          {instructor.about}
         </Text>
       </Box>
       <Box display={{ base: 'none', sm: 'block' }}>
@@ -23,7 +24,7 @@ const KidCourseInstructor: FC<KidCourseInstructorProps> = () => {
           justifyContent="center"
           marginTop="-88px">
           <Image
-            src="/images/public_available/trainers_image.jpg"
+            src={generateAWSUrl(instructor.avatar)}
             alt="Kids courses instructor"
             width={177}
             height={177}
@@ -39,7 +40,7 @@ const KidCourseInstructor: FC<KidCourseInstructorProps> = () => {
           justifyContent="center"
           marginTop="-24px">
           <Image
-            src="/images/public_available/trainers_image.jpg"
+            src={generateAWSUrl(instructor.avatar)}
             alt="Kids courses instructor"
             width={48.5}
             height={48.5}
@@ -55,7 +56,7 @@ const KidCourseInstructor: FC<KidCourseInstructorProps> = () => {
         fontWeight={600}
         lineHeight="16px"
         m={{ base: '8px 0 8px 0', sm: '32px 0 8px 0' }}>
-        Name
+        {instructor.firstName} {instructor.lastName}
       </Text>
       <Text
         color="#727272"

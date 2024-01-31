@@ -23,7 +23,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href, onClose }
     <AccordionItem>
       <AccordionButton>
         <Box
-          flex="6"
+          flex={3}
           fontWeight={600}
           fontSize="14px"
           lineHeight="20px"
@@ -34,7 +34,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href, onClose }
           {label}
         </Box>
         {!!children?.length && (
-          <Box flex="1">
+          <Box flex={4} display="flex" justifyContent="flex-end" pr="10px">
             <AccordionIcon />
           </Box>
         )}
@@ -44,10 +44,10 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href, onClose }
           {children?.map((child: SubLabels) => (
             <AccordionItem key={child.id}>
               <AccordionButton pl={0}>
-                <Box as="span" flex={6} textAlign="left" pl={24}>
+                <Box as="span" flex={3} textAlign="left" pl={24}>
                   {child.label}
                 </Box>
-                <Box as="span" flex={1}>
+                <Box as="span" flex={4} display="flex" justifyContent="flex-end" pr="10px">
                   <AccordionIcon />
                 </Box>
               </AccordionButton>
@@ -56,6 +56,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href, onClose }
                   <Box
                     key={i}
                     py={4}
+                    pl="30px"
                     my={2}
                     _hover={{
                       bg: '#0000000',
