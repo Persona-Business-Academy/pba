@@ -95,6 +95,10 @@ const KidsCourses = ({ searchParams }: Props) => {
               lineHeight="normal">
               Kids Offline Courses
             </Heading>
+            <Text fontSize="16px" fontWeight={400} color="#222222" marginBottom="32px">
+              Empower young minds with knowledge – where every course becomes a stepping stone to a
+              future filled with endless possibilities
+            </Text>
             <SearchInput />
           </Box>
           <Box borderRadius="38px" overflow="hidden">

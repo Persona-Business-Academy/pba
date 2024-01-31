@@ -40,6 +40,7 @@ const LeadershipIndividualPage: FC<LeadershipIndividualPageProps> = ({ member })
             fontStyle="normal"
             lineHeight="22px">
             {member.position}
+            {member.founder}
           </Text>
         </Flex>
         <Flex

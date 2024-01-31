@@ -5,9 +5,11 @@ import Image from 'next/image';
 import { KidsCourseService } from '@/api/services/KidsCourseService';
 import { Button } from '@/components/atoms';
 import BenefitCard from '@/components/molecules/BenefitCard';
-import OfflineCourseInstructor from '@/components/molecules/OfflineCourseInstructors';
+import KidCourseInstructor from '@/components/molecules/KidCourseInstructor';
+import KidCourseParentsOpinion from '@/components/molecules/KidCourseParentsOpinion';
 import TimeLine from '@/components/molecules/TimeLine';
 import { OfflineCourseItemModel } from '@/models/offline-course.model';
+import { benefitData } from '@/utils/constants/benefits';
 import { segoe } from '@/utils/constants/fonts';
 import { generateAWSUrl } from '@/utils/helpers/common';
 
@@ -443,11 +445,10 @@ const KidsCourse = async ({ params: { id } }: { params: { id: string } }) => {
 
             <Flex margin="0 auto" gap="20px">
               {kidsCourse.courseInstructors.map(instructor => (
-                <OfflineCourseInstructor key={instructor.id} instructor={instructor} />
+                <KidCourseInstructor key={instructor.id} instructor={instructor} />
               ))}
             </Flex>
           </Box>
-
           <Box marginBottom="148px">
             <Flex justifyContent="center" mb="40px">
               <Text
@@ -475,13 +476,22 @@ const KidsCourse = async ({ params: { id } }: { params: { id: string } }) => {
             </Flex>
 
             <Flex gap="20px" flexWrap="wrap">
-              {Array.from({ length: 4 }, () => (
-                <BenefitCard key={Math.random()} />
+              {benefitData.map(benefit => (
+                <BenefitCard key={benefit.id} benefit={benefit} />
               ))}
             </Flex>
           </Box>
 
-          <Slide offlineCourseVideo={kidsCourse.OfflineCourseVideo} courseName={kidsCourse.title} />
+          <Box my="148px">
+            <KidCourseParentsOpinion />
+          </Box>
+
+          <Box>
+            <Slide
+              offlineCourseVideo={kidsCourse.OfflineCourseVideo}
+              courseName={kidsCourse.title}
+            />
+          </Box>
         </Container>
       </Box>
     </>

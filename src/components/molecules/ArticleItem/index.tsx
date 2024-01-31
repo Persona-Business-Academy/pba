@@ -1,16 +1,20 @@
 import React, { FC, memo } from 'react';
 import { Box, ListItem, UnorderedList } from '@chakra-ui/react';
+import Link from 'next/link';
+import { ARTICLES_ROUTE } from '@/utils/constants/routes';
 
 type ArticleItemProps = {
-  articleTitle: string;
-  articleDescription: string;
-  articleDate: string;
-  viewCount: number;
+  id: number;
+  title: string;
+  description: string;
+  date: string;
 };
 
-const ArticleItem: FC<ArticleItemProps> = ({ articleTitle, articleDescription, articleDate }) => {
+const ArticleItem: FC<ArticleItemProps> = ({ title, description, date, id }) => {
   return (
     <Box
+      as={Link}
+      href={`${ARTICLES_ROUTE}/${id}`}
       flexGrow="1"
       maxW={{ base: '500px', xl: '590px' }}
       border="1px solid"
@@ -22,10 +26,22 @@ const ArticleItem: FC<ArticleItemProps> = ({ articleTitle, articleDescription, a
       padding="24px">
       <UnorderedList listStyleType="none" margin="0" borderBottom="1px solid #858585" pb="32px">
         <ListItem fontWeight="700" color="inherit" fontSize="16px" lineHeight="21.28px" mb="8px">
-          {articleTitle}
+          {title}
         </ListItem>
-        <ListItem color="#333333" fontSize="16px" lineHeight="21.28px" fontWeight="400">
-          {articleDescription}
+        <ListItem
+          color="#333333"
+          fontSize="16px"
+          lineHeight="21.28px"
+          fontWeight="400"
+          maxHeight="44px"
+          overflow="hidden"
+          display="-webkit-box"
+          sx={{
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            textOverflow: 'ellipsis',
+          }}>
+          {description}
         </ListItem>
       </UnorderedList>
 
@@ -37,21 +53,8 @@ const ArticleItem: FC<ArticleItemProps> = ({ articleTitle, articleDescription, a
         justifyContent="space-between"
         alignItems="center">
         <ListItem fontSize="16px" lineHeight="21.28px" fontWeight="400">
-          {articleDate}
+          {date}
         </ListItem>
-
-        {/* <ListItem
-          fontSize="16px"
-          lineHeight="21.28px"
-          fontWeight="400"
-          display="flex"
-          alignItems="center"
-          gap="8px">
-          <span>
-            <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
-          </span>
-          {viewCount}
-        </ListItem> */}
       </UnorderedList>
     </Box>
   );

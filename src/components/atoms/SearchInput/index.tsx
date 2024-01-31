@@ -1,9 +1,8 @@
-import { Flex, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
+import { Flex, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 import InputSearchIcon from '/public/icons/search_icon.svg';
 import { useSearchParams } from 'next/navigation';
 import useQueryParams from '@/hooks/useQueryParam';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { montserrat } from '@/utils/constants/fonts';
 
 const SearchInput = () => {
   const { addSingleSearchParam } = useQueryParams();
@@ -39,14 +38,6 @@ const SearchInput = () => {
       margin="0 auto"
       flexDirection="column"
       alignItems="center">
-      <Text
-        className={montserrat.className}
-        fontSize={{ base: '28px', md: '44px' }}
-        fontWeight={700}
-        color="#222222"
-        marginBottom="16px">
-        Courses
-      </Text>
       <InputGroup>
         <Input
           placeholder="What are you looking for?"
