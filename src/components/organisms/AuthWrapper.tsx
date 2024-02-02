@@ -41,6 +41,9 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
           alt=""
           quality={10}
           priority
+          style={{
+            objectFit: 'cover',
+          }}
         />
       </GridItem>
       <GridItem
