@@ -1,6 +1,6 @@
 'use client';
 import { useCallback, useEffect, useMemo } from 'react';
-import { AbsoluteCenter, Box, Divider, Link, useToast, VStack } from '@chakra-ui/react';
+import { Link, useToast, VStack } from '@chakra-ui/react';
 import { useMutation } from '@tanstack/react-query';
 import NextLink from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -138,12 +138,6 @@ const SignIn = () => {
           textAlign="center">
           Forgot password?
         </Link>
-        <Box position="relative" w={'100%'} marginTop={'10px'}>
-          <Divider borderColor={'#DDDADA'} />
-          <AbsoluteCenter bg="white" px="5" color="grey.300" fontSize={'16px'} fontWeight={'400'}>
-            Or
-          </AbsoluteCenter>
-        </Box>
       </VStack>
     </AuthBox>
   );

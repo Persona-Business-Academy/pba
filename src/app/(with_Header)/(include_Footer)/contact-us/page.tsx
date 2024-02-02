@@ -28,6 +28,7 @@ const Contact = () => {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<ContactUsApplicantFormValidation>({ defaultValues, resolver });
 
@@ -35,7 +36,11 @@ const Contact = () => {
     boolean,
     { message: boolean },
     ContactUsApplicantFormValidation
-  >(ContactUsService.createContactUsApplicant);
+  >(ContactUsService.createContactUsApplicant, {
+    onSuccess: () => {
+      reset();
+    },
+  });
 
   const submitHandler = useCallback(
     (data: ContactUsApplicantFormValidation) => {

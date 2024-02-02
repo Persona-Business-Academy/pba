@@ -17,9 +17,9 @@ export const authOptions: AuthOptions = {
       },
       authorize: async credentials => {
         if (credentials?.confirmationCode) {
-          return await validateUserByConfirmationCode(+credentials.confirmationCode);
+          return validateUserByConfirmationCode(+credentials.confirmationCode);
         } else {
-          return await validateUserPassword(credentials?.email || '', credentials?.password || '');
+          return validateUserPassword(credentials?.email || '', credentials?.password || '');
         }
       },
     }),

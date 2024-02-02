@@ -12,4 +12,7 @@ export class JobService {
   static getJobById(id: string): Promise<Job> {
     return $apiClient.get(`/job/${id}`);
   }
+  static getPreSignedUrl(imageKey: string): Promise<{ url: string }> {
+    return $apiClient.post('job/get-presigned-url', { imageKey });
+  }
 }

@@ -34,6 +34,8 @@ export const validateUserByConfirmationCode = async (confirmationCode: number) =
       throw new UnauthorizedException(ERROR_MESSAGES.invalidCredentials);
     }
 
+    await UserResolver.verifyUserAccount(user.email);
+
     return user;
   } catch (e) {
     throw new Error(e as string);

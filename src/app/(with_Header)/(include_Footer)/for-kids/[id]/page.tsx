@@ -331,9 +331,6 @@ const KidsCourse = async ({ params: { id } }: { params: { id: string } }) => {
                 Buy Now
               </Button>
             </Box>
-            <Box>
-              <Image src="/icons/heart_icon.svg" alt="Heart" width={24} height={24} />
-            </Box>
           </Box>
         </Flex>
       </Box>
@@ -393,7 +390,10 @@ const KidsCourse = async ({ params: { id } }: { params: { id: string } }) => {
                 maxWidth="803px">
                 <UnorderedList
                   display="grid"
-                  gridTemplateColumns="repeat(2,1fr)"
+                  gridTemplateColumns={{
+                    base: '1fr',
+                    sm: '1fr 1fr',
+                  }}
                   margin="0"
                   gap="16px"
                   lineHeight="24px"
@@ -443,14 +443,14 @@ const KidsCourse = async ({ params: { id } }: { params: { id: string } }) => {
               Course instructors
             </Heading>
 
-            <Flex margin="0 auto" gap="20px">
+            <Flex flexDirection={{ base: 'column', sm: 'row' }} margin="0 auto" gap="20px">
               {kidsCourse.courseInstructors.map(instructor => (
                 <KidCourseInstructor key={instructor.id} instructor={instructor} />
               ))}
             </Flex>
           </Box>
           <Box marginBottom="148px">
-            <Flex justifyContent="center" mb="40px">
+            <Flex justifyContent="center" mb="40px" flexWrap="wrap">
               <Text
                 textAlign="center"
                 as="span"
@@ -475,7 +475,7 @@ const KidsCourse = async ({ params: { id } }: { params: { id: string } }) => {
               </Text>
             </Flex>
 
-            <Flex gap="20px" flexWrap="wrap">
+            <Flex gap="20px" flexWrap="wrap" justifyContent="center">
               {benefitData.map(benefit => (
                 <BenefitCard key={benefit.id} benefit={benefit} />
               ))}

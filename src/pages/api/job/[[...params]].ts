@@ -2,6 +2,7 @@ import { Body, Catch, createHandler, Get, Param, Post, ValidationPipe } from 'ne
 import { exceptionHandler } from '@/lib/prisma/error';
 import { CareersResolver } from '@/lib/prisma/resolvers/careers';
 import { JobResolver } from '@/lib/prisma/resolvers/job';
+import { GetPresignedUrlInput } from '@/utils/validation';
 import { ApplyJobFormValidation } from '@/utils/validation/apply-job';
 
 @Catch(exceptionHandler)
@@ -22,6 +23,10 @@ class JobHandler {
     @Body(ValidationPipe) input: ApplyJobFormValidation,
   ) {
     return JobResolver.createJobApplicant(+jobId, input);
+  }
+  @Post('/get-presigned-url')
+  _getPresignedUrl(@Body(ValidationPipe) input: GetPresignedUrlInput) {
+    return JobResolver.getFileUpload(input);
   }
 }
 

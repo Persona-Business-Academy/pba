@@ -1,7 +1,9 @@
 import { ApplicantType } from '@prisma/client';
 import { NotFoundException } from 'next-api-decorators';
+import { GetPresignedUrlInput } from '@/utils/validation';
 import { ApplyJobFormValidation } from '@/utils/validation/apply-job';
 import prisma from '..';
+import { AWSService } from '../services/aws.service';
 
 export class JobResolver {
   static async createJobApplicant(jobId: number, data: ApplyJobFormValidation) {
@@ -51,5 +53,11 @@ export class JobResolver {
         }
         return res;
       });
+  }
+
+  static async getFileUpload(input: GetPresignedUrlInput) {
+    const { imageKey } = input;
+    const awsService = new AWSService();
+    return awsService.getUploadUrl(imageKey);
   }
 }

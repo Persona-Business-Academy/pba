@@ -18,17 +18,18 @@ const KidCourseInstructor: FC<KidCourseInstructorProps> = ({ instructor }) => {
       </Box>
       <Box display={{ base: 'none', sm: 'block' }}>
         <Box
-          borderRadius="295px"
+          borderRadius="50%"
           overflow="hidden"
           display="flex"
           justifyContent="center"
-          marginTop="-88px">
+          marginTop="-88px"
+          height="177px">
           <Image
             src={generateAWSUrl(instructor.avatar)}
             alt="Kids courses instructor"
             width={177}
             height={177}
-            style={{ borderRadius: '295px', border: '14px solid #fff' }}
+            style={{ border: '14px solid #fff', objectFit: 'cover', borderRadius: '50%' }}
           />
         </Box>
       </Box>
@@ -38,13 +39,14 @@ const KidCourseInstructor: FC<KidCourseInstructorProps> = ({ instructor }) => {
           overflow="hidden"
           display="flex"
           justifyContent="center"
-          marginTop="-24px">
+          marginTop="-24px"
+          height="48px">
           <Image
             src={generateAWSUrl(instructor.avatar)}
             alt="Kids courses instructor"
             width={48.5}
             height={48.5}
-            style={{ borderRadius: '64px', border: '3.87px solid #fff' }}
+            style={{ borderRadius: '64px', border: '3.87px solid #fff', objectFit: 'cover' }}
           />
         </Box>
       </Box>

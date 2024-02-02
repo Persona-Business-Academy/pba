@@ -30,8 +30,6 @@ const StudentCommentSlide = dynamic(() => import('@/components/molecules/Student
 const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => {
   const offlineCourse = await OfflineCourseService.getOfflineCourseItem(id);
 
-  console.log(offlineCourse, 'offlineCourse.timeline');
-
   return (
     <>
       <Box
@@ -126,7 +124,10 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   color="#3CB4E7"
                   fontWeight="700"
                   lineHeight="21.28px"
-                  fontSize="16px">
+                  fontSize="16px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center">
                   Apply now
                 </Text>
                 <Text

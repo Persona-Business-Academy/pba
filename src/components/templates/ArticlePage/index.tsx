@@ -1,14 +1,12 @@
 'use client';
 
 import React, { FC } from 'react';
-import { Container, Flex, Heading, Input, InputGroup } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
-import { Button } from '@/components/atoms';
-import { segoe } from '@/utils/constants/fonts';
 
 const WelcomeSection = dynamic(() => import('./WelcomeSection'));
 const LogInSection = dynamic(() => import('./LogInSection'));
-const AboutAuthor = dynamic(() => import('./AboutAuthor'));
+// const AboutAuthor = dynamic(() => import('./AboutAuthor'));
 // const ReadArticles = dynamic(() => import('./ReadArticles'));
 
 type ArticlePageProps = {
@@ -30,11 +28,11 @@ const ArticlePage: FC<ArticlePageProps> = ({ title, description }) => {
         gap={{ base: '36px', md: '80px', xl: '148px' }}>
         <LogInSection description={description} />
 
-        <AboutAuthor />
+        {/* <AboutAuthor /> */}
 
         {/* <ReadArticles /> */}
 
-        <Flex
+        {/* <Flex
           as="section"
           flexDirection="column"
           maxW="506px"
@@ -82,7 +80,7 @@ const ArticlePage: FC<ArticlePageProps> = ({ title, description }) => {
               Subscribe
             </Button>
           </InputGroup>
-        </Flex>
+        </Flex> */}
       </Container>
     </>
   );

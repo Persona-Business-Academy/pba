@@ -34,7 +34,12 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Grid templateColumns={{ base: '100%', md: '55% 45%' }} h={'100vh'}>
-      <GridItem position="relative">
+      <GridItem
+        position="relative"
+        height={{
+          base: '200px',
+          sm: '100vh',
+        }}>
         <Image
           src="/images/public_available/auth_background.png"
           fill
@@ -43,6 +48,19 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
           priority
           style={{
             objectFit: 'cover',
+          }}
+        />
+
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/gifs/welcome.gif"
+          alt=""
+          style={{
+            position: 'absolute',
+            width: '40%',
+            top: '25%',
+            left: '50%',
+            transform: 'translate(-50%,-50%)',
           }}
         />
       </GridItem>

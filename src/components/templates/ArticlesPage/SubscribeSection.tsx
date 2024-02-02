@@ -72,26 +72,6 @@ const SubscribeSection: FC<SubscribeSectionProps> = () => {
                 Subscribe
               </Button>
             </InputGroup>
-
-            <Box
-              ml="auto"
-              maxW="459px"
-              display="flex"
-              alignItems="center"
-              justifyContent="flex-end"
-              border="1px solid #059669"
-              borderRadius="6px"
-              padding="16px 28px">
-              <Image width={24} height={24} src="./icons/check_circle_icon.svg" alt="Image" />
-              <Text
-                margin="0 0 0 10px"
-                color="#059669"
-                fontSize="16px"
-                fontWeight="500"
-                lineHeight="24px">
-                Thank you for your message. It has been sent.
-              </Text>
-            </Box>
           </Box>
         </Box>
         <Box

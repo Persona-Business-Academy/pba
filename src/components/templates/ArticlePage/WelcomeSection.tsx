@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box, Container, Heading, Text } from '@chakra-ui/react';
+import { Box, Container, Heading } from '@chakra-ui/react';
 
 type WelcomeSectionProps = {
   title: string;
@@ -14,15 +14,6 @@ const WelcomeSection: FC<WelcomeSectionProps> = ({ title }) => {
       borderRadius={{ base: '0px 0px 16px 16px', md: '0px 0px 72px 72px' }}>
       <Container maxWidth={1200} margin="0 auto" px={{ base: '16px', xl: '0' }}>
         <Box maxW="794px" textAlign="center" margin="0 auto" pb={{ base: '16px', md: '32px' }}>
-          <Text
-            fontWeight={400}
-            fontSize="16px"
-            lineHeight="normal"
-            fontStyle="normal"
-            color="#222222"
-            mb={{ base: '8px', md: '16px' }}>
-            By Name Surname
-          </Text>
           <Heading
             color="#222222"
             fontSize={{ base: '28px', sm: '44px' }}

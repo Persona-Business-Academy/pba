@@ -16,7 +16,10 @@ const ArticleItem: FC<ArticleItemProps> = ({ title, description, date, id }) => 
       as={Link}
       href={`${ARTICLES_ROUTE}/${id}`}
       flexGrow="1"
-      maxW={{ base: '500px', xl: '590px' }}
+      flexBasis={{
+        base: '500px',
+        sm: '590px',
+      }}
       border="1px solid"
       borderRadius="8px"
       borderColor="#F3F4F6"

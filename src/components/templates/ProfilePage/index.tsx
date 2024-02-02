@@ -145,8 +145,6 @@ const Profile: FC<Props> = ({ sessionUser }) => {
     };
   }, []);
 
-  console.log(sessionUser?.avatar);
-
   const avatarSrc = useMemo(
     () =>
       localImage?.localUrl

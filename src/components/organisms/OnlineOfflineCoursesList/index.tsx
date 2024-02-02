@@ -1,23 +1,23 @@
 'use client';
 
-import React, { FC, PropsWithChildren, useMemo, useState } from 'react';
+import React, { FC, PropsWithChildren, useMemo } from 'react';
 import {
   Box,
-  Button,
+  Button as ChakraButton,
   Flex,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
+  ModalFooter,
   ModalHeader,
-  ModalOverlay,
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import { OfflineCourseService } from '@/api/services/OfflineCourseService';
-import FilterButton from '@/components/atoms/FilterButton';
+import { Button } from '@/components/atoms';
 import RemovableButton from '@/components/atoms/RemovableButton';
 import SearchInput from '@/components/atoms/SearchInput';
 import CourseFilter from '@/components/molecules/CourseFilter';
@@ -26,13 +26,8 @@ import { CACHE_CONFIG, topicHandler } from '@/utils/constants/filters';
 
 const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
   const { courseNames, removeCourseNameHandler } = useCourseFilter();
-  const [size, setSize] = useState('full');
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handelSizeClick = (newSize: string) => {
-    setSize(newSize);
-    onOpen();
-  };
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { data: offlineCourseGroupedListData } = useQuery(
     ['groupedCourses'],
@@ -107,39 +102,8 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
             />
           </Flex>
           <Flex flexDirection="column" width="895px" gap={16}>
-            <Flex
-              position="relative"
-              alignItems="center"
-              justifyContent={{ base: 'flex-end', sm: 'flex-start' }}
-              gap={16}>
+            <Flex position="relative" alignItems="center" gap={16}>
               <Text as="span">Filter By:</Text>
-
-              <Box position="relative" display={{ base: 'block', lg: 'none' }}>
-                <Button
-                  onClick={() => handelSizeClick(size)}
-                  width="20px"
-                  bg="transparent"
-                  _hover={{ bg: 'none' }}
-                  _focus={{ bg: 'none' }}>
-                  <FilterButton />
-                </Button>
-                <Modal size={size} onClose={onClose} isOpen={isOpen} isCentered>
-                  <ModalOverlay />
-                  <ModalContent position="absolute">
-                    <ModalHeader padding="8.5px 16px" borderBottom="1px solid #F3F4F6">
-                      <Image src="/icons/persona_logo.png" alt="Persona" width={115} height={23} />
-                    </ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody padding="0 16px">
-                      <Box fontWeight="600" mt="36px" lineHeight="20px" fontSize="14px">
-                        <Text>Skill</Text>
-                        <Text>Duration</Text>
-                      </Box>
-                    </ModalBody>
-                  </ModalContent>
-                </Modal>
-              </Box>
-
               <Flex flexWrap="wrap" gap="10px">
                 {courseNames.map((course: Course) => (
                   <RemovableButton
@@ -161,6 +125,56 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
               {children}
             </Flex>
           </Flex>
+          <Box position="relative" display={{ base: 'block', sm: 'none' }}>
+            <ChakraButton
+              onClick={onOpen}
+              width="20px"
+              bg="transparent"
+              _hover={{ bg: 'none' }}
+              _focus={{ bg: 'none' }}>
+              <Image src="/icons/filter_icon.svg" alt="Filter" width={20} height={20} />
+            </ChakraButton>
+            <Modal size="full" onClose={onClose} isOpen={isOpen} isCentered>
+              <ModalContent position="absolute">
+                <ModalHeader padding="8.5px 16px" borderBottom="1px solid #F3F4F6">
+                  <Image src="/icons/persona_logo.png" alt="Persona" width={115} height={23} />
+                </ModalHeader>
+                <ModalCloseButton />
+                <ModalBody padding="0 16px">
+                  <Box fontWeight="600" mt="36px" lineHeight="20px" fontSize="14px">
+                    <CourseFilter
+                      courseTopicDataList={courseTopicDataList}
+                      courseSkillsDataList={courseSkillsDataList}
+                      courseDurationsDataList={courseDurationsDataList}
+                    />
+                  </Box>
+                </ModalBody>
+                <ModalFooter display="flex" gap="20px" justifyContent="center" mb="10px">
+                  <Button
+                    flex={1}
+                    width="164px"
+                    height="38px"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    bg="#fff"
+                    color="#3CB4E7"
+                    border="1px solid #3CB4E7">
+                    Cancel
+                  </Button>
+                  <Button
+                    flex={1}
+                    width="164px"
+                    height="38px"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center">
+                    Apply
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
+          </Box>
         </Flex>
       </Flex>
       <Flex

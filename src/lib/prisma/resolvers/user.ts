@@ -24,6 +24,15 @@ export class UserResolver {
     });
   }
 
+  static async verifyUserAccount(email: string) {
+    return prisma.user.update({
+      where: { email },
+      data: {
+        isVerified: true,
+      },
+    });
+  }
+
   static async updateUserProfile(input: UserProfileFormValidation, user: NonNullable<User>) {
     return (
       await prisma.user.update({

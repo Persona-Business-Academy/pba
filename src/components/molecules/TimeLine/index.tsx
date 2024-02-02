@@ -12,6 +12,7 @@ const getFormattedDate = (date: Date, opt: Intl.DateTimeFormatOptions) =>
   new Intl.DateTimeFormat('en-US', opt).format(date);
 
 const TimeLine: FC<TimeLineProps> = ({ offlineCourse }) => {
+  console.log(offlineCourse.courseLevel);
   const skillLevels = useMemo(() => {
     const myLevelOrderNumber = SKILL_LEVELS.find(
       level => level.value === offlineCourse?.courseLevel,

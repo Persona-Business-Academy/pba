@@ -1,8 +1,9 @@
 'use client';
-import React, { FC, useCallback } from 'react';
-import { Box, Flex, FormControl, Heading, Text } from '@chakra-ui/react';
+import React, { FC, useCallback, useState } from 'react';
+import { Box, Flex, FormControl, Heading, Input, Text } from '@chakra-ui/react';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
 import Image from 'next/image';
 import { Controller, useForm } from 'react-hook-form';
 import { JobService } from '@/api/services/JobService';
@@ -26,27 +27,45 @@ const defaultValues = {
 };
 
 const ApplicationForm: FC<ApplicationFormProps> = ({ jobId }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [file, setFile] = useState<null | File>(null);
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<ApplyJobFormValidation>({ defaultValues, resolver });
 
-  const { mutate, isLoading } = useMutation<boolean, { message: string }, ApplyJobFormValidation>(
-    data => JobService.createJobApplicant(jobId, data),
-  );
+  const { mutate, isLoading: jobIsLoading } = useMutation<
+    boolean,
+    { message: string },
+    ApplyJobFormValidation
+  >(data => JobService.createJobApplicant(jobId, data));
 
   const submitHandler = useCallback(
-    (data: ApplyJobFormValidation) => {
-      console.log({ data });
-      mutate(data);
+    async (data: ApplyJobFormValidation) => {
+      setIsLoading(true);
+      try {
+        let filePath = '';
+        if (file) {
+          filePath = `job/${jobId}/applicant/${file.name}`;
+          const { url } = await JobService.getPreSignedUrl(filePath);
+
+          await axios.put(url, file);
+        }
+        data.attachment = filePath;
+        mutate(data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
     },
-    [mutate],
+    [file, jobId, mutate],
   );
 
   return (
     <Box marginBottom={{ base: '36px', lg: '148px' }}>
-      {isLoading && <Loading />}
+      {(isLoading || jobIsLoading) && <Loading />}
       <Heading
         className={segoe.className}
         m={{ base: ' 0 0 16px 0', lg: ' 0 0 40px 0' }}
@@ -139,7 +158,26 @@ const ApplicationForm: FC<ApplicationFormProps> = ({ jobId }) => {
                   display="flex"
                   justifyContent="center"
                   flexDirection="column"
-                  alignItems="center">
+                  cursor="pointer"
+                  alignItems="center"
+                  position="relative">
+                  <Input
+                    type="file"
+                    width="100%"
+                    cursor="pointer"
+                    height="100%"
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    right={0}
+                    bottom={0}
+                    onChange={e => {
+                      if (e.target.files) {
+                        setFile(e.target.files[0]);
+                      }
+                    }}
+                    opacity={0}
+                  />
                   <Text margin="0 0 2px 0" fontSize="14px" fontWeight="500" lineHeight="20px">
                     Upload documents
                   </Text>

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Flex, Heading, Text } from '@chakra-ui/react';
+import { Flex, Grid, Heading, Text } from '@chakra-ui/react';
 import { Job } from '@prisma/client';
 import Link from 'next/link';
 import { Button } from '@/components/atoms';
@@ -47,7 +47,10 @@ const OpenPositions: FC<OpenPositionsProps> = ({ jobs }) => {
         rowGap={{ base: '0', md: '24px' }}
         flexDirection="column"
         mt={{ base: '20px', md: '40px' }}>
-        <Flex columnGap="20px" flexWrap={{ base: 'wrap', md: 'nowrap' }}>
+        <Grid
+          gridTemplateColumns="1fr 1fr"
+          columnGap="20px"
+          flexWrap={{ base: 'wrap', md: 'nowrap' }}>
           {jobs.map((job: Job) => (
             <Flex
               key={job.id}
@@ -95,7 +98,7 @@ const OpenPositions: FC<OpenPositionsProps> = ({ jobs }) => {
               </Button>
             </Flex>
           ))}
-        </Flex>
+        </Grid>
       </Flex>
     </Flex>
   );

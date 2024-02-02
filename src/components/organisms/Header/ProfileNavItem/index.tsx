@@ -1,4 +1,5 @@
-import React, { FC, memo, useMemo } from 'react';
+'use client';
+import React, { FC, memo, useCallback, useMemo } from 'react';
 import {
   Accordion,
   AccordionButton,
@@ -11,7 +12,9 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { User } from 'next-auth';
+import { signOut } from 'next-auth/react';
 import { segoe } from '@/utils/constants/fonts';
 import { linkItems, PROFILE_ROUTE } from '@/utils/constants/routes';
 import { generateAWSUrl } from '@/utils/helpers/common';
@@ -21,10 +24,17 @@ type ProfileNavItemProps = {
 };
 
 const ProfileNavItem: FC<ProfileNavItemProps> = ({ user }) => {
+  const pathName = usePathname();
+  const router = useRouter();
   const name = useMemo(
     () => `${user?.firstName} ${user?.lastName}`,
     [user?.firstName, user?.lastName],
   );
+
+  const logout = useCallback(() => {
+    signOut({ callbackUrl: pathName || '' });
+    router.refresh();
+  }, [pathName, router]);
 
   return (
     <AccordionItem pl={8}>
@@ -60,7 +70,8 @@ const ProfileNavItem: FC<ProfileNavItemProps> = ({ user }) => {
         <Accordion allowToggle>
           {linkItems.map(({ href, name, icon: Icon, id }) => (
             <AccordionItem key={id}>
-              <AccordionButton {...(href ? { as: Link, href } : { onClick: () => {} })}>
+              <AccordionButton
+                {...(href ? { as: Link, href } : { onClick: id === 9 ? logout : () => {} })}>
                 <Flex as="span" flex="1" textAlign="left" pl="24px" alignItems="center" gap="8px">
                   <Icon />
                   {name}

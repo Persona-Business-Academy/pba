@@ -23,7 +23,14 @@ const OfflineCourseItem: FC<OfflineCourseItemProps> = ({ courseData }) => {
       backgroundColor="#FFFFFF"
       flexDirection={{ base: 'column', sm: 'row' }}>
       <Box width={{ base: 311, sm: 240 }} height={{ base: 139, sm: 154 }} position="relative">
-        <Image src={generateAWSUrl(courseData.coverPhoto)} alt="" fill />
+        <Image
+          src={generateAWSUrl(courseData.coverPhoto)}
+          alt=""
+          fill
+          style={{
+            objectFit: 'cover',
+          }}
+        />
       </Box>
       <Flex flexDirection="column" justifyContent="space-between" flex={1} color="#222222">
         <Flex

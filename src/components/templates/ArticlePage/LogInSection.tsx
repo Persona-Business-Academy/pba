@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import { Button } from '@/components/atoms';
-import { segoe } from '@/utils/constants/fonts';
 
 type LogInSectionProps = {
   description: string;
@@ -49,7 +48,7 @@ const LogInSection: FC<LogInSectionProps> = ({ description }) => {
         </Button>
       </Flex>
 
-      <Heading
+      {/* <Heading
         className={segoe.className}
         fontWeight={700}
         margin="0 auto"
@@ -70,7 +69,7 @@ const LogInSection: FC<LogInSectionProps> = ({ description }) => {
           padding="16px 32px">
           View subscription options
         </Button>
-      </Box>
+      </Box> */}
     </Box>
   );
 };
