@@ -15,12 +15,12 @@ const SuccessMessageToast: FC<SuccessMessageToastProps> = () => {
       height="56px"
       display="flex"
       alignItems="center"
-      justifyContent="flex-end"
+      justifyContent="center"
       border="1px solid"
       borderColor="#059669"
       borderRadius="6px"
       padding="16px 28px">
-      <Image width={24} height={24} src="./icons/check_circle_icon.svg" alt="Image" />
+      <Image width={24} height={24} src="/icons/check_circle_icon.svg" alt="Image" />
       <Text margin="0 0 0 10px" color="#059669" fontSize="16px" fontWeight="500" lineHeight="24px">
         Thank you for your message. It has been sent.
       </Text>

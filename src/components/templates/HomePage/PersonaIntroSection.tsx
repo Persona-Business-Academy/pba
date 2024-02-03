@@ -35,7 +35,10 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = async () => {
             fontSize={{ base: '24px', lg: '32px' }}
             fontWeight="700"
             margin="0 0 16px 0"
-            as="h2">
+            as="h2"
+            marginTop={{
+              base: '25px',
+            }}>
             What is PBA?
           </Heading>
           <Text fontSize="16px" fontWeight="400" color="#696984" lineHeight="21.28px">

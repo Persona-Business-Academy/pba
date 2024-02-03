@@ -9,6 +9,7 @@ import { ContactUsService } from '@/api/services/ContactUsService';
 import { Button, FormInput, Loading, PhoneNumberInput } from '@/components/atoms';
 import Checkbox from '@/components/atoms/Checkbox';
 import FormTextarea from '@/components/atoms/FormTextarea';
+import SuccessMessageToast from '@/components/atoms/SuccessMessageToast';
 import { ContactUsApplicantFormValidation } from '@/utils/validation/contact-us';
 
 const resolver = classValidatorResolver(ContactUsApplicantFormValidation);
@@ -24,6 +25,7 @@ const defaultValues = {
 };
 
 const Contact = () => {
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const {
     control,
@@ -38,6 +40,10 @@ const Contact = () => {
     ContactUsApplicantFormValidation
   >(ContactUsService.createContactUsApplicant, {
     onSuccess: () => {
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
       reset();
     },
   });
@@ -311,6 +317,7 @@ const Contact = () => {
                     Lets talk
                   </Button>
                 </Box>
+                {showSuccessMessage && <SuccessMessageToast />}
               </Box>
             </FormControl>
           </Flex>

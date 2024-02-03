@@ -74,7 +74,7 @@ const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
                 height={27}
                 alt="persona_logo"
                 priority
-                style={{ objectFit: 'contain' }}
+                style={{ objectFit: 'contain', zIndex: 1000 }}
               />
             </Flex>
           </Link>

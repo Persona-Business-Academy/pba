@@ -1,11 +1,9 @@
 'use client';
 import React, { FC } from 'react';
-import { Container, Flex, Grid, Heading, Input, InputGroup } from '@chakra-ui/react';
+import { Container, Grid } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
-import { Button } from '@/components/atoms';
 import ArticleCardItem from '@/components/molecules/ArticleCardItem';
 import { articlesData } from '@/utils/constants/articles';
-import { segoe } from '@/utils/constants/fonts';
 
 const SubscribeSection = dynamic(() => import('./SubscribeSection'));
 // const MoreArticles = dynamic(() => import('./MoreArticles'));
@@ -16,7 +14,7 @@ const ArticlesPage: FC<Props> = () => {
   return (
     <>
       <SubscribeSection />
-      <Container maxWidth={1200} margin="0 auto" px={{ base: '16px', xl: '0' }}>
+      <Container maxWidth={1200} margin="0 auto" px={{ base: '16px', xl: '0' }} pb="40px">
         <Grid
           gridTemplateColumns={{
             base: '1fr',
@@ -28,7 +26,7 @@ const ArticlesPage: FC<Props> = () => {
         </Grid>
         {/* <MoreArticles /> */}
 
-        <Flex
+        {/* <Flex
           flexDirection="column"
           maxW="506px"
           margin="0 auto"
@@ -75,7 +73,7 @@ const ArticlesPage: FC<Props> = () => {
               Subscribe
             </Button>
           </InputGroup>
-        </Flex>
+        </Flex> */}
       </Container>
     </>
   );

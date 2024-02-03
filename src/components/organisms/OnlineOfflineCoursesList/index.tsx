@@ -101,21 +101,41 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
               courseDurationsDataList={courseDurationsDataList}
             />
           </Flex>
+
           <Flex flexDirection="column" width="895px" gap={16}>
-            <Flex position="relative" alignItems="center" gap={16}>
-              <Text as="span">Filter By:</Text>
-              <Flex flexWrap="wrap" gap="10px">
-                {courseNames.map((course: Course) => (
-                  <RemovableButton
-                    key={course.id}
-                    removeQueryParamHandler={() => {
-                      removeCourseNameHandler(course.id);
-                    }}>
-                    {course.name}
-                  </RemovableButton>
-                ))}
+            <Box position="relative" alignItems="center" gap={16}>
+              <Box
+                position="relative"
+                display={{ base: 'block', sm: 'none' }}
+                justifyContent="flex-end"
+                zIndex={1}>
+                <Flex justifyContent="flex-end" alignItems="center">
+                  <Text as="span">Filter</Text>
+                  <ChakraButton
+                    onClick={onOpen}
+                    width="20px"
+                    bg="transparent"
+                    _hover={{ bg: 'none' }}
+                    _focus={{ bg: 'none' }}>
+                    <Image src="/icons/filter_icon.svg" alt="Filter" width={20} height={20} />
+                  </ChakraButton>
+                </Flex>
+              </Box>
+              <Flex position="relative" alignItems="center" gap={16}>
+                <Text as="span">Filter By:</Text>
+                <Flex flexWrap="wrap" gap="10px">
+                  {courseNames.map((course: Course) => (
+                    <RemovableButton
+                      key={course.id}
+                      removeQueryParamHandler={() => {
+                        removeCourseNameHandler(course.id);
+                      }}>
+                      {course.name}
+                    </RemovableButton>
+                  ))}
+                </Flex>
               </Flex>
-            </Flex>
+            </Box>
 
             <Flex
               flexDirection="column"
@@ -125,56 +145,6 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
               {children}
             </Flex>
           </Flex>
-          <Box position="relative" display={{ base: 'block', sm: 'none' }}>
-            <ChakraButton
-              onClick={onOpen}
-              width="20px"
-              bg="transparent"
-              _hover={{ bg: 'none' }}
-              _focus={{ bg: 'none' }}>
-              <Image src="/icons/filter_icon.svg" alt="Filter" width={20} height={20} />
-            </ChakraButton>
-            <Modal size="full" onClose={onClose} isOpen={isOpen} isCentered>
-              <ModalContent position="absolute">
-                <ModalHeader padding="8.5px 16px" borderBottom="1px solid #F3F4F6">
-                  <Image src="/icons/persona_logo.png" alt="Persona" width={115} height={23} />
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody padding="0 16px">
-                  <Box fontWeight="600" mt="36px" lineHeight="20px" fontSize="14px">
-                    <CourseFilter
-                      courseTopicDataList={courseTopicDataList}
-                      courseSkillsDataList={courseSkillsDataList}
-                      courseDurationsDataList={courseDurationsDataList}
-                    />
-                  </Box>
-                </ModalBody>
-                <ModalFooter display="flex" gap="20px" justifyContent="center" mb="10px">
-                  <Button
-                    flex={1}
-                    width="164px"
-                    height="38px"
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                    bg="#fff"
-                    color="#3CB4E7"
-                    border="1px solid #3CB4E7">
-                    Cancel
-                  </Button>
-                  <Button
-                    flex={1}
-                    width="164px"
-                    height="38px"
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center">
-                    Apply
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
-          </Box>
         </Flex>
       </Flex>
       <Flex
@@ -218,6 +188,60 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
             lg: 'linear-gradient(80deg, #1F1646 33%, rgba(255,255,255,0.9) 20%, #00000069 15%),url(/icons/course_skill_bg.png)',
           }}></Flex>
       </Flex>
+
+      <Modal size="full" onClose={onClose} isOpen={isOpen} isCentered>
+        <ModalContent position="absolute">
+          <ModalHeader
+            height="60px"
+            minH={'60px'}
+            pl="14px"
+            py={{ base: 2 }}
+            display="flex"
+            alignItems="center">
+            <Image
+              src="/icons/persona_logo.png"
+              width={135}
+              height={27}
+              alt="persona_logo"
+              priority
+              style={{ objectFit: 'contain', zIndex: 1000 }}
+            />
+          </ModalHeader>
+          <ModalCloseButton zIndex={1000} />
+          <ModalBody padding="0 16px" marginTop="80px">
+            <Box fontWeight="600" mt="36px" lineHeight="20px" fontSize="14px">
+              <CourseFilter
+                courseTopicDataList={courseTopicDataList}
+                courseSkillsDataList={courseSkillsDataList}
+                courseDurationsDataList={courseDurationsDataList}
+              />
+            </Box>
+          </ModalBody>
+          <ModalFooter display="flex" gap="20px" justifyContent="center" mb="30px">
+            <Button
+              flex={1}
+              width="164px"
+              height="38px"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              bg="#fff"
+              color="#3CB4E7"
+              border="1px solid #3CB4E7">
+              Cancel
+            </Button>
+            <Button
+              flex={1}
+              width="164px"
+              height="38px"
+              display="flex"
+              justifyContent="center"
+              alignItems="center">
+              Apply
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 };

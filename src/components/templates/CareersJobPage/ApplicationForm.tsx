@@ -9,6 +9,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { JobService } from '@/api/services/JobService';
 import { Button, FormInput, Loading, PhoneNumberInput } from '@/components/atoms';
 import FormTextarea from '@/components/atoms/FormTextarea';
+import SuccessMessageToast from '@/components/atoms/SuccessMessageToast';
 import { segoe } from '@/utils/constants/fonts';
 import { ApplyJobFormValidation } from '@/utils/validation/apply-job';
 
@@ -27,11 +28,14 @@ const defaultValues = {
 };
 
 const ApplicationForm: FC<ApplicationFormProps> = ({ jobId }) => {
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
   const [isLoading, setIsLoading] = useState(false);
   const [file, setFile] = useState<null | File>(null);
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<ApplyJobFormValidation>({ defaultValues, resolver });
 
@@ -39,7 +43,15 @@ const ApplicationForm: FC<ApplicationFormProps> = ({ jobId }) => {
     boolean,
     { message: string },
     ApplyJobFormValidation
-  >(data => JobService.createJobApplicant(jobId, data));
+  >(data => JobService.createJobApplicant(jobId, data), {
+    onSuccess: () => {
+      reset();
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
+    },
+  });
 
   const submitHandler = useCallback(
     async (data: ApplyJobFormValidation) => {
@@ -221,6 +233,7 @@ const ApplicationForm: FC<ApplicationFormProps> = ({ jobId }) => {
                 Submit
               </Button>
             </form>
+            <Box mt="10px">{showSuccessMessage && <SuccessMessageToast />}</Box>
           </Box>
 
           <Box maxWidth="514px" display={{ base: 'none', lg: 'inline-block' }}>

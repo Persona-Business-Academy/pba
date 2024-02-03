@@ -17,22 +17,21 @@ const StudentCommentSlide: FC<StudentCommentSlideProps> = ({ comments }) => {
     setActiveSlideIndex(swiper.activeIndex);
   }, []);
 
-  const isMobile = useMemo(() => innerWidth > 370, []);
+  const isDesktop = useMemo(() => !(innerWidth < 400), []);
 
   return (
     <Box overflow="hidden">
       <Swiper
-        slidesPerView={isMobile ? 1 : 'auto'}
-        centeredSlides={!isMobile}
+        slidesPerView={isDesktop ? 1 : 'auto'}
+        centeredSlides={!isDesktop}
         style={{
           overflow: 'visible',
         }}
         spaceBetween={10}
         onSwiper={swiper => console.log(swiper)}
-        navigation={isMobile}
+        navigation={isDesktop}
         pagination={{ clickable: true }}
         modules={[Navigation, Pagination]}
-        loop
         onSlideChange={handleSlideChange}>
         {comments.map((comment: CourseComment) => (
           <SwiperSlide key={comment.id}>

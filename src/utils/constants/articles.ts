@@ -2,28 +2,20 @@ export const articlesData = [
   {
     id: 1,
     title: 'Business Verification for Facebook Business Manager',
-    description: `In this digital age, business verification has become increasingly important, especially when it comes to running ads on platforms . Getting your business manager verified comes with several benefits. Firstly, it establishes trust and credibility with Facebook and your audience. It also unlocks additional features and benefits that are exclusive to verified businesses, giving you an edge over your competitors. Moreover, verification helps build a solid foundation for running ads on Facebook, reducing the risk of ad account disablement and ensuring the smooth operation of your business. 
-    Verifying your company through Business Manager means providing Facebook with the information necessary to authenticate the existence and legitimacy of your business in the eyes of Facebook. To begin the approval (or verification) process of your Facebook Business Manager, first, login into your account (or create a new one). 
-    Steps to Verify Your Business Manager Account`,
-    steps: [
-      `1.Head to your Business Manager Account and Select your Business Account.`,
-      `2. Go to Business Settings and click on 'Business Info'. This page will show you your business details and verification status. Your verification status should be unverified..`,
-      `3.Click on the 'view details' button and it will directly lead you to the “Security Centre” section. There, click on the “Start Verification' Button.`,
-      `4.Scroll down to find out how to activate the start verification button if not available. `,
-      `5.Tap on the “Get Started” button on the next page `,
-      `6.Select the country your business is based in`,
-      `7.Fill in your Organization Details. Make sure all your details are exactly the same as your legal document.`,
-      `8.Upload supporting documents`,
-      `9.Submit and confirm your contact number..`,
-      `10.Enter the confirmation code sent to your number and finish your verification process. 
+    description: `In this digital age, business verification has become increasingly important, especially when it comes to running ads on platforms . Getting your business manager verified comes with several benefits. Firstly, it establishes trust and credibility with Facebook and your audience. It also unlocks additional features and benefits that are exclusive to verified businesses, giving you an edge over your competitors. Moreover, verification helps build a solid foundation for running ads on Facebook, reducing the risk of ad account disablement and ensuring the smooth operation of your business. \n
+    Verifying your company through Business Manager means providing Facebook with the information necessary to authenticate the existence and legitimacy of your business in the eyes of Facebook. To begin the approval (or verification) process of your Facebook Business Manager, first, login into your account (or create a new one). \n
+    Steps to Verify Your Business Manager Account \n
+      1.Head to your Business Manager Account and Select your Business Account.,
+      2. Go to Business Settings and click on 'Business Info'. This page will show you your business details and verification status. Your verification status should be unverified..,
+      3.Click on the 'view details' button and it will directly lead you to the “Security Centre” section. There, click on the “Start Verification' Button.,
+      4.Scroll down to find out how to activate the start verification button if not available. ,
+      5.Tap on the “Get Started” button on the next page ,
+      6.Select the country your business is based in,
+      7.Fill in your Organization Details. Make sure all your details are exactly the same as your legal document.,
+      8.Upload supporting documents,
+      9.Submit and confirm your contact number..,
+      10.Enter the confirmation code sent to your number and finish your verification process. 
       And that's that. Congratulations. Your business should get verified between 2-7 days.`,
-    ],
-    img1: '/images/public_available/articles_img1.png',
-    img2: '/images/public_available/articles_img2.png',
-    img3: '/images/public_available/articles_img3.png',
-    img4: '/images/public_available/articles_img4.png',
-    img5: '/images/public_available/articles_img5.png',
-    img6: '/images/public_available/articles_img6.png',
     date: 'March 01, 2021',
   },
   {
@@ -36,7 +28,6 @@ export const articlesData = [
      Just like that, you have a new lead! 
     With Lead Ads, users can submit their information through an auto-filled form without ever leaving the platform. You avoid disrupting the UX by keeping your lead on Meta's platforms instead of switching from the platform to your website and back again. 
     Lead Ads are also beneficial for the advertiser because they capture potential customers' information without having to create a new landing page or conversion path. Everything you need to obtain a new lead is in the platform, and that data can easily integrate with your CRM. `,
-    steps: [],
     date: 'March 01, 2021',
   },
   {
@@ -58,7 +49,6 @@ export const articlesData = [
     6.Scroll down to see a list of active ads that the competitor Page is currently running.
     You can also see details like when the ad started running, which platform it's been advertised on (Facebook, Instagram, etc.), and additional information like ad spend and impressions. 
     Insights on your competitor's ads can help you create a more effective, strategic, and targeted advertising campaign for your own business. Here's a list of benefits you get from analysing your competitor's ads.   `,
-    steps: [],
     date: 'March 01, 2021',
   },
   {
@@ -69,7 +59,6 @@ export const articlesData = [
     You can create a privacy policy in four ways: 1. By writing it yourself, 2. By hiring a lawyer, 3. By downloading online privacy policy templates and editing them to suit your business, or 4. By using an online privacy policy generator tool. 
     A privacy policy is a legal requirement for collecting personal data online, and you can't publish a Facebook Lead Ad or any other lead-generating ads without it. It's an essential legal statement that clarifies and ensures the fair use of user data. 
     Advertising platforms such as Facebook require you to have a privacy policy and host it via a publicly accessible link, which can delay your marketing plans if you don't have a quick and easy solution to create and host your privacy policy. `,
-    steps: [],
     date: 'March 01, 2021',
   },
 ];

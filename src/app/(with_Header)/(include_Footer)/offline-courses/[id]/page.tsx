@@ -7,6 +7,7 @@ import {
   Box,
   Container,
   Flex,
+  Grid,
   Heading,
   ListItem,
   Text,
@@ -406,7 +407,10 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               <Flex gap={{ base: '16px', xl: '29px' }} flexWrap="wrap" justifyContent="center">
                 <UnorderedList
                   display="grid"
-                  gridTemplateColumns="repeat(2,1fr)"
+                  gridTemplateColumns={{
+                    base: '1fr',
+                    sm: '1fr 1fr',
+                  }}
                   margin="0"
                   gap="16px"
                   lineHeight="24px"
@@ -479,7 +483,16 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
               Course instructors
             </Heading>
 
-            <Flex margin="0 auto" gap="20px" flexWrap="wrap" justifyContent="center">
+            <Grid
+              gridTemplateColumns={{
+                base: '1fr',
+                md: '1fr 1fr',
+                lg: '1fr 1fr 1fr',
+              }}
+              margin="0 auto"
+              gap="20px"
+              flexWrap="wrap"
+              justifyContent="center">
               {offlineCourse.courseInstructors.map((instructor, index: number) => (
                 <Box key={index} flexBasis="590px">
                   <Flex
@@ -572,7 +585,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
                   </Flex>
                 </Box>
               ))}
-            </Flex>
+            </Grid>
           </Box>
 
           <Slide

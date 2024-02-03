@@ -21,7 +21,7 @@ const MobileNav: FC<MobileNavProps> = ({ navItems, user, onClose }) => {
     <Stack>
       <Accordion allowToggle>
         <Box px={16}>
-          {user && <ProfileNavItem user={user} />}
+          {user && <ProfileNavItem user={user} onClose={onClose} />}
           {navItems.map((navItem: NavItem, i: number) => (
             <MobileNavItem key={i} {...navItem} onClose={onClose} />
           ))}

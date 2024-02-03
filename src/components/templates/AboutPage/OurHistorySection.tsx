@@ -62,9 +62,9 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
                 bg="#3CB4E7"></Text>
             </ListItem>
             <ListItem color="#222222">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-              print, graphic or web designs. The passage is attributed to an unknown typesetter in
-              the 15th century who is thought to have scrambled parts of Cicero's De Finibus.
+              After studying the market, the two co-founders realized that the market needs more
+              professional IT training center with unique approaches, as a result of which Persona
+              Business Academy was created as an offline education center.
             </ListItem>
           </UnorderedList>
 

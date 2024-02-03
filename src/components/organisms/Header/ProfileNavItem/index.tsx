@@ -21,9 +21,10 @@ import { generateAWSUrl } from '@/utils/helpers/common';
 
 type ProfileNavItemProps = {
   user: User;
+  onClose: () => void;
 };
 
-const ProfileNavItem: FC<ProfileNavItemProps> = ({ user }) => {
+const ProfileNavItem: FC<ProfileNavItemProps> = ({ user, onClose }) => {
   const pathName = usePathname();
   const router = useRouter();
   const name = useMemo(
@@ -39,10 +40,10 @@ const ProfileNavItem: FC<ProfileNavItemProps> = ({ user }) => {
   return (
     <AccordionItem pl={8}>
       <AccordionButton display="flex">
-        <Flex flex={6} textAlign="left" gap="8px" as={Link} href={PROFILE_ROUTE}>
+        <Flex flex={6} textAlign="left" gap="8px" as={Link} href={PROFILE_ROUTE} onClick={onClose}>
           <Avatar
             name={name}
-            src={user?.avatar ? generateAWSUrl(user.avatar) : ''}
+            src={generateAWSUrl(user?.avatar || '')}
             bg="#F3F4F6"
             color="#C0C0C0"
           />
@@ -71,7 +72,9 @@ const ProfileNavItem: FC<ProfileNavItemProps> = ({ user }) => {
           {linkItems.map(({ href, name, icon: Icon, id }) => (
             <AccordionItem key={id}>
               <AccordionButton
-                {...(href ? { as: Link, href } : { onClick: id === 9 ? logout : () => {} })}>
+                {...(href
+                  ? { as: Link, href, onClick: onClose }
+                  : { onClick: id === 9 ? logout : () => {} })}>
                 <Flex as="span" flex="1" textAlign="left" pl="24px" alignItems="center" gap="8px">
                   <Icon />
                   {name}
