@@ -77,7 +77,7 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             fontWeight="400">
             <ListItem mb="8px">2020</ListItem>
             <ListItem display="flex" mb="8px" fontSize="24px" fontWeight="700">
-              <Text as="span"> Start launching PBA</Text>
+              <Text as="span"> Selection of trainers </Text>
               <Text
                 position="absolute"
                 right={{ base: '98%', md: '47.5%' }}
@@ -91,9 +91,11 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
                 bg="#3CB4E7"></Text>
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-              print, graphic or web designs. The passage is attributed to an unknown typesetter in
-              the 15th century who is thought to have scrambled parts of Cicero's De Finibus.
+              Since the idea was to create an academy with a high level of education, we started the
+              search for the highest senior level professionals in Armenia, who work in the biggest
+              tech companies. It is very important for us that each lecturer, in addition to having
+              a good command of his profession, can get the results that are set in front of him as
+              well as towards the demanding student.
             </ListItem>
           </UnorderedList>
 
@@ -104,9 +106,9 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             lineHeight="31.92px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2021</ListItem>
+            <ListItem mb="8px">2022</ListItem>
             <ListItem display="flex" mb="8px" fontSize="24px" fontWeight="700">
-              <Text as="span">Start of courses</Text>
+              <Text as="span">Start Of Talent Transformation Program</Text>
               <Text
                 position="absolute"
                 right={{ base: '98%', md: '47.5%' }}
@@ -120,9 +122,10 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
                 bg="#3CB4E7"></Text>
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-              print, graphic or web designs. The passage is attributed to an unknown typesetter in
-              the 15th century who is thought to have scrambled parts of Cicero's De Finibus.
+              Talent transformation program was launched in the middle of 2023, the goal of which
+              was to train experts in digital marketing. It is the only one of its kind in the
+              Republic of Armenia. TTP is the best choice to study the entire toolkit of digital
+              marketing in one course.
             </ListItem>
           </UnorderedList>
         </Box>
@@ -141,9 +144,9 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             lineHeight="31.92px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2022</ListItem>
+            <ListItem mb="8px">2020</ListItem>
             <ListItem display="flex" mb="8px" fontSize="24px" fontWeight="700">
-              <Text as="span"> Start of Talent Transformation Programm</Text>
+              <Text as="span"> Start launching PBA </Text>
               <Text
                 position="absolute"
                 right="47.5%"
@@ -158,9 +161,10 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             </ListItem>
 
             <ListItem fontWeight="400" color="#222222">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-              print, graphic or web designs. The passage is attributed to an unknown typesetter in
-              the 15th century who is thought to have scrambled parts of Cicero's De Finibus.
+              The problem was set in such a way that in order to ensure maximum effectiveness, the
+              groups should be small and taking this approach into account, we were able to make the
+              examination stage more effective by leaving the group examination and making it
+              individual.
             </ListItem>
           </UnorderedList>
 
@@ -171,9 +175,9 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
             lineHeight="31.92px"
             listStyleType="none"
             fontWeight="400">
-            <ListItem mb="8px">2022-2023</ListItem>
+            <ListItem mb="8px">2021</ListItem>
             <ListItem display="flex" mb="8px" fontSize="24px" fontWeight="700">
-              <Text as="span">pba.am first e-learning platform in Armenia</Text>
+              <Text as="span">Start of courses</Text>
               <Text
                 position="absolute"
                 right="47.5%"
@@ -187,9 +191,39 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
                 bg="#3CB4E7"></Text>
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-              print, graphic or web designs. The passage is attributed to an unknown typesetter in
-              the 15th century who is thought to have scrambled parts of Cicero's De Finibus.
+              The structure of the courses is such that regardless of students' knowledge, students
+              acquire advanced level knowledge. Course exams are such that each student gets the
+              opportunity to check his knowledge at each level and improve it during the exam
+              itself. The peculiarity of PBA is that at each level, students pass are individual
+              examination and receive the appropriate qualification.
+            </ListItem>
+          </UnorderedList>
+          <UnorderedList
+            margin="0 0 96px 0"
+            fontSize="16px"
+            color="#3CB4E7"
+            lineHeight="31.92px"
+            listStyleType="none"
+            fontWeight="400">
+            <ListItem mb="8px">2024</ListItem>
+            <ListItem display="flex" mb="8px" fontSize="24px" fontWeight="700">
+              <Text as="span">Pba.am First E-Learning Platform In Armenia</Text>
+              <Text
+                position="absolute"
+                right={{ base: '98%', md: '47.5%' }}
+                zIndex="4"
+                top="73%"
+                width="14px"
+                height="14px"
+                borderRadius="50"
+                display="block"
+                as="span"
+                bg="#3CB4E7"></Text>
+            </ListItem>
+            <ListItem fontWeight="400" color="#222222">
+              PBA.am will be the first professional e-learning platform in Armenia, which includes
+              the specialized programs of professionals qualified by PBA in one common platform.
+              PBA.am is planned to be launched in June 2024.
             </ListItem>
           </UnorderedList>
         </Box>
