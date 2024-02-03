@@ -62,8 +62,9 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
               lineHeight="22px"
               color="#2D2E2E"
               m={{ base: '8px 0 8px 0', md: '32px 0 32px 0' }}>
-              It is a long established fact that a reader will be distracted by the readable content
-              of a page when looking at its layout.
+              My daughter, Mane Hayrapetyan, participated in the "Graphic Design" course and
+              graduated with great success. She got high-quality knowledge, skill and experience in
+              that field. Even after graduation, specialists do not hesitate to help, if necessary.
             </Text>
             <Text
               fontSize="16px"
@@ -72,7 +73,7 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
               lineHeight="normal"
               color="#2D2E2E"
               m={{ base: '0 0 4px 0', sm: '0 0 8px 0' }}>
-              Lora Smith
+              Alvard Hayrapetyan
             </Text>
             <Text
               fontSize="16px"
@@ -80,7 +81,7 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
               fontWeight={400}
               lineHeight="22px"
               color="#2D2E2E">
-              CEO & Founder Crix
+              Parent
             </Text>
           </Box>
           <Box maxWidth="255px">
@@ -92,8 +93,9 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
               lineHeight="22px"
               color="#2D2E2E"
               m={{ base: '8px 0 8px 0', md: '32px 0 32px 0' }}>
-              It is a long established fact that a reader will be distracted by the readable content
-              of a page when looking at its layout.
+              My son participated in the robotics course. He participated in all the courses with
+              great enthusiasm. I thank Persona Kids Academy for such high quality education and
+              positive atmosphere.
             </Text>
             <Text
               fontSize="16px"
@@ -102,7 +104,7 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
               lineHeight="normal"
               color="#2D2E2E"
               m={{ base: '0 0 4px 0', sm: '0 0 8px 0' }}>
-              Lora Smith
+              Sona Harutyunyan
             </Text>
             <Text
               fontSize="16px"
@@ -110,7 +112,7 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
               fontWeight={400}
               lineHeight="22px"
               color="#2D2E2E">
-              CEO & Founder Crix
+              Parent
             </Text>
           </Box>
           <Box maxWidth="255px">
@@ -122,8 +124,8 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
               lineHeight="22px"
               color="#2D2E2E"
               m={{ base: '8px 0 8px 0', md: '32px 0 32px 0' }}>
-              It is a long established fact that a reader will be distracted by the readable content
-              of a page when looking at its layout.
+              My child attended the Persona Kids Academy programming course. The wealth of knowledge
+              he gained there is beyond words. Thank you Persona Kids Academy for such high quality.
             </Text>
             <Text
               fontSize="16px"
@@ -132,7 +134,7 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
               lineHeight="normal"
               color="#2D2E2E"
               m={{ base: '0 0 4px 0', sm: '0 0 8px 0' }}>
-              Lora Smith
+              Mane Poghosyan
             </Text>
             <Text
               fontSize="16px"
@@ -140,7 +142,7 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
               fontWeight={400}
               lineHeight="22px"
               color="#2D2E2E">
-              CEO & Founder Crix
+              Parent
             </Text>
           </Box>
         </Flex>
