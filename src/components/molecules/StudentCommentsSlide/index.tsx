@@ -28,7 +28,6 @@ const StudentCommentSlide: FC<StudentCommentSlideProps> = ({ comments }) => {
           overflow: 'visible',
         }}
         spaceBetween={10}
-        onSwiper={swiper => console.log(swiper)}
         navigation={isDesktop}
         pagination={{ clickable: true }}
         modules={[Navigation, Pagination]}

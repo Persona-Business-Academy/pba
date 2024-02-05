@@ -1,17 +1,19 @@
 import React, { FC } from 'react';
 import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import { Button } from '@/components/atoms';
+import { KidsCourseItemModel } from '@/models/kids-course.model';
 import { OfflineCourseItemModel } from '@/models/offline-course.model';
 import Line from './Line';
 
 type TimeLineProps = {
-  offlineCourse: OfflineCourseItemModel;
+  offlineCourse: KidsCourseItemModel | OfflineCourseItemModel;
+  onOpen: () => void;
 };
 
 const getFormattedDate = (date: Date, opt: Intl.DateTimeFormatOptions) =>
   new Intl.DateTimeFormat('en-US', opt).format(date);
 
-const TimeLine: FC<TimeLineProps> = ({ offlineCourse }) => {
+const TimeLine: FC<TimeLineProps> = ({ offlineCourse, onOpen }) => {
   return (
     <Box marginBottom={{ base: '36px ', lg: ' 148px' }}>
       <Container maxWidth="895px" margin="0 auto" padding="0" color="#222222">
@@ -25,7 +27,7 @@ const TimeLine: FC<TimeLineProps> = ({ offlineCourse }) => {
         </Heading>
         <Line courseLevel={offlineCourse.courseLevel} />
         <Flex justifyContent="center" gap="20px" flexWrap="wrap">
-          {offlineCourse.timeline?.startDates.map((value, idx) => {
+          {offlineCourse.TimeLine?.startDates.map((value, idx) => {
             const date = new Date(value);
             return (
               <Box
@@ -68,7 +70,7 @@ const TimeLine: FC<TimeLineProps> = ({ offlineCourse }) => {
           <Text fontSize="18px" lineHeight="18px" margin="0" as="span">
             Don't see a time that works for you?
           </Text>
-          <Text fontSize="18px" lineHeight="18px" margin="0" as="span">
+          <Text fontSize="18px" lineHeight="18px" margin="0" as="button" onClick={onOpen}>
             Request another time
           </Text>
         </Flex>

@@ -459,7 +459,7 @@ const OfflineCourse = async ({ params: { id } }: { params: { id: string } }) => 
           </Flex>
         </Box>
       </Box>
-      {!!offlineCourse.timeline && <TimeLine offlineCourse={offlineCourse} />}
+      {!!offlineCourse.TimeLine && <TimeLine offlineCourse={offlineCourse} onOpen={() => {}} />}
       <Box
         padding={{
           base: '0 16px ',

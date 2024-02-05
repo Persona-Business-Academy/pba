@@ -72,7 +72,6 @@ const Slide: FC<SwiperProps> = ({ offlineCourseVideo, courseName }) => {
             <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
               <Swiper
                 id="main"
-                onSwiper={swiper => console.log(swiper)}
                 navigation
                 pagination={{ clickable: true }}
                 slidesPerView={1}

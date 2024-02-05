@@ -48,6 +48,7 @@ export class KidsCourseResolver {
       include: {
         OfflineCourseInstructors: true,
         OfflineCourseVideo: true,
+        TimeLine: true,
       },
     });
 

@@ -68,7 +68,7 @@ export class OfflineCoursesResolver {
         OfflineCourseInstructors: true,
         OfflineCourseVideo: true,
         comments: true,
-        timeline: true,
+        TimeLine: true,
       },
     });
 

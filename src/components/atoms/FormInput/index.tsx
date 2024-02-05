@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 
-type Props = {
+interface FormInputProps extends InputProps {
   isInvalid?: boolean;
   formLabelName?: string;
   value?: string;
@@ -25,9 +25,9 @@ type Props = {
   isReadOnly?: boolean;
   name: string;
   inputProps?: InputProps;
-};
+}
 
-const FormInput: FC<Props> = ({
+const FormInput: FC<FormInputProps> = ({
   isInvalid,
   value,
   handleInputChange,
@@ -40,6 +40,7 @@ const FormInput: FC<Props> = ({
   isReadOnly,
   name,
   inputProps,
+  ...rest
 }) => {
   const [isPasswordType, setIsPasswordType] = useState(true);
 
@@ -87,6 +88,7 @@ const FormInput: FC<Props> = ({
             border: '1px solid #DF1414',
           }}
           {...inputProps}
+          {...rest}
         />
         {type === 'password' && (
           <InputRightElement>
