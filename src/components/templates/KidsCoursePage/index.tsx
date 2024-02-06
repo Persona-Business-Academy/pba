@@ -1,5 +1,5 @@
 'use client';
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import {
   Box,
   Container,
@@ -10,9 +10,11 @@ import {
   UnorderedList,
   useDisclosure,
 } from '@chakra-ui/react';
+import { useMutation } from '@tanstack/react-query';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { Button } from '@/components/atoms';
+import { KidsCourseService } from '@/api/services/KidsCourseService';
+import { Button, Loading } from '@/components/atoms';
 import BenefitCard from '@/components/molecules/BenefitCard';
 import KidCourseInstructor from '@/components/molecules/KidCourseInstructor';
 import KidCourseParentsOpinion from '@/components/molecules/KidCourseParentsOpinion';
@@ -31,14 +33,39 @@ type KidsCoursePageProps = {
 };
 
 const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
+  const [selectedStartTime, setSelectedStartTime] = useState('');
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const timeSubmitHandler = useCallback((data: RequestAnotherTimeValidation) => {
-    console.log(data);
-  }, []);
+  const { mutate, isLoading } = useMutation<
+    boolean,
+    { message: string },
+    RequestAnotherTimeValidation
+  >(data => KidsCourseService.requestTime(kidsCourse.id, data), {
+    onSuccess: () => {
+      onClose();
+      setSelectedStartTime('');
+    },
+  });
+
+  const timeSubmitHandler = useCallback(
+    (data: RequestAnotherTimeValidation) => {
+      mutate({ ...data, startTime: selectedStartTime || data.startTime });
+    },
+    [mutate, selectedStartTime],
+  );
+
+  const selectStartTimeHandler = useCallback(
+    (startTime: string) => {
+      setSelectedStartTime(startTime);
+      onOpen();
+    },
+    [onOpen],
+  );
 
   return (
     <>
+      {isLoading && <Loading />}
       <Box
         borderRadius="0 0 72px 72px"
         bg="#F6FCFF"
@@ -435,7 +462,16 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
           </Flex>
         </Box>
       </Box>
-      {kidsCourse.TimeLine && <TimeLine offlineCourse={kidsCourse} onOpen={onOpen} />}{' '}
+      {kidsCourse.TimeLine && (
+        <TimeLine
+          offlineCourse={kidsCourse}
+          onOpen={() => {
+            setSelectedStartTime('');
+            onOpen();
+          }}
+          selectStartTimeHandler={selectStartTimeHandler}
+        />
+      )}
       <Box
         padding={{
           base: '0 16px ',
@@ -514,6 +550,7 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
         isOpen={isOpen}
         onClose={onClose}
         timeSubmitHandler={timeSubmitHandler}
+        selectedStartTime={selectedStartTime}
       />
     </>
   );

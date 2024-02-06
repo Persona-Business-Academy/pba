@@ -1,19 +1,23 @@
+'use client';
 import React, { FC } from 'react';
 import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/atoms';
 import { KidsCourseItemModel } from '@/models/kids-course.model';
 import { OfflineCourseItemModel } from '@/models/offline-course.model';
-import Line from './Line';
+
+const Line = dynamic(() => import('./Line'), { ssr: false });
 
 type TimeLineProps = {
   offlineCourse: KidsCourseItemModel | OfflineCourseItemModel;
   onOpen: () => void;
+  selectStartTimeHandler: (startTime: string) => void;
 };
 
 const getFormattedDate = (date: Date, opt: Intl.DateTimeFormatOptions) =>
   new Intl.DateTimeFormat('en-US', opt).format(date);
 
-const TimeLine: FC<TimeLineProps> = ({ offlineCourse, onOpen }) => {
+const TimeLine: FC<TimeLineProps> = ({ offlineCourse, onOpen, selectStartTimeHandler }) => {
   return (
     <Box marginBottom={{ base: '36px ', lg: ' 148px' }}>
       <Container maxWidth="895px" margin="0 auto" padding="0" color="#222222">
@@ -58,6 +62,7 @@ const TimeLine: FC<TimeLineProps> = ({ offlineCourse, onOpen }) => {
                     border="1px solid #3CB4E7"
                     lineHeight="21.28px"
                     fontSize="16px"
+                    onClick={() => selectStartTimeHandler(date.toString())}
                     background="transparent">
                     Enroll
                   </Button>

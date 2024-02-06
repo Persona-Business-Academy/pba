@@ -1,3 +1,5 @@
+import { OfflineCourse } from '@prisma/client';
+
 export interface SubLabelNavItem {
   subLabelNavItem: string;
 }
@@ -6,10 +8,6 @@ export interface SubLabel {
   title: string;
 }
 
-export interface FeaturedItem {
-  categoryName: string;
-  imgPath: string;
-}
 export interface SubLabels {
   id: number;
   label: string;
@@ -20,5 +18,5 @@ export interface NavItem {
   label: string;
   children?: SubLabels[];
   href?: string;
-  featuredItems?: FeaturedItem[];
+  featuredItems?: OfflineCourse[];
 }

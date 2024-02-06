@@ -3,6 +3,7 @@ import { NotFoundException } from 'next-api-decorators';
 import { OnlineCoursesQueryParams } from '@/types/queryParams';
 import { SkillLevelType } from '@/utils/models/common';
 import { ApplyOfflineCourseFormValidation } from '@/utils/validation/apply-offline-course';
+import { RequestAnotherTimeValidation } from '@/utils/validation/offline-course';
 import prisma from '..';
 
 type GroupedCourses = {
@@ -172,21 +173,41 @@ export class OfflineCoursesResolver {
   ) {
     const { name, email, phoneNumber } = data;
 
-    return prisma.applicant
-      .create({
-        data: {
-          name,
-          email,
-          phoneNumber,
-          for: ApplicantType.OFFLINE_COURSE_APPLICANT,
-          OfflineCourse: {
-            connect: {
-              id: +offlineCourseId,
-            },
+    return prisma.applicant.create({
+      data: {
+        name,
+        email,
+        phoneNumber,
+        for: ApplicantType.OFFLINE_COURSE_APPLICANT,
+        OfflineCourse: {
+          connect: {
+            id: +offlineCourseId,
           },
         },
-      })
-      .then(() => true)
-      .catch(() => false);
+      },
+    });
+  }
+  static async requestAnotherTimeApplicantForOfflineCourse(
+    offlineCourseId: string,
+    data: RequestAnotherTimeValidation,
+  ) {
+    const { name, email, phoneNumber, startTime, endTime, notes } = data;
+
+    return prisma.applicant.create({
+      data: {
+        name,
+        email,
+        phoneNumber,
+        courseDesiredStartTime: startTime,
+        courseDesiredEndTime: endTime,
+        message: notes,
+        for: ApplicantType.OFFLINE_COURSE_APPLICANT,
+        OfflineCourse: {
+          connect: {
+            id: +offlineCourseId,
+          },
+        },
+      },
+    });
   }
 }

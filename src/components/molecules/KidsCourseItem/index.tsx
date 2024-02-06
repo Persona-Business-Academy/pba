@@ -23,7 +23,7 @@ const KidsCourseItem: FC<KidsCourseItemProps> = ({
   id,
 }) => {
   return (
-    <GridItem width="387px" as={Link} href={`${FOR_KIDS_ROUTE}/${id}`}>
+    <GridItem as={Link} href={`${FOR_KIDS_ROUTE}/${id}`}>
       <Box borderRadius="12px 12px 0px 0px" overflow="hidden" height="242px" position="relative">
         <Image
           src="/images/public_available/courses_img.jpg"

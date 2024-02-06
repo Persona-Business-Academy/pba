@@ -80,7 +80,7 @@ const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
           </Link>
 
           <Flex display={{ base: 'none', lg: 'flex' }}>
-            <DesktopNav navItems={navigation} />
+            <DesktopNav navItems={navigation} onClose={onClose} />
           </Flex>
           <Flex display={{ base: 'flex', lg: 'none' }}>
             <IconButton

@@ -3,7 +3,7 @@ import { IsEmail, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 export class RequestAnotherTimeValidation {
   @IsString()
   @IsNotEmpty()
-  fullName: string;
+  name: string;
 
   @IsString()
   @IsEmail()
@@ -15,12 +15,12 @@ export class RequestAnotherTimeValidation {
   phoneNumber: string;
 
   @IsString()
-  @IsNotEmpty()
-  startTime: string;
+  @IsOptional()
+  startTime?: string;
 
   @IsString()
-  @IsNotEmpty()
-  endTime: string;
+  @IsOptional()
+  endTime?: string;
 
   @IsString()
   @IsOptional()

@@ -1,6 +1,8 @@
+import { ApplicantType } from '@prisma/client';
 import { NotFoundException } from 'next-api-decorators';
 import { OfflineCourse } from '@/models/offline-course.model';
 import { OnlineCoursesQueryParams } from '@/types/queryParams';
+import { RequestAnotherTimeValidation } from '@/utils/validation/offline-course';
 import prisma from '..';
 
 type GroupedCourses = {
@@ -82,5 +84,28 @@ export class KidsCourseResolver {
     }, {});
 
     return groupedCourses;
+  }
+  static async requestAnotherTimeApplicantForOfflineCourse(
+    offlineCourseId: string,
+    data: RequestAnotherTimeValidation,
+  ) {
+    const { name, email, phoneNumber, startTime, endTime, notes } = data;
+
+    return prisma.applicant.create({
+      data: {
+        name,
+        email,
+        phoneNumber,
+        courseDesiredStartTime: startTime,
+        courseDesiredEndTime: endTime,
+        message: notes,
+        for: ApplicantType.OFFLINE_COURSE_APPLICANT,
+        OfflineCourse: {
+          connect: {
+            id: +offlineCourseId,
+          },
+        },
+      },
+    });
   }
 }

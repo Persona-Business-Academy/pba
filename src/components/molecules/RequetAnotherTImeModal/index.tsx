@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import {
   Flex,
   Modal,
@@ -19,6 +19,7 @@ type RequestAnotherTimeModalProps = {
   isOpen: boolean;
   onClose: () => void;
   timeSubmitHandler: (data: RequestAnotherTimeValidation) => void;
+  selectedStartTime: string;
 };
 
 const resolver = classValidatorResolver(RequestAnotherTimeValidation);
@@ -27,22 +28,37 @@ const RequestAnotherTimeModal: FC<RequestAnotherTimeModalProps> = ({
   isOpen,
   onClose,
   timeSubmitHandler,
+  selectedStartTime,
 }) => {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { isValid, errors },
   } = useForm<RequestAnotherTimeValidation>({
     resolver,
-    defaultValues: { fullName: '', email: '', phoneNumber: '', startTime: '', notes: '' },
+    defaultValues: {
+      name: '',
+      email: '',
+      phoneNumber: '',
+      startTime: selectedStartTime || '',
+      notes: '',
+    },
   });
+
+  useEffect(() => {
+    if (!isOpen) {
+      onClose();
+      reset();
+    }
+  }, [isOpen, onClose, reset]);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="2xl" isCentered>
-      <ModalOverlay />
+      <ModalOverlay onClick={() => reset()} />
       <ModalContent py="20px">
         <ModalHeader>Request Another Time</ModalHeader>
-        <ModalCloseButton />
+        <ModalCloseButton onClick={() => reset()} />
         <ModalBody display="flex" gap="20px" flexDirection="column">
           <Flex
             gap="20px"
@@ -51,18 +67,18 @@ const RequestAnotherTimeModal: FC<RequestAnotherTimeModalProps> = ({
               sm: 'row',
             }}>
             <Controller
-              name="fullName"
+              name="name"
               control={control}
               rules={{ required: 'This field is required' }}
               render={({ field: { onChange, value } }) => (
                 <FormInput
                   isRequired
-                  isInvalid={!!errors.fullName?.message}
+                  isInvalid={!!errors.name?.message}
                   name="firstName"
                   formLabelName="Full Name"
                   value={value}
                   handleInputChange={onChange}
-                  formErrorMessage={errors.fullName?.message}
+                  formErrorMessage={errors.name?.message}
                 />
               )}
             />
@@ -106,53 +122,56 @@ const RequestAnotherTimeModal: FC<RequestAnotherTimeModalProps> = ({
               )}
             />
           </Flex>
-          <Flex
-            gap="20px"
-            flexDirection={{
-              base: 'column',
-              sm: 'row',
-            }}>
-            <Controller
-              name="startTime"
-              control={control}
-              rules={{
-                required: 'This field is required',
-              }}
-              render={({ field: { onChange, value } }) => (
-                <FormInput
-                  isRequired
-                  isInvalid={!!errors.startTime?.message}
-                  name="lastName"
-                  type="time"
-                  step="60"
-                  formLabelName="Start time"
-                  value={value}
-                  handleInputChange={onChange}
-                  formErrorMessage={errors.startTime?.message}
-                />
-              )}
-            />
-            <Controller
-              name="endTime"
-              control={control}
-              rules={{
-                required: 'This field is required',
-              }}
-              render={({ field: { onChange, value, name } }) => (
-                <FormInput
-                  isRequired
-                  isInvalid={!!errors.endTime?.message}
-                  name={name}
-                  type="time"
-                  step="60"
-                  formLabelName="End time"
-                  value={value}
-                  handleInputChange={onChange}
-                  formErrorMessage={errors.endTime?.message}
-                />
-              )}
-            />
-          </Flex>
+          {!selectedStartTime && (
+            <Flex
+              gap="20px"
+              flexDirection={{
+                base: 'column',
+                sm: 'row',
+              }}>
+              <Controller
+                name="startTime"
+                control={control}
+                rules={{
+                  required: 'This field is required',
+                }}
+                render={({ field: { onChange, value } }) => (
+                  <FormInput
+                    isRequired
+                    isInvalid={!!errors.startTime?.message}
+                    name="lastName"
+                    type="time"
+                    step="60"
+                    formLabelName="Start time"
+                    value={value}
+                    handleInputChange={onChange}
+                    formErrorMessage={errors.startTime?.message}
+                  />
+                )}
+              />
+              <Controller
+                name="endTime"
+                control={control}
+                rules={{
+                  required: 'This field is required',
+                }}
+                render={({ field: { onChange, value, name } }) => (
+                  <FormInput
+                    isRequired
+                    isInvalid={!!errors.endTime?.message}
+                    name={name}
+                    type="time"
+                    step="60"
+                    formLabelName="End time"
+                    value={value}
+                    handleInputChange={onChange}
+                    formErrorMessage={errors.endTime?.message}
+                  />
+                )}
+              />
+            </Flex>
+          )}
+
           <Flex>
             <Controller
               name="notes"

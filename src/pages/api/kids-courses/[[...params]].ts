@@ -1,7 +1,17 @@
-import { Catch, createHandler, Get, Param, Query } from 'next-api-decorators';
+import {
+  Body,
+  Catch,
+  createHandler,
+  Get,
+  Param,
+  Post,
+  Query,
+  ValidationPipe,
+} from 'next-api-decorators';
 import { exceptionHandler } from '@/lib/prisma/error';
 import { KidsCourseResolver } from '@/lib/prisma/resolvers/kids-courses';
 import type { OnlineCoursesQueryParams } from '@/types/queryParams';
+import { RequestAnotherTimeValidation } from '@/utils/validation/offline-course';
 
 @Catch(exceptionHandler)
 class OfflineCourseHandler {
@@ -23,6 +33,13 @@ class OfflineCourseHandler {
   @Get('/:id')
   _getKidsCourseById(@Param('id') id: string) {
     return KidsCourseResolver.getKidsCourseById(+id);
+  }
+  @Post('/:offlineCourseId/request-time')
+  _requestAnotherTime(
+    @Param('offlineCourseId') offlineCourseId: string,
+    @Body(ValidationPipe) body: RequestAnotherTimeValidation,
+  ) {
+    return KidsCourseResolver.requestAnotherTimeApplicantForOfflineCourse(offlineCourseId, body);
   }
 }
 

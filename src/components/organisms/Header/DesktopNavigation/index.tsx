@@ -1,15 +1,19 @@
 import React, { FC, memo, useState } from 'react';
 import { Box, Flex, Popover, PopoverContent, PopoverTrigger, Stack, Text } from '@chakra-ui/react';
+import { OfflineCourse } from '@prisma/client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FOR_KIDS_ROUTE, OFFLINE_COURSES_ROUTE } from '@/utils/constants/routes';
+import { generateAWSUrl } from '@/utils/helpers/common';
 import { NavItem, SubLabels } from '@/utils/models/header';
 import DesktopSubNav from '../DesktopSubNavigation';
 
 type Props = {
   navItems: NavItem[];
+  onClose: () => void;
 };
 
-const DesktopNav: FC<Props> = ({ navItems }) => {
+const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
   const [selectedItem, setSelectedItem] = useState<null | string>(null);
   const [isChevronIconVisible, setIsChevronIconVisible] = useState<null | number>(null);
 
@@ -28,10 +32,7 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
               height: '100%',
             },
           }}>
-          <Popover
-            trigger="hover"
-            id="popover-trigger-menu"
-            isOpen={selectedItem === navItem.href ? true : false}>
+          <Popover trigger="hover" id="popover-trigger-menu" isOpen={selectedItem === navItem.href}>
             <PopoverTrigger>
               <Box
                 {...(navItem.href
@@ -39,7 +40,10 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
                       as: Link,
                       href: navItem.href,
                       onMouseOver: () => setSelectedItem(navItem.href || null),
-                      onClick: () => setSelectedItem(null),
+                      onClick: () => {
+                        setSelectedItem(null);
+                        onClose();
+                      },
                     }
                   : {})}
                 cursor="pointer"
@@ -71,10 +75,11 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
                   paddingTop={48}
                   paddingBottom={40}
                   margin="0 auto"
-                  gap={69}
+                  gap={40}
                   flexDirection="row"
                   onMouseLeave={() => setIsChevronIconVisible(null)}
-                  display="flex">
+                  display="flex"
+                  overflow="auto">
                   <Flex
                     flexBasis="470px"
                     display="flex"
@@ -99,14 +104,38 @@ const DesktopNav: FC<Props> = ({ navItems }) => {
                     gap={42}
                     gridTemplateColumns="repeat(4,156px)">
                     {navItem.featuredItems?.map(
-                      (
-                        { imgPath, categoryName }: { imgPath: any; categoryName: any },
-                        i: number,
-                      ) => (
-                        <Flex as={Link} href="" key={i} flexDirection="column" gap={16}>
-                          <Image src={imgPath} alt={categoryName} width={156} height={104} />
-                          <Text fontSize={16} fontWeight={400} textAlign="center">
-                            {categoryName}
+                      ({ id, coverPhoto, title, forKids }: OfflineCourse) => (
+                        <Flex
+                          as={Link}
+                          href={`${forKids ? FOR_KIDS_ROUTE : OFFLINE_COURSES_ROUTE}/${id}`}
+                          key={id}
+                          flexDirection="column"
+                          onClick={onClose}
+                          gap={16}>
+                          <Image
+                            src={generateAWSUrl(coverPhoto)}
+                            alt={title}
+                            width={156}
+                            height={104}
+                            style={{
+                              borderRadius: '12px',
+                              objectFit: 'cover',
+                            }}
+                          />
+                          <Text
+                            fontSize={16}
+                            fontWeight={400}
+                            textAlign="center"
+                            cursor="pointer"
+                            height="100%"
+                            display="flex"
+                            alignItems="center"
+                            color="#222"
+                            _hover={{
+                              textDecoration: 'none',
+                              color: '#3CB4E7',
+                            }}>
+                            {title}
                           </Text>
                         </Flex>
                       ),

@@ -40,40 +40,7 @@ export const getNavigationItems = (
         subLabels: courseData[Topic.MANAGEMENT],
       },
     ],
-    featuredItems: [
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-    ],
+    featuredItems: Object.values(courseData).flat(),
   },
   {
     label: 'For Kids',
@@ -95,40 +62,7 @@ export const getNavigationItems = (
         subLabels: [],
       },
     ],
-    featuredItems: [
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-      {
-        categoryName: 'Graphic Design',
-        imgPath: '/images/public_available/featured_example.jpg',
-      },
-    ],
+    featuredItems: Object.values(forKids).flat(),
   },
   {
     label: 'Articles',

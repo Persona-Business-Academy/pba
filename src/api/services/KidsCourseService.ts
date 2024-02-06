@@ -4,6 +4,7 @@ import {
   KidsCourseListModel,
   KidsCourseListNamesModel,
 } from '@/models/kids-course.model';
+import { RequestAnotherTimeValidation } from '@/utils/validation/offline-course';
 import $apiClient from '..';
 
 export class KidsCourseService {
@@ -18,5 +19,11 @@ export class KidsCourseService {
   }
   static getOfflineCourseGroupedList(): Promise<KidsCourseGroupListModel> {
     return $apiClient.get(`kids-courses/grouped/list`);
+  }
+  static requestTime(
+    offlineCourseId: number,
+    data: RequestAnotherTimeValidation,
+  ): Promise<boolean> {
+    return $apiClient.post(`kids-courses/${offlineCourseId}/request-time`, data);
   }
 }
