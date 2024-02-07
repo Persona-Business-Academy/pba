@@ -41,13 +41,10 @@ export const CourseFilterProvider: FC<PropsWithChildren<{}>> = ({ children }) =>
     setFilteredData(prevCourseNames => [...prevCourseNames, course]);
   }, []);
 
-  const removeCourseNameHandler = useCallback(
-    (courseId: number) => {
-      console.log({ courseId, courseNames });
-      setCourseNames(prevCourseNames => prevCourseNames.filter(({ id }) => id !== courseId));
-    },
-    [courseNames],
-  );
+  const removeCourseNameHandler = useCallback((courseId: number) => {
+    setCourseNames(prevCourseNames => prevCourseNames.filter(({ id }) => id !== courseId));
+    setFilteredData(prevCourseNames => prevCourseNames.filter(({ id }) => id !== courseId));
+  }, []);
 
   const changeEnableOnChangeRequest = useCallback(() => {
     setEnableOnChangeRequest(prevState => !prevState);
