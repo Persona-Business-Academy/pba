@@ -18,12 +18,14 @@ type CourseFilterProps = {
   courseTopicDataList: TopicHandlerItem[];
   courseSkillsDataList: { id: number; title: string; value: string }[];
   courseDurationsDataList: { id: number; title: string; value: number }[];
+  isMobile?: boolean;
 };
 
 const CourseFilter: FC<CourseFilterProps> = ({
   courseTopicDataList = [],
   courseSkillsDataList = [],
   courseDurationsDataList = [],
+  isMobile,
 }) => {
   return (
     <Flex flexDirection="column" gap={32}>
@@ -44,6 +46,7 @@ const CourseFilter: FC<CourseFilterProps> = ({
                   key={id}
                   value={id.toString()}
                   filterBy="title"
+                  isMobile={isMobile}
                 />
               ))}
             </AccordionPanel>
@@ -63,6 +66,7 @@ const CourseFilter: FC<CourseFilterProps> = ({
               key={index}
               value={value}
               filterBy="skill-level"
+              isMobile={isMobile}
             />
           ))}
         </Box>
@@ -80,6 +84,7 @@ const CourseFilter: FC<CourseFilterProps> = ({
               key={index}
               value={value.toString()}
               filterBy="duration"
+              isMobile={isMobile}
             />
           ))}
         </Box>

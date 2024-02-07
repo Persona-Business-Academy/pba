@@ -16,7 +16,7 @@ type OnlineCoursesProps = {
 };
 
 const OfflineCourses: FC<OnlineCoursesProps> = ({ searchParams }) => {
-  const { courseNames } = useCourseFilter();
+  const { courseNames, enableOnChangeRequest } = useCourseFilter();
 
   const groupedCourses = courseNames.reduce(
     (group: any, course: Course) => {
@@ -30,11 +30,11 @@ const OfflineCourses: FC<OnlineCoursesProps> = ({ searchParams }) => {
     },
   );
 
-
   const { data, isLoading } = useQuery({
     queryKey: ['offline-courses', searchParams, groupedCourses],
     queryFn: () =>
       OfflineCourseService.getOfflineCourseList({ ...searchParams, ...groupedCourses }),
+    enabled: !enableOnChangeRequest,
   });
 
   return (

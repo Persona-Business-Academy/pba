@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-import { Box, Flex, Heading, Input, InputGroup, Text } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import Image from 'next/image';
-import { Button } from '@/components/atoms';
 
 type SubscribeSectionProps = {};
 
@@ -19,7 +18,7 @@ const SubscribeSection: FC<SubscribeSectionProps> = () => {
         margin="0 auto"
         px={{ base: '16px', xl: '0' }}
         alignItems="center">
-        <Box width={{ base: '100%', lg: '590px' }}>
+        {/* <Box width={{ base: '100%', lg: '590px' }}>
           <Heading
             mb="16px"
             lineHeight="normal"
@@ -73,7 +72,7 @@ const SubscribeSection: FC<SubscribeSectionProps> = () => {
               </Button>
             </InputGroup>
           </Box>
-        </Box>
+        </Box> */}
         <Box
           maxW={{ base: '100%', lg: '590px' }}
           height={{ base: 'auto', md: '388.7px' }}

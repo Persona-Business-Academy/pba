@@ -25,7 +25,8 @@ import { Course, useCourseFilter } from '@/contexts/CourseFilterContext';
 import { CACHE_CONFIG, topicHandler } from '@/utils/constants/filters';
 
 const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
-  const { courseNames, removeCourseNameHandler } = useCourseFilter();
+  const { courseNames, removeCourseNameHandler, applyFilterHandler, resetFilterHandler } =
+    useCourseFilter();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -57,7 +58,7 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
   const courseSkillsDataList = useMemo(() => {
     if (offlineCourseSkillListData) {
       return offlineCourseSkillListData.map(courseLevel => ({
-        id: courseLevel.id,
+        id: Math.trunc(courseLevel.id * Date.now() * Math.random()),
         title: courseLevel.courseLevel,
         value: courseLevel.courseLevel,
       }));
@@ -68,7 +69,7 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
   const courseDurationsDataList = useMemo(() => {
     if (offlineCourseDurationsListData) {
       return offlineCourseDurationsListData.map(courseDuration => ({
-        id: courseDuration.id,
+        id: courseDuration.id * Date.now(),
         title: `${courseDuration.totalDuration} Months`,
         value: courseDuration.totalDuration,
       }));
@@ -112,7 +113,9 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
                 <Flex justifyContent="flex-end" alignItems="center">
                   <Text as="span">Filter</Text>
                   <ChakraButton
-                    onClick={onOpen}
+                    onClick={() => {
+                      onOpen();
+                    }}
                     width="20px"
                     bg="transparent"
                     _hover={{ bg: 'none' }}
@@ -207,10 +210,11 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
               style={{ objectFit: 'contain', zIndex: 1000 }}
             />
           </ModalHeader>
-          <ModalCloseButton zIndex={1000} />
+          <ModalCloseButton zIndex={1000} onClick={resetFilterHandler} />
           <ModalBody padding="0 16px" marginTop="80px">
             <Box fontWeight="600" mt="36px" lineHeight="20px" fontSize="14px">
               <CourseFilter
+                isMobile
                 courseTopicDataList={courseTopicDataList}
                 courseSkillsDataList={courseSkillsDataList}
                 courseDurationsDataList={courseDurationsDataList}
@@ -227,7 +231,8 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
               alignItems="center"
               bg="#fff"
               color="#3CB4E7"
-              border="1px solid #3CB4E7">
+              border="1px solid #3CB4E7"
+              onClick={resetFilterHandler}>
               Cancel
             </Button>
             <Button
@@ -236,7 +241,11 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
               height="38px"
               display="flex"
               justifyContent="center"
-              alignItems="center">
+              alignItems="center"
+              onClick={() => {
+                applyFilterHandler();
+                onClose();
+              }}>
               Apply
             </Button>
           </ModalFooter>

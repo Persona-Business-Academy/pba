@@ -56,21 +56,3 @@ export const topicHandler = (courseData: any): TopicHandlerItem[] => [
     })),
   },
 ];
-
-export const durationList = [
-  {
-    id: 9,
-    title: '1 Month',
-    value: '100',
-  },
-  {
-    id: 10,
-    title: '1-2 Months',
-    value: '200',
-  },
-  {
-    id: 11,
-    title: '1-3 Months',
-    value: '300',
-  },
-];
