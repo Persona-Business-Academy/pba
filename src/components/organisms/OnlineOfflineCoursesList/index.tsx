@@ -200,7 +200,8 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
             pl="14px"
             py={{ base: 2 }}
             display="flex"
-            alignItems="center">
+            alignItems="center"
+            borderBottom="1px solid #F3F4F6">
             <Image
               src="/icons/persona_logo.png"
               width={135}
@@ -211,8 +212,8 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
             />
           </ModalHeader>
           <ModalCloseButton zIndex={1000} onClick={resetFilterHandler} />
-          <ModalBody padding="0 16px" marginTop="80px">
-            <Box fontWeight="600" mt="36px" lineHeight="20px" fontSize="14px">
+          <ModalBody padding="0 16px">
+            <Box fontWeight="600" mt="16px" lineHeight="20px" fontSize="14px">
               <CourseFilter
                 isMobile
                 courseTopicDataList={courseTopicDataList}
