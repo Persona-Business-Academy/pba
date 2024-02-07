@@ -232,7 +232,10 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
               bg="#fff"
               color="#3CB4E7"
               border="1px solid #3CB4E7"
-              onClick={resetFilterHandler}>
+              onClick={() => {
+                resetFilterHandler();
+                onClose();
+              }}>
               Cancel
             </Button>
             <Button
