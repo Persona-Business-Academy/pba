@@ -44,13 +44,13 @@ export class KidsCourseResolver {
     });
   }
 
-  static async getKidsCourseById(title: string) {
+  static async getKidsCourseById(id: number) {
     const offlineCourse = await prisma.offlineCourse.findUnique({
-      where: { title, forKids: true },
+      where: { id, forKids: true },
       include: {
-        OfflineCourseInstructors: true,
-        OfflineCourseVideo: true,
-        TimeLine: true,
+        offlineCourseVideos: true,
+        instructors: true,
+        timeLine: true,
       },
     });
 
@@ -60,7 +60,7 @@ export class KidsCourseResolver {
 
     const courseInstructors = await prisma.instructor.findMany({
       where: {
-        id: { in: offlineCourse.OfflineCourseInstructors.map(({ instructorId }) => instructorId) },
+        id: { in: offlineCourse.instructors.map(({ instructorId }) => instructorId) },
       },
     });
 
@@ -100,7 +100,7 @@ export class KidsCourseResolver {
         courseDesiredEndTime: endTime,
         message: notes,
         for: ApplicantType.OFFLINE_COURSE_APPLICANT,
-        OfflineCourse: {
+        offlineCourse: {
           connect: {
             id: +offlineCourseId,
           },

@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "ApplicantType" AS ENUM ('OFFLINE_COURSE_APPLICANT', 'CONTACT_US_APPLICANT', 'JOB_APPLICANT');
+CREATE TYPE "ApplicantType" AS ENUM ('OFFLINE_COURSE_APPLICANT', 'CONTACT_US_APPLICANT', 'JOB_APPLICANT', 'ARTICLE_APPLICANT');
 
 -- CreateEnum
 CREATE TYPE "AdminRole" AS ENUM ('ADMIN', 'SUPER_ADMIN');
@@ -25,14 +25,15 @@ CREATE TABLE "User" (
     "password" VARCHAR(60) NOT NULL,
     "isVerified" BOOLEAN NOT NULL DEFAULT false,
     "phone" VARCHAR(60),
+    "isPhoneVerified" BOOLEAN NOT NULL DEFAULT false,
     "address" VARCHAR(60),
     "country" VARCHAR(60),
     "state" VARCHAR(60),
     "city" VARCHAR(60),
     "confirmationCode" INTEGER,
+    "avatar" TEXT,
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
-    "avatar" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -79,9 +80,9 @@ CREATE TABLE "OnlineCourse" (
 CREATE TABLE "OnlineCourseLevel" (
     "id" SERIAL NOT NULL,
     "level" VARCHAR(45) NOT NULL,
+    "onlineCourseId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
-    "onlineCourseId" INTEGER NOT NULL,
 
     CONSTRAINT "OnlineCourseLevel_pkey" PRIMARY KEY ("id")
 );
@@ -90,10 +91,10 @@ CREATE TABLE "OnlineCourseLevel" (
 CREATE TABLE "OnlineCourseDay" (
     "id" SERIAL NOT NULL,
     "label" VARCHAR(45) NOT NULL,
-    "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(0) NOT NULL,
     "onlineCourseId" INTEGER NOT NULL,
     "onlineCourseLevelId" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(0) NOT NULL,
 
     CONSTRAINT "OnlineCourseDay_pkey" PRIMARY KEY ("id")
 );
@@ -103,11 +104,11 @@ CREATE TABLE "OnlineCourseVideo" (
     "id" SERIAL NOT NULL,
     "key" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(0) NOT NULL,
     "onlineCourseId" INTEGER NOT NULL,
     "onlineCourseLevelId" INTEGER NOT NULL,
     "onlineCourseDayId" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(0) NOT NULL,
 
     CONSTRAINT "OnlineCourseVideo_pkey" PRIMARY KEY ("id")
 );
@@ -181,9 +182,9 @@ CREATE TABLE "OfflineCourseVideo" (
     "id" SERIAL NOT NULL,
     "key" TEXT NOT NULL,
     "name" TEXT NOT NULL,
+    "offlineCourseId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(0) NOT NULL,
-    "offlineCourseId" INTEGER NOT NULL,
 
     CONSTRAINT "OfflineCourseVideo_pkey" PRIMARY KEY ("id")
 );
@@ -315,7 +316,7 @@ ALTER TABLE "OfflineCourseVideo" ADD CONSTRAINT "OfflineCourseVideo_offlineCours
 ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_instructorId_fkey" FOREIGN KEY ("instructorId") REFERENCES "Instructor"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "OfflineCourseInstructors" ADD CONSTRAINT "OfflineCourseInstructors_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "OfflineCourseTimeline" ADD CONSTRAINT "OfflineCourseTimeline_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -324,4 +325,4 @@ ALTER TABLE "OfflineCourseTimeline" ADD CONSTRAINT "OfflineCourseTimeline_offlin
 ALTER TABLE "Applicant" ADD CONSTRAINT "Applicant_jobId_fkey" FOREIGN KEY ("jobId") REFERENCES "Job"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Applicant" ADD CONSTRAINT "Applicant_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Applicant" ADD CONSTRAINT "Applicant_offlineCourseId_fkey" FOREIGN KEY ("offlineCourseId") REFERENCES "OfflineCourse"("id") ON DELETE SET NULL ON UPDATE CASCADE;

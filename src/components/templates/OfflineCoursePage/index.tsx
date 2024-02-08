@@ -114,20 +114,17 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                   bg="transparent"
                   as={Link}
                   href="#apply-course"
-                  padding={{
-                    base: '12px 24px',
-                    md: '16px 32px',
-                  }}
                   border=" 1px solid #3CB4E7"
-                  height="53px"
-                  width="236px"
                   color="#3CB4E7"
                   fontWeight="700"
                   lineHeight="21.28px"
                   fontSize="16px"
                   display="flex"
                   alignItems="center"
-                  justifyContent="center">
+                  justifyContent="center"
+                  borderRadius="6px"
+                  height="37px"
+                  width="124px">
                   Apply now
                 </Text>
                 <Text
@@ -458,7 +455,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
           </Flex>
         </Box>
       </Box>
-      {!!offlineCourse.TimeLine && (
+      {!!offlineCourse.timeLine && (
         <TimeLine
           offlineCourse={offlineCourse}
           onOpen={onOpen}
@@ -496,8 +493,8 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
               }}
               margin="0 auto"
               gap="20px"
-              flexWrap="wrap"
-              justifyContent="center">
+              justifyContent="center"
+              justifyItems="center">
               {offlineCourse.courseInstructors.map((instructor, index: number) => (
                 <Box key={index} flexBasis="590px">
                   <Flex
@@ -594,7 +591,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
           </Box>
 
           <Slide
-            offlineCourseVideo={offlineCourse.OfflineCourseVideo}
+            offlineCourseVideo={offlineCourse.offlineCourseVideos}
             courseName={offlineCourse.title}
           />
 

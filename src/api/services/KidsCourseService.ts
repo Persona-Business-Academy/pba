@@ -11,8 +11,8 @@ export class KidsCourseService {
   static getKidsCourseList(params: { [key: string]: string }): Promise<KidsCourseListModel> {
     return $apiClient.get(`kids-courses/list`, { params });
   }
-  static getKidsCourseItem(title: string): Promise<KidsCourseItemModel> {
-    return $apiClient.get(`kids-courses/${title}`);
+  static getKidsCourseItem(id: string): Promise<KidsCourseItemModel> {
+    return $apiClient.get(`kids-courses/${id}`);
   }
   static getOfflineCourseListNames(): Promise<KidsCourseListNamesModel> {
     return $apiClient.get(`kids-courses/list/names`);

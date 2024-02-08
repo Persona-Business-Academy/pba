@@ -27,7 +27,7 @@ export class JobResolver {
         motivationLetter,
         phoneNumber,
         for: ApplicantType.JOB_APPLICANT,
-        Job: {
+        job: {
           connect: {
             id: job.id,
           },

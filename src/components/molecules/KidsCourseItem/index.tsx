@@ -29,7 +29,7 @@ const KidsCourseItem: FC<KidsCourseItemProps> = ({
     <GridItem
       id={id.toString()}
       as={Link}
-      href={`${FOR_KIDS_ROUTE}/${title.replaceAll(' ', '-')}`}
+      href={`${FOR_KIDS_ROUTE}/${title.replaceAll(' ', '-')}/${id}`}
       _hover={{
         boxShadow: '0px 20px 50px 0px #0000001A',
       }}

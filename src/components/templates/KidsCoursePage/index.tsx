@@ -465,7 +465,7 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
           </Flex>
         </Box>
       </Box>
-      {kidsCourse.TimeLine && (
+      {kidsCourse.timeLine && (
         <TimeLine
           offlineCourse={kidsCourse}
           onOpen={() => {
@@ -543,7 +543,7 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
 
           <Box>
             <Slide
-              offlineCourseVideo={kidsCourse.OfflineCourseVideo}
+              offlineCourseVideo={kidsCourse.offlineCourseVideos}
               courseName={kidsCourse.title}
             />
           </Box>

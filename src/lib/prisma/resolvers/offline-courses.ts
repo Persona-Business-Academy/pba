@@ -62,14 +62,14 @@ export class OfflineCoursesResolver {
       take: limit,
     });
   }
-  static async getOfflineCourseById(title: string) {
+  static async getOfflineCourseById(id: number) {
     const offlineCourse = await prisma.offlineCourse.findUnique({
-      where: { title, forKids: false },
+      where: { id, forKids: false },
       include: {
-        OfflineCourseInstructors: true,
-        OfflineCourseVideo: true,
+        offlineCourseVideos: true,
         comments: true,
-        TimeLine: true,
+        timeLine: true,
+        instructors: true,
       },
     });
 
@@ -79,7 +79,7 @@ export class OfflineCoursesResolver {
 
     const courseInstructors = await prisma.instructor.findMany({
       where: {
-        id: { in: offlineCourse.OfflineCourseInstructors.map(({ instructorId }) => instructorId) },
+        id: { in: offlineCourse.instructors.map(({ instructorId }) => instructorId) },
       },
     });
 
@@ -179,7 +179,7 @@ export class OfflineCoursesResolver {
         email,
         phoneNumber,
         for: ApplicantType.OFFLINE_COURSE_APPLICANT,
-        OfflineCourse: {
+        offlineCourse: {
           connect: {
             id: +offlineCourseId,
           },
@@ -202,7 +202,7 @@ export class OfflineCoursesResolver {
         courseDesiredEndTime: endTime,
         message: notes,
         for: ApplicantType.OFFLINE_COURSE_APPLICANT,
-        OfflineCourse: {
+        offlineCourse: {
           connect: {
             id: +offlineCourseId,
           },

@@ -44,7 +44,7 @@ const OfflineCourses: FC<OnlineCoursesProps> = ({ searchParams }) => {
         data?.map(offlineCourse => (
           <Link
             key={offlineCourse.id}
-            href={`${OFFLINE_COURSES_ROUTE}/${offlineCourse.title.replaceAll(' ', '-')}`}>
+            href={`${OFFLINE_COURSES_ROUTE}/${offlineCourse.title.replaceAll(' ', '-')}/${offlineCourse.id}`}>
             <OfflineCourseItem courseData={offlineCourse} />
           </Link>
         ))
