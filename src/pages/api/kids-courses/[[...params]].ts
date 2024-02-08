@@ -31,8 +31,8 @@ class OfflineCourseHandler {
   }
 
   @Get('/:id')
-  _getKidsCourseById(@Param('id') id: string) {
-    return KidsCourseResolver.getKidsCourseById(+id);
+  _getKidsCourseById(@Param('title') title: string) {
+    return KidsCourseResolver.getKidsCourseById(title);
   }
   @Post('/:offlineCourseId/request-time')
   _requestAnotherTime(

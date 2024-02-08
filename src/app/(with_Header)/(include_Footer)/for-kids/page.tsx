@@ -131,6 +131,7 @@ const KidsCourses = ({ searchParams }: Props) => {
               price={course.price}
               totalDuration={course.totalDuration}
               courseLevel={course.courseLevel}
+              coverPhoto={course.coverPhoto}
             />
           ))}
         </Grid>

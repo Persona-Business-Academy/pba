@@ -13,10 +13,10 @@ export class KidsCourseResolver {
   static async getKidsCourseList(queryParams: OnlineCoursesQueryParams) {
     const { limit = 10, offset = 0, q } = queryParams;
 
-    const conditions = [];
+    const conditions: any = [];
 
     if (q) {
-      conditions.push({ title: { contains: q } });
+      conditions.push({ title: { contains: q, mode: 'insensitive' } });
     }
 
     const whereClause = conditions.length > 0 ? { OR: conditions } : {};
@@ -44,9 +44,9 @@ export class KidsCourseResolver {
     });
   }
 
-  static async getKidsCourseById(id: number) {
+  static async getKidsCourseById(title: string) {
     const offlineCourse = await prisma.offlineCourse.findUnique({
-      where: { id, forKids: true },
+      where: { title, forKids: true },
       include: {
         OfflineCourseInstructors: true,
         OfflineCourseVideo: true,

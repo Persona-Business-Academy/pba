@@ -103,45 +103,6 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                 fontSize={{ base: '28px', lg: '44px' }}>
                 {offlineCourse.title}
               </Heading>
-              <Flex justifyContent="center" gap="13px" mb="16px">
-                <Flex alignItems="center" gap="6px">
-                  <Image
-                    src="/icons/hollow_star.svg"
-                    alt="Rating Star"
-                    width={16.5}
-                    height={15.8}
-                  />
-                  <Image
-                    src="/icons/hollow_star.svg"
-                    alt="Rating Star"
-                    width={16.5}
-                    height={15.8}
-                  />
-                  <Image
-                    src="/icons/hollow_star.svg"
-                    alt="Rating Star"
-                    width={16.5}
-                    height={15.8}
-                  />
-                  <Image
-                    src="/icons/hollow_star.svg"
-                    alt="Rating Star"
-                    width={16.5}
-                    height={15.8}
-                  />
-                  <Image
-                    src="/icons/hollow_star.svg"
-                    alt="Rating Star"
-                    width={16.5}
-                    height={15.8}
-                  />
-                </Flex>
-
-                <Text as="span" margin="0" lineHeight="18.75px" fontSize="16px">
-                  {offlineCourse.rating}
-                </Text>
-              </Flex>
-
               <Box lineHeight="18.75px" fontSize="16px" mb="24px">
                 <Text as="p" margin="0" lineHeight="18.75px" fontSize="16px">
                   {offlineCourse.subTitle}
@@ -191,7 +152,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                     bg: 'transparent',
                   }}
                   color="#1F1646">
-                  View programm
+                  View program
                 </Text>
               </Flex>
             </Box>

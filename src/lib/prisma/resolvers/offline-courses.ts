@@ -14,7 +14,7 @@ export class OfflineCoursesResolver {
   static async getOfflineCourseList(queryParams: OnlineCoursesQueryParams) {
     const { limit = 10, offset = 0, q, title, duration, ...rest } = queryParams;
 
-    const conditions = [];
+    const conditions: any[] = [];
 
     if (title) {
       conditions.push({
@@ -51,7 +51,7 @@ export class OfflineCoursesResolver {
     }
 
     if (q) {
-      conditions.push({ title: { contains: q } });
+      conditions.push({ title: { contains: q, mode: 'insensitive' } });
     }
 
     const whereClause = conditions.length > 0 ? { OR: conditions } : {};
@@ -62,9 +62,9 @@ export class OfflineCoursesResolver {
       take: limit,
     });
   }
-  static async getOfflineCourseById(id: number) {
+  static async getOfflineCourseById(title: string) {
     const offlineCourse = await prisma.offlineCourse.findUnique({
-      where: { id, forKids: false },
+      where: { title, forKids: false },
       include: {
         OfflineCourseInstructors: true,
         OfflineCourseVideo: true,

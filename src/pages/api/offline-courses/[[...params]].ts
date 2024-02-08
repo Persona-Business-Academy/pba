@@ -41,9 +41,9 @@ class OfflineCourseHandler {
     return OfflineCoursesResolver.getOfflineCourseDurationsList();
   }
 
-  @Get('/:id')
-  _getOfflineCourseById(@Param('id') id: string) {
-    return OfflineCoursesResolver.getOfflineCourseById(+id);
+  @Get('/:title')
+  _getOfflineCourseById(@Param('title') title: string) {
+    return OfflineCoursesResolver.getOfflineCourseById(title);
   }
 
   @Post('/:offlineCourseId/apply')

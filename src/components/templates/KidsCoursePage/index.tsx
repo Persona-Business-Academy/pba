@@ -159,8 +159,11 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
                   fontSize="16px">
                   Apply now
                 </Button>
-                <Button
+                <Text
                   padding="16px 0"
+                  as="a"
+                  href={generateAWSUrl(kidsCourse.pdf)}
+                  target="_blank"
                   fontWeight="400"
                   lineHeight="21.28px"
                   fontSize="16px"
@@ -178,8 +181,8 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
                     bg: 'transparent',
                   }}
                   color="#1F1646">
-                  View programm
-                </Button>
+                  View program
+                </Text>
               </Flex>
             </Box>
 

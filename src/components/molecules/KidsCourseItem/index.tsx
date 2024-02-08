@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/atoms';
 import { FOR_KIDS_ROUTE } from '@/utils/constants/routes';
+import { generateAWSUrl } from '@/utils/helpers/common';
 
 type KidsCourseItemProps = {
   title: string;
@@ -12,21 +13,30 @@ type KidsCourseItemProps = {
   totalDuration: number;
   courseLevel: string;
   id: number;
+  coverPhoto: string;
 };
 
 const KidsCourseItem: FC<KidsCourseItemProps> = ({
+  id,
   title,
   subTitle,
   price,
   totalDuration,
   courseLevel,
-  id,
+  coverPhoto,
 }) => {
   return (
-    <GridItem as={Link} href={`${FOR_KIDS_ROUTE}/${id}`}>
+    <GridItem
+      id={id.toString()}
+      as={Link}
+      href={`${FOR_KIDS_ROUTE}/${title.replaceAll(' ', '-')}`}
+      _hover={{
+        boxShadow: '0px 20px 50px 0px #0000001A',
+      }}
+      transition="all 0.3s">
       <Box borderRadius="12px 12px 0px 0px" overflow="hidden" height="242px" position="relative">
         <Image
-          src="/images/public_available/courses_img.jpg"
+          src={generateAWSUrl(coverPhoto)}
           alt="Kids offline courses"
           width={387}
           height={242}
@@ -96,7 +106,7 @@ const KidsCourseItem: FC<KidsCourseItemProps> = ({
               bg: '#FFFFFF',
               color: '#222',
             }}>
-            View Syllabus
+            View Program
           </Button>
         </Flex>
       </Box>

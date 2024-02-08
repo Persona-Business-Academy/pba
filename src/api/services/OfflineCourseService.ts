@@ -18,8 +18,9 @@ export class OfflineCourseService {
       params,
     });
   }
-  static getOfflineCourseItem(id: string): Promise<OfflineCourseItemModel> {
-    return $apiClient.get(`offline-courses/${id}`);
+
+  static getOfflineCourseItem(title: string): Promise<OfflineCourseItemModel> {
+    return $apiClient.get(`offline-courses/${title}`);
   }
 
   static getOfflineCourseListNames(): Promise<OfflineCourseListNamesModel> {

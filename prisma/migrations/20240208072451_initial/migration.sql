@@ -54,8 +54,8 @@ CREATE TABLE "Admin" (
 -- CreateTable
 CREATE TABLE "OnlineCourse" (
     "id" SERIAL NOT NULL,
-    "title" VARCHAR(45) NOT NULL,
-    "subTitle" VARCHAR(45) NOT NULL,
+    "title" TEXT NOT NULL,
+    "subTitle" TEXT NOT NULL,
     "courseLevel" "SkillLevel" NOT NULL,
     "coverPhoto" TEXT NOT NULL,
     "mediaId" TEXT NOT NULL,
@@ -148,7 +148,7 @@ CREATE TABLE "Instructor" (
 -- CreateTable
 CREATE TABLE "OfflineCourse" (
     "id" SERIAL NOT NULL,
-    "title" VARCHAR(45) NOT NULL,
+    "title" TEXT NOT NULL,
     "subTitle" TEXT NOT NULL,
     "topic" "Topic" NOT NULL,
     "coverPhoto" TEXT NOT NULL,
@@ -212,12 +212,11 @@ CREATE TABLE "Applicant" (
     "name" TEXT,
     "email" TEXT NOT NULL,
     "phoneNumber" TEXT,
-    "attachment" TEXT,
+    "attachment" TEXT DEFAULT '',
     "company" TEXT,
     "message" TEXT,
     "motivationLetter" TEXT,
     "hasAgreedToPrivacyPolicy" BOOLEAN NOT NULL DEFAULT true,
-    "file" TEXT DEFAULT '',
     "for" "ApplicantType" NOT NULL,
     "offlineCourseId" INTEGER,
     "jobId" INTEGER,
@@ -256,10 +255,16 @@ CREATE UNIQUE INDEX "User_confirmationCode_key" ON "User"("confirmationCode");
 CREATE UNIQUE INDEX "Admin_email_key" ON "Admin"("email");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "OnlineCourse_title_key" ON "OnlineCourse"("title");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "OnlineCourse_mediaId_key" ON "OnlineCourse"("mediaId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Instructor_mediaId_key" ON "Instructor"("mediaId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "OfflineCourse_title_key" ON "OfflineCourse"("title");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "OfflineCourse_mediaId_key" ON "OfflineCourse"("mediaId");
