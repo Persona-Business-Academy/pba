@@ -109,9 +109,11 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                           as={Link}
                           href={`${forKids ? FOR_KIDS_ROUTE : OFFLINE_COURSES_ROUTE}/${id}`}
                           key={id}
+                          height="164px"
+                          width="154px"
                           flexDirection="column"
                           onClick={onClose}
-                          gap={16}>
+                          gap="16px">
                           <Image
                             src={generateAWSUrl(coverPhoto)}
                             alt={title}
@@ -120,6 +122,8 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                             style={{
                               borderRadius: '12px',
                               objectFit: 'cover',
+                              height: '104px',
+                              width: '156px',
                             }}
                           />
                           <Text
@@ -127,7 +131,6 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                             fontWeight={400}
                             textAlign="center"
                             cursor="pointer"
-                            height="100%"
                             display="flex"
                             alignItems="center"
                             color="#222"
