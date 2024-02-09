@@ -161,6 +161,12 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                   alt="Graphic Design"
                   width={590}
                   height={334}
+                  style={{
+                    borderRadius: '12px',
+                    height: '334px',
+                    width: '590px',
+                    objectFit: 'cover',
+                  }}
                 />
               </Box>
             </Box>

@@ -48,20 +48,18 @@ export const footerData = (
       },
     ],
   },
-
   {
     rowTitle: 'Offline Courses',
     subNavigation: offlineCourseListNames.map(course => ({
       name: course.title,
-      href: `${OFFLINE_COURSES_ROUTE}/${course.id}`,
+      href: `${OFFLINE_COURSES_ROUTE}/${course.title.replaceAll(' ', '-')}/${course.id}`,
     })),
   },
-
   {
     rowTitle: 'For Kids',
     subNavigation: kidsCourseListNames.map(course => ({
       name: course.title,
-      href: `${FOR_KIDS_ROUTE}/${course.id}`,
+      href: `${FOR_KIDS_ROUTE}/${course.title.replaceAll(' ', '-')}/${course.id}`,
     })),
   },
   {

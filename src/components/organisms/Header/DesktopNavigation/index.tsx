@@ -107,7 +107,7 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                       ({ id, coverPhoto, title, forKids }: OfflineCourse) => (
                         <Flex
                           as={Link}
-                          href={`${forKids ? FOR_KIDS_ROUTE : OFFLINE_COURSES_ROUTE}/${id}`}
+                          href={`${forKids ? FOR_KIDS_ROUTE : OFFLINE_COURSES_ROUTE}/${title.replaceAll(' ', '-')}/${id}`}
                           key={id}
                           height="164px"
                           width="154px"

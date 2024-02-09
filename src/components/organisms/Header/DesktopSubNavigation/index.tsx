@@ -55,7 +55,7 @@ const DesktopSubNav: FC<DesktopSubNav> = ({
           (subLabels || []).map(({ title, id }, index: number) => (
             <Box
               as={Link}
-              href={`${mainCourseLink}/${id}`}
+              href={`${mainCourseLink}/${title.replaceAll(' ', '-')}/${id}`}
               display="flex"
               gap={11}
               flexDirection="column"
