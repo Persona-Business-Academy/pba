@@ -13,6 +13,7 @@ import {
 import { useMutation } from '@tanstack/react-query';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import Link from 'next/link';
 import { KidsCourseService } from '@/api/services/KidsCourseService';
 import { Button, Loading } from '@/components/atoms';
 import BenefitCard from '@/components/molecules/BenefitCard';
@@ -144,21 +145,23 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
               </Box>
 
               <Flex gap="16px" alignItems="center" justifyContent="center" flexWrap="wrap">
-                <Button
+                <Text
                   bg="transparent"
-                  padding={{
-                    base: '12px 24px',
-                    md: '16px 32px',
-                  }}
+                  as={Link}
+                  href="#apply-course"
                   border=" 1px solid #3CB4E7"
-                  height="53px"
-                  width="236px"
                   color="#3CB4E7"
                   fontWeight="700"
                   lineHeight="21.28px"
-                  fontSize="16px">
+                  fontSize="16px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  borderRadius="6px"
+                  height="37px"
+                  width="124px">
                   Apply now
-                </Button>
+                </Text>
                 <Text
                   padding="16px 0"
                   as="a"

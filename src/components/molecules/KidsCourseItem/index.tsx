@@ -14,6 +14,7 @@ type KidsCourseItemProps = {
   courseLevel: string;
   id: number;
   coverPhoto: string;
+  pdf: string;
 };
 
 const KidsCourseItem: FC<KidsCourseItemProps> = ({
@@ -24,6 +25,7 @@ const KidsCourseItem: FC<KidsCourseItemProps> = ({
   totalDuration,
   courseLevel,
   coverPhoto,
+  pdf,
 }) => {
   return (
     <GridItem
@@ -95,19 +97,31 @@ const KidsCourseItem: FC<KidsCourseItemProps> = ({
         </Flex>
         <Flex gap="16px">
           <Button>Enroll now</Button>
-          <Button
-            bg="#FFFFFF"
-            color="#222"
-            _hover={{
-              bg: '#FFFFFF',
-              color: '#5B5B5B',
-            }}
+          <Text
+            padding="16px 0"
+            as="a"
+            href={generateAWSUrl(pdf)}
+            target="_blank"
+            fontWeight="400"
+            lineHeight="21.28px"
+            fontSize="16px"
+            zIndex={1000}
+            bg="transparent"
             _focus={{
-              bg: '#FFFFFF',
-              color: '#222',
-            }}>
-            View Program
-          </Button>
+              bg: 'transparent',
+            }}
+            _focusWithin={{
+              bg: 'transparent',
+            }}
+            _focusVisible={{
+              bg: 'transparent',
+            }}
+            _hover={{
+              bg: 'transparent',
+            }}
+            color="#1F1646">
+            View program
+          </Text>
         </Flex>
       </Box>
     </GridItem>

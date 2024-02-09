@@ -7,7 +7,6 @@ import { Button } from '@/components/atoms';
 import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/utils/constants/routes';
 import { NavItem } from '@/utils/models/header';
 import MobileNavItem from '../MobileNavItem';
-import ProfileNavItem from '../ProfileNavItem';
 
 interface MobileNavProps {
   navItems: NavItem[];
@@ -21,7 +20,6 @@ const MobileNav: FC<MobileNavProps> = ({ navItems, user, onClose }) => {
     <Stack>
       <Accordion allowToggle>
         <Box px={16}>
-          {user && <ProfileNavItem user={user} onClose={onClose} />}
           {navItems.map((navItem: NavItem, i: number) => (
             <MobileNavItem key={i} {...navItem} onClose={onClose} />
           ))}

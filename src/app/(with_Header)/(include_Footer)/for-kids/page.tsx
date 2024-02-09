@@ -1,5 +1,4 @@
 'use client';
-
 import {
   Accordion,
   AccordionButton,
@@ -132,6 +131,7 @@ const KidsCourses = ({ searchParams }: Props) => {
               totalDuration={course.totalDuration}
               courseLevel={course.courseLevel}
               coverPhoto={course.coverPhoto}
+              pdf={course.pdf}
             />
           ))}
         </Grid>

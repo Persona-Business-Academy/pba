@@ -1,5 +1,7 @@
-import { FC, memo, useRef } from 'react';
+import { FC, memo, MouseEvent, useCallback, useRef } from 'react';
 import {
+  Accordion,
+  Avatar,
   Box,
   Collapse,
   Flex,
@@ -18,11 +20,13 @@ import BurgerMenuIcon from '/public/icons/menu.svg';
 import { Button } from '@/components/atoms';
 import { OfflineCourseListGroupedModel } from '@/models/offline-course.model';
 import { HOMEPAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/utils/constants/routes';
+import { generateAWSUrl } from '@/utils/helpers/common';
 import { getNavigationItems } from '@/utils/helpers/navigation';
 import { NavItem } from '@/utils/models/header';
 import DesktopNav from './DesktopNavigation';
 import MobileNav from './MobileNav';
 import ProfileMenu from './ProfileMenu';
+import ProfileNavItem from './ProfileNavItem';
 
 type HeaderProps = {
   user: User | null;
@@ -31,21 +35,54 @@ type HeaderProps = {
 };
 
 const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
-  const { isOpen, onToggle, onClose } = useDisclosure();
+  const { isOpen: isMenuOpen, onToggle: toggleMenuDropdown, onClose: closeMenu } = useDisclosure();
+  const {
+    isOpen: isUserProfileOpen,
+    onToggle: toggleUserDropdown,
+    onClose: closeUserProfile,
+  } = useDisclosure();
   const { data } = useSession();
   const pathname = usePathname();
   const collapseRef = useRef<HTMLDivElement>(null);
+  const userCollapseRef = useRef<HTMLDivElement>(null);
 
   const navigation: NavItem[] = getNavigationItems(forIndividuals, forKids);
 
   useOutsideClick({
     ref: collapseRef,
     handler: () => {
-      if (isOpen) {
-        onClose();
+      if (isMenuOpen) {
+        closeMenu();
       }
     },
   });
+
+  // useOutsideClick({
+  //   ref: userCollapseRef,
+  //   handler: () => {
+  //     console.log({ isUserProfileOpen });
+  //     if (isUserProfileOpen) {
+  //       closeUserProfile();
+  //     }
+  //   },
+  // });
+
+  const toggleUserProfile = useCallback(
+    (e: MouseEvent<HTMLDivElement>) => {
+      e.stopPropagation();
+      toggleUserDropdown();
+    },
+    [toggleUserDropdown],
+  );
+
+  const toggleMenu = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation();
+
+      toggleMenuDropdown();
+    },
+    [toggleMenuDropdown],
+  );
 
   return (
     <Box
@@ -80,7 +117,30 @@ const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
           </Link>
 
           <Flex display={{ base: 'none', lg: 'flex' }}>
-            <DesktopNav navItems={navigation} onClose={onClose} />
+            <DesktopNav navItems={navigation} onClose={closeMenu} />
+          </Flex>
+
+          <Flex
+            display={{ base: 'block', lg: 'none' }}
+            marginLeft="auto"
+            mr="16px"
+            alignItems="center"
+            justifyContent="center"
+            alignSelf="center">
+            {user && (
+              <Avatar
+                name={`${user?.firstName} ${user?.lastName}`}
+                src={user?.avatar ? generateAWSUrl(user.avatar) : ''}
+                bg="#F3F4F6"
+                color="#C0C0C0"
+                cursor="pointer"
+                size="sm"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                onClick={toggleUserProfile}
+              />
+            )}
           </Flex>
           <Flex display={{ base: 'flex', lg: 'none' }}>
             <IconButton
@@ -91,10 +151,10 @@ const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
               _hover={{
                 bg: 'transparent',
               }}
-              onClick={onToggle}
+              onClick={toggleMenu}
               bg="transparent"
               aria-label={'Toggle Navigation'}
-              icon={isOpen ? <CloseIcon /> : <BurgerMenuIcon />}
+              icon={isMenuOpen || isUserProfileOpen ? <CloseIcon /> : <BurgerMenuIcon />}
             />
           </Flex>
           {user || data?.user ? (
@@ -126,8 +186,14 @@ const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
         </Flex>
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity ref={collapseRef}>
-        <MobileNav navItems={navigation} user={user || data?.user || null} onClose={onClose} />
+      <Collapse in={isMenuOpen} animateOpacity ref={collapseRef}>
+        <MobileNav navItems={navigation} user={user || data?.user || null} onClose={closeMenu} />
+      </Collapse>
+
+      <Collapse in={isUserProfileOpen} animateOpacity ref={userCollapseRef}>
+        <Accordion allowToggle defaultIndex={0} id="user-dropdown">
+          <ProfileNavItem user={user || data?.user || null} onClose={closeUserProfile} />
+        </Accordion>
       </Collapse>
     </Box>
   );

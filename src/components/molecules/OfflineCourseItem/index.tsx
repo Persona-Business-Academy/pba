@@ -29,6 +29,7 @@ const OfflineCourseItem: FC<OfflineCourseItemProps> = ({ courseData }) => {
           fill
           style={{
             objectFit: 'cover',
+            borderRadius: '6px',
           }}
         />
       </Box>

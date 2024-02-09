@@ -38,7 +38,17 @@ const Footer = async () => {
                   {footerItem.rowTitle}
                 </Text>
                 {footerItem.subNavigation.map((subNav, i: number) => (
-                  <Text as={Link} href={subNav.href} color="#5B5B5B" key={i} lineHeight="20px">
+                  <Text
+                    as={Link}
+                    href={subNav.href}
+                    color="#5B5B5B"
+                    transition="borderBottom 0.3s"
+                    key={i}
+                    lineHeight="20px"
+                    height="21px"
+                    _hover={{
+                      borderBottom: '1px solid #5B5B5B',
+                    }}>
                     {subNav.name}
                   </Text>
                 ))}
