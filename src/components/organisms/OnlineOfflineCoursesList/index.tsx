@@ -79,7 +79,7 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <>
-      <Modal size="full" onClose={onClose} isOpen={isOpen} isCentered>
+      <Modal size="full" onClose={onClose} isOpen={isOpen} isCentered motionPreset="none">
         <ModalContent position="absolute">
           <ModalHeader
             height="60px"
@@ -90,7 +90,7 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
             alignItems="center"
             borderBottom="1px solid #F3F4F6">
             <Image
-              src="/icons/persona_logo.png"
+              src="/icons/logo_persona.svg"
               width={135}
               height={27}
               alt="persona_logo"

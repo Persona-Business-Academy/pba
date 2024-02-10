@@ -108,7 +108,7 @@ const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
           <Link href={HOMEPAGE_ROUTE}>
             <Flex alignItems="center" height="100%">
               <Image
-                src="/icons/persona_logo.png"
+                src="/icons/logo_persona.svg"
                 width={135}
                 height={27}
                 alt="persona_logo"
