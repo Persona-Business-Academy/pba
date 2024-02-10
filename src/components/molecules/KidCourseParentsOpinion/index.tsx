@@ -11,7 +11,7 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
       <Flex flexDirection="column" width={235} display={{ base: 'none', md: 'block' }}>
         <Box borderRadius="87px" overflow="hidden" display="flex" justifyContent="flex-end">
           <Image
-            src="/images/public_available/trainers_image.jpg"
+            src="/images/kids-parent-comments/parent-2.webp"
             alt="Parents image"
             width={87}
             height={85.5}
@@ -20,7 +20,7 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
         </Box>
         <Box borderRadius="171px" overflow="hidden">
           <Image
-            src="/images/public_available/trainers_image.jpg"
+            src="/images/kids-parent-comments/parent-1.webp"
             alt="Parents image"
             width={171}
             height={171}
@@ -29,7 +29,7 @@ const KidCourseParentsOpinion: FC<KidCourseParentsOpinionProps> = () => {
         </Box>
         <Box borderRadius="87px" overflow="hidden" display="flex" justifyContent="flex-end">
           <Image
-            src="/images/public_available/trainers_image.jpg"
+            src="/images/kids-parent-comments/parent-3.webp"
             alt="Parents image"
             width={87}
             height={85.5}

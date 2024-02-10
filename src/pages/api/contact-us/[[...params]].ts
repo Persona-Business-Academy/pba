@@ -5,7 +5,7 @@ import { ContactUsApplicantFormValidation } from '@/utils/validation/contact-us'
 
 @Catch(exceptionHandler)
 class ContactUsHandler {
-  @Post('/')
+  @Post('/apply')
   _createContactUsApplicant(@Body(ValidationPipe) body: ContactUsApplicantFormValidation) {
     return ContactUsResolver.createContactUsApplicant(body);
   }

@@ -4,12 +4,14 @@ import { Box, Container, Flex, FormControl, Heading, Text } from '@chakra-ui/rea
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { useMutation } from '@tanstack/react-query';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Controller, useForm } from 'react-hook-form';
 import { ContactUsService } from '@/api/services/ContactUsService';
 import { Button, FormInput, Loading, PhoneNumberInput } from '@/components/atoms';
 import Checkbox from '@/components/atoms/Checkbox';
 import FormTextarea from '@/components/atoms/FormTextarea';
 import SuccessMessageToast from '@/components/atoms/SuccessMessageToast';
+import { CAREERS_ROUTE } from '@/utils/constants/routes';
 import { ContactUsApplicantFormValidation } from '@/utils/validation/contact-us';
 
 const resolver = classValidatorResolver(ContactUsApplicantFormValidation);
@@ -135,7 +137,12 @@ const Contact = () => {
 
               <Flex gap="5px">
                 <Text as="span">Looking for careers?</Text>
-                <Text lineHeight="21.28px" fontWeight={700} color="#111827" as="span">
+                <Text
+                  lineHeight="21.28px"
+                  fontWeight={700}
+                  color="#111827"
+                  as={Link}
+                  href={CAREERS_ROUTE}>
                   View all job openings.
                 </Text>
               </Flex>

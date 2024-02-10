@@ -3,6 +3,6 @@ import $apiClient from '..';
 
 export class ContactUsService {
   static createContactUsApplicant(input: ContactUsApplicantFormValidation): Promise<boolean> {
-    return $apiClient.post('/contact-us', input);
+    return $apiClient.post('/contact-us/apply', input);
   }
 }

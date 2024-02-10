@@ -20,7 +20,7 @@ export const articlesData = [
   },
   {
     id: 2,
-    title: 'What are Facebook Lead Ads?',
+    title: 'What are Facebook Lead Ads',
     description: `
     Facebook Lead Ads is a type of ad specifically designed to collect leads on Facebook. You can create a Lead Ad on Facebook just like a regular Facebook Ad, but instead of redirecting clicks to your website or landing page, it will show a form that users can fill out and submit with their details. It's an easy and quick way to connect with your leads without them having to leave Facebook. 
     In other words, Facebook Lead Ads contain digital forms or questionnaires that pop up when a Facebook user interacts with your ad.  

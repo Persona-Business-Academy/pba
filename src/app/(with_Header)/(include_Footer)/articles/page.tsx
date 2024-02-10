@@ -1,10 +1,5 @@
-import { FC } from 'react';
 import ArticlesPage from '@/components/templates/ArticlesPage';
 
-type Props = {};
-
-const Articles: FC<Props> = () => {
-  return <ArticlesPage />;
-};
+const Articles = () => <ArticlesPage />;
 
 export default Articles;

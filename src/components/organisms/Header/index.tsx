@@ -1,4 +1,4 @@
-import { FC, memo, MouseEvent, useCallback, useRef } from 'react';
+import { FC, memo, useCallback, useEffect, useRef } from 'react';
 import {
   Accordion,
   Avatar,
@@ -57,32 +57,34 @@ const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
     },
   });
 
-  // useOutsideClick({
-  //   ref: userCollapseRef,
-  //   handler: () => {
-  //     console.log({ isUserProfileOpen });
-  //     if (isUserProfileOpen) {
-  //       closeUserProfile();
-  //     }
-  //   },
-  // });
-
-  const toggleUserProfile = useCallback(
-    (e: MouseEvent<HTMLDivElement>) => {
-      e.stopPropagation();
-      toggleUserDropdown();
+  const handleClick = useCallback(
+    (event: any) => {
+      if (
+        userCollapseRef.current &&
+        !userCollapseRef.current.contains(event.target) &&
+        isUserProfileOpen
+      ) {
+        closeUserProfile();
+      }
     },
-    [toggleUserDropdown],
+    [closeUserProfile, isUserProfileOpen],
   );
 
-  const toggleMenu = useCallback(
-    (e: MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation();
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
 
-      toggleMenuDropdown();
-    },
-    [toggleMenuDropdown],
-  );
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, [handleClick]);
+
+  const toggleUserProfile = useCallback(() => {
+    toggleUserDropdown();
+  }, [toggleUserDropdown]);
+
+  const toggleMenu = useCallback(() => {
+    toggleMenuDropdown();
+  }, [toggleMenuDropdown]);
 
   return (
     <Box
@@ -191,7 +193,7 @@ const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
       </Collapse>
 
       <Collapse in={isUserProfileOpen} animateOpacity ref={userCollapseRef}>
-        <Accordion allowToggle defaultIndex={0} id="user-dropdown">
+        <Accordion allowToggle defaultIndex={0}>
           <ProfileNavItem user={user || data?.user || null} onClose={closeUserProfile} />
         </Accordion>
       </Collapse>

@@ -79,6 +79,69 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <>
+      <Modal size="full" onClose={onClose} isOpen={isOpen} isCentered>
+        <ModalContent position="absolute">
+          <ModalHeader
+            height="60px"
+            minH={'60px'}
+            pl="14px"
+            py={{ base: 2 }}
+            display="flex"
+            alignItems="center"
+            borderBottom="1px solid #F3F4F6">
+            <Image
+              src="/icons/persona_logo.png"
+              width={135}
+              height={27}
+              alt="persona_logo"
+              priority
+              style={{ objectFit: 'contain', zIndex: 1000 }}
+            />
+          </ModalHeader>
+          <ModalCloseButton zIndex={1000} onClick={resetFilterHandler} />
+          <ModalBody padding="0 16px">
+            <Box fontWeight="600" mt="16px" lineHeight="20px" fontSize="14px">
+              <CourseFilter
+                isMobile
+                courseTopicDataList={courseTopicDataList}
+                courseSkillsDataList={courseSkillsDataList}
+                courseDurationsDataList={courseDurationsDataList}
+              />
+            </Box>
+          </ModalBody>
+          <ModalFooter display="flex" gap="20px" justifyContent="center" mb="30px">
+            <Button
+              flex={1}
+              width="164px"
+              height="38px"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              bg="#fff"
+              color="#3CB4E7"
+              border="1px solid #3CB4E7"
+              onClick={() => {
+                resetFilterHandler();
+                onClose();
+              }}>
+              Cancel
+            </Button>
+            <Button
+              flex={1}
+              width="164px"
+              height="38px"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              onClick={() => {
+                applyFilterHandler();
+                onClose();
+              }}>
+              Apply
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
       <Flex
         as="section"
         backgroundColor="#F6FCFF"
@@ -157,8 +220,7 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
         maxWidth="1560px"
         overflow="hidden"
         flexWrap={{ base: 'wrap', lg: 'nowrap' }}
-        justifyContent={{ base: 'center', lg: 'flex-end' }}
-        marginBottom={{ base: '36px', lg: '148px' }}>
+        justifyContent={{ base: 'center', lg: 'flex-end' }}>
         <Flex
           maxWidth={449}
           flexDirection="column"
@@ -169,13 +231,13 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
           color="#FFFFFF"
           textAlign="center">
           <Text fontSize={{ base: '28px', lg: '32px' }} fontWeight={700} margin="0">
-            How our skill management works
+            Unveiling the Power of Offline Courses
           </Text>
           <Text fontSize="16px" fontWeight={400}>
-            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,
-            graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
-            century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum
-            for use in A Type Specimen Book. It usually Begins with:
+            Face-to-face interactions with seasoned IT professionals and instructors bring a wealth
+            of industry insights into the classroom. Guest lectures, workshops, and networking
+            events facilitate direct engagement with experts, providing invaluable perspectives from
+            the IT field.
           </Text>
         </Flex>
         <Flex
@@ -189,72 +251,9 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
           bgGradient={{
             base: 'linear-gradient(168deg, #1F1646 33%, rgba(255,255,255,0.9) 20%, #00000069 15%),url(/icons/course_skill_bg.png)',
             lg: 'linear-gradient(80deg, #1F1646 33%, rgba(255,255,255,0.9) 20%, #00000069 15%),url(/icons/course_skill_bg.png)',
-          }}></Flex>
+          }}
+        />
       </Flex>
-
-      <Modal size="full" onClose={onClose} isOpen={isOpen} isCentered>
-        <ModalContent position="absolute">
-          <ModalHeader
-            height="60px"
-            minH={'60px'}
-            pl="14px"
-            py={{ base: 2 }}
-            display="flex"
-            alignItems="center"
-            borderBottom="1px solid #F3F4F6">
-            <Image
-              src="/icons/persona_logo.png"
-              width={135}
-              height={27}
-              alt="persona_logo"
-              priority
-              style={{ objectFit: 'contain', zIndex: 1000 }}
-            />
-          </ModalHeader>
-          <ModalCloseButton zIndex={1000} onClick={resetFilterHandler} />
-          <ModalBody padding="0 16px">
-            <Box fontWeight="600" mt="16px" lineHeight="20px" fontSize="14px">
-              <CourseFilter
-                isMobile
-                courseTopicDataList={courseTopicDataList}
-                courseSkillsDataList={courseSkillsDataList}
-                courseDurationsDataList={courseDurationsDataList}
-              />
-            </Box>
-          </ModalBody>
-          <ModalFooter display="flex" gap="20px" justifyContent="center" mb="30px">
-            <Button
-              flex={1}
-              width="164px"
-              height="38px"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              bg="#fff"
-              color="#3CB4E7"
-              border="1px solid #3CB4E7"
-              onClick={() => {
-                resetFilterHandler();
-                onClose();
-              }}>
-              Cancel
-            </Button>
-            <Button
-              flex={1}
-              width="164px"
-              height="38px"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              onClick={() => {
-                applyFilterHandler();
-                onClose();
-              }}>
-              Apply
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
     </>
   );
 };

@@ -4,7 +4,7 @@ import { CourseFilterProvider } from '@/contexts/CourseFilterContext';
 export default function CoursesFilterLayout({ children }: { children: React.ReactNode }) {
   return (
     <CourseFilterProvider>
-      <OnlineOfflineCourseList> {children} </OnlineOfflineCourseList>;
+      <OnlineOfflineCourseList> {children} </OnlineOfflineCourseList>
     </CourseFilterProvider>
   );
 }

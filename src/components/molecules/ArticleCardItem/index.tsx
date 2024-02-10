@@ -18,7 +18,7 @@ const ArticleCardItem: FC<ArticleCardItemProps> = ({ title, description, id }) =
       borderRadius="6px"
       overflow="hidden"
       as={Link}
-      href={`${ARTICLES_ROUTE}/${id}`}>
+      href={`${ARTICLES_ROUTE}/${title.replaceAll(' ', '-')}/${id}`}>
       <Image
         width={386}
         height={316}
@@ -26,18 +26,36 @@ const ArticleCardItem: FC<ArticleCardItemProps> = ({ title, description, id }) =
         alt="Article image"
       />
       <UnorderedList
-        boxShadow="lg"
         color="#222222"
         borderRadius="6px"
+        transition="all 0.3s"
         bg="#fff"
-        dropShadow="30px 10px 4px #4444dd"
+        boxShadow="0px 2px 4px 0px #0000001F"
         listStyleType="none"
         position="relative"
         zIndex="2"
         margin="-51px 17px 13px 17px"
+        height="205px"
+        _hover={{
+          boxShadow: '3px 3px 20px 0px #0000001A',
+        }}
         padding=" 24px"
-        maxW="351.9px">
-        <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="700" mb="8px">
+        maxW="351.9px"
+        display="flex"
+        flexDirection="column">
+        <ListItem
+          lineHeight="21.28px"
+          fontSize="16px"
+          fontWeight="700"
+          mb="8px"
+          maxHeight="24px"
+          overflow="hidden"
+          display="-webkit-box"
+          sx={{
+            WebkitLineClamp: 1,
+            WebkitBoxOrient: 'vertical',
+            textOverflow: 'ellipsis',
+          }}>
           {title}
         </ListItem>
         <ListItem
@@ -55,7 +73,17 @@ const ArticleCardItem: FC<ArticleCardItemProps> = ({ title, description, id }) =
           }}>
           {description}
         </ListItem>
-        <ListItem display="flex" alignItems="center" gap="20px" textDecoration="underline">
+        <ListItem
+          as="span"
+          borderBottom="1px solid #222222"
+          marginTop="auto"
+          color="#222222"
+          width="auto"
+          alignSelf="flex-start"
+          _hover={{
+            color: '#5B5B5B',
+            borderColor: '#5B5B5B',
+          }}>
           Read full article
         </ListItem>
       </UnorderedList>
