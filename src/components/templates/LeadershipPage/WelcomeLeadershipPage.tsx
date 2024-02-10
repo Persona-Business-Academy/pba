@@ -39,10 +39,13 @@ const WelcomeLeadershipPage: FC<WelcomeLeadershipPageProps> = () => {
       </Box>
       <Box borderRadius="16px" overflow="hidden">
         <Image
-          src="/images/public_available/leadership_main_img.jpg"
+          src="/images/persona/leadership.svg"
           width={1201}
           height={591}
           alt="Leadership_image"
+          style={{
+            objectFit: 'cover',
+          }}
         />
       </Box>
     </>
