@@ -14,7 +14,7 @@ const ArticleItem: FC<ArticleItemProps> = ({ title, description, date, id }) => 
   return (
     <Box
       as={Link}
-      href={`${ARTICLES_ROUTE}/${id}`}
+      href={`${ARTICLES_ROUTE}/${title.replaceAll(' ', '-')}/${id}`}
       flexGrow="1"
       flexBasis={{
         base: '500px',
