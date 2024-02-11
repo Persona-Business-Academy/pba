@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find(rule => rule.test?.test?.('.svg'));
@@ -30,6 +31,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'd2cnsoh3yg3xet.cloudfront.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'd17g72h6u0q1gt.cloudfront.net',
       },
     ],
   },
