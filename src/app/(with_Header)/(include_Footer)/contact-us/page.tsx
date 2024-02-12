@@ -290,7 +290,7 @@ const Contact = () => {
                         <FormTextarea
                           name={name}
                           formLabelName="Message"
-                          placeholder="Add a new value"
+                          placeholder="Type here..."
                           value={value}
                           handleInputChange={onChange}
                         />

@@ -30,6 +30,7 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
           <Box
             bg="#fff"
             width={{ base: '347px', xl: '386px' }}
+            boxShadow="0px 15px 20px 0px #0000000D"
             margin="0 auto"
             display="flex"
             flexDirection="column"
@@ -70,6 +71,7 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
           <Box
             bg="#fff"
             width={{ base: '347px', xl: '386px' }}
+            boxShadow="0px 15px 20px 0px #0000000D"
             margin="0 auto"
             display="flex"
             flexDirection="column"
@@ -111,6 +113,7 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
           <Box
             bg="#fff"
             width={{ base: '347px', xl: '386px' }}
+            boxShadow="0px 15px 20px 0px #0000000D"
             margin="0 auto"
             display="flex"
             flexDirection="column"
@@ -151,6 +154,7 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
           <Box
             bg="#fff"
             width={{ base: '347px', xl: '386px' }}
+            boxShadow="0px 15px 20px 0px #0000000D"
             margin="0 auto"
             display="flex"
             flexDirection="column"
@@ -192,6 +196,7 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
           <Box
             bg="#fff"
             width={{ base: '347px', xl: '386px' }}
+            boxShadow="0px 15px 20px 0px #0000000D"
             margin="0 auto"
             display="flex"
             flexDirection="column"
@@ -231,6 +236,7 @@ const OurValuesSection: FC<OurValuesSectionProps> = () => {
           <Box
             bg="#fff"
             width={{ base: '347px', xl: '386px' }}
+            boxShadow="0px 15px 20px 0px #0000000D"
             margin="0 auto"
             display="flex"
             flexDirection="column"

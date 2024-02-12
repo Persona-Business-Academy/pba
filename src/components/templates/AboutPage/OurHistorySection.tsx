@@ -30,7 +30,8 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
           borderRadius="50%"
           bottom="-25px"
           left="50%"
-          transform="translateX(-25%)"></Text>
+          transform="translateX(-25%)"
+        />
       </Box>
 
       <Box maxW="752px" position="relative" margin="0 auto" display="flex">
@@ -53,13 +54,14 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
                 position="absolute"
                 zIndex="4"
                 right={{ base: '98%', md: '47.5%' }}
-                top="5%"
+                top="4%"
                 width="14px"
                 height="14px"
                 borderRadius="50"
                 display="block"
                 as="span"
-                bg="#3CB4E7"></Text>
+                bg="#3CB4E7"
+              />
             </ListItem>
             <ListItem color="#222222">
               After studying the market, the two co-founders realized that the market needs more
@@ -82,13 +84,14 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
                 position="absolute"
                 right={{ base: '98%', md: '47.5%' }}
                 zIndex="4"
-                top="40%"
+                top="31%"
                 width="14px"
                 height="14px"
                 borderRadius="50"
                 display="block"
                 as="span"
-                bg="#3CB4E7"></Text>
+                bg="#3CB4E7"
+              />
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
               Since the idea was to create an academy with a high level of education, we started the
@@ -113,13 +116,14 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
                 position="absolute"
                 right={{ base: '98%', md: '47.5%' }}
                 zIndex="4"
-                top="73%"
+                top="65.5%"
                 width="14px"
                 height="14px"
                 borderRadius="50"
                 display="block"
                 as="span"
-                bg="#3CB4E7"></Text>
+                bg="#3CB4E7"
+              />
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
               Talent transformation program was launched in the middle of 2023, the goal of which
@@ -130,8 +134,7 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
           </UnorderedList>
         </Box>
 
-        <Box width="2px" backgroundColor="#000000" position="relative" padding="40px 0 0 0"></Box>
-
+        <Box width="2px" backgroundColor="#000000" position="relative" padding="40px 0 0 0" />
         <Box
           marginTop="55px"
           maxWidth="303px"
@@ -151,7 +154,7 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
                 position="absolute"
                 right="47.5%"
                 zIndex="4"
-                top="10%"
+                top="8%"
                 width="14px"
                 height="14px"
                 borderRadius="50"
@@ -182,13 +185,14 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
                 position="absolute"
                 right="47.5%"
                 zIndex="4"
-                top="45%"
+                top="37.5%"
                 width="14px"
                 height="14px"
                 borderRadius="50"
                 display="block"
                 as="span"
-                bg="#3CB4E7"></Text>
+                bg="#3CB4E7"
+              />
             </ListItem>
             <ListItem fontWeight="400" color="#222222">
               The structure of the courses is such that regardless of students' knowledge, students
@@ -212,7 +216,7 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
                 position="absolute"
                 right={{ base: '98%', md: '47.5%' }}
                 zIndex="4"
-                top="73%"
+                top="75%"
                 width="14px"
                 height="14px"
                 borderRadius="50"

@@ -1,4 +1,4 @@
-import React, { FC, memo } from "react";
+import React, { FC, memo } from 'react';
 import {
   FormControl,
   FormErrorMessage,
@@ -7,7 +7,7 @@ import {
   Text,
   Textarea,
   TextareaProps,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
 type Props = {
   isInvalid?: boolean;
@@ -52,28 +52,29 @@ const FormTextarea: FC<Props> = ({
         placeholder={placeholder}
         isReadOnly={isReadOnly}
         isRequired={isRequired}
+        bg="#fff"
         borderRadius={6}
         height="40px"
         boxShadow="0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
         _focus={{
-          border: "1px solid #3cb4e7",
+          border: '1px solid #3cb4e7',
         }}
         _focusVisible={{
-          border: "1px solid #3cb4e7",
+          border: '1px solid #3cb4e7',
         }}
         _readOnly={{
-          bg: "violet.50",
-          color: "violet.200",
-          border: "1px solid grey.100",
+          bg: 'violet.50',
+          color: 'violet.200',
+          border: '1px solid grey.100',
         }}
         _placeholder={{
-          color: "grey.100",
+          color: 'grey.100',
           fontSize: 16,
           fontWeight: 400,
-          fontStyle: "normal",
+          fontStyle: 'normal',
         }}
         _invalid={{
-          border: "1px solid #DF1414",
+          border: '1px solid #DF1414',
         }}
         {...textareaProps}
       />

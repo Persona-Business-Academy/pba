@@ -215,6 +215,36 @@ export const teamData: MemberType[] = [
     enrolledStudents: 0,
     graduatedStudents: 0,
   },
+  {
+    id: 16,
+    firstName: 'Arayik',
+    lastName: 'Paturyan',
+    position: 'Project/product Management Specialist',
+    linkedinAccount: 'https://www.linkedin.com/in/anna-mergeryan-11034716a/',
+    biography: `Arayik Paturyan is a seasoned Project/Product Manager with a rich professional history. Having successfully led projects at tech companies like Sber Health,Mit (Medico - intech),Bitget,Shark Software, Arayik specializes in Agile methodologies and utilizes tools such as Jira,Asana,Trello,Monday.com to streamline project workflows. His strategic mindset and effective communication skills have not only driven successful product launches but also fostered cross-functional collaboration. Arayik's expertise lies in risk management, stakeholder engagement, and fostering innovation. Arayik's expertise teaches students the importance of communication, strategic planning, and utilizing project management tools to drive success.His lessons revolve around effective team management, agile methodologies, and leveraging project management tools for enhanced productivity. Students can gain insights into practical project management, honing skills crucial for success in the dynamic tech industry.`,
+    avatarSrc: '/images/persona/Arayik.webp',
+    enrolledStudents: 0,
+    graduatedStudents: 0,
+  },
+  {
+    id: 17,
+    firstName: 'Tigran',
+    lastName: 'Manukyan',
+    position: 'SMM/DM Specialist',
+    linkedinAccount: 'https://www.linkedin.com/in/anna-mergeryan-11034716a/',
+    biography: `Tigran Manukyan has worked with a number of companies in the fields of Digital Marketing and Social Media Marketing and simultaneously taught at Persona Business Academy. He has taught both offline and online versions. Has extensive experience in various projects such as 
+ 
+      -Profmet LLC/Yerevan Pipe Plant as a chief development officer 
+      - US Armenia TV / Armflix TV Streaming Platform  as a chief executive officer 
+      - KPI Consulting - Marketing Agency as a Head of Marketing 
+      - EcoVille / Solar Energy Company as a PR & Event Manager / Marketing Specialist 
+      - Kamar Business Center as a Sales & Marketing Manager / CRM Manager, Technical Control Manager 
+ 
+Along with work, he also teaches in the academy both online and offline platforms and has more than 150 + successfully graduated students.`,
+    avatarSrc: '/images/persona/Arayik.webp',
+    enrolledStudents: 0,
+    graduatedStudents: 0,
+  },
 ];
 
 export const pbaTeam: Array<MemberType> = teachersData.concat(teamData);

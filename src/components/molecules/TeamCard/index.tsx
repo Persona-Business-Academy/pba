@@ -14,7 +14,7 @@ type TeamCardProps = {
 };
 
 const TeamCard: FC<TeamCardProps> = ({
-  avatarSrc = '/images/public_available/trainers_image.jpg',
+  avatarSrc = '',
   firstName,
   lastName,
   position,
