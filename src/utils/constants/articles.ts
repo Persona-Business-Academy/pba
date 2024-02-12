@@ -1,6 +1,7 @@
 export const articlesData = [
   {
     id: 1,
+    imgSrc: '/images/articles/facebook-lead.webp',
     title: 'Business Verification for Facebook Business Manager',
     description: `In this digital age, business verification has become increasingly important, especially when it comes to running ads on platforms . Getting your business manager verified comes with several benefits. Firstly, it establishes trust and credibility with Facebook and your audience. It also unlocks additional features and benefits that are exclusive to verified businesses, giving you an edge over your competitors. Moreover, verification helps build a solid foundation for running ads on Facebook, reducing the risk of ad account disablement and ensuring the smooth operation of your business. \n
     Verifying your company through Business Manager means providing Facebook with the information necessary to authenticate the existence and legitimacy of your business in the eyes of Facebook. To begin the approval (or verification) process of your Facebook Business Manager, first, login into your account (or create a new one). \n
@@ -20,6 +21,7 @@ export const articlesData = [
   },
   {
     id: 2,
+    imgSrc: '/images/articles/Facebook-adss.webp',
     title: 'What are Facebook Lead Ads',
     description: `
     Facebook Lead Ads is a type of ad specifically designed to collect leads on Facebook. You can create a Lead Ad on Facebook just like a regular Facebook Ad, but instead of redirecting clicks to your website or landing page, it will show a form that users can fill out and submit with their details. It's an easy and quick way to connect with your leads without them having to leave Facebook. 
@@ -32,6 +34,7 @@ export const articlesData = [
   },
   {
     id: 3,
+    imgSrc: '/images/articles/verification.webp',
     title: 'How to See Facebook Ads of Competitors ',
     description: `Analysing your competitors' Facebook ads can help you understand market trends, identify gaps in your own advertising strategy, and tailor your messaging to stand out and resonate with your target audience. Finding out what messages they're sending, who they're targeting, and even how they design their ads can also be extremely useful to improve your own advertising strategies. 
     Facebook's Ad Library allows you to search for and view all active ads that are running across Facebook, Instagram, Messenger and Facebook Audience Network. This is where you can see the Facebook ads of your competitors. 
@@ -53,6 +56,7 @@ export const articlesData = [
   },
   {
     id: 4,
+    imgSrc: '/images/articles/privacy-policy.webp',
     title: 'How to Create a Privacy Policy For Facebook Lead Ads ',
     description: `Facebook Lead Ads are a great way to collect online leads for your business. You can set them up in minutes and start receiving leads within hours, without having to go through the hassle of managing your own website and contact forms. A privacy policy is a statement that explains how an organization uses individuals' personal information it collects online. It's also a legal document that ensures a business collecting user data obeys data protection laws.  
     You run Facebook Lead Ads to collect your potential customers' personal information, such as names, phone numbers, and email addresses, so you can later follow them up with your proposal and make a sale. In this case, you're a business collecting personal data and your customers don't want you to misuse their data. A privacy policy not only explains how you'll use their data but also gives them confidence you won't misuse it. 
