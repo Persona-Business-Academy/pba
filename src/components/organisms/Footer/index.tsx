@@ -8,8 +8,14 @@ import { TERMS_AND_CONDITIONS_ROUTE } from '@/utils/constants/routes';
 import { footerData } from '@/utils/helpers/footer';
 
 const Footer = async () => {
-  const offlineCourseListNames = await OfflineCourseService.getOfflineCourseListNames();
-  const kidsCourseListNames = await KidsCourseService.getOfflineCourseListNames();
+  const [offlineCourseListNames, kidsCourseListNames] = await Promise.all([
+    OfflineCourseService.getOfflineCourseListNames(),
+    KidsCourseService.getOfflineCourseListNames(),
+  ]);
+
+  if (!offlineCourseListNames || !kidsCourseListNames) {
+    return null;
+  }
 
   return (
     <Stack bg="#F9FAFB" width="100%" minHeight="auto" pt="20px">
