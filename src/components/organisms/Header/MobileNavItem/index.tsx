@@ -62,7 +62,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href, onClose }
                       bg: '#0000000',
                     }}>
                     <Text
-                      href={`${href}/${subLabel.id}`}
+                      href={`${href}/${subLabel.title.replaceAll(' ', '-')}/${subLabel.id}`}
                       as={Link}
                       display="block"
                       onClick={onClose}>

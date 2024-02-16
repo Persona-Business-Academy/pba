@@ -2,15 +2,20 @@ import React, { FC } from 'react';
 import { Box, Container, Flex, Heading, ListItem, Text, UnorderedList } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { OfflineCourseService } from '@/api/services/OfflineCourseService';
 import { OutlinedButton } from '@/components/atoms';
 import MovableButton from '@/components/atoms/MovableButton';
-import { FOR_KIDS_ROUTE, OFFLINE_COURSES_ROUTE } from '@/utils/constants/routes';
+import { FOR_KIDS_ROUTE, HOMEPAGE_ROUTE, OFFLINE_COURSES_ROUTE } from '@/utils/constants/routes';
 
 type PersonaIntroSectionProps = {};
 
 const PersonaIntroSection: FC<PersonaIntroSectionProps> = async () => {
   const offlineCourseListNames = await OfflineCourseService.getOfflineCourseListNames();
+
+  if (!offlineCourseListNames) {
+    return redirect(HOMEPAGE_ROUTE);
+  }
 
   return (
     <Container maxW="1200px" margin="0 auto" padding={{ base: '0 16px', xl: '0' }}>

@@ -19,13 +19,19 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { OnlineCourseService } from '@/api/services/OnlineCourseService';
 import { Button } from '@/components/atoms';
 import { segoe } from '@/utils/constants/fonts';
+import { HOMEPAGE_ROUTE } from '@/utils/constants/routes';
 import { generateAWSUrl } from '@/utils/helpers/common';
 
 const OnlineCourseItem = async ({ params: { id } }: { params: { id: string } }) => {
   const course = await OnlineCourseService.getOnlineCourseItem(id);
+
+  if (!course) {
+    return redirect(HOMEPAGE_ROUTE);
+  }
 
   return (
     <>
