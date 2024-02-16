@@ -282,6 +282,7 @@ enum Topic {
   BUSINESS_LAW
   BUSINESS_ENGLISH
   MANAGEMENT
+  OTHER
 }
 
 enum SkillLevel {

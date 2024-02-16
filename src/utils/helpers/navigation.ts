@@ -39,6 +39,11 @@ export const getNavigationItems = (
         label: 'Management',
         subLabels: courseData[Topic.MANAGEMENT],
       },
+      {
+        id: 5,
+        label: 'Others',
+        subLabels: courseData[Topic.OTHER],
+      },
     ],
     featuredItems: Object.values(courseData).flat(),
   },

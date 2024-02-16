@@ -57,7 +57,7 @@ export class OfflineCoursesResolver {
     const whereClause = conditions.length > 0 ? { OR: conditions } : {};
 
     return prisma.offlineCourse.findMany({
-      where: { forKids: false, ...whereClause },
+      where: { forKids: false, ...whereClause, disabled: false },
       skip: offset,
       take: limit,
     });
@@ -91,6 +91,7 @@ export class OfflineCoursesResolver {
     return prisma.offlineCourse.findMany({
       where: {
         forKids: false,
+        disabled: false,
       },
       select: {
         id: true,
@@ -103,6 +104,7 @@ export class OfflineCoursesResolver {
     const courses = await prisma.offlineCourse.findMany({
       where: {
         forKids: false,
+        disabled: false,
       },
     });
 
@@ -121,6 +123,7 @@ export class OfflineCoursesResolver {
     const courses = await prisma.offlineCourse.findMany({
       where: {
         forKids: false,
+        disabled: false,
       },
       select: {
         id: true,
@@ -146,6 +149,7 @@ export class OfflineCoursesResolver {
     const courses = await prisma.offlineCourse.findMany({
       where: {
         forKids: false,
+        disabled: true,
       },
       select: {
         id: true,
