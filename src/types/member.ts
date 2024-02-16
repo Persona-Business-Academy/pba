@@ -11,62 +11,25 @@ export type MemberType = {
   founder?: string;
 };
 
-export const exLeadershipData: MemberType[] = [
+export const homePageTrainersData = [
   {
-    id: 1,
+    id: 17,
     firstName: 'Tigran',
-    lastName: 'Harutyunyan',
-    enrolledStudents: 0,
-    graduatedStudents: 0,
-    avatarSrc: '/images/public_available/tigran_harutyunyan.webp',
-    position: `SMM/DM Specialist`,
-    founder: `, Co-founder`,
-    linkedinAccount: 'https://www.linkedin.com/in/tigran-harutyunyan-394baa197/',
-    biography: `Tigran Harutyunyan is an entrepreneur and startuper with many IT projects, also Digital Marketing Specialist working for many Armenian companies. His first goal is to create company or startup which can help people to make easier their life, reaching their needs in the field of technology and innovation.He has a large experience as a Executor Director leading teams, also as a Digital Marketing specialist in the platforms such as Facebook, Instagram, LinkedIn, Google, Youtube. Has extensive experience in various projects such as
-    - Persona Media Group LLC/Co-Founder
-    -NIFNAF Entertainment Media/News company/Co-Founder
-    -Persona Business Academy-pba.am/CEO-Founder
-    -Persona News America-personanews.us/CEO-Founder
-    Along with work, he also teaches in the academy both online and offline platforms and has more than 200 + successfully graduated students`,
-  },
-  {
-    id: 2,
-    firstName: 'Liana',
-    avatarSrc: '/images/public_available/lian_manusajyan.webp',
-    lastName: 'Manusajyan',
-    enrolledStudents: 45,
-    graduatedStudents: 43,
-    position: 'Business Law Specialist',
-    founder: `, Co-founder`,
-    linkedinAccount: 'https://www.linkedin.com/in/liana-manusajyan-it-tech-lawyer-bb617b13b/',
-    biography: `Liana Manusajyan is a Co-Founder & Head of Legal & Branding Department at PBA, Owner of Manusajyan Business & Law firm, Entrepreneur and Licensed Attorney having in portfolio more than 9 years of experience as Business/IT/IP/Tech Lawyer in doing legal consultations, court representations, document making, contracts, NDAs, negotiations, ADR /alternative disputeresolution/ working for many Armenian and foreign companies.   
-    She has a large experience in leading teams, using E-Platforms.  
-    Liana has extensive experience in various projects such as  
-    -Manusajyan Business & Law Firm Founder, CEO, Licensed Advocate in International law,Business/IT/IP/Tech law   
-    -Persona Business Academy, Co- Founder, Lawyer, Business Law & ADR trainer   
-    - European University in Armenia, Business Law trainer Have a Leadership Certificate from School for Young Leaders, IVLP /USG/ Alumni  
-    Along with work, he also teaches in the academy both online and offline platforms and has more than 40+ successfully graduated students`,
-  },
-];
-
-export const teachersData: MemberType[] = [
-  {
-    id: 2,
-    firstName: 'Liana',
-    avatarSrc: '/images/public_available/lian_manusajyan.webp',
-    lastName: 'Manusajyan',
-    enrolledStudents: 45,
-    graduatedStudents: 43,
-    position: 'Business Law Specialist',
-    founder: `, Co-founder`,
-    linkedinAccount: 'https://www.linkedin.com/in/liana-manusajyan-it-tech-lawyer-bb617b13b/',
-    biography: `Liana Manusajyan is a Co-Founder & Head of Legal & Branding Department at PBA, Owner of Manusajyan Business & Law firm, Entrepreneur and Licensed Attorney having in portfolio more than 9 years of experience as Business/IT/IP/Tech Lawyer in doing legal consultations, court representations, document making, contracts, NDAs, negotiations, ADR /alternative disputeresolution/ working for many Armenian and foreign companies.   
-    She has a large experience in leading teams, using E-Platforms.  
-    Liana has extensive experience in various projects such as  
-    -Manusajyan Business & Law Firm Founder, CEO, Licensed Advocate in International law,Business/IT/IP/Tech law   
-    -Persona Business Academy, Co- Founder, Lawyer, Business Law & ADR trainer   
-    - European University in Armenia, Business Law trainer Have a Leadership Certificate from School for Young Leaders, IVLP /USG/ Alumni  
-    Along with work, he also teaches in the academy both online and offline platforms and has more than 40+ successfully graduated students`,
+    lastName: 'Manukyan',
+    position: 'SMM/DM Specialist',
+    linkedinAccount: 'https://www.linkedin.com/in/anna-mergeryan-11034716a/',
+    biography: `Tigran Manukyan has worked with a number of companies in the fields of Digital Marketing and Social Media Marketing and simultaneously taught at Persona Business Academy. He has taught both offline and online versions. Has extensive experience in various projects such as 
+ 
+      -Profmet LLC/Yerevan Pipe Plant as a chief development officer 
+      - US Armenia TV / Armflix TV Streaming Platform  as a chief executive officer 
+      - KPI Consulting - Marketing Agency as a Head of Marketing 
+      - EcoVille / Solar Energy Company as a PR & Event Manager / Marketing Specialist 
+      - Kamar Business Center as a Sales & Marketing Manager / CRM Manager, Technical Control Manager 
+ 
+Along with work, he also teaches in the academy both online and offline platforms and has more than 150 + successfully graduated students.`,
+    avatarSrc: '/images/persona/manukyan.svg',
+    enrolledStudents: 100,
+    graduatedStudents: 80,
   },
   {
     id: 5,
@@ -117,19 +80,73 @@ Along with work, he also teaches in the academy both online and offline platform
   },
 ];
 
-export const teamData: MemberType[] = [
+export const exLeadershipData: MemberType[] = [
   {
-    id: 8,
-    firstName: 'Narek',
-    lastName: 'Boshyan',
+    id: 1,
+    firstName: 'Tigran',
+    lastName: 'Harutyunyan',
     enrolledStudents: 0,
     graduatedStudents: 0,
-    avatarSrc: '/images/public_available/Narek_team_member_img.webp',
-    position: 'Software Engineer',
-    linkedinAccount: 'https://www.linkedin.com/in/boshyan-narek/',
-    biography: `Narek Boshyan is a seasoned full-stack developer deeply passionate about software engineering. Narek is specializing in React.js, Redux, Next.js, Node.js, Nest.js, and an array of other leading-edge technologies. His experience in the field spans across various roles, including contributions at companies like CodeInno, Iguan Systems, Upwork, and his current engagement at Persona Business Academy and BeeWeb. These experiences have been instrumental in refining his skills and honing his  expertise in crafting robust and innovative digital solutions.  
-    Along with work, he also teaches in the academy both online and offline platforms and has more than 40+ successfully graduated students. `,
+    avatarSrc: '/images/public_available/tigran_harutyunyan.webp',
+    position: `SMM/DM Specialist`,
+    founder: `, Co-founder`,
+    linkedinAccount: 'https://www.linkedin.com/in/tigran-harutyunyan-394baa197/',
+    biography: `Tigran Harutyunyan is an entrepreneur and startuper with many IT projects, also Digital Marketing Specialist working for many Armenian companies. His first goal is to create company or startup which can help people to make easier their life, reaching their needs in the field of technology and innovation.He has a large experience as a Executor Director leading teams, also as a Digital Marketing specialist in the platforms such as Facebook, Instagram, LinkedIn, Google, Youtube. Has extensive experience in various projects such as
+    - Persona Media Group LLC/Co-Founder
+    -NIFNAF Entertainment Media/News company/Co-Founder
+    -Persona Business Academy-pba.am/CEO-Founder
+    -Persona News America-personanews.us/CEO-Founder
+    Along with work, he also teaches in the academy both online and offline platforms and has more than 200 + successfully graduated students`,
   },
+  {
+    id: 2,
+    firstName: 'Liana',
+    avatarSrc: '/images/public_available/lian_manusajyan.webp',
+    lastName: 'Manusajyan',
+    enrolledStudents: 45,
+    graduatedStudents: 43,
+    position: 'Business Law Specialist',
+    founder: `, Co-founder`,
+    linkedinAccount: 'https://www.linkedin.com/in/liana-manusajyan-it-tech-lawyer-bb617b13b/',
+    biography: `Liana Manusajyan is a Co-Founder & Head of Legal & Branding Department at PBA, Owner of Manusajyan Business & Law firm, Entrepreneur and Licensed Attorney having in portfolio more than 9 years of experience as Business/IT/IP/Tech Lawyer in doing legal consultations, court representations, document making, contracts, NDAs, negotiations, ADR /alternative disputeresolution/ working for many Armenian and foreign companies.   
+    She has a large experience in leading teams, using E-Platforms.  
+    Liana has extensive experience in various projects such as  
+    -Manusajyan Business & Law Firm Founder, CEO, Licensed Advocate in International law,Business/IT/IP/Tech law   
+    -Persona Business Academy, Co- Founder, Lawyer, Business Law & ADR trainer   
+    - European University in Armenia, Business Law trainer Have a Leadership Certificate from School for Young Leaders, IVLP /USG/ Alumni  
+    Along with work, he also teaches in the academy both online and offline platforms and has more than 40+ successfully graduated students`,
+  },
+];
+
+export const teachersData: MemberType[] = [
+  ...exLeadershipData,
+  ...homePageTrainersData,
+  {
+    id: 16,
+    firstName: 'Arayik',
+    lastName: 'Paturyan',
+    position: 'Project/product Management Specialist',
+    linkedinAccount: 'https://www.linkedin.com/in/anna-mergeryan-11034716a/',
+    biography: `Arayik Paturyan is a seasoned Project/Product Manager with a rich professional history. Having successfully led projects at tech companies like Sber Health,Mit (Medico - intech),Bitget,Shark Software, Arayik specializes in Agile methodologies and utilizes tools such as Jira,Asana,Trello,Monday.com to streamline project workflows. His strategic mindset and effective communication skills have not only driven successful product launches but also fostered cross-functional collaboration. Arayik's expertise lies in risk management, stakeholder engagement, and fostering innovation. Arayik's expertise teaches students the importance of communication, strategic planning, and utilizing project management tools to drive success.His lessons revolve around effective team management, agile methodologies, and leveraging project management tools for enhanced productivity. Students can gain insights into practical project management, honing skills crucial for success in the dynamic tech industry.`,
+    avatarSrc: '/images/persona/Arayik.webp',
+    enrolledStudents: 0,
+    graduatedStudents: 0,
+  },
+];
+
+export const teamData: MemberType[] = [
+  {
+    id: 11,
+    firstName: 'Hayk',
+    lastName: 'Kyutneryan ',
+    enrolledStudents: 0,
+    graduatedStudents: 0,
+    avatarSrc: '/images/public_available/Hayk_team_member.webp',
+    position: 'Software Engineer',
+    linkedinAccount: 'https://www.linkedin.com/in/kyutneryan/',
+    biography: `Hayk Kyutneryan is a self-taught engineer with 3+ years of experience in developing web and mobile applications using React.js(Next.js), React Native, Node.js Hands on experience in creating components documentation using React.js Exceptional problem-solving, decision-making capabilities and debugging Capable of quickly learning and delivering solutions as an individual and as part of a team Experience in working with remote teams.`,
+  },
+
   {
     id: 9,
     firstName: 'Asya',
@@ -157,15 +174,16 @@ export const teamData: MemberType[] = [
     Currently, Levon is an integral part of the PBA team, contributing his skills to enhance the educational website pba.am. His rapid learning ability and adaptability make him a valuable asset, always ready to tackle new challenges and explore emerging trends in the dynamic realm of development. Levon's unique educational background highlights his commitment to acquiring practical knowledge and showcases his ability to thrive in the ever-evolving field of front-end development.`,
   },
   {
-    id: 11,
-    firstName: 'Hayk',
-    lastName: 'Kyutneryan ',
+    id: 8,
+    firstName: 'Narek',
+    lastName: 'Boshyan',
     enrolledStudents: 0,
     graduatedStudents: 0,
-    avatarSrc: '/images/public_available/Hayk_team_member.webp',
+    avatarSrc: '/images/public_available/Narek_team_member_img.webp',
     position: 'Software Engineer',
-    linkedinAccount: 'https://www.linkedin.com/in/kyutneryan/',
-    biography: `Hayk Kyutneryan is a self-taught engineer with 3+ years of experience in developing web and mobile applications using React.js(Next.js), React Native, Node.js Hands on experience in creating components documentation using React.js Exceptional problem-solving, decision-making capabilities and debugging Capable of quickly learning and delivering solutions as an individual and as part of a team Experience in working with remote teams.`,
+    linkedinAccount: 'https://www.linkedin.com/in/boshyan-narek/',
+    biography: `Narek Boshyan is a seasoned full-stack developer deeply passionate about software engineering. Narek is specializing in React.js, Redux, Next.js, Node.js, Nest.js, and an array of other leading-edge technologies. His experience in the field spans across various roles, including contributions at companies like CodeInno, Iguan Systems, Upwork, and his current engagement at Persona Business Academy and BeeWeb. These experiences have been instrumental in refining his skills and honing his  expertise in crafting robust and innovative digital solutions.  
+    Along with work, he also teaches in the academy both online and offline platforms and has more than 40+ successfully graduated students. `,
   },
   {
     id: 12,
@@ -196,7 +214,7 @@ export const teamData: MemberType[] = [
     firstName: 'Hripsime ',
     lastName: 'Melkonyan ',
     position: 'Business Development Specialist ',
-    linkedinAccount: 'https://www.linkedin.com/in/hripsime-melkonyan-b36a70197/',
+    linkedinAccount: 'https://www.linkedin.com/in/hripsime-melkonyan-b36a70197',
     biography: `Hripsime Melkonyan is a passionate and results-driven Social Media Marketing Manager with over 5 years of experience in the dynamic world of Digital Marketing. Hripsime's career started with cooperation with German Nexgeon GmbH and Partner companies in Armenia. She worked as a Content Marketing Manager and later as a Campaign Manager at "Performance Media Technology", a partner of Nexgeon GmbH. During almost 4 years of work, she became the position of Digital Marketing Team Lead, managing the marketing activities of the entire team. Being the Digital Marketing Team Lead of the German Nexgeon GmbH, she continued the cooperation with the "Internet Leaders" Partner company of Nexgeon GmbH in Armenia, continuing to manage the Content Marketing, Social Media Marketing, and Affiliate Marketing departments. In addition to working experience with 17 European countries, Hripsime has worked with a number of businesses in Armenia as a freelance Social Media Marketing Manager.`,
     enrolledStudents: 0,
     avatarSrc: '/images/public_available/Rippi_team_member.webp',
@@ -212,36 +230,6 @@ export const teamData: MemberType[] = [
     Anna demonstrated exceptional creativity in balancing aesthetics with functionality, resulting in a design that engages and guides learners effectively.  
     As a creative Graphic and UX/UI Designer, Anna thrives on transforming ideas into visually compelling experiences that resonate with audiences. With a keen eye for detail and a deep understanding of user-centric design principles, she specialize in creating intuitive and engaging interfaces that elevate user experiences. With long experience in the industry, Anna has had the privilege of collaborating with diverse clients and teams to deliver impactful design solutions across various platforms. From conceptualization to execution, she approach each project with creativity, empathy, and a focus on achieving measurable results.`,
     avatarSrc: '/images/public_available/Anna_team_member.webp',
-    enrolledStudents: 0,
-    graduatedStudents: 0,
-  },
-  {
-    id: 16,
-    firstName: 'Arayik',
-    lastName: 'Paturyan',
-    position: 'Project/product Management Specialist',
-    linkedinAccount: 'https://www.linkedin.com/in/anna-mergeryan-11034716a/',
-    biography: `Arayik Paturyan is a seasoned Project/Product Manager with a rich professional history. Having successfully led projects at tech companies like Sber Health,Mit (Medico - intech),Bitget,Shark Software, Arayik specializes in Agile methodologies and utilizes tools such as Jira,Asana,Trello,Monday.com to streamline project workflows. His strategic mindset and effective communication skills have not only driven successful product launches but also fostered cross-functional collaboration. Arayik's expertise lies in risk management, stakeholder engagement, and fostering innovation. Arayik's expertise teaches students the importance of communication, strategic planning, and utilizing project management tools to drive success.His lessons revolve around effective team management, agile methodologies, and leveraging project management tools for enhanced productivity. Students can gain insights into practical project management, honing skills crucial for success in the dynamic tech industry.`,
-    avatarSrc: '/images/persona/Arayik.webp',
-    enrolledStudents: 0,
-    graduatedStudents: 0,
-  },
-  {
-    id: 17,
-    firstName: 'Tigran',
-    lastName: 'Manukyan',
-    position: 'SMM/DM Specialist',
-    linkedinAccount: 'https://www.linkedin.com/in/anna-mergeryan-11034716a/',
-    biography: `Tigran Manukyan has worked with a number of companies in the fields of Digital Marketing and Social Media Marketing and simultaneously taught at Persona Business Academy. He has taught both offline and online versions. Has extensive experience in various projects such as 
- 
-      -Profmet LLC/Yerevan Pipe Plant as a chief development officer 
-      - US Armenia TV / Armflix TV Streaming Platform  as a chief executive officer 
-      - KPI Consulting - Marketing Agency as a Head of Marketing 
-      - EcoVille / Solar Energy Company as a PR & Event Manager / Marketing Specialist 
-      - Kamar Business Center as a Sales & Marketing Manager / CRM Manager, Technical Control Manager 
- 
-Along with work, he also teaches in the academy both online and offline platforms and has more than 150 + successfully graduated students.`,
-    avatarSrc: '/images/persona/Arayik.webp',
     enrolledStudents: 0,
     graduatedStudents: 0,
   },

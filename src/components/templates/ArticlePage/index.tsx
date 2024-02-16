@@ -1,23 +1,66 @@
 'use client';
-
-import React, { FC } from 'react';
-import { Container } from '@chakra-ui/react';
+import React, { FC, useCallback, useState } from 'react';
+import { Box, Container, Flex, Heading, Input, InputGroup } from '@chakra-ui/react';
+import { classValidatorResolver } from '@hookform/resolvers/class-validator';
+import { useMutation } from '@tanstack/react-query';
 import dynamic from 'next/dynamic';
+import { Controller, useForm } from 'react-hook-form';
+import { ArticleService } from '@/api/services/ArticleService';
+import { Button, Loading } from '@/components/atoms';
+import SuccessMessageToast from '@/components/atoms/SuccessMessageToast';
+import { segoe } from '@/utils/constants/fonts';
+import { ArticleApplicantFormValidation } from '@/utils/validation/article';
 
 const WelcomeSection = dynamic(() => import('./WelcomeSection'));
 const LogInSection = dynamic(() => import('./LogInSection'));
-// const AboutAuthor = dynamic(() => import('./AboutAuthor'));
-// const ReadArticles = dynamic(() => import('./ReadArticles'));
+const AboutAuthor = dynamic(() => import('./AboutAuthor'));
+const ReadArticles = dynamic(() => import('./ReadArticles'));
 
 type ArticlePageProps = {
   id: number;
   title: string;
   description: string;
 };
+const resolver = classValidatorResolver(ArticleApplicantFormValidation);
 
-const ArticlePage: FC<ArticlePageProps> = ({ title, description }) => {
+const ArticlePage: FC<ArticlePageProps> = ({ id, title, description }) => {
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { isValid },
+  } = useForm<ArticleApplicantFormValidation>({
+    defaultValues: { email: '' },
+    resolver,
+  });
+
+  const { mutate, isLoading } = useMutation<
+    boolean,
+    { message: boolean },
+    ArticleApplicantFormValidation
+  >(ArticleService.createArticleApplicant, {
+    onSuccess: () => {
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
+      reset();
+    },
+  });
+
+  const submitHandler = useCallback(
+    (data: ArticleApplicantFormValidation) => {
+      mutate(data);
+    },
+    [mutate],
+  );
+
   return (
     <>
+      {isLoading && <Loading />}
+
       <WelcomeSection title={title} />
 
       <Container
@@ -28,11 +71,11 @@ const ArticlePage: FC<ArticlePageProps> = ({ title, description }) => {
         gap={{ base: '36px', md: '80px', xl: '148px' }}>
         <LogInSection description={description} />
 
-        {/* <AboutAuthor /> */}
+        <AboutAuthor />
 
-        {/* <ReadArticles /> */}
+        <ReadArticles currentArticleId={id} />
 
-        {/* <Flex
+        <Flex
           as="section"
           flexDirection="column"
           maxW="506px"
@@ -59,16 +102,26 @@ const ArticlePage: FC<ArticlePageProps> = ({ title, description }) => {
             padding="4px 4px 4px 16px"
             borderRadius="12px"
             outline="none">
-            <Input
-              height="100%"
-              border="none"
-              outline="none"
-              _focusVisible={{ border: 'none' }}
-              lineHeight="normal"
-              fontSize="16px"
-              fontWeight={400}
-              placeholder="Your Email"
-              _placeholder={{ color: '#DEDEDE' }}
+            <Controller
+              name="email"
+              control={control}
+              rules={{ required: 'This field is required' }}
+              render={({ field: { onChange, value } }) => (
+                <Input
+                  height="100%"
+                  name="email"
+                  border="none"
+                  outline="none"
+                  _focusVisible={{ border: 'none' }}
+                  lineHeight="normal"
+                  fontSize="16px"
+                  fontWeight={400}
+                  placeholder="Your Email"
+                  _placeholder={{ color: '#DEDEDE' }}
+                  onChange={onChange}
+                  value={value}
+                />
+              )}
             />
 
             <Button
@@ -76,11 +129,18 @@ const ArticlePage: FC<ArticlePageProps> = ({ title, description }) => {
               p="12px 24px"
               lineHeight="14px"
               fontSize="14px"
-              fontWeight={600}>
+              fontWeight={600}
+              isDisabled={!isValid}
+              onClick={handleSubmit(submitHandler)}>
               Subscribe
             </Button>
           </InputGroup>
-        </Flex> */}
+          {showSuccessMessage && (
+            <Box my={8}>
+              <SuccessMessageToast />
+            </Box>
+          )}
+        </Flex>
       </Container>
     </>
   );

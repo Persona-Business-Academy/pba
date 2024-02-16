@@ -1,11 +1,14 @@
 import React, { FC } from 'react';
-import { Box, Flex, Heading, ListItem, UnorderedList } from '@chakra-ui/react';
-import Image from 'next/image';
+import { Box, Flex, Heading } from '@chakra-ui/react';
+import { ArticleItem } from '@/components/molecules';
+import { articlesData } from '@/utils/constants/articles';
 import { segoe } from '@/utils/constants/fonts';
 
-type ReadArticlesProps = {};
+type ReadArticlesProps = {
+  currentArticleId: number;
+};
 
-const ReadArticles: FC<ReadArticlesProps> = () => {
+const ReadArticles: FC<ReadArticlesProps> = ({ currentArticleId }) => {
   return (
     <Box as="section" maxWidth="1320px" margin="0 auto">
       <Heading
@@ -25,140 +28,11 @@ const ReadArticles: FC<ReadArticlesProps> = () => {
         gap={{ base: '16px', md: '20px' }}
         justifyContent="center"
         flexDirection={{ base: 'column', md: 'row' }}>
-        <Box maxW="387px" border="1px solid #F3F4F6" borderRadius="8px" padding="24px">
-          <UnorderedList margin="0" listStyleType="none" borderBottom="1px solid #858585" pb="32px">
-            <ListItem
-              fontWeight={700}
-              fontSize="16px"
-              lineHeight="normal"
-              fontStyle="normal"
-              mb="8px"
-              color="#222222"
-              _hover={{ color: '#3CB3E5' }}>
-              How to Build a Design System if your...
-            </ListItem>
-            <ListItem
-              fontSize="16px"
-              lineHeight="normal"
-              fontStyle="normal"
-              fontWeight="400"
-              color="#5B5B5B">
-              Its always hard to be the only person in a company who is responsible for product
-              design. Your day can be insanely...
-            </ListItem>
-          </UnorderedList>
-
-          <UnorderedList
-            margin="16px 0 0 0"
-            listStyleType="none"
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            lineHeight="normal"
-            fontStyle="normal"
-            fontWeight={400}
-            color="#5B5B5B"
-            fontSize="16px">
-            <ListItem>March 01, 2021</ListItem>
-
-            <ListItem display="flex" alignItems="center" gap="8px">
-              <span>
-                <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
-              </span>
-              440
-            </ListItem>
-          </UnorderedList>
-        </Box>
-
-        <Box maxW="387px" border="1px solid #F3F4F6" borderRadius="8px" padding="24px">
-          <UnorderedList margin="0" listStyleType="none" borderBottom="1px solid #858585" pb="32px">
-            <ListItem
-              fontWeight={700}
-              fontSize="16px"
-              lineHeight="normal"
-              fontStyle="normal"
-              mb="8px"
-              color="#222222"
-              _hover={{ color: '#3CB3E5' }}>
-              How to Build a Design System if your...
-            </ListItem>
-            <ListItem
-              fontSize="16px"
-              lineHeight="normal"
-              fontStyle="normal"
-              fontWeight="400"
-              color="#5B5B5B">
-              Its always hard to be the only person in a company who is responsible for product
-              design. Your day can be insanely...
-            </ListItem>
-          </UnorderedList>
-
-          <UnorderedList
-            margin="16px 0 0 0"
-            listStyleType="none"
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            lineHeight="normal"
-            fontStyle="normal"
-            fontWeight={400}
-            color="#5B5B5B"
-            fontSize="16px">
-            <ListItem>March 01, 2021</ListItem>
-
-            <ListItem display="flex" alignItems="center" gap="8px">
-              <span>
-                <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
-              </span>
-              440
-            </ListItem>
-          </UnorderedList>
-        </Box>
-
-        <Box maxW="387px" border="1px solid #F3F4F6" borderRadius="8px" padding="24px">
-          <UnorderedList margin="0" listStyleType="none" borderBottom="1px solid #858585" pb="32px">
-            <ListItem
-              fontWeight={700}
-              fontSize="16px"
-              lineHeight="normal"
-              fontStyle="normal"
-              mb="8px"
-              color="#222222"
-              _hover={{ color: '#3CB3E5' }}>
-              How to Build a Design System if your...
-            </ListItem>
-            <ListItem
-              fontSize="16px"
-              lineHeight="normal"
-              fontStyle="normal"
-              fontWeight="400"
-              color="#5B5B5B">
-              Its always hard to be the only person in a company who is responsible for product
-              design. Your day can be insanely...
-            </ListItem>
-          </UnorderedList>
-
-          <UnorderedList
-            margin="16px 0 0 0"
-            listStyleType="none"
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            lineHeight="normal"
-            fontStyle="normal"
-            fontWeight={400}
-            color="#5B5B5B"
-            fontSize="16px">
-            <ListItem>March 01, 2021</ListItem>
-
-            <ListItem display="flex" alignItems="center" gap="8px">
-              <span>
-                <Image src="/icons/eye_icon.svg" alt="Eye" width={16} height={11.3} />
-              </span>
-              440
-            </ListItem>
-          </UnorderedList>
-        </Box>
+        {articlesData
+          .filter(article => article.id !== currentArticleId)
+          .map((article, i) => (
+            <ArticleItem {...article} key={i} />
+          ))}
       </Flex>
     </Box>
   );

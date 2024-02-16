@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { teachersData } from '@/types/member';
+import { homePageTrainersData } from '@/types/member';
 import { LEADERSHIP_ROUTE } from '@/utils/constants/routes';
 const TrainerCard = dynamic(() => import('@/components/molecules/TrainerCard'));
 
@@ -26,7 +26,7 @@ const Trainers: FC<TrainersProps> = () => {
         gap="20px"
         flexWrap="wrap"
         justifyContent="center">
-        {teachersData.map(trainer => (
+        {homePageTrainersData.map(trainer => (
           <TrainerCard key={trainer.id} trainer={trainer} />
         ))}
       </Box>

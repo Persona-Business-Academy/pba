@@ -11,6 +11,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
+  Select,
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -187,8 +188,24 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
                   </ChakraButton>
                 </Flex>
               </Box>
+              <Flex justifyContent="flex-end" gap="8px">
+                <Box width="187px" height="40px">
+                  <Select placeholder="Skill level" py="10.5px" px="16px">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                  </Select>
+                </Box>
+                <Box width="187px" height="40px">
+                  <Select placeholder="Duration" py="10.5px" px="16px">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                  </Select>
+                </Box>
+              </Flex>
+
               <Flex position="relative" alignItems="center" gap={16}>
-                <Text as="span">Filter By:</Text>
                 <Flex flexWrap="wrap" gap="10px">
                   {courseNames.map((course: Course) => (
                     <RemovableButton

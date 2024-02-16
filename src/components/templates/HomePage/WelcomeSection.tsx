@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { Box, Button, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import CourseTopicBlock from '@/components/atoms/CourseTopicBlock';
+import { courseTopicBlock } from '@/utils/constants/course-topic-block';
 import {
   CONTACT_US_ROUTE,
   LEADERSHIP_ROUTE,
@@ -328,7 +330,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
             </Heading>
           </Box>
 
-          {/* <Flex>
+          <Flex>
             <Box
               width="100%"
               display="flex"
@@ -344,7 +346,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
                 />
               ))}
             </Box>
-          </Flex> */}
+          </Flex>
         </Box>
       </Container>
     </Box>

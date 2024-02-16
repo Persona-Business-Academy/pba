@@ -9,7 +9,18 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { Avatar, Box, Button as ChakraButton, Flex, Input, Text, useToast } from '@chakra-ui/react';
+import {
+  Avatar,
+  Box,
+  Button as ChakraButton,
+  Flex,
+  Input,
+  PinInput,
+  PinInputField,
+  Text,
+  theme,
+  useToast,
+} from '@chakra-ui/react';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
@@ -47,7 +58,7 @@ const Profile: FC<Props> = ({ sessionUser }) => {
       email: sessionUser?.email || '',
       state: sessionUser?.state || '',
       city: sessionUser?.city || '',
-      country: sessionUser?.country || '',
+      country: sessionUser?.country || 'Armenia',
       phone: sessionUser?.phone || '',
       address: sessionUser?.address || '',
       avatar: sessionUser?.avatar || localImage?.localUrl || '',
@@ -316,16 +327,6 @@ const Profile: FC<Props> = ({ sessionUser }) => {
                 />
               )}
             />
-
-            <Controller
-              name="phone"
-              control={control}
-              render={({ field: { onChange, value } }) => (
-                <PhoneNumberInput onChange={onChange} value={value} />
-              )}
-            />
-          </Flex>
-          <Flex gap="24px">
             <Controller
               name="address"
               control={control}
@@ -343,6 +344,36 @@ const Profile: FC<Props> = ({ sessionUser }) => {
                 />
               )}
             />
+          </Flex>
+          <Flex gap="24px">
+            <Box flex={1}>
+              <Controller
+                name="phone"
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <PhoneNumberInput onChange={onChange} value={value} />
+                )}
+              />
+            </Box>
+            <Flex flex={1} alignItems="flex-end">
+              <Button width="50%">Send Verification Code</Button>
+            </Flex>
+          </Flex>
+          <Flex>
+            <PinInput
+              type="number"
+              otp
+              mask={false}
+              placeholder=""
+              value=""
+              onChange={() => {}}
+              focusBorderColor={theme.colors.blue[500]}>
+              <PinInputField />
+              <PinInputField />
+              <PinInputField />
+              <PinInputField />
+            </PinInput>
+            <Button>Verify</Button>
           </Flex>
           <Flex gap="24px" flexDirection={{ base: 'column', lg: 'row' }}>
             <Controller
@@ -391,6 +422,7 @@ const Profile: FC<Props> = ({ sessionUser }) => {
                 />
               )}
             />
+            F
           </Flex>
           <Flex alignItems="flex-end" justifyContent="flex-end">
             <Button

@@ -794,20 +794,39 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                 </Accordion>
               </Box>
 
-              <Box>
-                <Image
-                  src={generateAWSUrl(offlineCourse.graduationPhoto)}
-                  alt="Students"
-                  width={543}
-                  height={374}
-                  style={{
-                    width: 543,
-                    height: 374,
-                    objectFit: 'cover',
-                    borderRadius: '16px',
-                  }}
-                />
+              <Box maxW="590px">
+                <Box width="100%">
+                  <Image
+                    src={generateAWSUrl(offlineCourse.graduationPhoto)}
+                    alt="Students"
+                    width={543}
+                    height={374}
+                    style={{
+                      width: 543,
+                      height: 374,
+                      objectFit: 'cover',
+                      borderRadius: '16px',
+                    }}
+                  />
+                </Box>
               </Box>
+
+              {/* <Box maxW="590px">
+                <Box width="100%">
+                  <Image
+                    src={generateAWSUrl(offlineCourse.coverPhoto)}
+                    alt="Graphic Design"
+                    width={590}
+                    height={334}
+                    style={{
+                      borderRadius: '12px',
+                      height: '334px',
+                      width: '590px',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </Box>
+              </Box> */}
             </Flex>
           </Box>
 
