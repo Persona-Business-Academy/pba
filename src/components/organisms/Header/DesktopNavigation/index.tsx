@@ -113,7 +113,12 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                           width="154px"
                           flexDirection="column"
                           onClick={onClose}
-                          gap="16px">
+                          gap="16px"
+                          _hover={{
+                            '& span': {
+                              color: '#3CB4E7',
+                            },
+                          }}>
                           <Image
                             src={generateAWSUrl(coverPhoto)}
                             alt={title}
@@ -127,6 +132,7 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                             }}
                           />
                           <Text
+                            as="span"
                             fontSize={16}
                             fontWeight={400}
                             textAlign="center"
@@ -134,9 +140,9 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                             display="flex"
                             alignItems="center"
                             color="#222"
+                            transition="all 0.3s"
                             _hover={{
-                              textDecoration: 'none',
-                              color: '#3CB4E7',
+                              color: 'inherit',
                             }}>
                             {title}
                           </Text>

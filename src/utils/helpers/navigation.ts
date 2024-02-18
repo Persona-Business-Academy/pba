@@ -63,8 +63,8 @@ export const getNavigationItems = (
       },
       {
         id: 3,
-        label: 'Robotics',
-        subLabels: [],
+        label: 'Others',
+        subLabels: forKids[Topic.OTHER],
       },
     ],
     featuredItems: Object.values(forKids).flat(),

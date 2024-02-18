@@ -3,12 +3,13 @@ import { useCallback, useMemo, useState } from 'react';
 import { Flex, Text, VStack } from '@chakra-ui/react';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { useMutation } from '@tanstack/react-query';
+import Link from 'next/link';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AuthService } from '@/api/services/AuthService';
 import { Button, FormInput, Loading } from '@/components/atoms';
 import { AuthBox } from '@/components/molecules';
 import { segoe } from '@/utils/constants/fonts';
-import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from '@/utils/constants/routes';
+import { SIGN_IN_ROUTE, SIGN_UP_ROUTE, TERMS_AND_CONDITIONS_ROUTE } from '@/utils/constants/routes';
 import { ResendEmailValidation, SignUpValidation } from '@/utils/validation';
 import CheckIcon from '/public/icons/check.svg';
 
@@ -167,6 +168,8 @@ export default function SignUpPage() {
                 fontStyle="normal"
                 fontWeight={400}
                 lineHeight="20px"
+                as={Link}
+                href={`${TERMS_AND_CONDITIONS_ROUTE}?selected=12`}
                 marginTop="-8px">
                 By clicking &quot;Sign up,&quot; you agree to our Terms of Use and our Privacy
                 Policy.

@@ -8,7 +8,6 @@ import {
   Box,
   Container,
   Flex,
-  Grid,
   Heading,
   ListItem,
   Text,
@@ -100,6 +99,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                   base: '34.13px',
                   lg: '53.64px',
                 }}
+                textAlign="start"
                 fontSize={{ base: '28px', lg: '44px' }}>
                 {offlineCourse.title}
               </Heading>
@@ -491,16 +491,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
               Course instructors
             </Heading>
 
-            <Grid
-              gridTemplateColumns={{
-                base: '1fr',
-                md: '1fr 1fr',
-                lg: '1fr 1fr 1fr',
-              }}
-              margin="0 auto"
-              gap="20px"
-              justifyContent="center"
-              justifyItems="center">
+            <Flex margin="0 auto" gap="20px" justifyContent="center" justifyItems="center">
               {offlineCourse.courseInstructors.map((instructor, index: number) => (
                 <Box key={index} flexBasis="590px">
                   <Flex
@@ -593,7 +584,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                   </Flex>
                 </Box>
               ))}
-            </Grid>
+            </Flex>
           </Box>
 
           <Slide
