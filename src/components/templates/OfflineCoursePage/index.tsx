@@ -99,7 +99,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                   base: '34.13px',
                   lg: '53.64px',
                 }}
-                textAlign="start"
+                textAlign="center"
                 fontSize={{ base: '28px', lg: '44px' }}>
                 {offlineCourse.title}
               </Heading>
