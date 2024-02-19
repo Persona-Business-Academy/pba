@@ -191,7 +191,7 @@ const KidsCourses = ({ searchParams }: Props) => {
         <Flex as="section" flexDirection="column" alignItems={{ base: 'center', md: 'normal' }}>
           <Heading
             className={segoe.className}
-            textAlign={{ base: 'center', md: 'left' }}
+            textAlign={{ base: 'center' }}
             fontSize={{ base: '28px', md: '32px' }}
             fontStyle="normal"
             fontWeight={700}

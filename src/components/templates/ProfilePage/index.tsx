@@ -213,54 +213,62 @@ const Profile: FC<Props> = ({ sessionUser }) => {
               m={{ base: '0 0 8px 0', sm: '0 0 16px 0' }}>
               {`${sessionUser?.firstName || ''} ${sessionUser?.lastName || ''}`}
             </Text>
-            <ChakraButton
-              height="22px"
+            <Box
               cursor="pointer"
-              color="#1F1646"
-              backgroundColor="#fff"
-              _hover={{
-                color: '#1F1646',
-                backgroundColor: '#fff',
-              }}
               position="relative"
-              _focus={{
-                color: '#1F1646',
-                backgroundColor: '#fff',
-              }}>
-              <Controller
-                name="avatar"
-                control={control}
-                rules={{ required: 'This field is required' }}
-                render={({ field: { onChange, name } }) => (
-                  <Input
-                    as="input"
-                    name={name}
-                    type="file"
-                    position="absolute"
-                    top={0}
-                    left={0}
-                    opacity="0"
-                    onChange={e => {
-                      onFileSelect(e);
-                      onChange(e);
-                    }}
-                    right={0}
-                    bottom={0}
-                    color="#1F1646"
-                    backgroundColor="#fff"
-                    _hover={{
-                      color: '#1F1646',
-                      backgroundColor: '#fff',
-                    }}
-                    _focus={{
-                      color: '#1F1646',
-                      backgroundColor: '#fff',
-                    }}
-                  />
-                )}
-              />
-              Change Avatar
-            </ChakraButton>
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              height="22px">
+              <ChakraButton
+                height="100%"
+                cursor="pointer"
+                color="#1F1646"
+                backgroundColor="#fff"
+                _hover={{
+                  color: '#1F1646',
+                  backgroundColor: '#fff',
+                }}
+                _focus={{
+                  color: '#1F1646',
+                  backgroundColor: '#fff',
+                }}>
+                <Controller
+                  name="avatar"
+                  control={control}
+                  rules={{ required: 'This field is required' }}
+                  render={({ field: { onChange, name } }) => (
+                    <Input
+                      as="input"
+                      name={name}
+                      type="file"
+                      width="100%"
+                      position="absolute"
+                      left={0}
+                      right={0}
+                      bottom={0}
+                      opacity={0}
+                      cursor="pointer"
+                      onChange={e => {
+                        onFileSelect(e);
+                        onChange(e);
+                      }}
+                      color="#1F1646"
+                      backgroundColor="#fff"
+                      _hover={{
+                        color: '#1F1646',
+                        backgroundColor: '#fff',
+                      }}
+                      _focus={{
+                        color: '#1F1646',
+                        backgroundColor: '#fff',
+                      }}
+                    />
+                  )}
+                />
+                Change Avatar
+              </ChakraButton>
+            </Box>
           </Box>
         </Flex>
         <Flex paddingTop={{ base: '36px', md: '40px' }} flexDirection="column" gap={24}>

@@ -11,6 +11,7 @@ interface DesktopSubNav {
   id: number;
   setIsChevronIconVisible: Dispatch<SetStateAction<null | number>>;
   mainCourseLink: string;
+  onClose: () => void;
 }
 const DesktopSubNav: FC<DesktopSubNav> = ({
   label,
@@ -19,6 +20,7 @@ const DesktopSubNav: FC<DesktopSubNav> = ({
   setIsChevronIconVisible,
   id,
   mainCourseLink,
+  onClose,
 }) => {
   return (
     <Flex width="183px">
@@ -61,6 +63,7 @@ const DesktopSubNav: FC<DesktopSubNav> = ({
               flexDirection="column"
               width="100%"
               key={index}
+              onClick={onClose}
               rounded="md">
               <Text
                 lineHeight="normal"

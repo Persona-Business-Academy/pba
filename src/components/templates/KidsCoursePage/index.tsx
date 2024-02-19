@@ -99,44 +99,6 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
                 fontSize={{ base: '28px', lg: '44px' }}>
                 {kidsCourse.title}
               </Heading>
-              <Flex justifyContent="center" gap="13px" mb="16px">
-                <Flex alignItems="center" gap="6px">
-                  <Image
-                    src="/icons/hollow_star.svg"
-                    alt="Rating Star"
-                    width={16.5}
-                    height={15.8}
-                  />
-                  <Image
-                    src="/icons/hollow_star.svg"
-                    alt="Rating Star"
-                    width={16.5}
-                    height={15.8}
-                  />
-                  <Image
-                    src="/icons/hollow_star.svg"
-                    alt="Rating Star"
-                    width={16.5}
-                    height={15.8}
-                  />
-                  <Image
-                    src="/icons/hollow_star.svg"
-                    alt="Rating Star"
-                    width={16.5}
-                    height={15.8}
-                  />
-                  <Image
-                    src="/icons/hollow_star.svg"
-                    alt="Rating Star"
-                    width={16.5}
-                    height={15.8}
-                  />
-                </Flex>
-
-                <Text as="span" margin="0" lineHeight="18.75px" fontSize="16px">
-                  {kidsCourse.rating}
-                </Text>
-              </Flex>
 
               <Box lineHeight="18.75px" fontSize="16px" mb="24px">
                 <Text as="p" margin="0" lineHeight="18.75px" fontSize="16px">
@@ -508,7 +470,7 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
             </Flex>
           </Box>
           <Box marginBottom="148px">
-            <Flex justifyContent="center" mb="40px" flexWrap="wrap">
+            <Flex justifyContent="center" mb="40px" flexWrap="wrap" gap="8px">
               <Text
                 textAlign="center"
                 as="span"

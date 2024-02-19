@@ -32,7 +32,7 @@ const ReviewSection: FC<ReviewSectionProps> = () => {
       studentAvatarSrc: '/images/public_available/armine_hakobyan_comment.webp',
       firstName: 'Armine',
       lastName: 'Hakobyan',
-      profession: 'HR',
+      profession: 'HR Management',
     },
   ];
   return (

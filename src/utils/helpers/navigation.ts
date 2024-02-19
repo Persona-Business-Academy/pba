@@ -45,7 +45,7 @@ export const getNavigationItems = (
         subLabels: courseData[Topic.OTHER],
       },
     ],
-    featuredItems: Object.values(courseData).flat(),
+    featuredItems: Object.values(courseData).flat().slice(0, 8),
   },
   {
     label: 'For Kids',
@@ -67,7 +67,7 @@ export const getNavigationItems = (
         subLabels: forKids[Topic.OTHER],
       },
     ],
-    featuredItems: Object.values(forKids).flat(),
+    featuredItems: Object.values(forKids).flat().slice(0, 8),
   },
   {
     label: 'Articles',

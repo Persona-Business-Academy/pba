@@ -1,5 +1,4 @@
 import CoursesIcon from '/public/icons/courses.svg';
-import HelpIcon from '/public/icons/help.svg';
 import LogoutIcon from '/public/icons/log-out.svg';
 import ProfileIcon from '/public/icons/profile.svg';
 import PaymentsIcon from '/public/icons/payments_icon.svg';
@@ -47,7 +46,7 @@ export const linkItems: Array<LinkItemProps> = [
   // { id: 5, name: 'Wishlist', icon: WishlistIcon, href: WISHLIST_ROUTE },
   // { id: 6, name: 'PBA credit', icon: PbaCreditIcon, href: PBA_CREDIT_ROUTE },
   { id: 7, name: 'Payments', icon: PaymentsIcon, href: PAYMENTS_ROUTE },
-  { id: 8, name: 'Help', icon: HelpIcon, href: HELP_ROUTE },
+  // { id: 8, name: 'Help', icon: HelpIcon, href: HELP_ROUTE },
   { id: 9, name: 'Log out', icon: LogoutIcon },
 ];
 

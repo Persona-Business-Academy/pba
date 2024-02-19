@@ -51,7 +51,9 @@ const SearchInput = () => {
           value={search}
           onChange={handleChange}
         />
-        <InputRightElement width="45px">{<InputSearchIcon />}</InputRightElement>
+        <InputRightElement width="45px" cursor="pointer">
+          <InputSearchIcon />
+        </InputRightElement>
       </InputGroup>
     </Flex>
   );

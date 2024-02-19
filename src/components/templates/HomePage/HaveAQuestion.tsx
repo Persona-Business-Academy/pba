@@ -16,7 +16,7 @@ const HaveAQuestion = () => {
       color="#fff">
       <Box maxW="794px" margin="0 auto" textAlign="center">
         <Heading as="h2" margin="0" pb="16px" fontSize="28px" lineHeight="34.13px">
-          Is this most suitable for you??
+          Is this most suitable for you?
         </Heading>
         <Text as="p" margin="0" pb="24px">
           Embrace the journey of learning with us! Register now to embark on a transformative

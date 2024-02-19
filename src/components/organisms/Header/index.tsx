@@ -136,7 +136,7 @@ const Header: FC<HeaderProps> = ({ user, forIndividuals, forKids }) => {
                 bg="#F3F4F6"
                 color="#C0C0C0"
                 cursor="pointer"
-                size="sm"
+                size="xs"
                 display="flex"
                 justifyContent="center"
                 alignItems="center"

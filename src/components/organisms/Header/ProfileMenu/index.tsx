@@ -29,6 +29,8 @@ const ProfileMenu: FC<Props> = ({ user }) => {
           name={`${user?.firstName} ${user?.lastName}`}
           src={user?.avatar ? generateAWSUrl(user.avatar) : ''}
           bg="#F3F4F6"
+          size="sm"
+          fontSize="12px"
           color="#C0C0C0"
           cursor="pointer"
         />

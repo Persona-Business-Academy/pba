@@ -93,6 +93,7 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                         isChevronIconVisible={isChevronIconVisible}
                         mainCourseLink={navItem.href || ''}
                         setIsChevronIconVisible={setIsChevronIconVisible}
+                        onClose={() => setSelectedItem(null)}
                       />
                     ))}
                   </Flex>
@@ -112,7 +113,7 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                           height="164px"
                           width="154px"
                           flexDirection="column"
-                          onClick={onClose}
+                          onClick={() => setSelectedItem(null)}
                           gap="16px"
                           _hover={{
                             '& span': {
