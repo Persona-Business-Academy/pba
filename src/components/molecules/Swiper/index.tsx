@@ -44,7 +44,7 @@ const Slide: FC<SwiperProps> = ({ offlineCourseVideo, courseName }) => {
             xl: '37.24px',
           }}
           fontSize={{ base: '24px', lg: '32px', xl: '32px' }}>
-          how we pass PBA {courseName} courses
+          How We Pass PBA {courseName} course
         </Heading>
       </Box>
 

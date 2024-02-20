@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 export const metadata = {
-  title: 'Persona Business Academy',
+  title: 'PBA - First Professional Armenian Education Platform',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

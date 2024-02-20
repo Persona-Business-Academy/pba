@@ -16,10 +16,6 @@ const OurHistorySection: FC<OurHistorySectionProps> = () => {
         <Heading maxW="804px" margin="0 auto" fontSize="32px" lineHeight="42.56px" fontWeight="700">
           Our History
         </Heading>
-        <Text maxW="804px" fontSize="16px" fontWeight="400" lineHeight="21.28px" margin="0 auto">
-          Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,
-          graphic or web designs. The passage is attributed to an unknown typesetter in the `
-        </Text>
         <Text
           display={{ base: 'none', xl: 'block' }}
           as="span"

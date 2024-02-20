@@ -71,7 +71,16 @@ const Contact = () => {
             lineHeight="53.64px">
             How can we help?
           </Heading>
-          <Text as="p" margin="0" fontWeight={400} lineHeight="26.6px" fontSize="20px">
+          <Text
+            as="p"
+            margin="0"
+            fontWeight={400}
+            lineHeight="26.6px"
+            fontSize="20px"
+            px={{
+              base: '10px',
+              sm: '0',
+            }}>
             We're here to assist you. Whether you have a question, feedback, or need support, we'd
             love to hear from you.
           </Text>

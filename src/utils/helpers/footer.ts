@@ -50,10 +50,12 @@ export const footerData = (
   },
   {
     rowTitle: 'Offline Courses',
-    subNavigation: offlineCourseListNames.map(course => ({
-      name: course.title,
-      href: `${OFFLINE_COURSES_ROUTE}/${course.title.replaceAll(' ', '-')}/${course.id}`,
-    })),
+    subNavigation: offlineCourseListNames
+      .filter(course => [7, 11, 9, 8, 6].includes(course.id))
+      .map(course => ({
+        name: course.title,
+        href: `${OFFLINE_COURSES_ROUTE}/${course.title.replaceAll(' ', '-')}/${course.id}`,
+      })),
   },
   {
     rowTitle: 'For Kids',

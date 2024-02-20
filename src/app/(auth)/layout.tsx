@@ -3,10 +3,6 @@ import { AuthWrapper } from '@/components/organisms';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { serverSession } from '@/pages/api/auth/[...nextauth]';
 
-export const metadata = {
-  title: 'PBA Authentication',
-};
-
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {
   const session = await serverSession();
   if (session) return redirect('/');

@@ -85,7 +85,8 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                     display="flex"
                     gap="14px"
                     flexDirection="column"
-                    position="relative">
+                    position="relative"
+                    overflowY="auto">
                     {navItem.children.map((child: SubLabels, index: number) => (
                       <DesktopSubNav
                         key={index}

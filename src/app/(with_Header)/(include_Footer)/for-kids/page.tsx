@@ -160,7 +160,8 @@ const KidsCourses = ({ searchParams }: Props) => {
               fontStyle="normal"
               fontWeight={400}
               lineHeight="normal"
-              color="#000">
+              color="#000"
+              pl="20px">
               <ListItem mb={{ base: '8px', md: '16px' }}>
                 Learning IT professions equips your child with skills that are in high demand and
                 likely to be critical in the future job market. In a rapidly advancing technological
@@ -347,7 +348,7 @@ const KidsCourses = ({ searchParams }: Props) => {
           <Heading
             className={segoe.className}
             textAlign={{ base: 'center', md: 'left' }}
-            mb={{ base: '16px', md: '40px' }}
+            mb={{ base: '28px', md: '40px' }}
             lineHeight="36px"
             fontWeight={700}
             fontSize="28px"

@@ -168,11 +168,16 @@ export default function SignUpPage() {
                 fontStyle="normal"
                 fontWeight={400}
                 lineHeight="20px"
-                as={Link}
-                href={`${TERMS_AND_CONDITIONS_ROUTE}?selected=12`}
                 marginTop="-8px">
-                By clicking &quot;Sign up,&quot; you agree to our Terms of Use and our Privacy
-                Policy.
+                By clicking &quot;Sign up,&quot; you agree to our{' '}
+                <Text as={Link} href={TERMS_AND_CONDITIONS_ROUTE}>
+                  Terms of Use{' '}
+                </Text>
+                and our
+                <Text as={Link} href={`${TERMS_AND_CONDITIONS_ROUTE}?selected=12`}>
+                  {' '}
+                  Privacy Policy.
+                </Text>
               </Text>
             </VStack>
           </AuthBox>

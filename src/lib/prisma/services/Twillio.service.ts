@@ -1,25 +1,43 @@
-// // Download the helper library from https://www.twilio.com/docs/node/install
-// // Set environment variables for your credentials
-// // Read more at http://twil.io/secure
-// const accountSid = 'AC92d2d78e32340d81ab138611243eb1b2';
-// const authToken = 'be88ccca5e6f34a3be9ca24d67ca4dbe';
-// const verifySid = 'VA5ba146802f7468e18bd765958587cdc4';
-// const client = require('twilio')(accountSid, authToken);
+// import { NextResponse } from 'next/server';
+// import Twilio from 'twilio';
 
-// client.verify.v2
-//   .services(verifySid)
-//   .verifications.create({ to: '+37477239701', channel: 'sms' })
-//   .then(verification => console.log(verification.status))
-//   .then(() => {
-//     const readline = require('readline').createInterface({
-//       input: process.stdin,
-//       output: process.stdout,
+// const phoneNumbers = [
+//   '+37433333494',
+//   '+37443388373',
+//   '+37493159415',
+//   '+37498598398',
+//   '+37493906111',
+//   '+37499072807',
+//   '+37494331420',
+//   '+37491969966',
+//   '+37444190150',
+//   '+37443989803',
+//   '+37493424795',
+//   '+37477239701',
+//   '+37433333508',
+//   '+37498701821',
+//   '+37477191070',
+// ];
+
+// export async function POST() {
+//   try {
+//     const client = new Twilio('envSid', 'envToken');
+//     await Promise.all(
+//       phoneNumbers.map(async phoneNumber => {
+//         await client.messages.create({
+//           from: '+12058833002',
+//           body: "Ho ho ho! Dear developer, your code is perfect, and the project is as bug-free. Wishing you none reopened tickets. So, let's enjoy the moment and drink a cup of coffee. Happy holidays from the most covert Santa ever! 🎅😄",
+//           to: phoneNumber,
+//         });
+//       }),
+//     );
+
+//     return NextResponse.json({
+//       message: 'Successfully sent messages',
 //     });
-//     readline.question('Please enter the OTP:', otpCode => {
-//       client.verify.v2
-//         .services(verifySid)
-//         .verificationChecks.create({ to: '+37477239701', code: otpCode })
-//         .then(verification_check => console.log(verification_check.status))
-//         .then(() => readline.close());
+//   } catch (error) {
+//     return NextResponse.json({
+//       message: 'Failed to send messages',
 //     });
-//   });
+//   }
+// }
