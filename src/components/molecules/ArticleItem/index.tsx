@@ -2,6 +2,7 @@ import React, { FC, memo } from 'react';
 import { Box, ListItem, UnorderedList } from '@chakra-ui/react';
 import Link from 'next/link';
 import { ARTICLES_ROUTE } from '@/utils/constants/routes';
+import { generateCourseName } from '@/utils/helpers/courses';
 
 type ArticleItemProps = {
   id: number;
@@ -14,7 +15,7 @@ const ArticleItem: FC<ArticleItemProps> = ({ title, description, date, id }) => 
   return (
     <Box
       as={Link}
-      href={`${ARTICLES_ROUTE}/${title.replaceAll(' ', '-')}/${id}`}
+      href={`${ARTICLES_ROUTE}/${generateCourseName(title)}/${id}`}
       flexGrow="1"
       flexBasis={{
         base: '500px',

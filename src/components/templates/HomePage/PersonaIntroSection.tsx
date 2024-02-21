@@ -7,6 +7,7 @@ import { OfflineCourseService } from '@/api/services/OfflineCourseService';
 import { OutlinedButton } from '@/components/atoms';
 import MovableButton from '@/components/atoms/MovableButton';
 import { FOR_KIDS_ROUTE, HOMEPAGE_ROUTE, OFFLINE_COURSES_ROUTE } from '@/utils/constants/routes';
+import { generateCourseName } from '@/utils/helpers/courses';
 
 type PersonaIntroSectionProps = {};
 
@@ -358,14 +359,16 @@ const PersonaIntroSection: FC<PersonaIntroSectionProps> = async () => {
             justifyContent="center"
             gap="16px"
             flexWrap="wrap">
-            {(offlineCourseListNames || []).map((course, index: number) => (
-              <ListItem
-                key={index}
-                as={Link}
-                href={`${OFFLINE_COURSES_ROUTE}/${course.title}/${course.id}`}>
-                <OutlinedButton>{course.title}</OutlinedButton>
-              </ListItem>
-            ))}
+            {(offlineCourseListNames || [])
+              .filter(course => [34, 23, 6, 19, 11, 18, 21, 24, 10, 16, 22].includes(course.id))
+              .map((course, index: number) => (
+                <ListItem
+                  key={index}
+                  as={Link}
+                  href={`${OFFLINE_COURSES_ROUTE}/${generateCourseName(course.title)}/${course.id}`}>
+                  <OutlinedButton>{course.title}</OutlinedButton>
+                </ListItem>
+              ))}
           </UnorderedList>
         </Flex>
       </Box>

@@ -1,15 +1,19 @@
 import React, { FC } from 'react';
 import { Box, Text } from '@chakra-ui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type CourseTopicBlockProps = {
   imgSrc: string;
   imgName: string;
+  link: string;
 };
 
-const CourseTopicBlock: FC<CourseTopicBlockProps> = ({ imgSrc, imgName }) => {
+const CourseTopicBlock: FC<CourseTopicBlockProps> = ({ imgSrc, imgName, link }) => {
   return (
     <Box
+      as={Link}
+      href={link}
       cursor="pointer"
       display="flex"
       flexDirection="column"

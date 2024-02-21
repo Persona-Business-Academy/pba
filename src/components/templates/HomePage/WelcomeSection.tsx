@@ -340,6 +340,7 @@ const WelcomeSection: FC<WelcomeSectionProps> = () => {
               flexWrap="wrap">
               {courseTopicBlock.map(courseBlock => (
                 <CourseTopicBlock
+                  link={courseBlock.link}
                   imgName={courseBlock.imgName}
                   key={courseBlock.id}
                   imgSrc={courseBlock.imgSrc}

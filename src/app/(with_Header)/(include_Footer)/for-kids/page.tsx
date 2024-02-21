@@ -17,12 +17,14 @@ import { useQuery } from '@tanstack/react-query';
 import PlusIcon from '/public/icons/plus_pricing_icon.svg';
 import AddIcon from '/public/icons/xmark_pricing_icon.svg';
 import Image from 'next/image';
+import Link from 'next/link';
 import { KidsCourseService } from '@/api/services/KidsCourseService';
 import { Button, Loading } from '@/components/atoms';
 import SearchInput from '@/components/atoms/SearchInput';
 import KidsCourseItem from '@/components/molecules/KidsCourseItem';
 import { KidsCourse } from '@/models/kids-course.model';
 import { segoe } from '@/utils/constants/fonts';
+import { CONTACT_US_ROUTE } from '@/utils/constants/routes';
 
 type Props = {
   searchParams: {
@@ -416,6 +418,8 @@ const KidsCourses = ({ searchParams }: Props) => {
             padding="16px 32px"
             borderRadius="6px"
             backgroundColor="#fff"
+            as={Link}
+            href={CONTACT_US_ROUTE}
             color="#1f1646"
             _hover={{
               bg: '#F3F4F6',

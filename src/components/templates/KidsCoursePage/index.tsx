@@ -16,6 +16,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { KidsCourseService } from '@/api/services/KidsCourseService';
 import { Button, Loading } from '@/components/atoms';
+import ApplyCourse from '@/components/molecules/ApplyCourse';
 import BenefitCard from '@/components/molecules/BenefitCard';
 import KidCourseInstructor from '@/components/molecules/KidCourseInstructor';
 import KidCourseParentsOpinion from '@/components/molecules/KidCourseParentsOpinion';
@@ -446,29 +447,32 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
           lg: ' 0',
         }}>
         <Container maxWidth="1246px" padding="0">
-          <Box color="#222222" marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
-            <Heading
-              textAlign="center"
-              as="h2"
-              lineHeight={{
-                base: '31.92px',
-                md: '37.24px ',
-              }}
-              margin={{
-                base: '0 0 16px 0',
-                lg: '0 0 40px 0',
-              }}
-              fontSize={{ base: '24px', lg: '32px', xl: '32px' }}
-              fontWeight="700">
-              Course instructors
-            </Heading>
+          {kidsCourse.courseInstructors.length > 0 && (
+            <Box color="#222222" marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
+              <Heading
+                textAlign="center"
+                as="h2"
+                lineHeight={{
+                  base: '31.92px',
+                  md: '37.24px ',
+                }}
+                margin={{
+                  base: '0 0 16px 0',
+                  lg: '0 0 40px 0',
+                }}
+                fontSize={{ base: '24px', lg: '32px', xl: '32px' }}
+                fontWeight="700">
+                Course instructors
+              </Heading>
 
-            <Flex flexDirection={{ base: 'column', sm: 'row' }} margin="0 auto" gap="20px">
-              {kidsCourse.courseInstructors.map(instructor => (
-                <KidCourseInstructor key={instructor.id} instructor={instructor} />
-              ))}
-            </Flex>
-          </Box>
+              <Flex flexDirection={{ base: 'column', sm: 'row' }} margin="0 auto" gap="20px">
+                {kidsCourse.courseInstructors.map(instructor => (
+                  <KidCourseInstructor key={instructor.id} instructor={instructor} />
+                ))}
+              </Flex>
+            </Box>
+          )}
+
           <Box marginBottom="148px">
             <Flex justifyContent="center" mb="40px" flexWrap="wrap" gap="8px">
               <Text
@@ -501,16 +505,36 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
               ))}
             </Flex>
           </Box>
-
           <Box my="148px">
             <KidCourseParentsOpinion />
           </Box>
-
           <Box>
             <Slide
               offlineCourseVideo={kidsCourse.offlineCourseVideos}
               courseName={kidsCourse.title}
             />
+          </Box>
+          <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }} mt="148px">
+            <Heading
+              textAlign="center"
+              color="#222222"
+              as="h2"
+              margin={{
+                base: '0 0 16px 0',
+                md: '0 0 40px 0',
+              }}
+              fontWeight="700"
+              lineHeight={{
+                base: '31.92px',
+                md: '37.24px ',
+              }}
+              fontSize={{ base: '24px', sm: '24px', md: '32px ', lg: '32px', xl: '32px' }}>
+              Apply for course
+            </Heading>
+
+            <Box maxWidth="1200px" margin="0 auto" color="#C0C0C0" as="section" id="apply-course">
+              <ApplyCourse offlineCourseId={kidsCourse.id} />
+            </Box>
           </Box>
         </Container>
       </Box>

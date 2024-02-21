@@ -8,6 +8,7 @@ import { Loading } from '@/components/atoms';
 import OfflineCourseItem from '@/components/molecules/OfflineCourseItem';
 import { Course, useCourseFilter } from '@/contexts/CourseFilterContext';
 import { OFFLINE_COURSES_ROUTE } from '@/utils/constants/routes';
+import { generateCourseName } from '@/utils/helpers/courses';
 
 type OnlineCoursesProps = {
   searchParams: {
@@ -44,7 +45,7 @@ const OfflineCourses: FC<OnlineCoursesProps> = ({ searchParams }) => {
         data?.map(offlineCourse => (
           <Link
             key={offlineCourse.id}
-            href={`${OFFLINE_COURSES_ROUTE}/${offlineCourse.title.replaceAll(' ', '-')}/${offlineCourse.id}`}>
+            href={`${OFFLINE_COURSES_ROUTE}/${generateCourseName(offlineCourse.title)}/${offlineCourse.id}`}>
             <OfflineCourseItem courseData={offlineCourse} />
           </Link>
         ))
