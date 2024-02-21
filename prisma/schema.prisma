@@ -152,30 +152,31 @@ model Instructor {
 }
 
 model OfflineCourse {
-  id                     Int        @id @default(autoincrement())
-  title                  String     @unique @db.Text
-  subTitle               String     @db.Text
+  id                     Int         @id @default(autoincrement())
+  title                  String      @unique @db.Text
+  subTitle               String      @db.Text
   topic                  Topic
   coverPhoto             String
-  pdf                    String     @default("")
-  graduationPhoto        String     @default("")
-  mediaId                String     @unique
-  rating                 Float      @default(0)
-  description            String     @db.Text
+  pdf                    String      @default("")
+  graduationPhoto        String      @default("")
+  mediaId                String      @unique
+  rating                 Float       @default(0)
+  description            String      @db.Text
   language               Language
   ageLimit               String
-  totalDuration          Float      @default(0)
+  totalDuration          Float       @default(0)
+  entryLevel             SkillLevel?
   courseLevel            SkillLevel
-  forKids                Boolean    @default(false)
-  graduatedStudentsCount Int        @default(0)
-  enrolledStudentsCount  Int        @default(0)
-  lessonsCount           Int        @default(0)
+  forKids                Boolean     @default(false)
+  graduatedStudentsCount Int         @default(0)
+  enrolledStudentsCount  Int         @default(0)
+  lessonsCount           Int         @default(0)
   price                  Float
   currency               Currency
   whatYouWillLearn       String[]
-  whatYouWillLearnPhoto  String     @default("")
-  benefits               Json       @db.Json
-  disabled               Boolean    @default(false)
+  whatYouWillLearnPhoto  String      @default("")
+  benefits               Json        @db.Json
+  disabled               Boolean     @default(false)
 
   applicants          Applicant[]
   comments            CourseComment[]

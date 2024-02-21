@@ -29,7 +29,7 @@ const TimeLine: FC<TimeLineProps> = ({ offlineCourse, onOpen, selectStartTimeHan
           lineHeight={{ base: '37.24px', lg: '42.56px' }}>
           Course Timeline
         </Heading>
-        <Line courseLevel={offlineCourse.courseLevel} />
+        <Line entryLevel={offlineCourse.entryLevel} courseLevel={offlineCourse.courseLevel} />
         <Flex justifyContent="center" gap="20px" flexWrap="wrap">
           {offlineCourse.timeLine?.startDates.map((value, idx) => {
             const date = new Date(value);
