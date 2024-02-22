@@ -20,5 +20,6 @@ export type OnlineCoursesQueryParams = {
   q?: string;
   duration?: string;
   topic?: Topic;
+  sort?: 'asc' | 'desc';
   'skill-level'?: any;
 };

@@ -97,21 +97,30 @@ const Contact = () => {
           gap={{ base: '36px', lg: '100px' }}
           width="100%"
           justifyContent="center"
-          alignItems="center"
           flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
           <Box width="408px">
+            <Flex justifyContent={{ base: 'center', md: 'flex-start' }}>
+              <Image
+                src="/images/contact-us/success.png"
+                width={200}
+                height={200}
+                alt="support"
+                style={{
+                  objectFit: 'cover',
+                }}
+              />
+            </Flex>
             <Heading
               as="h2"
               textAlign={{ base: 'center', lg: 'left' }}
               margin="0"
               color="#111827"
-              mb="12px"
+              my="32px"
               lineHeight="36px"
               fontSize={{ base: '28px', lg: '30px' }}
               fontWeight="800">
               Customer Support
             </Heading>
-
             <Text
               as="p"
               margin="0 0 32px 0"
@@ -122,7 +131,6 @@ const Contact = () => {
               For inquiries regarding our products or assistance with an order, our dedicated
               customer support team is ready to help.
             </Text>
-
             <Box
               fontSize="16px"
               display="flex"
@@ -157,7 +165,6 @@ const Contact = () => {
               </Flex>
             </Box>
           </Box>
-
           <Flex maxWidth="628px" textAlign="center" gap="16px" flexWrap="wrap">
             <Box mb="16px">
               <Heading

@@ -12,7 +12,7 @@ type GroupedCourses = {
 
 export class OfflineCoursesResolver {
   static async getOfflineCourseList(queryParams: OnlineCoursesQueryParams) {
-    const { limit = 10, offset = 0, q, title, duration, ...rest } = queryParams;
+    const { limit = 20, offset = 0, q, title, duration, sort, ...rest } = queryParams;
 
     const conditions: any[] = [];
 
@@ -60,6 +60,7 @@ export class OfflineCoursesResolver {
       where: { forKids: false, ...whereClause, disabled: false },
       skip: offset,
       take: limit,
+      orderBy: sort ? { price: sort } : undefined,
     });
   }
   static async getOfflineCourseById(id: number) {

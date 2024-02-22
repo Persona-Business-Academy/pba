@@ -23,11 +23,13 @@ import RemovableButton from '@/components/atoms/RemovableButton';
 import SearchInput from '@/components/atoms/SearchInput';
 import CourseFilter from '@/components/molecules/CourseFilter';
 import { Course, useCourseFilter } from '@/contexts/CourseFilterContext';
+import useQueryParams from '@/hooks/useQueryParam';
 import { CACHE_CONFIG, topicHandler } from '@/utils/constants/filters';
 
 const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
   const { courseNames, removeCourseNameHandler, applyFilterHandler, resetFilterHandler } =
     useCourseFilter();
+  const { addSingleSearchParam } = useQueryParams();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -168,7 +170,7 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
           </Flex>
 
           <Flex flexDirection="column" width="895px" gap={16}>
-            <Flex position="relative" alignItems="center" gap={16} flexDirection="column">
+            <Flex position="relative" gap={16} flexDirection="column">
               <Box
                 position="relative"
                 display={{ base: 'block', sm: 'none' }}
@@ -188,35 +190,30 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
                   </ChakraButton>
                 </Flex>
               </Box>
-              <Flex justifyContent="flex-end" gap="8px" width="100%">
+              <Flex justifyContent="flex-end" gap="8px" width="100%" pr="15px">
                 <Flex alignItems="center">Sort By</Flex>
                 <Box width="187px" height="40px">
-                  <Select placeholder="Skill level">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                  </Select>
-                </Box>
-                <Box width="187px" height="40px">
-                  <Select placeholder="Duration" defaultValue="asc">
-                    <option value="asc">Ascending</option>
-                    <option value="desc">Descending</option>
+                  <Select
+                    placeholder="Price"
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                      addSingleSearchParam({ filterBy: 'sort', value: e.target.value });
+                    }}>
+                    <option value="desc">High to low</option>
+                    <option value="asc">Low to high</option>
                   </Select>
                 </Box>
               </Flex>
 
-              <Flex position="relative" alignItems="center" gap={16}>
-                <Flex flexWrap="wrap" gap="10px">
-                  {courseNames.map((course: Course) => (
-                    <RemovableButton
-                      key={course.id}
-                      removeQueryParamHandler={() => {
-                        removeCourseNameHandler(course.id);
-                      }}>
-                      {course.name}
-                    </RemovableButton>
-                  ))}
-                </Flex>
+              <Flex flexWrap="wrap" gap="10px">
+                {courseNames.map((course: Course) => (
+                  <RemovableButton
+                    key={course.id}
+                    removeQueryParamHandler={() => {
+                      removeCourseNameHandler(course.id);
+                    }}>
+                    {course.name}
+                  </RemovableButton>
+                ))}
               </Flex>
             </Flex>
 
