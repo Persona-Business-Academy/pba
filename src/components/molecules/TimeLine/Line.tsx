@@ -11,13 +11,14 @@ import {
 } from '@chakra-ui/react';
 import { SKILL_LEVELS } from '@/utils/constants/offline_course';
 import ElipseIcon from '/public/icons/ellipse.svg';
-import { SkillLevelType } from '@/utils/models/common';
+import { Maybe, SkillLevelType } from '@/utils/models/common';
 
 type Props = {
   courseLevel: SkillLevelType;
+  entryLevel: Maybe<SkillLevelType>;
 };
 
-const Line: FC<Props> = ({ courseLevel }) => {
+const Line: FC<Props> = ({ courseLevel, entryLevel }) => {
   const dividerOrientation = useBreakpointValue(
     {
       base: 'vertical',
@@ -28,14 +29,16 @@ const Line: FC<Props> = ({ courseLevel }) => {
 
   const skillLevels = useMemo(() => {
     const myLevelOrderNumber = SKILL_LEVELS.find(level => level.value === courseLevel)?.order;
+    const myEntryLevelOrderNumber =
+      SKILL_LEVELS.find(level => level.value === entryLevel)?.order || 1;
 
     if (myLevelOrderNumber) {
       return SKILL_LEVELS.sort((a, b) => a.order - b.order).filter(
-        ({ order }) => order <= myLevelOrderNumber,
+        ({ order }) => order <= myLevelOrderNumber && myEntryLevelOrderNumber <= order,
       );
     }
     return [];
-  }, [courseLevel]);
+  }, [courseLevel, entryLevel]);
 
   return (
     <Center pb={10}>
