@@ -9,6 +9,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import { generateCourseName } from '@/utils/helpers/courses';
 import { SubLabel, SubLabels } from '@/utils/models/header';
 
 interface MobileNavItemProp {
@@ -62,7 +63,7 @@ const MobileNavItem: FC<MobileNavItemProp> = ({ label, children, href, onClose }
                       bg: '#0000000',
                     }}>
                     <Text
-                      href={`${href}/${subLabel.title.replaceAll(' ', '-')}/${subLabel.id}`}
+                      href={`${href}/${generateCourseName(subLabel.title)}/${subLabel.id}`}
                       as={Link}
                       display="block"
                       onClick={onClose}>

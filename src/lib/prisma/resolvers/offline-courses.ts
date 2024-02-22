@@ -177,15 +177,27 @@ export class OfflineCoursesResolver {
   ) {
     const { name, email, phoneNumber } = data;
 
+    const offlineCourse = await prisma.offlineCourse.findUnique({
+      where: {
+        id: +offlineCourseId,
+      },
+    });
+
+    if (!offlineCourse) {
+      throw new NotFoundException('Offline course with provided id does not exist');
+    }
+
     return prisma.applicant.create({
       data: {
         name,
         email,
         phoneNumber,
-        for: ApplicantType.OFFLINE_COURSE_APPLICANT,
+        for: offlineCourse.forKids
+          ? ApplicantType.KIDS_COURSE_APPLICANT
+          : ApplicantType.OFFLINE_COURSE_APPLICANT,
         offlineCourse: {
           connect: {
-            id: +offlineCourseId,
+            id: offlineCourse.id,
           },
         },
       },

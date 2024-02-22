@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Button } from '@/components/atoms';
 import { FOR_KIDS_ROUTE } from '@/utils/constants/routes';
 import { generateAWSUrl } from '@/utils/helpers/common';
+import { generateCourseName } from '@/utils/helpers/courses';
 
 type KidsCourseItemProps = {
   title: string;
@@ -31,7 +32,7 @@ const KidsCourseItem: FC<KidsCourseItemProps> = ({
     <GridItem
       id={id.toString()}
       as={Link}
-      href={`${FOR_KIDS_ROUTE}/${title.replaceAll(' ', '-')}/${id}`}
+      href={`${FOR_KIDS_ROUTE}/${generateCourseName(title)}/${id}`}
       _hover={{
         boxShadow: '0px 20px 50px 0px #0000001A',
       }}
@@ -66,7 +67,20 @@ const KidsCourseItem: FC<KidsCourseItemProps> = ({
             /month
           </Text>
         </Flex>
-        <Text fontSize="16px" fontStyle="normal" fontWeight={400} lineHeight="22px" color="#222">
+        <Text
+          fontSize="16px"
+          fontStyle="normal"
+          fontWeight={400}
+          lineHeight="22px"
+          color="#222"
+          maxHeight="110px"
+          overflow="hidden"
+          display="-webkit-box"
+          sx={{
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            textOverflow: 'ellipsis',
+          }}>
           {subTitle}
         </Text>
         <Flex display="flex" alignItems="center" gap="21.72px" my="16px">

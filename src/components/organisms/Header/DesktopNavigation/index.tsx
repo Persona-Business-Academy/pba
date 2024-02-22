@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FOR_KIDS_ROUTE, OFFLINE_COURSES_ROUTE } from '@/utils/constants/routes';
 import { generateAWSUrl } from '@/utils/helpers/common';
+import { generateCourseName } from '@/utils/helpers/courses';
 import { NavItem, SubLabels } from '@/utils/models/header';
 import DesktopSubNav from '../DesktopSubNavigation';
 
@@ -109,7 +110,7 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                       ({ id, coverPhoto, title, forKids }: OfflineCourse) => (
                         <Flex
                           as={Link}
-                          href={`${forKids ? FOR_KIDS_ROUTE : OFFLINE_COURSES_ROUTE}/${title.replaceAll(' ', '-')}/${id}`}
+                          href={`${forKids ? FOR_KIDS_ROUTE : OFFLINE_COURSES_ROUTE}/${generateCourseName(title)}/${id}`}
                           key={id}
                           height="164px"
                           width="154px"

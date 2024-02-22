@@ -3,6 +3,7 @@ import { Box, ListItem, UnorderedList } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ARTICLES_ROUTE } from '@/utils/constants/routes';
+import { generateCourseName } from '@/utils/helpers/courses';
 
 type ArticleCardItemProps = {
   id: number;
@@ -18,7 +19,7 @@ const ArticleCardItem: FC<ArticleCardItemProps> = ({ title, description, id }) =
       borderRadius="6px"
       overflow="hidden"
       as={Link}
-      href={`${ARTICLES_ROUTE}/${title.replaceAll(' ', '-')}/${id}`}>
+      href={`${ARTICLES_ROUTE}/${generateCourseName(title)}/${id}`}>
       <Image
         width={386}
         height={316}

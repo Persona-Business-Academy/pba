@@ -9,6 +9,7 @@ import {
   LEADERSHIP_ROUTE,
   OFFLINE_COURSES_ROUTE,
 } from '@/utils/constants/routes';
+import { generateCourseName } from './courses';
 
 export const footerData = (
   offlineCourseListNames: OfflineCourseListNamesModel,
@@ -54,14 +55,14 @@ export const footerData = (
       .filter(course => [7, 11, 9, 8, 6].includes(course.id))
       .map(course => ({
         name: course.title,
-        href: `${OFFLINE_COURSES_ROUTE}/${course.title.replaceAll(' ', '-')}/${course.id}`,
+        href: `${OFFLINE_COURSES_ROUTE}/${generateCourseName(course.title)}/${course.id}`,
       })),
   },
   {
     rowTitle: 'For Kids',
     subNavigation: kidsCourseListNames.map(course => ({
       name: course.title,
-      href: `${FOR_KIDS_ROUTE}/${course.title.replaceAll(' ', '-')}/${course.id}`,
+      href: `${FOR_KIDS_ROUTE}/${generateCourseName(course.title)}/${course.id}`,
     })),
   },
   {

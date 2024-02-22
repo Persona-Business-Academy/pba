@@ -2,6 +2,7 @@ import { Dispatch, FC, memo, SetStateAction } from 'react';
 import { Box, Flex, Stack, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { generateCourseName } from '@/utils/helpers/courses';
 import { SubLabel } from '@/utils/models/header';
 
 interface DesktopSubNav {
@@ -57,7 +58,7 @@ const DesktopSubNav: FC<DesktopSubNav> = ({
           (subLabels || []).map(({ title, id }, index: number) => (
             <Box
               as={Link}
-              href={`${mainCourseLink}/${title.replaceAll(' ', '-')}/${id}`}
+              href={`${mainCourseLink}/${generateCourseName(title)}/${id}`}
               display="flex"
               gap={11}
               flexDirection="column"
