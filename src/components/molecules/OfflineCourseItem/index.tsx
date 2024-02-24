@@ -38,6 +38,7 @@ const OfflineCourseItem: FC<OfflineCourseItemProps> = ({ courseData }) => {
           justifyContent="space-between"
           alignItems="center"
           fontWeight={700}
+          flexWrap="wrap"
           marginBottom="8px">
           <Text fontSize="24px">{courseData.title}</Text>
           <Text fontSize="16px" display="flex" alignItems="center">
