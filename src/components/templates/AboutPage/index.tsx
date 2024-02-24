@@ -2,8 +2,8 @@
 import React, { FC } from 'react';
 import { Box, ListItem, UnorderedList } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
+import WelcomeAboutPage from './WelcomeAboutPage';
 
-const WelcomeAboutPage = dynamic(() => import('./WelcomeAboutPage'));
 const MissionSection = dynamic(() => import('./MissionSection'));
 const OurValuesSection = dynamic(() => import('./OurValuesSection'));
 const OurHistorySection = dynamic(() => import('./OurHistorySection'));

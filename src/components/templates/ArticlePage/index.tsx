@@ -10,10 +10,10 @@ import { Button, Loading } from '@/components/atoms';
 import SuccessMessageToast from '@/components/atoms/SuccessMessageToast';
 import { segoe } from '@/utils/constants/fonts';
 import { ArticleApplicantFormValidation } from '@/utils/validation/article';
+import WelcomeSection from './WelcomeSection';
 
-const WelcomeSection = dynamic(() => import('./WelcomeSection'));
 const LogInSection = dynamic(() => import('./LogInSection'));
-const AboutAuthor = dynamic(() => import('./AboutAuthor'));
+// const AboutAuthor = dynamic(() => import('./AboutAuthor'));
 const ReadArticles = dynamic(() => import('./ReadArticles'));
 
 type ArticlePageProps = {
@@ -71,7 +71,7 @@ const ArticlePage: FC<ArticlePageProps> = ({ id, title, description }) => {
         gap={{ base: '36px', md: '80px', xl: '148px' }}>
         <LogInSection description={description} />
 
-        <AboutAuthor />
+        {/* <AboutAuthor /> */}
 
         <ReadArticles currentArticleId={id} />
 

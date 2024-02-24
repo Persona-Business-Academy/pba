@@ -30,7 +30,7 @@ const Footer = async () => {
         lineHeight="20px">
         <Grid
           templateColumns="repeat(auto-fit,minmax(130px, 1fr))"
-          columnGap="72px"
+          columnGap={{ base: '20px', md: '72px' }}
           rowGap={{ base: '20px', md: '72px' }}
           paddingBottom={{ base: '20px', md: '40px' }}
           borderBottom={{ base: '1px solid #C0C0C0', md: '1px solid #DDDCE3' }}>

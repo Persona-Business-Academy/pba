@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Heading, Stack, Text } from '@chakra-ui/react';
+import { Box, Heading, Stack, Text } from '@chakra-ui/react';
 import { segoe } from '@/utils/constants/fonts';
 
 type WelcomeAboutPageProps = {};
@@ -7,15 +7,27 @@ type WelcomeAboutPageProps = {};
 const WelcomeAboutPage: FC<WelcomeAboutPageProps> = () => {
   return (
     <Stack
-      backgroundImage="/images/about/manukyan.png"
+      backgroundImage="/images/about/about-bg.png"
       backgroundPosition="bottom"
+      backgroundRepeat="no-repeat"
+      backgroundSize="cover"
       height="486px"
       width="100%"
-      backgroundRepeat="no-repeat"
-      backgroundSize={{ base: 'contain', lg: 'cover' }}
       display="flex"
       justifyContent="center"
+      position="relative"
       alignItems="center">
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        bottom={0}
+        right={0}
+        backgroundImage="/images/about/manukyan.png"
+        backgroundPosition="bottom"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
+      />
       <Heading
         className={segoe.className}
         boxSizing="border-box"
