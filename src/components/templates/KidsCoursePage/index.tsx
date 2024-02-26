@@ -36,7 +36,6 @@ type KidsCoursePageProps = {
 
 const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
   const [selectedStartTime, setSelectedStartTime] = useState('');
-
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { mutate, isLoading } = useMutation<
@@ -543,6 +542,9 @@ const KidsCoursePage: FC<KidsCoursePageProps> = ({ kidsCourse }) => {
         onClose={onClose}
         timeSubmitHandler={timeSubmitHandler}
         selectedStartTime={selectedStartTime}
+        resetSelectedStartTime={() => {
+          setSelectedStartTime('');
+        }}
       />
     </>
   );
