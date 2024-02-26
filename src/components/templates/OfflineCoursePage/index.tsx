@@ -133,6 +133,8 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                   href={generateAWSUrl(offlineCourse.pdf)}
                   target="_blank"
                   fontWeight="400"
+                  height="100%"
+                  display="flex"
                   lineHeight="21.28px"
                   fontSize="16px"
                   bg="transparent"
@@ -145,10 +147,14 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                   _focusVisible={{
                     bg: 'transparent',
                   }}
+                  borderBottom="1px solid transparent"
+                  color="#1F1646"
+                  p={0}
+                  transition="all 0.2s"
                   _hover={{
-                    bg: 'transparent',
-                  }}
-                  color="#1F1646">
+                    color: '#5B5B5B',
+                    borderBottom: '1px solid #5B5B5B',
+                  }}>
                   View program
                 </Text>
               </Flex>
@@ -622,8 +628,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                   xl: '37.24px',
                 }}
                 fontSize={{ base: '24px', sm: '24px', md: '32px ', lg: '32px', xl: '32px' }}>
-                Elevate Your Expertise: Unlock Professional Achievement with Certificates After
-                Completing Our Courses
+                THE GATEWAY TO EARNING YOUR CERTIFICATE
               </Heading>
               <Text
                 color="#747474"
@@ -852,6 +857,9 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
         onClose={onClose}
         timeSubmitHandler={timeSubmitHandler}
         selectedStartTime={selectedStartTime}
+        resetSelectedStartTime={() => {
+          setSelectedStartTime('');
+        }}
       />
     </>
   );

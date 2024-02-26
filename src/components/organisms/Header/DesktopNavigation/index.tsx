@@ -138,12 +138,12 @@ const DesktopNav: FC<Props> = ({ navItems, onClose }) => {
                             as="span"
                             fontSize={16}
                             fontWeight={400}
-                            textAlign="center"
                             cursor="pointer"
                             display="flex"
                             alignItems="center"
                             color="#222"
                             transition="all 0.3s"
+                            justifyContent="center"
                             _hover={{
                               color: 'inherit',
                             }}>

@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import { Box, Heading, Stack, Text } from '@chakra-ui/react';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { segoe } from '@/utils/constants/fonts';
 
 type WelcomeAboutPageProps = {};
 
 const WelcomeAboutPage: FC<WelcomeAboutPageProps> = () => {
   return (
-    <Stack
+    <Box
       backgroundImage="/images/about/about-bg.png"
       backgroundPosition="bottom"
       backgroundRepeat="no-repeat"
@@ -30,11 +30,14 @@ const WelcomeAboutPage: FC<WelcomeAboutPageProps> = () => {
       />
       <Heading
         className={segoe.className}
-        boxSizing="border-box"
         color="#000"
-        textAlign={{ base: 'center', md: 'center', xl: 'left' }}
-        maxWidth="668px"
         fontWeight="600"
+        width="85%"
+        mx="auto"
+        textAlign={{
+          base: 'center',
+          md: 'left',
+        }}
         lineHeight={{ base: '26.6px', xl: '42.56px' }}
         fontSize={{ base: '20px', md: '26px', xl: '32px' }}>
         <Text
@@ -47,7 +50,7 @@ const WelcomeAboutPage: FC<WelcomeAboutPageProps> = () => {
         </Text>
         And were changing the way people think and feel about training.
       </Heading>
-    </Stack>
+    </Box>
   );
 };
 

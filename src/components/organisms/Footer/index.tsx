@@ -72,7 +72,7 @@ const Footer = async () => {
             <Box>
               <Text>
                 <Image
-                  src="/icons/persona_logo.svg"
+                  src="/icons/footer/footer.svg"
                   width={135}
                   height={27}
                   alt="persona_grey_logo"

@@ -150,7 +150,7 @@ export class OfflineCoursesResolver {
     const courses = await prisma.offlineCourse.findMany({
       where: {
         forKids: false,
-        disabled: true,
+        disabled: false,
       },
       select: {
         id: true,

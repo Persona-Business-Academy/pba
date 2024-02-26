@@ -20,6 +20,7 @@ type RequestAnotherTimeModalProps = {
   onClose: () => void;
   timeSubmitHandler: (data: RequestAnotherTimeValidation) => void;
   selectedStartTime: string;
+  resetSelectedStartTime: () => void;
 };
 
 const resolver = classValidatorResolver(RequestAnotherTimeValidation);
@@ -29,6 +30,7 @@ const RequestAnotherTimeModal: FC<RequestAnotherTimeModalProps> = ({
   onClose,
   timeSubmitHandler,
   selectedStartTime,
+  resetSelectedStartTime,
 }) => {
   const {
     control,
@@ -54,11 +56,19 @@ const RequestAnotherTimeModal: FC<RequestAnotherTimeModalProps> = ({
   }, [isOpen, onClose, reset]);
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="2xl" isCentered>
-      <ModalOverlay onClick={() => reset()} />
+    <Modal
+      isOpen={isOpen}
+      onClose={() => {
+        onClose();
+        reset();
+        resetSelectedStartTime();
+      }}
+      size="2xl"
+      isCentered>
+      <ModalOverlay />
       <ModalContent py="20px">
         <ModalHeader>Request Another Time</ModalHeader>
-        <ModalCloseButton onClick={() => reset()} />
+        <ModalCloseButton />
         <ModalBody display="flex" gap="20px" flexDirection="column">
           <Flex
             gap="20px"

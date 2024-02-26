@@ -75,7 +75,19 @@ const TimeLine: FC<TimeLineProps> = ({ offlineCourse, onOpen, selectStartTimeHan
           <Text fontSize="18px" lineHeight="18px" margin="0" as="span">
             Don't see a time that works for you?
           </Text>
-          <Text fontSize="18px" lineHeight="18px" margin="0" as="button" onClick={onOpen}>
+          <Text
+            fontSize="18px"
+            lineHeight="18px"
+            margin="0"
+            as="button"
+            onClick={onOpen}
+            borderBottom="1px solid #222"
+            pb="2px"
+            transition="all 0.2s"
+            _hover={{
+              color: '#5B5B5B',
+              borderColor: '#5B5B5B',
+            }}>
             Request another time
           </Text>
         </Flex>

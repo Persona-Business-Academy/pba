@@ -170,11 +170,27 @@ export default function SignUpPage() {
                 lineHeight="20px"
                 marginTop="-8px">
                 By clicking &quot;Sign up,&quot; you agree to our{' '}
-                <Text as={Link} href={TERMS_AND_CONDITIONS_ROUTE}>
+                <Text
+                  as={Link}
+                  href={TERMS_AND_CONDITIONS_ROUTE}
+                  fontWeight={700}
+                  pb="1px"
+                  transition="border 0.1s"
+                  _hover={{
+                    borderBottom: '1px solid',
+                  }}>
                   Terms of Use{' '}
                 </Text>
                 and our
-                <Text as={Link} href={`${TERMS_AND_CONDITIONS_ROUTE}?selected=12`}>
+                <Text
+                  as={Link}
+                  href={`${TERMS_AND_CONDITIONS_ROUTE}?selected=12`}
+                  fontWeight={700}
+                  pb="1px"
+                  transition="border 0.1s"
+                  _hover={{
+                    borderBottom: '1px solid',
+                  }}>
                   {' '}
                   Privacy Policy.
                 </Text>

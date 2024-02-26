@@ -51,6 +51,8 @@ const OnlineOfflineCourseList: FC<PropsWithChildren> = ({ children }) => {
     CACHE_CONFIG,
   );
 
+  console.log({ offlineCourseDurationsListData });
+
   const courseTopicDataList = useMemo(() => {
     if (offlineCourseGroupedListData) {
       return topicHandler(offlineCourseGroupedListData);
