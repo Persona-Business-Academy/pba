@@ -11,7 +11,7 @@ type ArticleItemProps = {
   date: string;
 };
 
-const ArticleItem: FC<ArticleItemProps> = ({ title, description, date, id }) => {
+const ArticleItem: FC<ArticleItemProps> = ({ title, description, id }) => {
   return (
     <Box
       as={Link}
@@ -46,18 +46,6 @@ const ArticleItem: FC<ArticleItemProps> = ({ title, description, date, id }) => 
             textOverflow: 'ellipsis',
           }}>
           {description}
-        </ListItem>
-      </UnorderedList>
-
-      <UnorderedList
-        m="16px 0 0 0 "
-        color="#333333"
-        listStyleType="none"
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center">
-        <ListItem fontSize="16px" lineHeight="21.28px" fontWeight="400">
-          {date}
         </ListItem>
       </UnorderedList>
     </Box>

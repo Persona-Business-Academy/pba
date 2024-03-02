@@ -1,2 +1,0 @@
--- AlterEnum
-ALTER TYPE "ApplicantType" ADD VALUE 'KIDS_COURSE_APPLICANT';

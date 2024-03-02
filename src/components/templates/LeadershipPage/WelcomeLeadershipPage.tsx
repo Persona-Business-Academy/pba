@@ -42,6 +42,7 @@ const WelcomeLeadershipPage: FC<WelcomeLeadershipPageProps> = () => {
           src="/images/persona/leadership.svg"
           width={1201}
           height={591}
+          quality={10}
           alt="Leadership_image"
           style={{
             objectFit: 'cover',
