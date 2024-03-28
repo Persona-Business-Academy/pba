@@ -1,3 +1,4 @@
+import { GoogleTagManager } from '@next/third-parties/google';
 import { segoe } from '@/utils/constants/fonts';
 import Providers from './providers';
 import './globals.scss';
@@ -17,16 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       }}>
       <body className={segoe.className}>
         <Providers>{children}</Providers>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-PW2R4F6W"
-            height="0"
-            width="0"
-            style={{
-              display: 'none',
-              visibility: 'hidden',
-            }}></iframe>
-        </noscript>
+        <GoogleTagManager gtmId="GTM-PW2R4F6W" />
       </body>
     </html>
   );
