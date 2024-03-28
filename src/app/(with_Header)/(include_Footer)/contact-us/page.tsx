@@ -151,6 +151,12 @@ const Contact = () => {
                   <Text as="span">training@pba.am</Text>
                 </Flex>
               </Box>
+              <Box display="flex" gap="13px" flexDirection="column">
+                <Flex gap="12px">
+                  <Image src="./icons/Phone.svg" alt="Call Us" width={24} height={24} />
+                  <Text as="span">011 550-551</Text>
+                </Flex>
+              </Box>
 
               <Flex gap="5px">
                 <Text as="span">Looking for careers?</Text>

@@ -20,32 +20,30 @@ const Slide: FC<SwiperProps> = ({ offlineCourseVideo, courseName }) => {
         maxW="673px"
         margin={{
           base: '0 auto 20px',
-          sm: '0 auto 20px',
           md: '0 auto 40px ',
-          lg: '0 auto 40px',
-          xl: '0 auto 40px',
         }}>
         <Heading
           color="#222222"
           as="h2"
           margin={{
             base: '0',
-            sm: '0',
             md: '0 0 16px 0 ',
-            lg: '0 0 16px 0',
-            xl: '0 0 16px 0',
           }}
           fontWeight="700"
           lineHeight={{
             base: '31.92px',
-            sm: '31.92px',
             md: '37.24px ',
-            lg: '37.24px',
-            xl: '37.24px',
           }}
-          fontSize={{ base: '24px', lg: '32px', xl: '32px' }}>
-          How We Pass PBA {courseName} course
+          fontSize={{ base: '24px', lg: '32px' }}>
+          Successfully Navigating the PBA {courseName} course: Our Journey to Mastery
         </Heading>
+        <Text fontSize="16px" lineHeight="24px" color="#747474">
+          Let's explore how our students navigate this journey, experiencing a myriad of emotions
+          and challenges a long the way. From the initial hurdles to moments of triumph, discover
+          the depth of their feelings and the bond they form with the PBAfamily community. Join us
+          as we delve into their experiences, uncovering the highs, lows, and unwavering passion
+          that propel them forward.
+        </Text>
       </Box>
 
       <Box

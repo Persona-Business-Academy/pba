@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Flex, Grid, Heading, Text } from '@chakra-ui/react';
+import { Box, Flex, Grid, Heading, Text } from '@chakra-ui/react';
 import { Job } from '@prisma/client';
 import Link from 'next/link';
 import { Button } from '@/components/atoms';
@@ -47,10 +47,7 @@ const OpenPositions: FC<OpenPositionsProps> = ({ jobs }) => {
         rowGap={{ base: '0', md: '24px' }}
         flexDirection="column"
         mt={{ base: '20px', md: '40px' }}>
-        <Grid
-          gridTemplateColumns="1fr 1fr"
-          columnGap="20px"
-          flexWrap={{ base: 'wrap', md: 'nowrap' }}>
+        <Grid gridTemplateColumns={{ base: '1fr', lg: '1fr 1fr' }} columnGap="20px">
           {jobs.map((job: Job) => (
             <Flex
               key={job.id}
@@ -81,15 +78,18 @@ const OpenPositions: FC<OpenPositionsProps> = ({ jobs }) => {
                   {job.contractType}
                 </Text>
               </Flex>
+              <Box display="flex">
+                <Button
+                  paddingLeft="30px"
+                  bg="#FFFFFF"
+                  display={{ base: 'block', sm: 'none' }}
+                  _hover={{ bg: '#fff' }}
+                  _focus={{ bg: '#fff' }}>
+                  <ButtonArrowRight />
+                </Button>
+              </Box>
               <Button
-                bg="#FFFFFF"
-                display={{ base: 'block', sm: 'none' }}
-                _hover={{ bg: '#fff' }}
-                _focus={{ bg: '#fff' }}>
-                <ButtonArrowRight />
-              </Button>
-              <Button
-                alignSelf="center"
+                alignSelf="flex-start"
                 width="127px"
                 height="53px"
                 padding="16px 32px"
