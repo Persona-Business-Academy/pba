@@ -13,7 +13,7 @@ const KidsAcademySection: FC<KidsAcademySectionProps> = () => {
       maxWidth="1920px"
       padding={{ base: '0 16px', lg: '0 ' }}
       margin={{
-        base: '0 auto 36px',
+        base: '0 auto 60px',
         lg: '0 auto 148px',
       }}>
       <Flex

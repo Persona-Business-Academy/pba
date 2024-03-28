@@ -240,16 +240,10 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
             paddingRight={{
               base: '0',
               sm: '16px',
-              md: '16px',
-              lg: '16px',
-              xl: '16px',
             }}
             borderRight={{
               base: 'none',
               sm: '1px solid #C0C0C0',
-              md: '1px solid #C0C0C0',
-              lg: '1px solid #C0C0C0',
-              xl: '1px solid #C0C0C0',
             }}>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="400" color="#5B5B5B">
               Duration
@@ -284,16 +278,10 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
             paddingRight={{
               base: '0',
               sm: '16px',
-              md: '16px',
-              lg: '16px',
-              xl: '16px',
             }}
             borderRight={{
               base: 'none',
               sm: '1px solid #C0C0C0',
-              md: '1px solid #C0C0C0',
-              lg: '1px solid #C0C0C0',
-              xl: '1px solid #C0C0C0',
             }}>
             <ListItem lineHeight="21.28px" fontSize="16px" fontWeight="400" color="#5B5B5B">
               Certificate
@@ -373,10 +361,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
           <Heading
             margin={{
               base: '0 0 16px 0',
-              sm: '0 0 16px 0 ',
               md: '0 0 24px 0 ',
-              lg: ' 0 0 24px 0',
-              xl: ' 0 0 24px 0',
             }}
             textAlign="center"
             fontSize={{ base: '28px ', sm: '28px ', md: '32px ', lg: ' 32px', xl: ' 32px' }}
@@ -397,7 +382,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
           lg: '0',
         }}
         maxWidth="100%"
-        marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
+        marginBottom={{ base: '36px ', lg: ' 148px' }}>
         <Box marginLeft="auto" maxWidth="1560px">
           <Flex alignItems="center" gap="20px" flexWrap="wrap" justifyContent="center">
             <Box width="803px">
@@ -480,7 +465,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
           lg: ' 0',
         }}>
         <Container maxWidth="1246px" padding="0">
-          <Box color="#222222" marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
+          <Box color="#222222" marginBottom={{ base: '36px ', lg: ' 148px' }}>
             <Heading
               textAlign="center"
               as="h2"
@@ -492,103 +477,111 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                 base: '0 0 16px 0',
                 lg: '0 0 40px 0',
               }}
-              fontSize={{ base: '24px', lg: '32px', xl: '32px' }}
+              fontSize={{ base: '24px', lg: '32px' }}
               fontWeight="700">
               Course instructors
             </Heading>
 
-            <Flex margin="0 auto" gap="20px" justifyContent="center" justifyItems="center">
+            <Flex
+              margin="0 auto"
+              gap="20px"
+              justifyContent="center"
+              justifyItems="center"
+              alignItems="center"
+              flexDirection={{ base: 'column', md: 'row' }}>
               {offlineCourse.courseInstructors.map((instructor, index: number) => (
-                <Box key={index} flexBasis="590px">
-                  <Flex
-                    mb="24px"
-                    borderRadius="12px"
-                    flexDirection="column"
-                    gap="16px"
-                    alignItems="center"
-                    bg="#ECF7FC"
-                    padding="48px">
-                    <Box>
-                      <Image
-                        src="/icons/quote.svg"
-                        alt="comma"
-                        width={24.5}
-                        height={19.9}
-                        style={{
-                          objectFit: 'contain',
-                        }}
-                      />
-                    </Box>
-                    <Text
-                      textAlign="center"
-                      margin="0"
-                      as="span"
-                      lineHeight={{
-                        base: '18.75px ',
-                        lg: '21.28px',
-                      }}
-                      fontSize="16px">
-                      {instructor.about}
-                    </Text>
-                  </Flex>
-
-                  <Flex flexDirection="column" alignItems="center" gap="8px">
-                    <Box
-                      width={74}
-                      height={74}
-                      position="relative"
-                      borderRadius="50%"
-                      overflow="auto">
-                      <Image
-                        src={generateAWSUrl(instructor.avatar)}
-                        alt={[instructor.firstName, instructor.lastName].join(' ')}
-                        fill
-                        style={{
-                          objectFit: 'cover',
-                        }}
-                      />
-                    </Box>
-
-                    <UnorderedList
-                      borderBottom="1px solid #E9E8ED"
-                      margin="0"
-                      display="flex"
-                      fontSize="16px"
+                <>
+                  <Box key={index} maxWidth="590px">
+                    <Flex
+                      mb="24px"
+                      borderRadius="12px"
                       flexDirection="column"
-                      alignItems="center">
-                      <ListItem mb="8px" lineHeight="16px" fontWeight="600" as="span">
-                        {instructor.firstName} {instructor.lastName}
-                      </ListItem>
-                      <ListItem
-                        mb="8px"
+                      gap="16px"
+                      alignItems="center"
+                      bg="#ECF7FC"
+                      padding="48px">
+                      <Box>
+                        <Image
+                          src="/icons/quote.svg"
+                          alt="comma"
+                          width={24.5}
+                          height={19.9}
+                          style={{
+                            objectFit: 'contain',
+                          }}
+                        />
+                      </Box>
+                      <Text
+                        textAlign="center"
+                        margin="0"
                         as="span"
-                        color="#5B5B5B"
-                        lineHeight="21.28px"
-                        fontWeight="400">
-                        {instructor.profession}
-                      </ListItem>
-                    </UnorderedList>
+                        lineHeight={{
+                          base: '18.75px ',
+                          lg: '21.28px',
+                        }}
+                        fontSize="16px">
+                        {instructor.about}
+                      </Text>
+                    </Flex>
 
-                    <UnorderedList
-                      margin="0"
-                      display="flex"
-                      flexDirection="column"
-                      alignItems="center">
-                      <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                        Enrolled:
-                        <Text as="span" fontWeight="700">
-                          {instructor.enrolledStudentsCount}
-                        </Text>
-                      </ListItem>
-                      <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
-                        Graduated:
-                        <Text as="span" fontWeight="700">
-                          {instructor.graduatedStudentsCount}
-                        </Text>
-                      </ListItem>
-                    </UnorderedList>
-                  </Flex>
-                </Box>
+                    <Flex flexDirection="column" alignItems="center" gap="8px">
+                      <Box
+                        width={74}
+                        height={74}
+                        position="relative"
+                        borderRadius="50%"
+                        overflow="auto">
+                        <Image
+                          src={generateAWSUrl(instructor.avatar)}
+                          alt={[instructor.firstName, instructor.lastName].join(' ')}
+                          fill
+                          style={{
+                            objectFit: 'cover',
+                          }}
+                        />
+                      </Box>
+
+                      <UnorderedList
+                        borderBottom="1px solid #E9E8ED"
+                        margin="0"
+                        display="flex"
+                        fontSize="16px"
+                        flexDirection="column"
+                        alignItems="center">
+                        <ListItem mb="8px" lineHeight="16px" fontWeight="600" as="span">
+                          {instructor.firstName} {instructor.lastName}
+                        </ListItem>
+                        <ListItem
+                          mb="8px"
+                          as="span"
+                          color="#5B5B5B"
+                          lineHeight="21.28px"
+                          fontWeight="400">
+                          {instructor.profession}
+                        </ListItem>
+                      </UnorderedList>
+
+                      <UnorderedList
+                        margin="0"
+                        display="flex"
+                        flexDirection="column"
+                        alignItems="center">
+                        <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
+                          Enrolled:
+                          <Text as="span" fontWeight="700">
+                            {instructor.enrolledStudentsCount}
+                          </Text>
+                        </ListItem>
+                        <ListItem as="span" fontSize="16px" lineHeight="21.28px" fontWeight="400">
+                          Graduated:
+                          <Text as="span" fontWeight="700">
+                            {instructor.graduatedStudentsCount}
+                          </Text>
+                        </ListItem>
+                      </UnorderedList>
+                    </Flex>
+                  </Box>
+                </>
               ))}
             </Flex>
           </Box>
@@ -598,37 +591,28 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
             courseName={offlineCourse.title}
           />
 
-          <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }}>
+          <Box marginBottom={{ base: '36px ', lg: ' 148px' }}>
             <Box
               textAlign="center"
               maxW="673px"
               margin={{
                 base: '0 auto 20px',
-                sm: '0 auto 20px',
                 md: '0 auto 40px ',
-                lg: '0 auto 40px',
-                xl: '0 auto 40px',
               }}>
               <Heading
                 color="#222222"
                 as="h2"
                 margin={{
                   base: '0 0 16px 0',
-                  sm: '0 0 16px 0',
                   md: '0 0 24px 0 ',
-                  lg: '0 0 24px 0',
-                  xl: '0 0 24px 0',
                 }}
                 fontWeight="700"
                 lineHeight={{
                   base: '31.92px',
-                  sm: '31.92px',
                   md: '37.24px ',
-                  lg: '37.24px',
-                  xl: '37.24px',
                 }}
-                fontSize={{ base: '24px', sm: '24px', md: '32px ', lg: '32px', xl: '32px' }}>
-                THE GATEWAY TO EARNING YOUR CERTIFICATE
+                fontSize={{ base: '24px', md: '32px ' }}>
+                Chart Your Course to Certification: Your Gateway to Success
               </Heading>
               <Text
                 color="#747474"
@@ -646,7 +630,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
             <Flex
               maxW="1200px"
               margin="0 auto"
-              gap={{ base: '20px', sm: '20px', md: '67px', lg: '67px', xl: '67px' }}
+              gap={{ base: '20px', md: '67px' }}
               flexWrap="wrap"
               justifyContent="center">
               <Box width="590px">
@@ -828,7 +812,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
 
           <StudentCommentSlide comments={offlineCourse.comments} />
 
-          <Box marginBottom={{ base: '36px ', lg: ' 148px', xl: ' 148px' }} mt="148px">
+          <Box marginBottom={{ base: '36px ', lg: ' 148px' }} mt="148px">
             <Heading
               textAlign="center"
               color="#222222"
@@ -842,7 +826,7 @@ const OfflineCoursePage: FC<OfflineCoursePageProps> = ({ offlineCourse }) => {
                 base: '31.92px',
                 md: '37.24px ',
               }}
-              fontSize={{ base: '24px', sm: '24px', md: '32px ', lg: '32px', xl: '32px' }}>
+              fontSize={{ base: '24px', md: '32px ' }}>
               Apply for course
             </Heading>
 

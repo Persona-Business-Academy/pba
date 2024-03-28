@@ -80,7 +80,7 @@ const Footer = async () => {
               </Text>
             </Box>
             <Box>
-              <Text> © 2020 - {new Date().getFullYear()} PersonaGroup. All rights reserved.</Text>
+              <Text> © 2020 - {new Date().getFullYear()} Persona Group. All rights reserved.</Text>
             </Box>
           </Flex>
           <Flex flexDirection="column" gap="24px" alignItems={{ base: 'center', md: 'flex-end' }}>

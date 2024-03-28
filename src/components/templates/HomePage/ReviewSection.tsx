@@ -55,9 +55,9 @@ const ReviewSection: FC<ReviewSectionProps> = () => {
         gap="20px"
         justifyContent="center"
         margin={{
-          base: '16px 0 0 0',
-          md: '36px 0 0 0',
-          lg: '40px 0 0 0',
+          base: '20px 0 0 0',
+          md: '50px 0 0 0',
+          lg: '60px 0 0 0',
         }}
         flexWrap={{ base: 'wrap', lg: 'nowrap' }}>
         {studentsFeedback.map((feedback, i) => (
