@@ -17,6 +17,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       }}>
       <body className={segoe.className}>
         <Providers>{children}</Providers>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PW2R4F6W"
+            height="0"
+            width="0"
+            style={{
+              display: 'none',
+              visibility: 'hidden',
+            }}></iframe>
+        </noscript>
       </body>
     </html>
   );
